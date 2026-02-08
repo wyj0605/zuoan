@@ -29,8 +29,7 @@
 
 
 ## 标题目录
-- 目录文件：`zuoan_toc.md`
-- 生成来源：`zuoan_output.txt` 中的 `<h1>`–`<h6>` 标签。
+- 生成来源：`zuoan_output.txt` 中的 `<h1>` 标签。
 - 若需重新生成：可使用命令行或脚本再次抽取并更新。
 
 
@@ -167,7 +166,7 @@
 - [熬·成功·幸福]( site/md/109-熬·成功·幸福.md )
 - [古人更会开Party]( site/md/110-古人更会开Party.md )
 - [人人都是作家，但却没有一个读者]( site/md/111-人人都是作家，但却没有一个读者.md )
-- [管理自己[Managing Oneself] ](site/md/112-管理自己[Managing Oneself].md )
+- [管理自己 Managing Oneself ](site/md/112-管理自己[Managing Oneself].md )
 - [[书评]“无聊”的地球人 ](site/md/113-[书评]“无聊”的地球人.md )
 - [我不能保留你的波浪]( site/md/114-我不能保留你的波浪.md )
 - [还有读书二、三事]( site/md/115-还有读书二、三事.md )
@@ -254,7 +253,7 @@
 - [认真的心，未来的水]( site/md/196-认真的心，未来的水.md )
 - [从平庸到幸福]( site/md/197-从平庸到幸福.md )
 - [我如何选择好作品]( site/md/198-我如何选择好作品.md )
-- [努力学习却不能提高的症结所在[Efforts To Improve Learning Are Not Effective] ](site/md/199-努力学习却不能提高的症结所在[Efforts To Improve Learning Are Not Effective].md )
+- [努力学习却不能提高的症结所在Efforts To Improve Learning Are Not Effective ](site/md/199-努力学习却不能提高的症结所在[Efforts To Improve Learning Are Not Effective].md )
 - [第一届读者群盛典年度总结活动]( site/md/200-第一届读者群盛典年度总结活动.md )
 - [1万小时天才理论是不是个伪命题？]( site/md/201-1万小时天才理论是不是个伪命题？.md )
 - [向生命申请10000小时]( site/md/202-向生命申请10000小时.md )
