@@ -1,28 +1,41 @@
-name: Deploy static site to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
-
-# Required permissions for GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+    branches:
+      - main  # 每次推送到 main 分支时触发
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
+    steps:
+      # 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 如果需要构建过程，插入构建步骤（如果你的项目不是静态页面，或者有其他构建步骤）
+      # 例如：构建一个前端项目
+      - name: Build project
+        run: |
+          # 如果有构建步骤，放在这里
+          # 例如：npm install && npm run build
+          echo "No build step required."
+
+      # 创建 docs 文件夹，并将 index.html 以及相关文件复制到该文件夹
+      - name: Deploy to GitHub Pages
+        run: |
+          mkdir -p docs  # 创建 docs 文件夹
+          cp index.html docs/  # 复制 index.html 到 docs 文件夹
+          # 如果有其他需要部署的静态文件，可以一并复制：
+          cp -r *.css docs/  # 复制所有的 CSS 文件
+          cp -r *.js docs/  # 复制所有的 JS 文件
+          cp -r *.jpg docs/  # 复制图片文件，按需要复制其他资源
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git add docs/*
+          git commit -m "Deploy index.html to GitHub Pages"
+          git push origin main  # 将更改推送回 main 分支
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 自动生成的 GitHub token
