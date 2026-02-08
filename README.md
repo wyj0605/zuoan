@@ -1,7 +1,7 @@
 # 左岸读书（zuoan）
 
 本仓库提供《左岸读书》的 EPUB 电子书，用于离线阅读与留存。
-在线阅读：[index-content.html](index-content.html)
+在线阅读：[https://wyj0605.github.io/zuoan/](https://wyj0605.github.io/zuoan/)
 ## 背景与来源
 - 抓取时间：2015 年 12 月
 - 来源网站：zreading.com（目前已无法访问）
