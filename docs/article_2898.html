@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问•常规篇（二）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>问•常规篇（二）</h1>
+            <div class="date">2014-01-18 22:49:16</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/于震写这样的问题越来越让我觉得惶恐，总怕还有那些地方阐述的不明确，论证的不严谨，但是改这种事情真是没个头，套用左岸中的一句话就是小树只能慢慢长大，所以我斗胆再发一版。1. 敏感是好事还是坏事？答：作为一个具备这种特质的我来说，与其讨论它是好事还是坏事，不如跳出这个评价范围，把它当做一个奇妙的事情看待。一个人敏感意味着ta很容易因为别人的情绪和语言来让自己陷入纠结的状态中，它的直接表现就是胡思乱想。但是因为这种敏感一个人也可以很好的感知别人微小的情绪变化，给人以亲和力。这不是一个简单的双刃剑的定义，因为前者可以通过心理强大来减小甚至无视不良影响，而后者基本可以看做是交际中的一个优势。那么准确的说，敏感是一件奇妙的事情在于一个人的敏感可以通过后天努力使其超越自己的不良影响而将其作为一个善于交际的天赋。（左岸记：我也算得上是比较敏感的人吧，年轻时受这个气质的影响会比较多，苦恼过，也是因为无法消除其带来的负面影响，情商不高；现在倒是很感谢这个气质，我想，只要不敏感得神经兮兮的样子，敏感的人还是很可爱的。）2. 如何才能达到“来一场说走就走的旅行”这样的状态？答：当谈到这个问题的时候，我们往往容易忽略它其实和时间无关，这是因为我们很容易高估自己，把未能如愿的事情推给外界，来安慰自己没那么无力。那么如果想达到这个状态就要知道：无力是人的一种常态，这不可耻也不可悲，我们从来不用去期待那些代价背后的人生，只要走好脚下的路，不悔平淡，不羡潇洒，但这并不是简单的安于现状，丧失意志，它可能往往孕育着真性情，而这种真性情恰恰可能正是勇气的来源，某一天你突然发现，你已经成为了一名勇往直前的骑士。然后，去吧，去你想去的地方。（左岸记：关于旅行，我一直坚信，旅行不是出走，而是走好脚下的路，这样才能走好人生的这一躺旅行，然后，去哪儿，都理所当然。）3. 我为什么对于赞赏保持本能的警惕？答：作为一个出身平凡的孩子而言，周围环境所定的标准本身就不高，你稍稍用心就会超出这个标准受到周围人的赞赏，但问题是，这个赞赏可能并不是你的水平真的到达了一个足够的位置，而是仅仅超出了他们的预期而已，那么如果我过多的把这种赞赏当做对自己的肯定，就有可能产生优越心理以致于放慢自己的脚步。（左岸记：一语惊醒梦中人！）4. 为什么对于愚蠢的人你会感到愤怒?（改编自知乎）答：你觉得那些“愚蠢”的人不应该跟你一样感受到快乐，甚至挺高兴或者至少不纠结的的生活下去，你觉得他们应该为他们的愚蠢感到愧疚，他们应该挣扎、痛苦、甚至悔恨。如若不然你就会感受到一种极大的不公平，而这种不公平让我们需要用一种方式宣泄出来，那么最直接的表现形式就是愤怒。（左岸记：别说你认为“愚蠢”的人是这样，就算是你认为的最无耻的“混蛋”也是会这样，ta依然会有人爱，ta也会有漂亮的儿女，ta一样过得还不懒，难道这样，你要一直生气吗？你最应该做的不是让自己活得更好吗？）5. 当我们在怀念校园时光的时候我们应该怀念什么？答：我想我们应该是在怀念校园时光中的慵懒，单纯，无忧无虑，理想的爱情，无须在意的人情世故。但是我们却往往容易忽略一样重要的东西，这样东西应该首先被怀念——它就是个人的努力。为什么说它重要呢？因为社会和生活本就存在着很多不美好的因素，如果一个人在校园里忽略对抵御这些因素能力的培养，那么突如其来的身份转换很容易击溃他的心理防线，以至于在不知所措中如孤魂野鬼般游荡（有点夸张，但是很形象）。而这时候的怀念反而不能起到一种正向的推动作用，甚至会陷入自我安慰和逃避的死循环，在感怀“美好”和现实的巨大落差中无所事事。（左岸记：把大学当作一个很好的过渡吧，现在所做的一切努力，将来都不会白费！）6. 为什么我们对于"美好"事物的欣赏总是有障碍？答：我们知道读书很重要，但是只是转载书单，却从来不读；我们知道有些电影比所谓大片更有看的意义，但是我们从来都是只叫好，然后就没有然后了。不仅如此，因为这种只点赞的行为更是直线拉高某些这些事物的门槛，造就了只可远观不可亵玩的意义。那么如果一定要深究这种现象背后的原因，我想可以归结为：任何人都有向往美好的权利，而欣赏美好是一种能力，那么只要是能力就是需要训练的，而大多数人可能没有意识到这一点，更不要说去训练它们了（包括自己）。这样的直接表现就是：这些美好的事物是大家造势的美好，还是真的美好？（左岸记：因为每个人对“美”的标准看法都不一样，除了一些共性的需求，对美的更高的欣赏能力是需要培养的，我们把梵高的作品挂在田间，其意义并不美于稻草人，无论是对麦田、鸟类还是农夫。）7. 励志故事有没有意义？答：这世上每个人都有对美好的向往之心，胖的想瘦下来，小白期待变成大神，做到的人把自己的经历写下来激励后来的人，这是对励志故事正常的解读（狗血的剧情不在讨论范围之内）。那么当我们看到的时候，这些经历和故事就是一种希望，一种这世上有人能做到那么我就可以做到的希望，而这种希望确实也有可能砥砺我们前进。但是最重要的一点是，小树只能慢慢长大，胖子不可能睡一觉就变瘦，小白也不可能一转眼就是大神。可是这在故事中是几秒内就完成的蜕变，它们在现实中却可能需要数年甚至数十年，还要考虑到付出努力不一定正比获得回报的情况。这种巨大反差容易造成我们在看故事的时候振奋人心，现实中却活不在当下，或者把它当做一种忍耐，期望有朝一日变本加厉的还回来。更有甚者，如毒药上瘾一般。所以励志故事可以说有意义，只是更好的在于，你若是有一份不断变好的志气，当下正在迈的坎儿，比任何励志故事给你的一切更值得让人欣慰。（左岸记：同理，可以用来论证心灵鸡汤是否有意义，引用sly61的话：《读者》上刚出现心灵鸡汤时的介绍语，大意就是说您看烦了哲学思辨，每天来一点儿，虽然不顶饿，至少能祛祛寒——可也别指望着我们能帮你解决个人具体问题。所以，抱怨鸡汤没给勺的人，本质上都是没有独立人格的人。不仅没有独立人格还不会独立思考！人家都说不管饱了……）8. 真正意义上的单纯有哪种体现？答：这世上有太多的人以行善之名作恶，对于他们，我的嬉笑怒骂反而是一种骨气。（左岸记：不单纯的人不敢轻易触碰“单纯”这个词。）9. 当一个人说他失去一切时，一切应该指什么东西？答：这个问题源于一个已经保研的同学在被老师告诫如果不这么做就会失去保研资格的时候的一种本能的回答：我感觉我好像失去了一切。那么“一切"这个词到底指什么东西？如果从上述那句话的语境分析的话，"一切"应该是指如果失去保研资格，那么曾经获奖的比赛，第一作者的论文，每年保持的专业第一全都变得毫无意义。我们暂且不讨论这些比赛、论文、成绩是否有注水的成分，这句话的潜台词可能说走向社会或者换个环境我可能凭借自己的努力没办法拿回我现在拥有的一切（或者说这个层次的东西）。那么如果反过来思考，你没有失去的这一切，在换了一个新环境之后是不是可以帮助你达到一个新的高度，不断超越过去，这就变成了一个很有意思的问题。进一步说，也就是当我们在说一个人失去一切的时候，那应该是指那个人对未来的希望和对自己努力的信心，丢了这些才能算做失去了一切。10. 为什么我们有时候会想回到过去？答：因为我们觉得以我们现在的心态和勤奋程度一定会比第一次做得好，也就是说如果回到过去，现在的情形要变得更好一些。但是我们容易忽略一点，就是无论现在的情形你有多不满意，在"过去的那段时光里"以你当时的心态和勤奋程度，做到现在的这种情况已经是尽力了。人是在成长的，但是不能因为我们迈过了某个坎就有资格抱怨过去的自己有多么渣渣，我一直相信，感激比后悔更能推动推动当下的进步。（左岸记：是啊，无法改变现在，对将来没有信心，只好想想那个不可能的事。）附：当你觉得这个世界分外吵杂的时候，不妨带上耳机，听一曲你喜爱的轻音乐。跟随美妙音符，畅游你心底的那片神秘园。原文链接：http://www.zreading.cn/archives/4196.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

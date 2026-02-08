@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你好，我是朱总</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你好，我是朱总</h1>
+            <div class="date">2014-09-03 22:35:39</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌“您好，您是朱工么？”“你好，我是朱总。”由于行业的关系，一般知道同行的姓氏后，称呼对方时会习惯性的在姓氏后面加“工”，比如：赵工、钱工、孙工之类的，表示某某工程师，以示尊敬。不过有时也会出现尴尬的局面。一直在电话里联系而没有见过面的“朱工”来到了我们的办公室，听到他熟悉的声音，我满是热情主动跟他打招呼，于是有了开篇的对话。听到他的回答，我差点笑场，连忙改口道“朱总，您好”。在现实生活中，如何称呼对方也是一门学问，简单的称谓意味着对对方身份和角色的定位。这一下子从普通的技术工程师上升到老板的级别。泯然一笑也不得不尊敬起来。虽然我们这样初出茅庐的嫩头青不怎么看重，但对于人家老板却涉及到身份和地位问题，就像周星驰在《喜剧之王》里的经典台词：“其实我是一名演员”。不同的是电影里的主人翁将成为一名演员作为自己毕生的梦想。这种对称谓的敏感大抵来自我的角色意识吧！周国平先生在《角色意识》中提到的：“人在社会上生活，不免要担任各种角色。但是，倘若角色意识过于强烈，我敢断言一定出了问题。一个人把它担任的角色看得比他的本来面目更重要，无论如何暴露了一种内在的空虚”。哲人的眼光总是深邃的，一眼就看到了对方内在的空虚。引以为荣的身份是他虚荣之所在，这也没什么，没有人会责怪你精神空虚。现实的生活是物质的，世俗的。判断一个男人常规的做法是瞅瞅他座驾的LOGO是否够洋气，他身边女子是否够漂亮，那对于三无的屌丝男士呢？不用评判直接无视。官本位作为中华文化的一部分不仅影响着官场，也影响着传统型企业，甚至是深入到社会的层层面面。似乎唯一的出路是谋上一官半职才有前途。对于某些人而言，如果把社会赋予的角色抽去他也就所剩所几。将自己轻易的交付给了这个角色，鞍前马后，甚至失去了自己最本真的一面，已经失去了享受生活的能力，这何尝不是一种缺失？要是有人说，没钱享受个屁的生活，也只能弱弱的反驳一句，幸福与否金钱关系不大。当我们竭尽所能的讨好上级以博得领导的欢心，努力的往头上带各种高帽而累得喘不过气来时，是否想过，那真的是我们所想要的么？所追求的的名利会不会是一种虚荣的满足，亦或是为了向他人证明自己的虚妄呢？那种精于人心的斗争大抵与我们渴望的梦想无关吧!或许每个人内心里是扬起过梦想的，哪怕是简单的生活也是可以的。每个刚出生的小孩都是天使，不挟凡尘，可经过现实生活的浸染，慢慢的就失去了神一样的光辉就成了凡人。有时想着没有必要去震惊这个世界，简单的活在这个世界就好，但毛姆的《月亮和六便士》却让我们看到了另外一种可能。主人翁——斯特里克兰德，一个英国证券交易所的经纪人，本已有牢靠的职业和地位、美满的家庭，但却迷恋上绘画，像“被魔鬼附了体”，突然弃家出走，到巴黎去追求绘画的理想。他像洋葱一样一层一层的剥掉社会所赋予的角色，经纪人，丈夫，父亲……只剩下自己的理想追求，纯粹得一塌糊涂。令人羡慕也意味着这种决绝是现实中所缺乏的。这种为了自己的理想放弃现实生活的决绝大抵只是在影视小说里能够体现，毕竟脱离了现实的考量而不顾一切的追逐终究会现实的残酷鞭笞得体无完肤，难道因此就在安逸中安稳的了此一生？现实的无忧并不意味着我们必须自讨苦吃才能考验人性的高贵。渐渐的不再纠结将来的自己是否会震惊这个世界，一举成名天下知。带着生命的质感和温度脚踏实地的生活在这个世界反而更加有力得多，哪怕是小草，至少也有属于它自己的生命轨迹。后记:我们如此渴望命运的波澜，到最后发现：“人生最曼妙的风景竟是内心的淡定和从容……我们曾如此期盼外界的认可，到最后才知道，世界是自己的，与他人毫无关系。”——杨绛书于.北京.八月左岸记：既要能将社会所赋予我们的角色做好，还要能将这些角色力量剥离之后呈现一个坦荡的自我。在人生追求上，中国人心中往往没有自我，只有他人，大家在争夺什么，我也就要什么。于是，名利场上熙熙攘攘，一片繁忙之景。在公共道德上，中国人眼中往往没有他人，只有自己，我做什么，完全不顾及他人的感受。于是，公共场所吵吵嚷嚷，一片喧哗之声。一样东西，如果你太想要，就会把它看得很大，甚至大到成了整个世界，占据了你的全部心思。一个人一心争利益，或者一心创事业的时候，都会出现这种情况。我的劝告是，最后无论你是否如愿以偿，都要及时从中跳出来，如实地看清它在整个世界中的真实位置，亦即它在无限时空中的微不足道。这样，你得到了不会忘乎所以，没有得到也不会痛不欲生。权力是人品的试金石，权力的使用最能检验出掌权者的人品。恶人几乎本能地运用权力折磨和伤害弱者，善人几乎本能地运用权力造福和帮助弱者，他们都从中获得了快乐，但这是多么不同的快乐，体现了多么不同的人品啊。原文链接：http://www.zreading.cn/archives/4545.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

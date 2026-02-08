@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>被忽略的资格</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>被忽略的资格</h1>
+            <div class="date">2015-11-07 00:21:37</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/廖超国人们有时总会犯一些看似聪明实则愚蠢的迷糊。比如，父母的资格认证就是一例。随着人类劳动分工越来越细密，世界上有很多职业都需要从业资格，就业者须持证上岗。如医生、教师、导游、律师、司机等。人们从事某一比较专业的工作必须先取得资格，然后才能从业。做医生需要进行严格的训练，取得资格后才能行医，据说有的医学院学制长达八年。当老师要有教师证，才能持上岗。导游得考导游证才能允许带客。律师要参加司法考试，取得律师资格才能上法庭替人打官司。就连照看盖房子的监工，也要有资格才能去干监理。甚至开车也要有个驾照才能上路。各行各业专业性较强的工作都有资格准入的要求。可是，惟有做父母却没有特别的资格认证，只要到了法定年龄，就可以去结婚生子。殊不知，做父母却是最需要资格的。因为人类所有的物资产品的生产过程都没有人的生产过程复杂和重要。人的生产者的素质决定着人的再生产的质量。作为人的第一位老师的家长，在其一生中，特别是为人父母最初的那些年担负着子女教育的重要职责，而且，这样的职责无人可以替代。父母职责履行的如何，不仅决定孩子长大成为什么人，还决定和影响着民族和国家兴衰成败。父母的资格认证，小则关乎家庭和家族，大则左右民族和国家。人类在这样一个大的问题上所犯的迷糊实在不该。我们必须迅速觉醒。必须戒除以为“只要有结婚，就可以生孩子，只要有能力生孩子，就有能力教育孩子”的模糊认识。更应摈弃以为任何人都可以教育孩子的糊涂观念。正视和重视做父母的资格认证。做父母是比一般专业更复杂更重要的专业，需要资格。如果把世界上的生产制造进行分类的话，大致可分为物资资料产品的制造生产和人自身繁衍的生产制造。两者相比，后者更复杂更重要，也更需要技术。物资资料的生产如果不满意，可以重新加工或退货，而人这种产品一旦生产出来就只能接受。而且物资资料产品的制造终究是由人来进行或完成的，人的素质能力水平决定着物资资料生产的全过程以及其结果。人，这个产品，生产不容易，使其成为一个合格产品更难。不说其孕育时的精妙，那是既由人也由神决定的事儿。仅说其呱呱落地之后的养育，堪比造火箭放卫星还复杂。人是由肉体和灵魂构成的一半人性一半神性的动物。是一个具有生命的活物。著名文人木心曾这样定义生命，他说“‘生命’是由‘好奇心’‘求知欲’‘审美力’掺和蛋白质之类而构成的”。他定义的角度更多是从灵魂的角度来诠释的。人的养育的难度更多的是灵魂的引导和教育。一个人的灵魂决定他是天使还是魔鬼。从这一角度去看父母能否成为灵魂的工程师，决定着他们是生产天使还是制造魔鬼。天底下哪有还比这重要的专业。这样重要的专业难道不需要资格认证吗？答案应该是显易而见的。做父母是一种责任，没有资格不行。高尔基曾说过“单单爱孩子，这是母鸡也会做的事情，可是善于教养他们，却是一桩伟大的公共事业”。做父母是人生的一种责任，这种责任不仅仅是体现在担负人类生命的繁衍，更重要的表现在对自己孩子的抚养和教育。几千年来，中国都流传着“养儿不教父之过，养女不教母之错”的古训。做父母之前一定要培养自己的责任感。责任感是做父母的资格之一。父母在一个人的成长的道路上，要担当的责任和义务，绝非物质的供给和满足，对孩子正直品德的形成，聪明心智的培育，良好习惯的养成，高尚人格的塑造以及真、善、美境界的扩展才是最重要的。人一生的教育始终是在家庭、学校、社会三个环境里进行的。而家庭教育却是最重要的教育环境。家庭是孩子最直接受教育的地方。伏尔泰说“对于亚当而言，天堂是他们的家，然而对于亚当的后裔来说，家则是他们的天堂。”家庭是孩子初来世界的第一站。其环境犹如种子落入泥土。父母是孩子人生的第一个老师，不仅负责启蒙，而且终身对孩子有影响。父母的教育责任体现在，要让孩子首先“成人”，然后“成才”，人格的健全比什么都重要，只有人格健全的“人才”才是有意义的。从某种意义上说“成人”比“成才”更重要。而要让孩子“成人”最好的方法是言传身教，以身作则。美国著名心理学家萨提亚说“孩子没有问题，如果孩子有问题，那一定是父母的问题”。父母是孩子心目中的榜样。父母的责任还体现在你以一个什么样的楷模影响你的孩子。有什么样的家庭就有什么样的孩子就是这种责任的体现。做父母既是一种权利也是一种义务，运用这种权利和义务少不了资格。世界上的事物总是两面性的，只想获取不想付出的事几乎没有。做父母也是一样的。你可以从中享受获得孩子的快乐。但你却不得不付出养育孩子的艰辛。你拥有做父母的权利，你就得履行做父母的义务。而且，人类社会活动中，凡是具有行使某种权利的主体都必须要有特定的资格。由于一些父母“无证”上岗，导致众多健全、正常、聪明的孩子，在没有资格的父母的误导下，变得无知、自卑、偏激、消极、冷漠、虚伪甚至变态而误入岐途。贻害家庭，影响社会。还有一些父母，不知“真爱”，错为“溺爱”，小时当“宠物”，长大成“废物”。当务之急，应该向全社会呼吁，在全国逐步开始实行父母资格培训教育，并通过一定的形式进行考试。只有取得了父母资格的人才能生儿育女。这一做法在国际上也有先例。奥地利就实行了父母资格考试制度，并辅之以相应的福利政策鼓励推广。收到了较好的成效。做一个合格的父母既要技术又要艺术，怎能不要资格。教育孩子是人类最重要而又最困难的学问，它比任何工作都难。养育技术是原则是规律是方法是科学，人不会天生就有必须学习才能获得。养育艺术则是养育技术在实践运用中修炼的提升。那需要感性理性灵性悟性才能习得。众所周知曹植七步能写诗。甘罗十二岁做宰相。白居易一岁识字，六岁作诗，十六岁名扬天下。日本的三轮光范两岁开始写日记，十一岁翻译《詹天佑传》，德国数学家三岁掌握心算，五岁能解复杂方程式。莫扎特五岁作曲，六岁主演音乐会。每一个天才的背后都有伟大父母“巅峰家教智慧”。这些案例，无不是家庭教育技术与艺术高度结合的体现。是合格父母养育心血的结果。早在1919年3月，大教育粗蔡元培先生就讲过提高父母教育素质的必要性。他生动地说“譬如诸位有一块美玉要琢成佩件，必须请教玉工；又如有几两黄金，要炼成首饰，必须请教金工，断不是人人自作的。现在要把自家的子女造就成适当的人物，难道比琢玉炼金容易，人人可以自任么？”蔡先生的论述说明，教育既是一门科学，又是一门艺术，有其独特的规律和特点，必须努力学习和不断实践，才有资格和能力教育孩子，也才有希望将子女教育好。没有任何一项事业比创造优秀的孩子更伟大，人的任何成功都不能弥补在孩子问题上的失败。一个人无论事业多么成功，只要孩子培养失败，就是人生最大的失败。所以，学习如何做称职的父母，取得做父母的资格，是我们不能再忽略的问题。2015年10月19日写于荆州古城左岸记：做合格的父母必备的五大条件:1.一起阅读，和孩子一起看书；2.培养心胸，让孩子“阅”尽天下，尊重孩子的个性，给予孩子尽可能大的发展空间；3.学做家务，学会独立和承担责任，根据孩子的年龄给他恰当的自主权，并经常让孩子参与制定或实施家庭的各项计划；4.共同聊天，用心的陪伴，有良好的沟通，给予孩子安全感，做孩子的知心朋友；5.多做少说，说得再多，不如亲手试一下，只有行动最能影响孩子，要经常与孩子在一起，与孩子一起游戏、做事、学习。如果孩子将来幸福、快乐，自食其力，那么，我们父母的任务就完成了，就是合格的家长了。原文链接：http://www.zreading.cn/archives/5131.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我从没有像现在这样喜欢自己</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我从没有像现在这样喜欢自己</h1>
+            <div class="date">2015-08-23 01:17:53</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>亲爱的世界：我想和你聊一聊。佛陀在涅槃前曾和侍者阿难说：“阿难啊，这个世界是美好的，人的生命是甜美的。”（出自濑户内寂听所著《佛陀传》）以前我并不懂得这句话的含义。在我眼里，你糟糕极了，大概是那时我还年轻的缘故。如果把你形容成一个人，一定满身的病毒，还有流脓的伤口，每一个毛孔都散发着铜臭味儿。谁都能够在愤懑中指责你，他们失恋了破产了梦想幻灭了被老板批评了，都能指着你破口大骂。你从来不辩解。估计你也没法辩解。我也糟糕极了。虽然不见得比你惨。我曾经怀疑我的糟糕是被你连累的。证据很明显。我毫无理由地降生在你怀里，长大后干着一份不喜欢的工作，按时上班下班，没有年休假，时不时还要免费加班，小心翼翼，如履薄冰，底层小人物该有的特征我都有。你知不知道，我曾经无比地厌恶这样的自己。我一边诅咒你，一边体会自己的弱小和无力，我在黑暗中睁着眼睛幻想自己自由飞翔的情景，在白天时却带着黑眼圈为生存疲于奔命。内心总有一个声音在嘲笑我指责我：看吧，你就是这样的小人物，永远也不会有大出息。看吧，像你这样的懦夫，怎么好意思谈论理想，怎么好意思奢望未来，你就这样一天一天挥霍吧，反正已经不年轻了，你会老去，死去，什么也留不下，就像没来过这个世界。看吧，你又在伪装了，你又低头了，你的眼睛闪烁不定，神经在突突地跳动，满是恐惧和不安。你平时把自己当成思想者时你晚上有点激情提笔写作时就没有想像一下自己白天的丑态？我一直以为，这个以嘲讽为能事的人正是我自己。我比谁都清楚，混成今天这个样子责任并不全在于你。过去的选择或者不选择造就了这样的我。正因如此，我大概很恨自己，于是也很恨你。一个不被自己认可的人是可悲的，一个恨自己的人是可耻的。日本一位叫作金子由纪子的作家曾说，如果大家都能够过上自己想要的生活，这个世界肯定无法正常运转。这样说来，我这样的人物应该算是你身上一颗小小的齿轮了。像我这样的人大概很多，社会对我们有个统称叫作底层人物。我们一起用卑微的工作来推动你的运转，就像推一辆腐朽的轱辘车。但凭什么？我有何义务违拗自己的意志消耗自己的青春来推动你？你对待我的态度同样是沉默。如今想来，我并不眷恋那样的青春。随着年龄的增长，我逐渐明白了一件事儿，连自己都不爱自己的人没有资格奢谈与你和平相处。我开始警醒内心中的那个声音，终于有一天我开始挺直腰杆大声呵责它：你凭什么这样说我？即使我懦弱无能，即使我不断犯错，但我努力活到了现在！这是多么坚实的理由。哪怕丢失尊严也好，哪怕戴着面具也罢，我们都非常不容易地活着。我们还在呼吸，还在承担社会和家庭的责任。我无法缩短这个世界的贫富差距，无法唤起人们的良知（甚至是自己的良知），但我就是活在这样的现实当中，闭上眼睛捂起耳朵无异于掩耳盗铃。那股声音渐渐丧失了底气。它大概从没有想到如此懦弱的我也会替自己的艰辛辩解。你我都知道，其实发出声音的并不是真正的我。它来源于一种叫作恐惧的魔鬼口中。我无意于分析这个恶魔对我施加的种种恶行，我在许多文章中提到过它。它一个劲儿地告诉我，在你怀里生活有多么危险，到处是不公平，到处是冷漠，似乎一不小心就会被自私的人群伤害。它还告诉我，要顺利地生存下去就必须马不停蹄，要变得强大，强大到可以控制生活，可以控制自己。一旦我倦怠，它就百般讥讽。它曾经这样控制了我。我成了它的傀儡。为了获取一点点可怜的安全感，我想办法取悦于人，别人的认可对我来说如获至宝。我想办法提升自己的形象，哪怕说错了一句话做错了一件事，甚至没说错没做错却被别人无端指责，也能让我惶恐不安。可悲的是，安全感并未因此降临，这只是一个弥天大谎。作为人，竟然不知道怜惜自己。仔细想想这真是一件荒谬的事儿。如果不仅不怜惜，还要将自己控制起来，恐怕只能用愚蠢来形容。可年轻时候我一直在做这样愚蠢的事，我试图将自己的日程排得满满的，从一个工作换到另一个工作，想尽一切办法将自己变成铁打的机器人，希图拥有铁一般的意志，花尽一切力气想要摆脱这样的生活。我以为想要自由就必须如此。但我并不快乐。那不是真正意义上的奋斗。我不过是一个被恐惧驱赶四处逃窜的角色，我气喘吁吁，疲惫不堪，如同一头困兽。这不是生命该有的姿态。生命应该是鲜活的包含热情和色彩的啊！是从何时开始，我把自己和自己对立起来了呢？不，不仅如此，我也将你当成了敌人。我不懂得和身边的人相处，不懂得和整个世界相处，我用满是警惕的眼神看待一切，试图看破虚有的陷阱。每当夜深人静的时候我就累得像条吐着舌头喘气的狗一样，失眠，好不容易睡着也是恶梦连连，属于我的颜色被渐渐剥夺。我用自己的幻觉编造了另一个世界。现在我才知道，那不是你真正的模样。在我的幻觉中，我是如此悲壮，像所有怀揣梦想却走投无路的人们一样。亲爱的世界，我曾经分析过所有事件的起因，我为什么会成为那样的我，我得出的结论是：因为我从来没有正眼瞧过你，也没有正眼瞧过自己。是的，人们会感到恐惧只有两个理由：不认可自己，抑或不认可这个世界。而这两个理由几乎是同时成立的。毫无疑问，你依然是糟糕的。但这并不是你的全部内容。毫无疑问，我也依然糟糕。但这也不是我真正的姿态。这个被恐惧控制住的我，今天能够写出这样的文字，不是出于什么才华，而是我突然想看一看真正的自己和真正的你。有一天，我突然问自己，如果我的梦想永远不能实现（这是极有可能的事），我这一辈子只能二点一线地生活，会怎样？起初我无比地绝望，真相在我面前展开，我意识到自己根本无法彻底改变生活。我从书上看到过一句话：不自由，毋宁死！当时我无比地赞赏这句话，现在却发现几乎没有人能够做到如此决绝。有时候在唱歌选秀节目中听见一些选手也会说出类似的话来，比如他们说我这一生就是为唱歌活着的。除了唱歌，我其他都不会。不对。他们在说谎。直觉这样告诉我。即使他们不能唱歌不会唱歌，也会想尽一切办法活着。这就是人！那么，我对理想的追求对生命意义的探求对良知的拷问是否也是一场谎言？就算思考是真诚的，将它摆在生存的另一端，孰轻孰重？我必须承认，我分不清哪个我才是真的，到底是在书桌前提笔写作的那位，还是在工作中按部就班老实巴交的那位……我无法给出答案。但我突然清晰地发现了一个事实，尽管一直不自由，但我还是死皮赖脸活到了现在。也就是说，哪怕梦想不能实现，哪怕永远这样生活，我也会活着。最糟也不过如此。原来我早就尝过最糟的滋味了。绝望渐渐淡去，我反而感到一阵轻松。这是我之前不曾感受到的。或许是在问自己这个问题的时候，我才真正地成长了。我这才注意到，鄙视在日常生活中劳作的自己是如此愚蠢的事儿。至此后，我每天都对自己说，我对生活无所要求，我对你无所要求。就像解套一般将昔日加诸在自己身上的枷锁一件一件解下来。我暂时放弃了写作，我想，除非有一天，我在写作的时候感觉是幸福的是真诚的是没有外在要求甚至是可以忽略读者的。否则，不如不写。我放弃了所有努力的尝试，除非有一天这样的尝试不是因为现实过于严苛不是为了获取别人的认同不是希图鲜花与掌声，而是为了幸福。我发现自己不过是一根杂草，在这个世界上除了自己根本不会有太多的人关注，但我开始渐渐佩服作为杂草的韧劲儿。亲爱的世界，这是一个漫长的过程，我尝试开始另一种学习，学习如何宽待自己。我甚至发现了学习的真正乐趣，如果学习不是为了让自己快乐，这样的学习就是值得警惕的。在宽待自己的过程中，我开始重新审视你。其实你一直未曾变化，变化的无非是我的心态。我不打算否认你的糟糕，不想从一个极端走到另一个极端，但除此之外，正如佛陀所说的，你的确是美的，而我的生命的确是甜美的。我开始理解这种美的真正含义。它并不仅仅藏在那些壮丽的景色中，这些景色可能我一辈子都没有机会见识。它也并不仅仅藏在城市的繁华与乡村的恬静中，我暂时没有时间和金钱来享受这样的繁华和恬静。幸运的是，它还藏在我看你的眼光中。因为生命的甜美，世界才会美丽。如今，我的状况依然没有得到根本改变，或者它将永远不会改变。这个社会依然在用一切合理或不合理的规则在驱使人们用各种方式生存，可怕的欲望借助人们的恐惧在干出各种违背人性的事儿来。这个世界每天还在发生温暖的残忍的美好的丑陋的故事，一大帮子人通过正确的错误的盲目的理性的方式在岁月中以相同速度挪动或是奔跑。这就是属于我的现实。我会在这样的现实中努力活下去。如果可以，还想快乐地活下去。我从来没有像现在这样喜欢自己。我也从来没有像现在这样喜欢你。2015年7月22日一稿于云和2015年7月24日修改于云和原文链接：http://www.zreading.cn/archives/5036.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

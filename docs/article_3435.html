@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从洗澡说起，不一样的心智模式</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>从洗澡说起，不一样的心智模式</h1>
+            <div class="date">2014-03-21 21:57:54</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文 /文昌谈到洗澡，很多人就情不自禁想到脱光了衣服，脱光了衣服然后再想到……，大抵我们的想象也就仅限于此吧！上大学之前从来就没有想过，洗澡将成为困扰我大学生活的一个难题，结果是大学四年都没有在澡堂里洗过澡，更别说到洗浴中心搓澡了。每次到水房里都是用冷水冲澡，哪怕是冬天，偶尔打点热水算是荤腥了。这样的方式貌似有点艰苦，仔细回想倒有点用行动捍卫一下自己信仰的意味，因为根本就无法想象一群人光着身子洗澡的样子，太尴尬了！这样的现状直到工作之后参加军训，大家有组织有纪律的到澡堂，而且规定必须多长时间洗完，一窝蜂的涌进澡堂抢水龙头。裹挟在人群中，最终也放弃了内心的抵抗，慢慢的也适应了过来。不知道我该感叹现实的残酷，还是要提倡适者生存。或许这只是文化习俗方式的差异，并没有什么大不了的。南北文化的差异多半是地理环境的影响，北方冬天寒冷干燥，洗澡不便，澡堂集中供热水比较方便，于是就有了澡堂。寒冷也需要饮酒御寒，自然东北人善饮酒也就名声在外，冬天四处都是大雪，大多时间都会在炕上唠嗑，于是语言的应用能力较强，玩笑乐观不在话下，本山的小品自然也是名扬天下。不知道这样的解释对不对，只是说一方水土养一方人，每个人多多少少都会有他成长环境留下来的痕迹。很多时候环境决定了你的思想行为方式，但那并不意味着我们应该毫无坚守的顺应环境，随波逐流。偶尔也需要那种对世俗说不的反抗精神，人之为人也莫过于此吧！北岛在《回答》里大声的呐喊到：“告诉你吧，世界，我—不—相—信！”世界很大包括方方面面，从自我的世界来说，私以为人之进步大部分还是在克服自己的动物性 ——吃饱喝足也就可以悠然自得作为一个旁观者静看尘世的繁华，而自己却躲在一旁袖手旁观无动于衷，懒惰，好逸恶劳，其实每个人身上或多或少都会有这样的习气。稻盛和夫在《人为什么活着》谈到人生其实就是提升心智的过程。我们需要了解这些习气，并不断的克服，磨砺自己的心性才能说离开尘世时比来临之时要进步一点。自然这种带有宗教信仰的说辞在没有信仰的大多数人看来有点扯淡，但稻盛和夫确实用这样的信念创造了两个世界五百强公司。从外在的世界而言，面对各种诱惑更应当明确自己的坚守和追求，当然如果没有自己钟情的追求只是得过且过就另当别论了。世界再大，对于我们凡夫俗子而言，也就是我们日常工作生活所能到达的距离，以及周围接触到的人。当然互联网让我们与世界上发生的各类事件联系得更加紧密了。他也终将告诉我们其实并不怎么关心的飞机到底去哪儿了。小学时在“自然”一课里刚学到了光合作用，说我们呼吸空气中的氧气都来自植物的光合作用。恰好碰到了下雪，四处都是银装素裹的，放眼望去压根就看不到绿色植物，那我们的氧气到底从哪儿来呢？当时百思不得其解。后来明白，地球作为一个整体，由于大气循环将其他地方的氧气带到了我们周围，这就是世界。必须保持开放自由的心态才能更好的与世界融合在一起，而不是成天囿于一些蝇头微利而喜不自禁。上天给了你很多看世界的机会，而你视而不见，那只能说是个人的损失。世界很大，需要我们睁眼看世界，尽可能的扩大自己的思维疆域，同时也需要我们独守属于自己的一隅不被现实的洪流淹没。如果说“虽千万人，吾往矣”做不到的话，至少也不要让自己因虚度年华到老时而懊恼不已。额，今天你洗澡了么？文昌 書 于 北京 三月左岸记：附个真实的小故事：话说斯托克代尔是美国海军上将，他因为参加越战而被俘，在战俘营关了八年，期间遭受越共的种种虐待。作为战俘营中军衔最高的军官，他带领同伴跟越共做各种斗争，以提高美军战俘的待遇并增加获释的机会。获释之后，斯托克代尔的事迹被广为宣传，成为美国的民族英雄。著名的管理学家吉姆·柯林斯慕名找他做了一次访谈。柯林斯好奇地问：“你为啥能熬过那8年悲惨的战俘生活，坚持到最后获释的？”斯托克代尔给出的回答是：“因为我从不失去信心。我坚信自己一定能活着出来。这个信念一直支撑着我。”（这个回答貌似挺普通的）柯林斯又问：“哪些人没能活着出来？”斯托克代尔说：“这个简单，当然是那些乐观主义者啦。”（这下柯林斯被彻底搞糊涂了。）斯托克代尔察觉到柯林斯的困惑，继续补充道：“那帮乐观主义者会说：‘圣诞节之前，我们一定出得去’。圣诞节会来临，然后过了。他们又说：‘复活节之前，我们一定出得去’。复活节来了，又过了。然后是感恩节，再然后是下一个圣诞节......如此往复。最终，那些乐观主义者在郁闷中死去。”最后，斯托克代尔总结说：这是一个非常重要的教训——你不能把信念和原则搞混。信念是：你一定能获得成功——这个信念千万不可失去。原则是：你一定要面对最残忍的现实——无论它们是什么。原文链接：http://www.zreading.cn/archives/4268.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

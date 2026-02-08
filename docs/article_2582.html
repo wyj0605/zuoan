@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命不息 折腾不止</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>生命不息 折腾不止</h1>
+            <div class="date">2015-01-23 01:19:10</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/荷叶学校有个女孩，金色的头发，来自德克萨斯州。我们常常一个饭桌上吃饭。虽然她没选我的汉语课，也算接触比较多，比较熟悉的学生之一。餐厅里的菜，她多数不能吃，不能吃奶酪，而且对很多东西过敏，不吃红肉，白肉只吃鱼。多数时候她的盘子里只有一些生的蔬菜，西红柿或者菜叶子，不加沙拉酱，一些水果，或者是餐厅给她单独准备的其他东西，看上去就没什么味道的样子。每次看到她的盘子我都得尽量控制自己不要不自觉地流露出同情。一直觉得自己已经够可怜了，作为外国人在这里，餐厅里很多东西都不吃。她比我还惨。学校每天都有放学后两小时的体育训练，所以她还得定时吃一些医生专门给她开的冲剂，补充能量用的。她比较瘦，但是也很结实，手臂都有线条。如果我是她，从小到大肯定就被特殊对待了，不要说运动，父母估计大部分时间会让我呆在家里休息。每天运动两个小时？还是算了，一周两个小时都不一定有。我觉得这也是东西方文化差异的一个体现。同样是女孩子，我们求静，从小父母就教导好好走路，别乱跑，没事儿最好就在家好好呆着，看书做作业都行。结果我们都想着往外走，多少人都是远离家乡，在外地工作，一年只能和家里人团聚一两次。除了求静，还求稳定，找工作父母希望我们找个铁饭碗，公务员最好，不然就教师、医生、银行、事业单位，好像除了这些其他都不叫工作似的。而在这边的美国孩子们，从小就是参加各种体育活动。同事的孩子上小学四年级，常常因为孩子晚上有比赛，排球赛、篮球赛等等，和她督修时间相冲突，跟我互换，这样她就能去看孩子比赛了。校园里教职工家的小孩并不多，三四个，常常能看到她们周末结伴一人一辆自行车，在校园里“乱窜”。校医室里也常常看到学生膝盖受伤，脚踝受伤，多数是运动引起的。好了之后她们又都活蹦乱跳的了。我们学校学生多数是本州还有附近州的孩子。有时候聊到读大学，她们也都希望离家近一些，这是最大的考虑。当然还有一部分原因是本州的公立大学对州内学生有优惠，学费比较便宜。虽然学生家里多数不差钱，但是她们依然会考虑这个因素。前一阵看了一席的一个演讲，方励的 《感谢你给我机会上场》 。看完之后感触很深，他已经60多岁，而十多年前和他一起玩的朋友们多数已经在家休息、静养了，他还和一群八零后九零后继续折腾。生命不息，折腾不止。他说：每个人惜命的方式不同，有的人选择了不断去探索，不断燃烧；有的人选择各种养生，让自己更健康、活得更久。方励的状态，除了个性，我觉得和他留学美国之后美国文化对他的影响也不无关系。我们说到健康，更多想到的是养生、食补等等，而对美国人来说，更多的是运动。前一阵子小镇上举办了五千米的公益跑，很多人参加。我们的校园也是路线的一部分。那是一个周日，我和几个同事正在餐厅吃早午饭，然后看到小镇居民陆陆续续从外面跑过，于是我们出来给他们加油。有十多岁的学生，也有七八十岁的老人。同事知道我也在跑步之后，和我说感恩节前，附近一个市也组织了五千米的活动，如果我到时候在学校，可以和她女儿一起去参加。在菲律宾的时候，学校的主任姓吴，除了在学校担任教学工作，还在学校董事会、商会兼职，除此之外还有宗亲会、报社的工作，忙得不得了。同时也很有序，整个人特别精神。走起路来，脚底生风的感觉，至少比我这个年轻人步伐轻快得多。记得是几年前看过一个帖子，是天津一所高校的法学教授介绍的《哈利波特》背后的西方文化，讲到了西方文化对于体育的重视，很大一部分原因是受地理环境的影响，欧洲那几个国家的纬度都比我们北京偏北得多。所以在古代取暖设备不发达的时候，身体素质就显得特别重要，事关生存。而美国也保留了这个传统，并且不断发扬光大，看他们一年一度的“March Madness” 就可见一般了。生命有很多种活法，方励说一眼望到头的生活还有什么意思，但是对很多人来说，有一份一眼望到头的稳定工作，然后把业余时间过得丰富多彩也是一种活法。一路折腾也得折腾得下去，有个良性循环才行。最后走出来让我们看到的，如果是一路折腾的，也是折腾成功了的那一部分人。网络上流传说有不少人看了这个视频就辞职了，我不大相信，至少不相信纯粹是看了这样一个视频的缘故。每个人都有自己的选择，忠于真实的自己比什么都重要，只有自己才知道怎么活更幸福。生命不息，折腾不止。在我看来，更多的是不断去寻找自己想要的生活方式，而不是生来如何，被教育成什么样，就一直那么走下去，多问问自己，现在过的是自己想要的生活吗？你自己想要的生活又是什么样的呢？然后，去一步步活出自己的精彩。原文地址：http://www.jianshu.com/p/8a01eb465d9a左岸记：我个人觉得文化并无优劣之分，但应该是开放的，也就是说应该提供多种可能的选择，你可以选择安静，也可以选择折腾，只要是你喜欢的，一切皆有可能。这样才好！附： 方励《感谢你给我机会上场》原文链接：http://www.zreading.cn/archives/4770.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

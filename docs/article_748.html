@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPT排版原则与技巧 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>PPT排版原则与技巧 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>先有感而发一下：</p>
+<p>好久没有分享技巧类文章了，我都怀疑自己是不是个信息技术教师了，也许像我这样游离于文字间的理工科生算得上另类吧！</p>
+<p>在学校，作为电脑技术型人才，人们是不可能拿什么人生大问题来与咱讨论的，被人问得最多的自然就是电脑上面各种各样稀奇古怪的问题，咱们当然不能那么容易就被问倒了。可以说，每一个技术控者都有自己的能手绝活，在他们面前，所有的问题都不再是问题。</p>
+<p>回到正题：</p>
+<p>下面是在阮一峰分享的秋叶的排版心得，总结为六个原则：对齐，聚拢，重复，对比，强调，留白。——这将让原本混乱的版面变得生动有序：</p>
+<p>一、对齐原则</p>
+<p>相关内容必须对齐，次级标题必须缩进，方便读者视线快速移动，一眼看到最重要的信息。</p>
+<p>二、聚拢原则</p>
+<p>将内容分成几个区域，相关内容都聚在一个区域中。段间距应该大于段内的行距。</p>
+<p>三、留白原则</p>
+<p>千万不要把页面排得密密麻麻，要留出一定的空白，这本身就是对页面的分隔。这样既减少了页面的压迫感，又可以引导读者视线，突出重点内容。</p>
+<p>四、降噪原则</p>
+<p>颜色过多、字数过多、图形过繁，都是分散读者注意力的”噪音”。</p>
+<p>五、重复原则</p>
+<p>多页面排版时，注意各个页面设计上的一致性和连贯性。另外，在内容上，重要信息值得重复出现。</p>
+<p>六、对比原则</p>
+<p>加大不同元素的视觉差异。这样既增加了页面的活泼，又方便读者集中注意力阅读某一个子区域。</p>
+<p>下面用一个PPT的例子，演示排版六原则。</p>
+<p>上面这张ppt有两个毛病。一是字数太多，抓不住重点；二是右边没有对齐，使得读者的视线只能一行行地从行首到行尾移动，不能直上直下。</p>
+<p>现在进行修改。</p>
+<p>第一步，根据”聚拢原则”，将六点分成六个区域。</p>
+<p>第二步，根据”降噪原则”，将每一点分成”小标题”和”说明文字”两部分。</p>
+<p>第三步，根据”对齐原则”，将每一个部分、每一种元素对齐。</p>
+<p>第四步，根据”对比原则”，加大”小标题”和”说明文字”在字体和颜色上的差异。</p>
+<p>第五步，根据”留白原则”，留出一定的空白。</p>
+<p>页面的可读性大大增加。</p>
+<p>扩展：</p>
+<p>这些原则也可以用于PPT以外的排版当中，比如下面这个简单的求职简历：</p>
+<p>进行一下简单的排版，还是一张表格，还是黑白配色，没有使用任何图形元素，效果就完全不一样了。</p>
+<p>如果还意犹未尽：</p>
+<p>可以看看这份“大乘起信”的PPT设计中的图片处理</p>
+<p>百度文库的PPT排版技巧</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

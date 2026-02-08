@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何聪明地问问题 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>如何聪明地问问题 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>让我们先从一个例子开始：</p>
+<p>你: “老板，我需要怎样做才能得到提升啊?”</p>
+<p>老板:“你必须按期完成我们需要的目标！”</p>
+<p>呵呵，这不是开玩笑。老板的回答的确回答了你的问题, 但是可能并不是你所期望的回答。你只能疑惑地离开，想着老板是不是对你的工作和进步不太在意?</p>
+<p>让我们换另一种方法:</p>
+<p>你: “老板,   假设我按期完成了目标，如果我想要得到提升，那么在其他方面我还需要做什么？”</p>
+<p>老板: “呃，你也确实应该涉及决策部门了，而不仅仅是完成任务。”</p>
+<p>正如你看到的，你的措辞对你得到的答复影响很大。所以，聪明的问问题方法是：把对方会显而易见的回答变成自己的陈述包含在你问的问题中。让别人顺着你“设计好的圈套”回答你想知道的答案。这就是问问题的技巧。</p>
+<p>你可以从下面的几点开始：</p>
+<p>问问题的场合:</p>
+<p>不同的场合和形势下，你问问题所用的方法也会不同。尤其是你问的问题在这个场合可以问吗？例如：</p>
+<p>在别人打电话的时候；</p>
+<p>非常忙碌的时候；</p>
+<p>正在休息的时候；</p>
+<p>开会的时候；</p>
+<p>会见客人的时候；</p>
+<p>处理私人问题的时候；</p>
+<p>问可供选择的问题：</p>
+<p>这个技巧其实是很多做销售的人惯用的技巧：</p>
+<p>不要问只有“是”与“否”两个答案的问题，除非你十分肯定答案是“是”。例如：</p>
+<p>不要问：“你想买双门轿车吗?”；</p>
+<p>要问：“你想要双门还是四门轿车?”</p>
+<p>如果你用后面这种二选一的问题，回答问题的人就无法拒绝你。</p>
+<p>要问具体的内容:</p>
+<p>不要问太泛的问题，因为这些问题的回答往往也是可有可无，你得不到有价值的答案。所以，尽量问你所关心的具体内容。</p>
+<p>确认你是否听懂了回答:</p>
+<p>如果问题很重要，你必须反复确认你是否听明白了回答，你可以用下面的办法确认你听到的回答：</p>
+<p>重复：</p>
+<p>“哦，你的意思是说如果X和Y发生的话，Z就会发生。对吗？”</p>
+<p>装不懂：</p>
+<p>“好的，你可以稍微再解释一下吗（我只想确定我是否听明白了）？”</p>
+<p>换做自己的话说：</p>
+<p>“嗯，不错。如果X和Y发生的话，我应该期望Z会发生，因为…”</p>
+<p>使用和回答者不同的措辞，并把你认为的话添加在后面。即使你所认为的事情可能并没有在会话中出现，但是，加上你说的话会使这场谈话更有价值。</p>
+<p>问问题也是一门艺术，其中有很多技巧，上面只是几个关键的点。在你下次问问题的时候，不妨换一个问法，相信你会有新的体验和收获。</p>
+<p>车东曾经画过一副图，详细描述了问一个技术性问题的过程，很有意思：</p>
+<p>来自：中文HowTo</p>
+<p>继续阅读：提问的艺术：好问题，坏问题，  以及该如何提问、建议</p>
+<p>分页: 1 2</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

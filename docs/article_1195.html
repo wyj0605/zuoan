@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社会工程学的威力 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>社会工程学的威力 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>以前时有耳闻社会工程学这个概念，现在开始有一点体会这个社会工程学的威力了。百度百科上有关社会工程学是这样解释的：http://baike.baidu.com/view/118411.htm</p>
+<p>个人觉得以上解释并不全面，而且可能有人根本就看不懂这个社会工程学的意思，不能体会它的妙用。这是一门非常复杂的一门综合性学科，一般人能体会到它已经很 不错了，能够简单运用的话，那会帮助你解决很多高难度的问题。下面我举两个运用到社会工程学的简单例子，看看人们是怎么利用这个理论的：</p>
+<p>一，运用社会工程学进行黑客行为（如果你搜索一下，可以发现利用社会工程学最多的人就是黑客了）。</p>
+<p>黑客行为中，较为常用的比较肤浅的思路是：拿下你网站的后台管理账号密码—上传木马，拿到你整个网站的shell—提权，拿到你网站所在服务器shell，进而达到了完全控制的目的。</p>
+<p>如果第一步不能拿到你网站的后台账号，那么黑客可以旁注，就是拿到同IP下的其他站点，最终取得服务器shell后再来整你网站，曲线救国的道路。这个就是要靠一系列的工具和过硬的技术了。如果站长防范得好，你根本没法通过工具技术手段拿到管理账号和密码，怎么办？</p>
+<p>社 会工程学：先通过一些途径收集管理员常用的用户名，邮箱，QQ，MSN，手机号码等一系列信息，然后在网络上检索到你曾经注册过的网站，比如常见的校内 网，开心网，QQ交友，新浪博客，博客大巴等等一系列的社交型网站，一些你经常上的，最容易让你透露真实信息的网站，将这些站点的一些站黑掉，获取你注册 的账号密码，然后去组合测试你的网站。</p>
+<p>据悉，以前discuz就是这样被黑过一次。</p>
+<p>二，收集竞争对手的信息。</p>
+<p>给你一个站长的QQ 号码，或者一个邮箱地址，一个域名，你如何去查处他手头所有的网站？这需要调动你大量的基础知识：有了QQ号码，可以查出他经常活动的地方，然后获取他的 邮箱，获取他的一个域名，通过域名WHOIS信息获取他的另外的邮箱，另外的QQ，通过备案信息获取其他网站，真实姓名，通过备案号查询，有了网站，查他 的外链，查他的导出链链，友情链接。。。。。。这样通过一丁点的小信息，查找出一箩筐有关他的信息。把这些信息进行分类整理辨别，最后锁定你想要的。</p>
+<p>这 是我亲身实践的，如果你也尝试去实践一下，你会开阔眼界，收获很大的。我已经养成了人肉网友的习惯，只要网上遇到听说很牛逼的，网赚很厉害的，我想要分析 它的网站，获得思路，启发，我就要去肉他一次。十有八九我能查出他的一批网站。只要他留下一丁点信息，只要那点信息在搜素引擎中存在，哪怕是孤立的，新的 马甲，与以前的信息没有任何关联，我也能通过模糊查询出来。</p>
+<p>我认为我运用到了一丁点儿社会工程学的理论。</p>
+<p>以上的两个简单例子，只要你用心去做了，为什么十有八九能成功？因为社会工程学讲究的就是人们在社交过程中的心态，习惯，这些心态，习惯就是一条纽带，能够把你所有的信息串联起来。你透露一点，人们可以顺藤摸瓜查出你的一切。</p>
+<p>网 络社交只是现实社交的一个缩影。现实生活中，为什么有的人暴露出了自己的身份证号码，手机号码，生日日期，银行卡密码就会被破译呢？也许你认为你的密码设 置得很好，如果你是黑客，你黑下了一批站，提取出一批账户密码，与他们的个人真实信息相比，只要数据达到一定量，你就会发现一个规律：人们为了突方便，简 单好记，看似复杂的密码其实就是他们生活中真实信息的组合，甚至就是单一的信息。学过统计学的都知道，一旦你掌握了这个规律，那么你就多了一条商机。这是 群体隐私。</p>
+<p>看到了吧，这只是社会工程学运用的冰山一角，如果你能洞察其中的奥秘，能灵活掌握，你就是牛逼中的牛逼。这就是我对社会工程学的简单认识。欢迎与我交流。</p>
+<p>左岸注：俺几乎不干人肉这事，但我发现我网络上的信息真的存在着很多的问题，该改的还得改改。</p>
+<p>来自：主角博各——社会工程学的威力</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

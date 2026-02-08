@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心有美景，更要远行</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>心有美景，更要远行</h1>
+            <div class="date">2015-05-05 23:10:02</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/Wei Yang《心有美景，不必远行》，我赞同前一句，但反对后一句。人生最美的风景固然是在心里，但是不探索外面的世界，不开拓自己的眼界，我们心境何以提升？难道全凭这点可怜的想象力么？这就如同井底之蛙，总以为自己心中是最美，殊不知外面的世界远超自己的想象。“追求极致和优秀的思想是一种错，平凡的生活才是好生活。”说出这样的话，本身就是一种错。连极致和优秀都不愿意去追求，我们能期待这内心能有多美呢？诚然，不可否认，我们都很平凡，也终将很平凡，我们可以坦然接受平凡的生活，但是我们的内心却不能没有追求。极致和优秀就是我们不懈追求的目标，这是内心的渴望，从来不是因为被逼或者被迫。我们从不否认平凡的生活就是好生活，但是在享受这平凡生活的同时，我们永远怀有梦想，追求着卓越，二者并不矛盾。“守住自己的内心便什么都不缺”，真的吗？一个人如果觉得什么都不缺，那可能是因为内心根本没有任何美景需要去追求。因为一旦我们有了追求，我们便不会认为自己什么都不缺。我们渴望改善自己和家人的物质生活，我们渴望丰富自己的经历和阅历。我们的字典里没有“守住”二字，我们只知道追随自己的内心，努力去实现梦想。要实现梦想，必然不能脱离现实。现在，一谈到远行，很多人就会联想到辞职，可实际情况哪里会有这么容易？即使你今天辞了职，你明天就能立刻出发去远行么？显然不行！你清楚自己远行的目的吗？你准备去往哪里？你的钱你的装备你的经验足够支持完成这次远行吗？你的后顾之忧都解决了吗？实现梦想不是逃避现实，而是要么克服困难，要么做出妥协，但是无论如何，依然朝着自己的梦想奋斗。别人可以辞职去远行，我不可以，但有我总会有假期，总能挤出一些时间去旅行。别人经济上富余，我经济上拮据，但是我可以坐便宜的车，住便宜的店，或者我可以多做一份工作，多赚一点钱。别人孤家寡人，可以一走了之，我拖家带口诸多不便，但是我可以带着家人孩子一起旅行，虽然更累，却多享一份天伦之乐。重要的不是困难有多大，而是我们有没有内心那份渴望，所有的困难都挡不住一颗渴望旅行的心。另外，远行不简单，它不仅需要丰富的经验，而且需要做大量的前期准备。能不能远行，很多时候不是钱的问题，而是能力问题。野外生存能力不行，人迹罕至的地方就去不了。不善与人打交道，或不懂风土人情，出门就可能闯祸。外语不好，出国行的体验就会低一档。很多能力都是练出来的，不亲自出去闯闯，压根就不可能学会。不必远行？这世上除了吃喝拉撒睡，就没有什么事情是必须做的。我还可以说不必读书，不必写作，不必跑步，不必 ……，干脆啥也别做。不过我们很容易就会发现一个有趣的规律，说不必读书的人，十有八九没读过多少书；说不必写作的人，十有八九没有写过文章；说不必跑步的人，十有八九根本不跑步。同样的道理，说不必远行的人，十有八九连旅行都非常少吧。五年前，我开始跑步，在此之前，我极其讨厌跑步，甚至想不明白，这么枯燥的运动，怎么会有人乐此不疲。但是，当我真正投入到这项运动中的时候，我才能够体会它的美妙之处。至今我已经完成了5个全程马拉松，跑步已经成为我生活的一部分，无论对我的身体还是心理都大有裨益。常常有人问我如何做到坚持跑步的，我只能笑而不语。有些事情，你不亲自去做，永远也想不明白其中的门道。我不可能辞职去远行，但我也同样热爱旅行，足迹踏过中国31个省，去过欧洲，美洲和非洲，依然乐此不疲，从不愿放过任何一次出行的机会。我只想说，有机会一定要出去走走，哪怕只是看看，坐在家里，永远不可能想明白远行的意义。读万卷书不如行万里路，道听途说，不如亲眼所见，亲身体验。即使做不到远行，起码要去旅行。当你见到偏远山村的孩子，每天要走几公里山路上学，却连双像样的鞋都没有的时候，你才能真正体会自己在大城市的生活是多么的幸福。当你来到圣洁的雪山脚下，心中充满兴奋和敬畏的时候，你才能真正理解人类是多么的渺小，而你遇到的那些所谓烦恼是多么的不值一提。当你懒洋洋的躺在沙滩上晒太阳，看着孩子如此兴奋的奔跑玩耍的时候，也许你才会真正去反思自己是否陪她太少了。人这一生什么也带不走，我们唯一能做的就是尽可能的让自己的生活更丰富，让自己的生命更精彩。心中有美景，才更要远行。因为，如果心中无美景，远行又有何意义呢？在交通信息都如此发达的今天，不去走走，真对不起这个时代。多探索地理风光，观察人文风俗，了解历史文化，少在景点摆 POSE照相。只有认真投入过，我们才有资格说，自己不喜欢，或者这事不必做。左岸记：《心有美景，不必远行》文下的评论非常的精彩，持读万卷书不如行万里路观点的人居多，因为大家都认为没有经历大谈特谈人生感悟只是纸上谈兵，所谓“纸上得来终觉浅，绝知此事要躬行”，但这其实并不矛盾，徐霞客游四方而著天下游记，史马迁却在狱中著天下史记，有人需要从外寻求力量，有人可以由静心得到领悟，各行其事，各得其所，殊途同归，拥有自己的生活美景，或远或近。原文链接：http://www.zreading.cn/archives/4888.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

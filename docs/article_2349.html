@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>还不起的债和驴子的萝卜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>还不起的债和驴子的萝卜</h1>
+            <div class="date">2015-10-23 00:37:21</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>还不起的债月近重阳人近中年，同学间的互动又熟络和频繁起来。伟华是我们小学同学，在那个年代，因为妈妈是上海人，吃穿用度不是我们这些孩子可以攀比的。超出想象和认知的，他留给我们很多的羡慕嫉妒，那个年代学不会恨，最多偶尔欺负一下。伟华也聪明，那些新奇玩意儿、或是好吃的，也将就着能得到庇护。真到了忍无可忍，妈妈出现了，倒不至于被打，就是语速极快的碎碎念，让孩子们彻底崩溃，最后再来几把糖果，加上温言细语的嘱托，基本都瞬间被降服。虽然过几天还是凑性不改，起码伟华得几天安宁。伟华是单亲，这个是到了中学才知道的，那个年代，单亲是个压力很大的事情，总是和爸爸残暴犯罪生老病死、妈妈水性杨花有关联。大了，知道伟华的妈妈纯粹如现今人们谈的生活理念不同有关。想来，一个大上海的温婉细致女子，在西北的狂沙尘土里，自己活着就不易，再面对压根生活方式不同的丈夫，离了也是好事。伟华很争气，妈妈很坚忍。在大多数人复读的情况下，他第一次高考就考上了交通大学，妈妈无微不至的关怀，也放弃了自己的人生，再也没有结婚。伟华的孝顺，体现在言行有礼有节，绝不忤逆母亲，到了二十来岁还没有夜不归宿、大醉一场的经历。起码在我们那个年代，这个事情让我们很鄙视，一方面自己会被自己的父母按照伟华的模样要求；一方面奇异于这样的年轻人，如何度过这么枯燥的青春。后边渐渐没了消息。世界上总有一群人，能挖出你不知道的事情你寻找不到的人，有好事者近来靠着蛛丝马迹寻到了他，我们的聚会于是多了个参与人和话题者。我们幻想着他的成功，他与妻儿、妈妈其乐融融的幸福。让人下巴掉的事情是，他与妻儿住在城西，妈妈住在了城东，逢了节假日才团聚一下。七十年代的人，虽然有自己的原则，但包容任何人的想法和行动。大家不醉不归的热闹起来，他竟然也开始喝酒了，豪爽的威慑到酒棍们，没几杯，就剩下他追着别人满场喝。我笑的不行，可能是被他发现了，坐在我面前不走了。“你是不是觉得我不孝顺呀，说啊，是不是，你说……”，眼睛很亮，脸很红，贴的你很近，这样的人心很虚；“没什么，奇怪罢了。”我推了一下眼镜，稍稍换了坐姿，离他远些，我又没醉；“你有没有债永远还不清，利滚利，旧债未还新债又来啊……”；“你要说什么？你敢借就要敢还…..”，满世界借钱还钱的人；“我妈的债我还不清，就算我拿一辈子去还，也还不清，那我还能活自己不，我就想活一下自己，你说我有错没？”“你说我对我儿子吧，我就想，他大了就出去，最好别回来了，他自己活他自己的，我不让他还……”。驴子的萝卜阿宝爱阿珍，爱的披荆斩棘、忘乎所以，无微不至的关怀和付出，小到痛经时的热水袋，大到职场里的左右奔波。阿宝不是备胎，阿珍也不是心机婊。阿珍永远觉得阿宝应该再努力点就好，阿宝永远不知道进度条到了什么位置。阿珍享受的不够心安理得，阿宝付出的总是心有不甘。“德叔，你说我咋办，阿珍就像拉磨驴子面前挂的那个胡萝卜，我永远看得到甚至闻得到甚至似乎努把力就能够得到，但好像永远吃不到，也不知道吃了什么味道，我还日复一日的使着吃奶的劲拉磨……”“分手呗…”，“分手？！……”“你不怕，真的吃到了，你觉得胡萝卜也就那样，你的付出真不值得？还不如，现在还留点念想，把这个胡萝卜供在你的心里呢……”“这个这个，那阿珍怎么想啊，她真的不愿意给我弄个胡萝卜么？”“这个已经不是她想不想的事情了，你要她怎么办，你付出的越多，其实你离胡萝卜越远，阿珍知道那是个胡萝卜不是金山银山。你吧，努力这么久倒是有了道德优势，你多么的无怨无悔的付出，不求回报只求真爱，你想怎么着，要她感恩要她珍惜？要她给你夸奖？那这个感情变成了债，变成了计算，她宁可永远做那个胡萝卜，也不会让你吃到的。”“哦……”我去见了阿珍，想落实我想的对不对。“德叔，不是我不喜欢阿宝，也不是我多心机，这个事情好像从开始就是错的。阿宝不停的付出，最后都偏执了，不管我喜欢不、不管我接受不、不管我是否感恩、不管我是否认可，不停的自顾自的付出，我觉得他都不是爱我，而是纯粹为了完成自己的心愿和满足他自己的执著，我觉得换个人，只要是他内心觉得要得到爱，在我这样的位置，他一样会这样。而我，是个活生生的人啊，独一无二的我啊。”“我接受了，示好了，我心里的债也有了，我怎么办，那我宁可如他给你说的，永远做那个胡萝卜，或是阿宝自己不想要我这个胡萝卜了，换个胡萝卜。”“反过来说，就算我给了胡萝卜，要是阿宝觉得不值得那个付出，然后就让我还，怎么办？我都不能感恩，我也怕啊。”“那你不怕背个不好的名声？”，虽然我不在乎这些，只是不知道阿珍在意不。“怕？怕啊，但我成全了他的名声啊，他可以说我不知好歹啊，但起码我还是他念想的胡萝卜，他可以给每个人说他为爱付出那么多，真的是爱。而我，也可以说为了爱，我宁可选择我愿意珍惜愿意感恩的啊。”或许，世界上最远的距离，是你已经筋疲力尽，爱着的人却只想说你再努力一点点。阿宝和阿珍无疾而终……秋天总是那样，晨雾和太阳永远分不清谁强谁弱，雾起来的时候，露珠在叶子上晶莹。真是雾霾，那这一天就别指望看到蓝天，如果太阳努力点，再加些秋风的撩拨和清淡，蓝汪汪的天也会清丽丽的出现，黄红的叶子们，也就会那么那么的美丽。左岸记：最美好的爱是以独立、平等、尊重为基础的，让对方舒服，让自己快乐。父母对子女的爱是放心放手，爱人之间是安心牵手。原文链接：http://www.zreading.cn/archives/5111.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

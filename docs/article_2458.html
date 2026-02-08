@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>像墨一样的阳光</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>像墨一样的阳光</h1>
+            <div class="date">2015-06-29 23:08:26</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/韦宇教  图/网络原《南方周末》记者连岳曾说——人在某一时刻，在阅读的间隙，从熟睡中醒来，忽然觉得：人，毕竟是没有意义的。这不算矫情，也不是病态，它是思维给人自身带来的悲剧性的绝望美感。而《诚如神之所说》就把这种绝望的美感，用电影的画面、语言和故事情节，将其展现得淋漓尽致。“我的人生，很无聊。你，为了什么而活着？”四个画面，四句话，三个人物，远景和近景的镜头切换，让电影一开篇就涂抹了一层悬疑的色彩，披上了一面神秘的面纱。接下来是掷骰子，这里预示了也许是一场游戏的开始，也许是一场生命赌注的降临。而骰子不是一颗，而是两颗，也许早已告知了故事的结局。最后是美丽的云端下，不知谁在俯瞰众生，在你还在思考的间隙，带着血迹的片名《诚如神之所说》让整个电影更是迷幻重重。整个电影的剧情其实很简单——日本一座普普通通的高中，对生活倍感无聊的16岁男生高畑瞬，在课堂上打发着枯燥冗长的青春时光。然而就在毫无征兆的情况下，黑板前老师的脑袋竟突然爆开，血光四溅。然后是各种血腥游戏接踵而来，各种屠杀和逃离，各种智力和人性的考验，各种生和死的选择。电影如此，其实，我们的生活和人生又何尝不是如此：在无聊中厌倦生活，在厌倦中寻求冒险，在冒险中尝试改变，在改变中怀念初衷。就像男一号高畑瞬在经历了一系列生死考验后，终于看到了最原始的自己，喊出了内心最真实的初衷：请把我无聊的人生，还回来吧！其实，不管是最终存活下来的高畑瞬和天谷武，还是被死神夺去生命的佐竹、高濑翔子、克里斯、真田雪男和秋元依智香，抑或是身边许多我们熟悉或陌生的人，大多数时间都是生活在一种平静的绝望中。但是，除了黑暗，没有任何一种方式可以抵达黎明。所以，我们其实都拥有着像墨一样的阳光。电影里的高畑瞬，就像曾经的我们：叛逆，期待着成长，厌倦周遭的一切，对生活感到无聊甚至绝望，内心充满欲望却没有勇气、责任、坚强以及某种必须的牺牲。而天谷武就像一面镜子，投射出我们内心的另一面：不羁，自负，凶狠，暴力，残忍，期待着推倒和改变一切。从不倒翁到招财猫，从木偶人到讨厌说谎的白熊，再到杀人俄罗斯套娃，一个游戏比一个游戏难，一场屠杀比一场屠杀残暴，而高畑瞬的性格也随着“闯关”一步步的发生着变化。从不知所措到镇定自如，从盲目跟随到推理判断，从自私自利到牺牲自我，保全朋友。他一个脚印一个脚印的完成自我救赎和自我蜕变：从懦弱走到坚强，从愚笨走到聪慧，从刁恶走到良善，从黑暗走到光明。五个人生的闯关游戏之后，体力、智力、想象力、运气以及各种力量的综合比对之后，只有高畑瞬和天谷武活了下来，这与影片开头的碗里投掷的两颗骰子遥相呼应。也许，导演三池崇史一开始就用骰子暗示了人的命运早早注定，我们只是按部就班的亦步亦趋的走向必然的结局。即便期间会有起伏和变数，会有意外和惊喜，但是，人性的善与恶，真与假，好与坏，其实早已成定数，结果已经不重要了。在最后一个游戏里，在崇尚暴力美学的天谷武与内心更温柔更强大的高畑瞬的对决里，高畑瞬对只把他当做同类人和朋友的天谷武说：“你说的没错，天谷。我至今一直想着，那种没有意义，无聊的世界，全部毁掉才好，也开玩笑跟神许了愿。但是，完全不是那样，失去之后才知道珍惜，我真是个笨蛋。只有感到死亡的时候才有活着的实感，我真是笨蛋。大家，理所当然的活着，重要的东西也显得平凡，那样无聊的每一天最棒了。抱歉了天谷，我跟你不一样。”听完高畑瞬的内心独白，天谷武先是诧异，然后冷笑着答道：“不用担心，我从一开始就没打算帮你。”从男一号和男二号的对话里，人性和生死，堕落和救赎，黑暗和光明，已经不言而喻，已经泾渭分明，已经掷地有声。看到这里，我不禁想到了导演三池崇史的另一部电影《恶之教典》，一样是讲述人性和善恶，一样是残酷地告诉观众：人类的恶是没有底线的，是看不到尽头的。但事实上，人性的善恶不再有那么明确的分水岭，每个人的心中都残存着一部分的善和一部分的恶。只是，有些表现得鲜血淋淋，有些有糖衣做掩护，仅此而已。正如学者甘尚平所言：在现代的恐怖片中，似乎不再给予观众任何的期待。恐怖片越来越悲观，似乎更加肯定我们本性中的幽暗面必然会胜过光明面，人类必须面对最恐怖的事实──存在我们内心的邪恶是无法被消灭或控制的。“高畑瞬，天谷武，存活，存活。”影片的最后，两个平凡的高中生少年从立方体里走了出来，被城市里围观的人们当神一样膜拜，大声呼喊着：神之子，神之子。可是，他们真的知道他们内心的神在哪里吗？梭罗曾说：“大多数人都生活在平静的绝望中”。那么，你，为了什么而活着？作者简介：韦宇教，80后，金牛男一枚，文案策划师，专栏作者。喜好文字，摄影，旅游，踢球，养猫。在文案策划的江湖中，已来回穿梭七年。常静坐深夜，焚香，饮茶，煮字疗饥。亦是一个行者，在路上，或充斥着想念，或浸润着孤独。站在奔三的道口，回望素履之往，愿无岁月可回头。有生之年，感恩遇见——QQ：278135479微信：weiyujiao1985左岸记：看恐怖，那是相当的虐心，那是恶的极致。看完恐怖片，我是一定要看部喜剧片来中和一下那惊魂未定的心的。原文链接：http://www.zreading.cn/archives/4962.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

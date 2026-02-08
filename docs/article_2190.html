@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你其实并不想谈恋爱</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你其实并不想谈恋爱</h1>
+            <div class="date">2015-11-24 00:20:58</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/贝贝大一的时候，我并没有想谈恋爱。那时候，对谈恋爱没有什么概念。第一，本人并不漂亮。第二，本人性格偏男孩子。谈恋爱这种事情，总是渗透着一股子酸醋味的。也许，我天生对这个过敏，总觉得卿卿我我，整天黏在一起，让人感觉特别不爽。而从我的经验看，爱情这种东西可以把很多单纯的东西给毁了，比如友情，比如你对世界的态度。这个具体再说。大二的时候，我谈了一次恋爱，总感觉各种不对，最后分了。现在大三，并不着急谈恋爱。其实我也不想谈恋爱。也许你也是。你其实并不想谈恋爱。这是我的一个例子。A是我的室友，我们的关系一直处着比较好。自从有个男人踏足到我们的生活中，我们的关系就变坏了。A是一个有女人味的人，而且对感情特别敏感，说话一股子熟女的味。没谈恋爱的时候，她一直挺乖的。但是，她有个致命的弱点，就是敏感。那个男的，是我书法社认识的。我介绍给A的。男的比较帅，文气，但优柔寡断。事情是这样的：他成功把A泡到手了，然后总是跟我谈心事，A就特别生气，最后我们关系就到了冰点。就这样，那个温柔可爱的A不见了。可是最后呢，A还不是分了。最后我们行同陌路。这又是何必呢？谈恋爱也很容易让一个班级四分五裂。大一的时候，班级同学的向心力都比较好。集体活动都比较积极。我挺喜欢那种感觉的，大家都比较友好，想法都比较简单。后来，班级里有了几对。有几个人和别的班的人谈恋爱了。到大二的时候，班级里就愈发冷清了。高中的状态是比较好，大家都没有想着谈恋爱，起码大部分人没有想，都把高考放在首位，同学关系尽量不越线。最后，整个班级像一个大家庭，很温馨。现在反差极大，聚会差人，集体活动都差人。所以，到最后，一个班级各种差人，好不像班级。何止是班级，还有家庭。这不用赘述了。而爱情也并不总是那么重要的。其实你觉得小时候，甚至青少年的时候的感觉还是很好的。没有恋爱关系，只有同学、朋友、兄弟、家人关系。那时候，我们还都在认真读书（好怀念那种书声琅琅的单纯感觉），喜欢认识新鲜的东西，对别人都怀着善意，愿意交往，对整个世界怀有憧憬，怀有梦想。那时候，我们都是三个人以上才出去玩，胆子很大，创意也很多，热闹极了。那时候，友情是我们感情的重心，它付出和回报总是相同的。而爱情呢，总让人遍体鳞伤，最后人走茶凉。我家生活在义乌某个上个世纪的老房子里。算是底层。但活的很开心。中学的时候，我每天都会经过路边摆摊的。我看到了很多新鲜的东西，玩过了打气球、扔沙包、弹珠、皮球，对那里的小吃一清二楚。我每次都会和一个老奶奶说话，她家做的馄饨一直都很好吃。我还帮她包馄饨。我们几个好点的同学（两男两女）周末就出去玩，我们狂蹬自行车，去森林、河流、某个工厂、逛超市、看电影、打篮球、听演唱会、会交换书、评论这评论那……玩的东西非常多。那个时候，没有爱情这码事情，但活得特别豪爽，大胆和有趣。可是，谈恋爱了呢，都是一样的，他们三个早早谈了恋爱后就活得特别颓废压抑。早早把处给破了，就觉得自己一生也就差不多了。说起话来像自己多大似的。一股子伤春悲秋的霉味。时间反正都用来哄人了。不管是你哄别人，还是别人哄你。考试的事靠抄了，看课外书也没时间了，和朋友在一起没时间，而且对其他东西都没兴趣了。对别的人越来越冷漠了。把曾经有过的豪情壮志搁置了。越来越变得内向和闭塞了。当一个人完全占有另一个人之后，你就有个错觉，拥有他/她就觉得自己其他都不需要了。别人说两句，或者使一个眼神，非常敏感，生怕别人反对。反正都是在不断地无休止地消耗自己的身体和精力，恶化和别人的关系，降低自己的生活品质，封闭自己的世界。和一个人是近了，但和别人、社会、整个世界却越来越远了。我不是反对谈恋爱。但谈恋爱有一个陷阱。这个陷阱就是单纯地可怜对方，迁就和依赖对方。这就是活生生的现实。你开始忘掉了门口的花是什么时候开的，忘掉了世界上其他的美；你忘掉了仔细打扫自己的房间，忘掉了提高生活的品质；你忘掉了身边爱你的朋友和家人，忘掉其他珍贵的感情。世界那么大，那么精彩，可是你呢？你却为男朋友抽烟喝酒，你却男朋友堕胎，你却为男朋友放弃身边的朋友，你却为男朋友放弃自己的爱好和追求……你不讲原则，盲目信任。最后剩下了你一个。这样的恋爱，你想谈吗？你清楚地知道没有接触爱情这件事之前，自己活得并不赖。不做作，不装淑女，不屑用化妆品，不会担心胖了。对别人都挺热心的，一直有自己的爱好并且不断提高。不担心不发生后对方劈关系对方不喜欢，不担心发生关系腿。只是因为你看到别人都在谈恋爱，觉得不谈就会挺没面子的，也挺孤单的。你只是偶尔觉得孤单，偶尔觉得疲惫，偶尔羡慕别人，偶尔觉得爱情可以让自己很快乐，很幸福，可以解决一切问题。你最多只是一点点幻想，更重要的是别人都在谈让你觉得没面子，你忍不住了，更重要的是你除了追求爱情，再也没有其他追求了。你其实并不想谈恋爱。我说的对吗？左岸记：恋爱本身不是错，是恋爱的人自己有问题，才让爱情出了问题。但如果说是因为恋爱而让这些问题暴露得更明显，却是真实的。所以，作者的分析很好，也就是只有通过现实的比较，人们才会发现其中的利弊，进而找到自己喜欢的路，也更懂得如何珍惜。“大学该不该谈恋爱”是很多大学辩论赛的题目，很多人列出了它的利弊：利：1.在校大学生往往都是离家在外，生活上失去了家人的关心，两个人情投意合走在一起，首先在生活上就会互相帮助，关心彼此。2.爱情是人格上的相互映衬，志趣上的相互认同，双方有相同的人生理想。很多在校大学生会一起准备考研或者一起学习，可见谈恋爱是能够振奋人的精神，激发人的智慧。3.责任也是在校大学生谈恋爱时会学会的一样品质。古今中外，人们所赞颂的爱情无不体现着恋人之间忘我的付出，这种自愿担当责任的品质，提升了爱情的境界。4.心怀包容，正确的处理情感问题，诸如恋人之间的误会，失恋等等，学会理解对方，学会包容他人。5.提升了自己的价值观，两个人真正相爱时，无论对方处于逆境还是顺境，是富裕还是贫穷，是健康还是疾病，都会一如既往地陪在心爱的人身边，这正是体现了大学生正确的价值观。6.学会了尊重人格品等，恋爱的双方在人格上都是独立的，都有给与爱，接受爱，拒绝爱的自由，放纵自己的感情或者是强迫对方的感情都是不正确的。7.男女之间的恋爱因为性爱将它与其他之爱分开，这种特殊的爱，不仅仅会让彼此得到情绪上的愉快，而且会让彼此变得更成熟。8.谈恋爱更能给双方带来精神上的激励。大学生正值青春年少，恋爱时双方都焕发出热情来克服生活上的消极和颓废。弊：1.误导了人生目标，应该以学业为主的大学生往往会整日卿卿我我而耽误学习，虚掷光阴，这些在大学里都是很常见的。2.片面的看待爱情。把爱情当游戏，违反道德规范，不仅伤害对方，而且伤害自己。只重视过程不重视后果。3.功利化的看待恋爱。现在很多大学生都只片面的追求外在的形象，或者只看重经济条件，再或者就是只把爱情看成是摆脱孤寂的方式。4.因为恋爱而脱离集体，把双方都禁锢在两个人的世界中，脱离集体，疏远同学，妨碍自身的全面发展与进步。5.很多在校大学生为了爱情忘记了自己的大爱。不仅有恋人之爱，还有父母兄弟姐妹之爱，更有对社会的爱。6.错误的爱情观，奉行爱情至上主义，不能正确的处理感情。因为失恋或者第三者或者是求爱不成，从而情绪和行为失控，甚至产生悲观厌世的情绪，导致严重的后果。7.很多恋人在公共场所忘记他人，在言谈举止上有失大学生的风范，对他人和社会都造成了不良影响。8.太过迷信文艺作品中的虚幻爱情，不现实的追求梦幻中的感情。原文链接：http://www.zreading.cn/archives/5151.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大圣归来，乱侃悟空</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>大圣归来，乱侃悟空</h1>
+            <div class="date">2015-08-12 01:57:30</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/洱海扁舟五行山下，孙悟空被铁链锁着，手上戴着封印，他没有等到紫霞，而是等到了江流儿。不是一场爱情的团聚，而是一对师徒命中注定的相遇。没有睥睨天下的傲气和豪迈，这时的他不过是一只普通的猴子，或者说连猴子也不再是，五百年，孤独地在这与世隔绝的山中守望和聆听，单调的风景，重复的聒噪，他已失去了作为一只猴子的灵动和天真，就像一个乐呵呵的小孩突然间长大，被世界重重地击昏过去，悠悠醒转，然后沉默。这时的他只是一个落寞的行者，犹自记得当年大闹天宫的辉煌，一个筋斗十万八千里的潇洒，然而此刻，石头砸下来，砸痛了自己的脚，却砸不掉锁链和封印。他渴望自由，多么想像小白龙一样翱翔在天地之间，江流儿那样的小朋友这时必会张大了嘴，投来惊叹和羡慕的目光，然后可劲儿拍着手吧，他，不一直都是小孩们的盖世英雄吗？曾经，齐天大圣孙悟空，拔一根毫毛，散做身千亿，而现在？什么也没有。小孩长大了，却也往往忘记了，自己曾是个小孩。哦，还有她，那个在城墙上和爱人并肩望着他的姑娘，“那个人好像一条狗哎”，夕阳中，两手扛着金箍棒，他没有回头。他记得她也说过的呀，她说她的心上人是一个盖世英雄，终有一天会身披金甲圣衣，脚踩七色云彩来娶她，然而，来生再见，两不相认，茶，再也不必续上。他远去的背影，在风沙中落寞而孤寂。白龙马，蹄朝西，驮着唐三藏还有三兄弟，他是大师兄，师傅被妖怪抓走了，八戒和沙僧要喊他去救，猪，无能，沙，无劲。有一天到得灵山，贿赂下阿难迦叶取得真经成正果，然后呢？然后什么都没有了，再无齐天大圣，只有斗战胜佛。可是，猴，为什么要成佛呀？出于对一只猴子身份的起码尊重，他不是本该在花果山水帘洞自由自在耍子去也？什么西天，什么如来，什么唐僧，什么佛法，金猴奋起千钧棒，玉宇澄清万里埃！然而不能，当年大闹天宫又如何呢？诸天神佛奈何他不得，却也终究难逃如来神掌。一泡尿未干，翻手为云覆手雨，五行山下，五百年，封印，加个六字大明咒“唵嘛呢叭咪吽”（俺们呢把你哄），哈哈，臭猴子，叫你拽，如来如实道来，拈花浅笑。满目的花草，满目的无意义，花果山望不到，三星洞太遥远，该想些什么吧？嘿嘿，我真傻，没事做什么弼马温，没事做什么齐天大圣，与其做受人束缚和轻视的神仙，毋宁与众猴水帘洞痛饮，与众妖魔结义，又何必落此下场？神仙，妖魔，又是否真如刀切一样的分明？神仙制定规则，凡人遵守规则，妖魔打破规则！可是重头再来，再选一次，结局就真的会不一样？天地之大，可容得下一个笑傲江湖的孙悟空？烟霞散彩，日月摇光，斜月三星洞，灵台方寸山，学成一身本事，可守的了一颗本心？可保得住一个自由？只是每天黄昏，他都会望着天边的晚霞发呆，这时候其他什么对他来说都不重要了，尽管他知道，晚霞的绚丽是不会久的，灿烂过后，便是漫漫的黑暗了。只是那张极明丽的脸和那极晶莹的泪，又一次浮现在了他悠远的睡梦中，那么温柔。他突然惊醒，一个小孩儿挂着鼻涕牛牛，怔怔地望着他，他挣开铁链破山而出，待要施展神通，手上的封印却隐隐泛光。“如来老儿，你压了俺五百年，还不够吗？！”没有金箍棒，没有齐天大圣，只有一只叫天天不应的孤独而无能的猴子。然而石头背后的江流儿惊叹地望着他，念经、化缘、那都是些什么鬼，他要追随着他心中的盖世英雄，请他去扫荡尽那些害人的妖魔，保护无辜的孩子。他无语，躲避，哪来的破小孩，五百年，他要的不过是自由而已，哪再管世间洪水滔天？何况，现在的他，管的了吗？“我管不了，管不了！”他抱着头大叫着。他一拳击倒了身畔的大树，不过只是出于对自己无能的愤怒。江流儿走了，独自去救小孩儿。孙悟空落入水中，没有一点声音，永恒的静寂。那个天真的小孩儿，他就管的了吗？他想起了自己渴求的自由，“当你够坚强，够勇敢，你就可以驾驭它”，望着小白龙自由翱翔的时候，他曾这样对江流儿说，然而，自由，从来不是空无一物，而是必然有所羁绊，如水，如风。为了自己想要保护的人，即便明知此路艰难，甚至了无胜算，也要放手一搏，义无反顾。“我要这天，再遮不住我眼；要这地，再埋不了我心；要这众生，都明白我意；要这诸佛，都烟消云散！”江流儿的小手耷拉了下去，大圣的眼泪掉落下来。电光火石的一瞬间，鸿蒙开辟，打破顽冥，千万年后，大圣归来的身姿，依旧凝固在动人的传说中。左岸记：对，很多事情哪怕是再来一次，依然会是那样的结局，所以，不要说如果……，要说我现在可以……原文链接：http://www.zreading.cn/archives/5022.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

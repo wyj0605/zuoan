@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>故事的隐喻</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>故事的隐喻</h1>
+            <div class="date">2014-01-06 18:10:43</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/渔樵阿飞电影《少年PI的奇幻漂流》中，PI向作家讲了两个故事,一个是少年派与理查德帕克在海上漂流如同天堂般的梦幻场景；另一个是众人自相残杀，最后PI生存下来的残酷叙述，少年PI和生性残忍的厨子，断了一只腿的水手以及PI的母亲逃上了救生艇。水手跌断了腿，厨师设计杀死了无力反抗的水手，PI的母亲为了保护PI而被厨子杀死，厨子把他们俩切成一块一块来当做食物和饵，愤怒的PI杀死了厨子，独自一人漂流到了墨西哥湾。一边是茫茫大海中飘荡的浮舟，深夜里的无边黑暗，突如其来的狂风暴雨，咆哮的理查德帕克,食人岛的昼与夜，一边是浩渺云烟中的深邃星空，深蓝色丝绒般的夜幕，倒映着漫天星光的绚丽海面，美得醉人的落日，雄伟壮观的飞鱼群，令人如痴如醉的水下世界，神迹般的世外桃源.......PI问作家，“你选择哪一个故事”，作家说，“第一个”，PI说，“你选择跟随上帝”,故事终究是故事，孰真孰假，殊难分辨，梦幻与真实，残忍现实与虚构真相，相比于事实，真相，其实你更愿意相信哪一个罢了，抑或如人所言，“第一个故事像一扇门，第二个故事则是一把钥匙，可以打开第一个故事，看见门后隐藏的残酷真相，那就是第三个故事。”之前写过一些拙文，有人问我，“你写的这些故事的人物都是谁？”，我说，“看过李安的《少年PI》么？”，他说，“他讲述了一个关于信仰的故事”，“你有信仰吗”，“自恋算么”。“那你更相信哪个故事？”，他低头作沉思状。我说，“大概两千多年前，在咸阳一个大宫殿里，有个货拉着个牲口转着圈问大家，这是啥，说是鹿的死掉，说是马的苟活，十几年以后，来了南方人把说是马的也全干掉了。其后两千多年，中原大地上老是有人问这类问题，每次回答问题的都搞不好就死掉了，现在活着的都是当年沉默不语的后代，所以你看，我们就现在这样子了。”他起身出门右拐去了，留下我翘着腿，“你我他，还是路人甲乙丙丁？”生活无非就是建构，重构和解构，建构的尽头是梦境，解构的尽头终归是虚无。故事仅仅是组成生活的一部分，很多时候，生活都带着无比庸俗的目的，但是，不会有人堂而皇之的讲出来，其实大家都心知肚明。每个人都会选择性地讲述自己的故事，因为他不想让你看到他不想让你看到的一面，几千年前，苏格拉底就提出，认识你自己，可你认识你自己么？即使你认识你自己，你也不认识别人眼中的你自己，杨绛说，年轻的时候以为不读书不足以了解人生，直到后来才发现如果不了解人生，其实是读不懂书的，故事也如此。十年一梦，重读《背影》，才会情不自已，泪眼阑珊，才会被“庭有枇杷树，吾妻之手植也，今已亭亭如盖矣”给撩拨乱了心弦，完全没有违和感，《人间词话》中云：一切景语皆情语。一切故事皆生活，似乎人们还是相信自己愿意相信的东西，而非一个接近客观的世界，先入之见总是在左右着我们的思维与判断，我们并不愿意直抵内心本质的那一面。生活总会告诉你答案，但不会马上把一切都告诉你，故事却不会给你答案，就像某人在其电影公映时抛下的一句诡辩，你所看到就是你心中的小世界。在一秒钟内看到本质的人和花半辈子也看不清一件事本质的人，触类旁通与撞了南墙也不回头自然是不一样的命运。正如教父2中所言，读这些小说，你会知道，这个世界，不过如此。没有必要自怨自艾，你的故事不过是很普通的故事。不要往大了演，饕餮盛宴终会腻口，粗茶淡饭才能长久。夜深了，我还在面朝键盘背朝天地码字，科技楼的灯在一盏一盏的熄灭，我揉一揉惺忪的双眼，喃喃自语，“终于快要把这篇拙文码完了”。这时候一个人向我走来，我摘掉头上的草帽，站起身才看清是老大，“你辛苦了”，我的眼睛模糊了，仿佛看到他腰又弯了些，鬓角的白发又多了一些。我习惯性的从抽屉里摸出一本书，睁眼一看《演员的自我修养》，立即塞进抽屉，默默地掏出了《讲故事的人》。最后，借用MAC君的话，说了这么多的话，就是想告诉大家，故事很重要，有时候一些文字真相就是故事，与你我无关，与善恶无关，与爱恨无关，JustFor Fun，等大家读完莞尔一笑，我就可以合上MacBook搓搓手，事了拂衣去，深藏功与名。欲说还休，却道天凉好个秋，故事还是故事，仅此而已。原文地址：http://www.douban.com/note/324326141/左岸记：给文章配个图吧！原文链接：http://www.zreading.cn/archives/4181.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>向德国人低头 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>向德国人低头 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>我不是球迷，但我也悄悄地关注着世界杯，我在刚开战 的时候也挑了自己认为会夺冠的球队：阿根廷、巴西、荷兰、德国，到现在，已经一半阵亡了。当然，预测世界怀是件很危险的事，贝利的“乌鸦嘴”是出了名的， 我觉得贝利有点冤，他可能只是希望自己喜欢的球队会胜出，可惜他有“球王”的称号，人们自然希望他能客观些，没想到这却成就了“贝利预言”阴影。</p>
+<p>我们不知道谁会笑到最后，我们要看的是足球背后 国家的精神力量。我看了很多球评，“那谁”的这篇文章深得我心。</p>
+<p>原文：向德国人低头</p>
+<p>北京时间2010年七月四日早上。距离2010 年世界杯阿德大战已经过去12小时。</p>
+<p>作 为  资深的已经喜欢阿根廷人十多年的人，昨晚看到0:2落后的时候，我迅速走回自己的房间。我知道已经崩盘，然而比赛还有几十分钟的时间，以这个态势发展下  去，结果还会更差。</p>
+<p>但是，过了几分钟，我又走出来继续看完剩下的比 赛，0:3，0:4，阿根廷人眼中的无奈，映衬着德国人的轻松。德国人 以及其轻松的，或者说是对手阿根廷最擅长的方式，微笑着一刀一刀将对手切割。</p>
+<p>德国人是世界杯历史上发挥最为稳定的一支球队 (没有之一)， 这个数据的得来根据是他们是迄今为止进入世界杯八强最多的球队。</p>
+<p>“稳定”是什么意思?稳定就是自己不犯错，正常发挥自己的水平，有60分  打出60分的水平，有100分打出100分的水平。保证了自己不犯错，才能等待对手的犯错。</p>
+<p>即使在94，98两年世界杯，德国人由于整体人 员的老化，没能取得好成绩，他们也依然很”稳定”，因为当时的人员能力也确实只有那个水平了，他们没有自我犯错，依然把自己最好的水平发挥出来。</p>
+<p>看看其他的队伍吧，法国内讧，意大利固执，巴西保守，阿根廷(我就不评价了)。几乎都有各自的问题，最终都倒在自己的脚下。</p>
+<p>足球是一个充满偶然性的运动，一个擦身，探头，伸脚都可能造成进球。遇到一个几十年 一见的天才，就可以让球队呼风唤雨好多年。</p>
+<p>但是，你不能总是凭借着偶  然性，运气走的更远。好比说，你不能总是指望着出现贝利，马拉多纳，齐祖这样的天才能站出来一夫当关拯救球队。我们提倡英雄，崇拜英雄，但是，英雄并不总  是存在的。出现英雄这本身就是件运气十足的事情。</p>
+<p>更多的，应该是按照规律办事，一丝不苟，严谨求实。写下上面那句话时，我想到了德国人在  06年世界杯的对阿根廷互罚点球时的小纸条。德国除了贝肯鲍尔之外似乎没有出现公认的超级巨星，然而就是能取得如此稳定的成绩，这本身已经是很好的解释。</p>
+<p>曾经我迷恋巴乔，巴蒂那样的悲剧哥，上天给予他们天赋，却没有给他们好的结果。曾经我在他们身上，相信有所谓的”命运”。</p>
+<p>我这么说，并不是说他们的结果完全的无外因所作用。只是我觉得，当你把事情的结果过 度的归咎于那些玄之又玄的东西时，人就会变得矫情，文艺，不去反思自己。</p>
+<p>佛说，世间一切事，皆是因果报应。说的通俗些，可怜之人必有其可恨之处。</p>
+<p>所以，去他妈的《阿根廷别为我哭泣》  吧，矫情和文艺并不能让你的生活因此改变，抬起头来面对现实反思自己吧。</p>
+<p>向德国人低头，这个民族的字典里没有”命运”一说。</p>
+<p>附：视频——麦当娜《阿根廷别为我哭泣》</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>就是让你猜不到 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>就是让你猜不到 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/徐任冲</p>
+<p>一）</p>
+<p>先用一个幽默故事起个头吧：</p>
+<p>有个警官总是因实弹射击不及格而通不过升职考核。烦闷之余出去散步，在路上很吃惊地发现一墙上密密麻麻布满了画满了小红圈，每个小红圈正中心都是一个小弹孔。</p>
+<p>更令他吃惊的是，站在百米开外正在射击的是一个十岁左右的小孩！</p>
+<p>他走过去问：所有这些弹孔都是你射击的吗？</p>
+<p>小孩有点害怕没有说话，只是点点头。</p>
+<p>警官再问：能告诉我你是怎样做到的吗？</p>
+<p>小孩仍然很害怕，没有说话。</p>
+<p>警官说：请你教我怎样将子弹打进圈圈，我会给你十块钱。</p>
+<p>小孩没有说话，只是朝墙开了一枪，再走向百米外找到刚才那个弹孔，在外面画了个红圈圈……</p>
+<p>◎很多事情倒了过来，便得出完全不同的结论了。</p>
+<p>二）</p>
+<p>工作，取决于自上往下看还是自下往上看……</p>
+<p>老板：万分欢迎，没有你我们的公司肯定大不一样！</p>
+<p>职员：如果工作太累，搞不好我会辞职的。</p>
+<p>老板：放心，我不会让这样的事情发生的！</p>
+<p>职员：我双休日可以休息吗？</p>
+<p>老板：当然了！这是底线！</p>
+<p>职员：平时会天天加班到凌晨吗？</p>
+<p>老板：不可能，谁告诉你的？</p>
+<p>职员：有餐费补贴吗？</p>
+<p>老板：还用说吗？绝对比同行都高！</p>
+<p>职员：有没有工作猝死的风险？</p>
+<p>老板：不会！你怎么会有这种念头？</p>
+<p>职员：公司会定期组织旅游吗？</p>
+<p>老板：这是我们的明文规定！</p>
+<p>职员：那我需要准时上班吗？</p>
+<p>老板：不，看情况吧。</p>
+<p>职员：工资呢？会准时发吗？</p>
+<p>老板：一向如此！</p>
+<p>职员：事情都是新员工做吗？</p>
+<p>老板：怎么可能，你上头还有很多资深同事！</p>
+<p>职员：如果领导职位有空缺，我可以参与竞争吗啊？</p>
+<p>老板：毫无疑问，这是我们公司赖以生存的机制！</p>
+<p>职员：你不会是在骗我吧?</p>
+<p>＊新员工从上往下读，老员工从下往上读</p>
+<p>◎内容读来确实搞笑，也赞叹作者的思维方式如此跳跃。仔细想来，其实这种文体并不难，无非是一正一反地问，而得到的都是模棱两可式的回答。阅读次序一反转，强烈的喜剧效果、矛盾冲突便扑面而来了。</p>
+<p>三）</p>
+<p>按照这种方法，你完全可以再来一篇——</p>
+<p>男：你知道吗？我每天也在想没有你的日子我该怎么过。</p>
+<p>女：要是你的心里没有我，我马上便会离开你。</p>
+<p>男：不可能，我的心中一直也是这样期盼着。</p>
+<p>女：若有其它少女勾引你，你能保持清醒？绝不搭上她们吗？</p>
+<p>男：还用说，这是理所当然的。</p>
+<p>女：我家里的家务都要由我一个人做吗？</p>
+<p>男：不用怕，我会在外头找其它人来帮你干好这差事。</p>
+<p>女：将来我要是不能成为你的完美情人怎么办？</p>
+<p>男：即使如此，但你在我心中的形象也是不会改变的。</p>
+<p>女：若我成为你的妻子，那我肯定有天会人老珠黄，变得很丑，但届时我必会相夫教子，考顺你的双亲。</p>
+<p>男：亲爱的，这样的话太令我感动了，简直是梦寐以求。</p>
+<p>女：但要是有一天我不在这个世界了，你还是再找一个爱你的人吧。</p>
+<p>男：傻孩子，那样的话我情愿一辈子独身了。</p>
+<p>女：那请你以后就只能爱我一个，不要再去看其它美女。</p>
+<p>男：当然，那是不用多说的。</p>
+<p>女：要是你的旧情人来找你，说她还是很挂念你，你会跟她旧情复始吗？</p>
+<p>男：我才不管，这事与我何干</p>
+<p>女：那我要是被别人欺负，你会怎样？</p>
+<p>男：狠狠干掉他，我绝不能让这种事发生</p>
+<p>女：如果我怀孕了，你会负责吗？</p>
+<p>男：这绝对是男人应有的责任，也是该有的表现</p>
+<p>女：你会把工资的一大部份都花在赌博上吗?</p>
+<p>男：不会，这是不能原谅的，绝不能让那种事发生，那怕只是偶然一次</p>
+<p>女：我要是做错事，你会原谅我吗？</p>
+<p>男：那是肯定的，而且理应是要包容这种事</p>
+<p>女：你会出轨，对我不忠吗？</p>
+<p>男：这样的话最痛苦的肯定是我自己</p>
+<p>女：我要你经常在早上都抱着我然后对我说「我爱你」</p>
+<p>男：还用说？这种事最好每天至少发生一次</p>
+<p>女：若你碰到死缠不休的女子疯狂追求你，那你会怎样？</p>
+<p>男：那我会叫她早点放弃这念头，若她不愿收手，就只能找执法人员帮手了</p>
+<p>女：若你对我不好，我母亲可是会代我惩治你的。</p>
+<p>男：前者是不可能发生的，因此后者也不可能实现</p>
+<p>女：将来我若嫁给你，你会愿意让我母亲也住到你家中吗？</p>
+<p>男：当然可以，只要把她带到我们家中，更可以让你看到我和她相亲相爱。</p>
+<p>女：我不许你在外面胡混，在其它女子家中过夜或勾三搭四的。</p>
+<p>男：我绝不是会做这种事的男人。</p>
+<p>女：我若跟你家人争吵，你会站在我这边保护我吗？</p>
+<p>男：看情况吧，但一般情况下还是会的。</p>
+<p>女：当你愤怒时，你会虐打你的情人吗？</p>
+<p>男：不可能，那种事简直是一种犯罪。</p>
+<p>女：你能不能让我掌管你的工资，当你的财政大臣？</p>
+<p>男：当然了,有些话不用说得太明白</p>
+<p>女：你爱我是为了性吗?</p>
+<p>男：这种话令我很恶心,请不要再这样说了</p>
+<p>女：你真好,我要永永远远也爱你</p>
+<p>＊现在、请从下往上读。</p>
+<p>四）</p>
+<p>在一个路口，交警截停了一辆超速行驶的小车，让他出示证件。</p>
+<p>司机说：这车不是我的，我先找一找。</p>
+<p>找了一下又自言自语地讲：刚才放枪进去的时候明明看到过的呀。</p>
+<p>交警一听有枪马上警觉地把手摁在枪把上：你刚才讲什么？</p>
+<p>司机：我也不知道在哪里，我杀掉车主后他没有给证件我。</p>
+<p>交警马上掏出枪来对着他：什么？你还杀了人？</p>
+<p>司机平静的说：是的。尸体还在后尾箱。</p>
+<p>交警一听出大事了，就一直用枪指着司机并呼叫来了一大队警察。</p>
+<p>警察搜了很多遍什么也没有搜到，于是警官问：你把尸体藏到哪里去了？</p>
+<p>司机：什么尸体？</p>
+<p>警官：就是被你杀死的那位车主。</p>
+<p>司机：我没有杀人呀！</p>
+<p>警官：枪呢？</p>
+<p>司机：哪来的什么枪呀？</p>
+<p>警官：你不是为了枪杀了车主抢了车吗？枪呢？</p>
+<p>司机：你看，这是我的证件，我就是车主。</p>
+<p>警官看完对交警说：确实是他的车呀。怎么回事？</p>
+<p>司机：可不！他刚才还赖我超速呢！</p>
+<p>◎不知道三十六计上有没有这一招呢？</p>
+<p>五）</p>
+<p>接下来才算是写这篇文章的初衷，不过内容却很少。</p>
+<p>不知道有无看过《福尔摩斯探案集》（可参考此处http://www.tianyabook.com/ztxs/frms/）、《名侦探柯南》一类的悬疑故事。</p>
+<p>其实仔细思考的话，这一类悬疑故事都有一些共通点：首先，必会有一些自以为聪明但总是作出错误判断的傻帽。福尔摩斯里是华生或警局里的葛莱森和雷斯垂德，名侦探柯南里是目暮警官。其次，故事里的犯罪嫌疑人总是最不像犯罪者，并且总在最后关头才被揪出来。</p>
+<p>结合开篇第一个“先开枪再画圈”的幽默故事来看，你是否已经理解了所有的故事其实用放倒带的形式创作的。</p>
+<p>作者只需要先设计好一个作案场景，再安排足以迷惑断案者的各种人物、线索，还得安插烘托主人公的傻帽；为了令真正的罪犯的出现不致太突兀，在一开始或较早的阶段就安排真正的罪犯以轻描淡写的方式登场。</p>
+<p>由于证据都是逐步呈现而且很多部分是被省略掉的，在这种情况下，读者（或观众）又如何能判断出谁才是真正的罪犯呢？按照作者（或编剧）的思路，不看到最后是不会明白故事真正的结果。</p>
+<p>这样安排，就是让你猜不着——如果一开始就知道结局了，你也会感到索然无味的，不是吗？按照这样的思路，我们完全可以自己构思奇妙的故事了。不过，在创造之前先好好地锻炼自己的想象力和写作能力吧！</p>
+<p>刘谦的魔术技巧是否厉害我不想在此作评论，但对魔术表演的理解上，他有一点是说得很对的：无论魔术效果是否震撼，都不要提前告诉观众将会发生什么——不知道将会发生什么而发生了的，才是最大的震撼。</p>
+<p>是的，不知道将会发生什么而发生了的，才是最大的震撼。所有的故事，本就是让你猜不到。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

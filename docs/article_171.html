@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F总结，G计划 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>F总结，G计划 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>2012年，注定是更替变革的一年，中国的互联网事件以他特有的速度，将事件进行发酵、弥散（1月的方韩之争，2月的王立军事件，3月的齐B小短裙，4月薄熙来被免职、黄岩岛事件，7月北京大暴雨，8月击毙周克华，8月的表哥、3B大战，9月钓鱼岛事件，10月莫言获诺贝尔文学奖，11月雷政富不雅视频，12月天价切糕事件……），每个人在这里面都有了自己的角色，与互联网再也分不开了。</p>
+<p>相对于热闹非凡的刀光剑影，左岸读书依然平稳地走过了第6个春秋，这让我想到了那句话——活着就很好。</p>
+<p>先说说家人。</p>
+<p>Angel下半年从公司辞了职，专心回家相夫教子。我觉得她在公司做得很努力，却很不开心，受了气下班回家也不快乐，这影响了我和孩子的情绪，现在回家好了，下班回去，有人在家，有可口的饭菜，有温暖的怀抱，这不正是我要的生活吗？这才像个家啊！Angel自然也没闲着，有时间就看看书，绣她喜欢的十字绣——大型“梅花寿鸟”图已经完成大半。韩寒说，他不会让自己的女友去上班。因为或许有一天你定了餐厅，买了电影票，约女友晚上去吃个晚餐，看部电影。但是女友的领导晚上要陪客户应酬，需要带你女友一起。那么你的计划就泡汤了，她就不能陪你去吃晚餐，看电影。 领导有错吗？没有，那是为了生意。女友有错吗？没有，那是为了饭碗。想避免这样的事发生，那么你就需要一个人赚两个人的钱。努力赚钱，是为了不让自己的爱情受到别人金钱的考验－－这就是现实。还真是希望中国有一天，一个人的工资可以负担整个家庭。</p>
+<p>6岁的小治渐渐地表现出了他的小男子汉气概，开始学会承担与责任 ；有极强的自尊心，会伤心落泪；开始懂得是非判断，会与我们讨论对与错。看他跳拉丁舞，最能真切地感受到他是一个跃动的精灵。想起纪伯伦《先知》诗句：“你的儿女不是你的儿女，他们是生命对自身渴望所产生的儿女。他们经由你出生，但不是从你而来，虽然在你身边，却不属于你。”我们对生命的态度是什么——惟有尊重。</p>
+<p>大多数的假期，我都会带Angel和小治回去与老人家共度。一家人在一起聊聊天，吃吃饭，偶尔打打麻将，完全没了城里的灯火与拥挤，充满的是静谧与温馨。</p>
+<p>再说说左岸。</p>
+<p>我是这样安排时间的，白天专注于学校工作（我喜欢我在学校的工作，虽然有点辛苦，因为能够胜任，却也开心）；晚上整理邮箱里的投稿，选择和编辑当天需要发表的文章；阅读和整理google reader里订阅的博客文章；如果还有时间，会看部电影，睡前看会儿书。这样的生活在大多数人看来是枯燥单调的吧，我却乐此不疲。</p>
+<p>2012的左岸读书。</p>
+<p>这一年，左岸读书有了风格上的转变，许多读者也感觉到了，他们说左岸读书涉及的范围越来越广泛了，却少了以往的精髓。为什么会有这样的转变呢？那是因为，这一年我80%采用了大家的投稿，经过几年的阅读，我认识到，理性的思考都应为感性的生活服务，生活不仅需要大师们的教诲，还应有朋友们的故事。</p>
+<p>自左岸读书接受投稿以来，我们读到了更多元的智慧，更深的情感，精妙的杂文，无悔的坚持，深切的怀念，成长的过程，温馨的故事，深刻的书评……，在这里深深地感谢你们对我的信任，谢谢你们无私地分享你们的文字。谢谢德鲁伊、沈万九、莫尘、方爷、zeme、汤宁、宋大妈、人人六分、下午百合、kindwater、Louis、范闲幽雅、祭洒青词、墨迹白、不二飞、小逸、学夫子、枝子、王哲晓、片月三星、一心、小杨、橘子、麒、比比佛、唐山、君威、yuqi、JoJo、一姐、轻颜掬笑、佟海宝、子轼、周小胖、阿式旅行、fps40、燃梦岁月、ant、宇寒、徐思惠、施天赐、赵强、坐看云起、鹤舞白沙、artonry、末末、侯哥、易仁永橙、徐静、Deen、徐武、一把钝刀、Evey、芭伍嘉、碎冷月、王超、草祭、骆闻笛、十水、sherry、曹曹、Mark、雨戟、飞龙、碎念的风、杨依拉、刘辉、blbbylenng、黎歌、李静、立三先生、stonebyseal、锦年、阿汤、沈淼、Rae、鹏子、足迹、蘭荳夫人、鑫鑫、kairengege、徐仁冲、kaiyi、Johnny、荣先海、在路上、sincerely、素喜、稻田里的盗、千年、风里的密码、tnway、daping、卫斯理、盛夏文子、刘康利、物虚生、未完成……</p>
+<p>从流量上看，比去年的要少一些，难道真的是因为微博的兴起，读博客的人越来越少了？</p>
+<p>每天的流量：</p>
+<p>搜索也少了许多：</p>
+<p>下面是关键字：</p>
+<p>2013年的左岸。</p>
+<p>现在的左岸读书才真的是大家的左岸，突破了先前的个人思维瓶颈，我也将一如既往地把大家的投稿编辑发表，然后进行一定的理性回归，让这里成为一个多元的思维空间，即能看到生活的百态，也能领悟到一些人生的真谛。</p>
+<p>本来今年打算做几本电子书的，后来放弃了。做电子书的目的是为了大家能在手机上阅读，因为豆瓣推出了微图书，还有鲜果阅读、zaker扎客、网易阅读等手机客户端都能很方便地订阅左岸读书的频道，有了他们我就不必去做那些重复性工作，也就能把更多的精力放在文章的内容上了。</p>
+<p>如果可以，想给左岸读书换个新的主题，毕竟这个主题已经用了5年了。</p>
+<p>其实，新的一年也没什么可计划的，当一却切都变成一种习惯之后，优秀就成了一种品质。</p>
+<p>最后，祝愿大家在新的一年里快乐、幸福。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

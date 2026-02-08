@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>警惕那些诅咒金钱的人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>警惕那些诅咒金钱的人</h1>
+            <div class="date">2015-10-19 00:28:53</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>导读：非常深刻的一篇文章，生活中，我们常常会遇到非常多的怪现象，很多不是问题的问题在中国却是争论的焦点，比如：关于“钱”，真的是应该把真相还给它了。文/雾满拦江（01）有朋友问我：你好像没给屠呦呦写点什么？我一下语塞。在我看来，从莫言的诺文奖，屠呦呦的诺医奖，再到由刘慈欣冲击并夺得的、远比诺奖距中国人更远的星云大奖，都标志着中国人智力的全面飙升。三十年改革开放，首先放出来的就是民智的汹涌狂潮。只希望能够如愿以偿，让这股智力激潮，推送我们到达一个新的智高点。总之有点兴奋，只顾听别人说，自己倒没想说什么。朋友说：屠呦呦获奖，引起了许多话题。有这事？朋友推送过来一条微信，标题叫《屠呦呦的半个客厅和黄晓明的两亿婚礼》，咦，莫非晓明抢了屠呦呦的钱？晓明你怎么可以这样……急忙打开，这篇文章倒没这么说，但以不屑的口吻称黄晓明为戏子，替屠呦呦抱不平，因为屠呦呦这位在世界医学界瞩目的科学家，所获诺奖在北京只能买半个客厅，而黄晓明豪华广厦一场婚礼几乎瘫痪了上海两座机场……诸如此类。当时我心里咯噔一声。不好玩的事儿，还是来了。我知道中国人有一种实用心理，远比小说奖更重视自然科学奖——但，你越是急切的想要得到什么，就越有可能失去一切，要知道这世界不是按直线思维运行的，举凡急功近利之举，带来的往往是悲剧，或是反面的结果。（02）看那篇讥评黄晓明的文章，作者痛斥金钱当道。文章称：古人云：风俗，天下大事也……后面的意思是说，黄晓明大操大办，很不风俗。感觉作者这样要求黄晓明有些不妥，一方面称人家是戏子，一方面要求人家当道德楷模，便宜都是你占，责任别人来扛，这样好吗？再者说了，古人还云唯女子与小人为难养也，古人还云男尊女卑，古人还割男人卵蛋裹女人小脚，古人乱说胡来的事儿多了去了，但古人再神经错乱，也不好意思把个社会风俗的责任，让一个艺人来扛。文章称：……这种巨大的反差与价值观的扭曲，进一步的放大了社会存在的拜金主义，利已主义，享乐奢靡的思想毒瘤。如果社会让这种风气裹挟任凭民众在娱乐致死中狂欢，我们靠什么去复兴中华的梦想？这个质问绝对的掷地有声，估计许多人看了，就会拍案而起，怒斥黄晓明而力挺屠呦呦，黄晓明还钱……可是大哥且慢，请你拿脑壳想一想，说到拜金利已，享乐奢靡，对面的典型就是韩国，按理来说他们应该分分钟亡国才对。而韩国的隔壁对家，绝对的找不到丝毫的拜金利已，享乐奢靡，按说他们理应称霸全宇宙才对，是不是？可现实呢，有点对不上号呀。其实我们都清楚，作者将黄晓明与屠呦呦扯在一起，两个热点话题，这就是一切了，观点什么的，并不重要。逻辑之类的，并不需要。但我们的目的也是这样。我们旨在于借助这起事件讲清楚，一个好的初衷或动机，未必能够获得结果的支持。表达往往是情绪化的，而这世界的规律，却是冰冷而客观，任何时候我们如果放弃思考，得到的，或许就是最不希望的。（03）有意思的是，中国如今发生的一切，昔年在美国，都曾经发生过。早年，美国有个猫王，哇哇哇唱歌，火爆不得了。有本书声称，猫王曾坐私家豪华飞机，飞到纽约就为买只热狗。而美国那边的诺奖获得者，数量有点多，其待遇与猫王之差，远远大于屠呦呦与黄晓明——至今为止，许多美国大学为诺奖获得者唯一的优待，是在停车场有个固定车位，还没获诺奖的诸大师诸学者，还得红着眼睛去抢车位。黄晓明不过是结个婚而已，如果他也象猫王一样，开私家飞机去成都吃碗担担面，估计有些人立马会疯掉。更有意思的是，当猫王刚开始走红的时候，美国一位红衣主教发表讲话，提醒人们警惕在一部分美国青少年中正蔓延着一种新的信仰。他说，这种信仰崇尚粗鲁、无礼、非道德和堕落，还说猫王道德不良。但结果如何呢？美国人硬是自由散漫漫，主教大人的讲话，也敢当成个屁放。居然没有严打猫王，而其后的诺奖获得者，仍然是络绎不绝。不是说美国怎么样，咱们中国也怎么样。中国人吗，要有志气，美国往东，咱非得往西——但你再他娘的有志气，也不能和人性抬杠！美国的社会制度，是通过社会关系博弈出来的，毛病一大堆，混乱又不堪，但偏偏是切中了人性的隐密规律的。如果美国政府，停下掐架干点正事，比如说提高科研人员待遇什么的。情况又会怎样呢？（04）英国天文学家，格林威治天文台台长詹姆斯·布拉德莱，他发现了光行差现象，还根据六万多次的观测，编制了一本比较精确的星表，因而大名远扬。英国女王听说了，就赶紧跑来看稀奇，问过詹姆斯的年薪，女王当时就惊呆了，说：哎哟妈，谁给你们制订的薪资标准？咋这么低呢？饭都吃不饱，还让不让人快乐的玩天文了？不行，我要立即下令给你们加薪……詹姆斯听了，急忙阻止：可别，千万别加薪……女王：咦，还有不愿意给自己加薪的，你脑子没毛病吧？詹姆斯道：大婶，我脑子肯定没毛病，有毛病的是你的脑子！你想想，如果天文学家薪水高了，在这个位置上的，还会是天文学家吗？（05）英国格林威治天文台台长的话，言犹在耳。不管是英国美国还是乱七八糟的什么国，只要你敢把钱往科研项目上堆，很快你就会发现，一伙鸡毛蒜皮的怪人正坐在钱堆上，耀武扬威舞舞喧喧，真正的科学家，早被这些怪人踢得满地乱爬了。格林威治天文台的台长，是知道自己玩不过那些怪人的，宁肯薪水低点，也不要把那些坏蛋全招来。倒是有些国家非常理想主义，把博士什么的统统放开了，结果呢？许多官员人手一张博士文凭，搞得现在博士文凭的可靠程度到底有多高，成了一个天大的悬疑。大家对屠呦呦没有评为院士而抱不平。可要成院士，先得成为斗士。千万不要以为学术的象牙塔里，就是一片祥和宁静，象牙塔里也是人，人性中该有的东西，一样也少不了。牛顿伟大吧？一粒苹果都能砸出个万有引力来，三定律什么的大家现在还得学。可在争名夺利时，他对胡克的不择手段，卑劣无极限，至今令人齿寒。善未易明，理未易察。主导人类社会的规律，是人性之间的博弈法则，举凡直线思维，多半是悲剧收场或是收到反面的结果。说到底，直线思维不过是对世事表象的情绪性发泄，疏离了规律本身，必然遭受到规律的惩罚。（06）黄晓明和屠呦呦的比对，带给我们一个思考：金钱是否真的污浊不堪，造成我们的性灵的毁灭？中学时，课本就告诉了我们，金钱是人类最伟大的发明，它是价值尺度，又是世界货币。这两个专用名词，前一个是金钱是衡量万事万物的标准——事实上我们知道，金钱并不意味着一切，但你认为不能衡量的一切，在别人眼里，可能都有个价码，这事你抬杠也没用，规律比你胖，胖就把你上，气死你。世界货币的意思是说，金钱是世界的通行证，你去美国去瑞士，揣着钱就可以去了——哪怕你要去韩国隔壁，兜里没得钱，隔壁人民也不稀罕你。金钱的这两个特性决定了，它是一个很低很低的东西，低到了没有丝毫道德属性，没有丝毫身份属性——同样一块钱，在杀人犯手里是一块钱，在正常人手中也是一块钱。在王子手中是一块钱，在贫民手中仍然是一块钱。所以金钱最大的价值是平等，憎恨金钱的人有可能只是喜欢跟规律抬杠，不一定憎恨平等。但憎恨平等的人，必然憎恨金钱。既然金钱意味着平等，你马上会注意到，发达国家多半是祟尚金钱的，或至少曾有过祟尚金钱的历史。而权力型国家，往往是即憎恨金钱，又经济极端萎靡——这只是因为，憎恨金钱实际上是否定人与人的平等，而不平等的社会，所创造出来的巨额社会财富，会在不平等的现实对撞中湮灭，证明这一点的最鲜活的例证，就是韩国和他的隔壁。当然谁要是强找反例，也不是找不出来，但人类历史如此漫长，我们要寻找的是反复性的、持久性的现象，唯其这之中才隐含着规律。金钱是一种很低端、不可以太干净的东西，它被制造出来，就是要为每个人服务，包括了泥陷于人性沼泽中的可怜性灵。如果金钱不是这样子的低端，底层人将无缘享受到它的价值。一个好的社会，对金钱应该是淡而泊之，祟拜金钱固然不对，视金钱为粪土也太过了。金钱这东西，其实就是条短裤。没穿短裤没法出门，但有了短裤也没什么了不起，必要，必需，但最终目的是为人服务。这就是金钱。（07）大家可能都有听过一个词：科研成果转化率。这个词是啥意思呢？是说科学家的工作成果，甭管多么的伟大，但暂时没法向大家收钱。非要完成实用化后才可以收钱的。这就导致了一个正常的现象——不是伟大的发明，大家就一定付钱的。而不伟大甚至很胡扯的东西，大家说不定反倒掏钱不倦。昨天凤凰历史公众号冒宇宙之大不讳，悍然掀开了爱迪生的底裤，揭发说电灯泡并非是爱迪生发明的，他是有钱任性，买下别人的专利——但凤公号也承认，爱迪生在普及电灯方面做出了伟大的贡献，这个普及就是转化。另一个极端案例，搞IT的都知道，昔年有基尔代尔其人，是电脑软件开发真正的先驱人物。最早创造了磁盘操作系统（DOS），但最终贫寒潦倒而殁，比尔盖茨却踩着他大发横财——就是因为，伟大的发明成果转化，也是需要钱的，公众看戏都会爽快的掏钱，但遇到这事，却全都成了铁公鸡。——是公众挑毛捡刺，不肯为未转化的伟大科学成果付钱，试问那些痛斥猫王或黄晓明的人，你为哪项未转化的科研成果付了钱？明明是你自己不掏钱，却捂住自家腰包骂猫王和黄晓明，这真是太扯了。（08）演艺圈中，能够赚到钱的比例，绝不会比学术圈中更高。黄晓明能够捞到盆满钵满，这跟他的人品有直接关联。曾在中国杯世界帆船大赛上遇到黄晓明，当时他的眼睛转过来，一双灵动的眸子转动之际，透出无限的真诚。当时我对身边的朋友说：你看准了这个人，他那双眼睛会说出极复杂的话。那双真诚的眼睛，分明是在说：老板，你看我是个多么无公害的萌宠呀，请把你的钱掏给我，好不好呀？你根本无法拒绝他。他是个情商极高的人，即使演艺圈中也不多见。黄晓明的谦和，应合了金钱的规律。金钱是下倾之物，唯其放低自己，才能让金钱水一样的流过来。同样是艺人，谁有更高的演技，再加上切合金钱规律的处事态度，赚到的自然就多。学者是不论金钱的，但这规律也同样生效。这个世界上，穷到凄惨的学者有，捞到盆满钵满的学者也不乏见，这跟他们的学术成就并非直线关联。许多学者，以他们的学识造诣，智慧累积，想捞钱真的不难——但他们多数不喜欢，他们要的就是个适度。他们比任何人更清楚，演艺圈的争竞是多么的残酷，花开花谢，转瞬之间。一代又一代的明星花期败落，而学者依然在这里，唯其持久，绵延深厚，润泽后世，才是学者的存在价值。至于对那些没有做学者的志向，也不想进入演艺圈的普通人来说，更应该学会掌握金钱，利用金钱。你务须要警惕那些诅咒金钱的人，普罗大众与金钱无冤无仇，任何时候，金钱都不会拒绝普罗大众——前提是，你需要拿起中学课本，复习一下金钱的规律。掌握规律你就是金钱的主人，一味固执昧却规律，那就是对自己不负责任了。转自：雾满拦江的公众号原文链接：http://www.zreading.cn/archives/5107.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

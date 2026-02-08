@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贵族范儿 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>贵族范儿 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/刘瑜</p>
+<p>时不时和朋友讨论，为什么很多颇有学识的人，甚至有欧美留学经历的人，那么敌视自由民主制呢？不少朋友断言：利益呗，哪有什么真诚的观念，不过是逐利而动而已。</p>
+<p>我倒不这么看。我向来不愿假定与我观念不同的人道德水准在我之下，总觉得这个解释过于轻松——所以可疑。对上述现象，我有N种解释，其中一种是：自由主义的核心要旨太浅显，门槛低，不能满足很多知识分子的精神贵族需求。</p>
+<p>难道不是吗？自由主义不就是说“只要别害人，自己想干点啥就干点啥，别人想干点啥也别拦着”嘛，这道理我外婆都知道，还需要一个知识分子穷尽一辈子“研究”？何况斯密洛克密尔几百年前都说过了，21世纪了还拾人牙慧，是不是有点寒碜？前两天石康君还在微博说：“其实我们都知道，看洛克是根本不需智力 的……”还读洛克，你就自卑去吧。</p>
+<p>民主就更不用说了。无论是经济上的自由放任主义者，还是儒家复兴主义者，大多谈到民主，简直是要捂起鼻子绕道走的：民主？这个瘟神与以下病毒联系在一起：暴民、庸众、羊群效应、乌合之众、多数暴政……人家是每天站在窗前细细品味着自己智力优越感的人，怎么能跟“民主”这么下里巴人的事物联系在一起？</p>
+<p>总之，这些智力上的“贵族范儿”，不屑跟自由民主派玩。要搞就搞点德国18世纪神学——英美就别提了，也就德国思想家还值得一搞，或者新新新儒学，总之我们研究的这些东西，全球能搞懂的人一般不超过20个，如果都有 200人懂了，那就掉价了。懒得搞研究也没关系，整点不屑于谈论时政的文艺精英范儿，读点卡佛听点古典音乐——时政？那是臭不可闻的“公知”才谈的事。</p>
+<p>在各种肯定思想水准的褒义词中，有一个我一直不大懂的词汇：深刻。这是指晦涩难懂吗？生僻复杂？引经据典？我眼里只有两种思考者：一种是思考真问题的， 一种是思考伪问题的。坚持思考真问题，并坚持问题的答案不在其标新立异、而在于其合情合理，这就是我眼里的深刻。或者说，在必要的时候坚持简单即深刻。</p>
+<p>在陡峭的知识高峰面前坚持“外婆都懂”的常识感，确实有些难度。</p>
+<p>昨天谈论公民权利，今天谈论公民权利，明天还是谈论公民权利，说来说去就这么一件事，能不能弄点新鲜的？问题是，如果昨天强拆，强调公民权利是头等大 事；如果今天发生的事情是刑讯逼供，强调公民权利还是头等大事；明天发生的事情是城管打人，强调公民权利依然是头等大事。道理的意义不在于它能创造多少美 学上的新鲜感或者提供多少智力上的挑战，而在于它在多大程度上回应现实中的真问题。知识分子不是好莱坞恐怖片导演，在设计出3600种谋杀现场后，接下来 的任务是设计第3601种。早就厌倦了强拆、逼供、城管这些话题？可惜，这些现象并没有因为你高雅的疲惫而销声匿迹。</p>
+<p>最近广 电总局刚发布电视剧制作方面的“六点要求”——不能夸大家庭矛盾、不应改编网游云云。面对这样的禁令，我想自由这个话题远未过时；目睹今年以来乌坎、什邡 民众艰难的维权之争，我想扩大民众政治参与的制度化渠道也还是当务之急。如果现实进步太慢，一个思考真问题的人只能不断敲击同一堵墙，做个唠唠叨叨的“祥林嫂”。如果祥林嫂无法追上你螺旋式上升的审美品味，对不起，你还是去冰淇淋店吧，那里有38种口味任你挑选，一种比另一种更精致。</p>
+<p>前一段读到过一个儒家学者们的“儒家宣言”，要我说那篇文章可是拉菲味十足，说是中国应有一个由儒家学者领导的“通儒院”代表天，一个各界精英的子女组 成的“国体院”代表地，最后才需要一个选举产生的“庶民院”代表人——这个治国方案概括起来说就是：“我吃大苹果，你吃小苹果。”我并不那么反对贵族范 儿，最近读罗马史读到贵族体制的部分甚至有些感动，说是罗马的贵族虽享受更多的权力，但打仗时也身先士卒，流更多的血汗。这种将责任感和精英地位联系在一 起的贵族范儿，似乎更靠谱一些，不似我今天在中国看到的贵族范儿：把冷漠当品味，把懦弱当清高，忙不迭地抢“大苹果”，又迫不及待地鄙视普通人——好像脖 子仰着仰着，个子真会长高一样。</p>
+<p>左岸记：哼！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傻瓜，给你的信</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>傻瓜，给你的信</h1>
+            <div class="date">2014-10-20 22:54:15</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/blackcyy傻瓜：傻瓜！我以后还能这样子喊你吗？还记得第一次喊你傻瓜的时候，我的心跳得很急，既紧张又感觉到刺激。那个时候我感觉到脸烫烫的，我想应该是烫红了，却仍旧笑着看着你，看着你有什么反应。你是个很木的男生，傻傻的，笨笨的，呆呆的，那个时候你竟然只是“哦”了一声，你的反应让我哭笑不得。在你反应之前，我想过你是羞恼，你是生气，你是嗤笑，却从来没有想到你会傻到，会笨到，会呆到只是面无表情地“哦”了一声。算了，谁让你是傻瓜呢。有一天，你问我：“你说我是不是有点像郭靖？”我看着你笑了起来，轻轻一拍你的头，“你比郭靖还笨！”这个时候你似乎变得聪明了些，赶忙接到：“那你比黄蓉还聪明。”你知道吗？这是你向我说得第一句不算是情话又算是的情话。那个时候我竟然一瞬间不知道该怎么接下去，你看我突然间不出声了，赶忙哄我，“我错了。”其实我并没有生气，是不是我在你的心里就是一个喜欢无理取闹，蛮不讲理，情绪变化比三月的天还快的女孩子？当时我板着脸，咄咄逼人地说：“哪错了？”“我不该惹你生气的。”哎，你连女孩子的心思都不知道，我怎么会喜欢上你呢？可是，我就是喜欢上了你，还爱上了你。或者我在喜欢上你之前，曾经憧憬过我的白马王子是一个多么多么有情趣，幽默有风度的人，但是当我爱上你之后却发现，你有这么多地方我不喜欢，但是我却又这么爱，你说这是为什么？那个时候你想了好久，回答：“我也不知道。”呆瓜，我也没有指望你能告诉我答案，但是第二天你再见到我的时候，急匆匆地向我跑来，一句话“甜言蜜语”都没有，急不可耐地说：“小叶子，我想到了！”你想到什么了？当时我就纳闷了，心里嘀咕着，定睛看着你，只见你是满脸兴奋，“人都是有着缺点的，每个人都想象着自己喜欢着什么，可是真正让自己合适喜欢的不一定是自己曾经想象着的。爱是一种奇妙的感情，没有道理可言。这或许就是为什么会有‘情人眼里出西施’。”我白了你一眼，“哦，感情你以前说我漂亮就只是‘情人眼里出西施’是吧，其实我并不漂亮，是不是？”你一下子变得手足无措，直说“小叶子，我不是这个意思，真不是这个意思。”我看着你手忙脚乱的样子，心想，我当然知道你不是这个意思。其实我从来没有想过去追问这个问题的答案，我爱上了你，是不需要原因的，也或许，正是每当看到你在我面前就变得呆呆的我会感觉很开心吧。可是，你却也太呆了吧，能不能有的时候呆点，有的时候聪明点，而不是一直呆啊。我也和其他女孩子一样很渴望着自己的男朋友能够宠着自己，疼着自己，而不仅仅只是爱。有些时候我会觉得我们之间的距离好远好远，远到似乎是我在水中呼喊救命，你却在岸边看着我以为我是游泳嬉戏。傻瓜，我知道你心中一直念着我，一直是在为我好，可是我也是喜欢偶尔下你说些“甜言蜜语”的。知道吗，有次我骂人的时候你板着脸说我不对，然后我就很不爽，然后就吵架，然后我不舍得的时候再向你道明“我在乎的不是骂人这件事，而是我骂人的时候希望我的男朋友也能和我站在一起，一起去骂！”那时你沉默了好久好久，在我又要抓狂的时候，你对我说：“小叶子，我一直站在你的身边，纵使世界认为你是错的，我也觉得你是最好的。”你知道吗？那一刻我直想落泪，什么对你的抱怨都烟消云散了，我问，“那你怎么说我啊，没有帮着我去骂？”你又结结巴巴地说：“这不是只有我们两个人嘛，再说了，骂人的确不太好。”得得得，你永远那么傻，傻到了善良，真的担心你走到社会上会吃亏。尤其是，吃其他女人的亏。我不在了，你会照顾好自己吗？又呆又傻又笨，还不够主动，还没有勇气，我想只有我会喜欢上你吧。我都很奇葩了，你更奇葩。我们牵手之前，我向你不断暗示，你竟然毫无反应，直到有一次我生气到极点，不断骂你傻瓜，笨蛋，呆子，你还是茫然无措，不知道该怎么应付那时的我，其实我当时只是想听你说，“小叶子，我喜欢你！”可是，你没有，还是让我问出来，“你喜欢我吗？”我知道，你是从来不对我撒谎的，对我都毫无隐瞒，你直愣愣地看着我，我一瞬间变得冷静沉默，等着你说出答案。你个呆子！傻瓜！胆小鬼！都这个时候了还是不说，最后我失去了耐心，我说，“不和你说话了。”于是起身离开。非要到最后才能让你吐出真言吗？你抓住我的胳膊，说，“我喜欢你。”我转回身子，看到你的嘴依旧张开的，这句话是不是很难说出口呢？我能感觉到这句话带走了你全身的力气，连合上嘴巴的力气你都没有了。那一刻我是感觉那么幸福，看着你的样子却又那么生气。我甩开你的胳膊，一瞬间，你的眼睛中全是黯淡的颜色，我想，我的举动应该是伤到你了吧，又有些不忍，于是我挽起了你的胳膊，这个时候你的眼睛才重新有了色彩。从一开始你就不够主动，不够有勇气。这件事相比你的傻，相比你的笨，相比你的呆，更让我抓狂。之后你的不够主动，没有勇气不断的表现出来。你不够主动！我不联系你，你可以整个白天不联系我一句，你可知道，整个白天我都在等你的短信电话？你说：“小叶子，无论何时，你联系我，我除非有着特别紧急的事情，否则一定以你优先，如果你的事情也紧急，那么你的优先级一定最高。”“小叶子，我的心中一直念着你，一片树叶飘过，一阵风吹过，在我想法间断的时候我都能想起你。”可是，你想起我了，为什么不告诉我，你想起我了，为什么不主动和我去说，你想起我了为什么不主动和我聊天，和你在一起之后，我的电话都是24 小时开机的，每当电话没电我都担心你会不会就在这个时候给我电话短信而紧张。我期待着你的主动，我期待着你能时时主动联系我，可是你却没有。之后你确实改了，你会时不时给我发短信，你会时不时给我打电话，你知道吗？即使我很忙，你的短信我没有及时回复，看到你的短信我也是很开心的，即使我很忙，接到你的电话匆匆几句又挂掉，我也是很开心的。我知道你念着我，你想着我，你在乎我，傻瓜，不要认为这是对你的冷淡，好吗？傻瓜，不要认为这是因为我不想理你，好吗？可是，我还有机会让你知道吗？你没有勇气！我生气了，让你不要和我说话，你竟然真的就和我说，“那我送你回家吧”，“那先拜拜吧”，你连拒绝我这些要求的勇气也没有吗？你说：“小叶子，当你生气不让我和你联系，我的心都要碎了，我很想很想挽留，但是我心中对你的要求的顺从，尊重却压制了我心中强烈的挽留冲动。”“小叶子，你对我的要求我都会很努力很努力的去做。”“那我让你主动点，你怎么不主动啊？”你又变得傻笨呆了，“可是你当时又不让我和你说话啊。”傻瓜，你又怎么知道，伤害你的同时，我给我自己的伤更深更痛，我既伤害了我自己，我也承受着你心中的痛。傻瓜，你可知道，每当想到我让你心痛了，我就会彻夜难眠，你可知道，当我挂断电话的那刻，就是我开始盼望你能再打来电话，再发短信的那刻。可是，你为什么就不再打电话啊，你怎么不就再发短信啊。就像这次我给你说分手，你怎么就不继续坚持了？你知道吗？很多时候我是故意不联系你，故意发脾气，故意把你晾在一旁，我想要让你变得主动，让你变得有勇气。即使有时候我很生气很生气，但是那些话也都是气话狠话，事情过后连我都不记得说过什么了，对你，我真的是不会真的生气，对你，我的气真的是不会留在心里，就像是“分手”，我也只是想气气你。我是个女生，你是男生啊，你为什么就不能让让我呢？你说：“小叶子，对你说的你蛮不讲理，你爱发脾气什么的，我都不在乎的，你在我心中是最好的。”你说，你不喜欢听到分手。可是，我是真的想和你分手吗？知道我为什么喊你傻瓜，笨蛋，呆子吗？因为你不明白我的想法，女生就是这样子的，反反复复，来来回回，可是我同样对爱很坚定，我会说你不好，我会说些气话，我甚至会冲动说不理你了，不想见你了，更甚至是这次说分手，可是，这些都不是我内心真正所愿意的。你懂吗？你知道吗？你不懂，你不知道，你以为我是不在乎你了，不喜欢你了，不爱你了，其实你想错了，我只是发发脾气而已，而这脾气在我笑的那一瞬间就忘记了，我依旧在乎着你，喜欢着你，爱着你，虽然你很傻，很笨，很呆，不够主动，没有勇气。左岸记：感情方面的问题，我是外行，但我还是愿意说说文中提到的一些问题的看法：1.文中的男主角，无疑是个幸运儿，虽然小叶子并没有讲他的多少优点，但能被一个勇敢的女生爱上的男生，必有他的可爱之处。但这些可爱不足以支撑相处的成本，当矛盾出现时，他的可爱往往正是他的可恨之处。被动心理的障碍是害怕说出来的话、做出来的事会再次受到打击，自认为说了白说、做了白做，是缺少信心的反应，是一种怕输的心理。小叶子的强势是他无法突破的带刺的铠甲。2.爱是需要也是可以学习的，喜欢一个人容易，想和一个人很好地相处却是很难，在相爱过程中出现的种种问题，是因为彼此或者至少其中有一方缺乏爱的常识，从而滋生了各种惰性和惯性。我有一个衡量感情稳定的指数：和解需要的时间/不发生矛盾的时间，这个指数越小，情感越稳定。如果无法做到不发生矛盾，那么就应该努力地减少和解的时间。3.爱，是需要与被需要的平等关系。爱一个人是需要理由的，说不清并不等于不需要，哪里有无缘无故的爱呢？对一个人的爱就算不能常挂嘴边，却需要勇敢地表达出来，说不清道不明是一种逃避心理。4.找到事情的根源，自然很容易找到解决的办法。适当的等待会会让一些事情变得明了，但一味的等待问题不会自动的消失，主动去解决才是根本。原文链接：http://www.zreading.cn/archives/4599.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

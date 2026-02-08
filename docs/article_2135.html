@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间的刻度</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>时间的刻度</h1>
+            <div class="date">2016-02-27 00:20:43</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/廖超国人在三种情形时或者三个节点上，对时间特别敏感，会突然想一些关于岁月和时间的问题。每当岁末年初，辞旧迎新之际，总会生出日月如棱，光阴似箭之感慨。驻足盘点，流年似水，觉得那个“快”谁也挡不住。常人都会这样；每逢生日之日，徒增一岁之时，又会有岁月匆匆，一晃一年的感叹，回首过往，时不我待，感到那个“急”充溢胸间。女人更犹如此；又当人入暮年，回首人生往事，会有人生似梦，岁月如流的叹谓，人生如梦，转眼就是百年，悔悟那个“真”让人难信。前者是对无脚的时间飞速的体感，中者是对世事经变的无奈，后者则是对自己人生未能抓紧的惋惜。近年来，时间的问题也引起了全社会的关注，不然“时间去哪儿了？”不会变得如此流行。也正是在这些节点上，如果我们静下心来思考一下有关时间的问题，也许我们会对时间有更深遂的理解，对人生有更深刻的思考，对生活有更透彻的体悟，对当下的重要有更现实的明白。说到底人生问题最终是一个把握时间刻度的问题。时间是宇宙自然的一种存在形式，世界上的万事万物莫不以其形式存在而存在。时间一定是早于人类而存在的。可以说它是无始无终。前不见头后不见尾，既没有产生之时也没有消亡之日，具有无限性。但自有了人类的誔生，情形就发生了一些变化。人类最伟大的聪明之举在于把时间标上了刻度，可以计量，于是便有历法和四季，有了年、月、日、时、分、秒的时间单位。复杂的世界因可用时间的尺度来度量而变得简单起来。事物的存在统一于时间的名下，就像事物的价值统一于货币一样而变得容易。人们从不同的角度论述时间。仿佛时间就是各种各样事物的化身。“时间就是生命，浪费时间就是牺牲了生命。”李大钊这样说。“思想是生命的奴隶，生命是时间的弄人。”这是莎士比亚说的。“生命的长短以时间来计算，生命的价值以贡献来计算”裴多菲如此说。我们耳熟能详的是鲁迅老先生的话“生命是以时间为单位的，浪费别人的时间等于谋财害命；浪费自己的时间等于慢性自杀”。这是时间生命说。“历史是时间的齿轮，是因为时间的不断推移才形成了历史.”一位学者这么说。这是时间历史说。“时间是真理的朋友。”科尔顿说。“真理是时间的女儿，不是权威的女儿。”培根这么说。这是时间真理说。伯克说“时间是伟大的导师”。“时间带走一切，长年累月会把你的名字、外貌、性格、命运都改变。”柏拉图这样说。这是时间改变说。“一切都不是我们的，而是别人的，只有时间是我们的财产。”塞涅卡说。“时间就是金钱，而且对用它来计算利益的人来说，是一笔巨大的金额。”狄更斯如是说。更有马克思一语的中高度概括“一切节省，归根到底为时间的节省”。这是时间财富说。……关于时间还有很多经典的句子，仅此摘录不足一角。这些林林种种的论述，丰丰富富的概括，各式各样的比喻，千变万化的形容，都从不同的角度和各自的侧面对时间进行了表述，赋予了时间不同的内容。告诉我们时间是生命，时间是历史，时间是真理，时间是财富，时间是……，时间是一切，时间可以改变一切。时间从来就是一个关于人类的宏大的哲学问题。人类的最伟大的创举是赋予时间以刻度和内容，让时间由过去冰封似的沉寂解冻为春水般热闹，从此活跃而流动起来。人类是在时间长河的舞台上演义着自己的历史。当我沉浸于时间的思考的时候，思绪就像时间本身一样，开阔、延绵、流动、升腾、神妙。时间的本质炫妙无比。时间是什么还真是一个难以说清的问题。是一个过程还是一个结果？是具体还是抽象？是有限还是无限？是静止还是动态？是缓慢还是急速？抑或是又抑或不是。时间在人类之前是扑塑迷离的，即使至今也还是一个迷团。时间既弦妙，又神迷。它无始无终，无穷无尽，无涯无际，犹如一条永不停流的天河，时而缄默时而喧闹、时而美丽时而苍老、时而平凡时而珍贵，弹着自己的节奏行进。它无形无影，无光无色，无声无息。不可捉摸，可又无处不在显现它的痕迹，无往不现掠过它的影子。你想它是什么它就是什么，飘零的秋叶是它的身影，婴儿的啼叫是它的声音，老人的白发是它的颜色，脸上的皱纹是它的印迹。它的本质是事物存在的一种方式。没有它一切事物就会变得虚无和空洞而不复存在。时间的特征奇妙无比。如果没有刻度，时间就是一片茫然。有了度量，时间就划分成了过去、现在、未来。无论是春夏秋冬四季更替，还是日月星辰周而复始，看似是一种循环，实则是更新。从这一点出发，你才能真正理解古希腊哲学家赫拉克利特说的，人不能两次踏入同一条河流。时间的特征表现在，它具有永恒性，时间不可能终结，它会永续下去。它具有方向性，时间总是循着过去、现在、未来的方向，从过去走向未来。它具有连续性，时间是一个整体不可分割，正如一条流动的河流不可切断。过去与未来是无尽的，它们包含在现在之中，现在是过去的终点，又是未来的起点，所以，时间永远在开始的终结之中。它具有均衡性，时间始终保持相同的速度行走，不会时快时慢。它具有当下性，时间不可存储，不可逆转，不能重复，过去了就过去了，永远不会再来。它具有公平性，对每个人都是一样的，还会因为你钱多、位重、权大、颜值高就多给你。它比上帝都公平，时间面前真正做到了人人平等，老少无欺。它完全无弹性，无法交易，一点不受供求关系变化的影响。时间的刻度巧妙无比。时间的价值是因为其有了刻度后才显现的。没有刻度时间可以说就没有价值。刻度既是时间的度量，又是时间价值的表现。没有刻度的时间既无价值，又无意义。一切事物的意义都因时间的刻度而体现出来。生命有了时间的刻度才显宝贵，时间的刻度让生命变成一段有限的用时光度量的过程，这便有了生死的观念。花开一季就凋谢，人活一世入尘土。历史因为有了时间的刻度才显更替，时间的刻度让历史变成了一段角色更换的戏剧，你方唱罢我登场，曲未散尽人已非。万事万物有了时间的刻度才显意义，事物都要经历产生、成长、成熟、衰落、消亡过程。就其结果，除了没有刻度的时间本身以外，没有什么东西可以永恒，所谓永远是不存在的。时间刻度的巧妙，让一切最终都会成为时间的过客。时间的力量神妙无比。这个世界上没有什么力量比时间的力量更强大更神妙。它的强大表现在它可以毀灭一切，让一切消失的无影无踪，它的神妙则是它的方式，表面上浸蚀的无声无息，全然不让你觉察。本质上却充满着斩钉截铁。看似无言无语，实则却能翻天地覆。把时间拉长，站在一个宇宙的高度看，没有什么是时间的对手，沧海桑田、化云为雨、改朝换代、物非人变，只不过是它手中的魔术而已。它用自己的力量击败一切成为这个世界上真正的赢家。时间的力量没有谁不服。哦！此刻，妙漫的思绪顿住回到眼前，突然明白，时间真是万神之主，它拿着一把魔箭将这世间的一切刺上刻度，一切便有了开始和结束，而它自己却永恒地站在宇宙的高处，笑傲天地人间。进而深思，有了刻度，时间才称其为时间，没有刻度时间什么也不是。无论是度量计算时间，还是要珍惜把握时间，时间的刻度都是基础和前提。而这所有的思考，无不在心灵的深处汇聚成一个强大的声音，“珍惜时间，丰润生命，抓住眼前，活在当下。”这声音在心底发出隆隆的响声，震撼自己，仿佛雷一般轰鸣。左岸记：嗯，一言以蔽之，尽力把我们该做的能做的都做了，剩下交给时间。霍金说：“我们的目标是完全理解发生在我们周围的事件以及我们自身的存在”。原文链接：http://www.zreading.cn/archives/5289.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

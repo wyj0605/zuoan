@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平底锅惊魂 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>平底锅惊魂 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>这年头，干啥都不容易啊。日子嘛，还是要过滴，幸不幸福，那要看个人的标准。在米店老板那儿看到这篇很温馨的文章——平底锅惊魂，分享给大家。</p>
+<p>在看过几集《灰太狼与喜洋洋》后，我对灰太狼先生产生了严重的同情心。甚至对羊们产生了恐惧心理，就我看到的这些集里面，灰太狼先生连羊肉都没吃到不说，还总让羊给打一顿，而且根据我对导演的理解，灰太狼这辈子是吃不到羊肉了。这是这出卡通的潜规则，你信不？</p>
+<p>前天晚上，下班的时候，我老婆搂着我的腰说：</p>
+<p>“老公，我想吃用平底锅煎的鸡蛋！”</p>
+<p>灰 太狼先生被它老婆拿着平底锅追着打的景象迅速闪过我的脑海，@#￥%……&amp;amp;？我动用全身的ATP开始运算，我最近犯过什么错误，总结来看，没什么 啊，我认真做家务，我按时吃饭。唉，此时我恨不得长两个脑袋。通过运算分析，我家没有平底锅，我老婆不至于买个平底锅，然后吃煎蛋吧，然后顺便…，啊，我 想。</p>
+<p>“哦，我用咱家锅也能煎鸡蛋！”我回答。</p>
+<p>“不，我就要吃用平底锅煎的！”老婆坚持。</p>
+<p>我没有说话，结过婚的你大概知道，婚姻的第一条准则就是不要和老婆争吵。尤其如此没有营养又不涉及原则的问题。一路平安，我们到家。我几乎把煎蛋和平底锅的问题落到脑后了。后来说事实证明这是多么不理智，多么粗心，把自己重新投入打危险的境地。</p>
+<p>因为当我走进厨房的时候，赫然间，一把平底锅放在灶台上，而且，而且还是崭新的？</p>
+<p>我靠，太离谱了吧，心里想着，我连忙问：</p>
+<p>“那里搞的平底锅？”别真的是买的吧，老婆的城府真的变深了，我又想。</p>
+<p>“哦，我在超市买菜谱赠的。”老婆答，我心里一松，老婆接着说：</p>
+<p>“我是看这个锅挺好，我才买的菜谱。”@#￥%……&amp;amp;心里一阵发紧，我靠，这真有点离谱了。</p>
+<p>我偷眼看着老婆，看来老婆还没有把平底锅和灰太狼夫人及她的身份联系起来。我们做饭，当然用那个看似玩具的平底锅煎蛋，虽然结果证明那个平底锅的确是个玩具，但是一煎完蛋，我立刻就把锅刷干净放起来了。根本就没等到吃晚饭和碗筷一起刷。哈哈！</p>
+<p>吃完晚饭，照旧老婆坐在沙发上看电视，我看书，这时电视里终于出现了灰太狼被他老婆追打的声音，我从书中抬起头，看见老婆眼神一亮，开始哈哈大笑：</p>
+<p>“哈哈，老公，我也有平底锅了“</p>
+<p>….平底，….平底，…锅了，…锅了，这句话还在我耳边回响的时候，我老婆突然冲到我怀里，便撒娇边对我警告说：“你以后要是不听话，我就用平底锅收拾你，哈哈，哈哈！”她得意忘形了。</p>
+<p>”你买的时候没想到吗？“我懊恼的说。</p>
+<p>”没有啊，看来生活到处充满了偶然性的必然啊“老婆依然大笑。</p>
+<p>“不过，老公，我怎么舍得打你呢？”我靠，怎么像电视剧里那些变态婆娘了。</p>
+<p>“你知道吗？电视剧里为了加深恐惧感，末了都要加上这一句的！”我提醒老婆不要过于忘形。</p>
+<p>“哼！我的五谷丰登来了”她笑嘻嘻的走回电视旁边看起了她的五谷丰登。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

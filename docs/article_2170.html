@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找回相爱的能力</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>找回相爱的能力</h1>
+            <div class="date">2016-01-17 00:50:52</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>本文为《此时此刻相爱的能力》自序，写给愿意付出和牺牲，却依旧得不到自己所想的姑娘。我猜你已经看过很多情感教条，听过很多“过来人”的劝言，可一旦放到自己身上，还是照搬得走形蹩脚。哪一种选择，一定会许你美好的未来呢？文 | 鹿满川在写这篇自序之前，编辑问我写这本书最真实的初衷是什么。我想了想，回复她：应该是为了一个人吧。二〇一三年的春夏之交，我经历了一段虽然短暂却珍贵难忘的感情。她优雅、亲和、才华横溢，一眼就被我看进了心里。我们不知疲倦地和对方分享自己的人生体验，七七八八，越扯越远，欣喜地找到了一大堆两人身上的共同点。为表兴奋，早就戒酒的我还陪她喝了几杯。出门后的那条小巷窄而弯长，沉默的街灯把鹅黄色的光涂在我们的肩膀上，人也被长春温柔的夜风快乐地推搡着。两人一前一后地走，嘴里仍兴高采烈地说个不停，无论是谁走到了前面，都会不停扭头去看后面人的眼睛。而在等待过一条马路的关头，她突然叫微醺的我看向她，借着路灯的光亮替我拨弄掉粘在左脸上的一根睫毛。我确定自己是在那一刻爱上她的。我们很快就确定了关系。我本以为自己早已失了为爱疯狂的心气，没想到蛰伏在心底的热情还是被她激发了出来。我们相隔两地，各有各的忙碌和精彩，见面的次数不多，却丝毫不影响感情的急剧升温。两个天性浪漫且拥有良好表达能力的人，善于抓住生活中的点滴灵感向对方投掷浓稠爱意，并把那种爱着和被爱着的感觉扩张并享用到极致。我永远也忘不了那些个早上，我们用“早安”和情歌陪伴对方吃早餐，有时还挤出时间通个电话只为听听对方的声音，然后满心欢喜地去上班，边走边傻笑，觉得阳光那样好，看谁都像亲人。可后来是怎么了？我的控制欲越来越强，甚至到了让她每到一处都拍张照片发给我的地步。她那样优秀，优秀到让我有些自卑。我紧紧揪着这段看不见摸不着的爱情，惦念着远方那个粉丝成群的她，心里愈发不安，揣了太多疑问。这是很累的，她累，我也累。我开始发各种奇怪的话给她，她越来越不知该如何回应，两人便陷入可怖的沉默。分手那天她镇定得有些刻意，我们依旧像往常一样聊天、吃饭、逛街、亲吻、拥抱，又不得不板着脸共同面对一个令人难过的决定。我把她最后对我说过的话记得很清楚。她说：“长这么大以来，你是爱我爱得最认真的一个。”我是该难过，还是该开心？我曾一度消沉。其间也试过跟别人谈情说爱，却总表现得心不在焉，最终选择封闭内心，权当为自己设置一个顿点，看看哪里出了问题。欢愉与伤痛皆是恩赐。在感情里努力笑和大声哭，都是值得的。而在哭过笑过之后，花一些时间来好好琢磨下自己，也是值得的。我将这个过程寄于写作。我开始认真思索好的爱情应该是什么样子，绝对诚实地面对自己的内心，深层挖掘自己在感情方面的性格缺点，很多道理慢慢才想通，很多过错迟迟才承认。我为自己曾在爱情中为非作歹而感到脸红，甚至会拍着大腿懊悔地想：如果当初那件事不那样做，那句话不那样说，故事的结局会不会因而不同？我也从身边朋友们的故事中获得了许多有益的思考，包括后来有很多网友通过各种渠道向我分享自己的情史，都在一定程度上丰富了我对爱的理解。他们缜密细致地叙述着一些在外人看来或许无关紧要的爱情小事，虽然我能感觉到他们也想表现得足够平静、客观和理智，但我总能发现有几分焦虑和伤心掺杂了进来，里面还裹夹着一丁点不易被察觉的得意或是期待。瞧，这就是爱情。即便她常常害得我们又哭又闹，也总是在带给我们感动后又补上一剂伤心，我们仍然好了伤疤忘了疼，孜孜不倦甚至死皮赖脸地为她赴汤蹈火。归根结底，是我们太希望自己能够胜任一段感情了，所以才往往变得更加手忙脚乱。在这本书里，我尽量捕捉人们在爱情里的一些共通情绪，试着让你理解这些情绪的本质由来，让你在下次面临这些情绪时不再慌张失措、越弄越糟。我觉得，有时你之所以会觉得自己在感情中那么不幸福不快乐，只是因为你的思维卡在了一个点上，如果有人能向前推你一把，你自己就能越走越好。而我希望成为那个在关键时刻推你一把的人。我不是大师，不想自诩什么情感专家，只希望你能把我当作一个陌生却不生分的朋友，听我平白直述地把一些人的爱情故事讲给你，再顺便告诉你我从中看到了什么、想到了什么，让你在被戳中的同时重新对爱情进行一番思索，看到一些其他的可能性。我不能保证这本书里的每一篇文章都是充满正能量的。事实上，我选用的故事结局往往都不那么美好。我不想熬鸡汤，觉得真正对人有用的，或许不是成功学，而是失败的例子。只有反面案例才能引出问题，让人从中获取教训，再通过正向的思考得出下次该如何改进自身、避免失败的智慧。当你觉得爱情是苦的，觉得很累，觉得无助，觉得想哭，觉得没人能理解你的时候，你可以翻开它，或许能找到熟悉的心情，或许能让你茅塞顿开、柳暗花明。刚开始写的时候，我本以为写这样一本书是为了向她证明自己爱情观的可喜转变，甚至抱着把她找回来的野心。写完后我和编辑一起对稿子进行精雕细琢，反复回味、思忖了很多东西，心境有了一些微妙的转变。而我也终于明白：写这本书其实是为了跟过去那个在爱情中苦人苦己的自己告别，虔诚迎候崭新的心情和生活——说到底，只是为了我自己而已。是的，纵使怀念，也已失去。她无法再赠我一场微醺，我也无法再送她一番深情。生活总得继续，恋爱总会再谈，整个世界都如此匆忙，实在没理由放任自己沉迷在一人一事一物上太久。与其执着于过去，不如想想该如何更好地承继后来。现在的我，格外欣赏那些善于在爱情中审视、校正、丰富自己的人，也钦佩那些有爱没爱都能过得很好的人。我希望自己能在感情中养成一种不卑不亢的心态，始终保持坦诚、坚定、浪漫和有趣，能理解并尊重对方独特的灵魂，能洞悉并接纳双方性格的差异，不被情绪所羁绊，不被杂音所干扰，就安安稳稳、心满意足地爱着，竭尽所能地为彼此制造尽量多快乐的事。即便激情褪去，也能一往情深。我更希望，看完这本书之后的你，今后能在感情中做出更多正确的努力，尽量少走一些弯路，并想办法让自己变得更加优秀——因为那才是更高层次的爱。想将来太早，念过往太迟，那此时此刻呢？最好的抉择是随心而动，最好的珍惜是不再辜负。我想，这便是好好相爱的能力。愿你也能找回并守住这种可贵的能力。愿你有勇气，爱想爱之人，见想见之人。就趁现在。*作者：鹿满川，曾担任两家报社的首席编辑，做过杂志主编，现为自由撰稿人。生来热心，善于分享，在豆瓣和微博上无私解答情感困惑，谈论感情之事，稳准狠，不迎合，却又预留一丝悲悯，给人温暖和力量，被广大群众亲切唤作鹿先生。微博：@鹿满川；微信公号：heylmc（直接搜“鹿满川”亦可）。新书《此时此刻相爱的能力》热销中。原文链接：http://www.zreading.cn/archives/5230.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

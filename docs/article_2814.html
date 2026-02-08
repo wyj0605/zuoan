@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自由=能力-欲望</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>自由=能力-欲望</h1>
+            <div class="date">2014-05-16 22:05:54</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/古典明白自由与责任的关系，我们就知道，我们要享受多大的自由，就必须承担多大的责任。但是又是什么决定我们能承担多大的责任？这就是我们的能力。那些恐惧自由的人，往往恐惧的是自己没有能力。自由——责任——能力我们常说的财务自由，意味着你可以不通过上班，仅通过财务的操作承担自己养活自己的责任，所以你获得了不上班的自由。但为什么你能做到这一切？因为你的理财能力。理财能力=财务自由。在我是一个独立的职业规划师的时候，我拥有大把的自由，我的家里有一个离家出走包。当我想玩的时候，我只需要停止讲课和咨询，就可以背着包，坐车到火车站或机场，随便每一张去任何地方的票。我有这个财力，也有这个心情，也有这个时间。但是有一天当我决定承担更大的责任——一个职业规划师能帮助的人太少，价格太贵，而世界太需要这个东西。我决定开办一个帮助人成长的公司。当新精英日益发展起来，我变得越来越不自由了，我的离家出走包从每几周一次变成几个月一次。我的登山鞋一直放在车尾箱，代表着我强烈的渴望，但鞋绳扣环上锈迹斑斑，代表我几乎一年多没用过他了。我见过无数这样的技术转管理人士，他们陷入那个“愤怒无奈恨”循环。技术不受尊重，只好转——无奈自己这方面实在弱——中国职场怎么了？在国外……——只好这样干下去——我恨这个状态。是社会现实、要管理公司或者中国职场生态导致我不自由吗？其实不然，世界上有很多比新精英大很多倍却自由得多的管理者。我的问题在与管理能力的上升没赶上公司发展的速度，而我又无法承担完全不管公司带来的责任，所以就只好不自由了。从“愤怒无奈恨”到“自由-责任-能力”循环，我大概花了1年时间。当看到问题，解决就变得简单——我大概花了1年多时间，让自己重新慢慢提高管理能力，开始重新自由一点。希望你比我快一些。在我没有孩子的时候，很多人对我说：“你现在自由自在，等有了孩子就不自由了”。现在我有了孩子，每当我看着他，我就知道她会打开我生命的另一扇窗，孩子当然是我的自由选择，我也需要承担起来更多的责任——而这需要匹配更强大的能力。我没有在失去自由，我是在寻找更多更大自由的路上。自由取决于你能承担多少责任，而责任则取决于你有多少能力。所以说，自由本身就是一种能力。很多父母亲不懂这个道理，他们总在不断的为孩子的每一个错事负责——中考没考好，我帮你花钱到更好的学校；和老师关系不好，我来送个红包来打点；上大学找不到工作，我替你发动关系找一个……他们以为含辛茹苦地替孩子抗了很多责任，孩子应该感激。他们看不到的是他们也剥夺了孩子锻炼能力的机会，从而也失去了对应的自由。他们成为一个只能困在你身边的废人。简单的说，过度的为别人负责的人，是抢夺别人自由的人。很多“自由主义者”也不懂得自由是一种能力，他们认为自由就是可以随意放弃一个选择，然后再重新选择——这并不是真的自由。自由是有能力发现自己真正想做的事情，然后有能力担起责任做下去。我们都知道乔布斯在苹果帝国内非常自由，他对工程师说“不”的速度比任何人都快，他敢穿个大裤衩面试高管，他批评人毫不留情面；乔布斯任期中的苹果公司也不太理董事会，乔布斯任苹果CEO的年薪是1美金。作为一个创业者，我知道这绝非好事情——这个意思大概是：“董事会诸公，吾生之为改变世界，我既不拿钱，也就根本就不在乎赚钱，别和我谈绩效！”。乔布斯也无视投资者，他在世时，苹果从未分过一次红。但为什么苹果公司还给他管理整个苹果的自由？因为乔布斯的确有带领苹果改变世界的能力，乔布斯承担了苹果前进的大部分责任，所以他也获得了足够多的自由。当你有了按时高质量交付的执行力，你就有了时间自主的自由；当你有了快速学习和迁移能力，你就有了轻松跨行业的自由；当你有了照顾好自己的能力，你就有了安心等待自己喜欢的人，全情投入恋爱的自由。当你有了语言能力和健康的身体，你就有了周游世界的自由；当你背起自己的责任的能力，你就获得了全世界的自由。摘自：古典新书《你的生命有什么可能》，已经上市。左岸记：关于自由=能力-欲望，这里举个秦将王翦的例子：秦始皇要王翦带兵攻打楚国，王翦辞谢说：“老臣疲弱多病，狂暴悖乱，希望大王另择良将。”始皇坚持要王翦领兵，王翦说：“若非要用老臣，必给我六十万大军。”始皇允诺。于是王翦率六十万秦军伐楚，始皇亲自送将军至灞上。王翦行前多求良田屋宅园地，始皇说：“将军既已出兵，何患贫穷？”王翦说：“为大王部将，虽立战功却终不得封侯，所以趁大王亲近臣下之时，多求良田屋宅园地，为子孙置业。”始皇大笑。王翦的军队行至关口后，又五度派使者回朝求良田。有人认为将军求赏太过分，王翦却说：“秦王粗暴又不信任人，如今倾尽全国兵力，交付给我，我只有以多请田宅作为子孙基业的方法来稳固自家，打消秦王对我的怀疑。”原文链接：http://www.zreading.cn/archives/4370.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

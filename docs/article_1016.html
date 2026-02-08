@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字化鸿沟 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>数字化鸿沟 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>我记得第一次看到电脑是在高三的时候（1995年），那时学校只有一台电脑，被安置在一个阁楼里，房间被布置得很干净。那天，我怀着好奇的心，看着那黑白的屏幕，老师正在调试一个程序，光标在屏幕上游走，感觉太神奇了，却也只敢静静地看着，什么也不懂。</p>
+<p>现在，我那三岁半的孩子，就开始和我抢电脑，肆无忌惮地尝试任何操作。很多的学生用手机挂着QQ，走路听着mp3。</p>
+<p>这是我们现在必须真实面对的，我们与新时代青少年对数字化的理解。robert把这称作数字化鸿沟。</p>
+<p>来自：天涯博弈——数字化鸿沟</p>
+<p>作者：robert</p>
+<p>数字化土著与数字化移民</p>
+<p>Marc Prensky 在2001年发表的一篇关于教育的研究论文中首次提出了数字化移民（Digital Immigrants）和数字化土著（Digtal Native）的概念。 在这篇文章中Marc主要就环境对于人的影响来说明现行的教育模式应该如何应对伴随数字化时代成长起来的一代学生。</p>
+<p>在wikipedia中对于数字化土著的简单定义：数字化土著是出生时就已经有数字化科技的一代人，因此当他们是伴随着数字科技，比如电脑、互联网、移动电话和MP3等。而与之相对于，数字化移民则是指由于工作和生活需要，才被动接受和学习数字化科技的一代人。</p>
+<p>这种简单的划分固然并不十分精确，但却很形象的说明了数字化时代开始影响我们的生活之后所造成了很明显的数字化鸿沟。这两代人在对数字科技的态度、使用的方式、受影响的程度都十分不同，而这种不同不仅体现在和数字化相关的产品、服务中，也体现在新旧生活方式的巨大差异。</p>
+<p>在近期的一次《康熙来了》中，有一位上了年纪的女明星坦诚自己甚至不会回拨电话，遑论发短信。数字化生活并非如同我们想象的那么理所当然，就像我们的父辈不能理解小孩为什么会沉迷网游一样。</p>
+<p>超越与取代</p>
+<p>在关于互联网的发展中一个最常被问及的问题就是，互联网会影响现实生活到何种程度。</p>
+<p>这个问题用“很”，“非常”来回答是很不合时宜的，因为互联网对于生活的影响已经不再是程度的问题，而需要考虑互联网成为生活方式的问题。</p>
+<p>著名诗人北岛有一首超越时代的短诗《生活》，全诗只有一个字：网。</p>
+<p>未 知北岛写这首诗的准确年代，但我的确记得是十多年前看过的。我当然不敢以此来揣测北岛是位伟大的先知，只想就此说明，互联网的“网”的确清晰的定 义了internet的实质——它并非是一种新的生活方式，而是传统生活方式的改造。互联网改造的也不仅仅是信息和传播方式，也在改造电子商务和实体经 济，可以说互联网所深入现实生活的程度，远远超越工业革命对于现实的改造。</p>
+<p>在10年前我无法想象通过互联网可以直接付款和消费，就像我父母 至今也不能想象用skype怎么可以拨打家里的电话一样。我们的生活方式正在被，和 将要被互联网彻底“重构”，我们在互联网时代寻找到属于这新一代人的思考方式、行为方式，有些是现实生活在虚拟世界的映像，但更多的是基于互联网的新的标 准和模式。</p>
+<p>生活在互联网中的我们能够真切感受到互联网中的信息的无边界壁垒的传播（尽管在国内这并不确切），而要惊呼“世界是平的”。我们的父辈也不能理解最多经过6层关系我就能连接到美国总统奥巴马，嗯，关系，这个词在数字化土著和移民的脑袋里唤起的可是很不同的感知。</p>
+<p>但我们仍然要怀疑，数字化革命在改造现实的基础上会消灭现存的一切吗？我们的报纸、电视还会存在吗，我们的社区店会关门大吉吗？我们的失业率是会升高还是降低？马云所说的“新商业文明”又会带来什么？</p>
+<p>这些那些我们都无法给出确切的回答，我们所能以之推论的只是，我们所习惯的终将被新的取代，我们所抗拒的往往是历史的洪流。就像生活在21世纪的我们无法再去阅读竹简和帛书一样，我们的孩子也许无法再接受电视机和信用卡。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

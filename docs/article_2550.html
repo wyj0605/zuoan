@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任何人的归宿都是自己</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>任何人的归宿都是自己</h1>
+            <div class="date">2015-03-10 11:40:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/周冲前些天看到赵格羽发在新浪的文章，《文艺女青年的归宿是什么》，这文章真的不聪明，之所以认为它不聪明，是因为作者狭隘而保守。在她的笔下，女文青是否幸福只有一个标准：男人。更准确点说，是嫁一个有钱有貌有才有地位的单身男人。如果做不到其中的任何一点，女文青就是一个自作孽不可活的怨妇。枉你诗书满腹，枉你貌美如花，枉你著作等身，枉你足遍五川阅人无数，枉你尊贵为所有雄性动物的女神，枉你富有如盖茨、逍遥如老庄，全没用。只有嫁了一个白璧无瑕、根正苗红、无懈可击的男人，你才有用了。她举了柴静、安妮宝贝、胡因梦、张爱玲、刘若英等为例。柴静嫁人生娃，但因为嫁的是一个二婚男，惨不忍睹；安妮宝贝嫁了一个二婚男人，惨不忍睹；胡因梦和李敖离婚，习佛修行，惨不忍睹；张爱玲被胡兰成抛弃，嫁了赖雅，赖雅先她而去，惨不忍睹；刘若英呢？先是当了第三者，后来也嫁了一个二婚男，惨不忍睹。按此标准，天底下有哪个女人的归宿能称得上圆满？不被弃，不遇人渣，不被辜负，不嫁二婚男，想嫁的时候，正好就有一个高富帅身披金甲圣衣，脚踏七彩祥云，在万众瞩目之下来娶她，并且老公一定不提早咽气，两人老到都敞着一口牙花子了，还拼着老命打kiss……你遇见过吗？可惜我没那眼福——除了冻结了结局的童话，这种完美现实从来就没有和我打过招呼。和赵格羽不同的是，我相信柴静、安妮宝贝、胡因梦、张爱玲、刘若英都是幸福的。因为她们聪明。而一个女人聪明，便会明白该如何获得，以及如何舍弃。明白如何获得，会让她的生命有尊严和意义；明白如何舍弃，会让她的生命自由和幸福。简·奥斯汀一生未婚，留下诸如《傲慢与偏见》、《爱玛》等旷世名著，临终时说，“我选择了自由……我现在的生活，是我想要的。这是上帝给我的安排，我比我自己想象中快乐很多，多过我应有的快乐。”弗吉尼亚·伍尔芙嫁给了伦纳德，他养着她，尊重她，支持她，为她开出版社，给予她最好的照顾。伍尔芙也感叹，“最亲爱的，我想告诉你你给了我最彻底的快乐，没有人能和你相比。”然而她还是溺水自杀。可见幸福与男人，没有半毛钱关系。人这一辈子，山迢水远走到最后，都只是自己两个字，而能对你的幸福负责的，也只有你自己。我今年30岁，没有结婚，外表布尔乔亚，内心波希米亚，我厌恶为结婚而结婚的婚姻，不愿意屈从，不愿意苟合。但和大多数这个年龄的剩女一样，我们一点儿也不慌张，旅行、读书、写作、学车、处理工作及家事，一掷千金地为自己买华服和胭指，在KTV里骚气逼人地跳艳舞，和满场陌生男人调侃笑闹，周末开车去深山，拜托敬重的学者和诗人，心血来潮时可以下一秒就飞到另一个城市。我们享受当下，存足够的钱，也有足够的能力让自己没有后顾之忧。男人的有无，渐渐变成了一件无足轻重的事。我有一帮同样恬不知耻地不愿结婚的朋友，用某种流行的度量衡来归纳，她们都是四有女人，有房有车有钱有相貌，还有好头脑和好口才，在滚滚红尘花花世界里和男人斗智斗勇，玩得不亦乐乎。所以她们不寂寞，也不相亲，从没觉得自己是销售不出去的外贸尾货。他来，我快乐地活；他不来，我照样开心地过。世界如此精彩，为什么非要放弃自由，与一个低档次不入流的男人绑在一处？有一回，在东海的一个小岛，我和闺蜜在旅行。那是夏天的夜晚，我们坐在沙滩上，听着海浪的喧响，远方海港的灯火明明灭灭，我们聊到男人。我说，我们努力修炼，就是为了嫁一个更好的男人？她说，不，我们努力修炼，是为了不需要一个男人。我真想为她的话拍案叫绝。后来蒋方舟在《为什么要成为妖孽》中，写过一句类似的话，看到文章时，我特地给女友打电话，说，有人盗用你的话了。她笑，挺好挺好，看来我们并不孤独，同类还挺多。当然，从前的我们可不是这样。更年轻一点的时候，我也活得很慌张，和许多女人一样满世界找男人，一听说哪里有一个单身青年，无论优劣，两眼都能泛绿光。现在想起来，那才是真正地惨不忍睹——人生梦想是男人，追求是男人，希望是男人，彼岸是男人，幸福是男人，结局是男人，归宿是男人，生活的全部是男人……路漫漫其修远兮，吾正上下找男人。那样仓惶失措，和一只饥渴的、急需交配的雌性动物没什么不同。于是有许多男人围在身边，周旋于各种爱恨，每一个节日都能收到三四束玫瑰和一两句“我恨你”，但是，纵然如此热闹，我仍然没有觉得幸福。而今，年纪渐长，渐渐活明白了，我的幸福与柴米油盐酱醋茶，与孩子的尿片、丈夫的性爱、超市的采购、酒桌上的互吹互捧、周末的麻将扑克毫无关系，我只想设置一个与众不同的人生，一个自由的、不剧透的、充满创造力的、不囿于成见的人生，在这个人生里，我生存着，而且生活着。有些人来这个世界，是为了活得好看，而另外一些人，却是为了活得好。每个人都有自己的选择，无论选什么，都无可厚非。但我只想做后一种——不凌驾他人的意志，也不努力讨好和取悦，更不轻易投身于第三人制定的评价体系，自由地孤独，温柔地叛逆，然后，获得自我的饱满，丰饶，深沉和慈悲。罗素有一句名言，我一直奉为圭臬：参差多态才是幸福的本源。我想，赵格羽应该没有读过，如果有，她就不会傻到给他人制定生活准则和幸福模式。幸福原本就是一种私人的感受，任何局外人与旁观者，都无法替代当局者去感受和思考。蠢文章都有大市场。果然，那篇文章在朋友圈中转载很多。整个下午，我的手机上一直在重复着这个追问，文艺女青年的归宿是什么？文艺女青年的归宿是什么呢？我想对赵格羽说，任何人的归宿都只是自己。无论文艺女青年，还是文艺女中年，抑或者文艺女老年。只有寄生虫和菟丝花，才会一心一意地想要去攀援他人，将他人当作自己唯一的支柱、结局和依靠。原文地址：http://www.douban.com/note/338273062/左岸记：一个不依附的人必定会在自己的人生路上寻找自己的出路，Ta也必定配得上那个能与Ta携手共进的人。不是因为嫁给你而幸福，而是拥有我让彼此更幸福。原文链接：http://www.zreading.cn/archives/4822.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

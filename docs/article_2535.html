@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我是你的骄傲吗？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我是你的骄傲吗？</h1>
+            <div class="date">2015-03-23 19:29:35</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/他们叫我吕长晚上路过一家超市，不太大，两间直通的房子，走到最里面，朝左看，都是酱油醋之类的调料，右边是方便面，拿了香菇炖鸡口味的泡面。超市的阿姨问我，“这个和小鸡炖蘑菇有什么区别？”其实我也不知道，但还是随口说出，“我觉得好吃”。随后想起来了，上高中的时候，爸爸给我买过整箱的香菇炖鸡，那种香味至今还记得。爸爸始终是我最感激的人，他和妈妈养育我长大，这种恩情是永远报不完的。从生物上和概率上来说，我的出生就是个奇迹了，而且我还健康的长大了，虽说没为世界做出多大贡献，倒也不至于一无是处。一直很感谢父母的一点是，不管贫穷富余，爸妈几乎不会拒绝我要买书的请求，我也因而比一些同龄人多看了几本书，印象特别深刻的有三本书。第一本，名字记不得了，买那本书的情境还有些印象，小孩子都喜欢动物，我也不例外，当时我选中的是一本动物知识的书，现在想来，显然是大量的彩图吸引了我，我就吵着要这本，爸爸却给我选了另外一本。那是一本简缩的百科全书，包含了，世界各国地理风情，科技发明，人物传记，世界简史等。由于爸爸的坚持，我不情愿的接受了这个选择。后来的事情证明了，这个选择是正确的，它给我带来了更多，虽说不是百科全书，但是涉及面比较广，它的目的不是要告诉孩子们所有的知识，这是哪一本书都无法做到的，它的目的在于，扩大孩子的视野，催发他们获取更多知识的好奇心，我想，这本书对那时候的我做到了。这本书里面我最感兴趣的是科技发明那一部分，后来有很长一段时间，我对自然科学都是极其感兴趣的，疯狂的崇拜爱迪生，最大的志向就是成为发明家。第二本，名字还记得，《故事口袋》， 精彩的动物故事。这本书讲的全部都是人与动物的故事（大部分是野生动物），书里面描写的，人与动物之间的信任和真挚感情是最让我动容的。不少章节看完之后都会落泪，我觉得这本书教会了我爱与善良，可惜现实世界的人们，有时候不如动物善良，也不像动物那般懂得报恩，这导致我初入社会时遭遇了许多的挫折。值得一提的是，这本书我买过两次。第一次应该是小学的时候，第二次是在高中，我曾度过一段颓废的时光，那时候我又想起了这本可爱的书，可是已经找不到了，经过几番搜寻，终于在一个卖旧书的网站找到了。我想将来有孩子了，我也会给他看这本书。第三本，拿到的时候已经没有封皮了，可这也影响不了我对它的喜爱。它是一本童话集，记得作者名字的只有格林兄弟，安徒生和威廉·豪夫了。海的女儿，小穆克，夜莺，一个出卖心的人，豌豆上的公主、坚定的锡兵等不少故事的情节我还记得。刚在网上查到，这是一套书中的第二本，这套书就是浙江少年儿童出版社的《世界童话名著连环画8册》。童话对我的影响和第二本有些类似，但是我觉得它还教会了我，善恶，美丑，还丰富了我的想象力，虽然其中的一些价值观不一定赞同了。我最最感激爸爸的一点，就是阻止了我的退学。事实证明，有些成功的激励不一定能起到好的作用。初中学李阳疯狂英语，导致嗓子在关键的变声期哑了两年，口语也没说多好，高音却唱不出来了。高中就喜闻乐见比尔·盖茨，李想退学成功的例子，可是谁能告诉我盖茨退学之前就写了好几年的程序，对微软发展起到极大作用的IBM订单，有没有他IBM董事身份的妈的作用？那些经典的故事都暗示我，只要退学，我也能向他们那样成功，那时年轻啊！高一那年大概闹了五次退学，一次比一次严重，刚开始还有点耐心的班主任到后来也是恶言相向了，甚至我写了退学申请，校长也签字了。庆幸的是，我有个好爸爸，在我最迷茫的时候，扳正了我的风帆。慢慢地我就体会到上学的好了，大学四年就算不去上课，收获的也是和在外边混没法比的，开阔的眼界，认识的人，而且，而且还有机会遇到那么多知书达理的妹子们～爸爸对我的教育是宽严相济的，犯错误会批评，不懂事会教育，失误有宽容。没有小时候玩雷管时那几脚踹，我不知道雷管多危险。没有对我初学车撞树的宽容，我不会有今天的驾驶技术。谢谢你做的一切 双手撑起我们的家总是竭尽所有 把最好的给我我是你的骄傲吗 还在为我而担心吗你牵挂的孩子啊 长大啦左岸记：每个孩子都希望自己能够成为父母心中的骄傲，这是孩子成长的一个重要心理需求，但做父母的是否想过，自己是不是也是孩子一定时期内的骄傲？你是希望孩子成为他自己，还是成为你认为应该的样子？最后大家要做的都是努力去平衡理想与现实的距离。另外，大家也说说影响你最深的三本书吧！因为我的阅读不是从经典开始的，最起先看的都是杂书，很多都忘了，但有三本书的作用非常大，第一本是初中时读到的武侠小说《神雕侠侣》，它让我走进侠的世界，第二本是大学时读到的游记《文化苦旅》，它让我对人文历史产生了深厚的兴趣，第三本是工作之后读到的《影响力》，它引导我走进心理学殿堂。这三本书在现在看来都是杂书了，那又如何，它们都是一个点的开始，让我看得欢喜，爱上阅读。原文链接：http://www.zreading.cn/archives/4840.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

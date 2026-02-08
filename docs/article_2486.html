@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你很重要，你又不那么重要</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你很重要，你又不那么重要</h1>
+            <div class="date">2015-05-30 21:22:27</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌鸡婆婆看到主人家的餐桌上时不时会出现火腿鸡蛋这道菜，每每看到这总是会引以为豪，为主人补充了丰富的营养的同时也受到了优待，因为能生蛋所以不至于有生命之忧。有天她突发奇想，既然主人家这么喜欢，为什么不和猪兄弟合作开发个项目做道火腿鸡蛋呢？于是鸡婆婆兴高采烈的到猪圈里找到刚睡醒的猪兄弟商谈此事。：“额，猪兄啊，我今天找到了一个可以延长你寿命的项目，你想听么？”“真有？什么项目，说来听听！”“我看主人家挺爱吃火腿鸡蛋的，要不这样，我出鸡蛋，你出火腿，咱就做这道菜献给他们。要是你平日也能和我一样贡献点什么，也就不至于一到年底就被人宰了，你看我不就因为能生蛋多活了几年吗？”猪兄弟想想也是，平时里光吃喝睡觉了，无聊得狠，也没干过什么正经事，再说鸡婆婆这么热情的帮自己延长寿命，又怎么好意思拒绝呢？于是欣然答应了，不就是割点肉吗？可等真正要操作起来，看到那寒光闪闪的刀，要往自己身上切肉就后悔了。他妈的，鸡婆婆只要蹲在鸡窝里憋个劲就把蛋生出来了，我可是要割身上的肉啊！突然有点恨自己这该死的猪脑子了，一狠心用刀戳了下自己，那个钻心的疼啊！哎呦……如果猪兄弟有自己的想法，不怕伤了面子，果断的拒绝了鸡婆婆的项目开发计划，也就不会尝那一刀子了。现实生活中何尝不是如此呢？素来对运动总是缺乏抵抗力，享受运动中的激情，对自己身体控制的自信。自从热衷于早起跑步以来，总有些精力不济。按鲁迅的话说：“一个人的精力是有限的，一方面多，另一方面就少了”，以往只要别人有邀请，晚上打个羽毛球，踢个足球，来几局乒乓球，甚至喝个酒什么的，没有特殊事情总会欣然答应，一来自己心里有些痒痒，二来是无法抗拒别人的热情邀请，生怕拂了面子，不好拒绝。哪怕早上跑完步已经有些疲惫，或者第二天还要准备早起，也会坚挺着迎难而上，最终结果是留给自己的时间太少，哪还有时间安心的看会书，写会字呢？那样的生活尽管很激情，但很累，值得回味的东西太少。贪婪的看待生活，舍不得错过任何一点精彩，生怕自己在某个组织里掉队，像个小丑一样到处奔忙。聊以获得一些虚荣和谈资，显得自己很重要？其实这只是一个笑话，相对一个组织或者一个情感群体来说，少了你，他依然要继续前进，难道会因为少了一个人就不玩耍了吗？人总是为外在琐碎的诱惑疲于奔命，因为不知道自己究竟想要什么，又害怕错过什么，所以会眉毛胡子一把抓，到头来一场虚热过后也只有随风飘荡的失落。正因为心里没杆秤，不知道轻重，容易被人牵着走，这种被动的亦步亦趋的生活会让人无助得缺乏掌控。纵然精彩一时，结果也不会太好，因为你没有朝着既定的方向在走，自然谈不上什么积累。有人说，圆规为什么会画圆？因为脚在走，心不变；为什么你不能圆梦？因为心不定，脚不动，我想还是有些道理的。拒绝了又如何？即使伤了一时的面子，挽回可是属于自己的时间和精力啊！人类最值得自傲的一点就是能选择，任何时候都会有选择的余地，当别人提出请求，其实他也做好了被拒绝的准备。每次别人借钱总会出手相助，因为他们既然提出这个要求多半是到了万不得已的地步，作为朋友怎么忍心不帮一下呢？关键的是我不好意思拒绝，现在想想，面子难道咋就这么贵呢？别人还以为你有多富有呢？当我静下心来，盘点一下自己的时间分配。将自己生活内容按重要程度排个序，也就不会轻易被人领着走了。运动的目标是为强身健体，有充沛的精力去做哪些自认为最重要的事情，从来没有想过当一个专业运动员。专心的跑步就足以改变自己的生活方式和身体状态，又何必还在其他项目花费太多精力呢？下班之后的时间留给自己，安静的看书，写字，做自己真正喜欢做的事情，这样岂不是更好？实在没有必要为了别人的面子而轻易将自己出卖。其实每个人都是独一无二的个体，你很重要的。可别让生活的琐碎和牵绊将这份独特抹去，沦为芸芸众生中的毫无觉知的一个。你又不那么重要，因为少了你地球也照样在运转。实在没有必要为了外在的赞许而失去属于自己的那份自由。文昌 北京 五月 微信号：changchang010左岸记：我很重要，因为我独一无二，我来之不易，某种意义上不可替代，因为有了我可以让与我相处的人更快乐，可以让工作衔接更紧密，让在乎我的人感到幸福；我不重要，因为我的到来是如此的偶然，如果我没有很好的成长，对于我，生命的意义更是微乎其微，如果站在宇宙的角度，我就更不重要了，乃至整个人类同样也不重要。那我们的意义可能正是我是我，因为我们的存在，当我们把眼光投向浩渺的太空时，太空深处也有一双眼睛正在一样的凝望思索。原文链接：http://www.zreading.cn/archives/4917.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过年村庄三两事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>过年村庄三两事</h1>
+            <div class="date">2015-02-25 12:27:41</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌时间到了这里仿佛陷入了泥淖迈不开腿，纵然有十八般武艺也施展不出它的才华，被人无视的结果是大可不必依循着手表的指针指导生活的进度。日出而作，日落而息，饿了做饭，困了睡觉，慢悠悠的走，不用担心迟到赶不上班车打不了卡。早起也不用那生硬的闹表铃声，天亮自有雄鸡打鸣，鸟儿配乐唤醒你。天黑了也就该回家歇息了。乡村的黑夜是路上一片寂静，没有灯火辉煌粉饰人们的幸福生活，倒有繁星满天，田野里虫儿清脆的鸟儿啼鸣声。远方一排的光亮，那是一个一个家庭正闪耀着温馨的光环。家？对于我们这样在城市里流浪的人来说，是一个温暖而又陌生的名词。回家看着母亲在灶台炒菜时熟悉身影，闻到那菜香才发现我从未走远。无论在外一年的结果是贫穷还是富贵，他们总是无条件的接纳你，因为再大也是他们的孩子。也只有在这里睡去，才不会有醒来便是异乡的酸楚。历史是记忆，是根，那么我的历史也都在这里发生，邻居都是二三十年的，说是看着长大一点也不夸张。只是看到邻家的小女孩一下子长大了许多，才发现时间真是才华横溢。这儿对我来说都是以年为单位，自然有很多看不到的细致。当然在这里繁衍生息，按着自然的节奏度过四季的轮回，生老病死再自然不过了。孩子永远是一个家庭的焦点，因为他们承载着太多的爱和希望。连着堂弟家的wifi，看着来往的小轿车，一排排的小洋楼，才发现吃个泡面，开个罐头就很幸福的日子早已成为了过去。物质的小康，让农村不再尽然就是贫穷的代名词。当然本可以更好，就不要深入的苛责。大部分的收入还是来自年轻人在外打拼将资金源源不断的输送到农村，滋养孩子，种地的收入反倒成了生活补贴，那样的劳动沿袭着传统的耕作，终究还是太辛苦，但父辈们从未忘却照顾他们心中的那块土地。年轻人在外工作，留在家里的孩子就成了留守儿童，多半隔辈抚养，多有娇惯，家庭教育的匮乏最终也会相对的铸就这种落后，不得不承认起跑线确实低了，但愿不太会影响生活本身吧！当人们有衣穿，有饭吃，有足够的时间时，不敢说饱暖思淫欲,这多余的精力总得找个地方安放吧！麻将就巧夺天工般的成为了生活的一部份，甚至可以没饭吃，没有房住，但是……不能没有牌打。那热情大约能赶上北京开奥运迎外国友人了。通宵达旦里灯火洋溢的温暖大抵燃烧的是人们打牌的热情吧！麻将四个人，看的可以四个以上，一下子解决七八个人的问题，打的打过瘾了，看的也看满意了，何乐而不为呢？小赌怡情，只是别过于沉溺，伤了身体，影响家庭和谐终究得不偿失。其实牌桌上的动力来自于牌资的流转，也是好久不见沟通的媒介，得失之间体会着那份刺激，同坐一桌多少也能混个感情热。天下熙熙，皆为利来，天下攘攘，皆为利往，这年头不谈钱真还有点伤感情。地大物博的中国，语言也是区分一个地域的标志，我们村子里只是组别不同，语言也会不同，一半湖南话，一半湖北话，有些习俗当然也不尽相同。老人过逝请的唱台就明显不一样。我家应该走的是湖南路线，以前团年饭都是早上六点多吃，按我爸的说法，要伴随着黎明，吃完饭就天亮最好，以这种方式迎接新年的到来。按我的理解，年是一道坎，过年过年，吃饱喝足了才有力气过年。至于新年快乐的祝福要属大年初一的拜年最正宗了。村庄下面没有更小的行政单位了，我们是百分百的老百姓，兴，百姓苦；亡，百姓苦，说的就是我们这样的平头百姓，到了镇上我们也就成了乡下人，到了大城市也就是农村人，走出去总是容易不受待见。随着社会的进步倒不至于等级分明，也不至于高呼我是村里的，我骄傲，但至少也不用自卑了，并非富有，而是意识到区别并没有想象中那么大，知识让一个人丰富，教育让人有选择的机会，这让努力成为了可能。相比在城市里，在这里来一场爱情似乎更容易一些。门当户对自然会少了很多所谓城乡之间的嫌隙。曾担心的问题还是出现了，有问对象，也有问工资的，连十岁的邻家小孩有都会追着我问工资多少，以此来判定读书这条路是否能够致富，这也是真实社会的缩影吧！对于爱情，不对，他们关心的是婚姻，甚至是小孩，因为这在传统的社会认识里，这类的终身大事是这个年龄的使命，不是寡人不爱美人更爱江山，只是期待着生活有更多的方式，耐心的等待着繁华落尽，修成正果的那一天，可别让繁花迷乱了眼。当然在新的一年里，我得祝福有情人终成眷属，单身的人早日找到另一半，无论贫穷还是富有，做好自己该做的事，玩好自己的乐子，我想幸福也并不遥远，需要自己细细品味。文昌书于：荆州 年三十微信号：changchang010左岸记：当我们将城市与乡村连接起来，不再有意识地区别它们固有的差异，而是各自的取长补短，相互融合，那新型的城镇化在心中就优化建立了起来。原文链接：http://www.zreading.cn/archives/4809.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

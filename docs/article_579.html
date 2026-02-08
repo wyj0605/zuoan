@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自私的我，自私的你 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>自私的我，自私的你 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>引言：一个人是否应该有一套自己过活的人生思想体系？我一直试图建立并完善自己的“人生思想体系”。这就如同经营一个企业，在市场竞争中，企业必须要有自己的战略战术，而不是无根据地靠直觉去随意经营。这个“人生思想体系”应该包括两个方面：第一个方面是大的指导性观念，比如人生的意义，真假与善恶，爱情的本质，婚姻的实质等等。第二个方面是具体的方法论，比如换位思考，比如辩证对待事物等等。至于大米饭要煮多久才好吃，奔驰宝马到底哪个跑得快这些具体的生活细节，就不在此范围内了。当然这个思想体系不是人一出生就自然产生的，对不同的人来讲不是千篇一律的，对同一个人来讲也不是一成不变的，是人一辈子都要不断做却永远也做不完的事情。以后我会就这个“人生思想体系”陆续跟大家交流我的个人观点，欢迎大家讨论交流。</p>
+<p>很偶然的，今天我想谈谈人的自私，进而讨论在现实生活中如何针对自私采取具体措施。</p>
+<p>人性是自私的。从客观条件讲，由于人类社会现阶段的物质资源还是稀缺的，无法满足所有人的所有需求，所以人性在这个社会阶段“不得不”自私。从反例来讲，如果人不是自私的，那么一碗饭放在那里谁都不会去吃，最后大家都得饿死（人类失去自私，社会就去了效率从而崩溃）。另外，我们可以通过一些实例归纳出人性的自私：当你拿到一张集体照，你会首先在照片上去找到你自己；当高考分数张榜，你第一个关心的肯定是你自己考了多少分；我们现在搞环保很多人心里觉得碍事，但为了当代人的健康和后代的生存大家都不会反对环保。</p>
+<p>当然了，人类也有无私，比如父母子女之间，这种血缘关系是特例。但特例中又有特例，也有儿子弑父，父母弃子女的事情发生。所以，这些不具有普遍性的个例我们暂不讨论。</p>
+<p>必须说明的是，在很多情况下，自私的形式会发生变化——即以暂时的无私换取今后的自私，以小的无私换取大的自私。比如你求某人办事，某人可能态度不恭，但你忍了。为什么？因为你知道为了办成此事，现在吃小亏，之后会赚到大便宜。</p>
+<p>写到这里，有些朋友可能想：“好了，既然人是自私的，我就很纯粹地自私下去得了。”可惜的是，人没法只自私。</p>
+<p>为什么呢？因为一个只自私的人，必然会有意无意地损害到他人的利益。而他人也是自私的，他人对你的行为在内心必然是反对的，由此带来的后果就是：1、暂且容忍你但反感你。（留有后患啊，不是不报，时候未到）2、直接阻止你的行为（想得倒美，我就偏不让你弄）3、加倍地报复你，让你赔了夫人又折兵（让你牛逼，等着瞧吧）。这三种后果都是让你很不爽的哦。这样一来，你的自私自利就得不到保障了。经过人和人之间不断地较量和体会，慢慢就明白了，双方必须找到一个利益平衡点，才是最好的办法。实际上，我罗嗦了半天，是我没文化的表现。如果大家看看博弈论，就会明白完全自私的后果是很严重的，下场是很惨的。</p>
+<p>很久很久以前我有个女朋友。她脑子里有思想，生活中有实力，而且非常勇敢（我一直很欣赏这种人）。自然地，这种人做出了很多令人匪夷所思的事情。她跟我说过的一句话我至今记忆犹新、一字不差：“人有多快乐，并不是他得到多少，而是他有多遵从他的内心。”当时我很佩服她这种说法（一些超脱世俗的理论很容易折服我这个无知的男人）。其实现在看来她这种做法是偏激了，是不理智的自私，因为她只考虑到自己的快乐，而忽略了因此带来的对别人的伤害，这些伤害是迟早要被别人奉还的。想说什么就说什么，想做什么就做什么，确实很爽，很自由，很快乐。但是，人类历史上，皇帝不能自由地去练地摊，要饭的不能自由地去吃参鲍翅皇。非要不管不顾地完全活出自我的话，似乎只有精神病才能达到这种境界。</p>
+<p>这个“只顾自己不行”的理论，适用于亲情、爱情、婚姻、工作生活的各个方面。要想相对地把自己的自私实现最大化，一个是要懂得换位思考（关于换位思考，左岸读书里面有很多资料），考虑到别人的感受，在双方的自私中找到一个平衡点。另外一个就是要学会维护，任何人与人之间的关系都不是一开头搞好了就可以放置在那里，不管不顾，而是需要不断地维护保养。很多时候，越是值得好好维护的感情，我们反而没有去做：老朋友之间经常问候下，多回家看看父母，多陪陪孩子，这都是些很简单、很重要却很容易被人忽视的东西。</p>
+<p>备注：发布后大家提了很多好的疑问和补充，受益匪浅，感谢大家。在此澄清一个概念，文中的自私是指人从本性出发需要先满足自己的生存和发展，而不是他人，这种自私是一种本性，而不是我们日常生活中说的贬义的损人肥己。在此文中的自私，只是用真假范畴来定性的，而不是用善恶范畴来定性。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

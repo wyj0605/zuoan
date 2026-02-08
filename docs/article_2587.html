@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱了一个人，恨上一座城</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>爱了一个人，恨上一座城</h1>
+            <div class="date">2015-01-17 00:14:10</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/苏蕾“因为爱了一个人，所以恨上一座城。”徐洋在心里想着。坐在从X城开往H城的火车上，周围是嘈杂的声音，旅客都在忙着放置行李，交谈，感慨。徐洋口袋里的手机不停在响，听到这繁忙的短信提示音，徐洋更加心烦，烦极了，也恨极了。张佳言又发来条短信：你不觉得自己很幼稚么？就算今天你们要分手，你把她手机拿走算怎样？你说你恨她，要她也恨你，但你若以为这么做就可以让她恨你，这么做她就不会忘记你，那你已经失败了，她不过会觉得你讨厌，买新手机，换新卡，一切从新开始。至于你，不过一时觉得偏执，过段时间还是会忘了，根本不会在意。是的，手机不是他的，是他女朋友林妍的。哦，不对，是前女友，几小时前由现任变前度的前女友。看完短信，徐洋更加恼怒，为什么张佳言还要这么一针见血，连这点奢望都不留给他。看，林妍不爱他，谁都知道。她不爱他，他甚至连让她去恨他都不能成功。他真是悲哀，得不到林妍的爱也罢了，连她的恨，也得不到。实在是不想再看手机里那些短信，徐洋放下手机，呆坐着，这几天的各种场景都涌上来，他想着想着，突然眼睛又酸了。这个暑假，本该是他人生里最开心的暑假：她失恋了，她终于同意和他在一起了，于是他坐几天火车来看她，看他爱了那么多年的女孩儿，他以为，他终于等来了自己的爱情。可是，他错了。他不懂，也不知道，这个女孩儿怎么就变了？变成了那么陌生的样子，记忆里的林妍安静而美好。可他千里迢迢来看她，她却似乎总是抗拒，总是忽视他，不愿意和他交谈，他总觉得她的笑很夸张，可林妍说那就是她，怎么也不肯朝着他记忆中的样子去改变。他想和她独处，牵手，聊天……可她似乎并不想见到他，从来不肯和他单独呆在一起。那几天张佳言还未从w市过来，有天经过他几番软磨硬泡，林妍终于愿意去他租的房子，却一直很少讲话，似乎对着他，那个能和张佳言一直讲话，聊天的人并不是林妍。两个人没话讲，但林妍的手机却来了电话。他不认识电话那端的人，只是听到她和那个男生开心的聊天，各种话题，她很开心，也很放松，是面对他没有的愉悦。他也不知自己怎么回事，突然就很生气，男生都是不喜欢看着自己女友和别的男生谈笑的，他自然也不例外。她是有过一段感情的，自然知道这些。他以为林妍多少会顾忌着他，可她的电话打了近两个小时都没有挂掉的意思，他急了，抢了她的电话，挂掉。她却没跟他争执一句，只是沉默。他是大家口中所谓的好学生，学霸，理工男，他知道自己不是女孩子们喜欢的那类男孩，可是没谁规定好学生不可以有爱情。他喜欢林妍，从中学开始就喜欢，高中等到大学，他以为自己的执着是可以打动林妍的。他为爱情而来，以为自己的爱情终于要开花结果，但这些天总是会保持“三人行”的队伍。做电灯泡的都十分的不情愿，可都拗不过林妍。林妍似乎总有讲不完的电话，聊不完的qq，除了对他，都兴致高昂。他想起张佳言来的第四天晚上，几个人决定去逛夜市，林妍先去取钱。在等林妍取钱的时候，他实在是忍不住了，问张佳言：“你觉得林妍正常么？”张佳言有些疑惑：正常啊，没什么不正常的啊。这实在不是可以让他相信的答案。“你是不是没见过她这个样子，觉得她有点神经，有点疯！其实我们女生在一起的时候都是这样，玩起来没形的。”张佳言突然哈哈笑了：“其实你是嫌她这几天跟男生通的电话太多了吧。你脸臭的太明显了。你们男生真小气啊！”虽然当时张佳言开玩笑似的讲那些话，他心里却十分不平静，连张佳言这个局外人都看得出林妍电话有点多，那林妍呢？她会不知道么？她一点都不在乎他的感受么？还是那本是故意为之？那么当初林妍为何又要同意在一起？……他心里有无数个疑问，狠狠的折磨着他。可后来张佳言只是叹了口气，说：你多给妍妞儿些时间吧，也许她不过是不知道该做什么。多给一些时间，什么时间呢？用来遗忘旧爱的时间？用来接受新欢的时间？而他们之间的问题，大概不是时间不够长，而是他这个新欢不够好吧！他觉得林妍根本就是懒得理他的，不想理所以不去理……“滴滴滴”，手机上又来了短信，是张佳言问他和林妍是否真的不可以再挽回，徐洋想了很久，还是回复：不会了，不可能了，她不爱我。林妍不爱他，他们再也回不去了，从昨天他转身的那个瞬间，就已注定，他们这场单恋必然要结束。徐洋痛苦的抱着头，明明7月份的天气，他却有几分寒意，大概这就是心寒了吧，他终于懂了。大概没有比他更可怜的人了吧，没人爱，也没有人在乎他存在的可怜人。就像他不说“我走了”，两个女生便丢他在一边，叽叽喳喳地讨论奶昔口味，冷饮店男店主是不是够帅，开学了如何诱拐学弟的话题，一点没注意到他离开了。如果他没拿走林妍的手机大概也没人会关心他在哪，没人去想他前几天丢了手机，不和大家住在一起该怎么和人联系。没人想到前天晚上他在宿舍楼下等了近一个小时，根本没有椅子的校园他是如何找个等待的地方，有没有休息，累不累。他不说，就没有人知道他昨晚一个人在房间有多难过，差点从阳台跳下去的纠结。他不说，就没人知道他今天一个人在公车上嚎啕大哭，像个无助的小孩子，引得众人侧目。……他真的是快要疯了，刚才还发了不少胡话，“林妍想要她手机？那你告诉她，报警，或者她再买火车票追去h城，你要她自己选啊。”“你让他报警啊，说我拿了他的手机，报警来抓我啊。”林妍始终没有回答，只是张佳言回复说他幼稚，断绝了他最后的一些自己也讲不清的期待。他终究是痴想，都到了现在，还抱有一丝期待，还在期待千分之一的奇迹出现，这事件有那么一丝丝的转机。张佳言是对的，林妍不爱他，也不恨他。他以前不知道女生就算恨人也是那人先在心里有个位置的。林妍的手机，本就碎了屏，再买一个便是。手机号和所有的账号挂钩，去移动厅办张卡也不过是分分钟的事情。而他从来就估错了自己在林妍心里的位置，吃醋是男朋友的权力，也要是被认可的男朋友才行。林妍心里，大概没有给他的一点位置。恨，不过自欺欺人罢了。不爱你的人，怎么也不会在乎你的心是不是在淌血，是不是很疼。他就这样又上了火车，x城到h城，两座颇负盛名的古城，多产良缘，却伤了他的心，毁了他的爱。他欢喜而来，悲伤而去，原来世事真的不如人所想那般皆如人意。他前几天还在问张佳言何为情深，人伤多深，竟可写出那许多的深情厚意，赚人眼泪。从昨晚到今天，一夕之间，他似乎明白了很多。爱，真的甜蜜又伤人。发车前一分钟，徐洋还是忍不住拨了电话，是林妍接的，只是小声说了句“对不起”，徐洋也不知怎么了嘴角笑了，一直强忍的眼泪却汹涌了。“那么，我走了，你照顾好自己，替我给张佳言说句谢谢，你们也不要发短信了，手机快没电了，到了h城，我会快递还你的。”徐洋顿了顿，犹豫了几下，终于还是开口，“还有，祝你以后幸福。”说完便挂点了通话，关机。他不想再去听林妍讲些什么了，不想了，什么都不想了。呜……伴随着巨大的轰鸣，火车终于开了，徐洋看了看关机的手机，再也没有电话，再也没有纠葛。他和林妍，再也回不去了。徐洋转过头，看着从窗口不断后退的树木，轨道，默默地说了句再见。明天早上，火车便会到达h城。那么简单，轻易，而他所有的爱情却毁在了x城，一如他的心，支离破碎。周围那么多人，那么吵闹，却没有人知道这个一脸哀伤的男孩儿刚刚发生过什么。他的世界，从此再也不会有那个叫林妍的女孩儿了。他的心，死了。他的爱情，也死了。所有的事，不过在一夜一天之间，一切却没可能倒带，再也回不去。他贴身，靠上窗户，耳边尽是轰隆的火车声，像是那些在电影里看过的画面。孤独，无助，绝望。他终于了解，却绝不想要。别了！X城！别了！我恨的那个爱人。左岸记：如果徐洋明白卞之琳《断章》里的涵义，自然就不会去怨，无论是怪林妍，还是恨H城。卞之琳如是说：你站在桥上看风景，看风景的人在楼上看你；明月装饰了你的窗子，你装饰了别人的梦。原文链接：http://www.zreading.cn/archives/4762.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

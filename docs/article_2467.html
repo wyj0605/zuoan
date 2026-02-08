@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的六月</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我们的六月</h1>
+            <div class="date">2015-06-20 23:25:27</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/下午百合白色百叶窗外是雨后盈绿的深巷，选了靠窗的位子坐下来，读一本偶得的朱自清、俞平伯等人的《我们的六月》。必是心中先有了一个六月，才在眼中看到它。我们心中长存的一切终会显现在生活中。我们以为偶然的，其实并不偶然。六月来多雨了，雨中人总多思。就每天被各种心绪左右着，被种种细微的心思调遣着，心像隐在浓荫里的深潭，谁能看得到它柔细的波，暗处的潜流？该读一点书或者对着那打开的窗门久久地静坐。会否超脱而去？眼中出现从高处云端下山的路，带着一颗凡俗之心。是以朱先生亦是在无可安置的心绪里絮絮地说着了。竖排的繁体文字，读来费力些，没关系的。它让我慢下来。嗯，我听见时间的脚步也慢下来，仿佛有个人轻手轻脚地坐出来了。《我们的六月》以海阔天空与古今中外一文开篇，是一本文人们的漫谈。只看这题目罢。《文学的游离与其独在》（俞平伯），《暮》（叶圣陶），《不寐》（颉刚），《山野拾掇》（佩弦），《花瓣》（冯三昧）。仿佛就看见民国时的那一群人了，和他们的青葱六月。文人们活在文字里，写的说的是那一颗千古以来的心。这颗心一下子是广阔的，如孙悟空有了72般变化，上天入地无所不能。一下子又是细小的，它在一片花瓣上，在微雨的芒上。它一下子踌躇满志，把上下五千年都想尽了，把世间万象之边边角角都游历了，把山川江河都纳入其中。它一下子心思如麻，惆怅的，郁闷的，或是窃喜的，都难以对外人说，一说出来就变了样，像是酿着的酒遭遇了水汽。它一会跳出“自己”，一会又被“自己”困住。它这一分钟认可的，下一分钟全推翻了。可是朱先生说，它是“全”的，“但是能知道‘自己’的小便是大了，最要紧是在小中求大！”孙悟空纵使有72般变化，它从未离了如来的掌心。我们的小“心”纵有万般表现，千种附着，也从来未离了那颗大“心”。所谓的“我”便是这样虚妄的东西。是以朱先生说“我们正是要这样先将这个‘我’一拳打碎了，碎得成了灰，然后随风飘举，或飘茵席之上，或堕泅厕之中，或落于老鹰的背上或跳在珊瑚树的梢上，或藏在爱人的鬓边，或沾在关云长的胡子里......然后再收灰入掌，抟灰成形，自然便须目毕现，光彩照人，不似初时‘混沌初开’的情景了！所以‘深’的‘我’即在广的‘我’中，而无深的‘我’广的‘我’亦无从立脚，所谓有限的无穷也。”好一个“有限的无穷”。“在有限中求无穷是我们所能的自由”。唔！多少人是在有限的心中左右奔突而无出口，最后看到了那颗无限的心！又有多少人在虚无缥缈中无处安置，最后看到了那颗无限的大心！如何在有限中求无限呢？“我们要多方面的了解，多方面的感受，多方面的参与才有真趣可言。”是的，是的，一切的一切都从这颗虚妄之心创造而来！行走天下，悠游文字，与天地往来，与有情人相交，看戏，看花，看万花筒的世界。小便小吧，让心小到如叶间微细的光，大就大吧，让心大到宇宙洪荒，时光凝成一瞬。嗯，我们的六月，突然间开阔了，像是还未开始。左岸记：用一朵花开的时间欣赏花儿从含苞到初绽挣破蕾的束缚播散馨香一片用一朵花开的时间欣赏花蕊破蕾而出的灿烂阳光的温暖映满花儿的脸用一朵花开的时间欣赏花瓣层层环抱亲昵的犹如小鸟依人的温暖用一朵花开的时间欣赏绿叶满足的笑脸用绿色的身躯衬托花朵的妖艳用一朵花开的时间探索生命的内涵如花朵般灿烂如绿叶般平凡如花朵的芬芳让自己的世界馨香一片自爱，沉稳，而后爱人成熟的感情都需要付出时间去等待它的果实真正的平静，不是避开车马喧嚣而是在心中呵护一朵花开原文链接：http://www.zreading.cn/archives/4948.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

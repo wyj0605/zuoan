@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>思想脱贫了吗？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>思想脱贫了吗？</h1>
+            <div class="date">2016-01-16 00:14:14</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/焾昨天师长发来信息说给你的2015来个总结吧，当时逗逼属性发作差点回他：吾日三省吾身，脱贫了吗？脱单了吗？脱脂了吗？过后这个词却一直在我心底徘徊不去，我向来害怕对人、事、物下定义，自知学识、阅历浅薄，对其下定义带有自己强烈的主观色彩，遗留下一些自己回头再看都觉得蠢的概念，用上铺的话来说那就是不堪回首的过去，我想这事我还是少做一些！老师曾说文字是人类的一项伟大发明，但是也是一禁锢人思维的发明。我们天天在使用字、词、句，但是我们懂吗？琢磨过其内涵嘛？而后自己不断阅读积累，为的就是能够更精确表达自己的所思所想，减少文字所带来的误会，但是自己还是离目标还有很长的距离。所以在专业的招聘板块，面试时我总会一再确定我理解面试者的观点是否有误，它给我带来的负面就是自己有点啰嗦，但是也帮我抵挡住自己的强势。针对脱贫我想说这不是物质上的脱贫更是精神上的脱贫，我一直觉得物质上的脱贫远远比精神来得容易，就像男神老师说过求生存容易，那发展？发展就是与精神相关了。活得自在、开心与否都是与自己的精神有关，是否汲汲营营、碌碌无为、抑郁不得志或悠然见南山那都是自己内心的力量，人一辈子都是跟自己在做斗争，跟渺小感、孤独感、恐惧感做斗争，内心强大自然可以为自己遮风避雨、随遇而安，不然灵魂的漂泊比身无居所的漂泊更让人惶恐不安。我之前看了一篇关于总结的文章，文言年末总结时总会将以为自己能闯出点名堂的得意变成一盆冷水泼过来，等咬着牙过了那一天又像被赦免了，一切重新开始。正如2015的尾巴，正是2016的初始。而我们往往在开始高估了自己的行动力，也被计划赶不上变化虐，因为唯一不变的就是变，到最后目标与结局自然而然有所偏离，但是计划与总结就没有意义了吗？并不是，目标是向导，它告诉你终点在哪，至于你路途中拐了几个弯，遇到几个险滩，展示了十八般武艺，爬山涉水向它而来，最后总结会告诉你，你离它还有多少距离，需要你如何提高能力，更加努力才能在下一阶段少走弯路，事半功倍！日复一日，年复一年，在渺小重复的日子里我努力学会用乐观的心态面对，努力做到像父亲师友们一样乐观豁达，虽有所进步，但是一涉及情感就会瞬间崩塌，也就明白了自己的死穴在哪。在外求学离家远的自己处于放风状态就愈加率性而为，只愿意参加自己喜欢的活动，读自己喜欢的书，做自己热爱的事。而当师长一抛给我如此严肃，得从心而答的命题时，若在以前，自己会不管过去一年成绩如何，仍未满意，不是因为自己有多不好，而是自己没有成为自己喜欢的自己。2015于我而言最大的收获是自己终于更加清晰的看到自己，知道自己在意什么，知道自己最大的问题在哪，在兜兜转转的路途中，遇到了一位睿智的老师，他教我学会如何去克服自己的障碍，去接纳自己，接纳自己不是自己理想中的模样，懂得要学会与世界的游戏规则安然相处，明白做自己与遵守规则并不矛盾冲突。以前的自己或多或少活在了亲人的眼中、朋友的眼中，过于在乎他人的看法，他们是我的爱心杀手，我也曾是他人的爱心杀手，打着以爱之名，为你好的旗帜，理所当然的去干涉别人的生活，这是一种很恐怖的做法。在离开高考之后，远离亲人之后我更加迷茫，突然间无方向感，就只能告诉自己既不知该往哪走，那就保证自己在前进就好了。后来的学业的经历让去爆发了强烈的欲望去思索自己到底想要什么？在这条像迷宫一样的找寻路中，跌跌撞撞、走走停停、徘徊不前，经历迷茫、惶恐不安，而后在老师的帮助下豁然开朗，开始自己修炼之旅。对于总结，我认同孙清亚就在《面向未来，你为失败做好准备了吗?》中提到的观点，他的“教育测不准原理”说道：我们的未来是不确定的，我们应该这样回答关于总结性问题第一个20年(38岁)汇报：你在干什么?如果你在干正确的事儿，这就是有德，或者叫有正确的价值观;第二个20年(58岁)汇报：你干成了什么?如果你干成了一件或几件有价值的事，这就是有能力、或者叫有智慧。第三个20年(78岁)汇报：你是否还活着?说明你身体不错。如果我们认可自己，那就是成功的自己，成功与伟大向来无定义，人生只会定义有无意义，而且自己才是自己人生的裁判！愿亲爱的你们在成长的路途中成为自己最爱的那个模样！写于：2015/12/31原文链接：http://www.zreading.cn/archives/5229.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

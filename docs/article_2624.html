@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>那些陈年旧书</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>那些陈年旧书</h1>
+            <div class="date">2014-12-08 23:47:44</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/夏天的风工作休假结束，从老家回单位前几日，老妈看着东房里的一些旧书，建议我给收拾一下，归归类。除了一些重要的课本，看看能不能把没用的卖掉。卖书这件事，我想大多数学子都很纠结。我爸爸妈妈没有多少文化，但是敬仰教育。那种战战兢兢的心情，完全可以用崇拜来表示。就拿我们兄妹三人上学的书本来说，没有我们的允许或亲自筛选借卖，他们绝对不会动他一丝一毫。要是有人从我的书架上拿走一本书，妈妈必定要人家写个借条或者赶紧打电话得到我的允许，或者拿走后跟人千叮咛万嘱咐约定归还日期。就是路边捡来的小人书，拿来叠飞机的碎纸他们都不会乱扔，还给码放的整整齐齐。整理书本，我倒是很乐意做。因为我最喜爱翻弄我的那些旧东西。书架上的书籍，兄妹三个的课本，还有报纸杂志什么的都是我一个人整理保存。每每翻开那些旧的书本，看到我在上面曾经写下的一些注解，字迹从歪歪扭扭到工工整整，就像是过电影般回忆起逝去的光景，甚是怀念。书本陪我成长，我自然也是相当爱惜的。小学书本因为村子的小伙伴们借走一部分，大概是忘记归还，已经不全，心里疙瘩了好久，总是跟妈妈为此事碎碎念。三毛《逃学为读书》中有一句话写的就是类似的心情：爱书的人，跟守财奴是一色一样的，别人开口向我借书，我便心痛欲死，千叮万咛，请人早早归还，可惜借书不还的人太多了。我自是没有三毛那种嗜书的精神，也没有那种条件，加上我一向又是个小脸的人，徒有爱护的心情，心里觉得很可惜，也就只能作罢。初中后我开始在寄宿学校就读，自己看得更严，也再少有人向我借书，所以初中之后的书本大抵全保留着。我们家在农村，兄妹三个上学，期间经济状况有些紧张，我有好几个学期都没有参加学校的统一定书，那时候开了先例，以至于这个习惯一直保留到我大学毕业。改版的书就自己去买，没有改版的就用姐姐哥哥们的，总之再紧教科书是绝对不能缺少的。记得初中时有一个地理课本已经被用过六七届了，等到我手上的时候，封皮不见了，连里面都已经残缺不全。因辗转多人，课本上也被图画的满满当当。当时没有办法，也就只能将就着用，自己用白纸糊了个封皮，上面还用毛笔歪歪扭扭的写上“地理”两个大字。遇到缺页少角的时候就抄别人的，然后贴在附近的页码上。这个古董式的课本那时还被老师当成话题，好一阵在班里谈及。我诧异我这样小脸的人竟然没觉得不自在。这都是后话了。而今整理书本的时候只是看着更旧了些，纸张愈发的薄而黄，且书本也散了。因为家庭情况的原因，那时我不能去上补习课，也很少买习题书，当同学们都在忙着课外习题的时候，我就只能一遍遍的翻课本。高中的课本是翻得次数最多的。现在看着上面除了笔记就是注释，密密麻麻，一本本的书被摸的又厚又黑，边边角角的都被磨圆了，封皮上的字迹和图画也都已模糊不清，看来当时是真下了功夫了。大概是因为这般的认真，倒也考上了自己理想的大学。现在回想，我的学习大概是跟题海没有多大的关系的，固本才是最重要的。当然，每个人的方法总是不一样的。没有买书和课外题集的时候，实在没办法，就跟我的同桌共用一本。女孩子间最喜欢斤斤计较，因为大家都是农村的，别人也不可能条件很优越。跟你共用，多多少少会耽误别人。但是我真的没办法，所以更加感激我所遇见的同桌，她们可爱淳朴还漂亮，从来没因为我不订书本瞧不起我，更喜欢跟我一起分享，主动的借给我。记得小学的同学为了我，她一个学期都没有在那本课外书上做题，每次都是跟我一样，用本子抄写。她把那本活页放在我们中间，我不想麻烦她，但她总是喜欢说一句话：“你继续这样我就再也不理你了”，边说还边用小小的眼睛瞪我一下。我想，这大概是最让人暖心的埋怨了。那时候她喜欢向日葵，我跟妈妈要了种子送给她，她小心的拿回家种上，到了第二年，我们分了班级，她还特地拿着好多葵花籽来送给我，说是我送给她的向日葵结了籽，一定要跟我一起分享。我们便跑到学校的垂柳树下，盘腿坐在那里，嗑着瓜子，聊着天，仿佛微风刚刚吹过柳梢，时光便走到了今天。后来我们成了好朋友，却因为异地上学工作如今已经失去了联系。但是直到今天，我每次吃瓜子的时候都会想到她，想起她如向日葵般的心地和笑容。朋友与书，愈酿愈醇。想想那时候上学也知道了什么叫自尊心。在我自己身上，除了尴尬就是更加勤奋一点的读书。在父母身上，应该就是愧疚了。现在条件好了，回想起来也没什么觉得遗憾的，也曾经想着如果那时候条件更好一点的话，说不定我会比现在更加的优秀。贫穷适可而止是最好的，凡事过了就有伤害。但是我怎么能抱怨呢，终归是环境造就了如今的我。正像有本书上写到的，财富的确是人们非常渴望的，然而贫穷也有它光明的一面，困境的好处之一是人们从自己非常艰难的奋斗中感到真正的愉快。我们存在于世间的智慧、美丽与能力，有一半得之于困境的激励。我爱现在的自己，所以，我更爱那时候的岁月。这些陈年旧书，就是我经历的微缩影。但愿时光过得再慢一些，愿记忆再持久一些，愿感悟更深远一些。左岸记：环境给予一个人的都只是开始，一个人的努力和态度却决定了一个人在这个环境里所能发挥的多大能量，甚至超越环境所设的限制，实现那个梦想中的自己。原文链接：http://www.zreading.cn/archives/4662.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

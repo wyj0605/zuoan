@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>看世界需要两只眼睛</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>看世界需要两只眼睛</h1>
+            <div class="date">2015-11-30 00:24:23</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/廖超国好多年前，歌坛大姐大那英一曲《雾里看花》唱响了中国，红遍了九州。喜欢经典歌曲的人现在都还会时不时的啍起这首曲子。于我而言，歌里的词大都已经记不得了，但有一句却至今不忘，“……借我，借我一双慧眼吧，让我把这纷扰，看个清清楚楚，明明白白，真真切切……”。当时理解“慧眼”可能就是智慧的眼睛吧。也没多想智慧的眼睛究竟是一双什么样的眼睛，一双什么样的智慧的眼睛才能把这“涛走云飞，花开花谢”的复杂世界看清楚想明白。近来读木心老先生的文章，才真正明白，所谓智慧的眼睛其实是两只眼睛，一只辨士的眼睛，一只情郞的眼睛。这里的辨士不单指“能言善辩之士，游说之士”，而是泛指明辨之士。看世界无论是衡人审事，还是思己度人都需要两只眼睛。世界太复杂，面对纷扰的世界，我们需要有辨士的眼睛。辨士的眼睛其实就是理性的眼睛。用理性的眼睛来辨真假，明是非，知善恶，鉴美丑。有了辨士的眼睛，我们会活得明白通透不糊涂。缤纷的世界总存在着虚虚实实，如果没有辨士的眼睛，我们就难分辨真真假假。鱼龙混杂的世界，如果我们对真假都难辨别就不用谈及其他了。人的成熟是从学会能辨别事物的真假开始的。事物的存在总是现象和本质的统一。一般的情况下现象代表着本质，但有的时候现象却掩盖着本质。如果这个时候不能透过现象看本质，就难区分事物的真假，就难把握事物内在本质的规律，也就难认清事物。辨士的眼睛帮我们辨别世界的真假。丰富的世界总存在着对对错错，如果没有辨士的眼睛，我们就难明白是是非非。人若不能明白是非，做人就很难立足了。我们从小接受的“礼、义、廉、耻、忠、孝、悌、信”的国学道德教育，其本质是让我们明白是非，正直做人。“仁义礼智信，忠孝廉耻勇”是我们中国人几千年不败于世的根本。古人云“耻，乃人禽之别”。知廉耻就是明是非。只有明白了是非人才称其为人。明是非就是为人处世要正直。大事要事讲原则，有规矩。要做到“富贵不能淫，贫贱不能移，威武不能屈”。要有“穷则独善其身，达则兼济天下”的胸怀。辨士的眼睛助我们明白人间的是非。纷扰的世界总充满着曲曲折折，如果没有辨士的眼睛，我们就难知晓善善恶恶。知善恶似乎与明是非是联在一起的，确实它们关联度很高。但两者也有区别，明是非客观中性是方法手段，知善恶更注重道德约束是目的结果。明是非在前知善恶在后，明是非是为了行善弃恶。行善弃恶就是为了“闻一善言，见一善事，行之惟恐不及，闻一恶言，见一恶事，远之惟恐不速”。行善弃恶更是为了“勿以恶小而为之，勿以善小而不为”。知晓善恶，除了我们要自觉修行做一个善良的人外，还应为营造身边行善弃恶的环境而出力。不求做到“路见不平一声吼”，但至少要爱恨情仇分明，扬善抑恶。辨士的眼睛使我们知晓人世的善恶。炫目的世界总是涂染了花花绿绿，如果没有辨士的眼睛，我们就难鉴赏美美丑丑。美是生活的要旨，生活因为有美而变得高尚和精彩。美是人类特有的对事物感知带来愉悦体验的精神享受。一个人美丑的鉴赏能力直接决定着他生活格调的高低。善于在生活中发现美并能欣赏美的人他的生活一定充满着情趣，他的快乐总会高于那些发现不了美的人。契诃夫说“人的一切都应该是美的，容貌、衣裳、心灵、思想.”。但首先要明白了美丑，才能去塑造美。美丑不分是不会让自己美起来的。辨士的眼睛让我们鉴赏人间的美丑。有了辨士的眼睛，我们把世界会看得明白，会变得十分理智和清醒。对外能明白社会；对内会明白自己；对自己会明白责任；对他人会明白理解。对世界的认识会由复杂到简单，对社会的理解会由简单到复杂。但这不够。过于理性的生活会让人觉得枯燥乏味，缺少乐趣。人不能少了感性生活，我们还需要一只情郞的眼睛。只有同时具有一只理性的眼睛，一只感性的眼睛，看世界才显完备。情郞的眼睛让我们充满激情地看世界，用温柔的眼光去快乐的对待生活。让我们学会爱自然、爱生命、爱生活。用饱含爱的一颗心去感受人生、体悟人生、享受人生、幸福人生。情郞的眼里，自然就是一幅精美的画。无论是山川大地，江海湖泊，还是沙漠孤烟，戈壁红柳，抑或蓝天白云，牛羊成群，无不都是景。春的花、夏的风、秋的月、冬的雪无不都是画。用情郞的眼睛看，自然总是那么美，一切皆风景如画。有了情郞的眼睛，我们随时都会有情不自禁的想来一次说走就走去旅行的冲动。无论多忙都会安排时间，走近自然，亲近自然。拥抱自然，忘情于山水，陶醉在大自然的怀抱中，感受其美丽，欣赏其神奇，感叹其美妙。我们会珍爱大自然给人类创造的生活环境。让“只有一个地球”的环保口号自觉化为保护环境的行动。情郞的眼睛会让我们真正懂得自然的可爱。情郞的眼里，生命就是一曲优美的歌。岁月像一条河，生命则是河上的歌。奇妙的生命为这世界注入了活力，空寂的时间长河因为生命之歌的流淌而变得丰富和繁荣。生命是短暂和脆弱的，正因如此，她才宝贵。宝贵的生命需要传承和创造才显伟大和永恒。情郞的眼睛，因为认识了生命的本质，所以也就格外珍惜生命。会倾力以增加生命的宽度和质量来弥补生命的长度和数量的不足。让有限的生命放出无限的异彩。情郞的眼睛会让我们真正明白生命的可贵。情郞的眼里，生活就是一首完美的诗。凡夫的眼里，生活就是朝起暮落的辗转，人生就是月缺月圆的沉浮，生活是为了谋生而行走于尘世苦差。但情郞的眼里则是另一番景象。“生活除了眼前的苟且，还有诗和远方”。这也正合海德格尔老人所说的“人应当诗意的栖居”的心意。生活虽然不易，但有了情郞的眼睛，就会发现生活的可喜之处。无忧只因经历，无悔只因深刻，无怨只因过程，无念只因心情。虽生活的平淡但并不卑微，如一朵美丽的花，在平淡中精彩，在简单中丰富，在有限中永恒。情郞的眼睛让我们真正理解生活的可喜。看世界少不了两只眼睛。只有具有了这样两只眼睛，才能游目骋怀这声色的世界，洞察了解凡人的幽辉，浏览观赏世俗的异彩，感知感怀人生的乐趣。2015年11月9日写于荆州古城左岸记：善人者不善人之师，不善人者善人之资。大家可以讨论一下“小孩才分对错，大人只看利弊”这句话是否成立吧？原文链接：http://www.zreading.cn/archives/5157.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

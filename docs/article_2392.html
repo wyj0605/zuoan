@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>与天下人交朋友</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>与天下人交朋友</h1>
+            <div class="date">2015-09-06 22:12:30</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/北上京城不知道是从什么时候开始，人们总是喜欢在一个小圈子里活动，一个个小圈子变成了一个个独立的王国，成为了我们每个人最为重要的身份认同。现在，这种小圈子的格局变得日益稳固，我们要么进入这个圈子，要么进入那个圈子，除此之外，没有其他的选择。我在这里只想描述一下我的感受以及我的一点心思。圈子的格调有高有低，我所有的圈子都是格调一般的。准确地说，只有在大学的时候，我才有一个较为固定的圈子。这个圈子是能够提供给我各种情绪的展示和发泄的地方。一般而言，这就是人们常常会碰到的大学室友的圈子。当然，并不是室友的基本关系就能够形成一个圈子，我们聊天的范围是广大的，这才是圈子的基本条件。我记得我们当时有聊到政治、学术类的话题，虽然没有大学学术圈那样博学和深刻，但也算得上是尊重知识向往智慧。单单凭这一点，我们已经比很多圈子更加深刻了。正是由于类似的交流，再加上我们天生的质朴和温情，凝聚出了一种特殊的圈子文化。这种圈子文化不同于很多圈子，它不像一种圈子：他们几乎对文化和知识避而不谈，它也不像另一种圈子：他们紧跟时尚，亦步亦趋。当然，这个圈子是先天不全的，一个原因是我们的文化水平都不高，并没有坚定的理想信念。另一个原因是时尚是时代大潮，会让我们自然而然地自卑，也就无从自信地得出自己的圈子的合理存在性。可以说，结局是感伤的，但内容却是值得回忆的。这是一个比较值得介绍的例子。发生在我自己的身上，相信会得到很多人的共鸣。这也让我懂得了圈子的一些隐秘的规则。即圈子文化并非与我们整个的文化环境格格不入，甚至总是为大气候所有影响，它们形成的最大原因恐怕不是来自于圈子里的人们的某种理念或观点的相互认同，而是由于这些人处于一种必然条件中（我们是室友），以及都具有某些弱点（我们缺乏奋斗的决心，而且赶不上时尚）。人性的弱点，我把它称之为圈子文化的根。我认识一个很有魄力的人，她活跃在一个大城市里的一个商人圈或企业家圈。的确，此人格调很高。但她的生活经验告诉我，她并不喜欢这样的圈子，但是她不能丢掉这个圈子，因为她的经济关系全部来自这个圈子，一旦丢掉这个圈子，也就丢掉了十几年的个人奋斗和所谓的人脉资源。我不认为这是一个特别的例子，它由于一种人性的弱点而不得不融入一个圈子。这个人性的弱点直白地说就是处理不好个人利益。那么，一个以企业家为主体人群的圈子，就可以说是一个害怕个人利益受到损害以及由于对个人利益最大增值的追求的圈子。或者叫做利益集团。每一个圈子都是一个利益集团，这大概是可以肯定的了。圈子的封闭性和排外性勾勒出了这个特点。为什么我们需要圈子，因为我们需要利益的最大化以及稳固的利益来源。难怪最伟大的人物，诸如释迦摩尼，基督以及一切世俗的英雄人物从不提倡建立个人的圈子。释迦摩尼的佛教以“普度众生”为己任，基督教总是热衷于将教义带给受苦受难的人们，而诸如凯撒、亚历山大、拿破仑、林肯、列宁、毛泽东等等，民间都传诵着他们与普通士兵或人们的经典故事。而晚年的列夫托尔斯泰为了鄙弃自己的贵族身份，竟然放弃所有财富和荣誉，梦想着与最苦难的人们同吸一口气……圈子不仅仅代表着利益集团，还妨碍人的精神独立。以上的论述和例子表达了一个观点：圈子的本质是利益共同体，所有格调高的东西，所谓理念认同或者其他，都建筑在这层基础上。因此，我提倡与天下人为友。只有这样，我们才能获得最纯洁的快乐和满足、最独立和积极的精神高度。勇敢地承认自己只是因为逃避和羞耻而进入一个圈子吧！勇敢地承认只是因为利益和荣誉而进入一个圈子吧！因而，我提倡与天底下所有的人都交朋友。即不再以圈子文化为界限和标准去衡量别人，包容和理解更多人，并将个人精神推向更加独立自主的境界。这就是与天下人交朋友的真谛。左岸记：这是个很独特的视角，个人觉得很客观地揭示了圈子的本质特性。我们要正视，不用担心一谈到人性的弱点就认为是不好的，其实人真的没有那么强，反而正因为弱，所以人们才需要抱团取暖，才不会不可一世，才不会狂妄自大，唯我独尊。但圈子是有界限的，它的排他性令圈子本身陷入制约和孤独当中，所以，人不可以只生活在圈子当中，再大的圈子也只是一口稍大的井而已。我想，这里的与天下人交朋友，不是说和每个人交朋友，而是我们做事和说话所采取的是开放的学习的态度。原文链接：http://www.zreading.cn/archives/5058.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

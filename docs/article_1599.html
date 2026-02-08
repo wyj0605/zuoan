@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何知道做到？ </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>如何知道做到？ </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>前段时间侯子写过“关于那些道理”，其中写到：</p>
+<p>说了很多道理，每次论述一些道理的时候，总会有一句话：这些道理我明白，可是要做到很难！这句话，不是说别人，更多的是说自己。我不知道别人是不是会经常说这一句话，自己在做事情的时候，会经常不自觉的说这句话。没有开始，就已经给自己增加困难了。。。。也许你不知道自己懂得多少道理，但是写下来的时候会发现，原来自己知道那么多的道理。只是，自己懂得到那许多道理当中，有多少自己能够做的到？我现在想，我们没有必要知道更多新的道理，做到自己知道的那些大概就够了。即使不够，等你做到你知道的那些，再去讨论那些新的道理。</p>
+<p>今天看到一本书叫做“知道做到”， 里面谈到了那些把我们知道的道理转换成做到的一些方法，跟大家分享一下。</p>
+<p>事实上当一个人从“知道道理”到具体“做到” 需要经过3个层次的转变。</p>
+<p>第一个层次的转换是知识层次的转变。</p>
+<p>这是很简单的，也是花费时间最少的一种转变。要想提高自己的知识层次，你只需要读一本书或听录音带或看一篇别人写的文章。（我自己就是在淡然一笑或zen habits读文章的时候经常有很多感悟，知道了一些道理）</p>
+<p>我们每天都可以轻松地接触大量知识，但是越是接触得多，知道和做到之间存在越来越大的鸿沟。我们发现我们每次会用大量的时间去获取新信息，而不是想办法将自己新学到的知识应用到日常生活中。</p>
+<p>我现在发现自己每天要来往于很多博客，看很多新闻，但是第二天就会发现自己根本不记得昨天看了什么内容了。</p>
+<p>“知道做到”这本书里写到：“人们对于自己吸取的信息，24小时以后就记得不到50％的内容，而1个月之后，他们所能记得的新知识就不到5％了。”</p>
+<p>对于我们都知道的那些道理，你听着可能很耳熟，所以经常说这个道理我知道。。。但是你可能不清楚你没有做到这些道理就等同于你不知道这个道理。那么，怎么样才能做到呢？</p>
+<p>第二个层次的转变是态度变化。</p>
+<p>当你对某个东西产生强烈的积极或消极情感时，你就会形成态度。改变态度要比获取知识更困难，因为我们常常会说，“我知道你在说什么，可是。。。。”所以我们需要养成积极的过滤系统。</p>
+<p>每当我们产生一个令人兴奋的想法时，可能我们周围最亲密的人就会大泼冷水。久而久之，我们形成了消极过滤系统。比如在博客中看到一篇文章你可能会 想，“恩，这个很有道理，但是对我来说不管用， 因为bla bla…” 对于新知识我们会让自己带先入之见，批判的心态来接受，虽然你口头上说我知道／我理解，但是你的心灵深处／态度上并没有接受。所以我们要设法敞开自己的心 胸，遇到新信息时，不要总是琢磨这个错在哪里，而是成为绿灯思考者，积极发现其中的正确之处。</p>
+<p>在公司工作时，每当看到下属写的企划案，自己会根据自己的喜好或用自己的先入之见，就判定这个不行。总是打断他们的话开始挑刺，这样不仅打击他们的 热情，自己也在排斥新观点。所以我就强迫自己用绿灯思维，每次看到企划案，从中发现创新之处，刚开始很难，总想打断他们的话。以后每次开会的时候在记事本 中贴了一个纸条，上面写着“倾听”，这个效果很不错。^^</p>
+<p>但是光是接受，态度上的转变，它不能让我们真正做到，那么我们接下来呢？</p>
+<p>第三个层次的转变，也是最为困难的，就是行为上的变化。</p>
+<p>要想做到，除了真正行动之外，没有别的办法。</p>
+<p>要想做到，就需要一个跟进系统，你不能偶尔将自己的知识应用到行动当中，而是要让自己制定一份能够为自己争取到必要的指导和支持，并帮助自己培养强大的责任感的跟进计划。侯子说道做到自己知道的那些道理，最为核心的是自律，实现自我的控制，以及坚定的意志，实现不断的坚持，永不放弃。但是我想加一点，除了自律以外我们也需要外界的帮助，不管是鼓励的一句话或对你的监督，我每次行动的时候就会让周围的人知道，这也是对自己自律的一种良性的压力。</p>
+<p>写了很多，觉得最近吸取了太多新知识，感觉有点信息超载了。要对自己吸取的知识进行反复的推敲，要不断重复，重复，重复。。。该是重复的时候了。</p>
+<p>文章来自：酷啡</p>
+<p>扩展：《知道做到》阅读笔记～</p>
+<p>“知道，就一定要做到。做到，就一定要有结果。”——这是在《知道做到》这本书扉页上的一段文字。</p>
+<p>现代的我们获取知识太过容易，而我们对知识与信息的索取又是极其贪婪的，很快我们变成为了知识的垃圾桶，淹死在信息的海洋之中。我们好似读了很多 书，知道很多信息，但却无法体现在我们日常的工作实践中。大量的学习无法却依然让我们的竞争力停滞不前，我想这也是很多人都存在的困惑。《知道做到》就是 这样一本教你如何将Know-How转化为你想要的结果的书，书不厚2个小时完全可以读完。总结一些我阅读中的书中要点，记录分享在这里。</p>
+<p>人们往往会用大量的时间去获取新信息，而不是想办法将自己所学到的知识应用到日常生活中。</p>
+<p>让人们变成真正的学习者，能够将自己学到的知识进行实际应用，就需要学会以下三样东西：</p>
+<p>1. 坚持记笔记；</p>
+<p>2. 在24小时之内重读笔记；</p>
+<p>3. 把自己学到的知识传达给别人。</p>
+<p>当前人们之所以很难在实际中应用自己所学的东西，主要是有以下3个原因：</p>
+<p>1. 信息超载：获取新知识要比应用已有的知识有趣得多，所以如今人们会习惯性地不断获取新知识。</p>
+<p>2. 消极过滤：人类的信息处理系统相当混乱，“发臭思维症”这种消极态度会让人们止步不前。</p>
+<p>3. 缺少跟进。</p>
+<p>要想改变这种现状，让我们越来越多地应用自己学到的知识，关键在于：重复、重复、重复！</p>
+<p>这里的“重复、重复、重复！”指的是间隔性重复，这是一种学习技巧，在使用这种技巧时，你会隔段时间就重复接触到这条信息，直到它最终沉淀下来。</p>
+<p>有关“信息超载”：</p>
+<p>如果我们总是在接触新知识，却没有停下来去整合它们，并将其付诸实践。如果继续这样不停地接触新知识，我们的大脑就会阻塞。如今之所以有越来越多的人被淹没在信息的海洋之中，原因就在于此。</p>
+<p>要想掌握一样东西，你必须完全沉浸其中，直到将其完全吸收。你必须慢慢地咀嚼、消化，直到它变成自己的一部分。</p>
+<p>通过间隔性重复彻底读透少量资料对人心理所产生的影响，要超过泛读20本书所产生的影响。</p>
+<p>读书，学习知识都需要一次又一次地反复阅读，划出重点，找出需要强调的地方，写出核心思想，然后再不断地复习。这样可以帮助我们避免“遗忘流程”。要想真正了解一个领域，必须透彻地吸收一些重要信息，而不是盲目地接触大量信息。</p>
+<p>人们应该少而精地学习，而不是多而浅地接触大量信息。</p>
+<p>对于那些只接触过一次的信息，我们通常只能记住其中一小部分。</p>
+<p>要想掌握某件事，我们必须首先选择一些关键点，隔段时间就重复一下，让自己完全沉浸其中，并不断提高自己的知识和技能。关键在于间隔性重复。</p>
+<p>一旦真正透彻地掌握了自己的工作，人们就会变得更有创造性，甚至能够创造奇迹。</p>
+<p>有关“消极过滤”：</p>
+<p>人们经常会表现得太过消极，这会大大削弱人们的信息过滤系统。</p>
+<p>积极思维比消极思维会更强有力，但大多数人都不会选择积极思维。当我们做对事情却没有人发现时，我们就会开始对自己以及其他人产生怀疑。我们会逐渐 设立一些防御机制来保护自己。我们的大脑会逐渐产生一种消极的思维方式，开始对所有发生在自己身上的事进行过滤。我们的大脑变得封闭。我们开始用一种批判 的眼光看待周围的一切，我们会因为恐惧而对很多事情妄下断言。</p>
+<p>事实上，在我们所接受的信息中，只有很少一部分信息有机会被我们记住，更不要说进入我们的潜意识，被我们接受，并实际应用到自己的生活中了。在很多 情况下，我们是用一种焦虑、消极、犹豫不决、先入判断或者是坚持固有思维的态度去判断自己所接受到的信息。由于我们的大脑常常是封闭而消极的，所以我们听 到或得到的信息就会在我们的潜意识遭遇心理上的堵塞，我们真是通过它来接受、相信、理解和使用信息的，结果最终只有10%的信息能够进入我们的潜意识。</p>
+<p>要想多留住一些自己所学到的东西，关键就在于要带着一种开放、积极的心态去聆听：</p>
+<p>· 不要带有任何偏见或先入之见；</p>
+<p>· 带着一种学习的态度，对新的信息感到兴奋；</p>
+<p>· 带着积极的期待；</p>
+<p>· 手里拿支笔，准备做记录；</p>
+<p>· 带着强烈的欲望，不仅要仔细聆听对方的讲话内容，还要努力激发出自己的想象力；</p>
+<p>· 带着一种“我该如何应用这些”的态度。</p>
+<p>呈现6次似乎正是间隔性重复的秘诀：</p>
+<p>第1次接触：人们会立刻拒绝，因为这个想法跟他们之前的想法有些冲突；</p>
+<p>第2次接触：人们会抵制，因为他们仍然无法接受这个想法；</p>
+<p>第3次接触：人们会部分接受，但在实际应用的时候仍然会有所保留；</p>
+<p>第4次接触：人们会完全接受，因为他们感觉这个想法跟自己一直以来的想法完全一致；</p>
+<p>第5次接触：人们会将其应用到实际工作中，会部分吸收，将其转化为自己的想法；</p>
+<p>第6次接触：人们会将其据为己有，完全吸收，并将其传播给其他人。</p>
+<p>并非所有事情都一定要经过这6个步骤，通过自己的积极思维所体验到的积极经历越多，就可以自动跨越这6个步骤。</p>
+<p>我们必须设法敞开自己的心胸。每次接触新信息时，我们不要总是琢磨这些信息错在哪里，而是成为绿灯思考者，积极发现其中的正确之处，并告诉自己：“我知道自己读到或听到的信息是有一定价值的，可它究竟在哪儿呢？”</p>
+<p>“积极聆听”和“绿灯思考者”可以帮助人们克服“消极过滤”这个问题。</p>
+<p>有关“缺少跟进”：</p>
+<p>很多人在接触了新事物后，没有制订一个跟进计划，结果自然是很快就恢复了旧习惯。要想将知识变为行动，需要制订一个跟进计划。</p>
+<p>除非人们有动力想要去学会一件事，并订出计划去正确地完成，否则他们根本不会坚持太久。</p>
+<p>你不能只是偶尔将自己的知识应用到行动当中。要想真正让自己进步，我们必须制订一份能够为自己争取到必要的指导和支持，并帮助自己培养强大的责任感的跟进计划！</p>
+<p>告知、演示、尝试、观察、表扬进步并/或修正是一种简单有力的跟进计划，它可以帮助那些潜在的赢家变成真正的赢家。</p>
+<p>强调积极面可以大大提高学习者的积极性。在进行纠正之前，一定要对学习者的进步提出表扬，这点是非常重要的。过了一段时间之后，学习者就应当能够进行自我表扬，或者是自我纠正。</p>
+<p>很少有人能够通过读本书或者参加一次培训讲座就改变了自己的生活。你必须卷起袖子，成为一名真正专注学习者。然后你必须学会通过一种积极的心态过滤新的信息。最后，你必须制订一份计划，将自己学到的新知识立刻应用到实际工作中。</p>
+<p>在每一位成功人士的生活中，都有一条贯穿始终的金线。那就是专注，再加上坚持。所有有所成就的人都有一种独特的能力，他们能够像激光一样将自己的能量集中于一点，并在整个实现目标的过程中始终保持焦点集中。</p>
+<p>你需要掌握多少食谱才能真正减轻体重？只要一个就可以了，就是你能真正坚持下来的那一个。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节日与礼物</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>节日与礼物</h1>
+            <div class="date">2026-02-08 18:44:00</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/水上冰忆二月十四日去年的情人节我哭了一个晚上，因为R先森很平静地没有任何表示。想想相恋之后的每一个情人节，他都会细心地买盒巧克力，吃顿二人餐然后遛大街。结婚后的第一个情人节反差就这么大，直接掉入了某黑毒鸡汤的碗里：得到之后就不懂珍惜。记得他当时说，你白天在输液，外面的饭都是辛辣的，对你身体不好。我不是忙得来不及准备礼物了么，之后肯定补上。在我终于破涕为笑的瞬间，在此后悠悠岁月的打磨中，我羞愧得无地自容。今年的情人节前夜，我给R买的礼物像是踩着鼓点般来得巧来得妙，是新款6s。R一直默默付出，不像我爱说爱闹，我明明白白你的情意。之前不知道要送他什么，又想夫妻之间何必扭捏，选礼物还是实用主义至上，他的手机确实该换了。看到R一脸高兴的样子，我跟妈妈说，男人真的既可爱又可怜，他给你买礼物，你还会嫌弃他乱花钱又买得不称心；你给他买个礼物，他开心地像个小孩各种卖萌讨喜。这种欢喜弥漫在此后的每一天中，让我成就感和幸福感都满满的。晚饭是和家人一起吃的，家里人组局玩麻将，规定谁输了谁请客吃饭。我家王老师的一腔热血换来的是腰包瘪掉，弟弟小两口却赢得盆满钵满，于是弟弟买了材料，全家人一起吃火锅，小爱汇聚在一起成大爱，不亦乐乎。原来，感情从来都是对等的。两个人无非是你宠我一点，我爱你一些。有人说，夫妻是最奇妙的关系，两个没血缘关系的人要遵守诺言和法律相伴一生。但激情会消退，诱惑天天有，岁月是女人的杀猪刀，我们如何赢得一生的战争呢。我认为是随时都要让自己修炼出被爱的理由，包括好气质好性格，更重要的是爱人的意识和能力。三月八日三八节这天，领导给放了半天假。我特想说，我感觉自己还是萌萌哒美少女。适逢天气不好，我没有出门，在家啃公考题，错得一塌糊涂，志气大挫，晚饭都没吃。之后打开电视看《太阳的后裔》，哇，宋欧巴真是节日福利啊，这么有型还痴情，无条件被击中。乔妹清新美丽，满脸的胶原蛋白，一头知性利落的中长发，衣着休闲大方，仿佛岁月对她格外开恩，岁月君向来爱美女，或者说是眷顾不放弃不抛弃的ladies。妈妈和她的朋友们报团去短途旅行。妈妈帮的口号是：五十岁的女人，我们要为自己而活。她们建了微信群交流分享，群的名是：健康属于我们，耶！她们每天早起做早操，晚上跳广场舞。此处省略N个超赞。微信上关注了很多女性公众号。她刊每天都推送一些致力于内外兼修的女同胞们，她们成为人生的大赢家，她们中有女明星，也有一些在某领域发光发热的我等凡人。艾明雅说，每一天，都要朝想成为的那个样子走过去，更重要的，每一天，都要为那个自己做点什么。HUGO说，不要以带孩子为名，放弃自己的梦想。瑜伽微社区说，瘦下来，宋仲基就是你的。呃。此文我是悄悄看滴。你们懂得。她理财说，你和宋仲基之间只差一只股票的距离。哎玛，可以不提这个男神了么，此剧真是要霸屏的节奏。我每天都在看美女听段子，下决心受洗礼中度过。都说男人征服世界，女人征服男人。到如今女人亦可跳过推导步骤，直接站在世界中央挥斥方遒。但是，我们仍需要爱情，需要有人相伴左右，分享喜乐与哀愁，在大风大浪中相扶全身而退。写到这里，好像又回到了“情人节”小结段中的问题，果然是已婚女人，我再不装纯情少女了。女人，是一座城市的母亲，是一个家庭的灵魂。我们不能不努力，不能放弃成为更好的自己，要知道a better me的连锁反应是老公死心塌地，孩子阳光健康，世界一派祥和。大浪淘沙，岁月流金，美丽和成长课程排满女人的一生。青春不复来，少女心可以闪闪亮。我们不过妇女节，要过女神节。结语当过节成为一种流行，节日迅速转变成爱的表达。女人总是摆着高姿态收礼物却忘了取悦对方。我们要做大方贴心好女人，让另一半感受到浓浓爱意，更要成为内秀外靓的大美人，把每一天都当节日来过，时光是最好的礼物，它赋予我们光芒，我们在时光如梭中用真心和行动好好爱。爱你，爱我。左岸记：是的，不是我等、我想，而是我要。原文链接：http://www.zreading.cn/archives/5323.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

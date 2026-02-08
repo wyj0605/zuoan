@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不器：随身佛</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>不器：随身佛</h1>
+            <div class="date">2014-02-09 19:16:52</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/冯唐我们这一代的正规教育里没有宗教。没有宗教的教育强调的是如下内容：世界的一切都是可以解释的，人是猴子变的，猴子是石头变的，石头是一次莫名其妙的大爆炸之后形成的；人定胜天，世上无难事，只要敢登攀；个体是渺小的，组织是强大的，领袖是正确的，任何内心的软弱都是封建主义和资本主义的，封建主义糟，资本主义糟，社会主义好，封建主义已死，资本主义必亡。在上个世纪七十年代长大，那时候，没有宗教，也没觉得有什么不好。小孩在天地间疯跑，不知道名利为何物，学习基本常识，食蔬食饮水，应付无聊的课程，傻愣愣地杀无聊的时间，骂所有看不上的人“傻屄”。本身近佛，不需要佛。第一次的宗教感来自一个高中时代的下午。秋光脆亮，秋云不动。我在水泥案子上打乒乓球，对手正手攻球打飞了，我转身跑去捡球。我拾起球站起来的一瞬间，仰头看到不远处一个练长跑的女生背对着我，双手紧握双杠的一根，压肩膀，我不认识她。她的肩压得很低，黑直头发梳成马尾，随重力垂下，最低处低于她臀部的最高点。她的小腿腓肠肌拉得很长，挣脱运动裤，近脚踝处裸露出一段，和裸露的脖颈呼应，对抗重力向上，似乎一直延伸到臀部的最高点。太阳被云遮住一部分，遮不住的光金子般从云彩边缘倾斜而下，一阵风从无何有处升起，操场上的国旗、白杨树的叶子和那个女生的辫子朝一个方向飘扬。那一瞬间，我完全看不到她的脸，但是我深深感到，她是高级太多的物种，创造她的不是她爸妈而是一种强大而神秘的力量，如果没有外星人，那么或许有神。下一个瞬间，我的乒乓球对手在水泥球台的对面遥远地高喊：“快打球啊，马上要上课啦，发什么呆啊，你丫傻屄啊。”参加工作之后，我开始不成系统地阅读佛经，特别是禅宗文字。一是为了增加些佛教基本常识。在国内到处走，到处都是历朝历代甚至当代的寺庙，寺庙里面那些花花草草、神神鬼鬼都是什么啊，我不想脑子里一片空白。二是为了大处着眼，拿佛的形而上做个救生圈，让我不要陷入名利的大海里不见天日。不时翻两页佛经，扯脱一下，套着救生圈，上半身浮出水面。三是为了消化禅僧们在汉语上的实验成果。在探索汉语甚至语言的可能性上，某些唐宋禅僧走得比唐宋诗人和词人更远、更荒芜。佛经里常常有插图，画里的佛常常健美得仿佛长跑运动员，尽管都是正面像，但是我知道，她们的背面都有着漫长和坚实的腓肠肌。我有个朋友专营佛像，石头的居多，也有铜、木、铜鎏金的，绝少玉的，仿的居多，也有真的，锁在保险柜里，不摆在外面。他的生意在春节前和“两会”后特别好，他说，“越是心虚的人，买的佛越大。”他的店是个小套间，里面一间有个沙发，沙发下面有个塑料盆，塑料盆里常年一盆酸水，酸水里横七竖八泡着好几个佛。我说，你也太实在了吧？孙二娘也是不小心才把人手指骨头包进包子里，你做旧的酸味儿在楼道里都闻得见。他嘿嘿笑，还是继续泡。他知道我收集高古玉器为主，很少碰佛像，但是总想卖我点佛像。我说我到处跑，平均一周跑三个城市，拉杆箱是真正的家，如果买个仿造铜佛，占半拉箱子，其他东西怎么放？过关被海关拦住，他们如果分不出是仿造，我怎么办？他打开保险箱，说，可以买随身佛啊。我先后在他那里买了五樽随身佛，三个铜鎏金，他说了三个佛的名字，我都没记住，两个粘土烧的随身佛，他说了另外两个佛的名字，我也没记住。他说这类粘土烧的随身佛叫“擦擦”，软泥按入模具，烧制而成，和做饼干、月饼类似，讲究的烧制后上颜色，甚至有的“擦擦”后面有高僧的指印。其中一个“擦擦”常住在我的拉杆箱里。我很少求它办什么具体的事儿，比如这班CA981不要晚点啊、这次五个小时的高速路不要出车祸啊、某个股权交易一定要完成啊之类。晚上，我把它从拉杆箱里拿出来，摆在酒店的床头，恭敬地拜一下，拜的时候从来没有任何想法，仿佛早上出门和太阳点一下头。只要知道这个随身佛在附近，和那些所有美好的未知一起真实地存在着，我就会心安一点。有次，我和我妈说，如果我死在她前面，我的肉身烧成灰儿之后，建议她把灰儿拌了粘土，烧几个“擦擦”，随身带着，百毒不侵。我妈说：“你妈。”链接：http://fengtang.blog.163.com/blog/static/12050405020129610933308左岸记：《住在我心里的猴子-焦虑的那些事儿》里有句话：“佛教是为焦虑的人创造的，就好像基督教是为受尽压迫的人创造的一样，或者说嗜酒者互戒协会是为饮酒成瘾的人建立的一样。它整个目标是为了促成平静，克制过激的想法和情绪。”讲的是不是很有道理呢？今天在思文群中见到zxy分享的一段“我问佛”，可谓有趣：我问佛：为何不给所有女子羞花闭月的容颜？佛曰：那只是昙花的一现，用来蒙蔽世俗的眼，没有什么美可以抵过一颗纯净仁爱的心，我把它赐给每一个女子，可有人让它蒙上了灰。我问佛：世间为何有那么多遗憾？佛曰：这是一个婆娑世界，婆娑即遗憾，没有遗憾，给你再多幸福也不会体会快乐。我问佛：如何让人们的心不再感到孤单？佛曰：每一颗心生来就是孤单而残缺的，多数带着这种残缺度过一生，只因与能使它圆满的另一半相遇时，不是疏忽错过，就是已失去了拥有它的资格。我问佛：如果遇到了可以爱的人，却又怕不能把握该怎么办？佛曰：留人间多少爱，迎浮世千重变，和有情人，做快乐事，别问是劫是缘。我问佛：为什么总是在我悲伤的时候下雪？佛说：冬天就要过去，留点记忆。我问佛:为什么每次下雪都是我不在意的夜晚？佛说:不经意的时候人们总会错过很多真正的美丽。我问佛:那过几天还下不下雪？佛说:不要只盯着这个季节，错过了今冬。我问佛：如何才能如你般睿智？佛曰：佛是过来人，人是未来佛。佛把世间万物分为十界：佛,菩萨,声闻,缘觉,天,阿修罗,人,畜生,饿鬼,地狱；天,阿修罗,人,畜生,饿鬼,地狱.为六道众生；六道众生要经历因果轮回,从中体验痛苦。在体验痛苦的过程中,只有参透生命的真谛,才能得到永生。凤凰，涅盘。佛曰：人生有八苦：生，老，病，死，爱别离，怨长久，求不得，放不下。佛曰：命由己造，相由心生，世间万物皆是化相，心不动，万物皆不动，心不变，万物皆不变。佛曰：坐亦禅，行亦禅，一花一世界，一叶一如来，春来花自青，秋至叶飘零，无穷般若心自在，语默动静体自然。佛说：万法皆生，皆系缘份，偶然的相遇，暮然的回首，注定彼此的一生，只为眼光交汇的刹那。缘起即灭，缘生已空。我也曾如你般天真，佛门中说一个人悟道有三阶段：“勘破、放下、自在。”的确，一个人必须要放下，才能得到自在。原文链接：http://www.zreading.cn/archives/4221.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

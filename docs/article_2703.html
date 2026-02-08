@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐的容器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>音乐的容器</h1>
+            <div class="date">2014-09-14 00:04:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/马慧元最近我弹一个炫技曲子。这是一个当代美国作曲家的作品。音乐很单纯，没有太多超越技术的东西，但弹起来很愉快，说白了是好玩和过瘾，音乐从我这里自动流出，真是指点江山舍我其谁啊。我竟然发现它比巴赫的音乐能给我多得多的快感，因为在巴赫中我看不到自己。哪怕D小调托卡塔与赋格这种大俗套子，熟得不能再熟，但我知道音乐不是我写的，它也不是我的一部分，我在巴赫的壳子里居住，却又如同锁在监狱中。其实我对巴赫够熟悉，在倾听中获得过深长的快感和幻象。但我不得不承认，这仍然是浅层次的交流。若想在巴赫的音乐中发现自己，要等到自己能写赋格才可以。话说我弹琴的原因可能不少，但纯粹为过瘾而弹的时候不多，这也是古典音乐的辛苦之处。张扬性情的时刻是珍贵的，要先有艰苦的努力，“自我”才羞怯地破茧而出，在这一点上流行乐则要好得多。钢琴家卢温塔尔（RaymondLewenthal）的一个观点对我很有触动：很多搞古典音乐的人没有好奇心，不愿自己去找曲子，弹得越好越没好奇心，倒是一些弹得不太好的人，不乏热情和好奇，但能力有限，热情表达不出来。这一点，我在音乐学生和老师交互之中深有体会。古典乐太难，人与人能力差别太大，权威太恐怖，一般人在老师面前，确实容易给吓得说不出话，自己的一点可怜想法，动不动就跑得无影无踪。传统深厚的东西就是如此，往往是反人性、反直觉的，后人自以为灵感乍现，立刻被老师棒打，因为表面的好恶，几乎注定是“不对”的，不信你看钢琴家、小提琴家、运动员，有几个光靠自己高兴练出来？往往，越长远有利的做法，看上去越不得劲。所以，既保持科学、反直觉的训练方式，又要秘密收藏着自己的直觉，两头一夹，剩的人就很少了。在音乐中缓慢经历过乐趣和挫折的我，对人和音乐总有许许多多的感想。古典音乐成为“人”的一部分并不容易，浪漫派音乐好一些，比如钢琴上的肖邦李斯特相对贴近生活经验，能够吸纳人的自然气息。而莫扎特贝多芬巴赫等人，写作程式远离生活，如果你碰巧生对“形状”，天然是这类音乐的容器，就能合适地盛装它们，并在其中肆意伸展。少数钢琴家，从古尔德到施纳贝尔，都是这样的天然容器，早早准备了巴赫和贝多芬的到来。多数人则要不断塑造自我，直到自己能写出类似风格习作的程度，才能真正心摹手追。生长和顺服，是艺术上永远的矛盾。人生尚存之际，那个受压之“我”就在顽抗。罗胖曰：“住在别人的壳子里”，这是多么痛的领悟。人生悲剧就是——遭遇“体系”——养活大师，累死自己。人生机遇在于——“穿越混搭”——成就自己，气死大师。左岸记：很多时候，我们不稀罕一样东西，可能是因为不了解它。有人在一件事上投入毕生的心血，所以对它很有感情，那么，我们除了尊重，还哪里来的嘲笑，倘若胡说八道，那真是自己的无知。原文链接：http://www.zreading.cn/archives/4556.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

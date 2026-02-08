@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>做自己，与众不同？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>做自己，与众不同？</h1>
+            <div class="date">2014-02-11 20:11:35</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌曾记得初入大学时愚人节前一天晚上，躺在床上胡思乱想，突然脑海里蹦出一个念头：“我要当国家主席”，神一样的光辉在脑海里闪过，瞬时一阵头皮发麻，热血沸腾，仿佛被上帝垂青，也为自己找到了人生的梦想而兴奋不已。如今回想，约莫是从小新闻联播看多了。但那时莫名的兴奋让我看到了梦想的真正力量。到如今要再问我的梦想，肯定不再是当国家主席，因为我知道那根本就是不可能的事情，只是不切实际的幻想。其实我也挺好奇我现在的梦想究竟是什么？因为我每晚都睡得很香。随着梦想一词被赋予浓厚的政治色彩，渐渐成了电视节目里主持人采访一般人必不可少的问题。多半是主持人：“你的梦想是什么呀？”然后受访者总会答个与比赛主题相关的成就，以此证明自己获胜的决心，或者为了父母如何如何说得感天动地。梦想应该是用来坚守的，逢人便说，难免有做秀的嫌疑，更何况大家都照着一个套路述说情怀，比惨淡，那不是做秀又是什么呢？如果那是真的梦想，那大家的梦想也太雷同了吧！每每意识到这个问题，总是不敢面对这惨淡的人生。“就像不同的植物，为了适应同一种气候，强迫自己长成同一个样子那么荒谬，我们为了适应同一种时代氛围，强迫自己失去了自己。”“我们碰上的，刚好是一个物质最丰硕而精神最贫瘠的时代，每个人长大以后，肩膀上就肩负着庞大的未来，都为一种不可预见的“幸福”拼斗着。但所谓的商业稀释得单一化了，市场的不断扩张，商品的不停量产，其实都是违反人性的原有节奏和简单需求的，激发的不是我们更美好的未来，而是贪婪的欲望。”朱德庸在《大家都有病》里如是写到。是的，这是一个只有人教导我们如何成功，却没有人教导我们如何持有自我的世界。在浮华的尘世里，为了个人精神的独立，勇敢做自己而与众不同的人终究是少之又少。少有人拥有虽千万人吾往矣的勇气和魄力，一次又一次向现实的生活妥协中平庸了自己。谈到做真实的自己，我们是否真的不用管别人的评价和建议，不顾社会的需求，按自己的想法走下去呢？那何为真实？真实意味着客观。是不是也应当将自己的缺点不足暴露无疑呢？丝毫不吝惜笔墨不断描绘自己生活的各个方面呢？这样展示出来的自己只会被人看轻，因为别人了解了你的优势，也注意到了你的浮夸。如果非要说：“我就是我”，那还是试着将自己适当的隐藏吧，那里有低调的奢华。是不是也要对现实的社会世俗坚决摇头说不呢？人来到人世，自然逃离不了社会世俗的约束。试着顺势而为，不要学螳螂挡车。既然成不了响彻千古的伟人，那还是安心的做个平凡人吧！在心底默默的坚守独属于自己的伟大。不接地气，压根就不可能的想法，就当是个梦，睡醒了就算了。梦想有大小，选择最合适的那个吧！人在社会是一个不断妥协和适应的过程。对待世俗的社会要求，当要有世俗的智慧，这不禁让我想到了大学时讲马列的老师特别喜欢康德，而不喜欢尼采的那种人生态度的原因。康德是在哲学上有所成就，并在现实生活衣食无忧；而尼采完全沉浸在了自己的哲学世界而疯掉，丝毫没有现实的能力，表现出的是对哲学的炽热和忠诚，后来他的思想被希特勒利用，而尼采也为后世人深刻铭记。像极了爱情里种种，并不因为单方面爱得真诚和炽热就能走到一起，还有很大一部分取决非爱情因素的影响，比如地理位置和物质要求。世界从来就是这样，没有绝对的对与错，更多的是合适不合适。想法和现实的差距千差万别，岂是简单想想就可以通达的，重要的是自己能够一步一步的践行出去，真正的力量还是来自实践的力量，来自现实社会的历练，而非闭门造车。人立于世应当试着悄悄的将自己像一颗种子一样埋藏，等到春天来临再生根发芽，茁壮成长。顺着季节和土壤做实自己，方能与众不同，成为参天大树也只是时间问题。書于：北京 二月左岸记：在《论语》中，孔子把在“中庸”看成是一个最高的道德标准，也是他解决一切问题的最高智慧。其含义大致有三：执中守正，折中致和，时中行权。综合起来，中庸就是恪守中道，坚持原则，不偏不倚，无过无不及。在处理矛盾时善于执两用中，折中致和，追求中正、中和、稳定、和谐。并且随时以处中，因时制宜，与时俱进。通俗一点就是以坚持原则为前提，寻找最接近客观的事实，积极进取。做自己跟没礼貌常常就是一线之间。居于怯懦与鲁莽之间才是奋勇有为；吝啬与奢侈之间才是慷慨大方；怠惰与贪婪之间是意气风发；卑屈与骄傲之间是谦虚谨慎；秘密与多嘴之间是说一不二；乖僻与滑稽之间是风趣幽默；寻衅与谄媚之间是友善可亲；在哈姆雷特的优柔寡断与堂·吉诃德的冲动任性之间是自我克制。——《伦理学》当然，道德的本质是自律，道德只能用来约束自己，每个人既不能站在道德的制高点谴责别人，更不能把别人的不道德作为自己不道德的理由。道德用于自律时，好过一切法律；道德用于律人时，坏过一切私刑！原文链接：http://www.zreading.cn/archives/4223.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

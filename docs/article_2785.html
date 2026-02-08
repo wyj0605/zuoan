@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问·常规篇(四)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>问·常规篇(四)</h1>
+            <div class="date">2014-06-16 23:10:42</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>思​考​是​一​种​力​量,认真是一种生活态度。只有在尊重、敬仰和热爱的人们发生改变的时候，一个人才会改变自己的核心理念。文/于震1.为什么女汉子这种称呼得以流行并且以其为荣？答：一直以来的主流意识形态中，女性都是象征着柔弱，需要被保护，无需抛头露面，而随着时代的发展，女性不再被这些象征所代表，甚至展现出了坚强、果敢的一面时，男性突然因此失去了因为保护欲所产生的优越感，并且对这种变化有些无所适从。因此主流意识需要寻找一个新的称呼来面对这种变化，并且同时弥补这种变化所带来的优越感的缺失，女汉子一词便应运而生。而这也是这个词汇隐隐中带有着一种讽刺感的原因所在。只是这个词流行背后更深的原因在于一个特质的具备或者一件事情的做与否都被贴上了严格的性别标签，男生护肤就会被骂伪娘，女生果敢就造出了女汉子，这种性别标签透着太浓重的粗暴感，任何越雷池一步的人都会遭到质疑和非议，当然我并不是说男孩子不坚强就变成了对的，只是任何好的特质和正确的事儿都是应该做的，这和头脑有关和性别无关。同时，虽然女汉子一词虽然带着隐隐讽刺感，但是这种讽刺感不但没有对这种变化起到有效遏制，反而更多女孩子以此称号为荣，这显示了女性意识的觉醒和独立，她们不愿再成为男人的附属，仅仅做一个生育的工具，而是开始表达自己的诉求，塑造自己的个性，她们不再是等待王子吻醒的万年花瓶。从这两个角度来说，这个词的流行和以其为荣算是几多欢喜几多愁吧。2.社会真正的残酷体现在哪里？答：很多出了校园的人都感叹到校园单纯，社会残酷，她们大多得到这个结论是来自于女生变得现实，人心变得叵测，生活变的辛苦等等。但是这些并不是社会真正残酷的原因，而是社会真正残酷所造成的结果。那么什么才是呢？我想那是在你之前的成长和求学之路的过程中没有找到自己定锚的价值(我把其定义为当你经历了梦想的覆灭，金钱的虚妄和欲望的更迭之后都依然能保持悲悯的能力和同情的纯度)，你不知道你想要成为什么样的人，因为没有锚，你不得不在主流意识形态的洪流中飘摇，无所适从。而这种无所适从也最终让你沦陷在大多数人的平庸中。3.某些让我们引起共鸣的事情是否有其正确性？答：如今，我们经常可以从一些电影和文章中找到许多共鸣，它们关于爱情，关于生活，关于青春，关于很多事。之所以有这些共鸣也大多是因为很多人有所感触甚至亲身经历。但是如果进一步的去探讨，个人认为这种共鸣并不具有其正确性，它们更像是被戳中的软肋，只是这种软肋被披上了“大多数人都这样的”外衣，让它们看上去不那么难看也没那么必要去克服，当然这种共鸣也的确有存在的必要，因为只要有人通过共鸣感觉到我还是属于多数人的行列他就有继续生活下去的信心，但是如果你还想再好一点，那你就必须有足够的预见在这条路上会有太多人告诉你大多数人都这样，你何必改变？这时你要相信，这正是你区别于他们的最好时机。4.为什么我们通常很难超越自己的局限？答：局限意味着弱点，如果说进步是一种修补的行为，那么超越自己的局限则是推翻重来，这就意味着要先否定自己，而这并非都和勤奋有关。进一步说，很多人并不是输在勤奋上，因为这东西本身就带着成长性，太少的人天生自带高效率的勤奋。真正起作用的是否定自己，也称：认错。似乎这看上去很简单，但是深究它你会发现，在这个不认错才是表达自我的国度里，这已经是一个太稀缺的品质。只是，如果你真的能先认错，觉得自己其实并不OK，然后你会发现弱点变成了你昔日的最大痛处，而在这最大痛处中你孕育出了克服它们的最大力量。它是一种希望的象征，但是它绝不是正能量。5.在意外貌分是不是真的没必要？答：以前一直认为帅这种东西根本没有，内涵什么的才重要，凡是在意外貌分的都是无脑智商低。然而，后来发现这种诋毁和妒忌简直毫无逻辑，它不但让我放弃了向上评分的希望，还让我带着这个软肋沾沾自喜。究其原因是我对高外貌分的人抱有着一种拧巴的敌意，这种敌意基本包括两点：自己放弃努力看到别人在努力的不爽感以及故意放大外貌的作用当有任何一件事儿高外貌分没法做到的时候就说下结论“你看，帅没用吧”的粗暴感。再到后来，当我开始在意外貌，我感受到了周围人同样的不爽感和粗暴感，同曾经的自己简直如出一辙，这让我更有所感触：在意外貌是有其必要性，因为对于任何人来说，天生不好这并不可耻，它并非你的责任，但是后天放纵的不弥补还要带着拧巴的敌意，这不但是智商问题，而且它可耻。6.当别人在质疑我的标准的时候他们在质疑什么？答：为了养成一些好习惯我通常需要制定一些标准，比如克制饮食，早睡早起等等。当我在执行这些标准的时候时常会听到这样的声音““不是克制饮食的吗？这种东西不能吃的”"不是早睡早起的吗？这个时间应该睡觉的"。这种声音背后的潜台词是你作为一个标准的执行者，你不应该出现没有做到的情况，而这种情况出现了说明标准这东西不过只是美好的愿景，它对你来说就是一个无意义的心理安慰。或者说是一种伪装，一种貌似追求更好状态的伪装。但是如果深究这种声音其就有一个问题：任何标准的执行过程其实并不关注具体每一次的细节，它更强调的是在一个很长的时间跨度上你的主要状态是否符合了标准的内容。一言以蔽之，标准这东西从不在意一城一池的得失，而是注重一个积极的大局观。在这种大局观之下，标准才更有执行的意义。那么如果从这个角度来说，以一次细节否定长时间跨度下的坚持，这质疑本身就有很大的逻辑漏洞。7.”因为保持身材所带来的克制饮食将会失去很多吃的乐趣“这句话是否正确？答：在我保持身材的过程中常常听到问题中的这种声音。因为保持身材所带来的对于食物的克制是一种无趣，它代表了我将失去食物带来的诸多满足感。这种声音背后应该是这样的逻辑：想吃就吃的随意感代表了一种生活态度，这种生活态度神圣不可侵犯，任何美好都不能以牺牲它为代价。只是当我看到他们无数次的看着自己不达标的身材报以深深地罪恶感的时候，我总觉得他们似乎一直都不认为这种乐趣并不在于想吃就吃的随意感。我更认为这种乐趣的核心应该在于想吃仍然可以吃，但是吃的时候没有罪恶感；而控制的时候说停嘴就停嘴，并且克制的时候就雷打不动。这才是真正意义上的随意感——我永远都是食物和身材的主人。8.为什么要克制优越感？答：优越感这种东西大多是从鄙视链中获得，比如你喝着咖啡吃着三明治就会觉得街边那些豆浆油条的铺子太低俗；比如你是一个反心灵鸡汤的旗帜手就会觉得喜欢心灵鸡汤的人们太无脑；比如你讲究穿搭就会觉得其他人只是以布裹体的行为太破坏美。你鄙视不如你的人，不如你的人再鄙视更不如他人，整个鄙视链环环相扣，其中每一环的人在鄙视中都获得了优越感。那么既然这么一件百利而无一害的事情我为什么还希望克制呢？首先，这种鄙视链是让我们自我感觉还不错的主要来源之一，这种感觉占了主流，成长的脚步自然也就慢了。其次，尽管如今我们基本已经认同幸福是自己的，无需和他人对比的观点，但是对于这么一件成本极低，收获极高的事大多数人仍然乐此不疲。而这也直观的表达出，仅仅认同这样的观点并没有太大的意义，幸福的源头并没有回归到事情和体验本身。也就是说，我们想要更大的成长，我们想要回归到事情和体验本身，我们想真正退出鄙视链，就必须让克制优越感成为一种心灵上的自觉。9.当速成成为一种潮流，我们应该警惕什么？答:在生活中，我经常能听到这样的声音："啊？这么长时间，太慢了"。如今太多的宣传和文章都在突出了一个”快“字，它们告诉你速成同样可以达到效果，你再也不用需要漫长和辛苦的等待。也正是这类的宣传和文章，让这种声音变得越来越理直气壮。当然我并不反对速成，只是当速成越来越成为一种潮流，我需要一些探讨，来明确这背后的一些影响是否需要被我们所注意。首先，如果我们越来越依赖速成，就会降低我们的耐心，这会降低我们做成那些不能被速成的事情的可能性，因为在过程中短时间没有见效就会失去信心并产生抵触感，甚至放弃。而就目前为止，读书，锻炼这样的好习惯是不能被速成的。其次，对于那些可以速成的事情，这种潮流同样让我们降低了对它们的珍惜程度。SPA和美容可以让人看上去皮肤不错，减肥药也在几周之内有惊人成效，所以不用再为了好皮肤和合格体重去在意这次能不能吃辣，睡前可不可以补一袋薯片。最后，美容业，减肥业，培训业的产值越来越大，速成的潮流只会越演愈烈，那么到最后，会不会没人再相信有些事情不能被速成？比如读书都可以被代劳？10.关于花钱，我曾经有哪些误区？答：在过去的日常生活中，我一直认为贵的东西代表着一种奢侈，只有价格便宜的东西才彰显节俭。之所以如今我认为这是一种误区并不是因为我的经济能力有了提高，选用贵的东西也不是为了炫耀和虚荣。而是说一分价钱一分货是一个颠簸不破的真理，一件好衣服，一双好鞋子，一件好配饰，一件好家具过了很久或许会稍显老气，但是还有一种品质和韧性在，丝毫不影响它的使用价值，而这其中还需要用心的维护，这也是一种修养的表现。暂不说价格便宜的东西因为质量在一个时间的累计上并不比贵的东西花费少，即便真的花费少，贵的东西在使用上和维护上所带来的体验也是便宜的东西所无法给与的，我想这种误区并不是经济能力上个限制，更多的是思想上的转变。原文链接：http://www.zreading.cn/archives/4417.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

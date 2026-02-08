@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恐惧和欲望轮回，成功和失败迭代</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>恐惧和欲望轮回，成功和失败迭代</h1>
+            <div class="date">2016-01-05 00:48:44</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>黎明总是纤细和充满变化的，点滴的渐变成就了太阳的升起，夜总是不知道怎么就黑了，黎明却在每一刻的敏锐里，渐渐明亮。——题记你见过你城市的黎明吗？因着自己是可以晚睡，不能早起的主儿，错过了太多自己城市的黎明。前几天，差旅间因为肠胃不好和蚊子的热情，迫不得已爬起来瞎转悠。夏天的黎明，雾气一半是因为昨天的雨，一半是打扫卫生的扬尘。路灯忠于职守，跟有否人气无关。透过雾霭照下来，虽然清冷，但还算明亮。昨天的雨已无痕，就剩了一点点洇润，花草树木倒是有点精气神。偶尔的一辆车开过去，自由驰骋而响亮，睡眼惺忪的人开车和看车开过都有点迟钝。黎明总是个蹑手蹑脚害怕打破寂静，和争先恐后制造喧闹的时间，黎明前的黑暗开始反复的时候，灯次第的亮，食物的味道开始调戏夜的气息。满眼的物件开始清晰起来，步子不由自主的快些，黎明也就到了。黎明总是充满欲望，不似夜已深沉时，每一盏灯的熄灭，都代表安静多一些，哪怕背后是无穷的欲望和恐惧。黎明的欲望总是充满竞争的，也让人充满危机感。浑浑噩噩里充满恐惧，却又充满欲望，这个城市的黎明多么像我们的生活，也就是我们的生活。每一次的深夜晚睡，不代表我们多么的努力和忙碌，只说明惴惴里明知自己荒废了一天。而每一次拒绝黎明里醒来诅咒黎明，是畏惧面对总是不满意的人生，寻找一些逃避的理由。于是我们睡前充满恐惧，醒来充满欲望，睡前美梦如何不劳而获，醒来千方百计逃避付出。命运不会驱赶谁，但时间会，时间对我们来言，不是我们得到了什么，而是我们得不到什么或是丢失了什么。黎明对谁都很公平，人却把自己分类了：醒来延续昨天失败的、醒来复制昨天成功的、醒来就为了跟昨天不一样的、醒来就是被迫醒来被世界驱赶的、昨天压根就没睡的、醒来就是醒来不知道为什么睡为什么醒来的、醒不来或压根不打算醒来的等等。人生说矫情了是翻越一座座山峰，虽然绝大多数时间你深陷泥沼。说直白了，无非是面对一个个的黎明，虽然绝大多数日子里你醒着和睡着差球不多。我们感受的欲望和恐惧差不多一回事，怕失去、得不到而充满欲望，恐惧是因为你设计的、笃定的未来，永远和现实不合拍。所以，我们擅于在深夜里思索和幡然悔悟，然后在黎明重新唧唧歪歪、老歌新唱。我们在鄙视欲望的时候学会审视自己，在深夜里决定重新来过，但在黎明时刻重新欲望满满；我们在恐惧里学会认识人生，在辗转反侧里明白自己的重要，却在黎明到来的时候让欲望迭代恐惧。黎明对这个世界而言是新生，对你来讲是恐惧和欲望彼此轮回，成功和失败交相代替。偶尔想，我们从不畏惧深夜，因为可以无限制的诘问自我、剖析人生，我们却畏惧黎明，畏惧看似即将的成功和注定的失败。成功总是即将到来的，失败总是在所难免的，这基本是人生的背景乐，起码是你自己喜欢无限单曲循环的。我们越接近成功的时候，不是等待成功的到来，却是越恐惧失败。要么我们假装成功，可以堂而皇之的面对实际的失败；要么我们制造新的欲望去涂改理想，然后就能既重新开始，还可以不确定我现在是成功还是失败。我们打着渴望成功的旗号，重复每天失败的游戏，夜晚来临的时候警醒，黎明来临的时候惺忪麻木。充满渴寄，却永远不愿意开始行动，不在夜晚补给生命，而是消耗自己的气息。在黎明里咒怨疲劳，不得不复刻再一次的失意。永远别期冀和欲望和平相处，那是一场无穷的消耗战，只单纯因为你既渴望成功也畏惧成功。把欲望的达成和梦想的成功划等号，骨子里你是想靠着成功去掩盖你其他的失败，于是注定在深夜里纠结，黎明前恐惧。如今的人，从来不害怕失败，因为失败永远可以寻找到最合理的理由，而且成功课足够多，可以无休止的学习复刻。我们总是躲避成功，因为成功需要你忘记欲望和恐惧，做你不得不的担当，去验证自己的人生。或该，黎明时的欲望少一点点，拥抱自己的清醒而不是畏惧这个醒来；对人生的恐惧少一点点，努力去经历自己的人生而不是设计人生；不畏惧成功，也不畏惧失败，不畏惧自己必须去做的、不去揣测这个世界。黎明总是纤细和充满变化的，点滴的渐变成就了太阳的升起，夜总是不知道怎么就黑了，黎明却在每一刻的敏锐里，渐渐明亮。左岸记：夜晚可以神游太虚，天马行空，去经历自己的无限可能；现实要脚踏实地，用自己的努力实现自己的心愿，让梦想照进现实。原文链接：http://www.zreading.cn/archives/5214.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

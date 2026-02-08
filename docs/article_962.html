@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安全活下去的科普 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>安全活下去的科普 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>健康问题是人活着的首要问题之一，我们对健康的认识最简单的就是——不生病。病是从哪里来的？又该如何让自己更安全地活 下去呢？</p>
+<p>在韩松的博客上看到的一些科普知识，分享给大家。（左岸注：俺从小就怕穿白大卦的，几乎是“医学白痴”，也不知下面说是是否有道理；可能是俺吃的比较传统，身体还算不错，再加上这几年Angel的严格要求， 更是改掉了很多生活中的坏习惯）</p>
+<p>原文：安全活下去的科普</p>
+<p>周六参加某传统医学权威作的科普讲座，颇有王晋康老 师风范。我等如欲比较安全而健康地存活于世，为这个科幻的国家和民族多贡献几篇科幻小说，可以参考以下记录：</p>
+<p>中国一年白酒产量， 能灌两个西湖。人血压能不高吗？</p>
+<p>中医小夹板，治骨折很有效，只要六百元，而西医打钉子，要两万块。医院都不用夹板，是因为没有 利益。</p>
+<p>什么是健康？体壮曰健，心怡曰康。平衡就是健康，调整就是治疗。</p>
+<p>广西巴马老人，一百岁了还唱 英特纳雄耐尔一定要实现。他们保持健康的办法是靠刮沙。</p>
+<p>西医治的是人生的病，中医治的是生病的人。</p>
+<p>西 医让你明明白白地死，中医让你不明不白地活。</p>
+<p>化疗，是国民党对付共产党的办法，宁可错杀一千，不可放过一个。</p>
+<p>医 院就是专门敛癌症病人的钱的地方。</p>
+<p>一个人得乳腺癌，化疗要求治八次。八次的依据是什么？一笔糊涂账。用一个标准把所有病人框进 去。一切是为了利益。</p>
+<p>博尔特，跑得那么快，主食是山药。</p>
+<p>健响人类健康因素：一是遗传，二是饮食，三 是社会因素，四是医疗。</p>
+<p>安民之本，必资于食。</p>
+<p>变异的病毒和细菌无药可治。</p>
+<p>先 进厨房，再进药房。</p>
+<p>不知食宜者，不足以存生。</p>
+<p>疯狂养殖很有害：高产猪肉，超大肉鸡。喂动物们动物蛋 白质吃，注射抗生素，集中投放饲料。</p>
+<p>供应洋快餐的鸡，三十八天到四十二天，就喂到二三公斤，送去宰杀，而正常饲养的需要三个 月。有的孩子两三岁来例假，因为从小吃肉鸡。</p>
+<p>我们是在与资本作战。</p>
+<p>高肉食饮食方案，危及中华民族生 存。</p>
+<p>牛放的屁和排泄物，占全球碳排放量的百分之二十。</p>
+<p>粮食和豆类食品消费量下降，奶制品增长，糖类 增长，我国每年死于心血管的人达二百五十万到三百万。</p>
+<p>我国心血管死亡率已高于欧美。</p>
+<p>一杯牛奶强壮一 个民族，是奶业协会的朋友编出来的。巴马老人，从未喝牛奶，但是喝豆浆。</p>
+<p>要吃神（自然）造的，别吃人造的。</p>
+<p>现 在的所有食物，只满足你的味觉和视觉需要，不满足你健康的需要。</p>
+<p>汽车普及，糖尿病肯定普及。</p>
+<p>防治糖 尿病：管住嘴，迈开腿。从限食、运动与减肥入手。</p>
+<p>糖尿病无药能治，只能调整方式。每天走八千步（六公里），早上吃苦瓜。</p>
+<p>一 个“癌”字三个口，胡吃，海喝，乱抽。</p>
+<p>洋快餐三高三低：高热量高脂肪高蛋白，低矿物质低维生素低膳食纤维。是食物炸弹。</p>
+<p>果 汁里有大量添加剂和糖，影响儿童的神经系统。糖是纯热量食物，没有营养。</p>
+<p>一个谎言：实验室里合成的化学药品比天然食品更健康。</p>
+<p>氢 化植物油的发明是人类食物历史上最大的灾难。咖啡伴侣是百分之百氢化油做的。还有奶油糖、奶茶、奶昔和热巧克力等。口感迷惑了消费者，用它抹面包，炸薯 条，做蛋糕。</p>
+<p>氢化油有害，因为反式脂肪酸在脑子里难以代谢，损伤智力。</p>
+<p>各种“派”和华夫饼干，反脂 肪酸含量高。</p>
+<p>高温烹饪产生致癌物质——丙毒。（超过一百二十度）</p>
+<p>烤肉、汉堡包、炸薯条等均含致癌物 质。</p>
+<p>洋快餐会诱发精神抑郁。</p>
+<p>二十世纪八十年代，中国乳腺癌发病率低，当时，农村女性来月经十七岁， 现在，北京是十一岁。</p>
+<p>奶制品肉制品摄入量与乳腺癌正相关。</p>
+<p>儿童把牛奶当水喝有很大恶果。儿童的基本 饮料应该是水，世界上许多地方的孩子根本没有牛奶喝，但长大成人后却有健康的骨骼。</p>
+<p>安全的蛋白质来自植物，包括小麦和豆类，占 牛奶蛋白质含量百分之八十七的酪蛋白，却有危险。</p>
+<p>……</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

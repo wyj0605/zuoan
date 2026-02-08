@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>满月懂秋光</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>满月懂秋光</h1>
+            <div class="date">2015-09-01 01:10:36</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/阡芊母亲节刚过，产后上班第五天。刚刚给领导写完冗冗繁繁的发言稿，心情略有烦躁。被大块的不知道从何下手的工作压抑了一天，突然很想写写那些有些细碎的生产记忆。7个月的假期，经历生产的巨痛和产后无尽的苦痛，再坐到办公室里，心境有了很大的不同，如同我无法复旧的身材。我开始时时刻刻记挂家里的小宝有没有按时吃水果，有没有按时拉臭臭，记挂在家带孩子的母亲有没有被累得腰疼。不知道以前是忽略了还是母亲这一年老得快，她的眼皮松弛得很像姥姥了，垂下来像两个掏空的袋子，眼睛被粗砺的生活磨得再无光彩，像一池浑浊的水。某一天我突然静静地注视她的眼睛时，觉得心里有些堵，直接把眼泪憋到眼眶里了。从我怀孕到生产，这一年母亲太累太累了，她为我付出了比很多母亲都多得多。我不愿意去回想那些细节，怕一想就会落泪。有了女儿我对母亲的心境理解得更深刻了，这是任何一个父亲不可能体会和理解的。我不是一个好女儿，希望我能做个好母亲。我的妊娠期相当的坎坷，初期巨大的妊娠反应几乎快要把我折磨疯了，连续一个月失眠、呕吐、剧烈的头痛和反流性食道炎......一个月体重急剧下降了二十五斤；五个月后开始出现呼吸困难，几乎每天早晚都会有窒息性头晕，走路连100米都走不到，晕倒更是家常便饭；7个月开始出现假性宫缩过频，为了防止早产马上入院，每天输液十二个小时，其他时间也必须卧床，输液的连锁反应就是浑身无力，我每天连拿勺子吃饭的力气都没有，用吸管喝水都要喝几口休息一会。那段时间孩子爸爸还在外地做项目，白天很少有时间打电话给我，经常晚上很晚的时候打来电话，说不到两句就累得呼呼睡着了，连安慰我的时间都没有。终于熬到足月生产，在宝贝呱呱坠地的那一刻，我压抑了280天的痛楚和无助如泄洪般顷刻而出。不知道是不是生产后的通病，生完孩子以后，我的生活几乎一片空白了，工作、老公、形象甚至疾痛，一切都不在我的视线之内，我的所有精力都聚焦在孩子身上，她的每一个毛孔，她的每一根乳发，她头骨的形状，她大腿的纹路……产后清宫导致的宫腔感染迟迟没有痊愈，腹痛经常会半夜把我叫醒，每次醒来我都下决心明天就给孩子断乳然后治病，但第二天早晨小宝抱着我的被角，用无比清澈的瞳仁注视着我的时候，我又会再次下定决心要喂到自然离乳，就算少活十年都行。孩子爸爸对我的评价是严重的性格缺陷：优柔寡断、反复无常；虽是这样评价，可是每每我问他到底是断乳治病还是坚持哺乳，他都沉默不答，大概也是心疼我们母女俩而无法做决定。孩子的小名叫平果。从怀孕四十几天起，全家就召开了无数次家庭会议，历时半年之久，讨论这个神圣的名字，在我即将临盆的时候才最终定了下来。从成千上百个或土或洋、或文雅或通俗的名字里，最后敲定了这一个，一是朗朗上口，二是颇有寓意，既有平安的希冀在里面，又因为多年以前，孩子爸爸当时送给我的第一份定情礼物就是苹果。最近我跟孩子爸爸还时常讨论，如果将来我们再要一个孩子，小名叫杨桃还是菠萝蜜好听，尽管我现在的身体已经差到再要一个孩子几乎是奢望。孩子的大名，倒是我一力包办的，临产前两个月，我每天都要看几个小时的古诗词，最后钟情《小雅·湛露》中的“令仪”，孔祥熙的长女也用了这两个字。我并没有想让她一生有多么瞩目如何精彩，只是希望她凡事能如愿，一生平平淡淡宠辱不惊。七个月假期一晃即过，心里念的嘴边挂的已然不同。生过养过才有资格说你真正懂得了“母亲”的含义，孕育一个生命对每一个母亲来说，既是一场浩劫，亦是一次重生。无论经历多少苦难，永远别对母亲和孩子说你坚持不下去了，在他们心中，你是唯一屹然不倒的依靠。左岸记：伟大的哺育不仅来自本能，更在用心的地陪伴，相互成长，得到彼此。小雅•湛露湛湛露斯，匪阳不晞。厌厌夜饮，不醉无归。湛湛露斯，在彼丰草。厌厌夜饮，在宗载考。湛湛露斯，在彼杞棘。显允君子，莫不令德。其桐其椅，其实离离。岂弟君子，莫不令仪。译文:浓浓的夜露呀，不见朝阳决不蒸发。和乐的夜饮呀，不到大醉决不回家！浓浓的夜露呀，沾在那繁茂芳草。和乐的夜饮呀，宗庙里洋溢着孝道。浓浓的夜露呀，沾在那枸杞酸枣。坦荡诚信的君子，无不具有美善德操。那些同类的梧桐山桐，一树比一树果实累累。这些和悦平易的君子，看上去无不风度优美。原文链接：http://www.zreading.cn/archives/5050.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

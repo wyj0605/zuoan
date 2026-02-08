@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动阅读与阅读并非一回事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>移动阅读与阅读并非一回事</h1>
+            <div class="date">2014-03-28 22:00:42</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/魏武挥近日，由中国新闻出版研究院组织实施的第十次全国国民阅读调查显示，国民在数字阅读这个维度上的比例有所上升，从2011年的38.6%小幅增加到2012年的40.3%，而电子书阅读，更是有比较可观的增幅，从2011年的人均1.42本到2012年的2.35本。另外一个消息是，搜狐移动设备上的新闻客户端，累计下载安装量已经破亿。这些信息似乎都显示着，移动阅读的时代，正在到来。移动阅读的好处很多，比如说可以充分利用碎片化时间，再比如说因为建立在数字技术基础上，收藏分享变得很方便。一个与收藏分享有关的应用“印象笔记”，据说下载量也已经突破300万，看来人们的确有这方面的需求。但是，我总觉得，一说到阅读，似乎人们总有不同的想象。看一篇八卦帖子的是阅读，正襟危坐看本严肃书籍的，也是阅读。然而，这两种阅读，全然不同。媒介环境学一脉学者们的考据是，阅读催生了个人主义，个人主义催生了自由主义，自由主义则催生了今天的主流文明。这种考据是否正确可以讨论，但它的出发点在于：阅读与口语时代的聊天不同，它是个人行为：关起门来读书。在想象中，这也是很风雅的行为。作者在写作的时候，会和自己对话，力求作品完美；读者在阅读的时候，也会和自己对话，思考作品想表达的意义，更重要的是，读者与作者用一种不可言状的方式在对话。这些，都是内省的事，突出的是个体，容易诞生个人主义情结。但到了数字时代后，阅读已经越来越不像个人的行为。如果说收藏这件事还属于内省的话，分享就全然不同。分享是很“集体”的，也是充满着作秀成分的：看，我看的东西都是这类的。就我个人观察的经验来看，很多分享者其实压根没心思阅读其所分享的那篇长长的文章。注意，他们不是在分享阅后心得，而是分享阅读物本身。分享行为，很大程度上已经成了一种“游戏”——麦格尼格尔在她的《游戏改变世界》一书中说，优秀的游戏都有一个反馈系统。阅读这件内省的事本来是缺少反馈的，外部很难给到你一个什么刺激来继续鼓励你阅读。但分享之后，却有了反馈，比如说，对这种分享叫一声好。这种反馈加快了人们分享的动力——注意，不是阅读的动力。你来我往之下，阅读已经完全不是个人主义的行为，而成为了一种小圈子式的集体主义行为。移动阅读是在利用碎片化时间，反过来，碎片化时间也不可能让你有很深入的阅读，更何况相当多的阅读发生在嘈杂的环境中(比如地铁里)，它缺乏自省的情境。都是阅读，但移动阅读显然更为短平快一些。至于说到电子书，我们当然不能否认有些电子书也是严肃书籍，但有些的确不是。比如动辄百万字乃至于有到上千万字的网络小说。以起点中文为核心的盛大文学，拥有大量的电子书阅读者，但我却以为，这并非是传统意义上的阅读。以修仙类小说为例，阅读这类小说非常像旁观一个人来打角色扮演类游戏：修炼升级、打出宝物、经常有些所谓大BOSS的关底。这时候的阅读，和打游戏是无异的。而一位行内的人则认为，起点的电子书非常像是在听评书，章节之处，伏有大量的让你要看下一回的所谓“钩子”。不过，通常意义上，这类钩子其实和正文没什么关系。比如说，两位大侠正在酒馆里聊天，聊到深处，突然楼梯上传来一阵脚步声，却也不知谁。这个作为某章结束，十分吊人胃口。下一章开始，原来是个小二，跑上来问要不要加水。古语曰“开卷有益”，这个卷其实是有些特指的。阅读这件事，作为一个概念内涵极广。一个调查所显示出来的某种上升，不能立刻就判断说国民素养又提高了。短平快的阅读，与深度阅读，有着根本上的区别。图书阅读率上升，和社会文明进步之间，不是那么简单的因果关系。移动阅读，和我们通常意味上的阅读，并非一回事。原文地址：http://tech.ifeng.com/internet/detail_2013_05/04/24932829_0.shtml读后记：阅读通常是有指向性的，网络时代的阅读基于兴趣或是打发碎片时间，会造成一定程度的无效阅读。如果阅读没有让你可以与这个世界和平相处，与自己和平相处，这个阅读的意义也不大了。我还是坚定的纸质阅读者，老派但还是愿意继续坚持。因为阅读的时候我愿意圈注和写下自己的细微末节的感想和感悟。如果谁的电子书可以这样，我也愿意试试。有人问杨绛，如果三天没有读书，感觉怎样？她说，感觉不好受。如果一周不读书呢？她说：“那么我一周都白活。”沈奇岚在《你的阅读造就了你》中有一段挺有意思的文字：你想要成为经济学家，你所要看的是经济学的书籍，不应该是励志书籍，那些不过是迷幻和短暂安抚内心的安慰剂罢了。过了这些书，你依然是你，你的大脑依然是无知的，你的情绪除了短暂的激昂之外，别无改变，是否？这是一个信息大爆炸的年代，也是信息极不对称的年代，你可以很容易找到任何你想要的知识，百度一下你就知道了，Google一下你知道得太多了。然而，你也很容易出现混乱的情况，因为信息过多，选择障碍就出现了。试试看，跟踪自己一个星期，列个“我在看什么”的表格。一周下来，你自然清楚，为什么你现在是这样的一个你。原文链接：http://www.zreading.cn/archives/4279.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

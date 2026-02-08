@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学以致用，以书开疆</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>学以致用，以书开疆</h1>
+            <div class="date">2014-03-04 21:17:44</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/Jwing说到学以致用，就是为了实际应用而学习，学习能应用到实际的生活当中。学以致用简单地可以分为三种情况：先学后用、先用后学、边学边用。三种情况又分为三种境界：静态的学，被动的用，俗称死学乱用；迷茫的学，机械的用，有种似曾相识的感觉；学时孜孜不倦，用时得心应手，最高境界的学以致用。第一种境界：我是一个爱“想”的人，喜欢设想自己的过去、现在和未来。想着过去不曾有过的经历，想着未来尚未发生的辉煌，想着一切自己想要的最美好的事情。然而，却不曾为了这美好的梦做过什么，只是在“想”。大学毕业后，我发现自己离设想的未来越来越近了（其实我一直这样告诉自己），找到了自己寻梦的地方，我努力地完成着公司交给我的所有任务，但是做完后有的只是等待，等待着下一个任务的开始。就这样日复一日地活在自己的世界里，静态的学，被动的用。第二种境界：慢慢的我发现自己离梦想越来越远了，我开始拿自己去和身边的人比较，想一想他们在自己这个时期所拥有的成就，感觉自己可能是最差的。我被拉回了现实，却发现自己真的迷茫了，我不知道自己怎么去追赶，去追赶什么？甚至开始埋怨自己，自己差劲的能力，差劲的工作，为什么自己什么也不会？为什么自己干的永远是最苦最累的？我告诉自己一定要做出改变，越是不顺，这种想要做出改变的决心越是强烈，我去学习英语，学习行业技术，去读书，去更努力的工作，却发现自己像无头的苍蝇一样，胡乱地做着这一切，没有计划，没有坚持，更没有自己期待的结局。原来有些时候不是做过了就会拥有，想要得到需要更多的付出和努力，而我仅是在迷茫的学，机械的用。第三种境界：如果想象是在梦幻之中，那么行动就是把自己拉回现实。一次次从梦幻到现实，又从现实回到梦幻，如此往复让自己坚定了究竟想要什么，必须要坚持什么。无论未来是什么，现在要做的只是坚守自己的信念，只有今天的努力才能打造多彩的明天，放下所有的包袱，做最真实的自己，从今天开始做一个用行动去追梦的人。原文地址：http://www.jiewing.com/archives/132左岸记：第三种境界讲得有些虚了，所以，再借用两篇短文补充一下。倒是说读书就能达到第三种境界了，而是说要有他们的这种读书的精神，别说学以致用，就是开疆扩土也非难事。一、以书开疆来自:风鸣岬发这半个月，我像春天破土而出的芽苗。对，三十岁，满脸胡子茬的我，像绿芽。从自我自由的角度来说，内心如此形象，胡茬形象如此。我躺在沙发上，用厚厚的靠垫垫在背上，靠在温暖的暖气片上，午后的阳光透过窗口斜射到我没穿袜子的脚趾，我抱着iPad翻着书。哪些书？记得上高中时学业紧张，上课无聊我就开始写一张列表，上面是所有想放假之后玩的游戏名单。几乎涵盖了PS时代所有的大作名作，痴迷电玩的同学看了这张单子之后，惊呼这简直就是“辛德勒的名单”！可想而知，这张单子对于困在“五年模拟三年高考”习题集中的我们，代表了对自由的渴望。同理可证，我有一张书单。工作八年来一直想看没看成的书。有些书不是有时间就可以随便看的，是要心头无闲事，才能气沉丹田看下去的。有些书像女人。你跟她上上下下，甜甜蜜蜜，左左右右，卿卿我我……看完了，一个人瘫坐在床边，低着头眼神呆滞，一句话都不想说，就想点上一根烟，慢慢地吐出一个烟圈。这样的书，“当你冲完淋浴时，一切就结束了。”有些书像对手。你得和他较劲，有时因为一段话就和他铆上了，你死活整不明白，“这老丫挺说什么呢！”，“怎么个意思？”，“别扯淡了！”……有时候看不明白作者的意思，急得抓耳挠腮，恨不得抛坟掘墓，让他起死回生，跟他说哒说哒这事。有几次我发现自己一边看书一边颠腿，仔细一琢磨，这是气急呢啊。这种书啃下来之后，那感觉就是——别跟我这玩里格楞，你那套我明白着呢！有的书像飞鸟游鱼。你跟随作者腾云驾雾，上天入海。看了之后长知识长见识。虽没啥大用，但可以满足好奇心。例如他们告诉我，樟脑放在酒里可以致人昏迷，蓖麻子可以致人中毒，猎豹胡须混入食物中吃下后可以刺破肠胃……知识就是闲了置忙了用的东西。“我们想骂的，鲁迅当年都骂过了”——看书有时就这感觉。当你想装一把酷的时候，几百年前陀爷就写好了那句“你以为我没有去过沙漠里绝望的哭泣？可是我回来了”。希望是什么感觉？绝望是什么状态？但凡你体验到的情感意识，书里都写过了。但凡你感悟到真知灼见，想拍着大腿呐喊一把时，书里早就写过了，前人还想得更多更深。看书和与人相处一样。人有三教九流，书有三六九等。所以挑书和交友的道理大同小异。读书有用吗？对大数人而言没什么用。不读书照样吃嘛嘛香，读了书也常常百无一用。要是有人说读书有用，那我当年没日没夜的玩PS，也算艺术欣赏了。看书对我而言，就是跟自己逗闷子玩。读书，就是开拓脑内宇宙的边疆。二、冯仑也在《伟大是熬出来的》里说：直接跟伟大的人沟通是不容易的，但有一种跟伟大交流的方式，人人都可以轻易做到，就是读书。老有年轻人问我，应该读什么样的书？我认为有三种可以读。第一种是古今中外的经典，能流传下来的，都是历经了时间考验的好书，都是作者伟大灵魂的寄托，像老子的《道德经》等，读这类书，就是直接跟伟大人物面对面交流。第二种我认为的好书，是对你现在最有用的书。在最有用这方面，我可能跟大家不一样。比如，如果是创业我不主张看太多管理类的书，这些书跟你管理那些东西，我觉得有特别悖论的事，满街都是管理人才，到处都是破产企业，还有一个类似的是到处都在卖爱情教程，听到的都是不幸的婚事。因此，这类书我个人认为不解决问题。相反，我觉得创业最好看故事，看特别惨烈对人性有挑战的故事。因为这类书能让你知道真实是什么，而且创业主要是在与人性交流，你要读懂人性，了解人心，要看很多故事，包括像《教父》、《古惑仔》、谍战的等等，看后对你做事情、处理问题，帮助比较多。比如你的朋友和你的老板在做事中间拿回扣，老板也是哥们，你江湖道义怎么把握？你的合作伙伴亲戚干了坏事，这个伙伴来求你，你怎么处理？人生面临很多困境的时候管理教程教不了你。王石讲过一个故事，一个发小犯罪了跑了出来，找他要钱，这个时候你给还是不给？给吧，违法，不给吧，情理上放不下。最后怎么处理的呢？他给了些钱，但是告诉发小是自首路上用的钱。后来这个人被抓住了，问这个钱从哪来的，一问，大哥一直叫我自首我还没想通，但是大哥一直叫我自首，这个钱叫我自首路上用的。这么处理，既顾及了法律，又坚持了原则，于法于理都合情合理，这很重要。如果你专门看那些教授写的管理书，看完你遇到我上面说的事还是一愁莫展，不知道怎么办——那些教材里根本找不到这些答案。因此，创业者要看的书，是能够展现人性背后东西的故事，比如小说可以多看一点，看那些上海滩20、30年代的小说，还有什么民国丑闻乱七八糟都可以看，你把世上的丑恶全部尽收眼底，剩下的都是很美好的。这个创业初期对人性的把握我认为非常重要，它能在你遇到挫折、困难的时候给你很多的力量。第三种是可以活跃你的大脑、开阔思维空间的书。可以是科幻书，也可以是小报或杂志上非常规的信息，甚至是娱乐八卦。我有一个特别的习惯，几十年都是看那些不起眼的报纸和信息，看非正规渠道的，包括现在的八卦新闻。我每天看报纸从八卦看起，八卦新闻看完了以后才看社会新闻，社会新闻很热闹，社会新闻以后才去看财经，再看房地产，最后看时政。这样来看报纸，非正规信息会刺激你思考，让你思维空间特别开阔，还能增长知识面。你看有很多案子，有很多侦探——我很喜欢刑侦的工作，十几岁开始琢磨法医学、痕迹学、证据学——看这些不太正规的事，但是在你遇到问题的时候有帮助。比如你跟一个人打法律官司的时候你如果有点这个知识，就会知道马上怎么取证。上面有很多上三路，下面有很多下三路，在生活和做事情中，上三路和下三路是等效的。什么意思？比如说办执照这样简单的一件事，你用上三路的方法找人，找到局长，局长说我可以批，但春节放假了没法办。而如果你用下三路的方法，找到办最具体事情即办执照的女孩，你让她喜欢的男孩去找她办，女孩儿很高兴，年三十加班，把执照打出来。所以，有时候下三路比上三路管用，你要找路径最广最有效的。此外，有意思、有实际用处的书，像马桶的历史、门的历史、吃醋的历史等，这种书我都认为是好书，比如吃醋的历史过程是人的社会心理过程，这对把握办公室恋情有帮助，可以起到触类旁通、举一反三的作用。原文链接：http://www.zreading.cn/archives/4248.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

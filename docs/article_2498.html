@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平凡人生，打磨青春</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>平凡人生，打磨青春</h1>
+            <div class="date">2015-05-18 23:09:32</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/洱海扁舟少年时想要仗剑红尘、兼济天下，成为光彩照人的英雄，然而世界那么大，能人那么多，慢慢长大终于发现平凡才是唯一的答案。那么，仍然要努力奋斗的意义何在呢？也许便是奋斗本身吧！只有永不遏止的奋斗，才能使一个人即便平凡，也可以过的不平凡。孙少平和孙少安，都在奋斗着，一个为了寻找更大的世界，一个为了脱离贫困的牵绊；一个在劳动中找寻精神的超脱，一个在汗水里找寻物质的丰饶。他们都是平凡的世界里不懈奋斗着的平凡的人，他们值得我们同样的敬重和赞美。然而，这个世界上有很多很多的孙少安，却有几个孙少平？《平凡的世界》电视剧上映的那一天我恰好开学回到学校，看到消息一阵莫名激动，给几个朋友发了短信专门告知，然后当天晚上便忍受着长途奔波的疲劳看了第一集，之后基本保持着每天两集的节奏将全剧跟完，意犹未尽。想起大学时候看原著，也是类似的心情吧，与书中、剧中的人物相遇、相识，在静默中心灵被感染，继而期待着时时“见”到他们，临到文尽、剧终，那些人物早已是朋友一般，感情已深，不忍就此离别。《平凡的世界》塑造的不是英雄，不是伟人，只是一群平凡的世界里平凡的人，他们要么是农民，要么是刚刚走出农村的农民的后代，在中国，没有什么群体比他们，哦，不，比我们更具代表性，然而之前写农民的书，鲜见伟大的作品（《活着》算是同样非凡的一部）。于是，《平凡的世界》的意义就此凸显出来了，即便有人诟病其文笔，然而其在特定时代背景下的独特价值是无法抹杀的，而况哪怕对于今天的人看来，尤其是从农村出来的孩子看来，更是又亲切又喜爱。我还记得大学时候看到书里写到孙少平读书时候连个丙菜也吃不起，只能在众人散去后吃难以下咽的黑面馍，贫穷、饥饿、强烈自尊心汇聚在一个农村娃的身上，让人感叹又心伤。人在阅读时候是很容易共情的，读的是书，看到的是自己。于是书刚刚开篇我便喜欢上了孙少平这个人物形象。还有他的哥哥孙少安，这个聪明机智，却迫于家庭条件辍学，一心想把日子过好的地道的农民，也是让人觉得亲切可爱。在中国这片广阔的土地上，又不知有多少家庭，多少兄弟，和他们是一样的境遇？而少平和少安，走的终归是两条截然不同的路，他们的爱情、他们的奋斗，像花朵一样美丽，像星星一样耀眼，虽然都让他们的生命变得璀璨非凡，然而又是那样的不同。少平最初的悸动，是那个和他同样吃不起丙菜而又一样喜欢看书的女同学郝红梅，相似的境遇让他对她产生了微妙的好感，而况少平发现郝红梅其实长得那样美丽。然而这并不是两颗对等的灵魂，所谓相似的境遇，不过是表面罢了。人与人之间有时就是如此，外在的条件可能让两个人看起来像是天作之合，然而如若心灵无法靠近，那便一切枉然。天涯咫尺，咫尺天涯。少平在郝红梅眼中只是一个穷小子罢了，由于爷爷是地主导致的坏成分，她急于改变身份和命运，而那个能帮她的人显然不是孙少平。她离开了，奔向另一个人怀抱。少平默然了，“不惋惜，不呼唤，我也不啼哭，一切都将逝去，如苹果花丛的薄雾，金黄的落叶堆满心间，我已不再是青春少年”，少平依然关心着郝红梅，心却也慢慢冷却了。然而，对于一个情窦初开的少年而言，失去，也许正是收获的开始，成长的开始。爱，永远不会落空，即便失败，它也会重回心间，滋养心田。少平爱上了读小说，《钢铁是怎样炼成的》这本“炼钢书”锻造了他，吸引了他，使他希望有一天能像保尔一样扒上火车去往一个更大的世界。书改变了他，塑造了他的灵魂，他不再满足于将来像他的祖辈一样在双水村这样的方寸之地了此残生，他希望去黄原、去西安、去北京，去外面的世界闯荡。这让他与众不同起来，继而在心灵上感到充实而又孤独，而幸运的是，有一个人欣赏他，进而喜爱他。她说：“孙少平，你是一个有另外世界的人！”她用丢失钱包的方式试图帮助他，她和他一起去偷看话剧，一起排样板戏，她给他送报纸来看，给他找到《天安门诗抄》并且动情地朗诵，“欲悲闻鬼叫，我哭豺狼笑。洒泪祭雄杰，扬眉剑出鞘”，热血沸腾。还有普希金那深情的诗，“我们原是自由飞翔的鸟，飞去吧，飞到那乌云背后明媚的山峦，飞到那里，到那蓝色的海角，只有风在欢舞，还有我作伴！”这个有着霞光般灿烂笑容的姑娘在铁轨上大声呼喊。毕业，离别，重逢，多年之后再相遇，田晓霞已经是黄原师专的大学生，而少平则是工地上的揽工汉，再后来，晓霞成了省报的记者，父亲更是高升至地委书记，而少平则只是一名平凡的矿工，农民的儿子，然而，外在的差距比起他们心灵的默契来说又算得了什么呢？他们的心读书时候就走的那么近，久别之后则更是紧紧地贴在了一起。“离别像风，会使小火熄灭，却会使大火熊熊燃烧”，真正深厚的感情，从来不会因为空间的远隔和时间的消逝而褪色。晓霞，成了少平的女朋友。她去大牙湾煤矿看他，她看到她这个掏炭的男人的苦和累，泪水无声的滚落，却又更加爱他。夜色中，他们并肩而行，音乐悠然而起，是柴可夫斯基的《如歌的行板》。然而，这并不是一个大团圆的故事，洪水来临，前去报道的晓霞为救一个小女孩而被洪水冲走，消失了踪影。生命之花在她最美好的年纪猝然凋谢，没有什么能比这更让人痛心的了。在这个平凡的世界里，苦难，总是不期而至。少平失去了他深爱的女友，挚爱的知己，然而，他只有承受，就像承受他所历经的所有的苦难一样。少平从学生，到村小的老师，到揽工汉，到矿工，他始终不懈地奋斗着，也始终不变的平凡着。他没有如很多励志的小说那样成为一个光彩照人的英雄主角。然而这其实更加真实，我们大多数人不也就是如此吗？心怀着兼济天下的理想，却终于发现平凡才是答案，那么，奋斗的意义何在？那便是奋斗本身吧！只有永不遏止的奋斗，才会让一个人即便平凡，也可以过的不平凡。况而，少平的奋斗其实让他拥有了选择的自由，他是有机会离开大牙湾的吧，或者至少不做一名要下井的一线矿工，可是他却爱上了那个地方，爱上了那里的人，爱上了当一名矿工。工作之余读书、写作，像牛一样勤劳，像土地一样奉献，他找到了生活的意义。再说少安，他的爱情、他的奋斗，没有少平那样的丰富多彩，却一样轰轰烈烈。只是，相对于少平的抗争，多了一份妥协，尤其是爱情的妥协。少安作为家里的大哥，穷人孩子早当家，理解父亲的苦，虽然成绩优异，却早早退了学，将读书成才的希望寄托在了弟弟少平和妹妹兰香身上。这是对自己前途的无奈的妥协，他应该是有不甘的吧，只是基于那份强烈的责任感和一个农村孩子的纯朴，也没有太多遗憾吧，毕竟最后他的弟弟妹妹都没有让他失望。然而对于爱情，少安放弃了太多。青梅竹马的润叶，岂会是真的只当妹妹看待？现实让少安退缩，他的爱如潮水，眼见它奔涌而来，却又默然远遁，只留下痴情的润叶茫然地张望着，惘然而无力。少安后来娶了贤惠的秀莲，润叶却过的那么不好，他终归有过对自己的妥协的遗憾吧？然而，不妥协，又会是怎样呢？无法预见，也许像最后润生和郝红梅修成正果，又或许，使两个家庭两不安宁？爱情是两个人之间的事，婚姻，是两个家庭之间的事。对于爱情的选择，我激赏少平，理解少安。但愿他们在另外的平行宇宙中（如果存在的话），都能有情人终成眷侣。至于少安的奋斗，与少平不同，他是地道的农民，也未曾有过少平那样阅读带来的深刻改变，因而他的目光始终局限在农村，局限在物质财富的积累上。家里落魄的光景让他感到需要改变，而恰好他又是如此聪明能干的存在。他先在土地上做文章：划分猪饲料地，带头搞责任制，后来又去城里拉砖，进而开砖厂。他不墨守成规，而是勤于思考勇于实践敢为人先，只是开始时政策之下总是四处碰壁，折腾来折腾去光景并不见好，直到后来政策变好，他的尝试才逐渐顺风顺水起来。人是在特定时代中的人，时代的激流之中，人便是那一滴滴的水，一滴水再有能耐，终归还是要依赖于时代的潮流才能乘风破浪吧？制度、政策，有时候觉着好遥远，然而却是真真切切的如此重要。原著的结局，少平痛失晓霞，兰香的男朋友帮忙安排工作，少平毅然拒绝，回到了煤矿。少安凭着奋斗家里光景见好，秀莲却劳累过度罹患肺癌，平凡的世界里平凡的人们依旧平凡，还承受了无数生活的苦难。电视剧中大抵如此，只是最后的镜头勉强营造了一个烟花漫天阖家团圆的景象冲淡了悲剧色彩。“一艘船孤独地航行在海上，既不寻求幸福，也不逃避幸福，它只是向前航行，底下是沉静碧蓝的大海，而头顶是金色的太阳。”没有皆大欢喜的收场，没有不可一世的英雄，平凡的人们，平凡的故事，却让读过看过的人，泪水上涌，无限感动。“眼因多流泪水而愈益清明，心因饱经忧患而愈益温厚”，没有人期待苦难，但当苦难万一来临，却必须在痛哭之后让心变得坚韧，学会承受。左岸记：这篇文章正好用来回答下面李逵在五四夜晚发出的对青春的疑惑和无奈的思考，那个井盖是自己帮忙盖上的。单纯的热血不是青春，青春是确立自己真正想要的是什么，青春过而无悔。青春是用来打磨的文/（李逵代笔   2015年5月4日晚）五四青年节的晚上，睡意全无，披衣踱步屋外，侧耳倾听，蛙鸣阵阵，所谓伊人，在水一方。遥看远处，雾气氤氲，蓦然回首，厮人已去，感时溅泪，喟然长叹：我的青春快要挥霍完了。1919年的北京街头，一群青年热血沸腾，高举标语，脚步坚定而从容，“ 还我青岛、外争主权，内除国贼……”，一场游行让中国挽回了尊严，让雄狮迎着朝阳奔去。彼时的青年，用自己的行动向世人证明了青年的力量。其实，写出这些，我也是刚问了度娘。原来我对五四青年节的概念是模糊的。其实，今晚是用来反思的。我吃着农民伯伯种的粮食，穿着大陆生产的服装，用着国产的手机，甚至输入法也是made inchina，这是不是另一种形式的纪念五四运动？我不知道。我知道，我的青春无多，曾经千方百计从深深的枯井里费尽力气趴着井沿看到了井外的风景，只因自己心想着能像五四运动那天的青年一样，用青春的热血和汗水去千锤百炼，铸铁成钢；用青春的能量和希望去驻守一方，保卫国防。然而，几千年的孔子文化和皇权至上的千钧力量驱动着，有人盖上了井盖。当青春的磨刀石一次又一次打磨着青春的热情，流出红色的热血和汩汩的泪水，我只能缩回井下，偏安一隅，作隔岸观火，清泉照人。其实，这不是青年人应有的做派，青年人应该是朝气蓬勃，积极向上，敢于面对反动势力，敢于流血牺牲的。然而，当千百万的公考大军蜂拥着跌跌撞撞走入考场，为了那所谓的一纸红头任免文件而奋笔疾书，我分明看到了那笔尖喷出了当年杀害五四爱国运动青年的罪恶的子弹！可曾想过，那一纸红头文件正是当年爱国青年用血和泪换来的！是当年那响彻华夏大地的一声声滴血的呐喊换来的。我们青年应该是朝气蓬勃的，不应该变得老气横秋，左右思量，安于现状，岂不知，那是夕阳下山的无限美好，哪是青年的人生写照？我们毕业时即使穿上了民国服，45度仰角，微缩下巴，摆个V型手势，以为自己多么青年意气，多么可爱迷人，可曾想过，当年的青年学生，有谁有空在北大摆拍？青年应该用行动去留下生命的剪影，否则，那些所谓的一张张自拍照只会随着容颜衰老永远扔进海量的信息垃圾堆里。青年的生命应该像海浪一样拍岸，像夏花一样绚烂。今晚，当我站在窗前，感叹于儿女情长，离愁别伤，金钱恐慌，我又一次仿佛看到了橘子洲头那驻足长立的背影，看到了北京天安门前，那排山倒海的呼喊。回到了现实，我仍然龟缩在井底的一角，一副各人自扫门前雪的明哲保身，做着一些毫无意义的机械动作，在井底蹦哒蹦哒，时而望望井盖，我忽然明白，我的青春快要挥霍完了。回首过去，反正青春无多，就让磨刀石磨尽我的最后一点青春吧，再见了，五四。原文链接：http://www.zreading.cn/archives/4904.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

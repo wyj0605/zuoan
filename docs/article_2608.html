@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成长是你不得不做的事情，成熟却未必</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>成长是你不得不做的事情，成熟却未必</h1>
+            <div class="date">2014-12-26 00:12:45</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>红酒在我看来，一直是个神奇的东西，因为可以说道的东西繁复，而且是个跟环境、心情、人密切相关的东西。朋友定期会请我品评红酒，我觉得属于文化侵略和品位炫耀。生活这个东西，总是被很多物质标志的，很多东西没有做、没有享受、没有拥有，这个人生品格值得担忧。老话是“物以类聚人以群分”，现在是人以物聚，物以群分。微醺，大肚杯，如血红酒，宝石光。“德哥，什么时候你觉得自己成熟了呢？”“成熟？现在算正在成熟中，至于让自己印象深刻的自己，我给你说几个事儿吧。”“第一次是那时候还卖车，准备搞个大点的事儿，一次进过去一年才能卖出去的车，图个返利政策和销售突破。自己有点含糊，就问朋友。朋友说：当你问我这个问题的时候，其实你已经决定干了。”“第二个事儿，婚前我职业生涯的老师给我说：你有文化、脑子够用，但匪气不够。要么你选择流氓有文化，要么你就得接受你自己。我说：我懂得匪气是什么就好了，但是估计我没戏那么做。”“第三个事儿，突然有一天明白，现在自己可以做到事前忧虑，事中安静，事后总结。不再纠结原因，而是正视结果了。结果是唯一的，原因却是错综复杂的，你只能未来做该做的，却不能寻找到所谓的原因。”“哦，德哥三段论啊，隔几年就要发生点标志性事件，你也就慢慢成熟了呗，这也是人生的成长、成熟？”三段论？现在，人生境界基本陷入三段论，前有王国维的“人生三境界”，后边有“看山是山、看水是水”的充满禅机，不足而论。前几天又看到一则，“人生的三次成长”。第一次成长是明白自己不是世界的中心；第二次成长是明白再怎么努力，好多事还是无能为力；第三次成长是明明知道自己无能为力，还会努力争取。按着上面的说，大约自己可以单独走动、可以跟别人沟通了，你也就知道自己不是世界的中心了；至于无能为力，给你个数学题，就搞死你；至于你无能为力还要努力争取，高考前坐在课桌后，大致也就那样了。成长是一个不得不的事情，哪怕你把自己放进保鲜箱。成长无非两个标志，你不想做现在的自己；开始幻想过去的美好。小学生对幼儿园的鄙视，其实和老年人对年轻人的责难差不多。开始扮嫩或是扮成熟，或白日梦“要是当初我怎么怎么”，成长也就成了没法子的事情，和你是否情愿没什么关系。想想自己人生的瞎折腾，成长总是消无声息、后知后觉，当别人告诉你或是自己告诉自己，“这件事以后，你终于成长了”。细究起来既不是量变到质变，也不是非常时刻非常悟道，走到一个地恰好遇到一点事儿或人而已。于是，成长是自然而然的，但成熟没有伴着成长一起来，这个才总让你夙夜不寐、辗转反侧吧。成熟跟成长不同，倒是可以选择的事情。不是你不会成熟，或是永远不能成熟，而是你愿不愿意选择成熟。人生最大的借口是孤独，这个世界里的自己永远孑然一身。于是乎，既然孤独何必担当，或是即使孤独也要折腾点动静，大多数人无非在这两种状态里随时变身转换。出了问题，自然因为我是独立的和世界没有关系的，何必担当，都是世界的错；闲了或是成功了，或是有欲望去成功了，那一定舍我其谁，不搞个天地变色，我都不惬意。但等到明白，在世界都找不到答案，问题的答案在问题里，你对世界的问询本身就是答案的时候，或许也就开始学习成熟了。成长是一点点来的，成熟是因为知道，如何产生这些问题、如何回答这些问题，成熟瞬间也就来了。当你不借助外面的力量，开始问询自己，捧着自己的问题欣赏问题本身，然后明白问题的答案在问题里，成熟也就悄然而至。成熟不是面临选择，选择是成长路上必须的事情，成长总是会带来无穷的选择。如何选择才代表你是否决定，是继续懵懂的延缓成熟、还是选择不得不的成熟。世界总是会告诉你偷懒的机会和顺应环境的捷径，只是为了同化你和涂改你。你也总是会发现，这个人生一直让你成长，却使出吃奶的劲，让你不能成熟。这个人生一直蛊惑着你，在你需要选择的时候把选择权交给这个世界。可以做，但是我选择不做；可以不做，但我选择必须去做。不是自虐，是因为你不为难自己，世界就为难你。冬天不剪枝，春天不好开花；开花还不能开的太过，因为秋天你还要结果；果子你还要有舍弃，才能最终收获甜美。你可以不剪枝，也可以尽情怒放，也可以尽可能多的累积果实，这是你的选择。但别埋怨果实不甜美。世界通常是由结果组成的，原因总是莫名所以。人生要是有悲哀，就是结果倒推的时候，言之凿凿、宿命必然，行进时昏昏然不知本来。真找到了原因，看似必然，却又总是似是而非。原因要么是自己成功的必然，要么是宿命的失败。原因在别人那，结果在我这，总是能安抚一下自己受伤的心灵，才不至于对自己厌倦。于是成长成了一个骗局，世界骗你你骗自己。人生拿着原因说事是骗不过去的，因为结果永远是昭昭。就如你再怎么装扮，或许骗得了这个世界，但是你清楚的知道镜子里的还是你。你再涂改自己的形象，获取这个世界的认同，但可惜世界总是拿着潮流和个性说事，你也就将就着在潮流和个性里犹犹豫豫。一不小心，就是别人的翻版，或是特立独行到被世界遗弃。可惜人生还是你的，你也只能在事情没来的时候，学会焦虑，却必须在事情里安之若素、坦然自若。结果带来的是开始，而不是结束。结果永远告诉你的是未来怎么做，而不是原因是多么的令人疑惑或是不堪。恍惚里，酒在醒酒皿里弥散着一点点的雾气。年代遗留的味道和淳美，一定间杂着些微的残渣，但不影响酒在杯壁上执著的印记。味道和口腔有关，却被喝下的酒和眼睛、嗅觉蛊惑着，更被心情和对面的人叨扰着。阳光透过杯子，让如血的酒，有点燃烧的感觉，投在桌子上的影子，却宝石般的润泽。酒未老，酒的成熟需要时间，也需要心情，人或许一样，人生也就大抵一样。左岸记：成长是一个向量，成熟是一种状态，我希望成长得更有深度一些，过早成熟的果子大多并不甜美。原文链接：http://www.zreading.cn/archives/4709.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

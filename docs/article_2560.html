@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过年了，怎么过出年味呢</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>过年了，怎么过出年味呢</h1>
+            <div class="date">2015-02-17 23:11:01</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/张佳玮小时候，说要过年了，不问情由，先就傻不愣登的高兴了起来。因为过年时节，总裹在寒假里。寒假是巧克力，过年是巧克力里的杏仁儿。自由自在，加上欢天喜地，真是锦上添花。相比起来，暑假就长而平淡，没过年这样有盼头的节点。因为知道过年，大家都不舍得不高兴，于是平日三分胆，变成十分。不做寒假作业，每天看电视，睡懒觉，爸妈也不会管——过年嘛。爸妈没空管，也因为忙。我们那里，老一辈的单位会发大青鱼，年年有余。鱼杀好了，肉段儿腌了做咸鱼，鱼头鱼尾等年夜饭吃：略煎到泛黄，加酒和葱，熬一下午到浓白，就是鱼头汤，可以加豆腐。除了整治鱼，还得备办其他的。去菜市场，席卷一气，跟那些菜贩们一一道别：“还不回去过年？”“今天做完就回去了！”“那来年见！”“好好！”买许多卤菜熟食。过年了，店主也豪迈。你买猪头肉，白送俩猪耳朵。你买红卤肠，白送鸡肝。“早点卖完我就收了！”“忙啊？回老家啊？”“不忙！就是去打麻将！”过年前一两天，牌友们要打一两桌“暂别麻将”。瘾再大，之后一周时间，要暂别嬉笑怒骂的战友，把时光贡献给家庭了。这桌牌通常打得温馨，平日叫闹吵扰的，这天也和气。回去了，跟家里也好交代。“今天输了。”“算了算了，反正年里最后一天，当送礼物求福了！”年三十那天，主妇从早上便开始忙。我们那里，年夜饭不讲贵，但要敦厚、肥硕、高热量。鱼头汤熬着；红烧蹄髈得炖到酥烂；卤牛肉、烧鸡要切片切段儿；要预备酒酿圆子煮年糕。厨房里腾腾白雾中，偶尔跳出一句话：“你也闲着，去小店买瓶黄酒！”“好！”到下午，亲戚们，比如外公外婆，比如叔叔婶婶，就来了。进门脱外套、摘帽子，先把过年好吼得全家都听见，然后男的们就开始围着茶几，嗑瓜子、剥花生（我们那里，过年一定要吃带壳的花生，脆而香），喝热茶；女的就窜进厨房：“要不要帮忙啊？！”“不用不用！你去吃瓜子！”小孩子们满地跑，如果不提前把书和器物藏起来，就等着听嗤啦撕碎声和乒乓碎裂声吧。免不了有小孩要哭，大人劝慰，声音堆起来，一直顶到天花板。看电视的大人们，指着熟悉的主持人：“哎呀，他今年穿得好喜庆啊！”妈妈在厨房里喊爸爸：“我这里脱不开手，你去把黄酒热一热！”吃年夜饭。平日再家常，这时也摆得有模样：杯盘碗盏。先凉菜，也就是各类下酒菜：卤牛肉、炸脆鳝、白斩鸡、松花蛋、拌海蜇、腌肚……吃过一巡，上热菜：炒虾仁、黄豆芽炒百叶、糖醋排骨、藕丝毛豆……吃完这一巡，小孩们都把杯盘放下，满家里捉迷藏去了；之后是鸡汤、鱼头汤、红烧蹄髈、八宝饭，到这茬儿，大家都不太吃了，边吃边聊，话语像羽毛球，在半空里飘，你拍一下，就送到一边去。年夜饭有不收桌的权利。年夜饭完了，吃得干净的盘碗就收了，立刻洗；大家基本没动筷子的，放冰箱去。会有人先行告辞，大家互相挽手致意，“后天见！”“后天见！”剩下的大家，把阵地移到电视机前，远远近近，或倚或坐或卧，抱着热水袋、汤婆子，把脚藏在棉垫里，捂得暖融融，脸通红，等春晚。年轻点的会叫：“哎呀看！宋丹丹！”“哎呀看！赵本山出来了！”老一点的则更重视别的：“今年这衣服，穿得妖里妖气的！”到晚上十点，主妇给大家端酒酿圆子年糕来。虽然大家都挺饱，但先前吃齁了的，会觉得甜甜黏黏还有汤，挺清爽，来两碗。到新年钟声响了，房间里响成一片：电视里的喧腾声，外面的鞭炮声，房间里大家彼此祝福声，手机铃声，百处俱发，不知听哪一处才是。等好半天，歇下来了，脸激动得发红。听完《难忘今宵》，主妇就得打点了：客人们引去客房睡，大家各自预备就寝。这时候，我经常不想睡——都知道大年初一凌晨，春晚之后，许多电视台还会放些撩人心弦的好看节目呢，比如，央视电影频道经常把平时不放的好东西攒这时候播。可是拧不过老娘，没奈何，去睡吧。一觉醒来，通常是被鞭炮声震醒的。就起床，早饭又是酒酿圆子年糕，偶尔是稀饭年糕，配点儿自家腌的萝卜干，总是就是求步步登高，团团圆圆。多幸福，少是非。住过了夜的客人也该回去了，送出门去，殷勤道别。我遇到的年初一，通常都是干净峻爽的晴天。有亮度缺温度的阳光，寒冷的空气里满是鞭炮火药味儿。整个年初一的下午（因为上午经常会睡懒觉）都明亮而平淡，什么事都不着急了，就有种不知该干什么的感觉——这时候，电视机又成了我的好朋友。那些浮夸但欢乐的节目响动着，就让我过了年初一。年初二、年初三、年初四，照例得四处拜亲戚。吃各类大鱼大肉高热量食物，聊天，欢笑，嗑瓜子，吃花生。小孩子们追着各类爆竹鞭炮乱跑，猫和狗吓得来回窜。室内室外，耳边总是亮堂堂的响着喜庆的乐曲。回了家，打着饱嗝，都不想再吃东西了。我妈就会把年夜饭剩下的菜，做成杂烩菜、咸泡饭、混炒饭。这些边角料凑起来，通常极香，吃得全身暖和，脑子都变简单了；就把自己抛进软沙发里，接着看欢天喜地的电视节目。这种时候，我最忌惮的是跟妈妈的一些好朋友酬答。我们这里，阿姨们聊起来没边儿。比如我小时候，常被阿姨捏腮帮子：看这小孩多可爱！给我做女婿好不好啊！我妈就答：好啊好啊！——一个春节，我能被妈许配个四五家！当然啦，玩笑一句，过去就算，但多年以后，还会有阿姨开玩笑不怕事儿大，见着长大了的我，就指着自己身旁的女儿：你妈妈以前可把你许给我家啦！——也不管我和她的女儿彼此有多尴尬，这种玩笑可怎么接下茬？到年初五，该上街去溜达了。回家过年的诸位也有些回来了，街上人虽少，店铺倒还开了。大家小别数日，都无比惊喜的道好：“新年好！”“新年好！！”这时，你就会像穿上一件新衣裳，在这种“一切都很美好”的气氛中，觉得“哎，过年真是好！”回了家，妈把咸鱼蒸了几块，配热腾腾的稀饭，“吃吧！”我偶尔也会想，究竟什么是“年味儿”呢？年夜饭？红烧蹄髈？嗑瓜子？春节晚会？“过年好”的祝福声？杂烩饭？走亲访友？爆竹声？似乎是，又似乎都不是。去年春节，我在巴黎过，这是我第一次在国外过新年。幸而周围华人众多——话说回来，全世界大城市，都已经被华人占领了——所以还不缺过节气氛。远离故乡的人，办起故乡事来，通常格外道地。许多我在国内的亲戚都已经嫌麻烦不办了的习俗，在巴黎这里的华人圈里还流行着呢，比如，有位来巴黎三十年的老阿姨，绘声绘色教我：“压岁钱的红包，可不能只拿个红纸随便一裹，这里面有讲究，要折，要描，我来弄给你看……”中国人过个年，连法国人都知道了。看华人居住那片地方，张灯结彩挂红纸，那就是要过年了。我是这么给自己塑造过年气氛的：亚洲超市里买食材，做些挺地道的吃食；家里贴些喜字，挂些年画。当然，到头来，渲染气氛最有效的，还是以下手段：调出历届春晚的小品和相声，当家里背景音。听多了之后，隐隐约约的，你真觉得，好像在国内过年了。究竟什么是“年味儿”呢？央视春晚相声小品的质量，已经被诟病了十几二十年，其笑料之短缺、主题之单一、若干细节之虚假，不必多言。但如果稍微在意一下，会发现以下特色：无论该小品是否有趣，大体上，央视春晚的相声小品，一如主持人的发言，总在渲染以下气氛：天伦之乐；关爱互助；朝气蓬勃；老当益壮；家庭轻喜剧；生活情景剧——许多很没营养，甚至虚假，看了不过脑，但就像所有肥皂剧和鸡汤一样，试图治愈你——效果不论，意图是这样的：试图营造一种调子：“大家是彼此关怀、温情礼让的呀！”这种调子，其实并非凭空而来。我小时候所受的教育，率多如此。语文课本里，基本在强调以下审美：中国是幅员辽阔的，五十六个民族如何相亲相爱，农民伯伯如何勤劳勇敢，城市居民如何积极向上，春天万物复苏，夏天烂漫璀璨，秋天丰收圆融，冬天瑞雪纷纷；孩子们如何去为五保户老爷爷扫雪，如何拾金不昧，如何立志远大，想当解放军、科学家和护士……甚至连数学课本里，都会不经意的编些诸如“红星农场秋天苹果丰收，一共有30吨苹果，问能载重2吨的3辆卡车需要多少次才能运完”，如此云云。那是一种招贴画式的审美，多年以后知道真相的你难免会觉得小时候被哄了，但这个最初的、桃花源式的梦，到底是最初的印象。所谓年味儿，其实差不多就是如此：一种从我小时候的教育、从上一代和上上一代长辈的日常言行里，承继下来的氛围，一种暖烘烘的，大家真诚的彼此关怀的，足以让人感觉周遭过于美好，过于和睦，简直可以无忧无虑的氛围。所以，为什么年味淡了？不是因为仪式和习俗变化了——每一代人自有他们的仪式，我们的父辈少年时就不知道何谓春节晚会——而是人会随着成长，越来越明白，这种暖烘烘的、彼此真诚关爱、用心祝福的氛围，随着时间流逝，日益变成一种桃花源般的存在。不是年味淡了，只是人们长大了。但是，到最后，还是会有一个转换。我妈有那么几年，逢过年都不乐意操办了，嫌烦，嫌无聊，自己也觉得是穷开心哄自己，没意思。但近些年，她又热闹开了，每逢过年前后，便饶有兴致，四处备办，逮着各类理由，拉拽亲朋好友。按她对我的说法，“虽然是瞎闹猛（我们那里，管热闹叫闹猛），总也比不闹猛要好！”如是，大概到最后，人都会经历这么个阶段：先是被过年那海市蜃楼般的气氛所迷，乐在其中；渐渐发觉其中有相当的瞎起哄穷开心成分，于是慢慢儿远离；最后，终于到了“假的又如何，开心就好了嘛”，于是翻身回来，开始亲身参与，营造海市蜃楼的氛围。说来说去，过年其实可以这么解释：这玩意本身可以理解为，到了每年的某个节点上，大家没事瞎起哄、一起闹个乐。但人生在世，无非求乐；如果能有一个自己和周围都不加怀疑的固定时节，可以像傻瓜一样彼此喧腾热闹的问候和祝福，可以撒开欢乐，那就不妨乐乐。年味儿浓淡，到最后还是主观感受。想有年味儿，只需要把自己变成一个笨小孩儿，满心期盼压岁钱、年夜饭、春节晚会和各类无意义的唧唧呱呱，没头没脑的祝福每一个人，然后相信他人也会没头没脑实心实意的祝福你，就行了。想要有年味儿，首先得真把年当成年来过才是啊。就像这样：要过年啦！！！大家过年好啊！！！！！原文地址：http://blog.tianya.cn/blogger/post_read.asp?BlogID=38484&amp;PostID=55207487左岸记：大家过年好！原文链接：http://www.zreading.cn/archives/4800.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

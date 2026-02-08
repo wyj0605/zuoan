@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瞬间消失的地方</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>瞬间消失的地方</h1>
+            <div class="date">2015-10-01 01:12:52</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/胡平我不知道未来会不会再来这个地方，或许仅有一次，不过一次足矣。在坐车的回来的路中我许了一个愿望：希望以后有更多的机会去看世界。去过许多地方，总是一眼掠过，生怕忘记，所以就用简单的方式记录了下来——照相。发发朋友圈也是跟朋友吹吹牛我曾去过那个地方，做过那样的事。也许能力不够，并不能满足心里的愿望；也许足够幼稚，所以至今会用这招骗自己。回学校两三天，找不到自己想做的事，确实孤独。当想问候某人一句却在犹豫时，确实孤独。一个人站在球场看一群人打球时，确实孤独。……为了让这星星点点的事不随时间老去，决定把它记录下来。2015年7月20日，回忆还停留在这一天。那是一个多月前，经过老师和么么哒的郭晶晶大学姐的介绍我们踏上了“内蒙古之行”。一个月的时间好像做了好多事，也好像什么事都没有做。这期间酸甜苦辣品尝得算是彻底，穿梭在这样的时间里，走得并不是很快，但穿过这样的时间仿佛从来没有经历过。不过还好，皮肤又黑了一层足以证明我没在做梦。初到草原，除了吃惊，便是大吃一惊，那时还没想到接下来还会吃苦。在车上看见蒙古包，羊群，牛群静静的待在那里，青青的草原上白里透黄，星星点点的点缀着在草原上，显得十分安详。想象中的草原也大概能和这个附和上。这次来的目的也是为了亲近草原，能骑马射大雕，品味牧民的生活却未曾敢想，可事实的经历还是超出了我的想象。大海，沙漠，草原，曾都想去的地方，来到这里本想只要满足其中一个愿望足矣，万万没想到好事成三，想想还有点小激动。草原的天空十分清澈，干净。无论从什么角度都能看到远处的草是和天空连接在一起。仰望天空，微风吹过，草香味十足，那是冷蒿的味道。草原的美用话是说不完的，那是必须亲身体会才能感觉更多。去到每个地方首先都想得到每个人的肯定，然后建立起我们之间的默契。有的人说我太能闯，有的人说我太能装，不管是闯还是装都只存在c和z的差别，没人会作践自己，做过自己的人不会把话读得那么深，和自己过不去，那才是真作。当旅行快要接近尾声，我们或多或少身体都出现了不适的现象，没想到这次的旅途这么艰难，还好是做足了心理准备，选择的路再艰难爬着也要走完。算是完成了自己的一个承诺。学姐曾问过是否后悔去内蒙古，确实没有想过这个问题，所以调侃的回了一句：“再不回去可真要后悔了”。以前后悔没做过很多事，既然选择了却要后悔，不选择也要后悔，那选择与不选择又有什么差别呢？重要的是选择一条路，勇敢地走下去，去经历，去面对，才能知道自己所能拥有的，自己所缺少的。所以我的答案是肯定的，不后悔。我们总会是一个人在前进，一个人在旅行，不管以后现实是怎样，有什么样的机遇，现在都得抱着肯定的态度向前。人生的定义莫非就是要仰望自己的一个个愿望，还自己一个个心愿，不管跌倒多少次，成功或失意，我们会慢慢的去适应。我们都会慢慢老去，唯一留下的仅有片刻的回忆。这样，足矣。后记：如旅行达人赵行德说的：你可以做很多别人想得到或想不到的事也可以做很多别人不喜欢但你很喜欢的事还可以做你从来没有做过的事，连想都不敢想的事但是作为一个周游了世界的人，我不能告诉你旅行有什么意义对于身处银河系荒凉偏僻的旋臂上，微小的太阳星系中，一颗渺小蓝色星球上，尘埃一样微不足道的我们，在这个狭小的世界上旅行能有什么意义？在宇宙的时间长河里，我们不过百年的一生又有什么意义？我们太渺小了，不仅仅是旅行没有意义，连我们所有的行为，我们整个人类的行为，可能都没有意义但是，在这荒凉偏僻的星系中，在我们这短短的一生中，在这仅有一次的生命中做你想做的事，成为你想成为的人这就是最大的意义原文链接：http://www.zreading.cn/archives/5086.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

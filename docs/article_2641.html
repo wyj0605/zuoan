@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南国看雪</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>南国看雪</h1>
+            <div class="date">2014-11-19 00:34:01</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/云淡水暖来到深圳已经一年多了，马上要在这里度过第二个冬天。和老家比起来这里是没有冬天的，因为这里没有冬天的必需品——雪。南国的冬天没有雪，没有老家那种鹅毛大雪，一片也没有。每当到了下雪的季节心理还是盼望着下雪，可惜这里是南国，对于南国来说，雪仅仅只是一个字符，一种抽象概念。这几天温度又下降了，天上的太阳也被几朵云彩遮住了，傍晚街上刮起了微风，有点要下雪的征兆，仅仅只是征兆......当夜幕降临，天更冷了些。伫立窗前，抬头望着天空，期盼着它能像老家的雪一样如期而至。看着被夜色包围的天空，我仿佛看见了雪，看见了那片美丽的天空已经开始下雪......晌午过后，雪花从天而降，一片一片像落花一样旋转着向下落。看着窗外飘落的白色花瓣，我们几个小伙伴总是会不约而同的在这时候跑到场子里，仰着头，望着天空飞舞的雪花。那画面虽没有书中描写的“每年冬天，当初雪落下的那一天，人们便坐在庭院里，穆然无言地凝望一片片轻柔的白色。”那般虔敬动人，但多了几分生机与童趣。小伙伴们争相着跳起来，看谁能第一个接着那第一场雪的第一片花瓣，第一片雪花总是最先落在我们的小脸上，刚到脸上，不要几秒钟，雪花便融成了水洒在一个个红苹果上，感觉凉凉的。与第一片雪花有了亲密的接触，红苹果都笑开了花。小伙伴们伸出冻得通红的小手，跳跃着去抓那落下的花瓣，把花瓣抓到手里后就开始大声喊着我抓到了，抓到了。雪花抓到手以后，都赶紧去看第一场雪的雪花到底有几瓣？看看是不是书上说的：草木之花多五出，独雪花六出。抓在手上的有四瓣的，也有五瓣的，偶尔也会有六角形形状的。每一年的第一场雪总是带给我们最多的惊喜，第一场雪总是受到人们最多的宠爱。天空刚开始还是零零落落的几只白色蝴蝶在飞舞着，不到一个小时就像千万树梨花争相绽放，花瓣漫天飞舞。院里院外都被白色的花瓣着上了一层霜，地上秋黄的小草也变得若有若无，欣喜的迎接今年的第一场雪。远处的山峰也张开怀抱来拥抱这些从天而降的白色精灵。冬天的群山本来是一副带有西方色彩的油彩画，经过雪花的细心装扮，俨然成了一副中国古典特色的白色水墨画。雪越下越大，越来越猛。院子里的玩耍的我们身上不知不觉都落上了一层厚厚的棉花。一双双小手由通红变成紫色，还准备尽兴的继续玩耍，却被大人们纷纷拉回家烤火取暖。冬季的农村，农家人起床后的第一件事情就是取柴生火。一大清早，家家户户的烟囱便炊烟屡屡。窗外的雪下得更大了，屋里的火炉也被围的更紧，辛勤的父亲又从屋外抱来一大捆碎柴加在火炉中。窗外的鹅毛大雪还在下着，我们哪里坐的住，刚坐下烤一会儿小手便又跑出去看雪，地上已经看不见土色，落雪约有一厘米厚，这时候的大地就像一张刚打开的白纸，等待着我们去画画。小伙伴们哪能不珍惜这千金难买的画纸，从路边抄起一根“画笔”，便开始了创作。几分钟过后，白色的画纸上描出了一幅幅可爱的画卷，有笑脸，有太阳，也有人的肖像。我呢，人物画不好，突然想到那些金庸武侠里面的英雄好汉们盘腿画太极的样子，于是便也学着他们，一只腿为圆心，一只腿为笔，整个身体化成一个圆规，瞬间就在地上画出了一个圆，紧接着画阴阳分界，就这样我的面前出现了一个圆的不太规则的太极。雪越下越大，刚刚画完的一会儿就又被新下的雪盖住了，地上的积雪越来越厚，待随手可抓起一把时，我们便开始了冬天下雪时的经典游戏——打雪仗。雪白的世界里，随处可见一群嬉戏的孩子，大雪改变了沉寂的冬天，给我们带来太多的欢乐，雪依然在下，那村庄依然安详......当天色变暗以后，场子里的嘻戏声才慢慢散去。洁白的世界到了夜晚又是另一种风景，下雪的夜晚显得格外的寂静，“夜深知雪重，时闻折竹声。”这话一点不假，下雪的天在路上行走，脚下葛吱葛吱的响，偶尔也会听到干枯的树枝被沉甸甸的积雪压折的声音和远处人家屋子里传来的畅谈声。庭院外大雪还在下着，透着灯火的窗子里是一家人围着火炉，吃着火锅，聊着天。白居易说：“绿蚁新醅酒，红泥小火炉。晚来天欲雪，能饮一杯无。”这画面多么的寂静安详。忽然几滴雨水滴在头上，我才突然醒来，这不是雪，还是雨，南国是没有雪的......左岸记：雪，洁白的美称。初雪是这样：不知庭霰今朝落，疑是林花昨夜开。大雪是这样：燕山雪花大如席，片片吹落轩辕台。雪，是大地的盛装，是冬季最浓墨重彩的一笔，南方却是无福消受，这是偏袒呢还是忘情？原文链接：http://www.zreading.cn/archives/4636.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

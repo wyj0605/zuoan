@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再也不要出现没有结果的人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>再也不要出现没有结果的人</h1>
+            <div class="date">2015-07-10 00:28:40</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/麦莎这是朋友微博里转发的一句话，初见时心头为之一振。“再也不要出现没有结果的人”，我想翻译为，在我没有足够优秀足够成熟足够稳定之前，不要再出现喜欢我的人。学会独处和学会爱自己是一个女人的根，我还需要时间一个人读书，学很多东西，然后让自己足够有资格去谈一场不分手的恋爱，一朝得见，生死相许。我承认你很好看，第一次见面我口水都要流出来了。我记得你的第一句话，你说“你好，娃娃脸。你长的好像瓷娃娃”。我噗嗤一下就乐了。我承认你很温暖，每天被你叫起，天气好的时候就出去跑步，然后一起吃早餐，跑步让我觉得是阳光的生活，吃早餐是最幸福的事。我承认你很幽默，和你聊天都是笑着的，你说的很多话我竟无法反驳。可是，我觉得我们不在一个逼格上。那么相识，注定是一场意外。我说韩剧挺好的，你们男生好像都不喜欢看。你说韩剧发明出来就不是给男生看的。可是在我的忽悠下，你成功的陪我一起看完了匹诺曹。哈……匹诺曹真的蛮好看啊，直击职业道德的拷问和人性最深处的灵魂。然后你就学着说话打嗝来逗我笑。有一天下大雨，你给附近的一个女性朋友打电话送伞，她只带了一把伞送你回家的。第二天说到这件事，“嗯，她家只有一把伞”“好巧啊顺路去你家那个超市买东西”我一直在那笑，把你笑毛了，你说以后再也不敢了，下班晚了没有车了的时候宁可浇着也自己走回去。我说挺好的呀，至少没淋着雨，感冒了怎么办，多亏了她，要好好谢谢她。我说的是真心话，你却不信。是呢，我真的没有生气，我想潜意识里我是不在乎的吧。520零点收到你的短信。不知道为什么突然觉得零点发短信，这个行为有些幼稚。想着早年我也这样幼稚着，生日的时候给别人零点发祝福，也许以后还会这样幼稚。中午收到你的礼物，一本书和毛绒玩具。觉得毛绒玩具也好幼稚。可是我很喜欢哈哈哈。你说我给你的感觉就像一个单纯的邻家妹妹，真实又带一点梦幻。我觉得遇见你更明白了坤卦的意义，柔顺。可是，我发现不吵不闹不计较，是我不喜欢你。我知道自己喜欢一个人的感觉，是有一丝依赖，是有他在很踏实的心安，是什么都想跟他说跟他分享，也许遇到再白痴再简单的问题自己都会问他。而且占有欲很强，别人碰不得。我不可能会依赖你。这情绪是突然就不开心，突然就觉得累了，突然就不想再相识下去。我曾相信过“感情是可以培养的”这句话，尝试过给彼此一个机会。可结果不过是互相伤害罢了。那是去年认识的一个男孩，我能充分的感受到他对我的无限好感无限怜惜，还有无限留恋。记得那个情人节真的很美好，16层的旋转餐厅，窗外绚烂烟花，猜字谜还中了一袋元宵。连着看了两场电影，一起放烟火。明知道自己最初没有感觉，竟然也想着去试着接触一下。可是呢，就是这样一个心疼我会心疼到不知所措的一个人，终归是让我受伤了。我在屋子里大声放着歌曲唱着歌，母亲说大晚上影响别人休息。我说我心口堵得慌，然后开始哇哇哭。我说我们去歌厅吧。然后她就陪我去歌厅嚎了个痛快。本来觉得是无所谓的，结果还是会难过，重情之人要承受更多悲喜吧。当我觉得自己胜利了，就是内心又强大了，就是释怀就是忘记了。灵魂若不能去包容一切，又怎么得以安宁。我不能欺骗自己也不能欺骗你，我不喜欢你也不能耽误你。这是实话。所以我对你说“对不起，放弃我吧。不会有结果的。”我看到你眼神里的难过，你说“就因为你不喜欢我就要放弃么，相识真的很短，有太多太多的话还来不及跟你说。我还是要喜欢你。”你说想好好爱一个人，你说你不会放弃的。这一次我没有纠结。我想潜意识里是真的不在乎吧。我甚至想过上知乎去问一句“如何优雅的拒绝一个人”，然而我是直性子，直性子的人说话直接，说话直接总会伤人的。夕夕问我“你知道他每天黯然神伤，发消息你也不回。可以让他等你几年？”我没有回答，我无法回答，我不能回答。因为这个等字太沉重了。我已经没有想要再了解下去的欲望。感情的事本就是勉强不得的。不见不联系。刚才看到你空间的状态“只能怪我不重要，才让你拼命想甩掉。”，拼命吗，我觉得整个身体整个心都颤抖了一下，我只是惯性逃离，我不知道哪来的这种没有安全感，蟹子天生就是没有安全感的存在，就是很想逃开，躲避。你很好，只是最终不是我的。没有结果又何必要有开始。年纪越大越没有勇气。年纪越大也越该接近事实的核心。人生不是顺其自然，而是懂得选择生活，才能定位自己的方向。说到底我还是没有调整好自己的内心，没有一个良好的状态去认真接触一个人。于人于己都是不公平的。所有的相识都猝不及防，缘来缘去，花谢花开。我还是要感谢那些错过的叫青春。唯愿一别两宽，各生欢喜。某君说过“你是个善良可爱的姑娘，大家都喜欢你。不知何人此福，能够朝朝暮暮。”我应该是在等一种感觉，“就是他”的感觉。当有一天遇见喜欢的男子，我能够是最好的自己。很多人问我为什么不回消息，扣扣一周不上就是收不到消息的。我的空间和扣扣向来都是分着上的，在空间里写字是觉得写出来内心舒服一些，不上扣扣，是害怕看到你的留言，我怕自己会难过。我是希望你能够积攒力量去守护喜欢你的女孩。我们最后都会寻到自己的真正的归属。情比金坚的人才秀恩爱，朕祝福众爱卿们能够从青丝秀到白发。而我需要时间空间来让自己慎独和内省，我要做很多事情，我要过好一个人的生活，我要成为自己的太阳无需凭借谁的光，我要沉淀自己的心，要安静也要冷静。然后能够心平气和的面对一切解决一切。5年前我说，人们不知道哪一次相遇至关重要，哪一次错过遗憾终生，人们不知道，所以不断相遇不断错过。而现在，我真的不着急谈恋爱。我还要让自己成长，成长到内心足够坚韧，成长到有足够能力来接受更好的一切。我曾经想着是28岁结婚的，那是我24岁遇见某君时某君的年纪。左岸记：我一直都认为一个人对爱情的态度就是一个人对自己人生最至高无上的领悟，随便的人注定一生随便，将就的人只好将就，认真的人能得到自己想要的，坚定的人会获得一生幸福。原文链接：http://www.zreading.cn/archives/4974.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

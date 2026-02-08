@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐身，是为了躲避失望 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>隐身，是为了躲避失望 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>作者：Daybreak，来自：psytopic</p>
+<p>当我们彼此挂着聊天工具不说话的时候，您认为这是好友彼此无话可说，还是因为这款工具不再新鲜？科技 的发展是否成为人们联系的鸿沟？当鸿沟一年比一年宽，我们也会变得越来越与世隔绝。唯有密切相处，而且彼此欣赏，人们才能累积出与人交往的心得；在网络世 界里我们少了一些“亲密接触”，逐渐靠着猜想臆测来调整人际关系，这样我们怎能不惴惴不安？</p>
+<p>~</p>
+<p>有人说：</p>
+<p>上线，是为了打发寂寞；</p>
+<p>隐身，是为了躲避失望；</p>
+<p>什么时候，我们喜欢上了安静，却又很怕寂寞；</p>
+<p>什么时候，我们爱上了自信，却又很怕失望；</p>
+<p>于是，我们喜欢上了这样：</p>
+<p>拿起手机</p>
+<p>看看是否错过了谁的电话，</p>
+<p>是否还有未来得及看的短信，</p>
+<p>可是熟悉的墙纸告诉我们：没有！</p>
+<p>于是…</p>
+<p>手机QQ</p>
+<p>（隐身、静音）</p>
+<p>登录…</p>
+<p>然后</p>
+<p>看看谁在线</p>
+<p>看到了想见的人，欣喜，却又不敢说话…</p>
+<p>于是</p>
+<p>登入自己的空间</p>
+<p>看看有多少人还在意着我，来看过我，我有多少空间动态…</p>
+<p>接着</p>
+<p>下拉，再下拉…</p>
+<p>更重要的是自己关心的那个人的动态…</p>
+<p>却只是看看，并不打扰…</p>
+<p>何时发现，我不再爱写日志，即使有最新的日志，前面也会带个[转]…</p>
+<p>不是我变的懒了，而是我疲惫了…</p>
+<p>情愿用别人的语言，来抒发自己的情感…</p>
+<p>挂了QQ，却不上线</p>
+<p>挂了QQ，却不聊天</p>
+<p>只是反复着‘展开分组’和‘关闭分组’…</p>
+<p>上线，是为了打发寂寞；</p>
+<p>隐身，是为了躲避失望；</p>
+<p>就这样</p>
+<p>挂了QQ，隐了身，看着别人的一点一滴变化…</p>
+<p>何时</p>
+<p>我们不喜欢追逐打闹，却很想和以前一样活蹦乱跳</p>
+<p>何时</p>
+<p>我们让自己变得沉默 ，</p>
+<p>却很想多了解身边所谓的朋友</p>
+<p>我们喜欢在很静很静的深夜，关了灯让寂静把我包裹，却又害怕黑夜…</p>
+<p>我们也会偶尔的和朋友聚聚，</p>
+<p>或开心</p>
+<p>或失望</p>
+<p>偶尔，也会寂寞的拿起手机翻开通讯录，一遍一遍的… 却不知道该打给谁。</p>
+<p>有时，接到了许久未见的朋友的来电，会欣喜，会激动，但很快便发现没有以前的共同语言，多的是尴尬和沉默，然后便是“你忙吧，不打扰你了…”的客套话…</p>
+<p>.</p>
+<p>当我们习惯隐身</p>
+<p>当我们习惯沉默…</p>
+<p>也许</p>
+<p>忘了从什么时候，一些曾经联系的人即使亮着头像也不跟你说话；</p>
+<p>忘了从什么时候，我们开始不去话聊只通过状态更新了解对方；</p>
+<p>忘了从什么时候，我们开始不断转载日志，只因为这些日志像在讲述我们的经历；</p>
+<p>忘了从什么时候，去别人空间逛也是一种关心；</p>
+<p>忘了从什么时候，拿起手机不自觉地就会上Q;</p>
+<p>忘了从什么时候，即使看到想念的人上线，却不愿说话；</p>
+<p>忘了从什么时候，半夜睡不着依然摆弄手机去填补那份空虚…</p>
+<p>什么时候才会真的觉得年华老去？</p>
+<p>简单的快乐又在哪里？</p>
+<p>我们是怎么了。</p>
+<p>.</p>
+<p>也许我都在期待着另一种技术更贴近我们生活的方式来改变这种混沌的状态…</p>
+<p>那又是什么呢？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

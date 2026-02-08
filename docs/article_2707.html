@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当我们操起道德这根棍子</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>当我们操起道德这根棍子</h1>
+            <div class="date">2014-09-09 23:40:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/旅者周公恐惧流言日，王莽谦恭未篡时。若使当时便身死，千古忠佞有谁知？这一首诗，是白居易所作。周公和王莽的忠佞之分，后人无不了然。但是，当周公流放管蔡之时，在王莽谦恭有礼之际，当时世人对二人的毁誉，难道没有颠倒的时候？正如梁漱溟先生所说，中国是一个伦理本位的国家。周公的恐惧和王莽的谦恭，源于同一个价值标杆：道德。周公恐惧流言，因为流言背后有一根道德的棍子；王莽表面谦恭，因为谦恭之上有一顶道德的帽子。许多人被这顶帽子迷惑，却对这根棍子大感兴趣，于是，他们对这顶帽子顶礼膜拜，同时操起这根棍子砸了下去。如果周公和王莽当时就死去，那么这顶帽子和这顿棍子，便算是戴稳了打实了；幸好，周公和王莽没有死的那么不巧，他们的运气都不错。但是，“若使当时便身死”的假设提醒我们，这漫漫历史中，是否埋藏着许许多多的“当时便身死”者呢？周公和王莽的例子，揭示出一个很简单的道理：道德判断很多时候远比我们想象的要复杂和困难。久远的历史已经很难追寻究竟，我们能小心对待的，只有现在。眼下我们身处其中的，是个开放而多元的时代，网络的普及，将所有人的话语聚集到了一起，网络似乎成为了最大的公共领域。在这个巨大的公共领域里，身体的退隐赋予了我们极大的话语自由，同时也淡化甚至取消了与自由相对应的责任。这样的话语环境，最容易滋生批判，乃至大批判。做建树是很难的，何况网络根本不是一个适合做建树的环境；做批判是得心应手的，世界上的准则那么多，面面俱到根本不可能，于是批判的理由俯拾即是。批判什么呢？政治？不太敢；经济？不懂。文化？不错，这个柿子最软，正好可以任意揉捏。文化当中的什么离大众最近？什么最容易拿来批判？道德。道德的主题主宰了我们的历史几千年，至今不曾稍废。而网络信息传播的发达，更是将无数道德事件推到了风口浪尖。都说眼下是一个道德滑坡的时代，那么道德批判也就显得十万火急，而广大的“网友”，自然乐于充当批判者。道德批判的对象，是我们眼中应该受到审判的不道德者；道德批判这一行为，无疑是在捍卫道义；于是，批判者们十分雄辩地获得了岸然道貌，站在道德制高点上坦然地举起了棍子。很可惜，网友们在顺理成章成为道德化身的同时，那砸下去的棍子，却瞬间变异成了暴力。电影《搜索》极为真切地描述了网络道德暴力的发展过程：一次不让座事件将一位平凡的女孩推上了道德的审判席，接下来，正义感十足的广大网民将她拉到网上游街示众，瞬息间，她成了道德败坏的极端例子。而更有意思的是，英明的网友迅速挖出并“证实”了她原来还是专门破坏别人家庭的小三。网友们乐了，为自己取得如此巨大的成就而兴奋不已。于是，网上这位女孩的照片被恶搞成了妖精鬼魅。既然是妖精鬼魅了，口诛笔伐算什么，一切下流恶俗的词汇都可以肆意倾倒了，谁让她是这样道德败坏的人呢？试想，倘若有人揭示出这位女孩没有让座的真相，或者她自己希望出来澄清真相，网友们会如何反应？电影中策划这场不让座事件新闻者的妹妹拍下了女孩的道歉，但是这位姐姐果断地压下了这段视频，她替网友和观众做出了决定。这位策划者的决定，正好迎合了一般观众的心理：当大家都在畅快淋漓地批判不让座者的时候，你忽然站出来告诉大家事情并不是这样，如此打断看客的兴致，岂不太不识时务？当大家都在朝游街示众者扔臭鸡蛋烂菜叶的时候，谁愿意看到罪犯忽然清白了？那岂不说明此前围观者仍错了臭鸡蛋砸错了人？你让他们的颜面往哪里搁？来吧，既然游街示众已经成为了围观者的一场狂欢，就将这场狂欢进行到底。不要真相，不要事实，不要公正，只要激动，只要愤怒，只要情绪的畅快发泄。这就是当下网络上常见的大批判盛典。这类“盛典”很具中国特色，老一辈的人一眼就能看出，文革灾难正是在这种类似情绪中酿就的。只要一个起点，一个小小的事件，不需弄清事件的前因后果，甚至不需证明事件的真假，这个人成为了罪人。接下来，他被不断地揭发，罪名也越来越多越来越深重，最后，他淹没在大批判当中，万劫不复。文革结束了吗？结束了。文革流毒消除殆尽了吗？肯定没有。网络道德暴力，正是文革思维在网络时代的一种沉渣泛起。什么是真相？不错，我们的确看到电影《搜索》里的那位女孩不给老人让座，但我们是否应该考虑她为什么不让座？真相不只是她不让座，还有她刚刚遭遇人生巨变之后的心灰意懒。敏感容易导致轻率，当我们越来越有意地关注社会公德，我们的评判机制往往给予此类事件过于高调的是非评判，而忽视每一个具体事件的复杂性。于是，公交车上以那位女乘务员为代表的其他人，没有给不让座女孩丝毫的包容，言语中只有谴责。给老人让座，这是在任意情况下都必须执行的行为规范吗？未必，这一点我和我的老师、同学曾在课堂上讨论过，至少可以考虑以下情境：一位一身疲惫的年轻人是否必须为一位精神矍铄的老人让座？冒昧地让座会不会让不愿意别人认为他已经老了的老人反感？当老人一上车就示意你让座的时候，你是否可以不让？这些情境启示我们，让座与否，可能无法作为判定当事人是否道德的根据。我们甚至还可以质疑：即便不是在以上这些特殊情境下，不让座就一定不道德吗？让座的依据在哪里？这些质疑并非否定我们社会公认的美德，而是在反复考量中，去除围绕在美德周围的迷雾，给我们的道德判断注入理性，不再轻易而武断地批判他人的道德。接下来的问题是，即便一个人做出了一件不道德事情，这个人便不道德了吗？电影《搜索》里，女孩因为一次小小的行为失范而受到如此铺天盖地的道德审判，这公平吗？试问，生活中谁不曾做过不道德的事情？可是，网络上以及随之而渗透到现实生活中的种种鄙夷、嘲讽、唾骂，却足以摧毁任何一个普通人的心理防线。这对羞耻感不曾麻木的人来说，无疑是致命的打击。是谁杀了电影中的那位女孩？我们可以说是她所患的癌症，但使她绝望的，真的仅仅是癌症吗？那些操起棍子边侮辱边打的人们，还能够坦然自若吗？是的，绝大部分人依旧坦然自若，他们甚至不会注意到一个无辜生命的消逝，网络上依然活跃着他们的身影，手中举着一根棍子，左顾右盼地寻找着新的攻击对象。《圣经》里流传着一个故事，当众人准备用石头砸死一个妓女的时候，耶稣说，你们当中谁扪心自问不曾做过错事，便砸下手中的石头。结果，众人在迟疑中渐渐丢下了手中的石头。相比之下，电影中女孩的“罪行”真是微不足道，可是我们的看客们毫不迟疑地挥舞起手中的棍子。几乎可以肯定的是，网上那些用下流词汇辱骂女孩的人们，现实中的劣行数不胜数。当他们身体退隐，不再接受旁人审视的时候，他们立即变身为最急切最疯狂的打手。网络道德暴力，包括现实世界中道德暴力的残酷提醒我们注意，道德批判的度在哪里？从而，道德批判的合法性何在？谁有资格做道德批判？如何进行道德批判？这些问题我都还无法给出答案，它们将是我今后思考的问题。回过头来反思，其实我在这篇文章里所做的，也是对肆意挥舞道德这根棍子的人的批判，而我的批判，也不乏情绪性的成分。比较理想的后续工作是理性分析“变成棍子的道德”的特殊话语和行为模式，用平静的语言将它们呈现出来。当然这是将来的事情了，这篇文章想表达的，还是对道德暴力的愤怒和戒惧。街市依旧热闹，游荡在街头巷尾手持棍子的人们，依然对过往行人虎视眈眈。更可怕的是，缺乏实证意识的我们，身处实证机制匮乏的网络时代，是否会在不知不觉间，也操起了那根棍子？金庸先生的《倚天》小说里，讲述了少林高僧空见禅师度化杀人无数者谢逊的故事。谢逊的罪孽积重难返，禅师知道自己终究无法度化他，于是用自己的生命，唤起他心中些许的愧疚和人性。禅师在临死时对谢逊说：“但愿你今后杀人之际，有时想起老衲。”但愿，当我们操起道德这根棍子的时候，能够有时想起这根棍子的罪恶。左岸记： 扩展阅读——时寒冰先生写的《黑上白下或黑下白上的时候》，下面是节选：有一天，子贡问孔子：“如果一个人，乡里的人全部都喜欢他，这个人怎么样？”孔子说：“并不能就此就说他是好人。”子贡又问：“如果一个人，乡里人全都憎恨他，这个人怎么样？”孔子说：“不能就此认为他是坏人。（乡里的人都喜欢他）不如乡里的好人喜欢他，坏人憎恶他。”（子贡问曰：“乡人皆好之，何如？”子曰：“未可也。”“乡人皆恶之，何如？”子曰：“未可也。不如乡人之善者好之，其不善者恶之。”）就此，朱熹点评说：“一乡之人，宜公论矣，然其间亦各以类自为好恶也。故善者好之而恶者不恶，则必其有苟合之行；恶者恶之而善者不好，则必其无可好之实。”（朱熹《四书集注》卷七）何晏《论语集解》、邢昺《论语注疏》等做了更进一步的点评：言乡人皆好之，是善善不明；乡人皆恶之，是恶恶不著。若乡人之善者善之，恶者恶之，则是善善分明，恶恶显著也。很多东西，我们不知道，或者，只知道一半，如果知道了另一面，我们才能更理性地去看待问题，看待这个世界。对待自己也一样。除了与自己观点相同的人，更要多倾听那些批评自己的人，他们能够帮助你尽早发现问题，并加以改正。至于那些子虚乌有的诋毁，完全不用理会。偏执的人活在制造谣言的快乐中，一点点地在无聊中消耗自己的生命，让自己的人生充满阴暗和污秽。这样的人完全不用理睬。但绝不可以因为憎恶放弃倾听理性的批评。在我们成长的过程中，能否客观理性地看待人或事，是很重要的。唯有做到这一点，才更智慧与敏锐。原文链接：http://www.zreading.cn/archives/4551.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

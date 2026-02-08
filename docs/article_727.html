@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特例与概率 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>特例与概率 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>Also的投稿，原文在此。这里的“特例”，我们可以理解为拥有独立思维的特立独行者，这里的“概率”，也可以当作一种从众心理。</p>
+<p>一个男孩子如果喜欢上了一个女孩子——不过客观来看这个男孩子追上那个女孩子的概率不高——但只要他有那个胆量去追求的话，那么他往往会1.不顾他人的好心劝告 2.从最好地角度看待自身的条件  3.认为女孩总是能答应他的邀请。他相信“当，我和世界不一样，那就让我不一样”。而往往大多数这样的事情的结果是不随某一个人的意志为转移的。那么这时候我们可以说，他在追求女孩子的过程中把自己看成了一个特例。</p>
+<p>一个大学生，来到了大学，生活了一段时间，沾上了没有课程就懒觉，有事没事就玩电脑的习惯。虽然来大学前也有过对未来的美好憧憬，希望能好好利用大学这块连接社会与未来的跳板，但无奈身边人也懒懒散散，春花秋月等闲度。他心想“反正以后大学毕业出去社会要的也是我们这批人，要死大家一起死。”并且他多多少少会从学长学姐们处了解到，极大部分学长学姐的生活也差不多是这个样的。他认为他只要不比身边95%人更懒，只要跟他们一样懒就好。这样想来，如此慵懒的日子还总是不那么绝望的。这时，他就属于是安安心心地把自己看进了概率。</p>
+<p>—</p>
+<p>一千个普通一本大学的毕业生的平均水平不如一千个清华北大的毕业生高，但一个普通一本大学的优才生注定比清华北大的一般毕业生在个人能力方面更加优秀。</p>
+<p>虽然在我们作为群体时，总是被丢进了概率中去。但单单就个体来说，个体是不受概率限制的。比如说：</p>
+<p>1.你来自一个英语口语水平较差的边远地区，你的口语基础也很差。但你来大学后每天早读，半年后，你的口语超过了班上曾经说英语最好的人。</p>
+<p>2.你和大多数锻炼得少的书呆子一样，跑步的时候跑完1600米会跪下，跑不完3200米就会趴下。但只要坚持晨跑也能让你半年后超越所有其他的书呆子，甚至成为除体育生之外跑得最远的人之一。</p>
+<p>以上的两个例子都是在某个概率存在的情况下发生的，但在发生后，都不会对学校或者班级或者你原来所在地区的“口语水平”或者“体育素质”的整体水平造成影响，但你确确实实又把自己在某方面提升了一个高度。也就是说，当你实实在在要达到某个目标的时候，你作为特例与你所在群体的相关概率是互相不影响的。（还记得那个有趣的天才游戏吗？）</p>
+<p>一个男孩子把自己当成一个特例追求一段不太可能的爱情固然不明智，但那是因为爱情的产生需要考虑双方的情况，你作为你自己只能改变自己的情况。而提升个人的文化体育科技素质却不是这么回事，很多时候那是很纯粹的个人之事，比如C语言，英语，高数，广泛涉猎书籍。</p>
+<p>而且就条件来说：</p>
+<p>1.大家的时间一样。你既不会比别人多课，老天也不会一天只给你22个小时</p>
+<p>2.资源一样。一样的图书馆，一样的大中华局域网。</p>
+<p>3.智商几乎相当。毕竟上了大学的。</p>
+<p>—</p>
+<p>总而言之，what really matters is only your attitude.</p>
+<p>只要愿意成为特例，那么就能冲破概率。</p>
+<p>PS：“特例”还常常表现为多想一步，就像今天是腊八，也就google更新了他的logo，一看就是这么的温情。——腊八节，用幸运米、开心果、美丽豆、发财枣、美满仁、如意蜜、健康糖、无忧水、做一碗腊八粥送给您，愿您每天都温暖、开心、快乐！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

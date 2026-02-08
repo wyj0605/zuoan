@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小雷其猫</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>小雷其猫</h1>
+            <div class="date">2016-01-13 23:27:29</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/Lang当初准备租下这小院的时候，并没有预料到有这样的惊喜。安顿下来后，在小院附近走动，便会看到一只小猫，轻轻地蹲在那里。上前逗它，竟也不跑，反而竖着尾巴向我走来，绕上两圈，闻一闻我伸出来准备抚摸它的手，算是打过招呼。后来渐渐熟了，便可以让我在它小脑壳上抓抓痒，在它身上感受油光水滑的皮毛；再后来越发的信任我，干脆躺在地上亮出肚皮，挤出双下巴，用收起指甲的爪子跃跃欲试地与我打闹起来。几天之后，又在小院门口见到它。我敞开院门，示意它可以进来看看，它便真的好奇地走了进来，同时也翘起胡子皱起鼻子警觉地观察着四周，我为了展示善意，便配合着大气也不敢喘一下。它逐一参观了家里的陈设之后，三步并作两步小跑着出去了。那段时间正在听一首歌叫《赵小雷》，歌曲的中间插入了一个片段，十几个人用各具特色的嗓音喊出“赵小雷”这个名字，而小猫正是在这段时间走入我的生活，于是便顺着这个缘分叫起了赵小雷。后来有位邻居看到我和小雷在玩，谈起它是个女娃，本名叫meatball（直译为肉球……）。当时便觉得小雷的中文名和英文名都显得太过夯实，与它温柔优雅的女孩子性格严重不符，但这强烈的对比之下却更显有趣。于是小雷就成了我家的常客。主人给它时间自由活动时，它便跑过来与我亲近。一把抱起来，又暖又软的一小团，它和我都十分惬意。有时忍不住会和它讲话，小雷呀，你几岁啦，你刚才都去哪逛啦，你主人给你吃啥啦，怎么一嘴鱼味啊，小雷你昨天洗澡了吗……它通常会用尾巴左右甩甩算是回答了我，我竟也心领神会。它有时还会在房间里面找水喝，我一边叨咕着原来小雷也不是不拿群众一针一线的好同志呢，一边翻箱倒柜地找出了一个漂亮的小碗给它。以后它要是渴了就蹲在这只小碗旁边，小小的一团，抬起大眼睛看着我，尾巴左右扫地，我便毫无抵抗力，乖乖地去给它服务。我若有一段时间专注于电脑没有看它，它便喵喵地叫着走到我脚边，然后用力一栽，倒在我脚上，若无其事地躺下去。等玩够了，它就躺在我的脚边或者腿上，舒舒服服的睡上一觉。那均匀的呼吸和若有若无的鼾声，让整个房间都睡意盎然，我有时只好泡一杯浓茶才能清醒地工作。每当阳光洒进房间，小雷在身旁或睡或醒，家里的盆栽欢喜地吸收着自然的光明，那种岁月静好，无争无求，平凡而永恒的感觉便从心底升起来，溢满房间。小雷还有英勇和坚强的一面。有次我发现它从外面逛回来，背影异常矫健有力，目标明确直奔自家，并没有半分游移要来串门的意思。我上前仔细一看，嘴里竟叼着一只灰扑扑的麻雀。它带着这麻雀跃进了自家的院子，然后侧卧在战利品旁边喘起气来，仿佛就是一只老虎刚捕获了一只山鸡准备美餐一顿的派头。几天后来到我家玩，傍晚有蚊虫飞入我便关了纱门，没想小雷视力不济往外跑时一头撞在上面，纱网撞脱了框，它也疼得坐在地上低下头用小手摸着自己的额头和鼻子。我连忙抱起来看它，虽然不叫不闹，但这个小猎手显然是撞得又疼又委屈。第二天我再见它，总觉得肿头肿脸的，它却依旧和我亲近，能吃能睡。大多数时候，小雷还是被关在家里，透过高高的落地窗张望外面的世界。它若在窗外看到了我，便会张口叫上两声，我听不到声音，却能看到它嘴的翕动。在有风雨的日子里，我为小雷能这样安全干燥地呆在房间里而感到欣慰；而在大多数明媚的日子里，我便和小雷一样长久地观望着窗外的世界。那种白昼时对自由和危险的渴望，希望用一身本领在食物链上搏一席之地的冲动，和那种万家灯火时对家人归来的期盼，和在意识最深层的对被遗弃的恐惧，都在日夜轮转间重复、习惯和强化。却也常听说动物和婴儿是上上智者，能够全然领悟看山是山的终极道理。也许是混沌中的我错读了小雷，将个人意志投射在了它的眼中。是我太希望过好这一生，长久地浮浮沉沉地在生活中挣扎。也许它早已看透自己的身世，化解了其中的情愫，欣然地领受了命运的安排。小雷就是这样一位不会讲话的朋友，是另外一种生命形态对我的提醒：要成为这世上一个温柔、坚强、明澈的生命。左岸记：陆游爱猫，他形容猫“似虎能缘木，如驹不伏辕”，他赠猫为“裹盐迎得小狸奴，尽护山房万卷书”。如果你的生命中能有一只属于你的猫，那么好好的待它，它将给你带来许许多多美好的有趣的故事。原文链接：http://www.zreading.cn/archives/5227.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

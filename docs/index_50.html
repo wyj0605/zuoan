@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日记索引 - 2585 篇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .subtitle {
+            color: #A0A0A0;
+        }
+
+
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .article-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 6px;
+            padding: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        body.dark-mode .article-card {
+            background-color: #333333;
+            border: 1px solid #404040;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-color: #1A73E8;
+        }
+
+        body.dark-mode .article-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-color: #4EA1FF;
+        }
+
+        .article-card .title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            line-height: 1.4;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-card .title {
+            color: #E0E0E0;
+        }
+
+        .article-card .date {
+            font-size: 12px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-card .date {
+            color: #A0A0A0;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            padding: 20px 40px;
+            border-top: 1px solid #E5E5E5;
+            transition: all 0.3s ease;
+            flex-wrap: wrap;
+        }
+
+        body.dark-mode .pagination {
+            border-top: 1px solid #404040;
+        }
+
+        .pagination a {
+            padding: 8px 16px;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .pagination a {
+            background-color: #333333;
+            border: 1px solid #404040;
+            color: #E0E0E0;
+        }
+
+        .pagination a:hover {
+            background-color: #1A73E8;
+            color: white;
+            border-color: #1A73E8;
+            transform: translateY(-2px);
+        }
+
+        body.dark-mode .pagination a:hover {
+            background-color: #4EA1FF;
+            border-color: #4EA1FF;
+        }
+
+        .pagination .active {
+            background-color: #1A73E8;
+            color: white;
+            border-color: #1A73E8;
+        }
+
+        body.dark-mode .pagination .active {
+            background-color: #4EA1FF;
+            border-color: #4EA1FF;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #333;
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #333333;
+            border: 1px solid #404040;
+            color: #E0E0E0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .search-box {
+                padding: 15px 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .pagination {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+            }
+
+            .pagination a {
+                padding: 6px 12px;
+                margin: 2px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>日记索引</h1>
+            <div class="subtitle">共 2585 篇日记</div>
+        </div>
+        <div class="content">
+            <div class="article-list" id="articleList">
+                
+                <div class="article-card" onclick="window.location.href='article_2797.html'">
+                    <div class="title">一个人的90后</div>
+                    <div class="date">2014-06-03 22:59:05</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2798.html'">
+                    <div class="title">我只爱属于我的你</div>
+                    <div class="date">2014-06-02 21:25:08</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2799.html'">
+                    <div class="title">小篆战争</div>
+                    <div class="date">2014-06-01 21:14:21</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2800.html'">
+                    <div class="title">iPad会危害儿童么？当然不会！</div>
+                    <div class="date">2014-05-31 10:34:08</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2801.html'">
+                    <div class="title">登山的意义</div>
+                    <div class="date">2014-05-30 23:20:01</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2802.html'">
+                    <div class="title">如果你不知道下一步往哪走</div>
+                    <div class="date">2014-05-28 23:44:25</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2803.html'">
+                    <div class="title">为什么很多人努力了却还死了一地？</div>
+                    <div class="date">2014-05-27 23:21:45</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2804.html'">
+                    <div class="title">小时候，从来没有走远</div>
+                    <div class="date">2014-05-26 22:34:11</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2805.html'">
+                    <div class="title">语不惊人死不休（125）怕什么真理无穷，进一寸有一寸的喜欢。</div>
+                    <div class="date">2014-05-25 21:22:39</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2806.html'">
+                    <div class="title">视而不见的鼻子</div>
+                    <div class="date">2014-05-24 22:14:02</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2807.html'">
+                    <div class="title">只说冯婉瑜——电影《归来》观后</div>
+                    <div class="date">2014-05-23 23:04:26</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2808.html'">
+                    <div class="title">你只能走过悲伤，不会从悲伤中归来</div>
+                    <div class="date">2014-05-22 22:49:43</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2809.html'">
+                    <div class="title">情绪源</div>
+                    <div class="date">2014-05-21 23:03:28</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2810.html'">
+                    <div class="title">买背投还是等离子？</div>
+                    <div class="date">2014-05-20 22:59:28</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2811.html'">
+                    <div class="title">如何改变世界</div>
+                    <div class="date">2014-05-19 22:59:14</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2812.html'">
+                    <div class="title">好姑娘的自白</div>
+                    <div class="date">2014-05-18 22:55:23</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2813.html'">
+                    <div class="title">死亡的主线</div>
+                    <div class="date">2014-05-17 22:17:39</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2814.html'">
+                    <div class="title">自由=能力-欲望</div>
+                    <div class="date">2014-05-16 22:05:54</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2815.html'">
+                    <div class="title">叶之旅，一片树叶的故事</div>
+                    <div class="date">2014-05-15 21:21:21</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2816.html'">
+                    <div class="title">有一种文字叫“老实”</div>
+                    <div class="date">2014-05-14 22:02:46</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2817.html'">
+                    <div class="title">四方街的半糖</div>
+                    <div class="date">2014-05-13 22:07:23</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2818.html'">
+                    <div class="title">死了一千万次的小白鼠</div>
+                    <div class="date">2014-05-12 21:57:36</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2819.html'">
+                    <div class="title">走过多少条弯路，我都陪着你</div>
+                    <div class="date">2014-05-10 21:52:35</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2820.html'">
+                    <div class="title">说说选择这件事</div>
+                    <div class="date">2014-05-09 21:42:33</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2821.html'">
+                    <div class="title">别向这个操蛋的世界轻易投降！</div>
+                    <div class="date">2014-05-08 22:13:21</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2822.html'">
+                    <div class="title">孩子有不出生的权利</div>
+                    <div class="date">2014-05-07 23:24:53</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2823.html'">
+                    <div class="title">戳穿谎言的十个给力工具</div>
+                    <div class="date">2014-05-06 22:45:36</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2824.html'">
+                    <div class="title">一刀斩到你桃花开</div>
+                    <div class="date">2014-05-05 22:36:59</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2825.html'">
+                    <div class="title">为何你的生活那么无趣</div>
+                    <div class="date">2014-05-04 21:26:58</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2826.html'">
+                    <div class="title">只管开始做</div>
+                    <div class="date">2014-05-03 22:48:04</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2827.html'">
+                    <div class="title">平实，行者的力量</div>
+                    <div class="date">2014-05-02 22:36:12</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2828.html'">
+                    <div class="title">快来买杨白劳家的债</div>
+                    <div class="date">2014-05-01 23:57:26</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2829.html'">
+                    <div class="title">拖延症和The Elephant in the Living room</div>
+                    <div class="date">2014-04-30 21:44:45</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2830.html'">
+                    <div class="title">不要向（像）我学习</div>
+                    <div class="date">2014-04-29 21:54:33</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2831.html'">
+                    <div class="title">你脚踩的地狱只是天堂的倒影</div>
+                    <div class="date">2014-04-28 21:15:54</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2832.html'">
+                    <div class="title">别忽略那些无用的事</div>
+                    <div class="date">2014-04-26 20:58:51</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2833.html'">
+                    <div class="title">爱情有感情洁癖</div>
+                    <div class="date">2014-04-26 00:20:56</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2834.html'">
+                    <div class="title">难为李鸿章：骡马牵拉的“铁路”</div>
+                    <div class="date">2014-04-24 21:33:39</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2835.html'">
+                    <div class="title">这是一个基调，无所谓高低</div>
+                    <div class="date">2014-04-23 21:32:24</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2836.html'">
+                    <div class="title">车如流水</div>
+                    <div class="date">2014-04-23 00:06:38</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2837.html'">
+                    <div class="title">拒当孩奴及子女财商培养</div>
+                    <div class="date">2014-04-21 22:19:17</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2838.html'">
+                    <div class="title">我在剑桥学说话</div>
+                    <div class="date">2014-04-20 21:15:37</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2839.html'">
+                    <div class="title">滴水难消，知行合一</div>
+                    <div class="date">2014-04-19 23:03:12</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2840.html'">
+                    <div class="title">等夏就好</div>
+                    <div class="date">2014-04-18 21:24:17</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2841.html'">
+                    <div class="title">人有愚昧的权利吗?</div>
+                    <div class="date">2014-04-17 22:46:20</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2842.html'">
+                    <div class="title">问·常规篇(三)</div>
+                    <div class="date">2014-04-16 23:03:27</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2843.html'">
+                    <div class="title">失望，心情糟透了？</div>
+                    <div class="date">2014-04-15 22:20:30</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2844.html'">
+                    <div class="title">我都在图些什么</div>
+                    <div class="date">2014-04-14 22:10:45</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3415.html'">
+                    <div class="title">语不惊人死不休（122）植根于内心的修养，无需提醒的自觉</div>
+                    <div class="date">2014-04-13 21:03:00</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3416.html'">
+                    <div class="title">我所读到的王小波</div>
+                    <div class="date">2014-04-12 22:23:11</div>
+                </div>
+            
+            </div>
+        </div>
+        <div class="pagination" id="pagination">
+            <a href="index_1.html">1</a><a href="index_2.html">2</a><a href="index_3.html">3</a><a href="index_4.html">4</a><a href="index_5.html">5</a><a href="index_6.html">6</a><a href="index_7.html">7</a><a href="index_8.html">8</a><a href="index_9.html">9</a><a href="index_10.html">10</a><a href="index_11.html">11</a><a href="index_12.html">12</a><a href="index_13.html">13</a><a href="index_14.html">14</a><a href="index_15.html">15</a><a href="index_16.html">16</a><a href="index_17.html">17</a><a href="index_18.html">18</a><a href="index_19.html">19</a><a href="index_20.html">20</a><a href="index_21.html">21</a><a href="index_22.html">22</a><a href="index_23.html">23</a><a href="index_24.html">24</a><a href="index_25.html">25</a><a href="index_26.html">26</a><a href="index_27.html">27</a><a href="index_28.html">28</a><a href="index_29.html">29</a><a href="index_30.html">30</a><a href="index_31.html">31</a><a href="index_32.html">32</a><a href="index_33.html">33</a><a href="index_34.html">34</a><a href="index_35.html">35</a><a href="index_36.html">36</a><a href="index_37.html">37</a><a href="index_38.html">38</a><a href="index_39.html">39</a><a href="index_40.html">40</a><a href="index_41.html">41</a><a href="index_42.html">42</a><a href="index_43.html">43</a><a href="index_44.html">44</a><a href="index_45.html">45</a><a href="index_46.html">46</a><a href="index_47.html">47</a><a href="index_48.html">48</a><a href="index_49.html">49</a><a href="index_50.html" class="active">50</a><a href="index_51.html">51</a><a href="index_52.html">52</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 页面加载时检查模式
+        document.addEventListener('DOMContentLoaded', checkMode);
+    </script>
+</body>
+</html>

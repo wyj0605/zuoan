@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>读《第五项修炼》</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>读《第五项修炼》</h1>
+            <div class="date">2026-02-08 18:44:00</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/艾默生家的恶客以前我看了这本书的简介，我以为是本讲公司管理的洗脑神书，所以一直没看，直到有一天我看了开头，就根本停不下来，以下分享下读书的一点点小笔记。1、系统思考我们平时基本是这样思考的，头痛医头脚痛医脚，也就是传说的线性思维，大部分问题我们都会用“因为......所以”来认定事情的因果关系。这样思考的缺陷是你有可能根本看不到事情的真相，因为首先，因跟果之间本身不是在同个时空环境下，同时这会让我们习惯性的忽略自己在整个系统结构里的作用，而转移了自己的责任。这本书用一个啤酒销售的例子来说明这个事，但是不是很好理解，有一个更好的例子：我们打开了热水器的水阀，然后热水器的火开了，于是水温变热了，我们再通过调节水温的开关去调节自己想要的水温。这个时候我们可以看到，当你打开水阀，火着了以后，水并没有马上变热，而是有个延迟的过程（因跟果之间是有延迟的），然后我们就会去试图调节水温，当发现水还是冷的时候，我们拼命把水温提高，等到水温高了以后，发现水太烫了，我们又把开关往回拼命调整，过了一下我们又发现，水温太低了，经过了一阵折腾，我们才调整到自己想要的水温，我们就是很直接的把水温跟开关用因果的关系链接起来，但是看不到整个系统结构是有延迟的，我们只关注到事件本身，而没有认识到系统的作用，最后不断过度调整，而这时候我们往往意识不到自己在系统里的作用，没有人会觉得水温过高过低是自己造成的。而系统思考会告诉你，你在这件事里是有控制作用的，而只有你看清了整个后面的系统，才能够避免出现这种问题。人天生会对突发的事件敏感，因为我们在远古的时候，我们要谨防身边的豺狼虎豹，所以我们的应急系统很强悍，但对于渐进的事件经常会忽视掉，就像温水煮青蛙的故事，我们对于因果之间有延迟的事情，是很容易忽视的，我们常常被面前的事件所蒙蔽，看不到真正问题的所在，而真正问题往往是一点点的侵蚀你，最后把你杀掉。结论：不要执着于事件，要看到事件背后的结构，找到一个能够根本解决问题的方法，而不是短期有效的方法，这样的错误我们随处可见。2、自我超越这部分我不能很好的去概括一些什么，但是开头有段话其实应该就是主旨了自我超越不局限在能力和技巧方面，尽管它要以能力和技巧为基础，它也不局限在精神拓展或开放，尽管它也需要精神的成长。它旨在把总结的生命当做一件创造新的艺术品，并不是以被动反应的观点去看生活，而是从主动创造的视角去生活。我觉得我这二十几年来，真正是我想要去创造的东西，屈指可数，大部分的生活都是被动的选择，我们会把现实看做是敌人，因为它给了我们很多限制因素，仿佛我的人生都是被现实塑造出来的，很可笑，现实其实并没有拿你怎么样，而是你自己拿自己怎么样。借用德叔的话就是酱紫了。那么主动创造的生活又应该是怎么样的呢？书上是这样说的，把自己的愿景跟现实并列在一起，你会看到自己现实跟愿景之间的差距，而这种关系就像愿景跟现实是在一条橡皮筋的两端，中间会有一股张力，把你从现实往愿景的方向拉，这是张力寻求释放的自然倾向。自我超越的精义，就是学习如何在我们的生活中，不断生发和保持创造性张力。如何不断的生发和保持创造性的张力呢？就我目前看书的水平，说不清楚，但是这部分提到的很多看待问题的角度，我认为是挺好的。比如从本质上说，愿景是内在固有的，而不是相互比较，你渴望它，是由于其内在价值，而不是因为它能够把你带到和别人相互比较的某个位置。比如我们看待失败，失败对于一个追求自我超越的人来说，失败其实就是一种不足，它显示了愿景跟现实之间的差距，失败是一个学习的良机，失败能够澄清我们对显示的不当理解，能够揭示某些策略有效性不如预期，还能提升愿景的清晰度，失败，并不意味我们毫无价值或无能为力。比如把握创造性张力，能够使我们面对现实的整个立场发生了根本性的变化，现实不再是我们的敌人，而是我们盆友。不幸的是，我们大部分人都带着成见去看待现实，并把偏见强加于自己的现实观，我们学会了依靠观念，而不是通过观察，来理解现实。去假定现状与我们观念中预想的相似，比我们亲眼观察现状来的方便。我们需要用系统思考来检视我们的生活，避免自己掉进一些自己制造的漩涡。有两种相互矛盾的观念，会限制我们创造真心盼望东西的能力，一个是认为自己无能为力，一个是觉得我们不配拥有我们真心盼望的东西。这两个观念就像我们现实跟观念之间有一条橡皮筋，把我们从往愿景的方向往反方向拉，解决这个问题我们一般会有三个策略，第一个是降低自己的愿景，也就是把自己放低自己的要求，（这事我常干）。第二是操作冲突，，也就是我们花很大的精力去规避我们不想要的东西，这也不是什么好办法，每天活在恐惧跟焦虑里。第三是用意志力的策略，即简单的用净胜兴奋法，去摧毁一切妨碍我们实现目标的障碍。而这些应对性的策略，丝毫不会触动深沉的结构性冲突的系统问题，特别是深沉的无能为力的观念。那我们该从何入手，去改变我们生活的深层结构模式呢？一、对真相承诺心甘情愿的根除那些令我们限制和欺骗自己，不让自己看到现实真实情况，它指的是，不断扩大我们的意识范围，就好像优秀运动员在场上，用超常的视野把握全场更大的范围，它还指不断加深我们对眼下各种事件背后结构的理解，特别是对自我超越水平高的人来说，他们更多的觉察到自己行为背后的结构性冲突。二、运用潜意识，就是说你真不必都想明白其实就两个字，专注。把注意力集中在自己渴望的内在成果上，这需要事件跟耐心去开发，因为我们多数人一想到某种重要的目标，就几乎马上想到所有使之难以实现的理由，我们要面对的各种挑战，以及我们要克服的各种困难，想到这些，当然有利于思考实现目标的替代策略和方法，但想到这些同时也是我们缺乏定力和修炼的表现，因为我们对渴望成果的注意力，不断被愿景实现过程的思虑所排挤，我们必须用心学习如何把我们认为实现目标需要做的事情，跟我们真正想要实现的目标区分开来。3、心智模式第一个问题：最好的想法为什么会失败？新观点和知识未能得以实践的原因是，他们与人们内心深处有关世界运行模式的图像发生了冲突，而这些图像则把人们限制在自己习以为常的思考方法跟行为方式之中。我们的头脑里装的都是图像，假设和故事。也就是说，我们的心智模式，不仅仅决定了我们如何理解世界，而且决定了我们如何采取行动。哈佛大学的阿基里斯40多年的研究告诉我们，尽管人们不总是完全遵照自己口头声称的理论行事，但他们一定会遵照自己实际”实行的理论“（心智模式）去做。那么为什么心智模式会对我们又如此巨大的影响力呢？部分原因是因为它会影响我们的观察。有不同心智模式的两个人去观察同一件事，会有不同的描述，因为他们呢看到了不同的细节，并作出不同的解释。心智模式的问题在哪？心智模式的问题并不在于正确或错误，而在于心智模式变为隐性的时候，由于我嫩没有意识到我们的心智模式，所以我们就无法检视它，由于得不到检查，所以这些模式就无法改变，随着世界的变化，我们的心智模式和现实之间的差距就会逐渐加大，从而导致我们的行动越来越达不到预期的效果。如何修炼心智模式？1、正视我们声称的理论与我们实际实行的理论之间的区别通过比照我们说的与我们做的两者之间的差距提高意识水平，比如我经常声称人是值得信任的，但是我从未借钱给任何人。2、识别跳跃性推断，注意我们如何从观察跳到一般化概括心念的速度就像闪电那么快，而具有讽刺意义的是，这恰恰降低了我们的学习速度，因为我嫩立即跳跃到一般化的概括。跳跃性推断阻碍了学习，因为它成了不需要证明的东西，它把假设当成了事实。3、暴露左手栏暴露左手拦是一个案例分析办法，右手边写的是自己跟别人的实际对话，左边写的是在对话过程中自己想说却没有说出来的话。左手栏的练习能够让我们隐藏的假设成功的浮出水面，并显示它如何影响行为。4、探寻与宣扬的平衡，有效学习协作的技能单纯的探寻也是有限的，问问题是打破宣扬螺旋升级的关键，但是，如果团队或者个人没有学会吧探寻和宣扬相结合，那学习的能力就很有限，原因之一是，我们几乎总是有自己的观点，这与我们是否相信自己的观点是唯一正确的无关，因此，仅仅是问许多问题的做法，就可能成为回避学习的方式，把我们的观点隐藏在不间断的问题高墙的背后。原文链接：http://www.zreading.cn/archives/5324.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

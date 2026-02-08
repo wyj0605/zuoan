@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>愿以美食配生活</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>愿以美食配生活</h1>
+            <div class="date">2015-05-12 22:52:54</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/夏天的风生活得最有意义的人，并不就是年岁活得最大的人，而是对生活最有感受的人。——卢梭中午跟新同事去吃拉面，拉面一份7元，刀削面8元一份，五个人吃，不到40元，量大的很，出来又各自吃了冰激凌，还捎带了杭州灌汤小笼包，依然是个大馅多皮薄，价格实惠。我工作这几年，长年在外，去过不少城市，北上广，几个省会城市，还有一些三线城市，以及那些被我们称之为乡下的小地域，回想之前在那些地方落脚时吃过的快餐，觉得这个价格很便宜，并且不以今日物价来比，单单论实际价格。这就是回到家乡的第二体会，平价消费，适合生活。第一体会当然是在美丽春天，倍感亲切，与家人团聚，颇为享受。今天因餐品想起那些在外地独享过的美食和与前同事们大朵快颐的佳肴，遂来评一评给我印象深刻的东西，当然，不仅仅因价格给我印象深刻，还有味道。记得在东营上学的时候，喜欢学校北门的凉皮。也就是2009年前后，大份才3元5角，除了常见的薄一些的白色米皮，还有黄色和黑米的，皮质厚厚的，吃起来Q又香滑，那凉皮的味道，之后再未遇到过。旁边的烧饼1元5角两个，也挺大。一般一个女生，如果只吃凉皮，也只要一个2元5角的小份。烧饼带馅，单独吃的话两个也饱饱的了。后来参加工作，在抚顺南站发现卖凉皮的，价格刚好翻了一翻，味道和量也不比之前了。我在东营还有一个地方念念不忘，就是北门的吉阿婆，一家自选麻辣烫，味道不错，价格可以，开了我吃麻辣烫的先河，一发不可收拾。提到这，必然讲一讲抚顺的麻辣拌，如果你吃过，你也应该会喜欢。麻辣拌是抚顺人在麻辣烫基础上发明的，跟麻辣烫相似，只不过是煮熟后沥干水分，加各种调料拌匀后食用，有甜酸口味、麻辣口味等，非常受欢迎。我跟着朋友推荐去吃的那家爱情麻辣拌，估计已是榜上有名。那麻辣酸甜的味道，吃到你味蕾失觉，依然爱的无法自拔。麻辣拌是抚顺最有特色的小吃，报纸上曾报道，说网传抚顺麻辣拌一年能卖出3亿份，吃剩的碗能绕地球两圈。这个数字当然不可能是真的，因为抚顺城区约有人口140万人，照这个说法，每个抚顺人每年要吃掉200多份才够这个数，差不多天天都要吃了。尽管数据夸张，但不可否认的是，抚顺麻辣拌确实很火。后来我曾去辽阳，排队吃了一次鸡架配麻辣拌，味道美，回程时忘了捎带一份，到现在印象还很深。麻辣拌的价格也很平民，一份6元，后来涨了价，也算是平价小吃。在抚顺，天气暖和的日子里，早上赶早市或者周末赶集，瓜果蔬菜便宜，味道原生态，香瓜上市，都不到1元1斤。玉米棒子还有1元4个的时候。东北人爽快，卖什么都是吆喝热情。你买了东西，实惠不说，还讨了好心情。这在以后好多地方都没了这股子接地气的劲儿。后来去云南，见识了更便宜的水果，且论公斤卖。那里水果很甜，香蕉便宜的很，总之比海南的还要便宜。海南的什么便宜呢？印象中只有当季木瓜。那北方水果在海南岛，就如同海外进口食品一样，贵的离谱。最让我乍舌的是，有一次发现富士苹果在超市卖到了将近14元一斤。果真物以稀为贵。海南的海鲜也不实惠，兴许地处大陆纬度较低，海水温度高，肉质不够紧实，以至于才离开没几日，除了味美的河蟹，其他统统忘掉味道了，连名字都记不起来了。比起曾经去过烟台同学家吃海鲜，真是样样都占了下风，连记忆也不能奢望余留一分角落给它。说来说去，印象最深的城市就是抚顺。价格最平民化，饮食口味最心仪。其它城市也有她的特色，和我未尝到的平价美味之物。大概是因为不喜欢，就失了兴致。前几天看微信公共号推送，有一篇文章讲到，一个人让你记忆深刻，让你念念不忘，是因为他在你身上的烙印，对你一生的影响。城市亦然。我在那里步入社会，开始经济独立，也在那里认识了很多志同道合心意相通的朋友，还有过可以回头讲一讲的个中故事，也吃遍了所谓的大街小巷的美食，尝过带辣根的生肉串，爱上了韩式烤肉和石锅拌饭，对麻辣拌着了瘾。那些享用过的美食数也数不尽，下一次吃的，又到了你翻腾的记忆清单中，那些已然屹立的城市和乡下走也走不完，总会有新的发展建设来披妆改貌，那些来来往往的人拢也拢不住，随着过往的人流和各自的生活，被卷入了浩瀚人波中，或者成就了你今生念念不忘的故事。但是依然保持对这些事物的热爱和探索，才不失年轻人般与日俱增的活力。生命之旅迥异，如同歧路，或群山分界。因此你们走过更多的城市，体验更丰富的平价美食，风味兴许更独特。这才是大千世界芸芸众生惦念的生活的一部分。我，而今待在家乡，也喜欢家乡，开始去体会大街小巷的美食和民土民情，融入这里的生活。记忆总是慢慢的累积，多年以后，再回忆，便是穿越了时光，回去找到了那些美味之旅，其中有你有我，故事也变得意味深长。左岸记：民以食为天，一个人对任何事的考虑几乎都比不上他对吃饭的考虑那么真诚，一个人在饭前可能是个悲观的宿命论者，而在饭后则可能成为信仰意志自由的乐观主义者。在现在这个温饱问题基本解决的世界里，吃什么，怎么吃，哪里吃成了吃饭的首要问题。去一地方，如果没有吃过那个地方的美食，谁也不会相信他真的懂得那个地方。原文链接：http://www.zreading.cn/archives/4897.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

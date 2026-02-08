@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平实，行者的力量</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>平实，行者的力量</h1>
+            <div class="date">2014-05-02 22:36:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌路遥有篇创作随笔《早晨从中午开始》，他去世前在医院的病床上记录了写《平凡的世界》时的经历，自然也凝聚了这位伟大作家最后的心血。提到这篇随笔，只想说我们也时有早晨从中午开始的经历，可终究耻于为文，毕竟只是不想起床或者是昨夜的放纵需要补觉。路遥在创作《平凡的世界》时，长期凌晨两点到三点才入睡，有时延伸到四点和五点，天亮之后才睡觉的现象也常有发生。创作的艰辛与激情相伴，当然也是坚持与享受相随，如果整个过程体会不到创造的乐趣，自然也谈不到坚持，不过是简单的重复罢了。敬仰那些知道自己要什么，并勇往直前的人。还是不得不提到他的那句：“只有初恋般的热情和宗教般的意志，才有可能成就某种事业。”观望别人的精彩而热血沸腾的同时，往往也只是一时兴起，晚上想好千条路，白天照样磨豆腐。想得太多不着边际也不可能让人飞黄腾达，路终究是需要脚踏实地的走下去的。路遥带着使命感和宿命感，满怀着虔诚和朝圣的心创作着鸿篇巨制，当然那种强大的愿力让人佩服，更多是这个过程的交织的存在感让人找到走下去的意义。他说：“我深切的感到，尽管创造的过程无比艰辛，而成功的结果无比荣耀，尽管一切艰辛都是为了成功，但是人生最大的幸福也许在那创造的过程，而不在于那个结果。”鲜花之所以美丽，因为它积聚了整个冬天的能量，绽放得淋漓尽致；也喜欢燃烧的炽热，生命就应当如此在激情满怀中燃尽自己。可美丽而又灿烂的过程终究只是短暂。再说持续不断的忍耐远胜于短暂的狂热和激情。生活本身一直都是平淡而又朴实的，真正行走的力量不在于如何喧嚣自己的雄心壮志，而在于耐心的等待和忍耐，不吃不喝不睡觉，全部的心思和精力投入到所谓的理想，那终究是可怕的，那样的生命色泽有所缺失也少些人性的光辉。一些值得尊敬的人，他们有崇高的生活理想，关注国是，立志为人民，为社会服务，他们的生命是向外蔓延开来的。给人一种高大上的宏大气象，但难逃假大空的嫌疑，因为他们这单一对生活的理解，不自觉间就会成为对自己的一种专制。海子在面朝大海里说：“从明天起，关心粮食和蔬菜”,生活的美好也有很多值得向往的地方，如果被那些“理论”和“主义”绑架，像孔乙己失去了社会现实的能力，只能将自己知道的几个字的写法说给小孩听，那何尝不是一种悲哀呢？提到路遥只想说这种满含着使命感，戴着沉重的镣铐跳舞，历经千辛万苦才能到达的顶峰，其实也是一种冒险，一种对自我的挑战。这种挑战是异于生活常态，因为他用一生的气力集中在一个点上，创造了让人惊叹的作品。如果说普通的我们做不到，那也有其它的伟大同样让人惊叹。安倍晋三邀请访日奥巴马吃寿司，自然是小野二郎家的寿司。如果看过《寿司之神》就了然小野二郎何许人也。86岁高龄的小野几乎穷尽了一生在追求寿司的极致，按官方一点的话说，就是在对手艺的不断践行中，自身修养和心灵境界也随之进步，知行合一，从一而终。可他的坚守除了将寿司做到极致，对GDP没有太大贡献。让一般人难以想象，世界如此美好，如果穷尽一生只做一件事，会不会太单调枯燥？会的！但是带着虔诚和热爱，自然也会从做寿司体会到里面无穷的乐趣，对细节的完美追求是没有终点的，连做梦都在想着做寿司，那还有什么理由说单调呢？同样的精神也适合对技术，对生活的追求。作为凡夫俗子的我们，难免过得太粗糙，太随意。只是茫然的行走何去何从尚且不知，谈坚守就更有点困难了。知道自己的追求在哪里，并持之以恒的追求极致自然也就能找到存在的意义。电影《编舟记》中马缔光用了15年的时间编制了中型国语辞典《大渡海》，15年几乎每天都重复同一件事情，当然他也有自己的爱情故事和朋友。主持编撰的松本朋佑搞了一辈子的辞典，到死时说这一辈子因为编辞典而过得非常充实。那也就无憾了，可能是这部电影本身的风格让人想到了“平实”这一词，在辞典发布会上，马缔光没有苦守寒窗十八年的那种自怜怨气，也没有一朝得志的娇蛮得意，只有“到了，到这里的”淡定从容。从来就不能需要呐喊来显示自己的决心，也不用过度张扬显示自己的成就，只是默默的用行动演绎着属于自己的传说，有的只是将其它的都交给时间的从容和坦荡。渐渐的喜欢上了那种自然而然的平凡而朴实的状态，没有浮华的喧嚣，只是内心的平和，循序渐进的行动。如果需要咬牙切齿才能坚持一个事情，那就得看自己的选择是否有问题。轰轰烈烈大而化之的宣言终究有点空洞，贴近生命生活本身才有着真正的力量——行者的力量。書于 北京·五月左岸记：老子——道常无名。朴虽小天下莫能臣也。侯王若能守之，万物将自宾。天地相合以降甘露，民莫之令而自均。始制有名，名亦既有，夫亦将知止，知止可以不殆。譬道之在天下，犹川谷之於江海。大道泛兮，其可左右。万物恃之以生而不辞，功成而不名有。衣养万物而不为主，常无欲可名於小。万物归焉，而不为主，可名为大。以其终不自为大，故能成其大。原文链接：http://www.zreading.cn/archives/4355.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

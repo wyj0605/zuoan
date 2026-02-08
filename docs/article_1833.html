@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优化Firefox，让它更快些(firefox快捷键) </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>优化Firefox，让它更快些(firefox快捷键) </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>1、开启流水线(pipelining)</p>
+<p>一般的浏览器在读取网页时是先发送请求，然后等待服务器反馈。而 pipelining 则在服务器回应前很主动的发送多个请求，这样能大大减少载入时间。</p>
+<p>开启方法：在 about:config 页面(新开标签页输入 about:config 回车 )，双击更改 network.http.pipelining 和 network.http.proxy.pipelining 值为 true，更改 network.http.pipelining.maxrequests 值为8</p>
+<p>(不过从网站方角度我不希望大家都用这个办法，这是以多消耗服务器资源为前提的- -)</p>
+<p>2、快速渲染</p>
+<p>Firefox3 刚出来时，我经常为它的间歇性卡死苦恼，就是渲染停顿。现在已经没有这个问题了，如果能更快些自然更好。通常花在页面渲染的时间约 0.12秒，还要更快的话，参照如下方法：</p>
+<p>在 about:config 页面，右键，选择新建 &amp;gt; 整数(New &amp;gt; Integer)，输入 content.notify.interval 作为属性名，确定，再输入 500000 确定。然后再右键，新建 &amp;gt; 布尔(New &amp;gt; Boolean)，创建值为 content.notify.ontimer 并设置为 true。</p>
+<p>3、更快的载入</p>
+<p>默认状态下当你不动鼠标不碰键盘超过0.75秒(内容切换阈值)，Firefox 将切换到低功耗模式，它意味着反应变慢但是载入速度加快；那小改小阈值就能改善性能，只需这么干：</p>
+<p>在 about:config 页面，右键，选择新建 &amp;gt; 整数(New &amp;gt; Integer)，输入 content.switch.threshold 确定，然后输入值 250000 (1/4秒)，然后确定。</p>
+<p>4、不中断</p>
+<p>设置了这个你就可以在当前界面还没有完全载入前返回上一步(默认Firefox不允许这么干，载入中后退键是灰色的)，这个 hack 很疯狂，不过你可以了解怎么实现：</p>
+<p>在 about:config 页面，右键，新建 &amp;gt; 布尔(New &amp;gt; Boolean)，创建值为 content.interrupt.parsing 并设置为 false 。</p>
+<p>5、屏蔽 Flash 动画</p>
+<p>很多垃圾站恨不得把所有图都用动画来显示，一闪一闪亮晶晶…… 看起来恶心还拖慢速度。so，你只要装一个叫 Flashblock 的扩展就可以眼不见为净了。</p>
+<p>6、增加缓存</p>
+<p>Firefox 是把浏览时读取的图片/脚本等内容缓存到内存中的，这是它快速浏览和占用大量内存的原因。如果你想更快而且RAM够大(2GB以上)，就可以考虑加大缓存：</p>
+<p>在 about:config 页面，右键，选择新建 &amp;gt; 整数(New &amp;gt; Integer)，输入 browser.cache.memory.capacity 确定，然后输入值 65536，然后确定。最后你需要重启动一下 Firefox。</p>
+<p>更极端的是，有人为了更快让这个浏览器直接在内存中运行 …… – -</p>
+<p>7、开启跟踪猴子(TraceMonkey)</p>
+<p>TraceMonkey 是 Firefox 加速 JS 的功能，它将慢速 Javascript 转化为高速 x86 代码执行——据说比现有模式快20倍。当前版本没有这个功能，如果你不怕浏览器崩溃的话可以冒险试试：</p>
+<p>安装最新的测试版 Firefox ，运行并进入 about:config 页面，在过滤器中输入 JIT ，双击将 javascript.options.jit.chrome 和 javascript.options.jit.content to 属性改为 true，然后你就拥有更快的 Firefox JS 引擎鸟。</p>
+<p>8、压缩数据</p>
+<p>如果你家网速比较慢，你可能感觉网页永远打不开，但我们还是有办法。安装 toonel.net，然后这个聪明的 Java 小程序会通过服务器转发数据(类似移动版 Opera 那样)，让你在牺牲小细节一些图片质量等但是能大大改善浏览速度，当然，还节省了流量。</p>
+<p>9、我还希望 Firefox 在后台打开新标签，而不是立刻跳到新标签（又不是立刻有得看，过去干什么？），想回头还得多动手。所以设置了：browser.tabs.loadDivertedInBackground = true</p>
+<p>10. Firefox是一个优秀的工具，提供了使用键盘的强力功能，很多时候不需要鼠标，比如下面，就是我最常用的8个Firefox快捷键，你最常用的firefox快捷键是什么呢？</p>
+<p>1. ctrl + shift + t :: 打开最后关闭的tab</p>
+<p>2. ctrl + 1 … 9 :: 切换到某个tab</p>
+<p>3. ctrl + k :: 进入google搜索输入焦点</p>
+<p>4. ctrl + w :: 关闭当前tab</p>
+<p>5. ctrl + t :: 打开一个新tab</p>
+<p>6. ctrl + l :: 进入地址栏</p>
+<p>7. ctrl + tab / ctrl + shift + tab :: 循环进入前/后tab</p>
+<p>8. ctrl + f :: 查找</p>
+<p>/Link</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>“比较快乐”比较不快乐</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>“比较快乐”比较不快乐</h1>
+            <div class="date">2015-09-17 00:59:59</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/蓝菲杰在这个拼爹时代，一句“我爸是李刚”固然会引来大多数人的冷嘲热讽，但这并不妨碍人群中一些无爹可拼的人去拼点其它的东西。“明明可以靠脸吃饭，但我却要努力工作，这就是我和明明的区别。”这虽然是个段子，但很多人的生活中，或多或少都会有几个“明明”存在。我们很小的时候就认识明明了，他有时住在遥远的亲戚家，有时就住在自家隔壁。他可能是七大姑的儿子，也可能是八大姨的侄子，还有可能是前几天还一起玩沙堆土的豆豆圆圆阳阳之类的，过几天就成了大人口中的明明。明明不是别人，明明是别人家的孩子。明明有个优点，就是可以在比较之下把我们的优点跟缺点统统都变成缺点。我们一度非常讨厌明明，直到后来上完大学毕完业，以为终于可以摆脱明明的阴影了，不料回到家里，长辈们口中的明明又变成了收入稳定的公务员、月入过万的白领，开起了车，买到了房。唉，怎么就没想到明明也长大了呢！多年来与明明的比较，所造成的心理阴影面积有多大是无法计算的。今天的我们，已经不需要外界把明明推向自己，而是自己便不自觉地把明明拉到身边，通过比较来对自我进行评估。大学同学一个月看十本书，自己连一本杂志都没翻几页，顿时就有种智商又落下十圈的感觉；同学相聚少不了谈收入话题，但愣是想不通当年那个成绩比自己差、样貌比自己丑的家伙，怎么就可以一个月领上万元的薪酬；睡觉前点开朋友圈，晒娃、晒吃喝、晒旅游、秀腹肌、秀恩爱等各种党占据屏幕，对自己的嫌弃一瞬间就飙升到海拔几千米的高度，整个人都已经不好了。《你的生命有什么可能》中有一句话：“与别人相比是没有意义的，那是一种永无宁日、绝无胜算的自我折磨。”好比一条长长的公路，我们好不容易加速超过前面的一辆大卡车，却发现前头还有数不清的跑车。这个世界，总有人比你更有钱，比你更聪明，比你更受欢迎，每一次在比较中的超越，不过是在为下一次的追赶作铺垫。我读大学的时候认识同系的一个女生，几乎整个年级的人都知道她喜欢争强好胜。她成绩名列前茅，每年都拿奖学金，在学院担任党小组组长，各种社团、文体、志愿活动都积极参加，但要是在活动中没拿到荣誉名次，立马就可以变成女张飞。我曾经跟她说，像你这么拼的女孩子现在很少见。她则回答我说，她觉得自己很自卑，论成绩不如谁，论才艺不如谁，论相貌不如谁之类云云。尽管毕业后不知道她的去向，但我可以猜测的是，她在工作中也是什么事情都抢着做，一旦有别人做得比她好，她就会咬牙切齿地想把事情做得更好。看上去是一个女强人，实际上只是把全世界都假想成“明明”的缺乏安全感和存在感的人。也许有人说，跟人比较是一种积极的态度，至少可以刺激自己更加努力，难道这样不好吗？适当的刺激当然无可厚非，但大多数人都会在比较的过程跑了题，把外在的形式当做衡量的标准，本来想给自己泼下冷水，反倒把自己给弄感冒了。举一个你生活的“明明”当例子，他人帅多金，懂得女孩心思，讨姑娘们喜欢。相较之下，你人丑钱少，动不动就把姑娘吓跑。于是你下定决心，除了样貌不能改变之外，你要像他一样有钱，或者比他更有钱，更讨女孩子的喜爱。一开始，你很努力工作，努力跟女孩子说话，可是经历了一段时间，你的收入上涨有限，女孩子还是远远见到你就避之不及。于是你动摇，进而否定自己：我这个人丑就算了，又没钱，还不讨女孩子喜欢。这个时候，跟人比较还算是一种积极的事情吗？我的看法是，盲目地拿自己跟人比较，是一种对自己不负责的方式。每个人从出生到成长，即使摒除先天因素，后天所拥有的社会资源也是不均等的，一个出生自贫困家庭的孩子在成长过程中必然会受制于资源短缺所带来的不利，而一个来自中产家庭的孩子则不太会有这方面的问题。两个人的外界条件不同，也就是变量都不同的情况下，这种比较显然不太科学。在各种变量的作用下，每个人或多或少都总会有自己的长处和短处。项羽力能举鼎，太白举杯赋诗，若是项羽想像李白一样“斗酒诗百篇”，李白也想像项羽一样当个肌肉猛男，那无疑是拿自己的短处比别人的长处，说到底就是一种“永无胜算的自我折磨”。我们中总有不少人把车、房、钱这类东西当作自己是否获得欢乐和幸福的标准，似乎有了这一切就一定可以过得欢乐和痛苦。但事实更像李笑来在《把时间当作朋友》里所提到的那样：大量的时间被用来去追求必须通过比较才可以获得的欢乐和幸福，最终获得的只有更多的痛苦。做自己喜欢做的事情，完成自己的工作职责，跟自己心爱的人共度时光，陪伴家人度过周末，这些都是不需要比较就可以获得的快乐，何必把时间消耗在无止境的比较中呢？比较快乐，结果通常都比较不快乐。就算一定要比较，也别比较车的轮子数量，房的平方面积，钱的位数多少，如果只是想象这些东西能带给自己快乐，那它们能带给自己的，或许是更多的痛苦。倒不如在不需要比较就可以获得的欢乐和幸福上，比较一下昨天的你，看看今天的你能够在今天多做一点什么吧。原文链接：http://www.zreading.cn/archives/5070.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

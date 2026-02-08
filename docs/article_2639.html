@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>那些不愿意被改变的人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>那些不愿意被改变的人</h1>
+            <div class="date">2014-11-21 00:19:47</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>感谢十里红妆的推荐。文/陈日/很多人都十分的疲惫，很多人都没时间关照下自己的内心，问问它是否丰足，是否渴望圆满，是否还有一点点位置，让自己喘喘气。/马萨诸塞州的雪季刚过，一片春花烂漫的景象，小镇上的人们面露喜色，熬过这个漫长的冬天，被雪水泡的肿胀的大地变得柔软肥沃，阳光终于代替寒风，亲热地在街上投下不停移动的影子。几天前刚回到深圳，是一股热浪把我意识唤回故乡。我和我父亲的朋友一起去喝早茶，一坐下就得回答他朋友们的各种问答。首先几岁，然后读什么，听到读历史的，又说：“读历史以后出来能干嘛？”我笑笑不予解释，对方乘胜追击：“很多现在的大学生出来都没事做啊，你读历史完蛋了。”父亲的脸色已经是相当难看，一脸期许地看着我，从小以伶牙俐齿著称的我，这一刻却什么都不想说，因为这样的问题我已经听到太多太多。碍于父亲的面子，我只能说了句：“我学的不单只是历史，是人文也是基本素养，相对于其他事情来说，我觉得这很根本，我本身也非常需要。”父亲如释重负，对方立刻转移话题。可能是我在国内的圈子太局限的关系，我接触的人实在不多，而能接触到的这一部分的人所表达的观念又十分统一，物质主义已经完全占主导位置，我听不到任何让人觉得舒服或善意的话语，也很少看到真诚或耐心的微笑。周围人群似乎都在讨论如何赚钱。我理解经济独立的重要性和必要性，但我很难想象金钱能够作为一个主题，横跨所有领域，且全部占主导位置。我听过很多的士司机抱怨，我也看到很多服务生不耐烦地翻白眼，好像很多人都不热爱自己现在的生活和工作，很多人都在挣扎着想走出现在的状态。相信这背后必定是有爱的驱使，为了父母，为了妻子丈夫，为了孩子。但难道不是如MaryWollstonecraft所说的，爱让一切劳作变得甜蜜么？还是我太不世故，不理解当中的辛劳和苦楚，才会一厢情愿地希望所有人都能在他们的生活中找到快乐？我在学校打工期间认识一位工作者。他叫Rafae，哥伦比亚人，说英语的时候带有浓重的口音，但他在我们学校持续工作了四十年，日复一日做着八种不同口味的手制披萨。有时食堂的饭实在太难吃，我会冒着增肥的危险拿一块吃。他的披萨很好吃，很薄的底，厚厚的芝士和新鲜的蔬菜，而且不油。我开始觉得他很辛苦，但他总是微笑，如果看到他熟悉的学生或职员，就会走出工作区域给他们一个大大的拥抱。我佩服他，总会给他做杯橘子茶，顺带给洗碗的时候关照我的Peter大叔也做一杯，后来慢慢成了习惯，我风雨不改地给他做茶，他风雨不改每次看到我，走出来，一个拥抱，叫我“miya”（音译，西班牙语），意思是女儿。终于有次在他休息的时候我们聊了很久，他指指披萨的架子，说：“你肯定觉得这很枯燥吧？”我说：“是的。”他说：“我做披萨的时候不单只是在做披萨，我的脑袋在思考。”我笑，表示完全理解。他说：“我在这里做了四十年的披萨，你是第一个愿意给我倒茶的人，从来没缺过，其实我也是一样的，四十年来只是做着同一件事，心里怀着对生活的热情。我相信主，但不以任何宗教的名义，我不信宗教，它们都是人为的谎言，我信这天上不知名的神明，它很厉害，它知道我想什么，它也知道我是完美的，就像你，还有他们（头转向别的学生），我如果有能力，会尝试换工作，但我发现我最好的天赋就是做披萨，这难道不是安排的么？如果它（指指天）给了我更好的能力，我就不会在这每天做一样的事了，但我做的最好的就是这个了，所以我热爱做披萨，正如我热爱生活。”他这段话我想了很久很久，我原本以为他是规劝人要安于现状，但我觉得他是在教导我热爱生活，无论做着什么样的工作。没想到仅仅是为Rafael倒杯茶就能听到这么一番真诚的话语。相比我在深圳看到听到的一切，我感觉到，很多人都十分的疲惫，很多人都没时间关照下自己的内心，问问它是否丰足，是否渴望圆满，是否还有一点点位置，让自己喘喘气。我有些二十岁以上的朋友已经面临家长的压力，要求相亲，要求结婚，要求生孩子。而我一个二十九的女性朋友更是和我诉苦说被周围的人当作异类，似乎不结婚是个奇耻大辱，难以自立。她说：“在这里，人们审视你的时候，其实并不是在审视你。他们看到的不是你，是你和他们不同的地方。”她的存在对于有些人来说是特例，而大多数人的生活状态对她也是一种无形的压力。最后她办理了工作签证去了澳洲，前阵子看到她的照片，笑得很舒心。我在深圳的日子其实很简单，早餐完，看书写论文，午餐完，继续看书或者写字，晚餐完，出去散散步，或者和朋友看电影。我很少看到有人在路边看书，或者在餐厅看书，似乎会被当成异类。而我在美国生活的地方，那个如今还飘着梨花有河水坏绕的小镇，还有无数的老人坐在长椅上抽着雪茄看着书，校园里任何地方都能看到有人在看书，或者讨论问题，不论学术还是简单的天气。镇上有家吉普赛风格的餐厅，每到周六就有openmic的节目，上次来了一个乐队，贝斯手、键盘手、主唱、小提琴手、吉他手每个人至少都有六十岁了。当他们演奏起来，眼里流露的那种沧桑和缅怀，那种坚定和理解，让我手里那杯冻柠茶都暖了起来。可能演出完了，他们会换回自己的衣服，可能他是个司机，那个他是个修电工，主唱可能在肉类包装公司，又或许吉他手只是个超市收银员。去年选修环境学提到当地一条河近年来受到的一些污染，教授Donald带我们认识一个致力于这个课题三十年的一位教授，他叫Tom。Tom介绍说由于发电厂非法排放工业污染物，导致河流严重受到污染。当他还是个本科生的时候，他就注意到这个现象，于是和政府部门举报，政府部门和当时的发电厂显然串通一气，回复他说：“你只是个本科生，这件事与你无关，你无权参与。”因为这句“你只是个本科生”，他一赌气念到化学博士，全身心投入到这个课题，正式起诉发电厂。他的无营利组织现在还在努力改善当地的河流，他和我们道别的时候挥挥手，说：“记住我吧，我叫Tom，还是个提琴家。”说完就消失在一片农场的松树林中。而我的环境学教授Donald也有十分坎坷的经历。在南美洲的时候喝森林里的水，从此染上怪病，大脑严重受损，记忆力丧失，双腿无法行走，但是他坚强的意志力让他挺了过来。他当时已经有博士学位了，但大脑受到损害后导致记忆严重丧失，于是花了四年补全了所有专业知识，继续教书。双腿快好的时候去超市买东西，出来的时候被一辆飞驰的车把左腿彻底撞断，现在他走路一瘸一拐，总是拄着拐杖，上下楼梯都很不方便。我听经常和我讨论文学诗歌的一位女诗人说（这位女诗人在我们学校长达五十年），Donald年轻时是她见过最帅的男人。那年她第二个女儿刚出生，她抱着小女儿，丈夫抱着大女儿坐在学校的草地上野餐，Donald弹着尤克里里，唱着歌，场景很美。我闭上眼，好像也能看到现在苍老的老教授当年意气风发的模样。他现在经常待在花房，看他种的植物，一看就是一下午，还自己给学校的食堂种土豆，和那条叫“Sasha”的狗说话，那金毛狗不怎么爱听，跑了，他就自言自语。两个星期前我合唱团有演出，音乐厅里坐满了人，我有点紧张，往台下一看，突然看到做披萨的Rafael站在最后面，工服还没来得及脱，可能刚下班就赶过来了，他看到我在看他，朝我用力挥挥手。我有点意外，但我唱到《Nightingale》那首歌的时候，我看到他眼睛里似乎有模糊的泪光，我不确定，因为他那时还笑着呢。左岸记：生命只有一次，这个大家都明白，但能把这一次生命过得称心如意的人，却真的不多见，何故？一个是受限于自己的能力，一个是来自环境的压力。那，一个人的能力要多大才能做自己？环境的压力是真的压力还是自己顺从的结果？如果做自己力所能及并进行一定的挑战，如果换一种角度去思考压力的来源并找到事实的本质，那结果是不是会有很大的改观？既然人只能活一次，那为什么不让自己真正的活过呢？那必要的付出是否甘心情愿？如果最终大家谁都免不了一刀的命运，那么为什么不在有效范围内与众不同地活一次？或者最次也得与众不同地用自己的脑袋瓜想一次？独立人格需要贯穿到人生的始终，每个细节中。也要不断的提醒自己，有一天在遭遇不公和不幸时，要记得现在的思考。不要以一个悲壮的姿态去博得同情，外界的支持，永远是个幻觉，像潮水一样涌来涌去。真正支撑人生的，是双手，是双脚。是一无所有面对世界时仍能挺胸站住甚至微笑的勇气。原文链接：http://www.zreading.cn/archives/4638.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人性的B面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>人性的B面</h1>
+            <div class="date">2015-04-18 23:50:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/廖超国人性有两面，A面和B面。人性从根本上决定人的行为表现。因而每一个人在生活中的表现都具有两面性。光鲜耀人的A面和不为人知的抑或是丑陋猥琐的B面。如果非要找依据，我以为相关联的至少可寻自三个方面。奥地利精神病医生、心理学家，精神分析学派的创始人西格蒙德·，弗洛伊德很早以前就将人的意识划分为意识和潜意识。无独有偶，不是经济学家却获得诺贝尔经济奖的美国学者丹尼尔·卡尼曼在他的《思考。快与慢》一书中，将人的思维划分为系统1和系统2。更早可追朔到《圣经》里。人是带着原罪来到这个世界的。人的心中永远有一个“潘多拉的盒子”，只是什么时候被打开的问题。几乎所有的成人在人前和人后的表现不可能完全一样。大庭广众之下，尽力将自己优秀的一面展现出来。人们总是受某种文化的薰染，遵崇一些道德的原则，迎合所处环境的习俗，让自己变得高尚一点，更让人喜欢一些。人性的A面大都是一些正能量，显示出积极、健康、高大尚。比如，对人显得和蔼，谈吐文明，举止优雅，彬彬有礼。对事表现认真，勤奋努力，主动有为，积极向上。与熟悉的人交往，尽可能圆融通达，乐善助人。工作时，争取有一个好员工、好领导的口碑，家庭里，力争有一个好丈夫、好妻子、好父亲、好母亲称誉，社会上，力求有一个好公民的形象。这都是我们在人生舞台上看到的人们出镜时扮演的形象。当他们脱了演出服离开舞台，回到自己的精神家园，与自己灵魂相处时，或放松自己进入私密空间时，是一个什么样的模样呢？我不敢说人性恶，但我可以说如果不是圣人贤哲，那人性的弱点，不加管束，就会放大，人的丑陋和猥琐就会显露，人生的原罪就会被激活，如果任其泛滥，就会人祸不断。社会上出现的所谓的潜规则就是人性B面的表现。通过潜规则的窗口，我们会将人性的B面看的更清楚。人性的B面表现着一些我们知道，但很多人都不愿正视，在公开场合又不敢承认的东西。人都是自私的。不自私的人几乎没有。但在众人面前我们又极力显示自己的不自私。那些能将自私控制在别人容忍范围内的人是乖巧和聪明的。但很多人总是拿捏不好那个度。人总是懒惰的。勤劳是迫不得已逼出来的。心甘情愿勤劳的人少之又少。人性B面在懒惰上的极致是好逸恶劳。人肯定是贪婪的。说自己不贪婪的人是假话，千万别信他。不说那些握有权力的人，没有规则的制约，他们会贪成怎样。没有权力的普通人一旦稍有条件都表现出贪吃贪睡的特性来。人一定是好色的。那经久流传的“酒色财气四堵墙”的故事大家一定记得。和尚的无奈，东坡大人的中庸，王安石的绝对，宋真宗的肯定已经把这个问题说清楚了，无需我再赘言。人还好嫉妒。人对自己身边的比自己过的好的人都存在嫉妒之心。不会真心实意的佩服向那些人学习。而是，认为那些人机会比自己好，能力并不一定比自己强。人通常也会自以为是。嫉妒之心轻者会找人家的短处抵毁人家，造谣诬陷。重者会为了阻止人家更好，在人家进步的路上使绊子。人生多少恨事起于嫉妒啊！人还会愤怒。无论修炼得脾气多么好的人，都会有愤怒的时候。只是每个人愤怒的燃点高低不同。愤怒会引起强烈的情绪。愤怒极点时会产生暴力。暴力就有非常大的破坏性。战争是暴力的最高表现形式。人的暴力比动物更残忍。人还喜得瑟炫耀。其背后的本质是骄傲。人都希望自己高人一等，出人头地。人一旦强于别人，便会得意张扬。人性B面的这些东西，在不同的人身上表现的侧重点和强弱各不一样。但这些因子却是实实在在存在的。说这些东西并不是全盘否定人的善良。只是提醒我们更进一步了解人这种动物。创立共产主义学说的马克思，他挚友恩格斯说得好。“人来源于动物界这一事实已经决定人永远不能摆脱兽性，所以问题永远只能在于摆脱得多些或少些，在于兽性或人性的程度上的差异”。人性的A面主要是人的社会属性;人性的B面主要是人的自然属性。B面虽然有其负面的，但其实也是人类社会进步的原动力，正确认识、规范、引导和利用人的B面其实才是人类古往今来的真正使命吧！我们了解人性B面的存在，就知道每个人的心中都有一个“潘多拉的盒子”，盒子里装着魔鬼。我们可以更有对策地加以防范。对自己，我们要加强自律，做到独慎，修炼自己的品格，任何时候都不要脱去道德的外衣。牢牢地管好那个装着恶魔盒子的盖子。对别人，一方面，我们要多理解，适度的引导和利用其发挥正向作用。另一方面，我们要创造环境，呼吁建立社会制度和规则，用文化来陶冶和引导，用法制来制止和防范其肆意过度。其实，天使和魔鬼更像一枚硬币，它一体两面，就看你让它哪一面朝上。人生也是如此，我们不能让人性的B面随意凸显。2015年4月9日写于荆州古城左岸记：卢棱在《忏悔录》中，深刻剖析了自己不为人知的一面，把一个真实的自己赤祼祼地暴露在了光天化日之下。巴金先生在《随想录》里，对自己原来创作的文章和所作所为进行了深刻反思，对自已性情的狭隘之处进行了深刻剖析。鲁迅在自己的作品中，表达了选择“大我”与“小我”时的痛苦与彷徨，最后决心舍“小我”而求“大我”，并对人的劣根性和自私自利的一面做了客观认知。梁漱溟先生孜孜不倦地探求人性问题，写下了《人心与人性》的煌煌大作，其中的核心问题，也是探求人性的善与恶，以及如何实现自心与外我的统一。斯妤在《背弃与终爱》一文中写到，“你常常可以看到，一个人正义凛然、冠冕堂皇、振振有辞，而实际上他掩盖的有时却是狭隘卑微、偏执怨毒，蝇营狗苟。”问题的关键是，我们如何把握人性的两面性，也就是如何尽可能地扬善避恶。一方面，要靠道德、靠制度、靠法律约束，靠社会和他人的监督；另一方面，更重要的，还是要靠个人的自觉、自省、自律，也就是古人所说的“慎独”。努力做到在社会上、在公众面前与在生活中、在自己面前的和谐统一。同人于野在高效能任性中阐述了人自私的一面：谁更自私？“儒商”冯仑曾经去香港跟李嘉诚吃了一顿饭，被对方平易近人的态度所倾倒，回来特意写了一篇文章[2]。冯仑说李嘉诚居然在电梯口等着迎接众人，吃饭、照相都用抽签排序，这样“尊重在场的每一个人”，连中间演讲的题目都是“建立自我，追求无我”，充分体现了他“钱以外的软实力”。这故事并不令人震惊。人们普遍相信真正的精英都是这样和蔼可亲甚至仙风道骨，他们的成功根本不是靠投机钻营，而是靠正大光明的软实力。人们甚至认为精英的思维方式都跟普通人有本质区别，比如我们经常看到诸如“穷人宽容自己，富人宽容别人[3]”这样的正能量故事。可是光听故事不行，还得看研究。在2012年发表的一篇论文[4]中，心理学家 Paul K. Piff和合作者一共做了七项研究。这些研究都表明，富人和所谓上流社会的道德水准不但不比普通人高，而且比普通人低。在头两项研究中，研究者在旧金山湾区的一条过马路人行道边和一个十字路口观察了过往的数百辆车。在这两个没有红绿灯只有交通标志的地方，加州法律规定车必须让行人，十字路口上后到的车必须让先到的车。那么哪些车会老老实实停下来礼让，哪些车会能抢就抢呢？研究者把车按豪华程度分为五等，结果是最低等的车在两项研究中都是最遵守规则的，而最高等的车在两项研究中都是最不守规则的。排除驾车者的年龄和性别等因素，结论仍然非常明显：开好车的人表现得更差。第三项研究招募了一百多个加州大学伯克利分校的本科生做受试者，先调查他们的社会经济背景，给他们讲述了八种日常生活中的不道德表现，然后问他们，你有没有可能做出同样的事情。这八件事并非专门针对富人设计，在我看来穷人更容易遇到：比如在餐馆打工偷吃东西、把学校的打印纸拿回家、买咖啡被多找了钱不还等等。结果，社会经济地位高的人更容易做这些不道德的事。剩下的几项研究发现，越是“上层社会”的受试者，越认为贪婪和自私是好的，认为在工作面试时说谎是可以接受的，而且他们真的在实验中为了赢得奖品而作弊。不但如此，哪怕仅仅被研究者进行心理影响而“觉得自己属于上层社会”，受试者都变得更容易偷东西。怎么理解这些研究？一个解读是富人之所以道德水准低，是因为他们根本不在乎别人怎么看他们。普通人资源有限，必须彼此依赖才能更好地生存，所以特别看重自己的形象不敢做不道德的事。而富人有充分的资源可以保持独立性，他们不需要别人关心也没有必要关心别人。比如有研究发现[5]在与陌生人的交往实验中，越是富人，表现出来对对方的关注和互动就越少。这等于说富有会导致不道德。2015年一项最新研究[6]有类似的发现，实验表明社会经济地位更高的人群如果作弊，主要是为了自己，而普通人如果作弊，很多是为了别人。更进一步，仅仅在实验中赋予受试者某种权力，他们也会立即变成自私的人，开始为自己而作弊。另一个可能性则是正因为他们不道德，他们才成为了富人。前面说过Piff等人的研究发现富人对贪婪的态度跟普通人有本质区别，他们做事更多地是以自私自利为驱动的。Piff在论文中甚至认为这种越不道德的人越容易获得更多财富的机制是自我延续的，并且可能导致社会贫富差距进一步增大。不管怎么解读，研究者们公认一个事实：社会经济地位高的人群比普通人更自私。潘石屹给哈佛捐款，张磊给耶鲁捐款，在国人中都引起过激烈批评，说你们有钱为什么不捐给中国的大学？为什么不捐给希望工程？因为只有穷人才会捐款给希望工程。《大西洋月刊》报道[7]，2011年美国收入最低的这20%的人群总共捐出了自己财产的3.2%；而收入最高的20%的人群则只捐了1.3%。在2012年前50笔最大的捐款中，没有一项是为了社会服务和贫困问题的。富人的捐款都去哪了？最大的赢家是精英大学和博物馆。富人更自私。往更深一层解读，那就是普通人捐款是因为他们产生了同情心，而富人捐款则有很强的自利目的。普通人更容易从同理心角度出发采取行动，而上层社会则更习惯赤裸裸的利益计算。原文链接：http://www.zreading.cn/archives/4869.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

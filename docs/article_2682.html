@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阅读的理解、速度及多少</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>阅读的理解、速度及多少</h1>
+            <div class="date">2014-10-05 23:33:37</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>整理自知乎！1. 看不懂《围城》是不是没有文化？——陈章鱼有的时候，个人经历也很重要。小的时候读《背影》，可能感触不深。背井离乡上大学之后再读，可能就觉得句句写到人心里。中学背《项脊轩志》，可能读到最后那句 “今已亭亭如盖矣” 才觉得不胜唏嘘，如今看到 “娘以指叩门扉曰：儿寒乎？欲食乎？”就已经泪流满面了。也许有过一次很投入的爱情，才能看懂《红楼梦》。读书和生活是分不开的，用力读书，用力生活，用读书的所得去生活，再用生活的感受去读书。有的时候你觉得读某本书（特别是文学作品）没有感觉，也许是因为你的人生还没有到哪个阶段。不用着急，等一等，过一年两年再重新翻一翻，感悟就会不一样。即使你觉得完全能够理解的书，过两年再读，感受也是不一样的。钱钟书本人多年后再看《围城》，他的反应是 “骇且笑”。好的作品常读常新，这才是书籍的魅力所在。2. 为什么有些人读书能读得那么快？——胡天翼、赵世奇最基本的一条是：读得书越多，读起书来越快。看得多了，对文字会越来越敏感，看了几个字就自然知道这句话在说什么。就好比看外语文章，一开始看得慢，看个半年，自然就快了。未必是单词量扩大了，也许只是对字母文字更熟悉罢了。其次，看学术书也是很容易读得快的。我认识的读书快又多的人，都有这个体会：当一个领域你很熟悉时，再看该领域的书会特别快。比方说你对某个学者特别熟，当看到关于他的内容，只需要看几个关键词（如学术专用名词），就知道这里讲的是什么，常常只需一扫而过。有个简单的方法就能证明这一点：看科学松鼠会某个作者的文章，例如专门讲食品安全的云无心的文章，你连续看5-8篇，就会发觉其实他的基本理念是一脉相承的，接着看他其他文章，只要扫一下标题，你自己都知道结论和分析过程是怎么样子的了，看都不用看。最后，像文学类的书怎么读得快，我体会不多。凭着第一条的基础，应该也能读得很快，但不知道有没有像第二条那样专门的提速法。我猜想，当对基本的文学结构，写作手法熟悉之后，也能看得很快。读书速度受到视觉输入影响：- 不回视；- 不跳读；- 结构化阅读；- 重点记忆重点部分。读书速度受到理解影响：- 提前阅读导读、书评，整体了解书籍内容；- 预习相关定义知识；- 多读此类书，了解结构特点；- 如果是入门书，看你对这方面的天赋和兴趣，或者相关知识的了解程度。读书速度受环境影响：- 找个安静的地方读书；- 读书，其实最重要的是光线、心情，外界噪音，很容易被无视的。- 读书受到心里因素影响：- 因为恐惧，比如不喜欢英语，看不进去任何带有abc之类东西的，可以通过心理暗示解决；一些小地方要注意的：- 不是读书越快越好，读书最后要的是相关知识的理解率和理解程度；- 有些书，就是用来一天享受一点的；- 读书关键要前后呼应，不要单纯读书，读后，要反思，要回想；- 多看书，速度也好，理解率也好，记忆力也好，在掌握了方法的基础上，还要多加练习。3. 如何看待爱因斯坦认为「人在一定岁数后，阅读过多反而影响创造性」的观点？——张佳玮、张亮、以前有人开过玩笑，说相对论更适合研究宏观高速、量子力学更适合琢磨微观低速，而解释身旁的事，还是牛顿经典力学比较好。借这句话，我觉得，爱因斯坦这段话，对爱因斯坦、波尔、费曼、泡利那种级别的人来说，非常有意义。但对我们平民百姓来说，抱歉，阅读量岂止不是”过多“，而是大大不够“。说难听点，大多数普通人都没资格琢磨”阅读是否过多“这问题。这就好像孔子到最后可以从心所欲不逾距，绝代高手到最后可以不拘泥于招式，但对世上大多数人来说，还是先把基本马步扎好，把该读的书都读完先吧。但要明白，任何一本书能给你提供的信息和启发都是有限的，而另外两件事是无限的。这两件事就是生活和思考。如果一个人读了很多年书，而学不会感受生活，学不会自己思索，那他并没有真正读通。原文链接：http://www.zreading.cn/archives/4581.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

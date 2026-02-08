@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青春呀！你在忍什么？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>青春呀！你在忍什么？</h1>
+            <div class="date">2014-01-28 23:08:54</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/一直特立独行的猫你忍过没有？今日，普华永道和我一样大的女孩子，学历比我高，长的比我漂亮的姑娘活生生的倒在众人的面前，我就不淡定了。25岁啊，青春正当年啊！！无数人扼腕长叹，无数人悼念惋惜，我也是，我甚至觉得那几天都过的很阴沉，介姑娘，还是我一好朋友的师姐，顿感伤悲。可是，她为什么就不说呢！为什么就发高烧就熬着、忍着、挺着，最后变成了脑膜炎，再然后就没了……想想我们自己，如果是你我他，会不会也是这样的做法？90%是！因为从小就是忍性教育！幼儿园，睡不着要忍着，饭不好吃要忍着，鸡蛋噎住了也要忍着！有木有有木有！小学，上课时候要去厕所，忍着，忍到下课才能去，上课去厕所一定会被老师翻白眼！有木有有木有！初中，每个学生不分体质好坏，一律跟着队伍晨跑，不许掉队，于是快的拼命奔，慢的拼死跟！跑回来脸都白了，每天跑操跟上坟似的。有木有有木有！高中，高三比谁灭灯晚，撑不住了也要撑！感冒发烧咳嗽一律要上课，撑不住了一定要医院开证明你快挂了才能休！有木有有木有！大学，老师讲的太烂要忍着，宿舍条件太差要忍着，舍友大声喧哗要忍着，食堂吃出小强要忍着；找不到工作要忍着，郁闷的想哭要忍着，不敢跟父母说不好要忍着，工作钱太少只能租地下室要忍着。有木有有木有！这一切，你有木有有木有！经过20年的忍吹忍打，你还敢说话吗？你还敢发表不同意见吗？你还敢在领导说不的时候，提着包翻个白眼走人吗？想当年，姐小学四年级时候的班主任每天上课讲自己孙子的童年趣闻，姐实在实在忍不了了，站起来就提意见，要求老师翻开课本。结果老师一辈子没见过姐这样的，于是活生生的气昏倒了，再然后姐就被迫转学了！再然后其他学生家长都手挽手肩并肩的提着花篮走进我家门，感谢姐的壮举为全班同学带来了“换老师”的福音。姐就以牺牲我一个，幸福四十个的精神，从此过上了转学后颠沛流离，骗吃骗喝的日子。直到今天，每当第一个小学的同学聚会时候，诸位总是赞叹我今日在外混的相当不错！姐总是非常凌厉的指着他们骂：“姐不出头谁出头，都你们这帮怂货逼的！”于是诸位纷纷给姐买单！通过这件事，姐从小就知道，不忍的代价就是出局！毕业了，进入社会了！青春正当年，却听到无数抱怨，个别人跳出了火炉，勇敢的过上了新生活，但这种人一般会被很多周围的人所担心，或者觉得忒不靠谱了！！！大部分人继续在火炉里抱怨，直到自己熬过那些长亭外古道边的艰苦岁月，抱怨没有了，但人也变了！姐在二十岁时候非常欣赏的一名大哥哥，当时风华正茂，青春逼人，梦想远大，总是那么的不一样；岁月是把杀猪刀，今日的大哥哥，已经开口闭口都是钱，谈来讲去都是房子和车。每次他都在不停的讲自己的房子又买在几环了，车又换成了什么……刹那间，姐觉得，谁年轻的时候没喜欢过一两个人渣！教育的目的有句不知道谁说的话，说得好：“教育的目的，就是鼓励人们学习他们从来未学过的知识，操作那些他们没有操纵过的工具，解决那些他们从来没有遇见过的问题。”而我们的教育，是让我们用极大的耐心，把1+1=2翻过来倒过去的折磨了整整一个学期之后，还不让我们操纵计算器这种速算工具。当我们把所有内容学完之后，有幸遇到点新的问题，而我们的前辈家长会立刻跳出来告诉我们，“按照经验，按照历史，按照老祖宗的规矩，这个事情是这样解决的…….”于是，我们就TMD信了！而且信誓旦旦的放在心里，觉得学到了长辈的宝贵经验！再也不去想，这事儿到底是不是这样的？时代在进步，社会在发展，可是解决问题的方法，却永远是很早以前的，这样的社会不是轮回是什么？如果一个社会永远轮回下去，还有什么所谓的新精神？新风尚？新思想？新格调？长辈一直讲：要做一个靠谱的人！可是姐觉得：只要把有限的谱靠在关键的地方就可以了！不用天天靠着，太特么累了！于是，姐就变成一个神马都不靠谱的问题青年，再一次出局了！！！所以，当万千社会新青年走进职场的大熔炉里被锻造的时候，嘶嘶拉拉发出疼痛的声音，总会有很多人在旁边按着你的身体，告诉你：“忍着点，过几年，你就能变成精英了！就能当职场典范放在铜版纸的杂志上了！”可是，那些杂志，那些清一色的忍辱负重的故事，你真的喜欢看吗？青春，请做一个连你都很喜欢自己的人昨儿上课，学生问我：“赵老师，如何变成一个好玩的人？”我觉得，是尽可能的做一些远离你工作的事情。如果你的工作是IT，你可以去玩摄影，玩音乐，玩街舞都可以，与你本职工作的偏差越大，你会玩的东西越多，你就会越来越多的变成一个让人很稀罕的小孩儿。就拿公益这件事来说吧，我就觉得很好玩（可能很多人觉得我态度不端正）。但是当助理把我卡里的真金白银换成孩子课堂上的笑脸，以及之上鲜艳漂亮的画儿的时候，我会觉得：“真TMD值”800块钱，一个年级每个孩子一套米奇水彩笔，姐立马果断的又转过去800块，开拓第二个色彩教室！只要是值得的，就是好玩的。谁每天捧着《商务专刊》读那些成功女性和精英男性的故事啊？谁喜欢每天看着杂志上穿着各种大牌正装的人讲自己千篇一律的奋斗箴言啊？你是不是也很喜欢好玩的人？你是不是听说朋友不靠谱的事儿就觉得很欢乐？你是不是也希望变身一个什么都会，什么都做的很棒的新青年？无数的言论告诉你，你要成为业内的专家，这样你才有话语权！无数的书籍告诉你，你要不顾一切肯攀登，这样你就会遭出头！无数的广告告诉你，早晨喝星巴克，中午吃牛排，晚上去夜店找个姑娘才是牛逼的人生！可是有一天，你会发现，你除了本职工作，再也没有新鲜的话题可讲了当你三十岁的时候，你除了有一些钱，还有什么样关于二十岁的记忆？事情并没有那么糟很多人觉得吧，很多事情并不是这样的。不忍着，就会没有工作，就会没有钱，就会没法生活，就会…..惨到要死……应试教育课上多了吧。我刚上班的时候，遇见经济危机，觉得公司要裁人肯定先裁掉我。那天，我坐在马桶上问我妈如果我被辞退了，怎么办呢?我妈头都没抬的说：“那就回家啊，休息休息再工作呗！大不了在家混吃混喝呗，你又不是生下来就赚钱给家里的！”我仔细回忆了很多细节，通常当我们留在北京上海香港纽约等大城市，为什么会压力大呢？因为视野太小了！我们看到的永远是塔尖上的那一小撮人，并一直试图爬上去变成那一小撮人，结果通常半路就摔死了，或者也就爬到半山腰就退休了。只是，很多时候我们故意不给自己留后路，逼迫自己向前走，可是向前走明明有很多路，可是你就只看见那么一条路，于是你就比较容易压力大，还抑郁。很多人会觉得，老子好不容易毕业在北京找一牛逼公司啊，万一出点差错被辞退了就太没面子了！以后弟兄们之间肿么混啊！即使生病了，也依然坚持，会觉得老子不坚持，饭碗就没有了，老妈以后跟邻里街坊拿什么夸我啊！事实上，就是我们自己在逼自己成为华尔街精英，谁也没逼我们，甚至谁都不在乎我们到底能不能成为华尔街精英！试想一下，如果我们现在因为工作出错等等原因，造成了辞职或者被辞退，我们还剩下多少乐观的心态面对未来？我饿偶们有多大的可能性是关在自己的小黑屋里愤懑的觉得以后该怎么办？姐就想很想吼一句：“世界那么大！世界那么大！世界那么大！世界那么大！世界那么大！世界那么大！世界那么大！世界那么大！世界那么大！世界那么大！世界那么大！”所以——青春呀，你在忍什么？世界那么大！原文地址：http://blog.sina.com.cn/s/blog_5b19734301017a74.html左岸记：在建国至今65年的历程中，我们经历了几种心理变更。这些心理变更和政治格局、社会格局是息息相关的。从一个旧时代刚转型时我们奋发昂扬满是激情，然后经历了思想文化革命上的杂乱洗礼，接着稍加沉淀引入改革和开放，后来在新思潮和旧体制的不断磨合下多数民众传统中庸心理成了圆滑之态，再后来从上至下政治理念的无孔不入牢牢固定了一代人的思维模式，如今我们开始加以强硬避免其扩大化。虽然这有些晚和慢，但从格局来讲，这算是好事。我们总在对比格局，也不知出于何种目的的审视自身格局。从一个个人的人生格局来看，其对应的群体格局、时代格局、环境格局不见得哪种是最恰当的，在一个无法选择的时代和环境下，人生格局必须印刻很多烙印。这些烙印也许可以成就一个人生，同时也可以埋没一个人生。而对于我们来说，只有一个人生，没别的选择。所以谈及幸运和幸福，这是无法考量参照的。所以无论大小智慧、多寡道行、高低能力的个体，都能以不同格局生存下去，这是这个时代的特色之处。任何的成就、文明都会随着时间而消亡。所以那些我们坚信的坚持的固守的好多，无非在维持个体的人生格局而已。在这些之外，也会遗憾的失去更多。这些之外的东西只是我们不曾相逢，却少了一份感慨，这也是好事。于是那许许多多的格局铭记了一个群体的成长，也铸造了一个人的历程。原文链接：http://www.zreading.cn/archives/4208.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

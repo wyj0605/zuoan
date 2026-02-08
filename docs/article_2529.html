@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>半边脸的世界</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>半边脸的世界</h1>
+            <div class="date">2015-03-31 20:52:19</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/番茄对于别人惊诧的目光，我已经从最初的自卑走向了从容面对，从最初的哭着讲诉到现在的轻描淡写。在这将近15年的岁月里我已经习惯了大家看我的目光，我有着爱我的家人，爱我的朋友们，他们在我最自卑的时候给了我支撑，让我一想到就能拥有力气继续前行。小时候和家里的狗玩的特别好，经常是抱着它，但那天开始我的人生就发生了变数。它和邻居家的狗打架打输了，然后蹲在那里，我就过去摸它，想安慰一下它，谁知道它以为我是那只胜利了的狗，转头就咬上来了，第一口咬的是头骨，没咬进去，紧接着咬了第二口，正好是右脸，当时周围的大人都吓傻了，叫人的叫人，赶狗的赶狗。在外公赶到我身边的时候我的白衬衫都已经染成了一块血布，当时的我意识模糊，只听到外公在喊我别睡，然后叫我舅舅送我去医院，经过简单的处理缝合后，我看到手术室外面焦急赶来的妈妈，在看到我看她的时候硬扯出来的微笑，从那天开始我就每天打针喝药，一周下来本来瘦弱的手上全都是密密麻麻的针孔。更没有想到的是那个医生说他治不了了，脸上的伤口便开始化脓，每天脸上都是火辣辣的。没办法外公只好找了一个专门治狗咬伤的老中医，每天把草药嚼碎敷在脸上，每次半夜醒来都看到外公在给我换药，两个月后伤口结伽了，终于不用担心感染的问题了。但是，从那以后脸上就留下了疤痕，虽然在接下来的一段日子里妈妈也竭尽所能想把疤痕去掉，用生姜擦，用从老人们那里听来的各种偏方，可是好像都无济于事了，该留下来的还是留下来了。或许是太小没有什么爱美的观念，一直到五年级我都是以非常优异的成绩得到老师和同学们的喜爱。但是在快要小学毕业的时候，我记得那是个大雪纷飞的下午，我和几个朋友一起回家，突然就被一个雪球击中，领头的那个男生喊道：“丑八怪，你来打我呀。”第一次听到别人这样子说我，眼泪刷刷刷的就往下掉，我只记得我那几个朋友把我拖离那里，我只记得当我泪流满面告诉妈妈这些时，妈妈跟我说：“他们那是嫉妒你会读书，不要管他们，你只要好好读书就可以了。”于是进入初中的我更加努力，初中三年一直是老师跟前的红人，有时候感觉权利比班长还要大，在同学们面前一直是铁面无私的形象，所以初中一个朋友都没有，就连小学玩的好的也因为分班的原因交集不大。成了一个三点一线的人，周末也不会出去，别人叫我出去玩也很少出去。我以为我会一直这样孤单下去，每天形单影只的，但是她们的出现给了我意想不到的快乐，我们下课会一起去厕所，中午一起吃饭，放学一起回家。如果不是她们估计我现在还是一副不知笑为何物的表情吧，大家彼此诉说自己心心念念的大学，憧憬着未来的生活，许下对彼此的承诺，约好毕业后相见的时间，那段时间应该是我学生生涯中最开心的时光吧。不用想任何问题，每天妈妈会照顾我的一切，只需要呆在教室里面好好学习就行。快乐的时光总是走的特别的快，一转眼就到了紧张的高三。每天睁眼拿着一本书，闭眼还是拿着一本书，越是这种时候就越容易多想，看着镜子里面的自己，右边狰狞的伤疤。那些工作单位会要我吗？一个这么恐怖的人，越想越多越想越多，甚至有时候夜不能眠。妈妈看见我日渐消瘦的样子问我怎么了，我只能告诉她我的忧虑，她说别担心，会治好的。所以在高三上半年的时候爸妈带我去医院看医生，医生说像我这种只能进行切除缝合，就算是这样也不能完全去掉，而且一年只能去两次，一次只能弄掉一点点。爸妈觉得能弄掉一些就算是一些，所以高三毕业前前后后进行了三次手术，每次躺在冰冷的手术台上都会觉得这个世界待我不公，为什么别人都有着完美的脸庞，而我却要躺在这里进行这种永无止境的手术，为什么？在第三次手术之后我告诉爸妈我不想去了，反正没什么效果，没必要浪费钱。爸妈觉得我长大了该自己做主，想怎样就怎样，很长一段时间我就在想要是我家是有钱人就好了，就可以送我去外国接受更先进的治疗了。但是转念一想，爸妈并不亏欠我什么，把我养这么大已经很不容易了，在我那么丑的时候没有放弃我，送我读书，给了我一个这么温馨的家庭，我得到的已经够多了，不该再奢求更多了。寒窗苦读终于结束了，进入了这个我并不怎么看好的大学，虽说是个一本，终究让太多对我有所期盼的人失望了。刚进入大学的时候军训期间认识了一个男生，他玩大冒险问我要号码我就给了，然后我们就聊上了，后来当然就是见面，他初见到我也是很惊讶。因为大冒险那天是晚上，他刚好没戴眼镜，所以并不知道我脸上有疤，我当然也就接受了他的反应，和盘托出我的过去，他并没有看不起我，也没有嘲笑我，我们一起吃东西，上自习，晚上相约一起跑步，当时我有什么事情都会告诉他。像情侣一样通着电话，但是当有一天我给他打电话时，他说你怎么那么烦，没事找事做啊。我就默默的挂了电话，说了句以后再也不会给他打电话了，从那天以后我们就再也没有联系过，只是偶尔见面了会说声嗨。不想知道原因，也没问过他为什么突然之间就淡了。我的大一就在社团，国二培训班招生中落下了帷幕，交到了几个能够一起疯狂的伙伴，和室友相近如宾，在班上的班委选举也没能成功，他们选的都是些漂亮的女生。自那以后我就害怕站上那个讲台了，害怕大家只会盯着我的脸上看。所以一直都只是扮演着普通同学的角色。进入大二，社团要进行换届选举，再次因为我的胆怯，又一次临阵退缩，退出了所有部门。我曾无数次设想我的没有疤痕的脸庞应该过的生活：忙于各种社团，兼职，各种比赛。可是事实却是每天和她们一起上课然后点外卖看电影，有时候甚至忘记给父母打电话。直到前段时间一个朋友和我聊到找工作的时候我才发现，我真的什么都没有准备好，在这个看脸的世界想要活下去的话，就得有真正的本事，而不是自暴自弃，连该掌握的东西都没有掌握好，那我来这个大学有什么意义，为什么要浪费四年光阴在这里，还不如早点进入社会给家里减轻负担呢。不是的，我是来学习的，对我来说必须要掌握更专业的知识才能走进这个社会，被公司所接受。我的人生或许会比那些人走的弯路要多些，但是总是要经历的呀，比我不幸的人还多的是呢，我为什么要硬揪着这个不放呢。既然不能改变，那就去适应它，既然疤痕长在脸上，那就不要让它长到心上，做些改变，这个世界还是会有需要我的地方的。到时候不能因为本事不够而让这些东西插肩而过，空留悲叹。家人，朋友依然是我前行的动力，谢谢每一个曾经对我微笑的人，我也将微笑着去面对这个世界的。左岸记：看完故事，我深深地陷入沉思。这种不同寻常的经历，在现实生活中所面临的困境，对未来隐痛的担心……都令人惋叹。但番茄的努力，不一样的乐观，她面对世界的勇气，以及对自己人生的思考和信念……却令人刮目相看。我们不希望生活对我们设置太过残酷的模式，但如果我们无可选择，那就跟命运死克，看最终谁战胜得了谁。这个社会某些行业确实是需要看脸的，但更多工作实质上最需要其实是实力。然后，科技会越来越是发达，机会更是肯定会有的。原文链接：http://www.zreading.cn/archives/4849.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

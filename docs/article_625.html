@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>只有“对味”，才会有效 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>只有“对味”，才会有效 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>有一个管理寓言，是关于“工程师与青蛙”的。</p>
+<p>小王走在路上，看到一只青蛙，忽然青蛙开口说：“先生，请吻我，我会变成公主，我会给你一个热吻。”小王停下来，把青蛙捡起来放入口袋，然后继续走。</p>
+<p>青蛙又说：“请快吻我，我愿意跟你在一起一天，随便你要做甚么都可以。”小王把青蛙由口袋拿出来，看了一下，笑一笑，又放回口袋继续走。</p>
+<p>过一会，青蛙又说：“好了，好了，我愿意跟你在一起一个礼拜，请快吻我。”小王又把青蛙由口袋拿出来，看了一下，笑一笑，又放回口袋继续走。</p>
+<p>青蛙又说：“怎么回事，一个礼拜还不够吗？你要多久？”</p>
+<p>小王把青蛙拿出来，说：“我是一个工程师，没有时间跟女人鬼混，但是有一只会说话的青蛙，好酷。”</p>
+<p>有美女相陪哪有男人会拒绝，偏偏这位青蛙公主倒霉，碰上一位不解风情的工程师。</p>
+<p>每个人的需求都不一样，激励员工时，如果不能掌握他们的需求，径自用自己的认知给予刺激，不一定能够产生期待的结果，搞不好还会有反作用。因此，管理者必需懂得了解员工需求，根据需求给予相对应的激励方式，才能产生事半功倍的效果。</p>
+<p>就像话说就要把话说到对方的心坎里。从对方出发，为对方着想，以对方的利益为起点，让对方明白事情对自己有利，对自己有利的事，还有什么能不答应呢？</p>
+<p>有人请了一水泥工装修阳台，主人家把工钱从1500谈到1000元。水泥工干完活后，主人家觉得做得挺好，而且认为水泥工干活特别辛苦，于是付工钱的时候又多给了五百块，谁知水泥工接到了这五百块时，没有感谢之言居然说的是：你早说嘛，早说我就干好点。于是又去返工，无奈大局已定，再怎么修改也只能是蜻蜓点水。主人家不由长叹一声，早知道我就不还价了！</p>
+<p>鬼谷子在“策略篇”中指出：“与智慧超群的人说话，凭借的是广博的见闻；与见多识广的人说话，凭借的是精辟的辨析能力；与善辩的人说话，则应该简明扼 要；与大人物说话，要用奇妙的事情吸引他的注意力；与臣子说话，就要用好处来说服他；别人不愿意做的事情，绝对不能勉强；对方喜欢的事情，就应该投其所 好；对方讨厌的事情，就避免谈论它。”</p>
+<p>当你向对方诉说他认同的观点、立场、爱好或经历时，两人的思想就很容易产生共鸣，碰撞出激烈的火花。心理学家指出，这其实就是人的一种相似相惜心理。根据这种心理，在与他人交往时，如果我们能找到对方的“动情点”，把话说到对方心坎里，就能很容易与对方建立起良好的交往关系。</p>
+<p>那当你遇到一个IT男正在写代码，你又不懂，你会怎么说话？</p>
+<p>柏邦妮是这样说的：</p>
+<p>我看了一眼他写的程序，当然完全不懂，我说：“我们写字的人，看看文字布局的层次和节奏，不用读就知道写得如何。你写的程序，节奏清晰，结构坚固，完全就是诗啊！有韵律感，有音乐性！”哥们乐得像中了头奖，半天嘴巴合不拢。</p>
+<p>附：安又琪《对味》</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

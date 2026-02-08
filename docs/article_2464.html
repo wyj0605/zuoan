@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不说，是已不必说</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>不说，是已不必说</h1>
+            <div class="date">2015-06-23 22:05:58</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/余巧“我喜欢你是寂静的，好像你已远去…你的沉默明亮如灯，简单如指环，你就像黑夜，拥有寂寞的群星。你的沉默就是星星的沉默，遥远而明亮。”每每读智利著名诗人，政治学家巴勃鲁.聂鲁达的《我喜欢你是寂静的》，也仿佛自己也已置身于一片黑夜中，看着那闪亮且紧凑的星星，随同着黑夜的沉默不言不语，幸福且知足。生活中，也欣赏懂得沉默的人，像午夜的海，内心暗流汹涌，神态淡如远山。许多繁琐的事，不说。不说。一个人的修养，不需要别人的夸奖，也不需要自己的解释。修养，是当你走到一个人的身边，闻到的在散发着的气味。谈及修养，想到了王菲。喜欢听王菲的歌或是有听过王菲的歌的人，都知道她的歌，似天外仙音，空灵渺远。记得有一次春晚，天后献歌，之后许多人在网上吐槽，说天后唱歌竟然跑调。天后唱歌跑调，一时哗然。以往被吐槽的明星或站出来说些什么，或解释，或调侃……然而大家也以为王菲会做出什么举动，却没想一帮俗人翘首等了半年，也没见她对此发表过半句金言。不解释，不愤怒，不调侃，不急恼，不……不说。长短尽由他人道，她不买账。她的不说也是她的一种修养，她不为之扰，过自己的生活，她做自己。做不一样的王菲。不说。与某些人的缘分，就像在夜色中开的花，不能见到阳光，黎明之前，即自行默默凋谢，且将不再开花。那是月光和阴影的缘与情，走出了那段城池，还是要继续赶路，爱情，也就这样充满幻觉，始终有希望，也始终无望。金岳霖爱林徽因，一爱便是一辈子。不用写酸麻的情书，不用说甜腻的情话，只在心里满满的、沉沉的装一个人，像古莲埋在地层深处，永远一颗休眠的种子。在金岳霖晚年的时候，有人提议他当众说说林徽因，他说：“我所有的话，都应该与她面对面的说，我不能说……我没有机会同她面对面说的话，我不愿意说，也不愿意有这样的话。”这是真爱至深的一种境界。在爱情的世界里，只有两个人，其余的人也只是看客。有时，即便是两个人之间，也可以不说。无声胜有声，我们也能听见对方心里刮的是哪个方向的风，前提是你是真心的在爱。我记得我问过一个朋友，一位很实诚的男生，“你怎么就这么确定她是你最爱的女生呢？”他没有回答我任何他们在一起时的甜蜜，相反他说：“当她不在我身边的时候，即使什么也不说，我知道一点就够了，我们在一个空间里，她在某一个地方努力着，她让我想要变成更好的自己。”她让我想要变成更好的自己，这大概是一个男人对一个女人最好的赞美和夸奖了。古诗里有：盈盈一水间，脉脉不得语。即使不得语，那绵密的情意还都在，在相望的眼神里，在经过脚下的湍急河流里，悠远，没有尽头。不说。一个人要做到对自己的美、善良、聪慧完全不自知，才显得贵重。一旦有了自知，品就会下降一个层次。就仿佛栀子花不知道自己有多香，不知道自己有多幽静。天性、天分、人格魅力，从不需要发言和解释。著名文化学者余秋雨在“秋雨学院”揭牌仪式上，谈到莫言获得诺贝尔文学奖时表示，很高兴诺贝尔文学奖回归文学本位，莫言的平静、自然、谦虚的态度让人喜欢。莫言无论获奖前还是获奖后，都一如既往的平静。你看，他现在安静的在家乡住着，那么平静，那么自然，那么谦虚。正如他所说：“人到中年，我除了努力争做一个坦率的人，我还想努力争做一个谦虚的人。做一个坦率的人士为了在夜里不失眠，做一个谦虚的人是为了能进步。”他的谦虚与平静，虽有所守，有所弃，但也始终和外界的嘈杂与虚荣隔着一条银河。窗外风起不息，林木哗哗扰人。只当是春水潺潺，听与不听之间，寸心不惊。红尘喧闹，只做无言低眉人。不说。生活的根茎，是一颗自然的平常心。如同涓涓清流从心底淌过，来自我们与世间周遭的人与事和睦相处的道理。它是一种无法言语的喜悦，是那么不确定的事，不剧烈，也不荣耀，如花期一期一会，只开在当下。所以，我有多爱，也不说。左岸记：该静静该说说。不说是不必说，因为一切尽在不言中，那需要的是一种默契，或是一种自在威严，如天不言自高，海不言自深；当说必说，因为现在的说是为了以后不必老说，你若不说，又有几人能懂？而且，说，一定要说得透彻说得明白，掷地有声，有理有据，不谄媚不信口开河。原文链接：http://www.zreading.cn/archives/4955.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

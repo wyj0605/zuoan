@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>十年生死</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>十年生死</h1>
+            <div class="date">2026-02-08 18:44:01</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/驰云旅生死茫茫正十年，墓园径深草掩阶。碧落仙宫无尺素，想是天上胜人间。——《十年祭》流年晃然，时至今年，想起我祖父竟已逝世十年了……祖父出生于民国三年的寒冬，听闻他出生后曾祖郑重地写上“宣统六年甲寅”为始的生辰八字。然而可想得知，降生在那个风雨飘摇的年代，人的命运好比浩海洪波中的一系孤舟，一生必然随着这个国度载浮载沉而不能自主。战事连年哀鸿遍野，居无定所食不果腹，祖父上了三天的私塾就辍学了，一生所学全靠曾祖日夜亲授；正值青春年华就遭日寇侵华，在战争的缝隙中万幸得以保全，等日军败北后，再遇上同样惨烈的解放之战；终于熬到战事完毕，却又被迫随洪流进入荒诞的建设时代，继续衣食紧缺并缺乏自由的生活；而最后长达十年的文革浩劫更让他身心受到巨大创伤，在暗无天日的时间泥潭里隐忍求生……上世纪70年代末，当一切不知所谓的斗争将消逝之际，他已六十多岁了，不顾众议流言，愤然离开了居住了几十年的村子，寻得一个僻静山脚重新建家。当时，祖母初逝，父亲在流亡香港的路上，祖父一人领着不足20岁的母亲，建起我们如今的家。他用毕生的积蓄和多年患难积累的人脉，耗费了三长年的时间，一石一瓦，一栋一梁构筑全新的家园；同时在房前屋后栽种了竹子、茶树和几十种果树，并取名“梅林”。自我明白事理以来，祖父从不管家中琐事，他平日的消遣就是看书、礼佛和种树。时常与他的一群老友相聚。我最喜欢他们聚在一起谈天说地，内容无所不有更无奇不有，如战争、鬼神、传闻、命理等等，内容几乎都不惊悚，颇有传奇色彩。他们还经常舞文弄墨，互赠诗画。我记得他的一位老友曾赠过一副对联给他，为“庭植千株果树旺，家藏万卷宝书多”，横批我忘记了；而我祖父略微得意前面一句，对于“万卷宝书”实在难以苟同，故却而不受。至于那些写得龙飞凤舞的书法作品就更多了，足足贴满了一客厅，有一则写得实在好看得以保存多年，后来我才从褪色残缺的纸张上猜得该是“老当益壮”的篆体。待我六七岁之时，祖父便开始教导我们读书写字。他拿出发黄线装的《老三字经》和《声律启蒙》，开始一字一句地教我们认读，让我们背诵天干地支、二十四节气等。就这样嬉闹了几年，等我正式上学之时才发现，平日所学的竟一无用处，费力将“学习”二字写成“學習”将会得到老师一个血红的大叉，而且奖状上的年份分明写着“1995”，永不会有人会生涩地说“今年是乙亥年”。聪明如我，待上小学二年级后，就彻底地丢弃了他那一套学问，连同几年毛笔功底也随之东捐了。如今回家翻看他的故书，徒留满腹的遗憾，遗憾的不是未能学得那套无用的学问，而是我们当年的不听管教应该让他失望了吧。适逢天气倍好的日子，他会领着我们一群孩童外出游历，上山看风景、采药、收养蜜蜂、移植野果树回家等，我的脚步曾经踏遍过家乡目之所及的群山的山脚。如今想来，我实在是怀恋某天西边凄凄消散的落日晚霞。在门前的果园间隙中，他种有很多备而不用的草药，我以前认得其间有车前草、灯笼草、白贝等，还有一种叫“半天一朵云”的树的根是治疗耳道发炎的灵丹妙药。这些草药我们极少用到，大半常年都是被附近各个村落有需的人士无偿求去了。自他别后，为了抑制杂草，常年喷洒农药，当年那片绿油油的草药早就难觅踪迹了。如今若有人在找某样药材，乡里人很多都会搭上一句：记得以前梅林有种过的，你可去找找看。当然去了的人，都要失望而归的。祖父身形高瘦目光矍铄，起居饮食很有规律，无论是清汤寡水还是满汉全席，所食都是定量的；且不好烟酒，偶尔小试小酌。在我十多年的记忆里，他只感染过几次风寒，喝几次热姜水就愈合了，相貌十余年也感觉没有多大的变化。等我去县城念书之后，六弟也去镇城上学了，于是平日热闹的家因我们的外出就显得清净了。而他昔日的好友，在那一两年内如同中了魔咒一般，接二连三地驾鹤西去，特别是与他有生死之交的义弟的突然故去更让他郁郁难欢。如今想来，那时的他一定很孤寂吧，并且该有种被岁月逼宫的无奈哀伤之感吧…而十七八岁的我对此一无所知，也并无关怀。他是那年的寒冬病倒的，新春时节也难掩疾病折磨的苦痛。大年初五，我们为他在法华寺求了一支灵签，他默默拿过签文，读了几遍，思索了一阵，然后凄然对我们说：能挨过这个春天就没事了……而我们早已沉浸在隐形的下半句“若挨不过这个春天”的悲痛之中。有天他极为难受之时，说了一句“活得这么狼狈还不如早点去了”……，我听后瞬间泪如泉涌，慌乱奔出客厅逃往屋后竹林深处。我上学之前向他道别，说：“阿公，我要去读书了”，他往年照例都会嘱咐我几句，唯独那次只是虚虚地应了一声，我不知他是否真的清楚那是他排行第几的孙女和他说话，但愿他内心是灵洁清明的。一个多月后的一个傍晚，母亲一封急电召我火速回家，我当时瞬间明了即将发生的事情，最坏的是他病危了。然而急忙赶到家，却早已停柩在堂，总没想到那次道别竟是此生最后一面！昏天暗地地痛哭一场之后，然后一起商量后事。据他的遗愿，我们决定秘不发丧，我们必须遵照他的心愿让他入土为安，绝对不能让他去那冷冰冰的地方！作为传承了他血脉的家人，我们情愿与任何人为敌也必须坚定那份最后的敬意。他的脚步曾经丈量过万里山路，我们的身后是绵绵万里青山，与那些灯红酒绿寸土寸金的都市相隔何止万里之遥！我们世辈在此劳作生活，为何离去之时却贫瘠得没有一穴之地来安放身躯？为何要被胁迫到陌生的冰冷地狱幻灭成烟？愚昧如我，终始不能理解，而我们也无法什么都不做就接受人世间的蛮横刁难。再翌日，就极为简单地行了丧礼。没有天散纸钱，没有白幡引路，在一个凄风苦雨的暮春时分，我们一行人便衣素服的送了他最后一程。次日，为了避人耳目，众人分别散去，各行其事。那场草草的丧礼对我而言，更像子夜里一场不真实的噩梦。平日里感觉不到异样和悲伤，然而一想起现实就心中凄楚难耐，如在惨暗悠长的地下室里飘转，却又找不到哭泣的出口。待我六月高考完毕后回家，一切都似原来的模样。还时常有不知情的外乡人来找他聊天，我总是平静地回答：他去外地访友了，可能要很长的一段时间才回。这样的谎言说多了几次，连我自己都相信了，总感觉他真的只是外出了，过不久就会回来。于是那段日子，连悲伤似乎也清淡了。待到过年前夕，我们才整理收拾他的遗物。打开一个个陈年雕花老箱，他一生的收藏尽收眼底。光是他平日所穿的中山装纽扣，就收藏了好几百颗，不同的色泽和大小，琳琅入目；他多年来用坏的手表、眼镜和毛笔，一一收拾摆放整齐；还有一大箱树根，我们都不知是何药材有何效用……他昔日珍视的所有对于我们而言，都沦为可以丢弃的无用之物了。自他别后，多年间还时常入我梦来。一回梦见他站在高高的荔枝树上，正在给荔枝剪枝，他身边飞起当年的一群白鸽；有一回梦见他在餐桌上嫌弃我炒的菜味道很淡，我试吃了一口，回道“不会啊”……一晃六年后，按照乡下的习俗，要开馆迁坟了，要将白骨收整好，分左右上下放入瓮中，觅得一处风水宝地另筑成墓。那年清明，我请假回家。那天，他们一群人在那儿举行仪式；而我，固执地停留在十米之外，没有勇气上前，是因为害怕！难以想象昔日如此亲近的人，此刻间竟然成为一具白骨，毫无温情地斩断我那丝丝廉价的念想。当年草草安放的殉葬品都还完好，唯独一起落葬的人啊，却是另番模样。他的墓地就在茶园上方，我问母亲：这是谁择的？母亲说，那是你阿公多年前就择好的，当年你们一定也听他说过的。于是才晃然想起，昔日我们在茶园采茶时，他貌似多次说过那样的话。只是当年啊，觉得生死是那么的遥远和荒谬，怎知如今竟然十多年已过去了呢。有道是“去者日以疏”，以前家中随目可见他生活过的痕迹，十年后，都被时间替换了下来；门前的果树，在每年的台风中一棵棵倒下并死去，再无人扶持和补种，也日见其疏了，如我般无用的人，常年只身飘摇在外，一切终归想想念念而已，永远都不会有新的作为；近年来，内心荒废得干脆连梦都不曾有了。后来我根据他“宣统六年”的生辰八字追查到，他今世投生为福州刘家人氏了，我便一厢情愿地想象他如今已是一位殷实商人家的大公子了。福州于我，就变得超乎一个地名的范畴了。之前偶见来自福建的人，都会殷切地向他们询问当地的风土人情，这种殷切，时常让对方万分不解，而我只好笑笑做罢，终不敢道出事情的缘由。我几次真想亲自去一趟福州，心盼徘徊于老市街巷之时，能遇见一个八九来岁的小小少年郎，相见之时，能给我一个至纯至灿的笑容，于是我便知那人该就是他了。福州并非千里之遥，若我心足够愿意，即日可达。可我终是不敢前往，因为我知道，我什么都不会遇见。我又怎么可能遇见呢？我只愿他今生温足安好，恳请他切要切要安享当下的万丈繁华盛世……离失的故人离失了，相逢的今人不再相逢。（原文链接：https://www.douban.com/note/544655958/）后记：花城至开年以来不曾有过晴朗的日子，近日大雾封城湿气缠绵的天气更可能会持续一段时间。这种郁郁的天气结成了这篇郁郁的文字。十六七岁之时，我一位语文老师说我的文字有三十岁的笔调，如今我临近三十了，感觉笔下似乎有了半个世纪的风霜。将几十年的时光，活生生地拉长了一倍，我竟也不知是幸或是不幸了。原文链接：http://www.zreading.cn/archives/5319.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

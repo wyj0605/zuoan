@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>向内，向外</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>向内，向外</h1>
+            <div class="date">2014-08-09 23:01:20</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌害怕停下忙碌的脚步审视走过的路，缺乏长远的目标和规划，也就只能被动的亦步亦趋接受生活的指点。安静的享受生活的美好，调节好心态从此过上幸福的生活也不是不可以，只是不安分的总以为更好的生活不在当下，而在别处。貌似一成不变的生活里，其实岁月一直在流转，世界在变化，如果只是徒然的混迹人世，又何必大费周章不远千里到陌生的城市求学工作呢？为什么不在那个安静的小镇，娶妻生子享受人世最朴素的温暖呢？偶尔的停歇和观望也会让自己失了准心，一路走来似乎也没有做错什么？总感觉眼下的自己不是想要的样子。担心哪天像诺基亚被微软收购时，其CEO说的，我们并没做错什么，但不知为什么，我们输了。担心自己陷入生活的俗套，荒废了这大好的年岁慢慢的老去。尼采说：“当你健康时，你就会快乐；当你羸弱时，你就会悲观失望”。当我们面对生活的冷漠悲观无力的时候，或许只是身体不适。有时的悲观是囿于环境的束缚和能力的限制而看不清远方的茫然，久而久之就忘了当初为什么出发。庆幸自己赶上了这样的时代，不必经受饥寒交迫的痛苦，也没有战争屠戮下偷生的惶恐，只是悠然的按部就班走来，甚至可以通过自己的努力随着滚滚人流涌入城市，享受现代社会的文明。抱着看世界的心态，每有机会总会出游，看看世界的模样，穿梭在世博会的展馆里见识世界的文明，徒步游走在广州城里看都市的繁华，游弋在各个城市的大学里见识名校的风采，到沙漠里感受细沙缠绵，在大海里品味什么叫肆意汪洋。将自己放到偌大的世界里，难免孤单，但谁不是这个美丽世界的孤儿呢？更何况明天和意外你不知道谁先到来，谁能料到鲁甸的地震会骤然降临？在现实面前“要么读书，要么旅行，身体和灵魂总有一个在路上”的小资总是缺乏力度，不得不去反思什么才是最重要的，什么是值得追求的？不遗余力的向外探寻着这个世界的繁华，可终究只是走马观花，精彩欢快的瞬间总是不敌儿时玩伴在田野里嬉戏时的欢乐，再美丽的风景不如故乡春天漫山遍野的油菜花开得温暖。有些流淌在血液里美好的记忆是无法磨灭的。但是这种出生背景的局限性也是无法磨灭的。比尔盖茨的书不会告诉你他母亲是ＩＢＭ董事，是她给儿子促成了第一笔大生意；巴菲特的书只会告诉你；他８岁就知道去参观纽交所，但不会告诉你，是他当国会议员的父亲带他去的，而且是高盛的董事接待的巴菲特。出身卑微并不意味着我们所珍视的东西不重要，父母给了我们别人无法给予的东西，比如生命。试图在机械式的生活里寻找一些人世的温暖，而回家听起来就很温暖。于是见到了久违了父母，围在一起简单吃顿饭就觉得很温馨。小侄女醒来第一反应就是看我母亲在不在，然后啼哭着喊奶奶，挺能体会那种醒来茫然四顾找不到人的失落和无助感。奶奶念叨着他是民国二十二年生的，今年都八十了。家里的夜晚很安静，没有人来车往的嘈杂，看得见漫天的星辰，在家里睡觉很踏实。回京的车上旁边的大叔说：“上次来北京，还是在二十年前，现在都六十多了，现在出来看一次就赚一次！”，听着我满心感慨，哪天我也会老去。数不尽的繁华，经不起此番安静的品味和盘点，再次出发似乎又明白了些什么，为什么不远千里在外求学工作，无非是尽可能见识不同的精彩，践行着更多可能。如果在家也能看电视，又何必不远千里跑到首都看同样频道？如果做着八十岁也能做的事，又要这大好的青春做什么呢？如此，也就释然了！向内，我们要追寻内心的宁静和平和；向外，我们要在不断精进中体味活着的精彩。書於 北京 八月左岸记：什么是好的生命？好的生命，是有事做，有人爱，有问题可想，有选择的自由。如何塑造好的生命？树木花草往高处长，往横向空间长，枝繁叶茂，变成一把打伞，接触更多的空间，长得更高看的更远。人和动物一样，越高大越强壮，才可以奔跑跳跃，去更远的世界，成就那个从未被人看见与理解却是自己内心所想的生活。原文链接：http://www.zreading.cn/archives/4512.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

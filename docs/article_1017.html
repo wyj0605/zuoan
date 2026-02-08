@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客如人，如人生 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>博客如人，如人生 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>我 想过，我是不是应该把一些阅读的偶像放下，离开他们，走自己的路。想想，如果只是我个人，又有什么好写的呢？左岸读书应该是个阅读的平台，不应该是我个人 的磨叽。这样想，我就明白了，就算我超越了阅读本身，却还是有很多的朋友需要这些知识。很多的朋友经过这里，走向更高的山峰，去寻找更高的智慧，却还有更 多的人往这里赶路，那我为什么不能只是家客栈，大家走累了，可以在这里“歇歇脚”，“喝喝茶”，“吃吃饭”，“聊聊天”，或许住上一段时间，再出发。</p>
+<p>所以，左岸不能算是一个博客，博客给我的感觉是具有非常鲜明的个性，透着主人对人生的思考。看过很人对博客的定位，个人感觉最贴切的应该是羽中的博客禅意，也就是他所表达的“原教旨主义博客”思想。</p>
+<p>原文：博客如人，如人生</p>
+<p>作者：羽中</p>
+<p>原教旨主义博客</p>
+<p>羽中是一个原教旨主义博客膜拜者，从2005年起。所谓原教旨主义博客，出处不详但绝对和塔利班无关……指严守博客原始概念的站，现存量越来越少。</p>
+<p>我举个反例，一个内容丰富多彩的猎奇博客，或一个主题专注的SEO博客——都不是原教旨主义博客。前者把重心放在内容关注度上，其实是信息发布平台CMS的博客形式化；后者把重心放在定向主题宣讲上，目的在推销技能。</p>
+<p>那什么才是纯正的原教旨主义博客？首先作为web2.0的始祖，必须以“人”为中心，也就是说真正的主题只有一个那就是你博主。其次就是原始记录，web+log=blog，“网络日记”一词点透——随时随地想记就记，所以哪来目的性，更不要谈功利性了。</p>
+<p>原教旨主义博客不在于程序，一个简陋的留言板或用门户CMS写日记都算；不在乎利益，更像流浪艺术家那样在自己的网络空间涂涂抹抹然后左右端详一番……</p>
+<p>而所谓博客营销其实只是借程序形式玩弄内容的网站营销而已。</p>
+<p>个人博客的价值和所谓成功</p>
+<p>也许会让人感到有些失望和纳闷，但“做自己”的代价往往就是这样。正因如此，如卢松松刘易俊羽中等辈会常自问写博的目的在哪里？虽然原教旨主义博客的价值一直存在争议，但有一点可以肯定，以自己名字做域名，博主本人的价值就是博客的价值。</p>
+<p>原教旨主义博客打造的是个人品牌，如果他们有什么逐利需求，那就是向世界淋漓尽致的表现一个自己，或许还期待着一阵回声和一群知音。</p>
+<p>写博如做人，在这点上如果你是原教旨主义博客，必彰显无遗。乐观的人会写乐观的博客，愤怒的人会写愤怒的博客，负责的博客会提供负责的内容，任性的博客会坚持任性的独舞……</p>
+<p>由此回解大家都在求索的境界：如何做一个成功的博主，一个有价值的博客？——其实就取决于你线上如线下的一举一动：</p>
+<p>你是否像善待自己的朋友一样善待你的读者？</p>
+<p>你是否像珍视自己的名誉一样珍视自己的文字？</p>
+<p>你是否像尊重自己的作品那样尊重别人的作品？</p>
+<p>你的博文是否如你的言谈一样坦诚自然，如你的思想一般深刻独特？</p>
+<p>你的评论是否如你的关怀一般推心置腹，如你的行事一样掷地有声？</p>
+<p>如过做不到这些，恐怕你在生活中都难以为周围人提供更多价值，更不要说博客。做的不完善则关键在改进的要点——不在博客模版、SEO做的怎么样——而在你的人。</p>
+<p>所以我总说旁门博客看PR，个人博客看RP。</p>
+<p>虽然博客的价值或许不是你自己说了算，但博主是否成功很大程度上取决于你对自我努力的肯定。要我说能真正表达自我并不断更新自我的博主就是成功的。</p>
+<p>这点博客不更如人生吗？——但求问心无愧，功过自由人评。</p>
+<p>想清楚这些……我想我已经明白了该怎么继续自己的博客 Blog.ZhengYuZhong.Com</p>
+<p>你呢？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

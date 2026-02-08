@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人生不设限，我想去试试</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>人生不设限，我想去试试</h1>
+            <div class="date">2016-02-05 22:35:26</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/九尾近日有一昔日好友，许久不联系。突然微信问我，你这两三年过得怎么样。突然地我就对着手机的屏幕哭了。并不是因为我过得不好，只是我们怎么说起陌生人的话了。其中缘故太多。随即想到Z。毕业不久，我们两个穷得要命。有次一起吃饭，你拿出全部的身家几十块，我凑了一点，两人才够吃真功夫。你说要去深圳的时候，我难过得很。我预料着会失去一个好朋友。这事中了。我也想念Y，过去我们总是有太多话要说，站在宿舍楼梯口和你讲电话至深夜，骚扰整层楼的人休息，我一点也不内疚。只是后来我再也没有做过这样“缺德”的事了。还有T，你比我早工作，得知我没钱，带着钱送到我的学校。你可能忘记了，可我都记着。后来又遇着X，他总是做什么都约上我。我白吃他太多饭了。吃得实在不好意思，要买单，他坚决不肯。他总是说，你那点破工资。他也是打工的，每天都埋没在一堆图纸中，脑细胞死一大堆。人们常说，出来混，总是要还的。我总是想还的，可是人呢，得找回来吧。我遇见的这些人都与爱情无关，但友情，时间久了，总是会转变成亲情的。在我的个人English Introduction 里面，有一句话是这样的 “I made a big decision last year.”为此我挣扎了许久，准备了许久。这是我长这么大，第一次自作主张地做出的重大决定。辞职后，我才跟我爸说。他有点不理解，“你为什么都不和别人商量？”我笑着带着哭腔和他说，我从来就没有做过自己喜欢的工作，这一次你就让我自己决定吧。这样的决定于我而言，太不容易了。无论是离开公司前，还是离开后。我喜欢这家公司的人，还有工作氛围。我只是，不喜欢我的工作。我对买哪款油漆，多长的螺钉，什么时候到货，下订单，做账单，一点兴趣也没有。每天穿上PPE在工厂巡，我时常在机械声中走神。这是十分危险的。没办法，对着不喜欢的东西，我的脑袋完全没有空间去装下这些。我老是记不住所有钢构的样子，分不清BRII和MR24。这些我都能混过去，只是觉得痛苦。人生是为了什么，才要这样地折磨自己。每天做完自己的本分工作，我总是偷偷地看大量的翻译资料。时常因此感到心虚，因为是在做贼，又觉得每天都在浪费时间，心里焦急得不行。好在皇天不负有心人。国庆前终于盼来一个不错的package，又是肝肠寸断，又是满天欢喜，离去。临走前那天，还记得和Emily说，你不要弄哭我，最后却是我在胡总的办公室哭得一塌糊涂。大多的分别，分了，就别了，哪来那么多日后的如何如何。你选择了一些，就得失去另一些。世上的公平大抵是这样计算的。从来没有那么认真，全心全意地，不顾一切地去做一件事。因为喜爱，没有抱怨，没有痛苦，每天内心都充满了正能量。我常常会忘记自己的年纪，然后像一个小孩那样，去发掘各种各样的乐趣。我学习围棋，象棋，素描，水彩画，瑜伽……所有这些都与金钱无关。而我也知道，起步这样的晚，再努力十年也很难成为这些领域的专家。只是觉得有趣，很快乐，也坚持得下去，终也是有收获。像是做瑜伽，做运动，两年多了。突然有天在镜子里发现肚子多了两条马甲线，对着镜子我傻傻地笑个不停。要不不做，要不尽力做到最好。为了更专业，我重新学习普通话。从声母韵母学起，然后朗读文章，用手机录音，再听回放，差点把自己笑死。我的普通话是有多差啊，我还去做让自己害怕的事，最终那些害怕，消失了。而那些从前看来高不可攀的，如今回头一看，自己竟然跨过了，还走了那么远。努力真是一件不可思议的事情。有人曾说我，你总是说好话。我知道她下一句，是想说，你好虚伪。我只是觉得，人与人之间相互交往，最好是让彼此都舒服。每个人都有可爱的地方。大家都在为难他的时候，不要参与进去。实在不想说谎，不妨另找其闪光点，让他不必太难堪，处处相碰都是伤。我再也不对父母发脾气，和他们说的每一句话，尽量温柔而有耐性。我们在成长，他们在老去，我舍不得大声呵斥，我想呵护他们，像一个孩子似的，像他们从前待我那样。越来越明白，父母在，不远游。我很努力地赚钱，只是想把自己所爱的人照顾好。我从没公开地写过一个人。我一直相信，无论你遇见谁，他都是你生命该出现的人，绝非偶然，他一定会教会你一些什么。无论我走到哪里，那都是我该去的地方，经历一些我该经历的事，遇见我该遇见的人。正如遇见你又离开了一样。我不觉得我们是一种错过，错了就是错了，过了就是过了，连朋友也不必做了。我定不会对你说真心话，你也不必告知我近况。我不感激你也不怨恨你，你也不必对往事耿耿于怀，抓不住的都是要流走的，挡也挡不住。要来的，就算姗姗来迟，总是要到位的。我很享受现在的生活，剩女就剩女，老姑娘就老姑娘，我一点没让自己无聊和慌着，只是可怜父母的牵挂和担忧。我时常和我妈说，你是一个人，独立的个体，不要把所有快乐忧愁都寄托在子女身上。我知道很难去说服他们，他们的圈子就那样大，每天见着的人就那么几个，却是充斥着各式各样的比较，人心难平，在所难免的。但我不想，也不可能过着那种可以预料到的生活。世界那么大，我想去看看。人生不设限，我想去试试。`(*∩_∩*)′左岸记：改变是对现状做出明智的判断而重新选择心中想要，坚持是认定自己当下的努力终会有所收获。人生，就是你选择，你负责。原文链接：http://www.zreading.cn/archives/5264.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

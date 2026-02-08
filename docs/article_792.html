@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户和设计师的苦恼 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>用户和设计师的苦恼 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>一篇爆笑之余能令人深思的文章，一篇关于设计和需求的差异的文章。</p>
+<p>英文原文地址</p>
+<p>背景是，某人（Shannon Walkley，以下称“乡农”）丢了只猫，拜托设计师朋友（David Thorne，以下称“大威”）给他做个寻猫海报，于是两人之间囧囧有神的的邮件往来开始了…</p>
+<p>对了，那猫叫Missy，以下就称“咪细”吧。</p>
+<p>（翻译出自本莔，乱译也出自本莔…）</p>
+<p>From: 乡农</p>
+<p>To: 大威</p>
+<p>大威啊！我家咪细昨天跑出去就不见了，你看着办给我做个寻猫启示吧！我就你一个设计师朋友，只能靠你啦！！</p>
+<p>这是我家咪细，我就那么一张照片，你给做一下吧！！</p>
+<p>万谢万谢！</p>
+<p>From:大威</p>
+<p>To: 乡农</p>
+<p>乡农！我很震惊！还好我坐在椅子上看你的邮件，要是刚才爬树的时候看，我非得摔下来不可。你没事吧？节哀顺变……你能继续工作实在太牛了！想想你家  咪细独自在外流离失所饱经风霜风餐露宿茕茕孑立形影相吊，我的心肝儿哟！没准她还在那扯着细小的嗓子叫“乡农，乡农，阿拉想侬了……”</p>
+<p>虽然老子手里还有一堆活，不过，我现在就给你弄这个东西，兄弟的事，一定要挺的！！！</p>
+<p>From: 乡农</p>
+<p>To: 大威</p>
+<p>大威，阿拉泪奔鸟！阿拉晓得你不太喜欢猫的，但我真的很担心啊！！！实在是麻烦你了，我下午1点就要出去了。</p>
+<p>From: 大威</p>
+<p>To: 乡农</p>
+<p>啊呀，乡农啊！我啥时候说过不喜欢猫了呢？有一次我去个party，花了老价钱买了双G-star的靴子，妈的老贵了！！！不过我太喜欢了，所以虽然小了2个号我还是买了。那么小的鞋，我连袜子都不能穿，连脚趾甲都剪了……</p>
+<p>那地方很近，我就走过去了，到那里的时候他妈的脚都没知觉了，我啪得一声摔在一个人身上，饮料洒他一身，那哥们儿就冲过来打了我一顿……妈的你为了条美特斯邦威至于么！！！</p>
+<p>后来，这哥们儿坐到个猫上面，那猫一下子就怒了，乱搞一气还在那人脑袋上洒了泡尿！！啊哈哈哈哈哈，太解气了！那个猫我喜欢！</p>
+<p>那个寻猫启示做出来了，不要谢我哦！</p>
+<p>From: 乡农</p>
+<p>To: 大威</p>
+<p>大威啊，这个咋那么像电影海报呢……普通一点就好了。而且咪细咋那么小呢……</p>
+<p>From: 大威</p>
+<p>To: 乡农</p>
+<p>乡农啊，设计的事情你就不懂了。这代表你家咪细迷失在了另一个空间。</p>
+<p>From: 乡农</p>
+<p>To: 大威</p>
+<p>我昨天哭了一晚没睡，都他妈伤心死了！你以为很好玩是不是。你就不能做得普通一点么？求求你把照片弄大点，文字通俗点，再来点彩色吧！！</p>
+<p>From: 大威</p>
+<p>To: 乡农</p>
+<p>乡农！我好歹也干了几年设计师了！我原本以为你是很理解我的！</p>
+<p>告诉你吧，我们不欢迎你这种建议，就像我不会去你家教你怎么发邮件、怎么翻墙。</p>
+<p>哎，算了，都那么多年朋友了，就帮你改下吧！</p>
+<p>From: 乡农</p>
+<p>To: 大威</p>
+<p>我靠，这比之前那个还要不好！你就不能把咪细的全身放出来么？咪细失踪这几个字太蠢了！就不能写个“LOST”么？</p>
+<p>From: 大威</p>
+<p>To: 乡农</p>
+<p>From: 乡农</p>
+<p>To: 大威</p>
+<p>草！！</p>
+<p>我就要五样东西：照片，“咪细”，“LOST”，我电话，啥时候走丢的。</p>
+<p>From: 大威</p>
+<p>To: 乡农</p>
+<p>满足你！</p>
+<p>From: 乡农</p>
+<p>To: 大威</p>
+<p>这是谁家的鬼猫……我不给你咪细的照片了么。。。</p>
+<p>From: 大威</p>
+<p>To: 乡农</p>
+<p>我当然知道，不过这个更可爱一点嘛！外面那么危险，你家咪细多半是不行了！干脆你到时候按照这个换一只。</p>
+<p>而且，要是有人打电话给你说：“我没看见这只橘毛的，我就看见有只黑白相间的被车碾过，断了后脚，你就可以拒绝他，能省老大一笔钱啊！！”</p>
+<p>From: 乡农</p>
+<p>To: 大威</p>
+<p>大哥，我求求你了。。。你放我给你的那张照片吧</p>
+<p>From: 大威</p>
+<p>To: 乡农</p>
+<p>From: 乡农</p>
+<p>To: 大威</p>
+<p>妈的我哪来着2000刀啊！你卖了我得了。。。</p>
+<p>From:大威</p>
+<p>To: 乡农</p>
+<p>From: 乡农</p>
+<p>To: 大威</p>
+<p>你就不能别管有没有赏金了啊…………求你了，我就剩10分钟了。。。</p>
+<p>From: 大威</p>
+<p>To: 乡农</p>
+<p>From: 乡农</p>
+<p>To: 大威</p>
+<p>好吧</p>
+<p>就这样吧，我认了……</p>
+<p>来源：蓝色理想</p>
+<p>链接：http://www.blueidea.com/design/doc/2010/7885.asp</p>
+<p>另外：可以看看玖玖同学是怎么设计她的寻猫启事的。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

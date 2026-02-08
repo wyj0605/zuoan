@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>那看不见的内心黑洞 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>那看不见的内心黑洞 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>马克·吐温曾称，真相往往比虚构作品更荒谬，因为虚构的文学作品里，你好歹得自圆其说。这就是我发觉社会新闻很好看的一个原因，因为它们有趣，且包含着人生本身的荒谬和悖论。例如近日我看到，纽约的Poughkeepsie 一高中两个女老师，平时好好的，说打就打了起来，其中一个英文老师，试图用螺丝刀要把对方扎死，被一个学生救了下来。此事成了雅虎头条新闻。由于是一黑人老师试图扎死白人老师，又被黑人学生救了下来，读者中有不少关于种族问题的争论。</p>
+<p>但此新闻更让我关注的，是一个平时好好的老师，怎么突然说崩溃就崩溃了。人心真是个深不可测的黑洞，不知道内里都发生着什么。</p>
+<p>我们上大学的时候，老师曾给我们看过一首小诗：</p>
+<p>Richard Cory</p>
+<p>——Edwin Arlington Robinson</p>
+<p>Whenever Richard Cory went down town,</p>
+<p>We people on the pavement looked at him:</p>
+<p>He was a gentleman from sole to crown,</p>
+<p>Clean favored, and imperially slim.</p>
+<p>And he was always quietly arrayed,</p>
+<p>And he was always human when he talked;</p>
+<p>But still he fluttered pulses when he said,</p>
+<p>“Good-morning,” and he glittered when he walked.</p>
+<p>And he was rich—yes, richer than a king—</p>
+<p>And admirably schooled in every grace:</p>
+<p>In fine, we thought that he was everything</p>
+<p>To make us wish that we were in his place.</p>
+<p>So on we worked, and waited for the light,</p>
+<p>And went without the meat, and cursed the bread;</p>
+<p>And Richard Cory, one calm summer night, ·</p>
+<p>Went home and put a bullet through his head.</p>
+<p>保罗·西蒙有首歌曲Richard Cory， 唱出了这个故事。原诗是一叙事诗，大意是：理查德·科瑞走在小镇上，所有人都把他看作一位绅士，身材好，气质好，说话温文尔雅，跟人打声招呼，大家都激动 得脉搏狂跳，他还富得像一国王。镇上其余的人都恨不得和这位天之骄子位置对调，大家看着他，都诅咒自己的工薪阶层的苦命，不能吃肉，只能骂娘。可是一个静 悄悄的夏夜，科瑞回到家，一枪把自己脑袋爆掉了。</p>
+<p>时隔多年，我还记得这小诗，因为如果写成小说，恐怕得交代他这自杀的前因后果，得有情 节铺垫，最为典型的是福克纳笔下的昆丁。如果是戏剧，那得把戏剧的冲突交代出来，引向最后这个结果。只有诗歌可以这么霸道，出其不意在前面这个幸福成功人 士的人生交代之后，突然一下子告诉我们他回家让一颗子弹穿过自己的头颅。这中间到底是怎么回事，没有人知道，但是这寂静，却如同中国画的留白处一样，充满 叙述，让人发挥无尽想象。更厉害的是，它如同一个在熟悉场景拍摄出来的恐怖片，时常让人产生联想和关联。</p>
+<p>比如今日，我还看到一个朋友在 网上叙述自己人生的苦闷，我便想起了这首小诗来。很多时候，我们觉得周围的同事朋友和同学，怎么都过得那么顺利，我们恨不能和他们位置对调，好像就我们充 满苦难，他人把事情都摆得平平的。其实你周围的人，或许心里有更大的挣扎，而你无法看见，突然有一天，整个人山崩地裂，你才幡然醒悟过来。所以如果大家有 什么不开心的事情，不如说出来，或是换个方式写出来，是让大家开心开心吗？不是，是让你自己可以卸掉一些担子，好继续往前走。</p>
+<p>来源：南桥的博客——那看不见的崩溃</p>
+<p>附：个性测试——你内心黑洞有多可怕</p>
+<p>每个人的内心，都有着他人无法探知的区域，这些区域可能暗藏玄机：可能充斥悲伤，可能溢满愤怒，可能堆积邪恶，可能一片茫然……</p>
+<p>内心的黑洞，有时连自己也无法发觉，或者发觉后依旧无法应对，最终我们的内心可能就会被那些黑洞蔓延吞噬。</p>
+<p>你内心的黑洞是怎样的，它波及的范围有多广？</p>
+<p>(本测试8道题，5个答案，系统自动计分。仅供娱乐，非专业理指导。)</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

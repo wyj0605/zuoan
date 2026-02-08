@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日记索引 - 2585 篇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .subtitle {
+            color: #A0A0A0;
+        }
+
+
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .article-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 6px;
+            padding: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        body.dark-mode .article-card {
+            background-color: #333333;
+            border: 1px solid #404040;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-color: #1A73E8;
+        }
+
+        body.dark-mode .article-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-color: #4EA1FF;
+        }
+
+        .article-card .title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            line-height: 1.4;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-card .title {
+            color: #E0E0E0;
+        }
+
+        .article-card .date {
+            font-size: 12px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-card .date {
+            color: #A0A0A0;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            padding: 20px 40px;
+            border-top: 1px solid #E5E5E5;
+            transition: all 0.3s ease;
+            flex-wrap: wrap;
+        }
+
+        body.dark-mode .pagination {
+            border-top: 1px solid #404040;
+        }
+
+        .pagination a {
+            padding: 8px 16px;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .pagination a {
+            background-color: #333333;
+            border: 1px solid #404040;
+            color: #E0E0E0;
+        }
+
+        .pagination a:hover {
+            background-color: #1A73E8;
+            color: white;
+            border-color: #1A73E8;
+            transform: translateY(-2px);
+        }
+
+        body.dark-mode .pagination a:hover {
+            background-color: #4EA1FF;
+            border-color: #4EA1FF;
+        }
+
+        .pagination .active {
+            background-color: #1A73E8;
+            color: white;
+            border-color: #1A73E8;
+        }
+
+        body.dark-mode .pagination .active {
+            background-color: #4EA1FF;
+            border-color: #4EA1FF;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #333;
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #333333;
+            border: 1px solid #404040;
+            color: #E0E0E0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .search-box {
+                padding: 15px 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .pagination {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+            }
+
+            .pagination a {
+                padding: 6px 12px;
+                margin: 2px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>日记索引</h1>
+            <div class="subtitle">共 2585 篇日记</div>
+        </div>
+        <div class="content">
+            <div class="article-list" id="articleList">
+                
+                <div class="article-card" onclick="window.location.href='article_3417.html'">
+                    <div class="title">我们是怎么玩死自己的？</div>
+                    <div class="date">2014-04-11 21:15:34</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3418.html'">
+                    <div class="title">爱如拔牙</div>
+                    <div class="date">2014-04-10 22:34:29</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3419.html'">
+                    <div class="title">在人生的风景里，边走边唱</div>
+                    <div class="date">2014-04-08 20:46:20</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3420.html'">
+                    <div class="title">时间老头</div>
+                    <div class="date">2014-04-06 22:27:10</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3421.html'">
+                    <div class="title">你看到的是招数，还是内功</div>
+                    <div class="date">2014-04-05 21:18:40</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3422.html'">
+                    <div class="title">清明时节</div>
+                    <div class="date">2014-04-04 23:07:52</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3423.html'">
+                    <div class="title">致亲爱的弟弟</div>
+                    <div class="date">2014-04-02 22:16:00</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3424.html'">
+                    <div class="title">要在伤痛里看见爱</div>
+                    <div class="date">2014-04-01 23:07:53</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3425.html'">
+                    <div class="title">小清新必须死</div>
+                    <div class="date">2014-03-31 20:56:34</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3426.html'">
+                    <div class="title">语不惊人死不休（121）人生需要揭穿</div>
+                    <div class="date">2014-03-30 21:17:14</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3427.html'">
+                    <div class="title">生命是一道闪电——读海子</div>
+                    <div class="date">2014-03-29 21:07:52</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3428.html'">
+                    <div class="title">移动阅读与阅读并非一回事</div>
+                    <div class="date">2014-03-28 22:00:42</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3429.html'">
+                    <div class="title">生活在北京</div>
+                    <div class="date">2014-03-27 22:53:21</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3430.html'">
+                    <div class="title">人人都是负税人</div>
+                    <div class="date">2014-03-26 22:13:19</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3431.html'">
+                    <div class="title">尊重生存在这个世界上的每一个人</div>
+                    <div class="date">2014-03-26 01:38:14</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3432.html'">
+                    <div class="title">不三不四的春天</div>
+                    <div class="date">2014-03-24 23:24:01</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3433.html'">
+                    <div class="title">我们都在比较中活着</div>
+                    <div class="date">2014-03-23 23:45:19</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3434.html'">
+                    <div class="title">思考的方法，读书的方法</div>
+                    <div class="date">2014-03-22 21:06:15</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3435.html'">
+                    <div class="title">从洗澡说起，不一样的心智模式</div>
+                    <div class="date">2014-03-21 21:57:54</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_3436.html'">
+                    <div class="title">孩子的安全感</div>
+                    <div class="date">2014-03-20 21:46:37</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2845.html'">
+                    <div class="title">生命的长度与宽度</div>
+                    <div class="date">2014-03-17 22:19:44</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2846.html'">
+                    <div class="title">语不惊人死不休（120）腹中天地宽，常有渡人船</div>
+                    <div class="date">2014-03-16 20:12:31</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2847.html'">
+                    <div class="title">营造桃花源式的悲情——评《午夜巴黎》</div>
+                    <div class="date">2014-03-15 22:35:22</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2848.html'">
+                    <div class="title">谁阻挡了我的优秀</div>
+                    <div class="date">2014-03-14 21:55:51</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2849.html'">
+                    <div class="title">写给女儿弯弯的一封信</div>
+                    <div class="date">2014-03-13 22:17:16</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2850.html'">
+                    <div class="title">渡渡鸟之启示</div>
+                    <div class="date">2014-03-12 21:35:30</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2851.html'">
+                    <div class="title">时间没能解决的问题，靠你自己</div>
+                    <div class="date">2014-03-11 21:55:21</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2852.html'">
+                    <div class="title">面子和里子</div>
+                    <div class="date">2014-03-10 23:47:15</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2853.html'">
+                    <div class="title">思文故事会 之 消失的记忆</div>
+                    <div class="date">2014-03-09 20:39:16</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2854.html'">
+                    <div class="title">取悦自己就成功了</div>
+                    <div class="date">2014-03-08 18:58:57</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2855.html'">
+                    <div class="title">写作如跳脱衣舞</div>
+                    <div class="date">2014-03-07 19:20:26</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2856.html'">
+                    <div class="title">与春同行</div>
+                    <div class="date">2014-03-06 20:41:10</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2857.html'">
+                    <div class="title">做自己喜欢的人</div>
+                    <div class="date">2014-03-05 20:58:00</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2858.html'">
+                    <div class="title">学以致用，以书开疆</div>
+                    <div class="date">2014-03-04 21:17:44</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2859.html'">
+                    <div class="title">两个世界，尽性知命</div>
+                    <div class="date">2014-03-03 19:47:55</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2860.html'">
+                    <div class="title">理想与现实，写给奋斗路上的我们</div>
+                    <div class="date">2014-03-01 22:19:38</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2861.html'">
+                    <div class="title">将泡妞进行到底</div>
+                    <div class="date">2014-02-28 20:38:38</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2862.html'">
+                    <div class="title">你若不放过自己，没人能够让你重生</div>
+                    <div class="date">2014-02-27 20:49:44</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2863.html'">
+                    <div class="title">谁在挥动上帝之鞭</div>
+                    <div class="date">2014-02-26 20:09:58</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2864.html'">
+                    <div class="title">如何找到适合自己的读书方法</div>
+                    <div class="date">2014-02-25 20:29:22</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2865.html'">
+                    <div class="title">我和我发小的两种人生</div>
+                    <div class="date">2014-02-24 19:25:00</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2866.html'">
+                    <div class="title">当我们谈论阅读时我们在谈论什么 ——阅读理由之我见</div>
+                    <div class="date">2014-02-23 20:10:53</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2867.html'">
+                    <div class="title">苍老年华，时间去哪儿了</div>
+                    <div class="date">2014-02-22 19:01:22</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2868.html'">
+                    <div class="title">爱的七零八落</div>
+                    <div class="date">2014-02-21 21:22:46</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2869.html'">
+                    <div class="title">迟来的春雪</div>
+                    <div class="date">2014-02-20 20:42:28</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2870.html'">
+                    <div class="title">和而不同</div>
+                    <div class="date">2014-02-19 20:32:28</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2871.html'">
+                    <div class="title">最值钱的5项生活技能</div>
+                    <div class="date">2014-02-18 20:22:22</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2872.html'">
+                    <div class="title">生长在城中央</div>
+                    <div class="date">2014-02-17 19:42:14</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2873.html'">
+                    <div class="title">语不惊人死不休（118）上帝的归上帝，凯撒的归凯撒。</div>
+                    <div class="date">2014-02-16 21:04:29</div>
+                </div>
+            
+                <div class="article-card" onclick="window.location.href='article_2874.html'">
+                    <div class="title">因为在意你们，所以不想束缚你们</div>
+                    <div class="date">2014-02-15 20:23:02</div>
+                </div>
+            
+            </div>
+        </div>
+        <div class="pagination" id="pagination">
+            <a href="index_1.html">1</a><a href="index_2.html">2</a><a href="index_3.html">3</a><a href="index_4.html">4</a><a href="index_5.html">5</a><a href="index_6.html">6</a><a href="index_7.html">7</a><a href="index_8.html">8</a><a href="index_9.html">9</a><a href="index_10.html">10</a><a href="index_11.html">11</a><a href="index_12.html">12</a><a href="index_13.html">13</a><a href="index_14.html">14</a><a href="index_15.html">15</a><a href="index_16.html">16</a><a href="index_17.html">17</a><a href="index_18.html">18</a><a href="index_19.html">19</a><a href="index_20.html">20</a><a href="index_21.html">21</a><a href="index_22.html">22</a><a href="index_23.html">23</a><a href="index_24.html">24</a><a href="index_25.html">25</a><a href="index_26.html">26</a><a href="index_27.html">27</a><a href="index_28.html">28</a><a href="index_29.html">29</a><a href="index_30.html">30</a><a href="index_31.html">31</a><a href="index_32.html">32</a><a href="index_33.html">33</a><a href="index_34.html">34</a><a href="index_35.html">35</a><a href="index_36.html">36</a><a href="index_37.html">37</a><a href="index_38.html">38</a><a href="index_39.html">39</a><a href="index_40.html">40</a><a href="index_41.html">41</a><a href="index_42.html">42</a><a href="index_43.html">43</a><a href="index_44.html">44</a><a href="index_45.html">45</a><a href="index_46.html">46</a><a href="index_47.html">47</a><a href="index_48.html">48</a><a href="index_49.html">49</a><a href="index_50.html">50</a><a href="index_51.html" class="active">51</a><a href="index_52.html">52</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 页面加载时检查模式
+        document.addEventListener('DOMContentLoaded', checkMode);
+    </script>
+</body>
+</html>

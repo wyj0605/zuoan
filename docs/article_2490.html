@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优美的旋律</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>优美的旋律</h1>
+            <div class="date">2015-05-26 23:25:38</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/草色阳光总是在有意无意中对音乐充满了期待和饥渴，就像是六月的三伏天行走在烈日当空的毫无遮挡的一望无际的马路上渴望甘甜的水一样，想象着喝着水的感觉。曾对友人说过随着时间的流逝很多事情可以改变和更改，唯独音乐文字朋友是我生命中不可或缺的东西，而朋友是最大的一笔财富，音乐是在喁喁独行的路上的灵魂的伴凑，缺少不可。优美忧伤如斯的音乐，它会把你的灵魂带入到一个深度，一个在喧嚣的尘世中所达不到的境界，唯有音乐它会瞬间叫你泪流满面或是思绪万千或是沉迷沉沦其中不可自拔。有时对音乐是又爱且又怕的，爱它的优美旋律，怕它把你引入某段回忆或是某个场景中，那情形如同把你的心用忧伤来填满，你会听到来自心灵深处深深深深地一声叹息，你的心会感觉疼痛，疼痛之余会有一种喜悦慢慢慢慢地溢出，叫你欲罢不能。这，恐怕是已上了音乐的瘾。曾有一友人说，忧伤的音乐固然旋律优美，听多了只会徒增忧伤，还是听些欢快的音乐吧。不是不喜听欢快的音乐，那是需要有特定环境特定心情特定情景才有心情听的。如，周末睡了个舒服的懒觉起来，浑身精气神十足，打开电脑放上欢快动感的音乐，拉开窗帘让窗外灿烂的阳光倾泻进来。拿起剪刀到阳台修剪花枝，水壶里烧一壶热水泡一杯香浓的咖啡。听着欢快动感的旋律，随手挽起发髻，打开冰箱寻找食材去厨房鼓捣好吃的。心中被满满的喜悦填满，身心舒畅。音乐伴我度过了无数个孤寂的夜晚，有时一个人在黑暗中傻坐着，什么都不想不动，一遍一遍的放着同一首音乐，脑子仿佛停止似的，一坐数小时，再起身时已凌晨。踱步到阳台眺望远方的夜色，霓虹依然闪烁，街上的车依然来来往往的穿梭，这是个不夜城，也有我这样不眠之人。读书的时候拥有的第一盘磁带是一个堂弟的英文有卡朋特的《昨日重现》的磁带，他拿到我家的录音机一放，我立马喜欢上了，对着他死缠烂打终究拗不过我，将那磁带无奈的送给了我，从此我视如宝贝，不分日夜的偷偷的关起房门躲在自己的房间听，小小的一方天地，音乐从录音机中流泻出来把整个房间充斥的满满的，这些音乐伴我度过了我孤僻而又叛逆的青少年期。后来读了师范无意中听到了理查德克莱德曼的钢琴曲一下子就迷住了，不经意在我家隔壁的那条街的一个音像店发现有理查德克莱德曼的钢琴曲卖，立马飞奔回家小心翼翼胆怯的跟妈妈商量着要花五块钱买那盘磁带，想不到亲爱的妈妈立马就答应了，给了我五块钱欢喜雀跃的去买了。那是属于我真正意义上所拥有的第一盘磁带，是我自己的磁带，带着脸上所藏不住的无比的骄傲像玩得好的伙伴炫耀，我有一盘理查德克莱德曼的磁带了，小伙伴们的表现都颇为不意，但我的喜悦之情并未为此减少。再后来有了第二盘第三盘还有的是同学送的，再也找不到了当初拥有第一盘磁带和第一次买磁带的那种心情了。由于经常借同学的单放机来听音乐，有个同学偷偷的买了台收音机塞到了我的抽屉里。从此每天晚上下了晚自习就是我最期待和开心的日子，每晚熄灯后，程丹的《吉普赛的家》就开始了，动听的声音加好听的歌和优美的文字组成了一个个美好的夜晚，那时听了很多以前不曾听到过的好听的音乐，过了若干年走上社会后去影像店和超市的音像专区去寻找不知名但很熟悉的音乐，终于找到了一种叫班得瑞的音乐，那是我每晚都听的，我如获至宝，一休息就跑去试听，那时有个心愿是买个CD机，买上心爱的CD想怎样听就怎样听，人要有个心愿，这样的心愿很快就实现了，有个要走的同事把她的有播放CD功能和收音机于一体的录音机送给了，果真实现了我想怎样听就怎样听的愿望。某一日在办公室等一同事，听到另一同事的电脑里播放的音乐是如此之熟悉，那旋律勾起了我师范时在宿舍阳台月夜朦胧的夜晚在薄如轻纱的月光下听收音机的心情。立即问同事这些音乐叫什么名字，她说她也不知道，她说是一个学校的老师给她听的，你要是喜欢就给你吧，我不大听的。嘿嘿，还真是心想事成。拿着CD一看，是《神秘园》的音乐。至此，以前听过却不知道名字的音乐都被我一一寻找出来了。现在我的电脑上都下载有这些音乐，想什么时候听就什么时候听。现在我正在听邵容的《ADay GOES ＢＹ》一首琵琶二胡笛子古筝弹奏的古曲，美丽且忧伤。一曲《高山流水》听出了伯牙与钟子期知音的味道，《梅花三弄》听出了问世间情为何物，直教人生死相许的无奈！如果说音乐是一个人情感世界的表达和折射，那么我是不是一个情感丰富的人呢？情感丰富的人把多余的情感寄托给了音乐，使音乐更具有折服人的魅力，丰富美丽的情感创造出了更加细腻的文字和动人的音乐，是不是世间的又一个因果轮回呢？时间可以流逝，就像现在又是一个凌晨，明天不管是阳光灿烂或是阴雨连绵，音乐在我心中不因天气时间环境而改变，它是我心中永恒的缪斯！左岸记：周海宏说，音乐是人类灵魂的避难所，是感性人生的精神家园。在所有的享受当中，音乐来得最容易。可为什么严肃音乐会出现曲高和寡的现象？一个非常重要的原因，敏锐的听觉感受力是欣赏音乐最重要的基础条件，但是人的感受能力是有发展过程的，需要一步步培养。当一个人经验不是很丰富，比较年轻比较稚嫩，感官不是很发达的时候，喜欢鲜明、单纯、明确、艳丽的作品；一个人比较成熟，经验比较丰富了，感受力比较敏感的时候，就喜欢细腻、复杂、强烈、刺激的东西。但是，心理学规律告诉大家，简单的东西容易腻。所以，光有通俗音乐是不够的，严肃音乐的世界更丰富多彩，最重要的是它超越了简单的感官愉悦，触发人心灵深处的感动和全身心的震撼。原文链接：http://www.zreading.cn/archives/4913.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

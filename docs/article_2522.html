@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>还乡，你还在那里吗</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>还乡，你还在那里吗</h1>
+            <div class="date">2015-04-09 23:03:04</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/汤纪伟时值2008年的最后一天，我踏上了家乡的土地。已经很长时间没回家乡了，一种难以言喻的亲情油然而生。家乡的土地裸露着原始的胴体，在薄如轻纱的冬阳里没精打采。这时的田野不见金灿灿的油菜花，不见春夏的花红柳绿，没有了流水响、蛤蟆唱、蝴蝶飞，取而代之的是一块块纤细单薄的麦苗和田埂上齐膝深的枯草。我忽然觉得人一回到家乡，往日城市的拥挤、浮躁、喧嚣全部悄悄远遁。一切都安静下来，静得仿佛能听到自己的心跳。村庄很寂静，仿佛回到太古时代，只有一二个人影在晃动，一条老水牛全身褪尽了毛，在不知谁家的门口懒懒地嚼着枯草。老远就看见奶奶坐在老家大门口低头晒太阳。走近了她还没发现我。我没有提前给她打电话，怕她夜里想我睡不好觉。人越老挂念越多。冬日的阳光打在她臃肿的身上。我叫了她一声，她耳背没应答，随后抬起头。那一刻，我分明看到了隐藏在奶奶脸上一道道皱纹中狞笑的岁月；那一刻我把奶奶从记忆的深渊中拉了回来。我相信岁月最终会把她打发掉。稍微意识一下，奶奶脸上露出一丝难得的惊喜，既而说：“回来了！看，又瘦了！”想站却站不起来。我扶了她一把。她的腰被无情的岁月压弯了。开始做中午饭，奶奶默默坐在灶台下烧火。我想帮忙，她说什么也不肯。那是她的地盘，那是她坐了几十年的地方。她懂得什么时候该用什么火候。洞悉火候，是一个乡间女人一生的智慧。此时，我闻到了一股熟悉而又陌生的炊烟味道。我有些明白了，我回来就是为了寻觅这种混合着麦秸、稻草、玉米杆、花生秧的味道。一闻到它，就有一种难以言说的踏实感和依托感，所有的忧伤都烟消云散，只留下一片温暖的情愫在心头荡漾。看我穿得单薄，奶奶想把她的棉袄让我穿上；看我长得瘦，奶奶午饭下了两碗米。她永远担心孙子在外面吃不饱穿不暖。鸡下了蛋，奶奶平时舍不得吃，我回来特意炒了一盘。我给她夹了一筷，趁我不注意她又夹到我碗里。让我感到欣慰的是奶奶的饭量一直未减。父母在外打工，父亲兄弟一人，扔下奶奶一人在老家。老年人害怕寂寞，平日里一个人独守院子寂寞孤独，有时她就锁了门，去东家串串西家串串，找人说说话，有时到吃饭时间还磨磨蹭蹭不愿回家。吃罢午饭，我在村里转了转，村子里没什么人，老的太老、小的太小。童年记忆中拍翅的鸡、蹒跚的牛、乱窜的猪、好事的狗、蹦跳的孩子、拾粪的老汉……这些醉人的景象消失得无影无踪。有几家残垣断壁，大门紧锁，门口衰草遍地，杂树横七竖八堵住大门。门上的对联仅存残片，字隐色褪。奶奶养了4只鸡，3只母鸡1只公鸡。每天拂晓，雄鸡用高亢的啼声向度过84载风雨的奶奶报告她年迈的生命又迎来一次新的一天。白天母鸡下蛋后，声音急切地向奶奶炫耀，给奶奶呆滞而空洞的目光增添了些许生气。有一天奶奶发现几只鸡找不到了。村前村后找了好几遍也没有。心疼得她两顿未吃饭。最后鸡自己回来了，她心里的石头才落了地。堂屋被奶奶打扫的很干净，墙上20年前我张贴的挂历依旧，里面的明星青春依旧。只不过脸上挂了一层厚厚的蜘蛛网，有一种难以言喻的神秘和苍凉。我感觉到了时间的古老，又体味着岁月的无情。晚上，盛情难却，在一个打工刚回来的自家大哥家吃饭。在一起的还有打工刚回来的几个同村人。我问他们答，简单明了，有一句没一句的，或者干脆就是“嗯”“啊”之类。饭菜端上来了，酒也满上，我发现每当举杯时我是主角，一旦酒杯落下，酒酣耳热之际，他们无形中把我撇在了一边。谈论着今年的收成，倒闭的工厂，世道的变迁，乡间的旧事……仿佛我成了他们的异类。我知道，一个从乡村走出去的人，走得太远时间太长，当你回来的时候，已经成了一个外乡人。吃完晚饭，我赶紧回到老屋，奶奶没睡，她在等我。老屋封闭的严实，还算暖和。她一边给我缝补袜子，一边有一句没一句的和我聊着。奶奶从记忆的时光深处走来，嘴里的故事我闻所未闻，她有一搭没一搭的，想到哪说到哪，自由散漫，间以咳嗽和吐痰的声音。奶奶是目前全村最老的人了。和她岁数相仿的大都去世，所剩无几。她所熟悉的那个村庄在逐渐消失，属于她的往事被入土的人分批带走了。其实，奶奶的老家是在百里之外。她30岁的时候爷爷就走了。军阀混战时期，她带着父亲和姑姑逃荒要饭到了现在的村子。看看还算平静就住了下来，一直到现在。其实我知道，妈妈生下我和妹妹时都没有奶水，加上她和父亲忙着在生产队干活挣工分养家糊口，早出晚归。所以抚养我和妹妹的重担就落在了奶奶的身上。奶奶把家里仅有的米和面熬成糊，一勺一勺把我和妹妹喂养大。我清楚地记得，小时候，冬天无数个夜晚，屋外北风呼啸，大雪纷飞，我躺在奶奶温暖的被窝里，一边抚摸奶奶干瘪的乳房，一边听她给我讲过去的事情。奶奶那时教我的歌曲和童谣，我现在还记得。奶奶断断续续述说着活着的不易和艰辛……奶奶一直告诫我们一粥一饭当思来之不易，半丝半缕恒念物力维艰，并身体力行。吃剩的饭菜她舍不得倒掉，穿破的衣服也舍不得仍掉。别人家扔掉不要的东西，她怕我们看见，偷偷往回捡。父母打工走的时候，给她装了部电话。我们隔三差五和她电话联系。她不会打，只能接。她不想让我们回，原因是回来时她高兴临走时又悲伤。不回去看看吧，奶奶就像挂在树上熟透的果子，说不定哪天一阵风就给吹落了地。老年人看一回少一回啊！无边的往事早已湮没在岁月的沧桑里，此刻已是2008年最后一个夜晚。我坐在奶奶身边，她从历史说到现实，从苦难说到幸福，一直说到子夜时分。奶奶说着，不时费力地用她那双操劳一生的僵硬的手指，将80多年的朝云暮雨抿进枯疏的发际。最后，在我的一再劝说下，她才去休息。我拉开门，独自站在前屋的平房顶上，那是一个多么美丽的乡间夜晚！乡村上空繁星点点。一条银河穿村而过，像镶满钻石的玉带。不远处高速公路上不时驶过汽车，传来一阵阵轰鸣声。元旦那天吃罢午饭，我在家乡的老井给奶奶担了两挑水，就走了。我不让她送，她就是不肯。我上了高速公路在对面等车，她就坐在另一侧，眼巴巴望着我。西天的冬阳从奶奶侧面照过来。她的脸处在半明暗中，但那种依依不舍的神情清晰可辨。大桥下的桥墩透出一种冰凉的气息。起风了，风穿过奶奶的身体。风吹走了她的黑发留下白头，吹干了她的皮肤留下皱纹，最后吹松了她的血肉和筋骨，留下一把老骨头。我再三让她回去，她一步三回头，走走又转了回来。她看着我不舍，我看着她揪心。公共汽车来了，我赶忙钻进去，又忍不住从车窗往外看，奶奶站在一堆齐膝深的衰草里，拿袖子在抹眼泪。我突然感觉悲从中来，感觉到从未有过的苍老，泪水从眼眶喷涌而出。后记：2012年5月，饱经沧桑的奶奶永远闭上了双眼，世界上最爱我也是我最爱的人走了。七月半那天，我回了趟老家。不到3个月，奶奶的坟头上就已经被茂密茁壮的蒿草所盘踞。我跪在坟前为奶奶烧些纸钱，虽然她一辈子没花过钱也不认识钱。当纸灰飞起的那刻，我潸然泪下。2013年，我独自远走他乡，谋取生计。人在异乡，每当落寞失意、孤立无助的时候，奶奶卑微的形象总在我心头翻滚，苦涩而温馨。我深知，我写再多的文字，也比不上奶奶种出的一粒粮食饱满结实。谨以此文缅怀逝去的奶奶，愿逝者安息，生者健康！原文链接：http://www.zreading.cn/archives/4859.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夜半钟声</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>夜半钟声</h1>
+            <div class="date">2014-06-07 22:23:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/Vincent春节期间，与同学闲聊，同学提到了他的爷爷，讲了几件事情。事情很小，却实实在在，半年一转，至今犹在脑中回响，于是在这夜深人静的时候，记录下来，写给自己，也写给老先生（请允许我用老先生一词表达我的敬意）。记录是为了防止忘却，也是对思念的一种表达。同学每次离家去外地，每次回来，爷爷都仔仔细细的记录下来，具体到何年何月何日几时几分；有次，同学回家，把两枚硬币掉在了爷爷的炕上，一枚五角、一枚一角，同学走后，爷爷发现了这两枚硬币，于是收起来，用纸包好，认真的写上：***于何时掉落的何物，然后小心存放好，等同学回来时，又亲自交给了他。如此简单的事情，爱却是那么的醇厚。老先生现在已经是耄耋之年，耳朵有点儿背，身子骨却很硬朗。同学的手机上保存着老先生从年轻时候到现在的照片，不论是当年还是如今，都是一如既往的精神，想必单单是对子孙的爱和这生活的态度就足以让自己精神百倍了。老先生退休前担任过会计和采购，这么多年了，依然在生活中延续着当年工作的影子，就是这样的工作态度和敬业精神，让他的生活稳如泰山。简简单单的事，传达和留下来的不只是自己对儿孙的爱，而是更多，是给予也是一种收获。回头望望已经睡下的孩子，孩子啊，我能给你留下什么呢？如果能留下来爱？如果能留下衣食无忧的生活？如果能留下学习进步的道路？如果能留下敬业工作的态度？或者能留下一种生活的姿态？而立之年，才知道自己要做的还有很多很多。我有孩子，也是孩子。作为孩子，最大的失败莫过于，厌恶父母为自己安排的道路，却又总是担心自己的所作所为会辜负父母的期望。所以，孩子啊，做好自己是基础，要有独立的意志，才能承载独立的生活。只有精神独立了，你才能从容地面对这个世界，从而更加从容地面对自己，面对磨难，面对寂寞，享受孤独，享受幸福。只有精神的独立与丰富，你才能从容的寻找属于你的爱情与生活，而不慌乱；才能从容的追求属于自己的成功与辉煌，而不急躁。作为孩子，我不是经常会想起我的父亲，也就是你的爷爷。做为父亲，我却常常想起你来，只要不是忙的不可开交，爸爸都会想起你，哪怕是在忙乱的间隙，想一下你，我的心里都会很充实。小子，等你长大了，肯定也是很少会想起你的老爸吧，那你就抽空想想你爷爷，因为爷爷经常想起你的爸爸啊，现在好好的成长，享受你的无忧无虑吧。生活，从你的单纯，再到你眼中的复杂，变化无常，其实生活本来就是如此，不必焦虑。就如同生命没有意义，但是自己却可以给生命的过程填充意义。就如同简单的音符，既可以让你激情澎湃，也可以让你沉静下心来，就在于你赋予了生活怎样的节拍。生活中，总有那么些事情，不知怎么就来了，然后又悄悄的走了。总有那么些人，不知怎么就在一起了，不知怎么就散了。思来想去，终究是搞不明白其中原由。幸福是真真切切的，恨也是真真切切的，风雨时，可以很坚强，清空万里时，也会很脆弱。事，总还是有可学之处，人，总还是有可敬之处，所以，管他是爱是恨，都莫不如相忘于江湖罢。当然，尤其那历历在目的恨，又怎是一个“忘”字了得。所以，努力的奋斗还要懂得善待自己。多少爱才算多，多少恨才算少，都不如跨过忍受寂寞的低谷，到达享受孤独的高山。原文链接：http://www.zreading.cn/archives/4406.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

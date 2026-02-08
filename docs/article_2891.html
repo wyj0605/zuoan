@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>改变你的观点，改变你的人生</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>改变你的观点，改变你的人生</h1>
+            <div class="date">2014-01-27 23:28:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>译者/lcxscj我们所耳闻的一切都只是观点而不是事实。我们所看见的都是一个角度而不是真相。——马库斯.奥利利乌斯想象一下下面这些常见的情节：- 你在半夜因为小孩的啼哭而醒来。尽管你爬起来哄孩子，你仍然觉得很累、很烦恼、压力很大。- 因为经济的萧条和公司今年的效益不好，你失业了。- 你的一位同事从来都完成不了领导下达的任务，而到最后这些任务通常都改由你负责完成。不幸的是，我们很多人都不愿意去寻找他人这些言行的真正原因和真正的动机。 从而，我们形成了一个错误的映象，认为他们这么做是没有原因的。最糟糕的是，你可能认为其他人是故意表现得很愚蠢来伤害你、使你烦恼。这种情况下事情就会开始变得难以忍受，尤其是你又不得不与这个人保持一种关系的时候。沟通失败那么这些不好的印象的真正来源又是什么呢？首先，你对于这个人知或者是不知。通常，我们对他人的言行都是基于一些传闻。我们对另一个人形成了一种消极的观点从而使得与他或她交流互动起来有困难。不好的印象也可能源自于无知和疏忽。我们甚至不在乎这个人喜欢什么或者是他或她的价值观是什么。除此之外，如果我们表现得傲慢那么我们的人际关系将备受考验，从而破坏良好的人际关系。傲慢会导致我们不能容忍对方的队伍，尤其是在我们需要每天与这样的人相处的时候，这种情形更是无法忍受的。你是假设的还是你是真正知道的？当你形成一种观念的时候，你能做的一个最大的错误是什么？假设。你假设你知道其他人的动机，你基于这些不准确的臆断形成了一种关于这一情况或者是这个人的印象。一旦你形成了自己的观念，要更正你的态度就变得很难。如果你认为你的那些臆断是正确的，那么你就会很难找到真相。你可能甚至害怕去找出他们为什么这样做的原因。恐惧就像是一道矗立在你和他人之间的隐形的墙。许多人发现因为这堵无形的墙而很难发现事情的真相。假设和恐惧使你从一种固定的角度看事物，而这一角度可能会使事情比其本身看起来更加复杂。彻底改变你的思想你需要改变你的观念。第一也是最重要的一点就是，你必须停止猜想。如果你不确信某件事或某个人，那么你就有义务多做一些关于这一情况或这个人更多的调查。一旦，你收集了更多的信息，你将时常体验到一种思想的彻底转变，那就是你最终会明白的。这是一种很强大的感受，它会抹去你之前的任何不正确的印象或态度。你现在准备好了迎接这种感受吗？改变你看待事物的方式首先，让我们稍微谈谈我在本文开头提到的这些通常情况，然后再稍微拓展一下。你在半夜因为小孩的啼哭而醒来。尽管你爬起来哄孩子，你仍然觉得很累、很烦恼、压力很大。角度的转变：一旦你了解到的小孩是因为外面的打雷声而惊醒，他们看起来似乎很害怕，那么你的恼怒将一消而散。你记得当你还是小孩的时候也害怕打雷。在哄好孩子之后，你让他们在同你和妻子的床上一同入睡。当你了解到孩子的恐惧的时候，你对他的情绪平复下来。因为经济的萧条和公司今年的效益不好，你失业了。角度的转变：当你得知你的失业并非针对你（很多同事也被解雇了）并且你的老板在解雇你们的时候也是做了很艰难的决定的，实际上老板看起来非常的疲乏和压力很大。他也只是执行上级的命令，你就能理解你的老板并不是针对你会其他同事，他只是照命令行事。你的一位同事从来都完成不了领导下达的任务，而到最后这些任务通常都改由你负责完成。角度的转变：事实证明你的同事的才能与他的工作职位要求不符合。他适合做用户界面解释而不是在他目前的项目中担任程序员。他对色彩有独到的见解并且很喜欢设计。这些事例表明，转变你看待问题的态度对你的思想会有极其强大的影响。那么，如何才能转变你看问题的角度呢？下面是一些方法：第一、停止流言蜚语。如果你听到了一个传闻，立即切断它传播的翅膀，谨慎行事并不继续传播这一流言蜚语。第二、停止猜想假设。假设毫无价值，只有真理才有价值。如果你认为你知道一些事情，在你得到关于这一情形或这个人的结论之前请一定要确信信息的真实性。第三、与他人互动。有时这可能是最可怕的一个行动但是为了真正发现正在发生什么事或者是他或她为什么这么做，那你就有必要多与那个人接触。很多时候，你可能会发现他或她本人的真实情况是不同于你之前听耳闻的。第四、感激。一旦消极的印象转变成了一个积极的印象，请感激这一感受。为你知道真相而感到高兴。比如说：如果你讨厌你日常的工作，那就找到一个可以让你欣赏的事实，比如说，它可以确保你现在的生活。感激会使事情与你来说变得更简单即便是你发现这份工作很枯燥。原文：http://article.yeeyan.org/view/345596/321500左岸记：下面是钱钟书关于著作的杂言，谈的也是这么个道理：作品遭人毁骂，我们常能置之不理，说人家误解了我们或根本不了解我们；作品有人赞美，我们无不欣然引为知音。但是赞美很可能跟毁骂一样的盲目，而且往往对作家的心理更坏，因为赞美是无形中的贿赂，没有白受的道理，我们要保持这不该受的赞美，要常博得这些人的虽不中肯而颇中听的赞美，便不知不觉中迁就迎合，逐渐损失了思想和创作的主动权。有自尊心的人应当对不虞之誉跟求全之毁同样不屑理会——不过人的虚荣心总胜于他的骄傲。在斯宾诺沙的哲学里“心”跟“物”是分得清清楚楚的；他给“物”的定义是：只有面积体积而绝无思想。许多言之有物的伟大读物都证明了这个定义的正确。任何大作家的作品，绝不能每一部都好，总有优劣不齐。这当然是句老生常谈，但好像一切老生常谈无人把它挂在心上。我们为某一部作品写得好因而爱好他的作品，这是人之常情。不过爱上了作者以后，我们每每对它起了偏袒，推爱于他的全部作品，一股脑儿都认为是《圣经》宝典。催眠得自己丧失了辨别力，甚至不许旁人有选择权。对莎士比亚的bardolatry就是个例。这可以算“专家”的职业病，仿佛画师的肚子痛和女佣的膝盖肿胀；专门研究某一家作品或某一时期作品的人，常有这种不分皂白的溺爱。专家有从一而终的贞节，死心塌地的忠实，更如卑士麦所谓，崇拜和倾倒的肌肉特别发达，但是他们说不上文艺鉴赏，正像沙龙的女主人爱好的是艺术家，不是艺术，或影剧迷看中了明星，并非对剧艺真有兴趣。“文如其人”这句话靠不住。许多人做起文来——尤其是政府或硬性的学术文字——一定要装点些文艺辞藻，扭捏出文艺姿态，说不尽的搔首弄姿。他们以为这样才算是“文”。“文如其女人”似乎更确切些；只希望女人千万别像这种文章。原文链接：http://www.zreading.cn/archives/4207.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

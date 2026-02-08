@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>由敬畏产生的错觉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>由敬畏产生的错觉</h1>
+            <div class="date">2014-07-28 00:29:47</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/迈克尔·舍默2013年9月，64岁的戴安娜·奈德（DianaNyad）完成了从古巴到佛罗里达的110英里（1英里=1,069.344米）长距离游泳，之后她在《超级灵魂星期天》（Super SoulSunday）节目里接受了奥普拉·温弗里（OprahWinfrey）的采访，表达了一番意志战胜衰老的励志思考。当她宣布“我是一个无神论者”时，奥普拉很疑惑地追问了一句“但是你一定感到敬畏吧？”奈德不解地回答：“我不明白这里面有什么矛盾。我可以和最虔诚的基督徒、犹太教徒、佛教徒或者其他教徒并肩站在海滩上，和他们一起为宇宙之美落泪，一起为全人类感动。在我们之前已经生活过数十亿人，他们爱过、痛过、煎熬过。所以对我来说，上帝的定义就是人类和人类的爱。”奥普拉接下来的话叫无神论者大为恼火，“这么说，你就不算是无神论者了。我认为，只要你觉得敬畏、惊奇和神秘，那就是相信上帝存在了。”奥普拉的看法代表了一类人温和的偏见，在他们看来，怎么会有人既敬畏自然却又不相信超自然的神奇力量呢？这简直是不可思议的。对于为什么会产生这种偏见，在两位心理学家于2013年开展的研究中或许可以找到部分答案。他们是美国克莱蒙特·麦肯纳学院（ClaremontMcKenna College）的皮尔卡洛·瓦德索洛（Piercarlo Valdesolo）和南加利福尼亚大学的杰西·格雷厄姆（JesseGraham），研究结果发表在《心理科学》（Psychological Science）杂志上。研究指出，“产生敬畏感”是和“感知到广阔”联系在一起的（比如仰望浩渺的夜空和眺望浩瀚的大海）。“容易产生敬畏感”的人对于不确定性比较从容，也不太需要借助某个解释来达到认知闭合（cognitiveclosure，为某一特定问题找到确定答案，以结束模糊和混沌的状况）。按照两位作者的说法，“他们比较愿意修正原来的认知框架，以容纳这些新奇的信息。”而对于不容易产生敬畏感的人呢？瓦德索洛在一封电邮中这样写道：“我们猜测，这类人在体验到敬畏的一瞬间会引起不确定感，对这种不确定感他们是厌恶的（因为他们多半不经常感到敬畏）。这一点可以在理论研究中找到根据：有研究指出，敬畏是我们对所见所闻无法理解的时候产生的，如果原来的认知结构不能消化新的信息，我们就会陷入迷惘和困惑这样的负面状态之中了。”为了平息由敬畏感引起的焦虑，那些不易敬畏的人会采取一种称之为“诉诸操控者”（agenticity）的态度。换句话说，他们会相信冥冥中有某个隐形力量在操控着世界。为验证这一猜测，瓦德索洛和格雷厄姆将不易感受到敬畏感的受试者分为了三组。他们让其中一组观看一段激起敬畏的视频，选自BBC的纪录片《地球脉动》（PlanetEarth）；另一组观看一段情绪中立的新闻采访，由已故的《60分钟》节目记者迈克·华莱士（MikeWallace）主持；第三组则观看一段喜剧视频，选自BBC的《神女生涯原是梦》（Walk on the WildSide）。看完之后，受试者要接受一次调查，以度量他们对上帝的信仰、对“宇宙由上帝或业力（karma）这样的超自然力量所主宰”这个说法的认同，以及他们在观看视频时的敬畏之感。调查显示，观看《地球脉动》的受试者体验到了最深的敬畏感，而且在这个状态之下，他们对上帝和其他超自然力量的信念也最强烈。两位研究者由此断定：“目前的结果表明，人在感到敬畏的时候，会将眼前的情景看作是造物主的创作来减轻一些恐惧和战栗。”“我们证明，敬畏这种情绪体验（即使是不太容易敬畏的人也能体验得到）会引起不确定感，随后会产生一种欲望，即诉诸某些隐形操控者来解释，以此将不确定感消除。”瓦德索洛解释道，“我们另外还提出了一个有趣的假说，那就是天生容易敬畏的人不太容易表现出上述效应，因为他们对不确定感并不讨厌。”我要回头再来说一说戴安娜·奈德，说一说我们这些敬畏自然，却无需诉诸超自然操控者的人们。面对自然，我们体验到的不是恐惧和战栗，而是惊讶和感激，我们知道，创造万物的就是自然规律，它们虽不神圣，却也非同小可。（撰文：迈克尔·舍默（Michael Shermer）| 翻译：红猪）本文来自“科学美国人”中文版《环球科学》2014年第4期：http://www.huanqiukexue.com/html/newzl/skeptic/2014/0723/24655.html左岸记：看到这篇文章时，我非常的感动，迈克尔说出了我一直以来就想表达的一种我对大自然的强烈情感，正是这种相信大自然力量的信仰让我对这个世界充满了好奇，对人性有了更客观的认识，即惊叹于自然的力量，又对她充满了感激之情。现代化的建立，必须要有理性的思维和科学的精神，这是非常重要的。比如说对自然的认识，从敬畏角度来说，可以认为万物有灵，风有风神，雨有雨师，这就可以了，不会有更深的认识，这是把敬畏当作一种认识世界的捷径。而如果用科学精神和理性的思维去考虑，就会去探究自然的奥秘，人对于自然的认识也就越来越深入。在社会科学中，同样如此，理性的思维、科学精神，让人不断地思考，究竟什么样的社会才是最适合人类发展的，社会制度的架构、法律的制定、社会关系的规范等，就会有一套完善的社会体系，现代化依此而生，也因此而得以发展。敬畏应该是自由的，如果说一定要有一个敬畏，那是不对的，反之亦然，必须不信什么，也是不对的。自由的敬畏是现代化的特征之一，种种推动、号召、甚至强制性的敬畏，并不符合现代规则。所以，孔子曰的“君子有三畏：畏天命，畏大人，畏圣人之言。小人不知天命而不畏也，狎大人，侮圣人之言。”也就只能对半折了。有敬畏，或者说有共同敬畏，可能真的会变好，但也可能走上另外一个方向。原文链接：http://www.zreading.cn/archives/4491.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

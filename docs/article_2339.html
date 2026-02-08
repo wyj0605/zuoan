@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沉思的力量和独立的灵魂</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>沉思的力量和独立的灵魂</h1>
+            <div class="date">2015-11-03 00:10:05</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/喵达上大学时，中文系有一门课叫女性文学，有次上课的老太太怒气冲冲地走进来，对着一群女孩大骂：“你们不自重，不自爱，尽糟蹋文学。”我们被骂得晕头转向，老太太说她在校园里遇到一学中文的黑人，他得意洋洋地说自己在中国一共有8个中文系的女朋友，而且是同时。老太太觉得研究了一辈子女性文学，钻研女性沉默、温柔、坚强、智慧的优秀特质，却被一个黑人在现实世界里打击得不行，暴跳如雷、哇哇大叫。我们都是20岁的女生，无法理解60岁女权主义者的愤怒，猜想一定是黑人不帅，如果是个金发碧眼，像汤姆克鲁斯的男孩追求还不乐得上天。我们没有感同身受的切腹之痛，是因为社会给予女性群体一个宽容的状态，女性可以读书、工作，而不是被人批评“女性戴上眼镜会损害原始天真之美”；可以自由地选择婚姻，而不用被父兄胁迫嫁给暴戾的陌生人；可以生1-2个孩子，而不是哭啼啼地跟着一群娃娃；可以继承父母的财产，而不是被人当作泼出去的水；可以谈论政治，参与公众生活，而不是躲进狭窄的厨房偷偷地吃晚餐；甚至可以从事很多男人的专属职业，如开汽车、做运动员等等。这一切发生得太快，要知道一百年前我的同乡刘半农才硬生生的创造一个“她”字，这个“她”就从沉重压抑的文化土壤里开出绚丽的花朵。我见过1901年中国第一批女童入学堂的照片，灰灰的小脸看不到一丝笑容，矮矮的男先生在黑板上写了一行字“天地之中有我”，震聋发挥，几乎让人滴落热泪。社会的变革推动着女性从小小的闺房里走出来，放开了窄窄的脚，握着一支秃笔随意涂鸦，让充满阳刚威猛之气的文学世界里有了女性清丽的影像。可是看看长长的文学目录，就会发现男作家的数量简直如银河里繁星般照耀苍穹，而女作家们顶着“妓女”“不守妇道”各种名号，写着诗歌、小说、散文，释放着心里的苦痛和压力，并非是才华有限，而是社会、生活和家庭层层缠绕着女性可怜的智慧。萧红就曾写道：“或许百年后，人们怀念的不是我的文字，而是我与几个男人有关系。”我想说明的这个文学界的不公平，早在1929年前辈伍尔夫就有所论及，在她的《一间自己的房间》里就为女性呐喊，为何女人比男人贫穷？为何女人在智力和才华上比男性等而下之？回答这些艰难问题之前，我们先来看看伍尔夫何许人也？她是英国女作家，现代派及意识流文学的先锋，著名的文艺团体“布鲁姆茨伯里派”的核心人物，“女权主义者”“女同性恋”“女精神病者”这些称呼让这个严肃、长脸的女人看起来不可亲近，猜想她的书也是如同爽直和坚硬的大理石。但是翻开这本被后世视为女权主义著作范本的《一间自己的房间》，扑面而来有种最熟悉的陌生人之感，熟悉是因为处处流露着女人自尊自爱自强的情态，陌生是这位女士采用了意识流文学的形式，各种语言絮絮叨叨地像个老太太般在耳边哄响。加上英汉翻译的文化鸿沟，这实在不是一本好读的书，几次翻开，几次合上，中途与儿子玩闹了几次，又忍不住诱惑，说服自己说，读下去吧，你会成为一个内心强大的女人。这本书虚构了一个叫玛丽的女人，在英国某个大学的河边沉思，无意踏进了一块草坪，一个学监大叫女人只能走碎石小路，她又想去图书馆，又有一个老先生喊女人进来必须要介绍信，她看到男人吃了一顿香喷喷的大餐，而女人却吃了普通乏味的梅子饭菜，慢慢地引出了这样一个小小的文学话题“为何女人在文学领域里不见踪影”，她一针见血地指出了“女人要写小说，必须要有一间自己的房子和一年500英镑的收入。”它不是论文，也不是散文，表面的杂沓无序却有一股内在的诗意。一间独立的房子象征着独立自由的思考空间，而且加锁的，不会时不时放下纸笔去收拾家务和哄乖哭闹的孩子，你在这个空间可以随意支配思绪，静默地享受思考泛起的浪花。而一年500英镑是物质的保障，打开钱包就能买个发夹、吃一顿精美的甜点，而不用向你的父亲或者丈夫伸手讨要，这笔小小的固定收入让女性能走进精彩的辽阔的世界，而不是躺在屋顶上凭空想象着远方。很多男人看完这本书，直呼“十足的女权主义者”，但我感受到伍尔夫只是表达了女性基本的诉求，即独立的经济来源保障思想表达的自由权利。对于两性关系，她出人意料地平和淡定，一个性别反对另一种性别，那是人类生存的小学阶段。她说，一个伟大的头脑必须是雌雄同体，只以女性或者男性的单一角度去思考，不利于生动地创造，这个头脑里的女性和男性角色应该达到绝妙的平衡。她不偏袒女性，过分男女性别的对立会激发愤怒，而愤怒会让文学偏离本质、扭曲变形，她不向男性示弱，女性拥有表现力十足的才华，苦于过去没有教育的机会，没有思考的空间和时间，才造成了妇女贫困和才智困顿的假象。合上这本书，我就又一次想入非非，诚然像我之前所说，女性和男性能踏上相同的起跑线，花了整整一百年，打碎了贞节牌坊，剪短了满头秀发，夹着书本走进了校园，上起了班，我们收获了妇女解放运动最伟大的成果，要知道这个地球上还有蒙着面纱，被父母兄弟当做猪羊一样买卖的可怜女人在哭泣。我仔细地玩味“一间自己的房间”，一间房间是一个独立的空间，“自己的”指明属于个人，而不是和父母、丈夫、子女共用。可是现实中拥有这样一个小小的房间实在太难，女人太忙，总是被各种外界的看法、责任、关系所禁锢？刚拿起一本书，拾起一支笔，父母会说碗刷了吗，丈夫说我的衣服放哪里了，孩子们哇哇大哭，只能挣扎着站起身来，收拾妥当一切，身子已经沉重得不像自己的，算了吧还是等明天再说吧，自我安慰道梦想这种东西果然只属于有钱有闲的人。现代女人身上的确被解除了一些让人窒息的丝线，可是看不见的、刻入骨血的观念依旧在隐隐让神经作痛：我的闺蜜年过30岁没结婚，父母几次威胁脱离关系，总要强调一句，你是女人别再作了；小区里有一全职奶爸独立带娃，总有一群大妈们围着孩子大叫可怜，孩子她妈太狠心了；求职的路上，公司委婉地回复，这个岗位更适合男性或者要求女性已婚已育，苦笑摇头；父母教导我们，为了这个家庭，丈夫、孩子，你要多做家务、做牺牲，红舞鞋、新画笔、白丝裙都该收在一边。我们介意别人的眼光和看法，在乎世俗的感受，自己的房间开开合合，总有人出出进进，纷纷挠挠，等皱纹爬上脸庞，却记不得某年某月某日我们做过些什么，通常是琐碎到极致的小事，拉扯过几个孩子，丈夫是什么样的人。有人问这样的房间要很大，很奢华吗？我觉得只要一间小巧的精致的房间，太大了往往被奇异的摆设所吸引，无法静心下来思考，里面也不需要各式各样的名牌包包、造型奇特的高跟鞋、香气四溢的化妆品，没有塞得满满当当的脏碗筷，简单朴素清爽，自由地想象、静默地思考、无限的创造。为了保障拥有这个房间，我们需要每年固定的收入，物质是独立的第一步，就像舒婷所说女性应当作为对等的形象站在男性身边，而不是依附、炫耀与歌颂。我曾教过一个国际班，一个韩国太太问我，“吴老师，结婚以后还工作吗?”我不假思索地回答，“上啊，一起负担家庭。”全班为我鼓掌，这里面固然有文化的差异，但也看到女性被更多框定在社会的角色属性里。成长的路上，我也曾羡慕、迷茫过，但是也逐渐认识到工作是获取自我价值和尊严的有效途径，不管是为了生存还是爱好的工作，给予你物质的回报，让你快乐，让你满足，允许你任性地无所事事，允许你去胡思乱想，允许你到处乱走。最后，我承认这本意识流的小册子实在艰涩难懂，伍尔夫想把一切脑中各种天马行空的观点熬成一锅汤让你吞下去，热辣辣地让人如鲠在喉，可是“一间自己的房间”确是女权运动和女性文学的一声春雷，就现在的影响来说，至少让无数女性在婚前购置房产有了更好的借口，但这间房是无形无影，是构建在你的心灵中，不是女性痛苦的束缚，而是灵魂飞翔的翅膀，有了它你爱上哪儿就去哪儿。左岸记：为喵达的独立自主、坚强自由点赞喝彩。联想到最近二胎政策的开放，这是对女性生存的又一次考验。其实，独立人的依然独立，双方会共同商量要不要孩子，依附的依然没有自己选择的自由。二胎后就是带孩子的问题比较棘手，这是至少要牺牲女性一到两年的职业时间的，所以，生不生应该遵从女人的意愿。原文链接：http://www.zreading.cn/archives/5124.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>完美主义的等死模式 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>完美主义的等死模式 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>man_90的投稿。</p>
+<p>在古典老师创办的“新精英”网站上（http://www.xinjingying.com/）做了个荣格的心理测试。我的心智模式属于“等死模式”，我觉得这个模式描述很符合自己。</p>
+<p>拥有这种心智模式的人，总是不断的把事情拖延到最后一刻，在极度的焦虑下，很不情愿的开始被迫行动。不管是最后一刻能够交出结果，还是最后连结果都没有，他们都会面临一个极度糟糕的境况。日子一长，连最后冲刺的想法都失去，慢慢成为一个等待死亡的人，这也是这种模式叫做“等死模式”的原因。换句话说就是由于完美主义的病态心理而迟迟不肯行动，或者在行动中有所顾虑最终拖延至任务无法完成并为之谴责自己。其实这种心理不可怕，可怕的是在这种心理模式中不断循环并无法自拔。</p>
+<p>完美主义很多时候都是很脆弱的，他们总想事先谋划一个完美的计划，然后完美地去践行。然而在过程中如果哪里有一点不顺心的，就会拿放大镜来看待这种干扰，等到心烦意乱的时候，他们又开始想颠覆计划，重新计划，如果时间允许，他们可以一直在计划的胡同里转，一直找不到真正的目标在哪里；又或者等事后失败了，他们拿事情没有很好地努力作为借口来为失败开脱，然后又开始以没有努力为借口准备下一段失败。完美主义活在不断的计划中，活在没完没了的为失败开脱的借口中，活在对未来的不切实际的期待中…</p>
+<p>其实这种心理的根本是恐惧，而恐惧内在潜藏的幕后操控就是对失败的逃避。</p>
+<p>每个人多少都曾经会有这种状态，只是程度不一样罢了。</p>
+<p>那应该怎么把“等死模式”转化成“超越模式”呢？</p>
+<p>在测试结果中有几个切实可行的建议：</p>
+<p>如何吃掉一头大象？那就是一口口吃。把您的任务分解到足够小，小到可以马上动手做为止。</p>
+<p>对那些拖延很久的事情，倾听自己的内心，然后不管做与不做，做一个决定吧！</p>
+<p>让自己躲开那些容易获得的小成就感，（如收邮件，接电话等），给自己留出时间，直面那些对您真正重要的，等待已久的事情。</p>
+<p>找到那些经常能给自己的借口的内心对话（今天太晚了，不如明天吧；再不休息太累了；再睡一会才会精神好）然后在清醒的时候一条条写下自我对白逐条击破。</p>
+<p>我们总等待最好的一天，其实现在就是最好的一刻。</p>
+<p>我补充几个：</p>
+<p>行动时问自己的问题：</p>
+<p>失败：失败是不是那么可怕，但我一直忍受着对失败的恐惧，至少我都没有崩溃。那说明失败一点都不可怕，所以只要勇敢面对就行了。失败并不可怕，可怕的是不敢去挑战成功。</p>
+<p>计划：我的具体的计划真的那么重要？他们只是来辅助我更好地前进而已，而驱动我前进的真正动力是目标，是对成长的渴望。只要我用心向目标迈进了，计划的形式和方式已经不重要了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

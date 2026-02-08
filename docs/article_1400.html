@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>受到伤害该怎么办？ </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>受到伤害该怎么办？ </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>在从文学读物反映的脆弱心灵中小乖说：“左岸希 望80后能从悲伤中走出来，能够宽容些，能够多关心别人。有的时候，我们也很想这样子，能做到宽容其实更多的是对自己的解脱。但是如果一件事情，真的让人 觉的很难接受，有的时候，想尝试着去学会相信，去放下，可是不知道怎么面对自己受过的伤。其实，我都好想学会相信，学会宽容别人的伤害，可是自己的内心真 的很害怕。”问我能不能给他一些建议？</p>
+<p>我非常了解小乖 的心情，这是因为当我们心理受到伤害时，会有一种失衡，这种失衡会让内心产生不安全感——也就是害怕，总想找到一个平衡点，这个平衡点最原始的方法就是怨 恨，通过恨来保护自己不再受到伤害，通过恨让对方感到后悔，结果大家都很清楚，到最后不但看不到对方一点点的悔意，还要搭上自己的青春年华。</p>
+<p>也许刚开始真的很难放下，为什么一定要我先放下，其实为什么不能呢？你不想占据主动吗？你不想事情向着你希望的方向发展吗？那么你就好好的理理自己的情绪，告诉自己——这点伤不算什么，我能很好地解决这件事。</p>
+<p>下面是一段智者对人一生的概括，也许可以帮你提高一点人生的层次。</p>
+<p>人生的四项原则：懂得选择、学会放弃、耐得住寂寞、经得起诱惑。</p>
+<p>人生的四大要素：学习要加，骄傲要减；机会要乘；懒惰要除。</p>
+<p>知人者智，自知者明，胜人者有力，自胜者强。</p>
+<p>智者，解天下事；成者，属天下人；强者，解天下忧；仁者，暖天下心。</p>
+<p>为人感恩，为己严格，为事尽责，为物珍惜。</p>
+<p>人之相悉；悉于品！人之相敬；敬于德！人之相交；交于情！人之相随；随于义！人之相拥；拥于礼！人之相信；信于诚！</p>
+<p>送人玫瑰，手留余香；相随新生，口乃心之门户。</p>
+<p>人生的机会像小偷，来的时候一定要抓住，否则会盗走你在人生道路前进的发动机。</p>
+<p>人皆有错，但如果橡皮擦比铅笔先用完，那就是你错过头了。</p>
+<p>婚姻中别老盯着别人家的锅面看，其实家家的锅底都是黑的。</p>
+<p>实事求是的人要找一件小事去做，找到事情就去做；空腹高心的人要找一件大事去做，没有找到则身已故；实事求是的人做了一件又一件，不久就做一百件；空腹高心的人一下要做百万件，结果一件也未实现。</p>
+<p>一天做一件实事；一月做一件新事；一年做一件大事，一生做一件有意义的事。</p>
+<p>每天前进一小步，明天就前进了一大步。</p>
+<p>上帝负责洗牌，但是玩牌的是我们自己；上帝要毁灭一个人，必先使他疯狂。</p>
+<p>过去不可追，未来尚可为！</p>
+<p>你高兴，月儿慢慢在圆；你忧伤，月儿在慢慢圆。你看见，花儿努力在开放；你不看见，花儿在努力开放。是啊，月儿在圆，花儿在开放，日子总在一天天地流逝，如何让我们花儿绽放出更加绚丽光彩，决定于我们的态度上、行动上。</p>
+<p>成败不在于大小——只在于你是否已竭尽所能。</p>
+<p>无论命运留给我们什么，我们都要使之鸣奏出最美妙的乐曲。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

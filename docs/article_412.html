@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息冗余和信息片面 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>信息冗余和信息片面 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>Jorywang的投稿。</p>
+<p>原文：信息冗余和信息片面[Information Redundancy &amp;amp; One-sided ]</p>
+<p>有博友给我留言，希望聊一下信息冗余和信息片面的问题。说实在的，这么大的话题，我实在怕有些把握不住，不过尽量做到有感而发吧。希望能不误导大家，也能在个别的点上启发大家。</p>
+<p>首先去掉“信息”这个名词，来看“冗余”和“片面”这两个形容词，很显然，这里需要一个边际条件和标准的出现。例如：对于国家图书馆来说，相对而 言，信息多大都算不上是冗余；而对于某些狭隘的教派主义者来说，随意的自由就会流于片面的打击对象。可见，信息够不够，少不少，重不重几乎完全取决于我们 最终的那个目标和要求。</p>
+<p>我相信，在《天龙八部》的世界里，高盛五星级机密的报告也没有半点的用途。</p>
+<p>找到了这个边际条件，就能谈信息的冗余问题了。那么什么是他的边际条件呢？我想这个边际条件应该是个人的中短期战略。例如，你的短期目标是参加高考，那么所有和高考有关的书籍和信息就应该纳入有效的范畴，而所有言情小说、武侠小说无疑是冗余的范畴。</p>
+<p>有趣的是，现实的情况并没有那么泾渭分明，像高考这样目标清晰的事情终究还是少数。大多数情况下，很多人都在寻找自己的短期或长期目标。这种缺少边 际情况下，什么才是有用的信息？什么才不称之为冗余？的确很难回答。而且，这个问题，似乎和理想、价值观、人生选择紧密的联系在了一起。</p>
+<p>我们姑且把这个话题简单化，不考虑那么复杂的因素，假设主人公能够在一段时间的探索后确定自己的方向。那么，我认为在寻找过程中所接触的信息都不能 称之为信息冗余。这些乱七八糟的信息为寻找正确方向都作出了贡献。好比神农尝百草，也会有尝错的时候，而这个错误依然是成功路上不可缺少的一步。</p>
+<p>好的，再把问题收缩回来，有边界和无边界下的信息冗余就变得相对清晰了。有边界的时候，就要用最精简的精力放置在有效的方向；无边界的情况下，就要用多次试错的方法来选择好的方向，寻找到自己的边界。</p>
+<p>不过对于大多数人，包括我自己来说，会有一个故意冗余的特点。就是当我们看自己最有价值的信息时，会不由自主的选择一些娱乐或容易理解的事情去读一 读或者消费一点时间。我想这大概是由于大脑也有一个类似CPU的机制，处理太多难懂的运算会增加脑的发热量，需要通过做简单运算来散散热（或者干脆死机罢工，需要休整后再重启）。所以，不必过分 自责，放松一下心情之后，还是回到正确的道路上来就可以了。</p>
+<p>说了冗余，信息片面又该如何应对。相对冗余而言，过度片面带来的危害常常是不易察觉的。因为无知无畏，就大胆的向前冲了，根本不知道自己缺的是什么。关于过度片面的问题，最好的方式是在既定边界外设置一个很小的开放区域，定期做些探索。</p>
+<p>拿我的Google Reader订阅来说，我会根据我应该关注的话题作出一个List，也会定期随着这些List做些拓展的阅读，打开一些以前不曾想到和不曾看到的世界来减 少片面的可能性。随着时间的推移，整个观察问题的角度和框架就会越来越综合越来越完善，不过相应的决策周期和决策成本也会提高。</p>
+<p>相对过度片面，适当的片面就有很多益处。我一直认为，在相对完善的体系中信息片面是一个健康和良好的状态。按照我们的认识：生也有崖，知也无涯。如果过分的重视后者，则会显得总是谦虚和谨慎，在很多问题上会放不开手脚。妨碍个体的自信和做事的决心。</p>
+<p>不过，这种片面一定是要在一个相对完善的体系中才可以得到肯定。好比我们观察一个豹子，不鼓励管中窥豹（信息过度片面），也不鼓励同时观察10只豹 子（信息冗余），我们只鼓励观察一只豹子。当然，如果我们研究边界变成了这只豹子的局部器官，冗余和片面的边界也就变成了：鼓励观察豹子的局部器官，不鼓 励观察整个豹子。</p>
+<p>好了，说到这里，大家会看到最后一个关键的点：目标边界层级概念。研究问题的层面不同也会带来冗余和片面的不同。每个层面又是和别的层面紧密相连，有时候需要层层递进，有时候需要跳出来看得更远。</p>
+<p>所以，关于信息冗余和信息片面，最好的解释应该是这样的：在目标清晰的情况下，根据各层次边界的不同，设定自己可以接受的冗余信息范围和片面信息范围，适度的冗余有利大脑健康和信息发散；适度的片面有利于信心坚定和研究深入。总之，用适合自己当前阶段就是好！</p>
+<p>左岸记：文章给我们在这个信息爆炸时代处理繁杂信息提供了一条比较有效的思路，对庞大的信息该如何取舍筛选，这是一种少即多，多即少的关系，当直行严谨推理的时候应避免信息思维的片面，需要果断决策的时候也别让过多冗余的信息造成干扰。那么，我们的闲时阅读对于人生的成长再怎么说也不会是冗余的，当我们只关注某一方面的信息，却理所当然地对一个人或某件事下结论，终究是一种片面吧。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的珍惜让你更懂得拥有</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你的珍惜让你更懂得拥有</h1>
+            <div class="date">2015-06-16 23:08:01</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌学生时代，特别喜欢用钢笔写字，甚至有时觉得字写得不好看，多半归咎于笔不好。曾有一支心爱的钢笔，写起来很顺手，写作业都会用它，直到有一次掉在地上，笔尖戳在水泥地上，劈了叉，伤心了很久，就差亲手把他埋了立个碑。回想当时那份单纯，忍俊不禁的同时也夹杂着些许的忧伤，已经很久没有为了一件外物如此动情。每个人都会有他各自的品性。他写过的字，用过的物品都能折射出一个人的习性。这也就是为什么在名人博物馆里总会摆一些他们生前的生活用品作为纪念。我想一百年之后，后代人看现在人们的生前物品，大抵不会觉得有什么稀奇的。随着社会财富和物质生活的丰富，很多东西变得不再稀缺，也不会用太久，自然也不会久留。这种物质的更迭太快了，还没有足够的时间对其产生依赖的感情，就会被新奇的欲望所替代。我们总是被外在所谓的时尚牵着鼻子走，担心跟不上节奏就会out了，见面不谈些新奇的，我们又该谈些什么以掩饰我们的无聊和空洞呢？一次性碗筷，一次性纸杯，一次性雨衣，一次性塑料袋充斥生活，简单和便捷难以让我们产生珍惜之心。大不了用完了再买，环顾生活四周似乎很少有陪伴你多年的物品。那种对失去心爱的钢笔而忧伤的心情再也难以找回。这个时代带给了我们的便利，让我可以尽情的享受物质生活的美好。手机用久了，也是一件尴尬的事情，弃之不舍，想换一个更新的又找不到更好的理由。鞋子稍微裂了缝，便会束之高阁，拿着鞋到修理店里修还不如买双新的更省事。衣服稍微破了点，沾染点洗不掉的污物也就不必再多考虑。难怪苏格拉底跑到街上说：“这世界上居然还有这么多我们不需要的东西”。是的，市场的满足的不再是人们生活本身的需求，满足的是膨胀的欲望和攀比之心。总是吃着碗里的，望着锅里的，东西总是别人家的好。对物质的不珍惜久而久之就会顺延到对人的不珍惜，对工作的不珍惜，对环境的不珍惜，对社会的不珍惜。人与人之间的冷漠也就油然而生。大学毕业时才会意识到同学之间的情谊有多么可贵，最美好的时光大家见证着彼此，一想到再也难以相聚，那种不舍自然是戳到泪点。等毕业之后再相见仿佛见到了亲人，按我同学的说法，大学时我们可能相处得很平淡，今天我见到了必须好好喝两杯，因为你是我曾经大学最美好时光的一部分。相比大学建立的那种纯洁情谊，再对比步入社会之后这种复杂的环境之下，大家都为了工作凑在一起，为了生计皱着眉头也要干下去，自然无暇顾及周围人的感情了，因为共同的爱好在业余生活凑在一起温暖也就显得珍贵。有年长的同事开玩笑说，合租的时候交房租的时候都不敢一年一交，因为你不知道哪天你的室友就会跳槽离开。这种人事的更迭所带来的不确定更让人趋向于陌生。大学时已经约好我们有四年的时光，工作之后的时间就无法预料，聪明的人们料想到这点也就不会轻易与人深交，因为不知道你什么时候就从我生活的视野里消失。随着人员流动的加剧，相处周期的缩短加剧了这种淡漠，直到人与人之间的联系细若游丝时，感受不到人情的温暖自然也会对人世绝望，这大概也就是传销的人们屡禁不绝的原因。社会的节奏和人员的流动速度加快有效的推动了经济的发展，也极大的改善了我们的生活。可终究缺乏时间积累下的厚重，人与人之间功利性因素加强，难以培养起那种纯粹的情谊，更谈不上珍惜了。为此到能体会那丝人世的寒意，想到老家的邻居一做就是一辈子，愈发珍惜眼前遇到的人和事，因为冥冥之中的不确定让我找不到安全感，也就只能且行且珍惜了！文昌 北京 五月 微信：changchang010左岸记：选择多了，比较就多，人也就挑剔起来，东西也就越做越精致，这是好事。如果一件事东西只是过渡的，那么选择就是阶段的，如果某个选择是关系到一生命运的，那么选择该是慎之又慎吧。我们知道这世界不存在一劳永逸的选择，我们能做的就是无论是选择过度还是决定终生拥有，我们都应该珍惜我们的选择，或者说我们应该只选择我们真正需要的，而不是贪多。原文链接：http://www.zreading.cn/archives/4943.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>没钱没朋友？钱的去处？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>没钱没朋友？钱的去处？</h1>
+            <div class="date">2014-12-27 00:36:59</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/王二小中午12点，回家吃饭，在楼梯口就闻到饭菜的香味，我心想：媳妇今天做的饭真是出乎我意料。平时都是我做饭，简单炒几个菜，算是打发一顿，哪天不想做了，就出去吃。指望她做饭，难！刚进屋，看到我妈在厨房忙碌呢，原来如此。“啥时候来的？咋没给我打个电话？”我说。“今天冬至，我亲自包的饺子，恁爸非要我给你俩送点。”妈说。“你那边生意不忙吗？几个饺子，不值当的跑一趟吧，在哪都能买到。”我说。“超市的水饺，不卫生，还是自己包的，吃的放心。”妈说。冬至？吃水饺？小时候咋没听说过？哪来的规矩？啥讲究？我不知道。媳妇在拖地，真勤快！为啥？因为她婆婆在！我便捋起袖子准备帮忙，“你在客厅玩吧，不让你弄，一身油烟味，出去多难闻！”妈说。“我哪有那么娇气？！”我说。说罢，我便剥蒜，切葱，淘菜，媳妇也跟着一起洗菜。我心想，真会凑热闹！饭菜水饺都好了，俺娘仨便围在客厅的茶几上边吃边聊，尽是些家长里短。饺子真香，和小时候的味道一样，很好吃，突然发现很久没和妈坐在一起吃饭聊天了。小时候，妈但凡做点好吃的，我姐弟三个总会围着灶台打转，眼睛直勾勾地盯着锅里的美食。所谓美食，不过是鸡鱼肉蛋罢了，或是油炸的丸子诸如此类的等等，但那时候看起来，却是那么的美味，可口。猪肉炒豆芽是小时候的一道美味大餐，每每妈都会炒一盆。那时候，我们姐弟仨多馋嘴啊，就那点肉，哪里够吃？肉吃完了，于是姐弟仨又开始抢豆芽吃，豆芽顶端的两个黄色的小豆瓣是争相抢夺的焦点。另一道菜，小鸡炖蘑菇。印象中，爸妈总是喜欢吃鸡头，鸡爪子。多年后，我才明白，二老哪里是喜欢吃鸡头鸡爪？问题在于，他们不吃，没人吃啊！吃完鸡肉，我们几个小孩便开始争夺蘑菇，盘子菜盆总会被扒个精光。每每想起这些片段，满心全是幸福的感觉，我想再也不会出现这一幕了吧。现在，姐和妹动辄就是几千块钱的包包，手表，从来都不含糊。我理解不了她们那样的生活方式，理解不了。过年回家的时候，妹在我跟前有意无意地显摆。我说：“日子过好了，是不？忘了小时候咋生活的了？臭显摆什么的？”妹说：“小时候？那都是上个世纪的事了，那时候人都穷，现在不是变化了吗？大家的生活不都好起来了吗？”我说：“变化再大，也得知道勤俭节约啊，忘了小时候，咱爸咋教育咱仨的了？不该花的钱，一分都不能花！还记得不？”妹反驳道：“哥，你不懂，在外面，你穿的用的要是寒酸，别人都看不起你，现在人就是以貌取人！像你这样浑身上下加在一起都不值200块钱的人，在外面压根没人搭理你！你信不？”我说：“我不信！别人尊重你，是因为你有钱？”妹说：“没钱，谁会尊重你？谁会看得起你？”我说：“那只是表面的尊重而已，我的朋友都是打心眼里尊重我。”妹说：“谁尊重你？你说给我听听！”我说：“六子！奎子！大鹏！……多了去了！”妹说：“你说的这几个，哪个不是你用钱砸来的？卖给六子家房子，你少收人家10来万，奎子当年欠一屁股债，你掏了几万给人家，大鹏结婚的时候，装修的钱，也是你借给他的！就你那点屁事，我早知道了！”我转过头看了看爸妈，想问是谁出卖我的？爸妈看到我瞅着他们，便慌得忙各自的事情了，装作没看见。我说：“我掏钱，那是因为我觉得掏的值，绝没想过回报。”妹说：“假如你没借钱给他们，他们会像现在拿你当爷供着吗？可能会，但不可能那么热乎，不信你试试！现在的人就这样，哥，你醒醒吧。反正我只把钱花在咱们自己家人身上，别人我懒得管，也管不了。”这场辩论，以我的失败告终。妈慌忙打圆场，说：“你个妮子，管那么多干啥？管好你自己，恁哥有自己的主见。”妹说的有错吗？没错！那是我错了？我不知道。我便开始不说话，因为我不知道说什么好。我帮了那么多人，现在想想，也就六子能记得我，尽管当初我是不求回报的，但如果说我不求一丁点回报？那也是不可能的！我还没那么高尚。其余的平时没啥太多联系，倘若在路上碰到了，便是一顿吃吃喝喝，然后分别。去年，我把姥姥家后院的几间老屋重新修整了下，配备了棋牌室、茶室等休闲娱乐的项目，还订阅了很多老年杂志，每月准时寄回去，也没多少钱。妹说我脑袋抽风。我不反驳，懒得反驳。我刚才说了，我理解不了她们那样的生活方式，真的理解不了。同时，她们也不理解我的生活方式，或许这就是我常说的人各有各的活法吧。后来，我给六子拨通电话，说：“六子，我现在要是突然变成穷光蛋，生意全倒闭，身无分文，露宿街头，你还会像现在这样，经常缠着我，在我屁股后面转吗？”六子说：“老弟，你喝多了吧？咋啦？出啥事了吗？要是需要钱，我这有。”我心想着，这表现不挺好的嘛！左岸记：钱是自己辛辛苦苦赚来的，怎么花是很个人的事，只要自己觉得这钱花的值得，钱就该那样去花，都挺好。有钱可以很任性，有钱也可以很有创造力。附：开拓者与慈善家文/王登科前几天，Google创始人Page在TED演讲的时候说，如果自己死了，宁愿将数十亿财产捐给像伊隆·马斯克这样的资本家来改变世界，也不愿将钱捐给慈善组织。（马斯克是个研究火箭，太空，做电力汽车（特斯拉）的商业与科技天才）此话一出，立即引起了广泛的讨论，有人鄙视有人赞赏，然而，我几乎立即联想到另一个富可敌国的有钱人，比尔盖茨。比尔盖茨在他人生的后半部分，几乎将自己的全部精力投入到慈善事业中，他为非洲的饥饿儿童和肆虐的疾病花了数以亿记的财富，他现在仍然在热忱而智慧的进行着他的慈善事业。这个世界上最聪明和最有钱的两个人，对待财富却有截然不同的做法，但是我们却很难说谁更高尚，或者谁更智慧，他们的做法实际上对应着两种对待这个世界的态度，一个是开拓者，一个是慈善家。开拓者具有高瞻远瞩的视野，慈善家则有悲天悯人的情怀，NASA是开拓者，特里萨嬷嬷是慈善家，这个世界由开拓者剧烈的改变，却由慈善家温柔的维持。很多人看到一年后，却看不到十年后，Page看到的是十年后甚至百年后的人类未来，比尔盖茨则着眼于苦难的现实，深入切肤之痛的贫瘠，并行之有效的帮助这些人们。你不能说Page冷漠，也不能说比尔盖茨愚蠢，拯救全人类功德无量，拯救一个人也功德无量，事实上，如果这世界上的企业家都是开拓者或慈善家就好了，那么这世界上的财富一半会投入未来，一半会捐给现在，但遗憾的是，这世界上大多数富人都既无开拓的智慧，也无慈善的热心，他们只是躺在自己的财富上面腐烂，财富的处理是每个人的自由，然而财富的处理也反射着每个人的胸怀。对于无钱无势的芸芸众生来说，我们可能这辈子也做不到周济天下或者改变未来了，然而，我们依旧可以是开拓者或者慈善家。用最大的努力，让自己和家人生活的滋润幸福，这就是慈善家，而给予下一代良好的教育，你就已经开拓了未来。普通人做的事情写不进丰碑，可丰碑也写不尽。我们身处时代和信息的洪流，Page或比尔盖茨所做的，只是影响着普通人，然而每个普通人，才真正影响着世界。原文链接：http://www.zreading.cn/archives/4720.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

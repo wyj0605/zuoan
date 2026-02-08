@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>月光世事 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>月光世事 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>子轼荐文。</p>
+<p>月光世事</p>
+<p>文/刘景鹏</p>
+<p>寂寞的苔藓爬上了斑驳的粉墙，月光抚摸着城市屋顶那一方黑黝黝的烟囱。人们的影子如此瘦长，以至惊慌失措的狗围着黑色的圈子摇起了尾巴。无数扇窗子在天黑前准时关闭，流浪的小鸟蜷缩在隔壁的屋檐下，如果有一片雨云飘过，那么大片大片的忧伤便开满城市的上空。</p>
+<p>坐在路灯光下的巷子，想起光阴是件多么伤感的事。而一座城市在少年呼啸的口哨里，又能溅起多少岁月的风尘。比如这些舂米用的石臼、石磨、凹形的石槽，此刻它们在我眼里，像那揉碎的时间，在暗夜沙漏里燃烧的甜香，弥漫了大段的古色古香的故事。而城市能见到这些，已是非常稀罕的事儿了。</p>
+<p>然而在某一个中午，我从这条茶叶特产街经过时，一见它们安静得流落在这里。我的心头涌上的便是一层粘稠的时间泡沫。在正午安然的阳光下，它们有着与城市不相时宜的清贵。柔和突起的青石纹路，便如岁月的年轮。在时间的影子里，似乎那些月白色长衫的前人，伸出了修长细腻的手，月芽般的柳月探出了头。偌大的院子，初一的晚上，女人点上了一枝枝幽长的香。他们会望着月亮，抽起有那长筒杆的水烟。</p>
+<p>门前细长的巷子，婉转起伏后便连向了静夜里沉闷的水田。孩子们提起小手电筒，田野里那些树与飞来飞去的虫儿，整装待发，迎接着一个盛大开放的夜晚。而这些，在农耕文明流落多年之后，也只有在书中、怀旧的电影、电视里才能见得到。即使是回忆，都带些凌落的谢幕风尘味。</p>
+<p>城市的巷子，有昏黄的灯光。有迷路的小狗会对着来往的路人吠叫。某个老人的香烟摊在这里已摆放多年，那里有廉质的卷烟，大前门、老刀、哈德门，如果你想起这样一个时代以前的香烟品牌，那时你刚从华丽的梦境醒来，有一些疼痛吞噬着你的神经，那么便看看这些牌子吧，它们还收藏着少年不曾消失的记忆。它们也是城市的某个特征。</p>
+<p>月光浸白了模糊的世事。最早的一张报纸，它的纸面发黄，岁月可以熏黄彼此的容颜。只一个当年却杂草丛生，从某一处怀念里蔓生。摇着冰块的手，比手中的玻璃杯还要清脆。时间一走就是十多年。当年抽的“黄果树”香烟，已经遗忘了残留在嘴里的那口香味;那衰草凄凄的野渡，一场小雨之后，梢公的木桨爬满了青苔;散落的影院，门可罗雀，当年的少年坐在第五排的位置，看着爱情如期上演，黑暗中枝枝叶叶席卷而来的惆怅，是青春就此定格的一个破折号。</p>
+<p>城市的街道多么寂静。乳白色的天光流落民间。女孩子的发型变了又变，一截褐黄葱笼了颜色的区别。五色的陀螺在干净的地面急速地转动。一本书翻到第一百一十一页，看书的孩子忘记了书的结局。抽烟的人抖开了关子，赶路的人继续赶路。</p>
+<p>怀念是一个必须终止的手势。卷起的衣袖露出一截藕似的手腕。上弦月从柳稍头露出，东边与西边，轻微的颤动，从叶的细脉发出，砉然而来，埋头不语的人们无所事事揭下了一页日历。隔着一座山乡村里的老农，正对着谷雨之后的雨水，盘算起今年的收成。</p>
+<p>左岸记：还曾记得月光宝盒吗，那乘着月光可以飞速穿越的传说？对着月光，总是怀念吧！如果城市都已焕然一新，哪一天突然想要挽留些什么的时候，难道真的只能对着月光告诉孩子那些曾经动人的故事吗？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

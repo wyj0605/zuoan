@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>既然活着…… </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>既然活着…… </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>沈万九的投稿。文章博取众长、幽默风趣，富有王小波之风骨。</p>
+<p>王小波曾说过，根据他的经验，人在年轻时，最头疼的一件事就是决定自己这一生要做什么。这个经验同样适合于我，记得年轻时的我对这件事很是头疼，有时候晚上躺在床上搂着心爱的姑娘还是睡不着，想到这一生要做的事还没考虑好就忧心忡忡，如履薄冰，像是一个初次拜访岳父却来不及准备见面礼的年青小伙子一样。解决的办法其实很简单，就是把身边的姑娘叫醒聊个大天——当然，考虑到是大半夜的，而且人家第二天一大清早还得赶去上班，所以有时候非但不能叫醒，还可能挨一顿歇斯底里的臭骂，弄得整栋楼都能听到，以为我们要拆楼。所以，另一个解决办法就是爬起来去翻冰箱找啤酒喝，喝多了自然想少了，但如你所知，喝酒只能解决晚上的问题，不能彻底解决头疼的苦恼。所幸的是，我现在年纪也不小了，身边的姑娘也较为固定了，头疼的时候自然少得多了。换句话来说，我对于自己这一生要做什么这个命题已经有了几分把握。</p>
+<p>在中国，我相信大多数的年青人甚至中年人要不是太闲就是太忙，以至忘了问自己——我这一生到底要做什么？往小里来说这是一个终生职业的取向问题，往大里谈则可以说是跟世界三大哲学问题所媲美的重大问题，其关键之处有两点：一是它具备时效性，二是它还具备排他性。所谓的时效性就是说，你越早确定这个问题的答案，你就越早地无限接近它。就像是一个同性恋，只要越早知道自己是喜欢同性也就越早能够获得心灵和肉体上的欢愉——当然，社会的尺度也是必须考虑的范畴；至于排他性则是说这个问题的答案只能是你自己去回答，而不是希望你继承父业的商界大亨老爸给你安排，也由不得从小就逼你练钢琴的老妈说了算，更不是中学时候老师布置的命题作文“我以后要做什么”的答案……它必须是你经过一定的生活阅历之后脑中不断且在不经意的时候甚至在梦中所闪烁的答案。简单来说，就是你死后你希望墓碑上面刻着的生平履历。有关这一点，其实有点类似前几年畅销全球的一本书《高效能人士的七个习惯》里面的第二个习惯：Begin with the end in mind，即以终为始。也就是说，先把终点想好了，所有的事儿就算再乱也不会怎么乱了。</p>
+<p>我是一个不太看历史的人，中学的时候历史从来就没有及格过，当然现在去考也未必会及格——但这不是要说明我很笨，只是说明我对那些古代文明不太感冒而已。但现在我发现我错了，其实我并不是对那些古代的文明不感兴趣（恰恰相反，我非常喜欢畅游在历史的长河中），我只是对教条式的死记硬背和枯燥无趣的阐述不感兴趣而已。之所以这么说，是因为前阵子刚看完的一套丛书——《明朝的那些事儿》。我非常建议所有识字的下至五岁上至八十的朋友可以去看看，不一定非得买，作者的博客上就有得看。如果说“我手写我心”这一说法适用的话，那么作者应该一个非常真诚的人——关于这一点，也可从他放弃巨额的版税（据说至少七位数）硬是坚持把书本内容公布在网上得以证明。对于当下这个连和尚也要取老婆和尚庙也爱搞商业的浮躁世界里，一个真诚的人就如同是黑暗里的萤火虫，即便是再渺小，却依然能给人温暖和明亮。</p>
+<p>记得在书里有一句话是这样子说的：人一辈子最不能缺两样东西，一是良心，二是理想。作为一个对历史非常了解的作家，他的话语势必有着较大的说服力——起码要比奥巴马，富翁，房地产商或者刘德华说出来有说服力好几倍吧。因为正如他所说的那样，一个王朝的建立和覆灭，不管是短短的十几年比如说南北朝，还是漫长的几百年，比如说明朝，在他的眼中都是多几页纸或少几页纸而已，“所谓千秋霸业，万古流芳，以及一切的一切，只是粪土。先变成粪，再变成土”。然而，在这里粪土当中，却不断地重复诉说了同样的一些道理，而这正是作者希望呈现给我们的。</p>
+<p>在书的结尾处，作者不惜笔墨给我们讲述了徐霞客的故事，这个故事即没有宫廷明争暗斗那么刺激，又没有边疆敕马驱逐外敌那么奔放，但被作者特别安排在了最后，其重要性自然不言而喻。而这的确也是作者最想通过本书告诉我们的道理：成功只有一个——按照自己的方式，去度过人生。</p>
+<p>以前说到梦想，有这么一个经典的比方，说我们就像是玻璃瓶里的苍蝇，梦想就像是玻璃外的阳光，虽然梦想的阳光是一片明亮，近在眼前，但是不管怎么努力，始终无法获得，只能够不断碰壁。这个比方很多人用来自嘲可谓一流，用来自我安慰也是不错选择，但如果只是这样做的话，我们就等于自己放在跟苍蝇等同的地位，永远活在仰望梦想的封闭空间内，直到老去死去粪土去。</p>
+<p>最近有一本书很火，名字叫《酥油》，讲的是一个安徽的女教师入藏当教师的事。她用了五年的时间去书写自己的梦想，其中的艰辛比如说强行吃屎尿混合物当药，睡觉的时候被大狗拽出来等等骇人经历恐怕非一般的即便是去那儿旅游过的人所能够体会。我大学的时候有一个朋友，口口声声说以后毕业了要去到中国最贫困的农村帮助那里最贫穷的学生——换言之，要去到国家最需要她的地方发光发热。可是此女子暑假期间三下乡活动去到广东梅州呆了不到一天就受不了了，说这儿茅房简直臭得可以熏死重感冒到鼻塞的人，这里吃的东西让人以为一夜之间到了白毛女的旧社会，结果第二天一清早就找了个借口说月经来了然后冲回了文明而干净的广州大都市。从这两个例子可以得出一个结论，在梦想的征途中，我们会遇到很多的困难，无数的挫折，有些人用行动去坚持，有些人则用口号去响应。这两者的区别其实不言而喻，结果自然大相径庭。</p>
+<p>每当说到梦想，很多朋友第一时间会联想到“头悬梁锥刺股”，“学海无涯苦作舟”，“天降大任于斯人也必先苦其心智”等等痛苦煎熬的场景，似乎非要说明追求梦想是一件无比痛苦而且一定要熬的住苦的事儿，这恰好也是我从小到大听到的一套说法。可是我长大后，又听到了另外一种说法。某个著名的德国物理学家死之前对身边的人说，研究了一辈子的物理了，还有几个问题，待会去到上帝那儿好好地问问他老人家。还有个例子是发生在前两年的奥运结束后，有一天我在电视上看到崔永元采访菲利普斯，他们聊了很多。老崔还是一如既往的幽默，但也不忘问些好问题，比如说这个（大概意思类似，对白为笔者设计）：菲哥，你奥运拿冠军跟玩儿似的，除了天赋异禀之外，成功的最大秘诀是啥呢。菲利普斯想了想后，说要想成功就一定要做自己真正发自内心爱做的事情，然后不懈去努力，相信你自己！</p>
+<p>其实很多时候，我们都以为追求梦想是一种非常痛苦的事情，但其实不然，如果果真如此的话，那只能是别人眼中或者是这个社会给你定义的梦想。因为当你用心去做一件你爱做的事的时候，你并不觉得是一种煎熬，即便有时候你会因为短时的受挫而沮丧，但你的内心始终会坚持着，无怨无悔，就像是你初恋时候爱上的那个女孩。</p>
+<p>每个人都有着很多种选择，你不幸其实有更多的人比你不幸，你飞黄其实有更多的人比你腾达，但不管是不幸还是飞黄都将终归于你自己的选择，可能是昨天的选择，也可能是明天的，但一切取决于你自己。</p>
+<p>笛卡尔有一句名言是“我思故我在”，这意味着不间断地思考是人存在的一大特点。当然思考了存在了却不行动管个屁用。管用的是我们既然活着，总该有自己的活法，不管是活在成功的巅峰，或是走在成功的路上，都是一种“很给力”的精彩。最重要的是，这种精彩无需别人喝彩。</p>
+<p>Weibo: http://weibo.com/shenwanjiu</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

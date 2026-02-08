@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>谁简单了我们的复杂 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>谁简单了我们的复杂 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>细心的朋友可能已经发现在左岸的导航栏上多了一个页面——左岸音乐。</p>
+<p>关于音乐，可谓萝卜白菜各有所爱，但左岸还是想尝试一下建一个与众不同的音乐列表，所以左岸想邀请大家推荐一首你最喜欢的音乐。</p>
+<p>我最初的想法是想通过插件创建一个MP3播放器，就是whisper提到的这个flash mp3 player， 可能是因为我的主题不支持widget的缘故，我折腾了1天1夜，都没有成功。我也试着想把主题修改为支持widget，又怕和其他的模块发生冲突，就没 有动手。我想到我的需求是：播放器除了应该具备音乐播放的控制功能外，播放器要能非常方便地把朋友们推荐的音乐加入到列表当中，如果能够实时显示歌词，那 就更好了。后来在Gtalk上和showfom提到这件事，他说，为什么不直接上top100定制一个。只简单的几步，左岸音乐的widget就定制完成了，她的灵活性比我想像的还要好。才惊讶于这个世界上我们认为很复杂的东西有人已经很简单地把它实现了出来（这里的简单指的是我们使用者的简单，而设计者一定通过很复杂的算法才通过）。</p>
+<p>今天在MeetMuMu 看到他写的这篇关于Google Wave的文章，说到了我的心坎里，可惜现在Google Wave还只在内测，自然还要再等上一段时间了！</p>
+<p>这是一个纷繁复杂的世界。我是说，有太多工具可以供我们选择和使用。选择往往比使用更加困难。设计往往是为了用户选择的竞争。</p>
+<p>有的在做加法，这是一种愚昧的做法。虽然做加法的本意是好的，希望能一个工具解决众多的问题。但是，这样的考虑也太简单了吧。实际情况是，要么非常臃肿，要么每个功能都不好用了。</p>
+<p>比如腾讯QQ。现在的QQ功能强大到有些超越了我的接受能力。我很期待有一个简洁的QQ：即时通信、文件传输、视频聊天，足矣。</p>
+<p>另外一个例子是瑞士军刀。虽然它把很多工具的功能想法设法的集中起来了，但是我发现每种功能都变得很难用了。削苹果变得没有乐趣，剪纸成了一件痛苦的事情，开红酒不知道怎么使力。我宁可要个工具箱，因为我不想把一个挖了泥土的工具又拿去切橘子。</p>
+<p>有的在做减法，这是一种负责的态度。好的设计就是去掉多余的部分，仍不影响功能。不过显然，减肥比加法难做多了。</p>
+<p>一个例子是MacBook Pro。设计师Jonathan Ive说，“如果一个设计没有必要的话，它一定不在那里。”的确，MacBook Pro已经简单到沒有触摸板的单击键，没有容易发现的指示灯，没有开合屏幕的按钮。我想不到MacBook Pro除了键盘、LED屏幕这些还有什么可以去掉。</p>
+<p>有的在重新定义运算，这是创意。我说的是Google Wave：</p>
+<p>互联网带来了获得浩瀚的信息的最佳途径。web2.0时代，交流沟通的方式多到崩溃。的确，选择是很头痛的。我们已经妥协了，基本每种交流方式都在使用。上百封的Email，上千条的Tweets，数不清的Reader未读，那是很花时间的。</p>
+<p>Google Wave重新定义了交流的方式。Google Wave通过wave的形式传递信息，参与者可以撰写、阅读、编辑、回复感兴趣的wave。不用担心信息爆炸，搜索功能太好用了。</p>
+<p>Google Wave是一个更加即时的IM。通过GW可以很方便的一对一或者多方进行即时交流。让我抓狂的是，可以看到对方打字的过程。</p>
+<p>Google Wave是一个易用的Email。说它更加易用，是因为所有的操作都是图标化，你基本不需要菜单。插入地图，图片，邀请其他人等也很方便。更加值得一提的是，你个对方的回复都在同一个wave里，不再需要整理。</p>
+<p>Google Wave是一个自由的BBS。可以在任何一个位置加入你的回复，可以格式化的你的回复。不过，很遗憾的是，好像没有发现签名档的功能。</p>
+<p>Google Wave是一个更强大的Twitter。每条tweet你可以设置是你的好友可以查看还是所有人都可以查看。他们也可以帮你邀请参与的人。</p>
+<p>Google Wave是一个更加人性化的Wiki。发一个public的wave作为词条，所有的人都可以参与编辑。愉快的是，大家可以在后面交流评论。对于错误的编辑，还可以通过playback退回查看这个wave之前的每一个状态。</p>
+<p>……</p>
+<p>请记得Google Wave既不是IM、Email，也不是BBS、Twitter或者Wiki，它就是Google Wave。Google重新定义的能取代所有这些服务的全新产品。它和瑞士军刀的区别是，它不是简单的把所有的功能相加。Google Wave简单了我们复杂的web 2.0的服务。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

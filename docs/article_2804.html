@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小时候，从来没有走远</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>小时候，从来没有走远</h1>
+            <div class="date">2014-05-26 22:34:11</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/王登科小时候的我内向，害羞，聪明，胆小，瘦的没心没肺，萌的天怒人怨。我知道你们都不信，但我说的是真的，如果我心情好，我可能会附一张照片在后面。据大人们说，早在幼儿园的年纪，我就已经在邻居家的小妹妹之中左拥右抱了，长大后我经常努力回想那年的记忆，藉此慰藉此后人生孤独的岁月和灵魂。随着年龄的增长，五六岁的我逐渐显现害羞和胆小的性格，甚至一度变得看到小妹妹就脸红的地步，那时候却经常有些老姑娘跑来调戏我，我敢怒不敢言，憋红了小脸愣愣的站在那，手足无措。小学是我人生最灰暗最痛苦的岁月，但是却也有最温情的颤巍巍的记忆。那时候在家被我爸教训，在学校被同桌的女生欺负，我只觉得天昏地暗，日月无光，每天的生活都和书包一样异常沉重。小学四年级是个分界线，此前我的成绩烂的让人伤心，此后我的成绩好的让人震惊，这让我得到了老师的偏爱和同学的嫉妒。嫉妒是个很不友好的东西，它让本来就很脆弱的童心更加敏感，当时坊间广为流传的一句话就是，王登科一步登天。只是这群同学不知道，我的成绩进步的原因是我爸开始帮我写作业。但所有人都不知道的是，我宁愿自己写。我爸并不是亲自动手帮我写，而是他念一句，我写一句，有时候他念的句子特别的长，我就捉摸着少写两个字，但这样的后果往往是我爸的怒吼，严重的时候，比如我少写三四个字的时候，还可能遭到一个耳光，原因在于，我爸认为他想的每一句话都有其完整的含义和美感，少写一两个字就破坏掉了。我坐在那里泪如雨下，写完剩下的作业。后来我发现，每次我爸帮我写作文的时候，他都会翻着几本不同的作文书，而那些有美感的句子，大都是从那几本作文书上面来的，对此我曾经表示过质疑，我爸说这是借鉴，借鉴不能算抄。在小学，我爸要求我必须每天都读上下五千年和欧洲哲学史这两本书，并且每天都会给我讲课，那时候我无比讨厌历史和哲学，后来才渐渐喜欢上了它们。直到现在，当年的两本书都给我的写作和把妹交流带来无数的方便。第一次送我上幼儿园的时候我哭闹的让整个院子的人都知道了，还在打滚赖皮中抓掉了我妈的一条项链，那是纯金的，差不多价值我们家财产的一半。所以你知道我有多讨厌上学，上小学之后我的理智不再允许我做出打滚赖皮这样幼稚的事情，但是我还是极其讨厌上学的，直到后来我注意到班上有几个挺漂亮的女同学的时候，上学这件事才变得没有那么痛苦。大约四年级还是五年级，我的同桌换成了一个彪悍的女生，她不仅彪悍，还有一个六年级的男朋友，全年级都不敢惹她，而她就坐在我旁边，这让我揣揣不安。她看出了我的胆小，就开始经常欺负我，我不是她的对手，就只好忍气吞声，好在她也不是特别过分，有时候还借给我抄她六年级男朋友帮她写的作业，我也就一直没有计较。我只记得有一次是比较过分的，她用笔戳到我手臂，我当时由于输了几个弹珠心情低落，她这样使坏让我怒火中烧，我腾的一下就站起来了，对她怒目而视，我以为她已经被吓住了，但事实是没有，因为她又给了我一下，我气坏了，伸手攥住了椅子，做出要提起来扔在她身上的动作，这时候全班都注意到了，开始起哄，有给我加油的，有嘘我的，我只感觉到两只腿不由自主的抖了起来。后来我始终没有提起椅子，因为我内心的声音告诉我，好男不跟女斗。所以我从小到大从没有打过女生，这也成为了我做人的原则之一。我的小学大概也是有几个玩的好的朋友的，其中有个智商很高，我考95的数学他能考98，只不过那次由于我们提前考完在座位下面偷偷玩陀螺而被一人扣了十分，那时候我从没想过我的数学会有学不懂的时候，事实上，那时候我从没想过我今后会有考试不及格。那时我太天真，而未来和现实一样残酷。小学的每一天都由我奶奶送我上学，送我放学。小学我是没有零花钱的，但我不算缺零食，因为上学放学的路上我会缠着奶奶给我买零食。那时候每天无数的怨念和伤心都靠奶奶买的零食来抚平。我爸打我的时候我妈保护我是没有太大用处的，因为我爸可以拉开她，可是我跑到奶奶那里去我爸就不敢做什么了，后来我又做过无数噩梦，遇到过无数痛苦的事情，也有过寒冷夜里离家千里的异地求学，却只觉得最安全的地方莫过于此。如果说我爸我妈含辛茹苦的把我养大成人的话，那我奶奶就是一把屎一把尿的把我拉扯到足以打酱油的年龄的。直到后来她八十岁的高龄都还天天给我做饭，后来她老的生病了，病得重了，还是拖着个我妈几年前买给她的小拖车去买菜买油，因为她知道那两天我要回家吃饭。我小学六年级因为我爸打我哭了一次，此后直到高三都没有再流过眼泪，而高三那年我奶奶去世了。我想这可能是我这辈子最后一次哭了。后来我还时不时的回想起夕阳下小屁孩儿和老太太一起慢慢从学校往家里走的画面，小屁孩蹦蹦跳跳，老太太颤颤巍巍，那是我关于小学最温情的记忆。我五年级的时候甚至想写一本『绝望日记』来描述我惨痛的生活，后来又被我爸打的想报警，可是过了这么多年，回头去看，我只觉得当年的日子趣味盎然，我对我爸也只有感谢，当然我嘴上不会这么说，初中的时候我向我爸抱怨小学的生活，我爸提出以五十块钱收买我小学的关于他的种种怀恨，我欣然接受。小学之后，我进入初中高中，而后大学直到现在，时过境迁，人事全非，我的生活变得比以前精彩了无数倍，我也变得脸皮极厚而胆大包天。可是在无数个像现在这样夜深人静的夜里，我总觉得，这个世界再不如小时候那样闪闪发着光。来自：王登科的投稿，原文地址：http://www.wdk.pw/432.html左岸记：儿童并不是生来就能接受学习知识的清规戒律的约束的。孩子一开始必须通过对生活的热爱来获得知识，随后他们便会脱离生活去求得知识，再往后，他们又会带着成熟的智慧重返自己更为充实的生活。——泰戈尔怎样是幸福的童年呢？是父母之间毫无间隙，在温柔地爱他们的孩子时，同时维持着坚固的纪律，且在儿童之间保持着绝对一视同仁的平等态度。——安德烈·莫罗阿有些儿童的爱与恨的高潮是大家想不到的，而那种极端的爱与恨就在侵蚀儿童的心。这是他童年最凶险的难关。过了这一关，他的童年结束了，意志受过锻炼了，可是也险些儿给完全摧毁掉。——罗曼·罗兰我以为就是圣贤豪杰，也不必自惭他的童年，自惭，倒是一个错误。——鲁迅原文链接：http://www.zreading.cn/archives/4389.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

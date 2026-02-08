@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心有美景，不必远行</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>心有美景，不必远行</h1>
+            <div class="date">2015-05-04 23:21:42</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/关中人《世界那么大，我想去看看》，《你给生活机会，它才会赠予你风景》。在这些极有青春感染力的文章里，我感受到了自己那颗不安分的心：我也想去寻梦。但我不知道自己的梦在哪里。仔细思量，在日常的烦恼中，在洞悉生活的岁月里。人生最美的风景在心里，守住自己的心便什么都不缺，一切条件皆因它而满足。心有美景，不必远行。人生有别，各自其美。慎独的力量是强大的：追求极致和优秀的思想是一种错，平凡的生活才是好生活。云彩再美经风一吹就散了，心情失落要反思。优秀大多是逼出来的，像失去自由圈在格斗场的奴隶，不主动消灭对手，就被对手消灭。辞职是理想与现实的冲突把自己逼出来的，生活中很多时候面临着类似这样的选择，没有受到苛刻的约束就没有优秀，优秀就是将潜能发挥到极致。这样的优秀除非被迫，否则宁肯不要。不是不敢辞职，是不能轻易辞职，走得潇洒都是没有后顾之忧或孤注一掷的人。工作是谋生的工具，换份工作就像换了劳动工具，不应该过分影响对生活的体会，幸福取决于对待生活的态度，与生活内容关系不大。长远看有钱并非一定幸福，贫困也不一定是灾难，福祸相依的道理都懂。幸福在于个人对生活的感受，谁也替代不了谁。并非给他人一个吃用不愁的舒适环境。我们下班走了，我们的董事长还在。富有，不过是某人某方面的资源比较多，富人没有穷人闲时间多，这是普遍真理，穷人就是不珍惜自己时间的人。不在意的才叫富有，在意的无论你有多少，都叫穷，穷就是太在意得失。苦难的生活都能记住，但舒适的经历却未必。不为生计困扰，四肢不勤五谷不分，没有经历生活的苦的人才是乞丐。贪心是无止境的，危险也是永远存在的。贫穷与富有都逃离不了生活，生活自然包括不幸与苦难，生活吻我以痛，要我回报以歌，乐观是对生活和自己最好的回报。危险是保持清醒的良药，苦难是生活中的财富，没有经受过挫败的人是稚嫩的。一个精神富有的人再穷也能活下去，但物质富有精神贫穷的人有可能会自杀。精神与物质不矛盾，物质富有的人大多精神也富有，但物质不富有的人可以有富有的精神。穷释子，口称贫实是身贫道不贫。对普通老百姓而言，如果没有能力多赚钱，就尽量保持精神富有，以弥补物质的匮乏。人都是自私的，活着只为自己，标榜着为老婆父母孩子活着的人还不都是把自己的理解强加于亲人之上。无论是谁，替代不了家人的感受，也无法替他们生活，所谓为家人受累，不敢辜负了最亲的人，不过是向现实妥协的借口。正确对待生活的态度才是真财富。正确的诠释每人心里都不一样，人都生活在自己狭隘的偏见里，活在自己的恶习中，看不到自己的错，却对他人指指点点。人生有三境界，境界一：独上高楼望断天涯路；境界二：为伊消得人憔悴，衣带渐宽终不悔；境界三：众里寻他千百度，暮然回首那人却在灯火阑珊处。三境界说的是人追寻快乐的过程：与众不同过，努力奋斗过，最后的落脚点还是在平凡的生活中。过来人都体会到平常心是道。我认为现在就是最好的生活，只是我认识不够感受不到它的美。企图留住舒适和安全感是自寻烦恼。生活离不开阴暗，也不能缺了苦难，苦难使人坚强，帮助承受它的人改掉缺点。经历不同，对生活的理解不同，不同环境的人追求的东西也不一样，同一物不同的人有不同的感受。有没有想过，认真对待生活，不同的人可以有同样的精彩。乐观的人即使身在牢房，心里想的也是为离开牢房做些铺垫，相信经历过牢狱会对生活有更深层次的感受，这是资本，也是修行。悲观者担心自己死在牢房，生活在恐惧里。幸福就是对生活美好的感受，无需远走，无需改变环境，走完人生的三境界便是幸福，改变自己对物的态度就能体会到。左岸记：如果发现不了自己身边的美好，那么无论走到哪里，结果都是一样的，试着从身边的一花一叶去捕捉你心中的意境吧！那会让你想到的不是逃离，而是从心出发，可近可远，得偿所愿。附：萧秋水——世界这么大，你从哪里看？有人对我说，“在北京呆了13个月了，对这座城市没有太多的渴望，不感叹故宫的历史沉淀，不羡慕别人的热血青春，那些听起来让人欣羡的经历也没有引起我太大的注意。我总是缩在自己的角落里，做着自己。”固然，在一座城市里，怎么生活，都是自己的自由，只是我看了，觉得挺可惜的。可能很多人都是这样，对于所在的城市，没有多少渴望，有空的时候，也多是宅在家里。每天上班下班，对于季节，可能会注意到，但是春暖花开，夏天的暴雨秋天的落叶，都引不起心中的波澜，日子就是这样一天天过下去。如果朋友众多，可能会呼啸着各处寻访好吃的好玩的，如果遇到所爱，可能会有不同，但如果是一个人，朋友又少，日子多是平静无波的。我说可惜，是因为每座城市都有自己的好，虽然的确城市们越来越同质化，然而如果用心，还是会感受到城市的不同。比如西安的大明宫，在别处没有，即使只是废墟，但站在那片空地上，遥想盛唐时节，大明宫的盛景，心中不无感慨。很多历史悠久的城市都有博物馆，现代化的城市也不乏图书馆、音乐厅等，就算是一个人，也可以寻找到很多乐子。而且很多城市都是新旧交融的，即使是像深圳这样的城市，也有大鹏所城、南头故城这样的古老建筑，也许人需要的，只是点燃自己心头的热情——如果寄望于别人，可能不现实，那么，为什么不能是自己呢？人们厌倦熟悉的地方，向往陌生的远方，这可以理解，不过，这个地方，真的熟悉吗？即使长年生活在一座城市里，即使观察力够细致了，也不见得面面俱到。我学了摄影，就觉得深圳突然间多了很多有趣之处，我开始健走，就注意到路上的蓝花楹，有些路，是我以前根本都不会去走的，每当我多一样技能，就同时刷新了对城市的看法。“世界这么大，我想去看看”，这是应该鼓励的，不过同时，也不要忽略了身边的风景，不要辜负你所在的城市，就从你的身边看起吧！原文链接：http://www.zreading.cn/archives/4887.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

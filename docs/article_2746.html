@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱从不同的路过来，而命运只有一颗心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>爱从不同的路过来，而命运只有一颗心</h1>
+            <div class="date">2014-07-30 01:24:19</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/@隶书shu平时看了这么多段子，终于在一部电影里面集合了。蛮过瘾的。《后会无期》很多人说没有看懂。我也不敢说自己有看懂，只能说懵懵懂懂，貌似我说自己看懂了，就跟小伙伴们三观背道而驰不能正常愉快玩耍似的。而更重要的是，会被你们误认为我想太多。想太多是种病，意味着你思想复杂、多愁善感，黛玉再世，我嘞个去啊，你们还让不让人好好思考、好好感受的？！我知道杨绛老师说了一句很经典的话：你所有的问题都是因为你读书太少，而想得太多。嗯嗯，我觉得杨先生一定是写给那些无病呻吟惯的人看的。只是像我这种有病也不呻吟、平地一声响雷都不惊叫的人，我觉得思考和想象都是我的动力源。我必须去想。先说我看完后的感受。我是跟一个男生去看的，普通朋友，但是比较喜欢和欣赏的一个男生。整部片子最大的感受就是笑着笑着就哭了，这充分证明一句话，人大了，开心都想哭。这是一个段子金句集合的电影，像看一个讽刺幽默小品那样，但是电影呈现给你更多的是，你仿佛身处其中，夸张又真实，调侃但不犯贱，你，我，他，身边每一个平凡的人都是人物的真实写照。电影结束走出影厅，我的眼里已经含了一眶的泪水，不过眨几次眼睛就被吞回去了那种，对于平时笑点不高的我，看电影的过程中掩着嘴巴笑了十几个回合，但是笑过之后，心里没有一次觉得舒服的在笑。我没有说话，我感觉到走在我身边的这个男生也没有话要说，这空气凝绸得仿佛兑点儿芡就能下饭了，我都已经听到饱嗝的声音，它提醒着我这一顿我已经喝饱了空气，幸好我已经找好了不吃饭的借口，不然我真心咽不下美味。当我跟这位男生挥手道别，电梯门关上的那一刹那，眼泪就自然的滑落在我双颊，一半是对“后会无期”这几个残酷而冷艳的字体，1/4是因为我想起了离别的情景，1/4是因为这个男生。浩汉最后说，每一次告别，最好用力一点。多说一句，可能是最后一句，多看一眼，可能是最后一眼。这次说了再见，也可能就是再也不见，或者就是有再而没有“见”了。不知道怎样，这种离别像一颗子弹一下子触动了我脆弱的神经，以至于眼泪那么自然的夺眶而出，而上一次这样深刻而自然的落泪，是在老妈送我去坐车时，她转身离开的那一刻。当一种热烈的情怀消散无踪，人就会越发怀念。或者在看完了这样的电影之后，你不能和一个不愿分别的人说道别，因为我还沉浸在这种电影的悲哀与悲伤之中，现实的情况是，我不过就是一个平凡的人，离别和道别一样重复日常。也许这也是电影要告诉我们的。所有的事情都归于平凡，那么你有伟大过吗。我相信每一个人都想要却没能达到那个不能成为的自己，又不屑于成为那个旁边的“他”，每一个自怜的人都会觉得很高尚吧，对，这种高尚就是你的伟大。——主题曲《平凡之路》如果不是前期已经重复听了N遍《平凡之路》这首歌的，建议电影结束先别走，把这首歌听完，歌词与电影完美的匹配，慢慢讲述故事，慢慢的煨熟这个故事想要告诉人们的东西，没有人参道理，没有心灵鸡汤，但听完之后，你会点头称是，嗯嗯，确实是这样的，我们挣扎努力的人生，我们战战兢兢又奋勇向前，我们踽踽独行又踌躇满志，最后可能一事无成，至少我们挣扎努力过，平凡才是唯一的答案。朴树依然悠悠的在唱着，他个性十足却又紧接地气，在物欲浮华的娱乐圈，他的旋律和音色依然难得的纯净清新、舒适感动。——“她们都是你漫漫长路上，只配错过的好姑娘。”记得小尚唱过，爱从不同的路过来，而命运只有一颗心。电影中的周沫，一个临时演员，跟主人公一块长大，从小地方来到大城市，争取着上天为这些千千万万努力的人们分配所谓的“公平”，她努力进取，不介意换几套难看的戏服，扮演没有台词的群众演员，憧憬着明天，期待着华丽的转身。她应该是喜欢浩汉的，但她又竭力的在保持尊严，说庆幸自己很早就放弃喜欢他，浩汉错过了这样一个好姑娘。刘莺莺，算是电影里比较无厘头和稍显堆砌剧情的角色，最后用来证明很多人对晒热恋情侣而又恨自己不能晒的调侃和讽刺，多年喜欢和放肆的人竟然是失散多年的亲兄妹，旁观者你们都乐了吧，现实生活的小概率事件，韩寒在电影里成全了我们。那一句“喜欢就放肆，而爱就是克制”戳动了多少人的心，看到这里，我后背拔凉，我一开始还真的对他俩抱着很大的结合希望，没想到浩汉又错过了。苏米，一个很有“诚信”的气质姑娘，却选择走向一种“骗钱”的职业，江河对他无疑真的是一见钟情，钟的是“脸”，显然是被苏米照片上清纯忧郁气质所深深吸引，之后还对她念念不忘，把冲不掉的卡片晾晒在车前窗。综上三个女生，一种青梅竹马、一种相识相知相恋，一种一见钟情，那些年你们错过的好姑娘啊。相信每一个女生都会爱过一两个人渣，也被人死缠烂打过，但是错过就是错过了。每每这个时候，我都在想，如果我没有坚定没有执着没有死心眼一根筋，我是不是也过上了有家有欧派的“幸福”生活了吗？但终究命运的改道总是那么润物细无声的。——“大多数人的一生都是与理想背道而驰的。”我曾经有很多个理想，或者不能说理想，而是梦想，总觉得自己干这个也行，做这个也能，就这样反反复复，每每在现实的残酷之下妥协而与理想擦肩。大多数人的棱角都被这个社会不断的侵蚀修饰和磨平，最终丢失掉原来的样子，但是想想原来的样子就是你所要追求的吗，现在有装修过的躯壳之下其实不也是拥有一颗丰盛的灵魂吗？毛姆说:一个人要是跌进水里，他游泳得好不好是无关紧要的，反正他得挣扎出去，不然就得淹死。理想终究不如现实，貌似悲观失望，其实是认清了现实之后仍然相信理想的美好。即使我们与理想最终背道而驰了，但是我们还没有被淹死。因为，我也正在努力的挣扎之中，重新设定自己的目标，顺流而走，追寻内心，不失为一种平凡生活的好办法。巴黎圣母院中两座钟楼里那个小房子的墙上刻的字，“'ANATKH ”希腊文命运的意思，是典型的哥特式字体，雨果的《巴黎圣母院》的故事也由此展开，这种象征意味很浓的文字总是带有一丝阴森和恐惧，因为所有带有“命运（destiny)”字样的词貌似都与不好的后果相关连着，很多人说命运掌握在自己手上，我更愿意相信七分努力，三分天定之说，坚持努力和希望，但是同时也要明白结果可能不尽如人意，这就是说做最好的事，不排除最坏的可能。相信这就是平凡的意义，对于命运的选择，你只有欣然而然的接受，一切归于平凡。我们每个人都一样。最后我想像电影里苏米说不喜欢“马”这个姓一样吐个槽，我真的很不喜欢这个名字，后会无期。左岸记：大家也去看看吧！看完《后会无期》，感觉韩寒还是有世界观的，至少没白去台湾，还觉着那些淡淡的哀愁就似1988，让我给世界来一些训话一一这些话不似韩寒书里那样聊聊而是训话，他精辟总结杂糅金句后，放在每个角色声道里。你不能要求韩寒更多，要不然又会有人说他有＂代导＂。那句词儿很牛逼：喜欢就会放肆，但爱是克制。韩寒用克制表达对世界的爱。——谭飞：《后会无期》不是公路片而是……野路…片技术上的青涩，完全被价值观的端正和段子的高级所掩盖。是一部与众不同的电影，它既不高冷，也不媚俗，但还真找不到可以拿来比喻的标的。结构并不复杂，故事也很简单。这样其实对于导演的难度要求小了很多。所以也没有出什么大问题。但那些哀而不伤的情调，高人一筹的幽默，正是韩寒把他在写作上的长处移植到了电影上。至于价值观，他总是首先站准了位置，才开始歌唱。那样即使略微走调，也会被同伴们原谅。他确实把观众当做了副驾上的哥们，后座上的姑娘，而不是一张张电影票。——bigfa：后会无期又有期木心说：「满目坏电影，看一次等于受一次辱，偶尔看到了一个好电影，跟报了仇似的痛快。」请不要跟我讨论韩寒或者四姑娘哪一个更可爱，我只想说作为一部国产电影，《后会无期》不错的了。大家自己到影院去鉴定。原文链接：http://www.zreading.cn/archives/4495.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

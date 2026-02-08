@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猪跑了……猪跑了……</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>猪跑了……猪跑了……</h1>
+            <div class="date">2014-11-23 01:14:02</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌说实话俺作为一头猪还是蛮荣幸的，天上大名鼎鼎的天蓬元帅是我的祖宗，随唐僧取经成功后如今也是小有名气的净坛使者。在人间更是家喻户晓，十二肖里就有猪，十二年里有一年会专门称作猪年。更别说平日里主人家好吃好喝的招待，困了就睡，生活上除了猪圈有点小，倒也没什么挂碍。打我记事起，我就已经生活在这个猪圈里了。对于这个圈子我已经不能再熟悉了，房顶有几只蜘蛛结网，每晚房梁上会飞上来几只鸡我都心中有数。连常睡的那块水泥地都快被我磨平了。有时实在无聊，也会在猪圈里来回的走，稍微有点累就倒下睡觉。说到睡觉，那就话长了，什么时候入睡，睡之前和之后应该采取什么动作会更舒服这都是有讲究的，至于猪圈外的世界到底是什么样子呢？也不愿去多想，反正我又逾越不了围栏，更何况我现在全身是肉也跑不起来。不过最让我满意的还是那一日三餐，主人家总是按时送饭，偶尔饿了只要我嚎叫几声，还会有加餐。说实话这里伙食还是不错的，随着人们的生活水平提高，我们也摆脱了成天吃糠的日子。从小就吃营养快餐——猪饲料，说实话刚开始吃起来味道确实不错，时间长了也味同嚼蜡，一直不明白那玩意怎么那么抗饿，随便吃几口就饱了。后来稍大一些，也开始换口味，基本主人吃什么我也吃什么，人类吃的那能差哪去？猪兄弟，你说是不？只是只有我一头猪，还是蛮寂寞的。相比之下，那些生活在野外的同类就没有我这么幸运了！只要我嚎几嗓子就有饭吃，他们呢？成天在野外生存，四处找吃的，下雨天还得淋着雨找歇脚的地方，有时得顶着炎炎烈日找吃的，关键是要逃避其他猛兽的攻击，一不小心就战死在其他动物的围攻之中。孤苦伶仃四海为家更不如我这样波澜不惊的安稳。长年的生活环境也让我们的长相颇有不同，作为圈养的我们，不用接受风吹雨淋的考验，毛发光泽油亮，皮肤也鲜嫩白净，哪怕多长出来的肉也让这份养尊处优的尊贵尽显无遗。野外的同胞们，长年在外奔袭，练就了一身蛮力，太阳暴晒之下，也黑的不成样子，没有时间保养自己的毛发，自然也变得粗糙无比，野猪就是野猪，哪能跟我们这样的家猪相比呢？我以为我就会这样安静的在不断睡和吃中慢慢的变老，直到有一天主人家带来了猪大婶。从来没有想过在有生之年还会遇到自己的同类，那阵同类相怜的温暖让我失语，而人类的：“ 有朋自远方来，不亦乐乎 “恰恰表达了这样的感触。在猪大婶来之前，我一直以为世界只有猪圈这么大，而猪大婶的故事让我隐约看到了自己命运的真相和更多的可能。猪大婶告诉了我她的故事。猪大婶曾经怀过一次孕，也是在猪圈里产下了一堆小猪崽，她可怜的娃一生下来就不知道自己的猪爸爸是谁，这也就算了，更可怜的是不到四个月就被人类抱走了。看着自己的孩子一个个被人带走的感觉真是心如刀割，她不知道自己的孩子到哪里去了，如今也生死未卜。现在是因为前一家主人家要盖新房子，所以被主人给卖给现在这户人家，才遇到的我。生活对猪大婶来说就是一场苦难，尽管生活无忧，不愁吃喝，但生为猪母，无法照料自己的孩子长大却是一种极大的悲哀。再说在这样的环境里他也只能看着他们长大，自己还得依靠着主人家的喂养，被其他主人家抱走说不定是件好事呢？那被抱走的孩子到底上哪去了呢？她看到我似乎也就明白了，原来抱走之后也被人圈养起来了。为什么会被圈养起来呢？她突然明白为什么每次生肖转换之际，都会有年轻肥胖的猪被拉出去，只听得一阵哭天喊地的嚎叫之后就再也没有回来，而那段时间的伙食里总能闻到自己同类的味道。原来如此……猪大婶心疼的看着我，然后告诉了我这一切。听完这个真相的那晚，最能睡觉的我再怎么也睡不着了。原来人类不会让我慢慢变老，待到生肖转换之际我也会被拉出去受死。猪大婶因为能生娃，人类所以不会杀她。难道我就这样在这个安逸窝里乖乖的等死吗？生活也就这样一段一段，刚还在洋洋得意的嘲讽野猪辛苦的生活，一下子转了180度弯开始羡慕他们，尽管他们为生计所迫四处奔波，但不用坐以待毙，哪怕被猛兽攻击死亡，那也是在战斗中结束自己的一生。看看自己满身的肥膘，走两步就喘气，真是有失作为猪的尊严，渴望逃脱的心像疯长的野草占据自己的思绪。其实我也想看一看世界，一辈子窝在猪圈里连真正的山都没见过，那岂不是可惜了？时间啊！像不自觉的绳索紧紧的勒得我不敢安睡。我想逃，可猪圈的门紧掩，围栏的高度根本无法跳跃。怎么办？怎么办？内心的焦躁折磨得我夜不能寐，白天只能盯着那扇门眯着眼，希望哪天睁开眼门就是开的。直到有一次…… 我看到了希望。那天主人例行给我的猪圈打扫卫生，进来时顺手将门关上并插上了销轴，我像往常一样趴在那儿一动不动，任主人打扫猪圈。可那天不知怎么的，打扫到一半前屋的电话响了，主人着急出去接电话，走时将门顺便带上，并没有插上销子。一看来了机会，我立即站了起来，踢了踢后脚壮壮胆。然后用嘴顶开了门，冲了出去。走时还不忘回头看了一下猪大婶，她还在睡觉，来不及告别我就赶紧跑了出去，究竟要到哪里去我也不知道，只是知道我不能等死。出来一看这是一个小院子，两边的围墙比猪圈的还高，一看前屋有个小门。我果断的冲了出去，穿过屋子，走出大门。忍不住抬头看了看四周，原来这个世界这么大啊！阳光照在身上像一阵暖流温暖了我的心房，忍不住撒丫子开跑。那个地方宽敞往哪跑，这才是我想要的自由啊！究竟要跑到哪里又有什么重要呢？关键是我成功的越圈跑出来了。正当我享受着这份自由带来兴奋的时候，突然听到后面有人喊道： “ 猪跑了…… 猪跑了……”，然后一群人拿着各式武器开始追赶起来，前面也有人拦住了我的去路，狼奔豸突之中，由于长期不锻炼，身上的负累太重，一顿狂奔之后，因体力不支小腿突然抽起筋来，然后被蜂拥而至的人群五花大绑的捆了起来，那一刻我得意的忍着痛笑了。不得已我又回到了那个熟悉的猪圈，自此以后主人又在猪圈外面加了一道门，自此以后我也不再放弃对自由的渴望。書于· 北京·十一月左岸记：从写感悟到写故事，这是写作上的一大步，文昌迈出过去，还很棒，很喜欢这篇文章。世界上特立独行的人为什么这么少？原因有二。一是懒惰，因为一个人要对自己负责，真正实现自己，成为一个独特的自己，是必须付出巨大的努力的，许多人怕吃苦，怕麻烦，就宁愿放松自己，做一个平庸的人。二是怯懦，因为在一个大家都平庸的环境里，少数人若仍要追求优秀和独特，就会遭到讥笑、嫉妒甚至迫害，于是为了自保而退缩，违心地随大流。由此可见，是多数人的懒惰导致了少数人的怯懦。相反，如果人人都对自己负责，以优秀为荣，因而也就能够欣赏别人的优秀，这样的环境是最适合于特立独行的人生长的。原文链接：http://www.zreading.cn/archives/4640.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

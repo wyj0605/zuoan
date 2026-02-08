@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你脚踩的地狱只是天堂的倒影</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你脚踩的地狱只是天堂的倒影</h1>
+            <div class="date">2014-04-28 21:15:54</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>Written by - 午歌浩子大学时跟我一个班，在院篮球队里是我的替补。他身体素质很好，人生的又高又帅，可惜就是太懒，球技稀烂，适逢重要比赛，一定全场板凳。他每每赖着队长要上场冲杀一阵，放他上去就是一阵胡搞，要么乱放“三不沾”的三分球，要么抢篮板崴肿了自己的脚脖子。这还不算，浩子成绩很差，基本属于旷课专业户，倒是谈恋爱、打架、组建网游战队啥的样样精通。有一天，浩子鬼使神差地跟我讲，班长，现在我他妈的混成咱学校老大了啊，你要是有人要砍，吱声啊！我说，暂时还没有，先谢了哈！浩子伸出健身指凌空一戳，说道，不客气，自己人，吱声啊，一定吱声！浩子的命运从大四时发生了急转，整个人就跟打了鸡血似的往前冲。先是球技精进，发奋图强地锻炼身体，紧接着，全年旷课，到社会上组件了一个模特演艺队，自己做经纪人，全国走穴赚银子。那个时候，浩子经常在半夜三更给我打电话，内容循环往复，大体可以分成三类：其一是，班长，你猜我今天赚了几万？其二是，班长，我昨天被追着揍，你猜我被几个人砍？其三是，班长，学校点名你可一定要帮我顶住！我通俗的回答是，你要平安地回来。你现在的点名可是全勤的，要是回不来，我估计要被学校砍了。还有，尽量早一点，我快顶不住了。我苦苦地顶了一年，毕业前浩子因为自控成绩不及格的事被学校翻了出来，自控老师硬生生地要把他按住留级。浩子收到消息，杀气腾腾地赶到学校找自控老师拼命。自控老师曾留学东洋，不但治学严谨，生活、衣着也极像扶桑青年。印象里，大学期间她好像整天穿着丝袜短裙，就算飘雪的冬日，也不忘展示一双不穿裤子的美腿。浩子说，我他妈找 “布川裤子”拼啦！我说，你淡定点，布川其实人不坏，就是在扶桑多年，人也变得有点一根筋，你跟她好好谈谈，兴许还有戏，千万别动手。我说，记住，绝招是装孙子。浩子去找布川理论，我等损友守在办公室门口窃听。浩子苦口婆心、声泪俱下地讲了半天，最后布川轻声地问了一句，假如我放你毕业，你有什么人生理想？浩子说，我的人生理想就是毕业三年挣足一百万。“哈哈哈”，办公室里，布川发出地动山摇般的笑声，她让浩子赶快滚蛋，她说，一个连自己干什么吃的都不知道的人，到社会上能有什么用？你—留级留定了！这之后，我们毕业，浩子留守，杳无消息。又过了一年，浩子打电话说，他毕业去新疆打CUBA了，赚了几双好球鞋。又过了一年，浩子打电话说，原来大学的球队有人结婚，问我要不要一起随份子？我说，随吧！你告诉我账号，我打钱给你，浩子说，那点小钱，你甭管了。又过了两年，浩子打电话说，班长，我随份子的钱，你能不能赶快打给我？我说，行啊！你在哪儿呢？急吗？浩子说，急，我在等着赶飞机，你丫快点，饿死我啦！此后又过了好几年，我一直没有浩子的消息，直到去年，他来杭州出差，特意租了辆车开到宁波来看我。浩子好像变了，眼神里不再有戾气，裹在金丝镜框里的大眼睛， 跟住上豪宅似的，有股雍容的优柔。我说，你这几年跑哪儿去了？他说，我去了哈萨克斯坦。我说，去干甚啊？他说，我毕业进了一家管道公司，然后搞工程施工，其实我挺能吃苦的，后来就出国搞建设了。我说，好啊！我正计划搞毕业十年同学会，你到时一定要来啦！浩子说，行啊！同学会我个人要捐点钱出来。不过，要是布川裤子来，我就不去了。我说，为啥？浩子说，布川看不上我，认为我不知道自己干啥吃的，我怕她再看见我，对她的人生打击太大。我说，布川不是特鄙视你的理想吗？你实现了吗？浩子说，“理想？”他熟练地推了推金丝眼镜，军统特务一般，一本假正经地说，三年一百万那个吗？已经超额完成了。我说，对了，你国外待得好好的，干吗要回来？浩子说，我妈走了，你知道吗？我一时语塞，定在半空。浩子说，我妈得的是癌症。浩子说，我其实出国拼命挣钱，是给我妈做医药费用的。浩子说，我赶着回国，是因为我知道挣再多的钱也没用了，我要陪我妈走完人生最后一程。浩子开始慢悠悠地跟我讲解如何在人生的最后岁月里陪伴母亲。这完全不是他在我脑海中的一贯印象，他很淡定，仿佛在诉说别人的故事。他很冷静，抽丝剥茧不带一丝火气地告诉我：他如何烧菜做饭，一勺一勺喂母亲吃；他如何洗衣拖地，一点一点地给母亲擦洗身体。他如何自学按摩，让母亲舒服一点，又如何在母亲小睡的间隙，疯颠颠地冲回家看望父亲。因为是癌症晚期，医院不建议进行手术切除。父亲很漠然，很犹豫。父亲跟他说，到底做不做手术的事情，由你来定，我已经无法承受了。浩子听完父亲的话，把自己关在卫生间里，指着镜子中的自己一遍一遍地骂，我为什么这么蠢？为什么下不了决心？日子为什么会这么难？然后他用头撞墙，大嘴巴抽自己。然后，他推开窗户，瞪着楼底，掂量着是不是要一把结束这苦难的日子。然后的然后，他在卫生间清洗了哭红的眼睛，攒着一张笑盈盈的脸，上了发条似的继续烧菜做饭，继续洗衣擦地。“最后，还是瘦成了一把干柴。”浩子说，“妈妈走得很安静。”“追悼会的那一天，想不到医院来了很多人。病友、护士，还有特意请假赶来的主治医生，他们说，没见过我这么孝顺的男人，他们越说，我越哭得厉害。我哭得丧心病狂，很多人都拉不住，索性跟我一起哭起来。”浩子说。我和浩子坐在江东区新河路上的一家咖啡馆里，午夜一点半，咖啡馆准备歇业打烊。灯光幽暗而昏黄，远远的，服务员开始收拾擦地，我们两个忽然抱头痛哭。宁波的秋夜很安详，江风穿过法桐的叶子，哗啦啦的像要揉碎这个晚上。浩子说， 别哭了，咱俩加起来快有3米8了吧？！我说，是啊，咱们两个大爷们儿，别再给人家吓着。我们从咖啡馆走出来，沿着江边溜达，我说，接下来，你有什么打算？浩子说，接下来，我要找个好姑娘结婚。浩子说，我的条件不高，就是有一样，要容得下我爸。结婚以后我要我爸跟我们一块儿住。浩子终于搭乘一辆出租车，消逝在秋夜的尽头。临走时，他说，你还记得毕业前，咱们打全校 “三人制”（篮球）的时候，被三个两米多的大个打得像狗一样吗？我说，记得，你不是扔进了人生第一个三分球，然后咱们压哨逆转了吗？浩子说，是啊！扔之前，我就傻逼呼呼地想，卧槽—快点结束吧！我曾经看到过一句诗，“你脚踩的地狱只是天堂的倒影，我唇角的故事终将是时间的灰烬”，浩子的生活正好印证了前一句，而我迫不及待地想把这些记录下来，我想，等到时间化为灰烬，还会有人们在唇角挂记着这些故事。这绝不是小说，也不仅仅是一个故事。本文摘自《绵绵：我只是不想和大多数一样》，编辑已授权发布。内容简介：那个不愿意随波逐流的你，那个在迷茫中成长的你，那个受伤也伪装坚强的你，刘同、十二、麦洛洛、卢思浩，他们曾经也都是这样的你。在这本《绵绵》里，他们分享了自己的成长故事，都是我们该早点明白的那些事：学业、生活、友情、爱情。我们不想变成曾经讨厌的人，但更不想成为面对生活抱怨不止的歇斯底里者。“我只是不想跟和大多数一样”不是一句标榜个性的空洞口号。我们希望这一期《绵绵》能教会你如何努力生活，并且过得千姿百态。不奢望每个人都能成为大富大贵者，但愿每晚入睡时，我们都可以安心地说一句，我过着我想要的生活。···为了让自己被人记住，我们一次又一次在内心塑造一个不像自己的自己。比别人更坚强，比别人更能伪装，比别人更能委屈自己，也比别人更柔软。直到有一天，遇见一个人，他们说：不要太辛苦，做你自己就好。——刘同···时间在走，既然再也回不到过去，那就好好地奔向未来。我们都会改变，变得更好，或者变得更坏。但有一天，回过头看来时的路，青春正在身后注视着我们。请让她翘起拇指，而不是竖起中指。——宋小君···我必须接受自己本来的样子，接受自己孤单的样子，挫败的样子，失落的样子，学会和这样子的自己相处。想要克服这些，首先就要接受这些，接受自己所有的缺点。——卢思浩原文链接：http://www.zreading.cn/archives/4350.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

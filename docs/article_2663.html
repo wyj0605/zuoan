@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当我们在聊意义时，我们在思考什么</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>当我们在聊意义时，我们在思考什么</h1>
+            <div class="date">2014-10-28 01:31:32</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/王登科很多时候，我会想，我写这些没有多少人看的文章有什么意义呢，我花那么多时间看一些听都没听过的书有什么意义呢，是啊，意义，这个词把一切因果关系和中间过程都浓缩成我们可以看到的现实世界的益处，这又有什么意义呢。所罗门王说：虚空的虚空，虚空的虚空，凡事都是虚空。太阳底下无新鲜事，一切都是捕风，一切都是捉影。人类干了辛苦了几千年积累的文明，被这句话否定的一文不值。我们通常认为旅行比睡觉有意义，赚钱比花钱有意义，滚床单比滚雪球有意义，可是若站在更高的角度上去看，就会觉得这些事情本质上没有多大区别。我们所有人都认为帮助别人比好吃懒做有意义的多，可是那漂浮在虚空的声音却说，你，王二，扶老奶奶过马路，你，小李，你一天好吃懒做，但你们都是卑微的人类。蒙田是个很懒的作家，他为自己辩解到：我怎么会什么都没干呢，我这不是活过来了么。凯文凯利更是无意义的粉丝，他喜欢看着一群机器人打来打去，这些机器人的演出被称为毫无意义的演出。凯文凯利把它们描述为群体的失控，而在他看来，这种失控背后是分布式计算以及世界万物的秘密。每个人都得干些什么，可是不是每个人都明白我们为什么要干这些，直到有个叫佛洛伊德的人跳出来告诉我们，人类做所有事情的驱动原力都是力比多。这个力比多是好听的说法，用直白的说法说出来就是荷尔蒙，再直白一点，就是性欲，更直白一点，那就没法说了。但是这个力比多并不是我们看某些不太健康的内容感受到的那种力比多，而是无意识的。人类的发展，文明的建设，世界的进步，都是在其驱动下。但是，这又有什么意义呢？深究意义这个词，就是深究人类所有终极问题的答案，虽然这个答案已经有了——42，但是我们却没有足够的能量让计算出这个结果的超级电脑给我们解释清楚。信命的人相信一花一草，一举一动皆蕴含深意，并且早已注定。宗教的神往往是终极意义所在，可我还是忍不住问，意义到底是什么。我每天早上醒过来，睁开眼睛看见数年前的阳光照耀在今天的这片大地上面，这些阳光供给整座星球以能量。其间蕴含着充足的空气和水，无数生物繁衍与此，生生死死，起起落落，循环往复。冥冥之中，自有天意。以前我想过，一个人若在生活中遇到不顺心的事情，就可以想想宇宙，想想时间，想想生命，想着想着就觉得人类的渺小，生命的卑微，未知的神奇，也就不困于生活繁琐的桎梏之中了。后来觉得，这个办法其实是阿Q精神的变种，只是不像阿Q同学那么占别人便宜，是阿Q精神的友好版，但是却终究只是自欺欺人。比上厕所没带纸更忧伤的事情是，连想意义本身也是一件没有意义的事情。问题在于，意义是否存在与你我之间？人类是一个庞大的群体，一个人是一个独立的个体，而一群人则不再是多个个体了，而是另一个全新的个体，随着数量的增加，这个个体越发的清晰，当整个人类汇聚一起的时候，我们除了看到历史和文明，还看到了一个庞然大物，它由每个人组成，却并不属于任何人，少量个体的消失和增加不损其风貌，它巨大，它迟缓，它威力无穷。它的挥手是五千年的文明，它的咆哮是历史巨变的震颤。当每一个人组成这个庞然大物的时候，我们究其意义才有意义。虽然我现在还并不确定这意义到底是什么。但无论如何，个人实在是太渺小了，渺小到在沧桑的时空中激不起一丁点火星，任何人想他自己的意义的时候，他并不能得到满意的答案，因为这意义并不存在于某个人身上，而在每个人身上，在所有人组成的这个失控的群体身上。就我个人而言，我更愿意把这种存在于每个人身上，而不是某个人身上的，引导我们在纷繁的宇宙中迈向未来的东西称之为，人的神性。原文：http://www.wdk.pw/682.html左岸记：我了解的意义是，人当有所为有所不为，为之则实事求是，不为则让其随风而去。我存在的意义是我知道我在做什么，我遵从我的内心的渴望。凡所经历，皆不为空。原文链接：http://www.zreading.cn/archives/4607.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

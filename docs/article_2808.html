@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你只能走过悲伤，不会从悲伤中归来</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你只能走过悲伤，不会从悲伤中归来</h1>
+            <div class="date">2014-05-22 22:49:43</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>山区支教的朋友归来。聊起未被这个时代沾染的小朋友们，和那些走出来又回去的人们已然不够澈静的眼睛，有点无力和萧索的遗憾。然后绕到现在是人都会聊的话题，“勿忘初心”。按他说来，或是大家说来，“勿忘初心”是抵御这个世界侵蚀的灵丹妙药、护甲神器。有了这个符咒，要么受伤了能自愈、要么伤了不疼、要么如致幻剂让你奋勇螳臂，最不济伴着鼻青脸肿的自己在角落里痛苦悲伤，那也是唯一可以在泪眼里看得到的光亮和些微的温暖。大不了，风云际会我自岿然，沧海横流我“勿忘初心”。然后就想起来老谋子的《归来》，催不催你的泪不说，往“正能量”想，爱只要在，不管经历如何的劫难、遗忘、猜疑、悲伤、背叛…，“难忘初心”，一定可以归来，人性的回归、爱的回归，回归人性、回归爱。我倒是想，真的矫情一定是充满着悲伤和宿命的，是最真实、最理性的感性，“你只能走过悲伤，没人能从悲伤中归来”。初心是甚？爱、勇气、新鲜、纯真、理想、梦想、健康、快乐？还是就是为了闪回一次，归零重新进化？还是只是证明如今的我与当初的我差异有多大，不是我没有纯初，只是这个世界有点恶意针对我？我一直保持我重新来过的梦想，一直小心呵护我的纯初不被世俗沾染，随时刹那重来？审视自己是跟自己的对话，审视世界为了证明自己活着。审视世界不是审美，只需要明确美丑；也不是审视道德，那只存在对错；也不是探究政治，只分朋友敌人。审视世界该是为了了解世界吧，把自己描述成捍卫“初心”，这个世界看似就肮脏的过了头。纯净总是因为瑕疵才更洁净，纯初却让人洁癖，有点花粉就哮喘，不是世界多脏，是自己太脆弱。把初心放在保险柜，未必保险，还可能惨白、脱水、不扛饥寒，没事翻弄出来，也可能物是人非、变异诡怪。初恋是记忆美好，不是人事美妙；初心是现实残酷，初心未竟。追忆似水流年，记忆都被删改，何况初心？拿着初心显摆，无非现实很凄惨，自己无力罢了。逃避也要找个借口，承认失败也要冠冕堂皇，找个初心似乎已该是个遮羞布和白旗飘飘。人活着的证据，无非是看出旧东西的新美丽，在悲伤里开出喜悦的花。爱如此，心也如此。没有什么初心，只有现在的自己。生命大抵是个悲伤的旅程，点缀些喜悦和幸福。你总得抓紧时间活着，因为你奔着死去的，念叨初心，跟探究这个宇宙如何发端差不多，不知其始、不知所终。期望靠着“勿忘初心”就能披荆斩棘，重来一次，把自己曾经妥协的、选择的、不能坚守的，统统再来一次。动物进化还可能平行进化，你重来一次，不会就靠着初心战无不胜、绝无纰漏，一定还是这个模样。该选择的时候你也一定放弃选择，该坚守的时候一定缴械投降。你靠着无数的遗憾活到今天，靠着无限的希望去活明天，只剩下今天现实。这还不足你惜，没事还想着初心，期冀人生能再来一次，里外里没活着、没活过。梦想靠坚守，理想靠行动，握着初心，惟余下唏嘘。初心忘不忘，在于你今天做着什么，不是小心翼翼的体察，保险柜里的初心还在不在、何般模样。无论你是否做好准备，这个世界并不打算等你。鸡汤喝多了，没让你正视这个世界，自然以为世界会为你留一扇门穿越。一个“勿忘初心”的响指，就嗖一下回归初始，却总是发现不是得意洋洋的响指，最多是一记响亮的耳光，念叨一次扇一次。忘掉初心而不是勿忘，念着“勿忘初心”的符咒，你绝对不可能刀枪不入，遮上的也是你自己的眼睛。你可以微调、可以坚守，但绝对做不到跳转。量子级别，跳来跳去，谁都无法认定。可惜到了你这个活生生的人，下一步你其实比谁都清楚该是怎么样。没有惊天逆转的情节，也没有石破天惊的结果。你既不是勇士拯救水深火热的你，也不是受虐狂世界都对你凌虐上瘾。忘掉初心就好，起码不是时时刻刻给自己找悲伤的理由、比较的结果。悲伤总是密布的，特别是你把“勿忘初心”当做神位的时候。一个接一个的悲伤，你总是要走过去，除非你跟这个世界告别。但指望着你能从悲伤里毫发无损归来，不算妄想，最多算YY。无须甄别现在的心和初心的差异，只需要看看自己的眼睛是否还能明亮，看看今天做的和你做到最好之间的缝隙，那中间透过的光亮，就是你明天的方向。注定，你只能走过悲伤，不会从悲伤中归来。左岸记：“勿忘初心，方得始终”是《华严经》中有一句话，一度因被乔布斯推崇而风靡。这句话挂在嘴边念念，倒也无妨，就像“阿弥陀佛”、“Oh,MyGod”一样，提神醒脑，居家旅行必备。问题是这个“初心”到底指的是什么，不能是现在我走不下去了，悔不当初啊，也不能是我当初是这么想的，身不由己啊……“初心”不能当成现在的借口，不然日子过得也太“粗心”了。“初心”是还未长成的心思，“初心”用来提醒自己走了多远，倒是个很好的定位。如果悲伤是一条河，你是否会在淌到一半的时候，哭着退回来呢？原文链接：http://www.zreading.cn/archives/4383.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>
