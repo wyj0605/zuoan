@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy index.html to GitHub Pages
 
 on:
   push:
@@ -14,22 +14,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # 如果需要构建过程，插入构建步骤（如果你的项目不是静态页面，或者有其他构建步骤）
-      # 例如：构建一个前端项目
-      - name: Build project
-        run: |
-          # 如果有构建步骤，放在这里
-          # 例如：npm install && npm run build
-          echo "No build step required."
-
-      # 创建 docs 文件夹，并将 index.html 以及相关文件复制到该文件夹
-      - name: Deploy to GitHub Pages
+      # 创建 docs 文件夹，并复制 index.html
+      - name: Copy index.html to docs folder
         run: |
           mkdir -p docs  # 创建 docs 文件夹
           cp index.html docs/  # 复制 index.html 到 docs 文件夹
+          # 如果有其他文件需要一起部署，可以在这里添加
+          echo "Copied index.html to docs folder."
+
+      # 配置 Git 用户信息
+      - name: Configure Git user
+        run: |
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
-          git add docs/*
+
+      # 提交并推送更改到 main 分支
+      - name: Commit and push changes
+        run: |
+          git add docs/index.html
           git commit -m "Deploy index.html to GitHub Pages"
           git push origin main  # 将更改推送回 main 分支
 
