@@ -46,13 +46,7 @@
 
 ## 维护
 - 不定期维护。如发现排版或内容问题，欢迎反馈与指正。
-## GitHub Pages 部署
-- 启用方式：在仓库 `Settings → Pages → Build and deployment` 中选择 `GitHub Actions`。
-- 工作流文件：使用 `.github/workflows/pages.yml`，推送到 `main` 分支或手动触发后自动部署。
-- 查看结果：部署完成后在 `Deployments → github-pages` 环境查看访问地址（日志会显示 `page_url`）。
-- 默认入口：`index.html` 为首页，仓库根目录的静态文件作为站点内容发布。
-- 分支说明：如果默认分支不是 `main`，请在工作流的 `branches: ["main"]` 处改为你的默认分支名。
-- 自定义域名（可选）：在 `Settings → Pages` 绑定域名，并在仓库根目录添加 `CNAME` 文件写入域名。
+
 ## 完整标题目录
 
 - 大佛脚下
