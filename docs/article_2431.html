@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>做个“眼中有事”的人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>做个“眼中有事”的人</h1>
+            <div class="date">2015-07-29 23:19:49</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>上文中的“我”是谁？詹姆斯·罗杰斯（Jim Rogers），美国著名投资者（量子基金），经济分析师，大学教授，作家。他在1990年至1992年驾驶电单车环游世界，在地球6大洲横越65,065哩，被列入吉尼斯世界纪录大全。而从1999年1月1日至2002年2月5日，他又创下另一项世界纪录，旅程经过116个国家，横越245,000公里，并与其未婚妻PaigeParker同行。（资料来源wiki）上面摘录的两段话出自《投资大师罗杰斯给宝贝女儿的12封信》。我在一年前写过这本书的部分书摘：《投资大师罗杰斯给女儿的忠告》（http://blog.sina.com.cn/s/blog_538f46f70100f2ry.html）我为什么现在要摘录这两段话呢？之前看这本书的时候，我就想起了我小时候做事（忘记是什么事了）。做完了就在一边玩，父母当时有批评过我，说我为什么“眼中没事”呢？没事去擦个桌子、帮父母一些忙、整理一下家庭的小摆设等等都行啊。之后我对这个小词印象很深。越到后来，越发现有太多太多的人同我当时一样，“眼中没事”，当你觉得很多事需要做，而对方觉得无事可做。这些情况下，你经常能听到的话就是：- 做完了吧，没事我走了。- 有啥事啊，这不都弄好了么？- 别急嘛，到最后总有人会收拾的。你的第一反应就是“你怎么这么懒啊”。其实“懒”也好，“眼中没事”也好，都只是个表象。问题的实质在于某些人做事的时候缺乏主动性，或者说缺乏发现需要主动做事的敏锐感。在一些单位、小组、机构中，只要需要团队而非单人完成的活动中，你总能看到如下的四类人：- 不参加，不参与这个很正常，可能是对方不愿意参加，或者不需要等等。不在讨论范围- 不参加，参与对方可能想参加可没时间，或者不想参加但是也愿意做点贡献。- 参加，不参与参加了活动，活动中主要是“推着动”，不告诉他做什么就什么都不做，他也不会觉得需要做什么。- 参加，参与参加了活动，并且在任何时候都积极帮助他人、出谋划策等等。参加的意思是join in，参与的意思是participate in。前者被动，后者主动。被动的人当然比主动的人要舒服一些，可在我看来，轻松也只是表象。主动的人必定能从忙碌中学到新的知识、技巧，某些时候还能发现更多的机会。罗杰斯从“主动”中不仅仅得到的加薪的好处，更重要的是知道了“如何使用这些工具，更学到了宝贵的技术”。曾志伟在述说自己在娱乐圈生存27招有一招就是“到处帮忙”。这种例子不胜枚举。其实，工作过的人和应届生的区别，有很大的比例就在于主动性。有人会想，主动的人自然是有能力才能“到处帮忙”，我什么也不会，怎么帮？我倒觉得，逻辑上不应该这样思考，而是应该反过来，首先你应该到处帮忙，才会变的更有能力。很多时候，帮忙不需要什么专业能力，而是给别人看到一份你积极主动的态度。有了这样的态度，机会才会找上你，没能力才会被锻炼的有能力，有能力才会有机会被挖掘出更多的能力。先做人，后做事就是这个道理。还有人比较有趣，在某些方面/时候主动，其他情况下被动。为什么？兴趣使然。没兴趣的干嘛主动呢？貌似也有道理，可我觉得这同样是表象。任何团队活动都不太可能让每个人都有很大的兴趣参加/参与。此时仍然需要主动。此时主动也许被理解为“无私帮助”更合适。因为你的主动很多时候不是为了兴趣，是为了团队/集体的成功。如果不是基于这个出发点，罗杰斯在帮忙老板做生意时只管卖商品就够了，有什么必要拿抹布把货架擦干净？这就是为了很多人会说，没我的事了吧，我可以走了么？整个事情未结束之前，相信我，一定有事，只是你看不看得到，想不想得到罢了。这个“无私”甚至让我想得更远了点。参加一些活动，也是为了打开我们的交际圈，人是需要社交的。社交中，如果有的男孩想从中认识一些美女，这种意图也无可厚非，我还觉得挺好的。可我在很多次活动中都能发现这样的例子，有的朋友陪同我一起参加活动，四处转了一圈，就待不住，想回去。为什么？一，没有遇到和他一样兴趣的人，二，没有遇到美女。这是他的错么？这是活动的错么？关于第一点，可以单独写文细谈，这里只简单说说。在任何活动/单位中，都可能会存在没一个人和你志趣相投，这不是问题。每个人都要学会在任何场合下与人寒暄并获得对方（无论男女）好感的能力。这里需要一种口头沟通能力，还是一种很难短时间内学好的能力。因为口头的沟通能力需要内在广阔的知识面，这不是读两三本名著精选、上下五千年可以解决的。不过，主动去学的意识都没有的话，那这短时间内无法学好的事就真的成了一辈子的梦想了。第二点，没有美女，社交的兴趣就少了很多。OK，在某些人的眼里，我理解这种心理，我也是男人嘛。可拥有这种心态我觉得是深层次的自私（也许说重了点）。因为没有对我有兴趣的人，所以我就没兴趣参与社交。那你是否知道一种理论叫做“六度分隔”？你怎么能知道这些你不感兴趣的“非美女”，她们认识的人中也没有美女，那些美女会不会有兴趣？你要明白背面说好话的力量比当面说好话的力量不知道大多少倍呢！如果你不让目前这个圈子里的人对你有好感，你如何让他们认识的人（潜在客户群）对你也有好感呢？那有人会说，啥时候我遇到了美女，自己去认识不就行了。可社交的圈子可不是这么打开的。一个人的力量有限得很。不妨自己想想，目前认识的好朋友中，除了同学/同事这种自然认识的之外，有多少朋友是只靠一己之力结识的？外界一直觉得研究就是一个人静静地做自己喜欢的事，连这种学术研究都还需要参加各种学术会议，相互介绍来认识人拓展视野和圈子呢！更何况其他行业。话说回来，其实，主动性也是需要调动的。有的人不参加，或被动参加不主动参与，这两类还有可能是因为领导者的领导能力不够所致。好团队被带垮的例子也不胜枚举。每个人的潜能需要被激发，“被”可以来自内在的自我激励，也需要他人外在的激发与调动。这已经超出本文的范畴了。一句话：在聪明的前提下主动点，没什么不好。    （别问我什么叫聪明，也别理解为耍小聪明）原文地址：http://blog.sina.com.cn/s/blog_538f46f70100kcjv.html左岸记：如果因为领导宣布“谁今晚加班就给谁发奖金”，你为了拿这个奖金而选择加班，你就不是积极主动，而是消极被动 —外界怎么刺激，你就怎么反应。这是一种比较低级的行动，显得没有自由意志，跟奴隶或者细菌没区别。如果你做得更高级一点，在根本没有奖金政策的情况下“主动”加班，以期获得老板的好感，你是不是就算积极主动了呢？也不算。因为你加班的终极目的仍然是为了自身利益，你仍然是在对物质刺激做出反应。真正的积极主动，是你的行为完全取决于自身，而不被外界刺激所左右。你的自由意志独立于外界限制，在刺激和回应之间，你有选择何回应的自由和能力。这样的积极主动，其实就是康德哲学的道德观。康德说如果因为什么利益上的好处，或者是为了避免受到惩罚，甚至是为了满足自己的同情心而去做一件事，这都不是真正的道德，你都不是真正自由的。只有当你纯粹是出于责任和义务去做这件事，你才是真正自由的，这才是真正的道德。康德哲学博大精深我们很难完全领会，但单就这一点已经足够说服我们为什么要做个积极主动的人了，因为真正的自由。原文链接：http://www.zreading.cn/archives/5001.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

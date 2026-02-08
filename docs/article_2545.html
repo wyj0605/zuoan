@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行走的心情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>行走的心情</h1>
+            <div class="date">2015-03-12 22:49:22</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/丁安国一个人活着，就一直在行走的路上。不同时期的行走，走出的是各不一样的心情；而不同的心情，走出的才是我们真实的人生。孩童时，我行走在学步的路上。如今，恐怕早已记不得初学走路时的心情和模样了。但对一个孩子来说，能够自己走自己的路，那一定是十分开心和快乐的。我出生于上世纪六十年代初，那时共和国才成立10来年，百废待兴。父母作为公家人都忙于自己的工作。小的时候，我们弟兄不像现在的孩子有保姆带，有幼儿园上，都是放养的孩子。好在父母工作的地方，离外婆家较近，大约一公里路。在模糊的记忆中，常常是幼小的我带着一份喜悦，从小镇的中街走到上街，便可到外婆家找到表姐、表弟一起玩了。春天去踏青，夏天去摘瓜菓，还可以下河捉鱼......那里有一份天真无邪，溢满的是童年的快乐！等到了上学的年纪，从小学到中学，我开始行走在求学的路上。对于我来说，那是一段较为漫长的岁月。那时我虽懵懂，但作为长子也还明些事理。和邻居家的孩子一起背起书包上了学堂，知道学习就要做个用功的孩子。其实，人生最能够记住的，还是学生时代的那些美好时光，充满着梦想，拥有的更是一份美丽的心情。小学时，老师既教我们学文化知识，也让我们接受传统革命教育。印象最深的是每周都有一节故事课，而讲故事的老师还是我们的校长。他一表人才，高高的个头，英俊潇洒，说起话来慢条斯理，抑扬顿挫，讲课的声音象播音员那样富有磁性，十分耐听。只要是他的课，课堂上都鸦雀无声。他不仅给我们讲黄继光、邱少云等英雄的故事，也讲《孤坟鬼影》、《一只绣花鞋》等惊险斗争故事，革命者和敌特分子斗智斗勇，显示出了英雄本色，让我们听得如醉如痴，幼小的心灵便有了英雄情结，更懂得了新中国胜利的来之不易，心中有的是崇敬之情，那应该是我们最初的“追星梦”吧！可惜好景不长，等到我们刚上初中时，恰逢“文化大革命”开始，公检法被砸烂，学校被停课，把学生学文化的权力都给剥夺了。一段时间之后，尽管我们还在上学，但已无书可读，除了学一些简单的数理化知识，如雷贯耳的是“不学ABC，照样干革命”的口号，甚至我们连基本的拼音也没有好好学过，其他时间都用来学工、学农了。我故乡的小镇是个农业镇，那时，学校就开始组织学生去学农，并办起了农场、窑场，还有校办工厂。这样，不仅每年春耕时要到农村去学插秧，回到学校还要学板砖、烧窑，学生就这样“走与工农相结合的道路”。记得有一年冬季，我们到离学校10多里的校办农场去挖鱼池，当时天寒地冻，同学们硬是踩着冰渣挖鱼塘。我在班上属年龄较小的，个头也不高，但却是个“听话”的学生，站在冬天的泥地里，锹都快有人高，迎着咧咧寒风，一锹一锹挖着土，等到收工时，手和脚早已冻得通红通红的，走在堤埂上，脚，刺心地痛。那时的心情是一种无奈，是一种困惑，不知学生竟是如此苦啊！高中毕业了，本还想继续求学，可那时是推荐工农兵学员上大学，根本不需要考试，靠“走后门”，由所在生产队或单位一纸推荐信即可决定一个人的命运。于是，在经过一年待业之后，我还是响应“号召”到舅父所在生产队插队下放劳动，走上了务农的道路。行走在农村的路上，心不能安，有着难言的苦闷。但还是想好好表现，然后让生产队早日推荐去读书或招工。好在生产队就在自家附近，而队长对我也很照顾，总是派些轻松活做，如上堤参加洪涝排灌工程堤坝的修补，就比较自在，也不太累，工分还较高。虽然离家远了点，但在一个小集体，生活有人负责，累了就休息，有几个年轻人在一起还比较好玩的，算是一种相对自由式的生活。与河堤为伴，在阳光下行走，望着蓝天、大堤，感受着大自然的宽厚，还有几分自在。就这样，三年的农村生活，让我体验了农村的疾苦，学到了书本上学不到的知识，骨子里便保留了一份农村情愫。恢复高考后，当我再次走进校园时，知识让我增添了自信，深感一个人对知识的学习和追求应该是一辈子的事。两年的中专学习结束之后，我成为了一名银行干部，开始步入工作的路上。应该说我们的学生时代是不幸的，缺失了好好学习的机会。但改革开放之后，我们又是幸运的，能够重返校园学习，并顺利地分配到银行单位工作，使我获得了一份稳定的职业，而这职业还是好多人都羡慕和求之不得的。尽管这个职业并非我最初的梦想，但当我走上金融之路后，才感到人生有很多东西其实是可遇不可求的，无论你做什么，有一份好心情才能走得更远。行走在金融从业的路上，我一直努力着，与工行同进步、共发展，并以能成为所在行信用卡业务的拓荒者而自豪。30多年来，我在基层行工作过，那是积累工作经验的阶段。而我与信用卡同行14年，几乎是自己职业生涯的二分之一，让我见证了信用卡从最初的艰难起步到在一个地市级城市的发展与辉煌。平凡的信用卡职业经历，让我懂得了人生需要坚守，更需要诚信。信用卡也让我明白了一个简单的道理：任何时候，人都不要存有贪念。不要为占一时的便宜，而失去做人的诚信。透支是为了给人提供方便的，不是用来占有或挥霍的。所以，要学会守信，做一个胸襟坦荡的人。如今，作为一名金融战线的纪检监察干部，我依然怀着淡泊的心情，继续行走在人生的路上。相对比较有规律的生活，可以让我静下心来，有更多时间思考人生，感悟人生。我想，人的职业生涯是有限的，再过几年，我就要退出职业舞台了。回首以往，曾经有过的经历，不论是曲折、艰难还是顺畅、平实，都是人生的财富，值得珍惜。不管人生的路还有多长，我们能够沐浴清风明月，去看云卷云舒，可以保持一颗平常心，那才是最好的事情！左岸记：引友言为此文记：“万物尊重虔诚的心灵。只要你对某事某人如痴如醉心向往之，便没有什么东西可以扰乱你的内心。内心有了固守和坚持，就会像葱郁蓬勃的植物，一直向阳而生，有力量，有灵性。我也相信，我所希望的，所期待的，所梦想的，都会一一发生。”原文链接：http://www.zreading.cn/archives/4829.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

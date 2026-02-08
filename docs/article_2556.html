@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明白与糊涂</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>明白与糊涂</h1>
+            <div class="date">2015-02-21 23:41:14</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/廖超国明白与糊涂，于人类这是一个哲学问题，于个人这是一个灵魂问题。深一点说这是一个重大的人生问题。人可以不明不白用食物把肉体喂饱，可以糊里糊涂用衣服把身体裹暖，但人之为人是因为他还有灵魂，有灵魂的人是不愿意过猪一样温饱生活的。对于灵魂却无法像打发肉体那样简单，灵魂总喜欢去追寻所谓的意义，他总爱去问一个为什么。这样他便必须在明白和糊涂之中找到定位。灵魂最了不起的是追寻意义，而一旦牵扯到意义就自然而然必须弄清楚明白与糊涂的问题了。明白与糊涂，还涉及人生最终的问题。人活一辈子究竟为什么呢？对于一个普通生命评价的最高赞词，我以为“他是一个明白人”。这样一句评语胜过好多赞美的评语。而说“那个人真糊涂”则把人说到了底。被称为“糊涂人”可谓天下最重的贬损。明白与糊涂，还是一个很难说清的问题。它不像黑与白那样分明。他与禅相关联。除了思索，还需领悟。对它的理解要靠经历来积淀。对它的体悟要靠人生的岁月来支撑。“当你明白的时候，你其实是糊涂的，当你糊涂的时候，你才真正开始明白”这话听起来非常绕耳乱思。但却道出了人生中关于明白与糊涂的禅妙。如果不能理解其中的深意，就无法理解“扬州八怪”之一的板桥先生的那句“难得糊涂”和“聪明难，糊涂难，由聪明而入糊涂更难”的名言。板桥先生的糊涂是一种大明白。是智者隐身的铠甲。他称的糊涂是悟性，是豁达，是淡泊，是大度，是谦卑，是包容忍让，是隐藏锋芒，是处世圆润，是无为而为。其实在他之前的一些大圣贤们，也对糊涂作了最好的诠释。孔子发现它的时候，将其取名为中庸。老子发现它的时候，将其定义为无为。庄子发现它的时候，将它解释为逍遥。墨子发现它的时候，将其称呼为非攻。如来发现它的时候，将其说成是忘我。世间的事就是这样，万事惟唯糊涂难，过于清白便无味。有些事，问得清楚是无趣。有些人，识得清白则无徒。所以，佛都说：人不可太尽，事不可太清。人不可太尽，事不可太清，但又不得完全不尽不清。个中滋味，便是中庸。中庸是人生的大智慧。是糊涂中的明白，是明白中的糊涂。是大事明白，小事糊涂；是心性之求明白，身外之物糊涂；是对己明白，对人糊涂；是对生明白，对死糊涂。大事明白，小事糊涂，是要知道，每个人的一生都是从父母那里独立而来的，短短几十年，喜怒哀乐，爱恨情仇，生离死别，终是一个过程。生命做的是减法，过一天则少一天，要学会珍惜。生活则要做加法，经历更多的事，接识更多的人，欣赏更多的景，少留遗憾。心性之求明白，身外之物糊涂，是要清楚，名利花间露，富贵草上霜，只有心态伴生死。人最终活的是心情，莫追浮云乱方寸，脚踏实地度人生。有意义的人生就是用有意义的事把灵魂充填把人生度完。对己明白，对人糊涂。人生只有三件事，识人、看事、做自己。重点是做自己，前提是要认清自己，做到自知之明。对自己明白，就是要对自己的“三天”负责，把握今天，总结昨天，谋划明天。对人糊涂，就是要知道，人和人是不一样的，对人不要苛求，没有谁天生欠你的。要感恩人与人之间的相会际缘，要宽容人和人之间的对错是非，要淡定人与人之间的成败得失。要明事理，对事要学会看远、看淡、看透。雾里雾外皆在红尘中，人前人后皆是凡人胎。真正达到“阅透人情知纸厚，踏穿世路觉山平”的境界。对生明白，对死糊涂。人都是在临终的时候最明白，但时之为晚。我们不妨把明白提前，避祛那悔之晚矣的痛苦。对生的明白，我们就不会有陆放翁不久于人世时的“死去元知万事空”，的感叹，就不会有一日连降十九级的年羹尧弥留之际的“人生贵适宜”的清醒。对死的糊涂，是因为我们知道，和坤在白绫系脖的时候才发出“百年原是梦，卅载枉劳神。对景伤前事，怀才误此生”的哀叹。当你最终在明白与糊涂之间把握住度了，捏拿的恰当了，你会淡然一笑，天，无非是阴晴。人，不过是聚散。地，只是高低。你会纵然一悟，人的一生终是在明白与糊涂之中绕圈子，从不明白到明白，从太明白到想糊涂，从想糊涂到麻木，从麻木到再明白。这可能是人对明白与糊涂认识的量变质变规律吧。2015 年 2月 2 日写于古城荆州后记：有的人揣着糊涂装明白，有的人揣着明白装糊涂；有的人糊涂地明白着，有的人明白地糊涂着；有的人糊涂，糊涂得明白，有的人明白，明白得糊涂。不知是糊涂的人明白还是明白的人糊涂；好像都喜欢明白都不喜欢糊涂；其实有谁该糊涂时糊涂该明白时明白；该糊涂时，即使明白 也是糊涂该明白时 绝不糊涂！原文链接：http://www.zreading.cn/archives/4803.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

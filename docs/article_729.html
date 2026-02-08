@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未来的阅读 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>未来的阅读 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>雪茉莉灵感突至，写了一篇对未来阅读的设想。</p>
+<p>2010年年末的时候，听了一场主题为“新媒体的未来”的讲座，引发了我对未来阅读模式的思考，在我的想象中，未来的阅读体验应该是这样的：</p>
+<p>下班的途中，坐在车上，我从包包里拿出了我的“墨宝”，开始阅读。“墨宝”（Mobile Book Reader）是类似于Ipad的东东，但是比Ipad轻、薄、更小巧，更时尚，功能更强大，使用更方便。打开内置的新书推荐版块，发现系统根据我的阅读口味推荐了两本新书，其中一本叫《遇见未知的自己》，价格5元，只有纸质书的5分之一。轻点屏幕，旁边出现了此书的详细介绍，包括内容、作者、页数、书号等等，还有免费试读的样章和其他读者的书评。翻了几页之后我觉得不错，于是点击购买，系统从我的预存账户扣除了5元，书在2秒钟之后就下载到了我的墨宝上。购买时弹出了一个窗口，问我是否愿意让他人知道我购买了此书，我选择了“是”，这意味着之后在我阅读此书的过程中，墨宝下方会出现一个会话窗口，所有购买了这本书并且选择了 “是”的人都会出现在左边的读者名单上，我可以在这个窗口中和所有人或者某个人分享心得，有什么问题也可以当时提出及时讨论解决。即时的交流感觉很好哦。</p>
+<p>在精美的封面上点击开始阅读，作者提到了《谁水知道答案》这本书。这本书讲的是什么？我把手指放在书名上，一个标注窗口浮了出来，里面有关于这本书的详细介绍，还有一个链接，点击即可购买。后面作者又说到“吸引力法则”。什么意思？我把手指放在这个词上，标注窗口中出现了维基百科的解释。书中涉及的所有书名、人名、专有名词等，都可以通过浮动的标注窗口即时了解详情，真是一个巨大的知识库啊，再也不用自己到处查资料了。作者还推荐了一个叫《圣经预言书》的影片，轻点影片的名字，立刻弹出一个视频窗口，看了一小段之后我点击下载，把视频保存了下来，以后慢慢看。</p>
+<p>读到关于“胜肽”的章节时，我很有感触，于是拿出手写笔在旁边的空白处写下了自己的所思所想，然后点击保存，下次再翻开这一页的时候，我的笔记也会在上面。文中精彩的句子和段落我都用横线标了出来，结束阅读之后，划线的部分会自动归结到一起，形成一篇书摘文档，我还可以选择把我的笔记也放到里面。以后如果我只是想一下回顾重点内容，就可以单独打开书摘而不用把整本书重新看一遍。</p>
+<p>不一会工夫，100页翻了过去，我的眼睛有点累了，于是切换到“朗读”模式，戴上耳机，闭目聆听，一个优美的女声声情并茂的演绎让我感到很舒服。这部小说已经被搬上了荧幕，所以还可以转到视频模式，观看由这本书改编的电影，这个需要单收费，不过也不贵，2块而已。</p>
+<p>快下车的时候，我用手指在书的页码上画了一个圈，这样下次打开这本书，就会自动跳转到这一页，很人性化哦。退出阅读之后，我打开图书管理功能，把这本书放到了已读的架子上。“图书管理”是我非常喜欢的一个功能，可以将我所有的图书分门别类地放在不同的虚拟书架上，还支持多种分类方法。和某一本书相关的资料，比如书摘、笔记、书中提到的所有书、视频、音频等等，可以都放在一起，找起来非常方便。</p>
+<p>轻松、愉悦，这就是我对未来阅读的期待。什么时候可以实现这个梦想？希望是在不远的将来。</p>
+<p>左岸PS：这真是个非常不错的想法，虽然阅读不必太讲究方式，若将来以这样的方式呈现的阅读时代还是令我心动。我想一定有商家正在开发这种产品，这将是阅读者的福音，而且这种模式是多赢的。这就像一个类似于“一些豆瓣+一些google图书+一些kindle+一点书店”的感觉。“墨宝”真是个好名字。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

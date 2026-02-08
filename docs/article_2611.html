@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成长，总是风雨相伴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>成长，总是风雨相伴</h1>
+            <div class="date">2014-12-22 23:36:14</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/冉顺华成功的花，人们只惊羡她现时的明艳！ 然而当初她的芽儿， 浸透了奋斗的泪泉，洒遍了牺牲的血雨。——冰心一直很喜欢冰心的这首小诗，每每想起，总带给我一种感动，一种力量，一种克服困难追求成功的勇气。真的，成功不是那么简单，在明艳的现实后面，有多少人能懂得别人在成功之前所经历的苦涩与艰难。每朵成功的花都需要奋斗的泪泉做养分，需要牺牲的血雨来浇灌。成功的过程也是一个人成长的过程，在我们每个人成长的道路上总是风雨相伴。风雨的成长道路上充满坎坷，遍布艰难，行走于其间的我们，可能会被泥泞绊住脚步，可能会被风雨迷蒙了双眼，但是为了成功，需要我们有这样的意志，有这样的勇气与豪情去沐浴风雨，走过人生的艰难。记得小时候家里养鸡，没到小鸡要孵出来的时候，我便蹲在鸡蛋旁边看，母亲告诉我，里面的小鸡开始啄壳了。我有幸看见一只小鸡从密封的蛋壳里出来的过程，每一步都如此的艰难，每一次都好像要用尽全部的力气才能啄碎那么一小块蛋壳。刚出来的小鸡身上稀稀拉拉长着几根毛湿漉漉的非常难看。然而很奇怪的是，第二天见到它们的时候，它们不再那么难看了，甚至可以说是可爱。全身不再是光秃秃的，长满了毛，圆圆的，眼睛黑黑的打转，一边走一遍叽叽喳喳的叫着，充满了生机与活力。我感叹于它为什么一夜之间完成了如此华丽的变身。突然间我有个奇妙的想法，让小鸡自己啄蛋壳太慢，对于如此年轻脆弱的生命太辛苦，要是我为它们把蛋壳打开，把它直接从蛋壳拉出来会不会好一点？于是我便悄悄地替一个正啄蛋壳的小鸡剥开了蛋壳，并在腿上用线做了标记。后来我才知道小时候这么想这么干的人不只我一个。小鸡出生后，每天我都观察我的“杰作”，但我发现这只小鸡有气无力，走路缓慢，还经常被其它小鸡挤踏。有一天竟然发现这只小鸡死在了一个墙角，我为我犯了这样一个错误而感到一种罪恶，一种深深的自责。随着年龄的增长，我终于明白了那个简单的道理。其实人生也是这样，生命中那些至关重要的关口，必须得依靠自己的力量去啄破命运的蛋壳。这是一个积蓄能量和磨练意志的过程，假如走了捷径，成长的过程便会出现缺口，这也许就会成为日后生命的弱点。也就是说有些成长，有些风雨，有些经历必须自己去体验，去尝试；有些痛苦，有些艰难，有些泥泞必须自己去克服。况且大多数人的生命是没有那样的条件与机会去走捷径的。由此，我又想到另一幕情景。在我儿时的窗台前面有一片空地，空地上长满了小草，茂盛青翠。后来家里盖房需要石头，这块空地便成了堆积石头的最佳场所，就在一天之内，地上的青翠茂密不复存在，只剩下一堆冰冷的石头。一个月以后，这里的石头搬光用完了，那片地又空了出来，只是那里早已没有了小草，只剩下些破碎的石渣残块，一片荒凉，原先的那些草只剩下粗糙的根。我想这里再也长不出那样茂盛的绿色了吧，有那么多石块压在上面。就这样的情形继续着，日子一天天过去。转眼一个冬天过去，第二年春天的时候，不经意间看见石块下面的草根上发出了嫩黄的芽，我认为它们是长不出来的，压在上面的石块那么多，没报多大希望也没有怎么在意。可是令我惊奇的是两个星期后我打开窗子，映入我眼帘的是一片绿色，就是那片被我忽略的空地上竟然是一片绿色，原先覆盖在它们身上的石块已经被草覆盖，还是一样的青翠茂盛。我惊叹于它的自强和坚韧。于草来说，这应该是最恶劣的环境了吧。石头的夹缝间，更没有丰厚的土壤。而它，没有萎蔫，也没有消失，鲜嫩的叶子正昭示着它蓬勃的生命力。以上两个曾经的经历在我的记忆中永不抹去，历久弥新。在我成长的过程中何尝不会遇到阻碍自己的蛋壳，限制自己发展的石块，但那又怎样呢？无论遇到何种艰难，无论遭遇怎样的不幸，我始终都相信那只是暂时的，只要心中有信念，脚下就有前进的力量，不怕痛苦，只怕丢掉刚强，不怕磨难，只怕失去希望。心怀希望，生命如春。负重前行，生命才有质感。人生漫漫长路，常常会有这样那样的遭遇。或是学业的困惑，或是朋友的欺骗，或是家庭的变故，或是失恋的痛苦……面对生活的种种磨难，我们要当强者。磨难只是情绪的体验和肉体的折磨，磨难也是生命的一种过滤，不畏惧它就能松弛自己，就能从负重的身心滤出坦然的心智。磨难是祸，也是福，它可以锻炼我们的意志。生命中经历坎坷曲折，人的价值才能充分体现出来。跨过艰难才会懂得生活的意义，从而更热爱和珍惜生活。成长的过程一层是挣扎，一层是蜕变，挣扎与困惑是年轻时的常态，只有学会坚强，我们才能以青春的名义为人生留下些珍贵的回忆。所有的忧伤都只是简单的音符，装点那长长短短的旋律；所有悲凉都只是路边的野花，点缀一下人生的漫漫长路。成长的道路风雨相伴，沐浴风雨历见彩虹，心怀希望，坚守信念，通过努力，才能拨开云雾见月明。左岸记：成长需要学习，大抵四个方面，第一，学习播种的规律，不求立即回报；第二，学会自律，改善自己的思考方式和行为模式；第三，学会控制自己的情绪，拥有良好的体魄人脉和时间财富管理的习惯；第四，好学谦虚，建立清空、接纳、重建的心智模式。原文链接：http://www.zreading.cn/archives/4698.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

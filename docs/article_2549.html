@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>思维的关联与跳跃</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>思维的关联与跳跃</h1>
+            <div class="date">2015-03-10 11:40:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>最近忽然反反复复听起了《匆匆那年》，缘何而起的兴致，已经不晓得了，倒是反复咀嚼歌词时，才发觉又胡思乱想了。看到林夕的词，总耐不住多读几遍。为何要读呢？自己也说不出个所以然。我想，喜欢只能是个结果，不应该算作原因，作为结果的原因，最初应该是触动。林夕的很多词都能触动我某些情愫，这也使我不由得想到，是否我过于矫情了。当读这首歌词时，我脑海里出现了一幅画面。副歌部分有句话这么写：如果再见不能红着眼，是否还能红着脸。这句话在最初读到时，我一时还未想起什么，可在我想到红着眼就是快要流泪时，我忽然问了自己一句为什么要流泪？于是乎，一对曾经的恋人在相隔多年后，再次相逢的景象出现了。两人默默相对，凝视着对方，不着一言，唯留表情，对诉衷肠。两人为什么要流泪呢？心有不甘吗？也许是。为什么心有不甘呢？不晓得。会不会是分手后的两人都已意识到分手的无奈呢？作为一场缘分，以分手而剧终，总是快乐不起来吧。两人还相爱吗？天知道。不过我还想到一个版本。再次相逢的两人为什么要流泪呢？或许两人现今生活都不如意吧。为什么不如意呢？答案有很多，或许他们发现，如今的爱人不能给自己最初的那种愉悦了吧。然后呢？然后我就不想说了。当再来讨论红着脸时，情况似乎变得又有些不一样了。红脸是什么？害羞，不好意思。为什么害羞呢？可能想到了当年的幼稚处，亦或者还有藕断丝连的情愫。两人还是单身吗？如果是，两人还能再次相爱吗？这也许只有他们自己知道，我应该无能为力。倘若不是单身，他们为什么红脸呢？也许两人忆起当初，发现岁月依旧那般静美，消逝的时光，宛如晴日下的阳光，暖人心脾。时隔多年，依然有这么单纯的情愫，作为普通人，实在伟大的可以了。其实，在想到这些东西时，有一个蠢蠢欲动的八卦，不自然的就冒了出来。锋菲恋与这有关系吗？作为茶余饭后想挡也挡不住的一个话题，我也不知道这个东西什么时候就留在我脑子里了。总之一下子，这个如同魔鬼一样的念头，如决堤之水，怎么也收拢不回来了。好像不能否认，八卦于我，多少像似生活中的兴奋剂。锋菲再次相恋前，这首歌到底摆在王菲的面前了吗？为什么有此疑问呢？在我看来，有点像似收集证据前要排除伪证一样。据我所知，林夕写词相当快，这首歌词到底花了他几分力气，揣测起来，实在无甚根据。倘若此词成于二人相恋后，我有必要想成林夕是写给王菲的。若是成于二人相恋之前，这就十分有趣了。现如今有句话，歌手唱歌要走心。走心是什么？我想是相对于过脑而言的，唱歌不能先感动自己，想要感动别人，一般不太容易。我不知王菲在唱这首歌时，心里想到的是会是谁？我想，应该不是我们可爱的李亚鹏同志。还有，要熟悉一首歌，唱一遍就可以的人，虽然有，但我觉得也不太多，这首歌，我们的菲姐又唱了几遍呢？或者说，走了几次心呢？其实，想谁是个问题吗？八卦真可恶。读歌词，有时候乐趣就这么简单，反倒是读诗词的那个词时，这个乐趣很多时候就变得有些沉重。想起前两天看东坡词时，那首中学所学的《蝶恋花》，不知怎么就一下子犹如活了过来。想当年背诵诗词，我总是不得其法，好像怎么读都记不住一样。死记硬背之后，一般在一年之后也就忘的差不多了，偶然能想起一两句，那还得念阿弥陀佛吆。不过最头痛的还不是这，那令我万般无奈的浅析某词之意，多年之后，依旧令我心中难以释怀。心想，怎么会有这么惨无人道的问题呢？我可是个未出校园的孩子，哪能明白三四十岁的大叔大娘们怎么想的呢，何况人家读书还比我多。不过说起这首《蝶恋花》，再次提起兴趣的地方，显然不是曾经的当初。以前觉得下阕很美，上阕也还过得去，如今却有上下阕都很美的想法。上学时，不懂得欣赏景致，即便现在，也未必有什么独特的眼光，可想来也应比当初强些。“花褪残红青杏小，燕子飞时，绿水人家绕。枝上柳绵吹又少，天涯何处无芳草。”想象这春日景色，那般美好，柳树杏树，生机盎然，然而凋亡之态，于新生之中展露，多少让我体会出了那种意味，一如老人看到婴儿的五味杂陈。这或许就是当时东坡的心态，然而这也是在多年之后的今天，我才有所了解，不得不说，我真是笨的可以。为什么会在谈林夕的这首词时，联想到东坡的这首词，在我是不得而知的，脑袋里的念头总不会受我控制，它自然而然就对上了号。可深究起来，两者为何会对上号，我也有所发现。在我所能理解的范围内，林夕的这句话像白描，带有情感寄托的白描，而东坡的这首词，无论上下阕，都也还似带有情感寄托的白描。两人中都有个令我很羡慕的东西，虽然现在我不知道怎么说，可觉得还是抓住了一丝，那种表达的技法，实在特别想学，我觉得未来某一天我会弄清楚，到底这个是什么。为什么要写这篇文章呢？其实是为了摸索思维这个有趣的东西。大概在一个月以前，我一时兴起，以思维为题，冠以一种散漫的状态，写了一篇不知算什么东西的文字，后来发觉很好玩。也不知道从什么时候起，我突然就爱问一些为什么。这个为什么起初问的相当白痴，可渐渐的我发觉，当问题问的越多，我也就越来越能把握住怎么去问这个为什么。怎么去形容这个过程呢？这么说吧，当我面向前方站立时，前面或者空空如也，或者有一个遮挡物，我想知道前面有什么，或者这个障碍是否能挪得动，又或者说是打的开，于是我就发问了。起初我一问为什么，它或者不答，或者就给我一堵墙，十分让人气馁，内心有种无力的挫败感，但它至少让我晓得前面是过不去的。可渐渐的，随着发问次数的增多，我发现有门了。仔细思索时，我发觉很多空空如也的地方消失了，我前面只剩下墙与门，至于哪个是墙，哪个是门，似乎一问便可知晓。就拿前面对于林夕词的发问一样，其实我只问了一个为什么，就是为什么要流泪这个问题，之后那些问题，一个也不是我想去问的，那些不知道是什么的为什么，好似从虚空涌出来一样，我怎么也止不住。可以说，在红着眼三个字的面前，我打开了一扇门，这个门里的世界很漂亮，它带给我一种美好的遐想，让我深深体会出了一种情愫。问这些为什么有什么用吗？于我而言，我觉得算是很有用了。比如，当我在体会对于林夕那句话的发问时，脑海里就像有只手，一下子把前段时间所看的东坡词给推到了我面前。我不晓得这首东坡词有什么用，但我晓得它绝非偶然就送到我面前来的，肯定是有什么东西贯通了两者之间的联系，于是我就去问了为什么。如今，我越发觉得我可以抽出一些东西，去慢慢营造属于我思想的基石了。其实，面对生活，我们已然没了老师，唯一可以请教的，或许就只“为什么”先生了。左岸记：当我们建立起系统的知识结构后，知识分散在我们大脑的不同地方，要对它们进行关联或者过渡，我们需要一把钥匙，“为什么”很可能就是一把万能的钥匙，在你苦恼的时候，穷尽它，或许你会找到你要的答案。一个寓言可以说明提问有多好：一个替人割草的男孩打电话给一位陈太太说：“您需不需要割草？”陈太太回答说：“不需要了，我已有了割草工了。”男孩又说：“我会帮您拔掉花丛中的杂草。” 陈太太回答：“我的割草工也做了。”男孩又说：“我会帮您把草与走道的四周割齐。”陈太太说：“我请的那人也做了，谢谢你，我不需要新的割草工人。”男孩便挂了电话。此时，男孩的室友问他：“你不是就在陈太太那儿割草打工吗？为什么还要打这电话？”男孩说：“我只是想知道我做得有多好！”原文链接：http://www.zreading.cn/archives/4823.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

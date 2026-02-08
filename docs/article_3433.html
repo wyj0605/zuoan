@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们都在比较中活着</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我们都在比较中活着</h1>
+            <div class="date">2014-03-23 23:45:19</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/檀笑.看到美好的事物，就想着同样拥有，这是我们每个活人的特点，只有跟别人相似或者接近，我们才有安全感，否则自卑心油然而生。即使我们不想木秀于林，起码也要跟他们待遇相等。好听一点，叫做见贤思齐，难听一点叫做互相攀比或者比较。.其实，我们一辈子都离不开比较二字，小时候，木有那么多的奢望，于是爸妈关爱，亲戚关心，还有很多小伙伴玩就是我们比较的地方。看到小伙伴有了一家新衣服，自己也要吵着要，看到姐姐生病了，有好吃的，自己也故意装病。看到别人家亲戚给小伙伴买了好多东西，于是也很期待姑姑们来的日子。还好，小时候，我都是他们的羡慕对象。.中学了，懵懵懂懂，开始有了自尊，虚荣，以及所谓的情怀，看到别人买了手表，自己也要去买；看到别人成绩得了头名，有了奖学金和被人瞩目，自己也要去努力获得；看到别人有了女友，自己也开始懵懵懂懂，想要去谈恋爱；即使当时我们不知道什么是爱。.长大了，看到同宿舍的买了一双耐克鞋子，自己也想去买，即使你的鞋子很多；看到别人都有了电脑，自己也不甘落后的去买，因为不想比别人差；看着同事买了一个手机，于是自己跟风的也买了一个，也许自己并不需要，因为那些新功能你根本不会用；你看到别人买了一套衣服，自己也跟着买了，也许这件衣服很快被束之高阁；嫂子见弟妹买了一样东西，自己也要吵着要,因为别人有的我必须也要有，即使我不穿；.看到别人都结婚了，自己也慌了，这就跟考试一样，别人都交卷了，就你一个了，老是盯着你，也受不了啊，于是很快的也要结婚了，不管那个人是不是自己想要的，总不能让人怀疑你有性病或者其他不适合结婚的原因吧，你要告诉世人，你在等一个人，鬼才信呢；你看着曾经比自己混的还差的同学买了一辆车，心里特别不平衡，你也要买，不管自己买了之后，那一段时间是否压抑；你们看着别人买了房子之后，自己也要嚷着买，总不能让人瞧不起自己；因为现实都这样。总有人不想付出什么，却想得到最多，当别人都是勺子么？尤其在感情或者友情上，别找什么以前受过伤啥的，对于这样的，我是惹不起，躲得起。不努力就别怨天尤人。.看新闻或者网络多了，还是对比国外，于是月亮都是国外的好，恨不得立马神有大美，但美国是什么样子，你连知道都不知道呢，估计就知道十几个美国人的名字，其中还包括一个奥巴马，一个科比什么的。其实，我们都在比较中活着，我们都在比较中纠结，因为除了我们在纠结，他人也都这样。.于是经常被听说，他怎么还没有前任好？他的条件那么差，谁谁谁家里比他好多了；他怎么长得这么差？跟前任没法比啊；他怎么会这样，以前人家怎么宠我，怎么对我的；一旦比较，就会出现了情绪的反复，有可能在比较中失去更多。.你看着人家工作怎么那么好？你就这么怂？小时候他可比不上你啊？你看着人家又去那那那了，咱就哪都去不了？.你怎么能这么无理取闹？看看人家的女朋友多懂事？于是吵架多了，累了，也就分了。你怎么这么笨？你看小明多聪明？说多都是眼泪，小时候的打击对象。你怎么这么不听话，人家小明多乖巧可爱？孩子心理都开始对比，或许是仇恨。你干嘛那么爱攀比？看人家的女朋友都吃苦耐劳。于是怎么看怎么不顺眼，直到有一天又闹得分了。你们班的学生真懂事，看我们班的学生都想抽他们。我要是有一个富豪老爸就好了，于是干爹出现了。.其实，我一直觉得，灵台清明很不容易，清楚的知道自己想要什么，能得到什么很重要，对于那些身外之物，我一直要求不多，精神，精神更是我的依靠。老子说过：活在当下！人嘛。一辈子所有的好处都不可能是你自己的主要是看你想要什么。当你得到一样的时候 必须去失去一些东西怪只怪咱们社会太发达了。通信太简单了。咱们活的太聪明了。花花世界让人着迷所以我们都在盲目的追寻。你要看明白！最重要的是要知道这辈子你想要什么！那样你的人生才有意义。才会发现活着的价值！左岸记：檀笑的文体自由，合不合规范，另外讨论，重要的是他总能把一些深层的问题用谈笑风生的笔调勾勒得活龙活现，读来轻松幽默。比较还有一种是属于积极的心理，大家讨论一下，什么样的比较，和谁比让促使人更健康地成长？原文链接：http://www.zreading.cn/archives/4272.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

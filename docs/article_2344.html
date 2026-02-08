@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不安的世界安静的活</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>不安的世界安静的活</h1>
+            <div class="date">2015-10-27 23:58:59</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>第二本书要出的时候，和博弈中天策划人孙总谈起，为什么我们总是觉得不安，到底是这个世界充满了未知和不确定，“我们知道的越多，所以我们未知的越多”？还是因为世界跑的太快，我们就像被复制被模块化了，丝毫没有存在感？最终也是了了，没什么结果。于是探讨在不安的世界有没有可能安静的活？紧绷、不安、没有存在感，连动物都会短命，人也差不多。在短命和活下去的选择中，我们却还是先选择活下去的好，于是不安就不安，世界本来就不安，我们也就将就着过下去吧。可惜人最大的问题就是吃饱饭没事干，就思考，于是乎觉得既然温饱了，干嘛不能安静些，快乐些，然后就能长久些？寻找安静，是个流行的事情，身心灵也流行了好几年。再间或来点旅行、爱好、断舍离、禅修、冥想、慈悲善行等等等等，招数总是大于目的。片刻的安静之后，却愈发觉得世界的不安，越来越觉得自己难于安静。安静成了一种逃避，一种奢望？保持着动物本能的警觉和躁动不安，才能在这个丛林社会立足？不安的世界如何安静的活？心智成熟是个大而化之的事情，成长不意味着成熟，入世的成熟不代表心智的成熟。那些在生活里似乎游刃有余的人们，同样被自己的心理折磨的体无完肤。活下去不是问题的时候，怎么活下去倒成了大问题。存在感要是能刷出来，心智的成熟是不是也能靠自我的认知完成呢？敏感才能嗅到危险，丛林里最需要的是活下去，这成了每个人的人生圭臬。人生说起来无非几个事情，自我的存在、爱、人生的选择，任何一项有点恍惚，这一生总会别别扭扭。人生是轮回，四季也是轮回，于是我想写一本关于四季、关于自我的存在感、关于爱、关于选择的书。因为我们具有存在感，于是我们才有爱的能力，于是我们才能真正去选择属于自己的人生，然后才能在每一年四季的轮回里不停的更新和迭代自我。书中我大致设置了三个情境，静心小组、读书小组、日常生活圈。静心冥想的小组式的活动，有利于得到安静和自我的存在感；读书是一种学习也是一种生活方式，可以让人更多借助先贤的力量；生活是最好的戏剧和操作手册，没有谁的失败或成功，在自己的周边寻不到类似样板的。或许，不是我们道理知道的不够多，只是我们不懂得自己、不懂得安静，所以既没有安全感、又没有存在感，那些道理、目标，没有清晰的受体，自然没有成功的可能，镜中月、水中花。静心冥想本是个充电和认知自我的过程，但现如今成了很多人逃避世界的方式。我也尽可能将静心冥想，放在轻松而有效的流程里，努力让静心冥想成为一种了解自我的过程，成为保持存在感的一种锻炼方法。让存在感不与世界割裂开来，在保持存在感的同时，保持与世界的互动和界限清晰。我曾经唠叨了无数次，爱是一种能力，那能力就需要去发现去锻炼去培养，发现爱有时候比感知爱还难，我们给爱增加了无数的定义和形容，于是就多了无数的计算和衡量，结果要么爱脆弱到不堪一击，要么就沉重到无法负担。把爱简单，简单爱。敏锐的发现爱，而不是敏感的去质疑是不是爱，爱才可能被去培养去锻炼。选择要么充满力量，要么充满毁灭性。想想你自己的一生，似乎就是一个个节点组成的，每一个节点，每一次选择，让你成为今天的你而不是梦想里的你。如何将选择变成推动自己成长、成熟的力量，或许真需要探究。不是问为什么自己会这样选择，而是学会如何选择。心智是机巧还是智慧？是心理还是智力？不管如何定义，我们利用我们的记忆、我们的学识、我们的经历，去造就了我们面对世界的眼光和采取的行动。未来从来不属于未来，属于我们的过去，因为我们拿着过去的一切解决着面对未来时一切的问题。一个心智成熟的人，他的心智模式更开放更易接受当下，更能面对未来的挑战。当这本书完稿的时候，我有些小得意。这样的角度和这样的架构，将生活由“心理学研究结果、东西方哲学的思辨、心智模式的剖析和架构”去解读，是我喜欢并有料的。及至要出版了，又惶恐起来，不是害怕被更多的读者质疑，而是发现，自己的人生同样需要再一次的出发。我只能尽量确保自己跌倒了能爬起来，却不能确保自己不再跌倒，或许这就是人生，这就是人生之路。感谢那些生命中出现的人和发生的事，一如既往的感谢左岸、左岸读书，没有左岸读书或许我难于坚持去写作；感谢落薇的校对和意见，在我读我文稿无数遍后读到想吐的时候，谢谢她的一字一句的检视！左岸记：好事成双，德兄的第二本书《没走过的是路，走过的才是人生》出版了，喜欢德鲁伊的读者可以到当当网购买、阅读。愿这本书能够带走你所有的烦恼、悲伤和不安，留下坚持、感动与爱。购买地址：http://product.dangdang.com/23797365.html购买阅读后要记得去给书加上评分和评论。这次的活动依旧，凡是在思文群内和左岸内购书的，买一送一。只要你有勇气翻开这本书，你就一定有勇气面对自己的问题；只要你勇敢地面对自己的问题,你就踏上了心智成熟的旅程。原文链接：http://www.zreading.cn/archives/5117.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

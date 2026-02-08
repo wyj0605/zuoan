@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>左右叙事 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>左右叙事 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>之一，爱情。</p>
+<p>《爱情买卖》一首听了哑然的歌。一句词，“爱情不是你想买，想买就能买”很好，可惜的是太多的人真的觉得爱情是个产品。</p>
+<p>爱情不是一个产品，非要求有保质期。</p>
+<p>爱情来临的时候，不是你得到了什么，而是你要准备做些什么了。爱情是一个作品，需要不停的雕琢和灵感。既怕过犹不及，也杜绝粗制滥造。既要有共同的审美和梦想，又要有面对现实、知道这是走向梦想的不完美的过程。</p>
+<p>你把他当产品，就有保质期，就仅仅是消费；你把他当艺术品，那你不能允许他的不完美。</p>
+<p>他是作品，是两个审美趋同，并愿意为之努力坚持，努力雕琢的两个人的作品。</p>
+<p>之二，再见！差不多先生！</p>
+<p>“差不多。。。”“我以为。。。”“我通知×××了。。。”</p>
+<p>这样的话听多了，世界似乎就是由“差不多“先生组成的。完美其实不完美，这个悖论，很多人明白，但这个差不多还真的值得考量。</p>
+<p>人性除了诱惑什么都抵挡得住。本来诱惑是人生的动力，现在却被诱惑教会了“差不多”。到底是因为你的无力，造成不停的差不多；还是因为心有旁顾，才只好说差不多；甚或，新的目标出现，这个目标暂时就差不多吧。现代人目的性颤抖与心有旁骛交叉运作，于是结果与评价永远是差不多。偶尔出了几个不差不多的人，世界总会为之改变，如乔布斯。</p>
+<p>其实“差不多”换成“能不能再好些”，“我以为”换做“我知道”，“我通知了”换做“我通知也跟进了”，就可以跟差不多先生说拜拜了。</p>
+<p>之三，活着与活过。</p>
+<p>生活到底是权衡还是选择？人生是个长度还是个宽度？是经历造就人还是结果造就人？</p>
+<p>“若在面临抉择而无法取舍的时候，应该选择自己尚未经验过的那一个。“</p>
+<p>一个小例子，前些天的月食。虽然月食也是嫌贫爱富的，有着单反或是望远镜会美丽许多，但站在冬日的楼顶上总是让人有点唏嘘难耐。但看看街上的匆匆人流，没有谁抬眼看一眼。我们追求花钱的、花时间的一切享受，匆匆的来不及抬一下头。想来，三个小时，不管你是抑郁还是快乐，是悠闲还是急忙，每十分钟抬眼看5秒，算起来一分半钟，美丽毫无遮拦、没有成本的出现在你的生命里。说句很矫情的话，人生无法确认长度的时候，我们努力增加宽度。</p>
+<p>宽度让你明白自己活着，时间让你明白自己活过。于是乎宁可选择生活而不是权衡生活。你没有能力去感知无言无成本的美丽，你的生命是靠一个个结果标示的，那你仅仅是活过，从来没有活着。</p>
+<p>之四，企业及个人成功的要素。</p>
+<p>论起一个公司的成功与否和个人事业人生的发展。近期比较流行几个所谓的要素，其实看了，还真有点放之四海皆准的味道。</p>
+<p>营销(Marketing)，企业的营销模式是什么？这个营销模式导致企业的网络会怎么样？你的人生是如何营销的呢？最终会导致什么样的规模呢？待嫁闺中也好，山林归隐也好，孝廉求举也好，八股文章也好，伯乐相马也好，没有营销的模式，你又如何脱颖而出？</p>
+<p>故事(Story)，企业是支离破碎的片段还是一段津津有味的故事？同样的，你的人生呢？支离破碎，互不搭界，没有线索没有段落，只有只言片语，孩童涂鸦，没有故事的人生就是囧长的肥皂剧，不看也罢。</p>
+<p>连接(Connection)，企业如何和市场连接？你的推广模式是不是很单一？个人来讲，你与社会如何连接呢？你没有走在路上，幸运的车如何搭载你呢？坐在屋里，幸运没那么大的劲去敲门和砸窗。还不能末班车已经走了，你还走在这条路上，步行也要多选择走几条路。</p>
+<p>部落(Tribe)，企业能建立你的标示明确的部落吗？消费的群体和代理的群体有多少的忠诚度和排他性？个人能建立你的人脉吗？忠诚而排他？多少信息和机会来自于你的部落呢？</p>
+<p>承诺(Commitment)，企业能不能承诺创造客户价值呢？企业成本不会拖垮一个企业，但创造不了客户价值，你注定离死不远。个人而言，你能承诺你的未来价值吗？这个承诺不是承诺你会努力，而是现在的你，当下的你，让部落内的人知道这个承诺可以实现。</p>
+<p>架构(Strucutre)，企业的架构是什么？营销模式呢？互补吗？活力和执行力呢？体态均匀，比例恰当吗？退出、避让、进入、保有机制是什么？作为个人，你是由什么组成的？你想要的成功是你自身组成部分能够达到的吗？还需要什么？太多的人，理想的腰围要比支撑的骨架大，不成比例。</p>
+<p>产品(Product)，产品不是全部，但产品永远是要素。产品稀缺性、需求度、组合到底是什么？信息掮客也好供需掮客也好。归根结底，企业需要产品的溢价存活。企业的销售规模来自于销售网络前端的盈利规模。个人呢？你作为一个产品，能否给予你所处的世界更多的利益，决定你能获取多少利益。</p>
+<p>之五，天赋。</p>
+<p>这里的天赋不复杂，“拥有将分歧明确表达的天赋”，这个时空不是因为大同而存在着，永远是因为分歧而丰富多彩。如果你能用清晰的，明确的，易懂的方式将分歧表达，你就已经学会了选择，学会了学习，学到了东西。</p>
+<p>怀疑论的极致是虚无，静心和冥想仅仅是为了融入而放下脑袋。有了二才会剖析到三或者一。一味的找一，虚无了；一味的找三，会变幻无穷。找到分歧，明确表达，这个天赋谁都想拥有。</p>
+<p>左岸记：德鲁伊对人生的感悟是非常立体的，于景、于事、于人都把握得到位而又妥帖：</p>
+<p>情之所得，贵乎于珍；</p>
+<p>完美之境，常在一步之遥；</p>
+<p>结局总将湮灭，奈何过得如此匆忙？</p>
+<p>将欲取之，必先与之；</p>
+<p>人生能放能收，即破又立，方显天赋之能事。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

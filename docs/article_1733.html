@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非自然定律 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>非自然定律 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>你曾经在你刚要抬脚迈出门去的时候听到电话铃响吗？当你苦等公交车不来，正准备点一支香烟的时 候，它却从一辆停着的卡车后面冒出来了？有些机敏的人会注意到这些事情并非偶然，而是有某种规律的。一些人如Murphy、Peter和 Parkinson，决心找出这些规律——那些控制人类坏运气的定律，他们已经将之视为毕生的工作了。下面就是这些定律的一些例子。</p>
+<p>Murphy定律</p>
+<p>如果某件事情可能会出错，那它一定会的。</p>
+<p>如果某件事情可能不会出错，那它一定会出错的。</p>
+<p>如果某件事情可能不会自己出错，那一定会有人使它出错的。</p>
+<p>O’Tool对Murphy定律的评论：Murphy是一个乐观主义者。</p>
+<p>工程师的Murphy定律</p>
+<p>对一项设计的变动越显得无妨大碍，就会越有重要影响。</p>
+<p>任何可能产生的不显眼的错误，就一定会产生。</p>
+<p>受反应快速的保险丝保护的线路往往自己先熔断结果保护了保险丝。</p>
+<p>电工们的Murphy定律：任何用于加长的电线最终会变得更短。</p>
+<p>难以言表的定律</p>
+<p>只要你一提到某件事情，那么 ……</p>
+<p>……如果它是好事，就不会发生</p>
+<p>……如果它是坏事，就会发生。</p>
+<p>期望的不互易定律：负期望会产生负结果。正期望会产生负结果。</p>
+<p>Howe定律：每个人都有无效的计划。</p>
+<p>Zymurgy系统演化动力学第一定律： 一旦你打开一罐子的虫子，那么把它们重新装回罐子里的唯一办法就是用一个更大点的罐子。</p>
+<p>Etorre的观察：另外一条路看起来会走得更快。</p>
+<p>DeVrie难题：如果你同时按了打字机的两个键，那么你按的往往是不想打在纸上的那个键。</p>
+<p>Skinner常数（Flanagan欺骗因子）：这个数乘以、除以、加上或是减去你已经得到的答案，给出仍然是你应当得到过的答案。</p>
+<p>重力选择性的Murphy定律：物体选择能够产生最大破坏力的下落。</p>
+<p>Hofstadter定律：任何事情都比你想象中的要长。</p>
+<p>Hofstadter定律的推论：任何事情都比你想象中的要长，甚至当你在想Hofstadter定律的时候。</p>
+<p>Jenning对重力选择性的Murphy定律的推论：面包下落涂有黄油的一面着地的几率正比于地毯的价钱。</p>
+<p>Gordon第一定律：如果一项研究计划完全不值得去做，那么它也就不值得好好去做。</p>
+<p>Maier定律：如果事实不符合理论，那它们就必须被去掉。</p>
+<p>Hoare大问题定理：任何大问题的里面都有小问题在作怪。</p>
+<p>Boren第一定律：犹疑不定之际，nnd。</p>
+<p>艺术与科学的黄金规则：持黄金者制定规则。</p>
+<p>Barth的分类法：人有两种：把人分成两种的和不把人分成两种的。</p>
+<p>Segal定律：有一个手表的人知道时间。有两个手表的人则不确定。</p>
+<p>项目方案的99定律：任务的第一个90%花去了90%的时间，剩下的10%花去另外90%的时间。</p>
+<p>Farber第四定律：必要是未知之母。</p>
+<p>Cole定律： 剁碎的卷心菜。</p>
+<p>来源：译言 casimodo 原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

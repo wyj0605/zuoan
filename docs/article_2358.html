@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小小的心，深深的愁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>小小的心，深深的愁</h1>
+            <div class="date">2015-10-13 00:37:32</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/酸枣树我一直觉得自己算个细心的妈妈，对于儿子的一举一动都能理解和体会，直到昨天晚上儿子那感情丰富的表现，我才觉得自己其实很多时候都是误解他的。自从来神木上班以后，我跟儿子又开始了两地生活，我们对彼此间的依赖和思念又被距离无情地拉得很长很长。因为工作原因，我周六晚上才到家，今天周一早上七点多已经坐到了办公室。满打满算，跟儿子在一起的时间不到35小时。每次临走时，我会提前一天就跟他说，让他有个心理准备，不至于让伤悲来得那么突然。我从来不愿意像很多大人哄小孩一样骗他，我希望他明白有些事情是必须要面对的，比如我们母子之间每次的离别。有时候会觉得有些残忍，但这真是迫不得已的事情，因为他的妈妈还没有能力做到每天都陪着他快乐长大。每次我回家，都会打乱儿子平时规律的作息时间。比如，他会不按时睡觉、不好好吃饭，会尽可能多的跟我在一起，尽可能多的给我撒娇、耍泼。为此，亲近的人都说我宠他，说我总有一天会把他宠坏，但我知道我跟儿子之间的底线，我不愿意一周两天的相处时间，都给他留一副凶巴巴的面孔，更不愿意让孩子失去了不可多得的撒娇机会，毕竟他才只有26个月，有些东西原本就是他该拥有的，我不想看到小小的他懂事得像个大人，那就太不正常了。况且，从总体来说，他是个懂事的宝贝。昨晚10:40，婆婆已经睡了，妹妹也睡意浓浓，劳累了一整天的我也困得眼皮打架，只有儿子依然精神抖擞，拉着我陪他钻在被子玩躲猫猫。玩到十一点多，好不容易把他哄好，他又开始让我给他讲故事，直到把床头的故事书都讲完，他依然没有睡觉的打算，虽然我看见他已经瞌睡得快撑不住了。“妈妈，我要尿尿！”“妈妈，我要喝奶！”“妈妈，给我讲故事！”……他不停地提着要求，也不停地坐起来，然后再躺下，似乎有意让自己尽量不要瞌睡。我实在被他“折腾”得不行了，就疲惫地说：“赶紧睡觉，要不妈妈就先睡了。”然后，我闭上眼睛，不再理他，等待他也跟我一样很快入睡。过了大约五分钟，我听不到他再有什么动静，小小的身体背对着我，呼吸匀称而安静。“终于睡着了。”我想。然而，当我偷偷瞄他时发现，两片小小的嘴唇挤在一块，不停地抖动着，眼泪在红红的眼眶里打转，一脸若有所思的样子。他在忍着不哭。“豆宝，你怎么了？”我轻声问道，声音中还带着几分睡意。“哇！”的一声，他哭了，什么也没说，转身把我的脖子抱得紧紧的，忍了好久的眼泪终于夺眶而出。小小的身体在我怀里委屈地抖动着，眼泪顺着脸颊流进了耳朵里，直到那哭声变成了抽泣，却仍然一句话也没说。“你是不是怕妈妈走了？”我含着泪，试探地问。没想到，这一声问候让原本啜泣的他再一次放声大哭：“我要照（看着）妈妈……”原来，他知道睡醒来之后妈妈就不见了，所以就一直忍着瞌睡照妈妈，为的就是留住妈妈，或者再跟妈妈多呆一会儿。“妈妈今晚不走，明天早上走，晚上还可以跟豆豆睡一夜呢。别哭了，要不妈妈也哭了。”我说着。于是，他不哭了，紧闭着双眼，睫毛上闪烁着的泪珠，顺着脸颊静静地流到耳朵里，两片小嘴唇依然剧烈地抖动着。不一会儿，他睡着了，睡梦中还拉着常常的呼吸声，那声音充满了委屈。看着熟睡的儿子，我再也忍不住了，也哭了。其实，我就是个小女子，眼泪多得要命。早上5:20，闹钟响起的时候，儿子竟然也醒了，尽管昨晚十二点多才睡着，尽管不理解他的小姨一再认为，那是小孩子在临睡前的哭闹。他依然撒娇，使劲浑身解数拖住我。“我脖子痒痒”“我脚疼”“屁股也疼”“妈妈给我揉”“我要喝奶，妈妈去和奶粉。”……直到再次被睡意侵袭，他才面带微笑进入梦乡。然而，因为担心妈妈离开，总是睡不踏实的他，七点就醒了，然后是绝望地哭闹，再然后就是接受现实以后的安静。带着疲惫、倦意和绝望，瞅着电视上跳动的熊大熊二。返回单位的路上，高速公路两边的沙丘此起彼伏，正如每次回家时看到的一样。正是那一连串黑影，将我跟儿子连在一起，又阻隔到两地。我想起，每次儿子不跟我通电话，不跟我视频的情形。一直以来我都认为，他在责怪这个不称职的妈妈，现在才明白：他是因为我不在身边，没指望所以也就不奢求。“假装的坚强，伪装得细腻，直到最后无法逃避时才感情崩溃。这次第，也许只有为娘的能懂。”这是我在儿子睡着后，发在朋友圈感慨万千的情绪浓缩。真觉得自己婆婆妈妈，但却无法避免地被击中了软肋。左岸记：沟通的第一要素，倾听。只要大人不着急地下判断和结论，认真听完孩子想说的话，我们往往会有巨大的发现。附：每个童年都是成人给的文/易水寒无论萌与不萌，只要是孩子，都显得可爱；漫说人类，就是小狼、小狮子、小藏獒和小鬣狗，也显得可爱。那是因为他们（它们）没有攻击性，无害人心，无抵抗力。无辜的眼神，迟缓笨拙的动作，嫩嫩的皮肉，显示出在整个社会架构内，他们是最脆弱的一环。随便一个成年人或者一个成年动物，都能轻易将其置于死地。说他们可爱，是自觉不自觉地站在了主宰者的角度。每一代孩子有每一代孩子的苦痛和欢喜。我不知道孩子是否愿意跟大人们比童年，但我知道很多大人喜欢跟孩子比童年。标配说法是，你们有智能游戏，但没有河流、山川，看不到星星，享受不到鲜花野草的芬芳。我们贫困，饥饿，但精神生活丰富。你们要什么有什么，但孤独、自大，以自我为中心。我们的童年值得怀念，你们的童年乏味单调。我曾问女儿，你童年最快乐的事是什么，最不快乐的事儿是什么？并简单说明理由。答案是，快乐一.在澡堂里吃饼干。因为平时不爱吃饭，姥姥为迫其吃饭，就限制她吃饼干，去澡堂时姥姥为了不让她乱跑，会拿饼干稳住她；快乐二.不吃饭；快乐三.滑冰。不是穿着滑冰鞋在溜冰场上，而是冬天在学校操场上冻得很结实的冰上滑；快乐四.跳绳比赛。因为跳绳水平高，有成就感。不快乐的事，一.吃饭；二.做那些莫名其妙的逆天的课外练习题；三.妈妈命令收拾东西；四.出去旅游时爸爸妈妈总是不让她到自己想去的地方，说不安全。感觉自己被约束；五.刘梓桐来咱家玩。刘梓桐是小表妹，每次来都把她的玩具搞得乱七八糟……孩子的快乐与不快乐，基本没有什么内在联系和逻辑性，而是凭直觉。你认为重要的，在她那里一点都不重要，你认为不重要的，在她那里也许非常重要。她有可能记一辈子，并因此影响了未来的价值观。我们对他们的世界的打量与概括，完全是想当然，从自己的角度感慨与感怀，这种感慨在孩子那里也许很可笑。你的青山绿水，你的鲜花野草，他们根本不在乎，他们自有属于他们的快乐。更重要的是，孩子们对自己的童年并没什么选择权、主宰权，甚至没有发言权。所有人的童年都是他们的长辈那一代成年人带来的。你小的时候家里很穷，忍饥挨饿，那是你自己愿意的吗？现在的孩子只会打电玩，电玩是他们自己发明的？设备是他们自己生产的？还不都是由成年人提供？原先的河流变成臭水沟，绿地抹平，建起一座座楼房，环境越来越恶劣，难道是孩子们的罪过？或曰，我又没参与破坏环境，是其他人破坏的，我也恨他们。但你是成年人，有行动能力，作为整个社会体系中的一员，既然没有阻止、无法修复，作为孩子心中的“天”，你也是有罪的。所有孩子的童年都是所有成年人给他们的。你不能给了他们你认为糟糕的童年，然后还笑话他们。孩子多无辜啊。原文链接：http://www.zreading.cn/archives/5100.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

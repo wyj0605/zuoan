@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冯式幽默 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>冯式幽默 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>“尊敬的各位领导，各位朋友，各位来宾，Ladies and 乡亲们，想死你们了！ ”一听到这话，大家就知道谁上台了，没错，这正是冯巩的口头禅。如果有人这一生是为笑声而活着，那么冯巩算一个。至于有人期待他能少装一点，我想是挺难的，真要在大台面上冷嘲热讽，那估计是找“死”。下面转一点冯式的幽默（下面的一些语段可能出自其他名家，大家不要纠结哟），我坚信懂幽默的人都是在细致体验生活的人——尽管细致生活的人不一定幽默。</p>
+<p>干掉熊猫，我就是国宝！</p>
+<p>别和我谈理想，戒了！</p>
+<p>跌倒了，爬起来再哭~~~</p>
+<p>低调！才是最牛B的炫耀！！</p>
+<p>不吃饱哪有力气减肥啊？</p>
+<p>真不好意思，让您贱笑了。</p>
+<p>我能抵抗一切，除了诱惑……</p>
+<p>老子不但有车，还是自行的……</p>
+<p>点的是烟、抽的却是寂寞……</p>
+<p>1不是你不笑，一笑粉就掉！</p>
+<p>人又不聪明，还学别人秃顶。</p>
+<p>绑不住我的心就不要说我花心！</p>
+<p>再牛b的肖邦，也弹不出老子的悲伤！</p>
+<p>活着的时候开心点，因为我们要死很久。</p>
+<p>请你以后不要在我面前说英文了，OK？</p>
+<p>我这人从不记仇，一般有仇当场我就报了。</p>
+<p>没什么事不要找我，有事更不用找我！</p>
+<p>就算是believe中间也藏了一个lie！</p>
+<p>我那么喜欢你，你喜欢我一下会死啊?</p>
+<p>我又不是人民币，怎么能让人人都喜欢我？</p>
+<p>男人的话就像老太太的牙齿，有多少是真的？！</p>
+<p>问：你喜欢我哪一点？答：我喜欢你离我远一点！</p>
+<p>执子之手，方知子丑，泪流满面，子不走我走。</p>
+<p>诸葛亮出山前，也没带过兵！凭啥我就要工作经验？</p>
+<p>珍惜生活——上帝还让你活着，就肯定有他的安排。</p>
+<p>雷锋做了好事不留名，但是每一件事情都记到日记里面。</p>
+<p>师太，你是我心中的魔，贫僧离你越近，就离佛越远……</p>
+<p>初中的体育老师说：谁敢再穿裙子上我的课，就罚她倒立。</p>
+<p>你看得见我打在屏幕上的字，却看不到我掉在键盘上的泪！</p>
+<p>自己选择45°仰视别人，就休怪他人135°俯视着看你。</p>
+<p>如果你看到面前的阴影，别怕，那是因为你的背后有阳光！</p>
+<p>我允许你走进我的世界，但绝不允许你在我的世界里走来走去。</p>
+<p>人永远不知道谁哪次不经意的跟你说了再见之后就真的再也不见了。</p>
+<p>一分钟有多长？这要看你是蹲在厕所里面，还是等在厕所外面……</p>
+<p>爱，就大声说出来，因为你永远都不会知道，明天和意外，哪个会先来！</p>
+<p>石头记告诉我们：凡是真心爱的最后都散了，凡是混搭的最后都团圆了。</p>
+<p>你永远看不到我最寂寞的时候，因为在看不到你的时候就是我最寂寞的时候！</p>
+<p>等余震的心情，就像初恋的少女等情人，既怕他不来，又怕他乱来。</p>
+<p>听说女人如衣服，兄弟如手足，回想起来，我竟然七手八脚地裸奔了二十多年！</p>
+<p>今天心情不好，我只有四句话想说，包括这句和前面的两句，我的话说完了！</p>
+<p>铁饭碗的真实含义不是在一个地方吃一辈子饭，而是一辈子到哪儿都有饭吃。</p>
+<p>就算是一坨屎，也有遇见屎壳郎的那天。所以你大可不必为今天的自己有太多担忧。</p>
+<p>如果中了一千万，我就去买30套房子租给别人，每天都去收一次房租。哇咔咔~~充实！</p>
+<p>骑白马的不一定是王子，可能是唐僧；带翅膀的也不一定是天使，有时候是鸟人。</p>
+<p>“恋”是个很强悍的字。它的上半部取自“变态”的“变”，下半部取自“变态”的“态”。</p>
+<p>再过几十年，我们来相会，送到火葬场，全部烧成灰，你一堆，我一堆，谁也不认识谁，全部送到农村做化肥。</p>
+<p>2008太不正常了，一切都不正常！在这个关键时刻，中国男足挺身而出，向全世界证明：中国男足还是正常的！</p>
+<p>我爸说过的最让我感动的一句话：“孩子，好好学习吧，爸以前玩麻将都玩儿10块的，现在为了供你念书，改玩儿1块的了。”</p>
+<p>同志们：别炒股，风险太大了，还是做豆腐最安全！做硬了是豆腐干，做稀了是豆腐脑，做薄了是豆腐皮，做没了是豆浆，放臭了是臭豆腐！稳赚不亏呀！</p>
+<p>您大点声不费电!</p>
+<p>原来会说话呀,我还以为是瞎子呢.</p>
+<p>不想当厨子的裁缝不是好司机。</p>
+<p>小妞，给大爷笑一个，不笑，那大爷给你笑一个。</p>
+<p>走自己的路，想说谁说谁去吧！</p>
+<p>我是一个二手的科学家。</p>
+<p>散场大家都别走啊，我请大家吃饭———谁去谁掏钱。</p>
+<p>“大爷，美国怎么走啊?”“那谁知道啊……问村长去!”</p>
+<p>白宫那个白呦——刚刷的浆。</p>
+<p>人干点好事总想让鬼神知道，干点坏事总让鬼神不知道，我们太让鬼为难了。</p>
+<p>每一个成功的男人背后都有一个女人,但我失败了,因为我背后有两个女人.</p>
+<p>想出名，先出书 想出书，先出事~!</p>
+<p>美国女神嘛，这手拿着火炬，这手拿着书，这是告诉我们停电也要学习。</p>
+<p>来半瓶啤酒..我们一醉方休..</p>
+<p>你无耻的样子，颇有我年轻时候的神韵。</p>
+<p>山中走兽云中燕，陆地牛羊海底鲜，猴头燕窝鲨鱼翅，熊掌干贝鹿尾尖！甩开腮帮子，撩开后槽牙。饭菜如长江流水，似风卷残云，就跟倒土箱子里似的……</p>
+<p>龙虾，海蟹，哈哈！我就爱吃带壳的！服务员，给他来盘瓜子。</p>
+<p>两口子不一定感情好，感情好不一定是两口子；相声大师不一定会说相声，歌星不一定识谱．</p>
+<p>接了一活儿，完事能挣三十万……拿过图纸一看，盖一40米的烟囱，等盖好了，人家来一看，把我打了一通，图纸看倒了，人家让挖口井。</p>
+<p>有困难要帮，没有困难制造困难也要帮。</p>
+<p>要不是打不过你，我早跟你翻脸了～</p>
+<p>我是一个科学家,有道行的科学家。</p>
+<p>流氓会武术，谁也挡不住。科学工作者家会武术，流氓也挡不住。</p>
+<p>相声讲究四门功课：坑．蒙．拐．骗！</p>
+<p>我要征婚,没什么要求..就是要白净点的~’ 　第二天真来了个. 那头发,那叫一个白啊</p>
+<p>清明上坟图，一到清明啊，那些个寡妇们啊。。。。。。</p>
+<p>高尔基教育我们说：“你不要这个样子。”</p>
+<p>他连街坊都不认识，还考虑世界上有没有外星人!</p>
+<p>长的跟车祸现场似的!</p>
+<p>我不害人就是给社会做贡献了</p>
+<p>正当我难受的时候，我看见我的女朋友了，和她的男朋友在一块。</p>
+<p>世上本没有路，走的人多了，有路也没用。</p>
+<p>什么事都得往下看，就会很快乐，你这失业了，人那还有失身的呢，你媳妇不要你了，她 也没要我呀。</p>
+<p>我都羡慕你! 羡慕什么啊? 这么年轻就认识我啦?!</p>
+<p>孔圣人说过：好白菜都让猪给拱了。</p>
+<p>我拦住路上的走路那女的准备打劫，一问才知道是下岗女工，越说越可怜，最后我给她五块钱。</p>
+<p>有个孩子啊打小跟他师傅特别亲。他这师傅一肚子坏水。有一天教孩子，说：小子，回家看见人们家人别的什么也别说就跟他说一句“我知道事情的真相了!”保证有你的好处。这孩子学会了。一回家看见他妈了，上前就是一句：我知道事情的真相了。他妈一听脸都白了赶紧拿出五十块钱来给孩子，告诉他：宝贝啊别跟你爸说啊，妈给五十块钱拿着花去吧”。不一会又看见他爸了他又说：我知道事情的真相了!他爸一听二话没说拿出二百来放孩子手里了还嘱咐孩子：千万别跟你妈说啊!这孩子心想这下发财了啊。找着致富的门路了。看见谁都说我知道事情的真相了。结果有一天看见他们家跟前邮局送信的来他们家那孩子上前就是一句：我知道事情的真相了。送信的一听都哭了说：好儿子，爸爸抱抱”!</p>
+<p>我不欺负人,欺负我不行.骂我的人都是晚上关上灯,披上被窝,拉上帘,坐电脑跟前,打俩行字吃三回速效.我不是艺术家,我振兴不了相声,那是全世界说相声共同的事业,我充其量就是震动,还是手机搁桌子上那种.</p>
+<p>两个消息，一个好消息，一个坏消息。你要先听哪一个？’坏的’。坏消息是：我们已经迷路啦！只能吃牛粪了！’好消息呢？’好消息是：牛粪有的是！</p>
+<p>我要自杀，打算跳楼，这跳楼我有研究，2楼跟20楼不一样，2楼是“啪”、“啊”，20楼是“啊~~~~”“啪”</p>
+<p>这天我跟偏见来在了火车站，车票都卖没了，偏见到一pol.ice面前问：“你知道票贩子在哪儿吗?”pol.ice一听乐了：“我还找呐!”</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间老头</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>时间老头</h1>
+            <div class="date">2014-04-06 22:27:10</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/野場開打小学时作业本上的加法可以不会算，老师告诉我；赖床上衣服不会穿可以，老妈来教我；外面遇到麻烦事也可以，兄弟来帮我。其余他们没教我的没帮我的，就剩下了时间和我自己。可惜时间不是一个哲理故事中大智若愚的老汉，在我耳边一句话，随之我兀然醒悟，去开天辟地。他真是一个愚蠢的老头，在你每次辗转反侧、极痛难忍、百思不得其解的时候，他总是呆呆在旁边站着看来一句：继续你的痛苦，继续你的思考，继续着就会好了。这算什么狗屁开导！时间老头一晃——还真tm憋着憋着就好了！和时间老头真正打交道是在高中，因为据说人在没懂事前压根不知道他的存在。在大学时期很不愿意提及复读及高中时的不羁，时间老头跟我说，讲出来吧，你微笑着把它讲出来。我在高中根本没懂事过，直到高考前一周班主任叫我回去自己复习，措辞好像是“你在学校占着茅坑不拉屎”。导致他发怒的愿意无他，我和自己的小女友在教师看毕业照被教导主任瞥见，本来应该看不出来关系，只是我们姿势不对——她坐我腿上。高三是一直被人们奉为人生转折点的时段。你还跟我谈恋爱？谈就谈你还找班上成绩最好的苗子谈？我想大家是不会懂“你自己不学可以，你不要影响别人！”那种歧视。哦，我当时其实也不懂，只当他放了个氨气。高考前放了一周假，我去打了一周球，考试可想而知——什么都记得记不得的样子。最后成绩出来刚过三本线，而我以为自己实力自认为考二本是没问题的。时间老头让我撇开一切先感谢这位仁慈的老师。没有考上二本，我选择了复读，遂认识了时间老头。刚进复读班，我自信满满，目标就定在当时妹子的大学。复读一个月，10年8月22日，手机一番震动，分手短信传来。老子平时对事是漫不经心，可对人对感情老子什么时候亏待过谁？复读班总共247个人，我进去倒数第二，学习的压力和分手这个噩耗一起将我整的不成人形。晚上回去在出租屋内睡不着开始回忆过去的点点滴滴，然后一看到厚厚的一摞习题，开始忍不住哭，就这么哭，一个人哭还好，奶奶知道我当时情绪不好又不知道为什么，看到我哭也跟着哭！哭着跟我讲她们那时代的往事，然后我就跑去奶奶床上叫他给我挠背，挠着挠着就睡着了……很多时候是失眠失眠再失眠，失眠的人都知道，你睡不着还想着明天还有多少事，还想着必须得睡着！午休，睡着五分钟就开始每天都有的坠落噩梦，每天被吓醒。有次午休出租房有小偷撬门，可能不知道里面有人，我噩梦刚吓醒，分不清现实和梦喊了句“跟老子滚！”，结果小偷真的滚了，锁只撬了一半。那姑娘走的时候甩了一句，时间会过去的。老师在讲台上扔下一句，时间抓住他就是金子，抓不住就是流水。我就这样开始敬畏起时间老头。我拼命的扯紧时间老头的衣角，你给我慢点成吗！我们这群人，四点半跑去马路边路灯下狂吼英语，吼着吼着会碰到每天早上去进货的大叔大妈，相视一笑，没说话也能感动的热泪盈眶。路灯下读到五点半老师会来给开门，进去教室继续读。下雪的时候，屋顶的雪五点半还很厚，到了七点早餐时间的时候，我们班上的雪已经全化，这是什么景象。吃饭也不能放过时间这个奢侈的老头，我们跑去食堂吃饭，吃饭最快的一次——五分钟，从出教室到进教室总共五分钟，虽然食堂并不是很远。白天学完，晚上带着自己的装备（人均2个节能灯），去寝室继续战斗。有一次老师去拍照给留纪念，无意间赤膊抠脚写卷子的Pose被定格在相机内，无言。时间过得最快的时候是珍惜它和浪费它的时候。很快我们又到了临考前一天夜晚，寝室里的床嘎子嘎子的响了一个晚上，早上一个人说话其他人都开始，你丫晚上没睡着吧！哈哈，你也没睡！那几天饭也没吃好，班主任说了，我们肚子里有货，放心去战斗！考完回到偌大的教室，我们开始唱班歌，“一年的时光浓缩着我们三年的岁月，酸甜苦辣我们体会的太多太多。”没怎么睡觉没怎么吃饭，我唱的翻白眼差点给晕倒在桌子上。成绩出来当天，我和同学通宵玩，在梦中被家人喊醒，“587”，嗯，继续睡。与时间老头一年的交往，我真真切切体会到说得轻巧、过的沉重的那句话——“时间会过去的”，所有人不能告诉你的，时间告诉你。还有，时光老头不会辜负认真对待他的人。Hi，老头，咱们来谈个事，能赊点时间给我嘛。左岸记：在失意时要苦练内功，不仅仅是因为此时对其他事无能为力，更是因为这是难得的静心学习的机会。我们有很多重要而不紧急的事情，因为忙于事务性工作一直没有时间去做，或者误认为那不重要而不想去做，遇上难得的闲时或者再来一次的机会，正好补上这缺失的一课。很多成功者在失意时（被贬、入狱等），都不约而同的做了两件事：读书、跑步。因为这两件事都具备以下特点：第一，很重要；第二，得势时没时间做；第三，当下能自由的做而且是唯一能做的。也就是说当你潜心修行的时候，时间是停止了脚步的。原文链接：http://www.zreading.cn/archives/4296.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

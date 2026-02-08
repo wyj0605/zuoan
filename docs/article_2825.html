@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为何你的生活那么无趣</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>为何你的生活那么无趣</h1>
+            <div class="date">2014-05-04 21:26:58</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/古典(新精英创始人)心理学认为，兴趣是一种情绪，而情绪，是人类进化出来的一种生存工具。这种情绪能够穿过百万年的进化留下来，一定是因为其有莫大的好处。先来了解一下兴趣是如何产生的？看看下面这幅图，你觉得哪一个多边形最有趣？哪一个最让你愉悦？这是心理学家Berlyne关于有趣的一个实验，实验中出现的多边形没有任何的特定意义，由计算机按照不同的复杂程度随机生成，越往后面，复杂度越高。Berlyne发现大部分人的最有趣选项在第三排中，这一组复杂程度让人一眼看不懂，从而产生各种联想——在我看来，左边像仙鹤，中间的像一个发出闪电的老巫师，右边的像一个跳麦克杰克逊舞蹈的树人。但是当选择最让你愉悦的一个时候，情况却有所改变，大部分人选择了第一排，最简单的这几个。其中复制的数据筛选与分析过程跳过，实验有个清晰的结论：有趣（Interested）是一种和不确定相关很高的情绪；愉悦（Comfortable）是一种和确定性相关很高的情绪；而有趣和愉悦，是两个完全不同，甚至相反的情绪——当一个事情复杂、新奇和不确定的时候，人们就会感到有趣；而当一个事情简单、稳定和确定的时候，我们就会感觉到愉悦。愉悦的事情，不一定有趣，而有趣的事情，不一定会愉悦。变态辣鸡翅有趣而羊肉串愉悦；狐狸精有趣而良家妇女愉悦；创业有趣而公务员愉悦。好生活=愉悦+有趣你有没有发现世界上有两种不同的人？——有人总是去新馆子、点新菜，尝试更多口味。而有些人喜欢去老饭店，点上家常菜，吃的安安稳稳。比如旅游，有人喜欢探险，去穷山恶水异国他乡；有人喜欢休闲，向往水清沙幼舒适恬静。前者有趣，后者愉悦，好的生活则应该是愉悦又有趣。我们的生活也有这两部分。我们满身疲惫的关上电脑，完成一项有价值的工作、我们在街上遇到熟悉的老同学、我们呆在老家的老房子里晒太阳、我们与家人挤在沙发上看最老版的《西游记》、我们接近大自然、我们在春节挤上拥挤的火车回家——这可一点都不有趣——但是这些事情让我们心跳放慢，血压降低，内心宁静。他们温暖、简单、安全，带给我们幸福与愉悦的感觉。当我们接到一个全新的挑战性任务、我们在街上遇到一个跳舞的街头艺人，我们站在一个全新的繁华都市的入口，我们和旅途上遇到个一见如故的陌生人，彻夜长谈;我们决定要探险穿过一片森林，这都让我们心跳加速、手心发汗、同时让我们也觉得新奇复杂，有趣。好的生活应该是愉悦又有趣。动画片的设计最能说明这个问题，为了让注意力很短的孩子们坐在银幕前一个多小时，虽然没有心理学知识，动画片大师都直觉般使用了这个愉悦+有趣的模式：在大部分的动画中，总有一个复杂、新奇、或神秘或搞怪的二号，同时又有一个直接、温暖、简单的主角，如驴子和史莱克，流川枫和樱木花道，佐助和鸣人，豪猪和小狮子王，所以这些动画片即愉悦又有趣。好奇心害死猫，安安稳稳多好，人类为什么要还有“感兴趣”这种奇怪的设定？进化心理学发现，兴趣是一种应对成长中“不确定”的情绪——当我们遇到了“不确定”，我们会下意识的躲回自己的舒适区寻求“愉悦”。因为所有的成长都来自舒适区之外，这样一来我们永远也无法成长。这时候“有趣”的情绪会出现，帮我们度过难关——我们大脑跑出来个小人勾引：“多好玩啊，要不试试看？”于是我们继续前进，越过那些不确定。兴趣鼓励我们走出安全区，让我们变得越来越强，而世界变得越来越大。兴趣是成长的催化剂。大人把孩子抛起来玩耍，孩子会先有些恐惧，但是一旦被接住，他就会咯吱咯吱的大笑，笑声像广场飞起来的鸽子。几次以后，孩子只要一被抛起来，就呵呵的乐，他开始穿越这种不确定性的恐惧，觉得有趣，他的勇气变得更大，他的信任变强。兴趣是这个成长的催化剂。有趣和愉悦的界限，在于“不确定性”的程度。过度不确定的生活毫无愉悦可言，充满焦虑；而一旦不确定太少，日子又无趣得很，日复一日能淡出个鸟来。有智慧的人懂得调配出适合自己的“不确定”。有趣如菜里的盐，而愉悦如菜本身。如懂得调配得当，管自己、做项目、办公司，治大国如烹小鲜。好的生活应该是愉悦加有趣，适当不确定。但是很多人又对于“感兴趣”的事情保有幻想，他们认为感兴趣的事情应该是特别快乐、舒适、天生就会的。有这种信念的人把自己玩得很惨——他们终身寻找自己“感兴趣”的事情，一旦遇到困难与不确定，就声称自己“不感兴趣”然后闪人，寻找下一个“感兴趣”的事情。其实他要的不是兴趣，而是愉悦。这个愉悦/兴趣比对于职业发展也相当重要。很多人来找职业规划师，说：“我不喜欢我的工作。”却不知道自己到底活得不愉悦，还是无趣？如果是不愉悦，他们则需要做减法，找到核心价值，降低其他目标，进入一个相对更简单、清晰的职业环境中去，而如果无趣则需要做加法——提高一些难度，或让自己进入更复杂、更不确定的职业环境。很多人只想活的愉悦舒服些，却给自己挖了个更大的坑跳进去，结果更痛苦了。我遇到过一位外企销售经理，收入高且稳定，觉得工作无趣。在价值观的排列中，他认为最重要的是“利他助人”和“社会家人认同”。他觉规划师的工作很有趣，执意希望成为其一。但职业规划师不是个简单的职业，需要至少200小时的系统学习和操练，才能让一个有职场经验的人成为合格的咨询师。在此投资期间还甚少经济回报，他同样很看重的“经济报酬”会大打折扣，这很不那么让人愉悦。听到这里，他的脸抽动了一下。我再进一步告诉他，这200小时也充满了不确定性——读书拿证还好办，第一次咨询的灰头土脸，第一次讲课的一片死寂，训练营里高强度的极限挑战，写案例被督导说得一无是处，最后还需要通过PK才开始授课，即使这样，也不是一个结束，开始讲课后看到打分的惶惶不安，咨询后的反复揣摩，依然会伴随你好几年——这条道路充满这么多不确定的时候——你还觉得有趣吗？听完我的讲述，这位兄弟顿时觉得规划师不那么有趣了，心算完收益产出比以后，他还是觉得他的一个创业项目做起来比较有趣——因为那个不确定性，没有那么大。他可以同时保持自己的愉悦与有趣。像这位仁兄一样，我们常常因为白饭吃多了，就以为自己要以腐乳为生。我把这种现象称为：“火锅效应”——如果你问一个天天吃家常菜的人说你想吃点什么？他会说，火锅！我最爱吃火锅！但是如果你抓他去吃一个月的火锅——哪怕变着花样，他估计哭着喊着要回家。最好的生活，是经常吃米饭，偶尔来点火锅。如果你真的希望生活过得特有趣，让我告诉你特兴趣的真相——兴趣不是那件让你舒舒服服就成功拿到结果的事，兴趣是那件让你白天痛苦的想、晚上睡不好、早上五点爬起来，一边苦笑着骂娘一边咧着嘴干完的事情。那才是兴趣的本来的样子。摘自古典新书《你的生命有什么可能》，5月即将上市。左岸记：如果一本书能让我产生自己对抗自己的兴趣，那这本书就很值得好好读一下，并以此在此后的生活中体验更多的人生愉悦。原文链接：http://www.zreading.cn/archives/4357.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

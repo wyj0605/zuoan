@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火车上的里里外外 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>火车上的里里外外 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/曹曹</p>
+<p>在豆瓣上，经常会有人组织这样一场所谓的南京小清新之旅——在阳光暖暖的午后，买上一张2.5元的火车票，搭上7102次火车，从中华门到南京西，在缓慢行驶的绿皮火车上，细看沿途的风景……</p>
+<p>在火车上看风景，自然有它的美妙之处。中学时代的寒暑假，常常乘火车往返于衡阳与广州之间，火车窗外的风景，从湘中丘陵长满茅草和野竹子的土坡到南岭的碧水丹崖，再到珠江三角洲的密布的城镇、厂房，一路变幻无穷。有时会看到一群孩子光着身子刚从河里游泳回来，手上还提着一两只巴掌大的活鱼；有时会看到金黄金黄的油菜花开满了一个又一个的山头，溪流从中蜿蜒而过；有时也会有扛着一大把芭蕉的中年妇女，慢慢走在铁轨边的小道上。</p>
+<p>来南京上大学，于是我开始了衡阳与南京之间的这一路长长的风景。火车哐当哐当穿越湘赣皖苏四个省或者湘赣浙沪苏五个省市，18或者21小时的车程。这样一来，在火车上能看到的风景更多了。比如从南京到上海的这一段，平原越来越开阔，湿地越来越多，广袤的土地上长着我以前只在书上看到过的麦子。比如火车报站黄山到了或者景德镇到了，即便是深夜或者凌晨，车窗外黑漆漆的什么也看不见，我也能感受到，就在我刚刚经过的这片土地的不远处，有着奇松，有着怪石，或者有着古窑，正在烧制着传世的青花瓷。再比如离开的时候衡阳天晴着，等我一觉醒来，咦！南京怎么下起了这么大的雨呢！这也是很有趣的事。</p>
+<p>我乘火车常常是硬座。左右前后总是有各种不同的人。他也许是东南大学的一名学软件工程的学生，恰巧也是到衡阳，在打电话时还说着和我一样的方言。他也许是一名没有买到座位票的在常州打工的返乡者，和妻子一起，用报纸铺着坐在过道里。他也许是差点就买机票回家了，极不情愿百般嫌恶地坐在火车上……各种或友好或朴实或奇怪或普通或什么什么的人。也许比起火车窗外闪过的风景，他们更能引起我的关注，我也更愿意关注他们。</p>
+<p>还记得高中时有次同桌跟我说过一个发生在火车上的故事：有一次，她乘火车从长沙回来，在火车上遇到一个和她差不多年纪大的女孩。那女孩指着她身上的校服说：“我在厂里专门做校服，前段时间加班赶的一批货好像就是你们学校的……”</p>
+<p>人生，也许就是因为有了这么多不可思议的邂逅，变得如此神奇。</p>
+<p>◇曹曹的空间：http://icaoyong.diandian.com/</p>
+<p>左岸记：上了火车，无论你的目的在哪里，都会是一段或长或短的旅途；也因了车上种种短暂的际遇，伴着窗外流动的风景，每个人的身上都透着旅人的味道，混着方便面味，香水味，报纸味，听着南腔北调，一个公共空间里私人生活的自然生长、私密情绪的自然淌露，形形色色的人与千姿百态的故事被火车承载着奔向远方；陌生人与陌生人来自远方，进入火车车厢，相识、结伴、聚集，放松，说笑，肆无忌惮，敞露本性，直到起身，打理，重新衣冠楚楚，然后各自离开，如同呼吸一般自然，原始，纯粹。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

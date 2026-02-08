@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在人生的风景里，边走边唱</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>在人生的风景里，边走边唱</h1>
+            <div class="date">2014-04-08 20:46:20</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>春有百花秋有月，夏有凉风冬有雪，若无闲事挂心头，人间处处好时节。都说，生活在别处，熟悉的地方无风景。真正错过的，其实不是景点，而是生活，当下的生活。一、美丽的风景文/山药蛋蛋美丽的风景，似乎总在远方。于是，许多人选择在这个季节，信步去看一场花事，渡船去看一湖春水，一路风尘，赴时光之约。有人将闲云装进行囊，有人将故事背负肩上。他们都在寻找那个属于心灵的净土，可匆忙间，又忘了来路，不知归程。那时年少，只想走出水乡的石桥，从此做个奔赴天涯的过客。后来真的走出来了，历经春风秋月，遍赏河山。那颗不经世事的心，被岁月打磨，亦多了几分沧桑。到最后，终究做了擦肩的路人，你来我往，各安天命。当有一天，我划着倦舟而来，告诉自己，再也无需假装年轻，等待一段梨花丝雨的相逢。忘记许过的诺言，告诉曾经携手作伴的人，相安无事，莫多惊扰。而后，安然于小小的旧宅，坐在闲窗下，接春水煮一壶新茶，把经年世事泡在水里。且相信，喝下这盏茶，一段人生又将开始。人生的终点不是山水踏尽时，亦不是生命结束后，而是放下包袱的那一刻。想要云游四方，过一种流浪的生活，只要不是为了想要而前行，而是想走就走，想留就留，那才是真正的生活。其实“在路上”有两种。一种是身体上的，一种是心灵上的。我一直以为只有浪迹天涯才算行走，直到现在才明白，每一个人从一开始就是一直在路上的。从一开始，便注定是永生。但是，无论如何，都记得没一个远行的人，都只是风筝而已，而握线的是乡土的父母，无论飞多高，总有人在牵引着你，倘若放手，便无记忧。佛曰：“人生有七苦”众生流落在人间，就是将这苦尝遍，换一味甘甜。繁华三千，最终尘埃落定，如同夜幕卸下白日的粉黛，沉醉安宁。光阴弹指而过，当年的成败得失，已成为过眼云烟。任何时候，彼岸只有一步之遥，迷途知返，天地皆宽。二、边走边唱文/黄震小鸟从我的窗前飞过，又飞走了。 ——泰戈尔《飞鸟集》有则电视广告这样说：“人生就是一场旅行……”爱极了这句话！生命真是一次旅行，坐在飞驰的列车上，我们不断经过不同的地方，看到不同的风景，遇到不同的旅人，做着不同的事情，收获着不同的体验。人生乃体验，一切皆过程。喜怒哀乐，悲欢离合，生活元素罢了。人生的美在于旋律――跌宕起伏，起合承转。美，美得让人心碎；苦，苦得让人回味。其实，所有的感受和体验都是人生画卷上的花儿，娇艳也罢，淡雅也罢，都是点缀，都是美丽。旅途中，走过一段，又走过一段，曾经的脚步留在身后，也留在记忆中。当憩息在旅途中某个驿站，我们回头凝望来路，看到自己或浅或深的那些脚印，你是否感悟到：曾经自己无限向往的，当真的得到了也不过如此。曾经自己无比恐惧的，当真的出现了，也并非不能接受。惊风骇浪后的大海轻涛微风，绚烂过后是平静。真的没有什么不能接受，人生，一切皆有可能。有的，只是面对、接受，然后继续前进。人生的美也在丰富。漫长而未知的旅程中我们会遇到不同的旅人，大家一样在路上。大家共同前行，谈笑风生，倦的时候互伸援手，从此旅途不寂寞。或许两个人会彼此吸引，相搀而行，在黄昏的大漠上，留下一道长长的影子，温暖他人，温暖自己。旅行到中途的某个小站，看着夕阳下自己长长地背影，会陡然生出旅程原来不是无限期的怆然，也会对自己曾经的少年意气报以释然的微笑。或许曾经一个车厢的同伴已离你而去，或许相谈甚欢的一个旅伴中途换车，相见无期，但那又怎样呢？介意无用，执着无期，伤感奈何，为什么不善待自己？天下没有不散的筵席，该来的会来，该去的会去，每个人都是自己生命中的过往，每段过往都是上帝的恩赐。仆仆风尘漫长路，且歌且行又一程！怀念曾经得到的，珍惜现在拥有的，拥抱即将到来的。持一颗感恩的心，面带微笑，继续前行，边走边唱，何妨阳光还是风雨。原文链接：http://www.zreading.cn/archives/4298.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

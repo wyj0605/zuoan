@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱与自由</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>爱与自由</h1>
+            <div class="date">2015-09-19 00:32:35</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>分享两篇深刻的教育文章一、爱与自由文/崔凯孙瑞雪 的 《爱与自由》乍眼望去，会以为是蒙氏教育的软文。读第二遍，悟出来一个词「舍得」这里的「舍得」不仅仅是物质层面，在时间上也要倾注进去。- 早上带孩子出门，她一边嘟囔着，“我想自己穿”，一边被按在地上，“快迟到了，爸爸帮你穿的快”- 中午带孩子吃饭，她拿着勺子嘟囔着，“我想自己吃”，话音未落就被按在座位上，“你吃都洒了，你看弄的满身都是，爸爸喂你”- 晚上给孩子洗澡，她拿起花洒刚冲几下，“别浪费水，妈妈帮你洗”有的人舍不得花时间等待孩子自己穿鞋。有的人舍不得花精力帮孩子收拾弄脏的衣服。有的人舍不得浪费水。孩子爱吃手，让她吃好了，勤快点，帮她擦干净。她咬毛巾，再咬梳子，再咬毛巾，再咬梳子，无非是想感受软硬。火车在铁轨上走，还是在枕头上走，甚至在牛奶里走，都不重要。为什么火车一定要在铁轨上走？为什么要纠正她？为什么大人就是对的？引用一段书中的例子我想起那次在北京坐公共汽车碰到的小女孩。小女孩两岁多，要红薯，她妈妈买了一个烤红薯。上了车，妈妈坐在那儿剥红薯皮，小女孩着急地嚷嚷着：“我来剥，我来剥……”她妈妈说：“你剥不卫生，吃了会生病的。”小女孩急迫地说：“我要剥嘛，我就要剥嘛。”她妈妈严厉地说：“不行！”女孩满脸的乞求、痛苦、尴尬，最后红薯剥完了，她妈妈说：“好了，吃吧，再急也要讲卫生。”女孩说：“我不吃。”她妈妈说：“什么？花了钱，费了这么大的事，不吃啦？这不是折腾人吗？……”我总是怕麻烦，总会选择「最佳方案」闺女说“我要坐bus”转身就被强硬的塞进出租车，“这个快”闺女说“我要睡小床”转身就被塞进蚊帐里，“不行，小床没蚊帐”最佳方案个屁呀。被咬几口怎么了？担心被咬就花点时间弄死几只蚊子！哎呦，回头反思，做的真不到位。二：写给无比焦虑的父母们文/ 何帆我们这一代做父母的，个个都无比焦虑。孩子该上幼儿园的，找不到幼儿园。“幼升小”“小升初”的规则变来变去，越变越怪异。“中考”之后，孩子开始准备高考，家长也要陪着提心吊胆。好不容易考上了大学，中国的大学又怎么样呢？北大、清华、复旦，这算是中国最好的大学了吧。要问这些学校究竟怎么样？这么说吧，他们的楼都盖得很壮。我这篇文章不是要批判中国的教育制度。我是要写给和我一样的父母们。为什么我们会这么焦虑呢？一个原因，是因为我们相信了很多流行的谬误，自己把自己搞得太紧张、太累。流行的观点认为，好孩子是教育出来的。如果你的孩子不如别人家的孩子，那肯定是你们当父母的过错。从另一个角度去领会，只要你用心去教，你的孩子一定能成为你想让他或她成为的那个样子。想让孩子上哈佛？赶紧买本《哈佛女孩》。想让孩子成科学家？赶紧把他们送到奥数班。快，快，要不就来不及了，别让孩子输在起跑线！一个人的成长是由什么决定的？简单地讲，一是先天的遗传，二是后天的环境，缺一不可。流行的观点似乎认为，后天的环境是唯一重要的。这一观点的隐含假设是，孩子出生之后，就是一张白纸，“好画最美的图画”。而心理学家在过去数十年的大量研究表明，人与人智力或性格上的差异，至少有一半左右，是由基因决定的。基因的力量是如此强大，以至于生物学家道金斯曾经写过一本极有争议的书《自私的基因》。他告诉我们，我们的很多行为并非出于自己的意愿，而是在服从基因的指令。基因是主人，我们是仆人。不过，不是还有50%的环境因素吗？至少有一半的机会，我们能够把握孩子的命运。有大量的“科学研究”表明，好家长造就好孩子。且慢，第一，这些研究确实发现了家长行为和孩子表现之间的相关性，但相关性不等于因果性。即便是有因果性，会不会反而是好孩子造就好家长呢？嘴甜的孩子自然得到父母的更多疼爱，不听话的孩子自然会让家长更烦躁着急。孩子的性格不同，家长的反应各异。谁是因，谁是果？第二，环境确实很重要，但在一定年龄之后最重要的不再是家庭环境。心理学家哈里斯写过一本书《养成假说》。她指出，在决定孩子性格的外部环境中，同龄人的社会环境比父母提供的家庭环境重要得多。孩子们知道，听家长的话是没有用的，他们早晚要出来混，混得好不好，不在于家长满意不满意，而在于同龄人接受不接受。一到自己的世界中，孩子们就会自动地找到自己的角色：有人是领导者，有人是追随者，有人是社交明星，有人是宅男宅女。如果你仔细观察，就会发现，孩子们仿佛是预装了两套操作系统，他们会自动地在两套操作系统之间切换。家长管得严，在家自然听父母的话，但一到了学校，那言行举止就得遵守孩子间的社会规范了。那是孩子们自己的世界。作为家长，你再上心，再有能耐，也钻不进去。哈里斯谈到，如果把如今流行的育儿理论放在广阔的历史背景下，就能看出它们有多么荒诞。在传统社会中，家长对孩子的最大职责是把他们养大，吃饱穿暖，但怎么教育他们，那不是父母的责任。非洲部落有一句谚语：“培养孩子需要一个村庄。”孩子们和孩子们玩耍，孩子们到别人家串门，这些社交的经验，对他们的成长才是最重要的。贾杰德·戴蒙德在他的新书《昨日的世界》中也谈到，现代社会在哪些地方需要向传统社会学习。如果说在公共卫生、防范传染病等方面现代社会要更加先进，那么在教育孩子方面，现代社会可能比传统社会还要更加蒙昧。是，我们成了最焦虑的父母。教育孩子本来是一件赏心悦目的事情，如今则变成了一种沉重的负担。父母几乎要把除了工作之外的所有时间都花在孩子身上，付出了无数的时间、精力和金钱，结果，却看不到一点成就。那我们该怎么办？难道我们应该对孩子撒手不管吗？当然不是。孩子是你家庭中的一员，他们理当得到你的爱。但是，你爱你的丈夫或妻子的时候，你爱你的父母的时候，可曾想过要“教育”他们，“改造”他们？如果不能“教育”他们，“改造”他们，难道你就会不再爱他们？内心深处，你难道真的想按照自己的一厢情愿，而非孩子的本来性情，来“改造”自己的孩子？如果是这样，那么我们都去支持“基因工程”，以后就像订午餐一样，预订出自己心目中的“完美孩子”，岂非最好？孩子是上寄宿学校还是走读学校，母亲是专门在家带孩子还是出去工作，孩子是一岁的时候学会说话还是一岁十个月学会说话，到上小学之前会背乘法口诀表还是不会背乘法口诀表，孩子考试考了一回第一，或是考试考了一次不及格，这一切的一切，都不重要。焦虑的父母只能让孩子感到更加紧张。孩子的成长需要时间，你的生活也需要时间。试试看，能不能把你一颗焦虑的心轻轻地放下，去体会那种只用眼光欣赏，不去动手改造，只提供鼓励和支持，不强加压迫和重负的父母之爱。你没有必要费心跟别人证明自己是一个好的父母，没有人比你更知道，你是爱他们的。血脉中无声地静静流淌的就是你对他们的爱，即使别人看不到，即使孩子没感觉。孩子是在父母家里暂住的客人，总有一天，他们会离开我们。趁着他们还在，让我们珍惜在一起的时光。你会在睡前给小宝贝讲一个童话故事，那只是因为你想要体会这种互相依偎的美妙时光，跟他或她的大脑发育，一点关系都没有。选自《先放一把火》，中信出版社出版。原文链接：http://www.zreading.cn/archives/5072.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

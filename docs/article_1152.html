@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>别样生活也需要风险评估 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>别样生活也需要风险评估 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>一份工作做时间长了，谁都难免心里痒痒，总想找个机会换换手气。</p>
+<p>收入低的盼着找个高薪岗位，苦点儿累点儿都没问题；公司离家远的总惦记着能换到附近上班，免得大把光阴白白浪费在路上；工作压力大的强烈期待下 一个职业能清闲些，就此告别天天加班的日子。你看，就连李开复这样一个拥有“世界上最好的工作”的人也不知足，渴望着follow my heart（追随我心），义无反顾地创业去了。</p>
+<p>不满足，这似乎成了人之常情。</p>
+<p>电影《成为朱莉娅》讲的就是一个不满足的故事。伦敦舞台剧一姐朱莉娅正处在事业的高峰，丈夫迈克尔兼任她的经纪人和舞台指导，在当时，“他们的组合相当摩登”。但朱莉娅却对眼前的生活感到疲惫和厌烦，时常有种莫名的失落，她渴望寻找新的刺激，过一种不一样的生活。</p>
+<p>刺激果然来了，一个年轻的美国男孩闯进了她的世界。于是，朱莉娅的生活开始变得富有激情，站在舞台上的她更是神采奕奕，眼睛里闪耀着挡不住的光芒。</p>
+<p>可不是嘛，变化总是令人着迷。再美好的东西，也经不住时间的打磨，久了，难免心生厌倦。生活中不乏这样的例子。</p>
+<p>故事一</p>
+<p>女友曾经是个金融白领，高薪、光鲜，令无数人羡慕。套用句俗话，如果一直做下去，凭着她的才华和努力，前途不可限量。可偏偏她觉得厌烦了。工作 3年之后她突然辞职，自费到国外学习时装设计——天天跟时尚打交道，课外作业不是去巴黎就是去米兰逛街，每天拿着香奈儿或者LV把玩——这样的生活，大概 是每一个女孩子都向往的吧。</p>
+<p>一年之后她回来，出人意料地反水了，把所有求职简历投向金融行业。她说，时尚圈太浮华太虚荣太以貌取人，这让她无比怀念金融领域的宏观视野和严谨作风。她用了一年时间终于想明白，到底什么才是最适合自己的。</p>
+<p>故事二</p>
+<p>有一次在旅途中遇到一个人，金领中的金领。股市热火朝天的那两年，他执掌着一支业绩不错的基金，所向披靡。同样的，就在事业上顺风顺水的时候， 他突然辞职了。因为他觉得，凭着自己的能力，以及这么多年积累的资源人脉，完全用不着再给别人打工，自己当老板岂不是更爽？谁知道创业路上困难重重，意料 之外的麻烦层出不穷，他这才意识到，自己只是个专业人士而非管理型人才。</p>
+<p>那天我们在小酒馆里聊天，他由衷地感叹：我发现自己就像一列火车，天南海北去过很多地方。一路上，我一直觉得脚下的两条铁轨是对自己的束缚，总 想着要摆脱它们。直到有一天，我真的摆脱了，却发现，离开它们，原来自己哪儿也去不了。于是，他回到原来的生活轨迹中，觉得格外踏实。</p>
+<p>电影里的朱莉娅也经历了这样一个过程。当她从“不一样的生活”中苏醒过来之后忽然发现，她的情人真正爱的并不是自己，而是她最强劲的竞争对手 艾·维斯，一个一心想取代她位置的女孩。于是朱莉娅开始全面的反攻，在对艾维斯的报复中回归舞台、回归家庭，重新找到了属于自己的位置，这才真正地“成为 朱莉 娅”。</p>
+<p>没错，不管是在生活中还是在职场上，人当然应该有进取之心，不满足才会有动力，才会带给我们新的可能性。只不过，每一次当你跃跃欲试的时候，不 妨先冷静下来，对别样生活进行个风险评估：这个“不满足”的背后，到底是不甘人后的虚荣，还是对平淡生活的反抗，或者真的是找到了一条更适合自己的康庄大 道。</p>
+<p>其实，人生的最高境界不是撞大运抓上一把好牌，也不是没完没了地洗牌重来，而是怎么样能把手头的烂牌打出花儿来。更何况，有时候回过头看一看，手中的这副牌其实也并没有那么差劲。</p>
+<p>Footer:</p>
+<p>左岸PS：是不是越看越迷糊呢？一会教人做出改变，一会儿又让人再好好想想，其实这就是选择的智慧——选择之前犹豫，选择之后坚定。</p>
+<p>引用个很幽默的视频：</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>友谊，地久天长</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>友谊，地久天长</h1>
+            <div class="date">2014-09-27 21:33:10</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/荷叶大约是春天的时候，想起一个久未联系的好友，从QQ上找到他，说了几句话，我就不知道该怎么继续聊下去了，然后，对话框里弹出了一句话，大意是：已经很久没有深入交谈了，我们还知道彼此现在是怎么想的吗？我当时就傻了。认识九年了，高三同学，好友，之后基本每年暑假或者春节都能见上一面。毕业后，也一直都有联系。去年，因为工作太忙忽略了很多东西，所以才有了这样的对话。特别难过。对他的印象一直停留在高三那年，他从市区转学到县城的高中复读，和我同班。有印象的时候，我们已经很熟悉了。他的字很漂亮，我难过的时候，曾经写过字条鼓励我，长长的一段话，段首没有空两格。那张字条一直被我收藏得好好的。我高三那年，房间里的台灯是他从家里拿来的，造型是一个起重机，红色。那时候，他的叔叔一家和他们家住在一起，因为有小孩，比较吵，所以我们晚自习后，一起复习，复习后，一起吃宵夜，那时候学校附近有一家店的肉丝清汤面很好吃，才一块五一碗，有时候我们也一起去吃牛肉面。心情不好的时候，互相鼓励。他的英语很好，后来考研的英语都考了七十多分。而我的英语一直是不上不下的状态。他的数学稍微弱一些，我的数学比较好一点。有一次吃过宵夜，我们在街上晃荡，后面有一辆车，他拉了我一把，我们站在一边等车过去，然后他才告诉我，刚刚车里的是他爸爸。语气怪怪的，大约那个年龄的男生和父亲都有点小别扭。有时候也会从晚自习开溜，然后一起压马路，在街边买了串马蹄，边走边吃，然后吐槽一些现在看来没什么大不了的事情。他对县城比我熟得多。我胃疼的时候，他给我买吗丁啉。我们都爱吃同一家的绿豆饼，高考前的几天偏偏那家店关门了。于是我每天都去看一下，他也去，后来他妈妈也每天去看一次，结果好像在高考前一天开门了。高考前一个多月，班里有个女孩和他表白。那天我们自习结束，他也没提这件事情。我准备睡了，突然听到好像楼下有人叫我，下楼才发现是他，穿着睡衣。然后问我：“你说她怎么会喜欢我呢，要是你说你喜欢我，我还能理解一点，我们天天混在一起，和她说话都不多啊？”当时觉得特别逗，他对那个女孩应该是完全没感觉，然后就派我去安慰那个女孩。第二天，我课间时陪着那个女孩绕着学校操场走了两圈。事情就这么过去了。高考完，我们还一块去了女孩家做客。高考我们不在本校考，理科生在本校，全县的文科生都被安排去了另一个中学。他父亲开车送他去，顺便捎上我。记忆中那两天好像在下雨。考完试之后，晚上，我们一起去网吧查的标准答案，估分，我们都估得很准。最后高考成绩出来的时候，也是他帮我查的成绩，打电话告诉我。我们俩分数很接近。他比我多了六分。上了大学，我们在不同的城市，那时候动车还没通，坐汽车大约得两三个小时。他说来学校看我，可是从来没来。有一年几乎要来了，结果他病了，最后我去看他。约了另外在他城市的好友一起。有一年，寒假我们差不多同时放假，他父母来他学校接他。他叫上我一起，于是我坐车到他的城市，搭他们家的顺风车回去了。我暑假在家的时间也不多。大约是大二那年暑假，回家的时候，他第二天就要去上海，于是他父母开车送他来我家，我们聊了一个多小时，直到他父亲催他。很多事情，都已经记不清是哪一年了。有一年春天，家里出了事情，我急着回家，打电话问他回家的车次和时间，那时候的我对这些细节总是很模糊。然后，他给了我他父亲的手机号码，让我需要帮忙就找他父亲。还有一年春节，离除夕还有一天的时候，我打电话给他求助，半小时后，他就出现了。那时候他估计拿到驾照没多久，盘山公路加上大雾天气，就这么来了。上了车，我还是一直哭啊哭。从高三到大学毕业，我最狼狈的时候，常常都是在他的面前。那应该是最后一次，后来我就没再在他面前哭过了。毕业后，我去了菲律宾，联系少了些，那时候微信刚刚开始流行，他拿着个苹果却不会用微信，被我嘲笑了好久。他留在原来读大学的城市读研，换了个学校，暑假回国的时候，也能见上一面。去年回国面试还有培训，他正好在北京实习，所以也都见到了。后来他研究生毕业，考进了事业单位，留在了那个城市。今年倒是没见到人。以前他总说以后我有了男友，他要作为家人的身份见见我男友的，今年却还是错过了。他之后，我再也没有遇到过这样的异性间的友情。我们甚至从来没有过一张两人的合影。唯一一张同时出现的照片就是高中毕业照。原文链接：http://www.jianshu.com/p/2c7982d0370e左岸记：时间和距离让人失去某些珍贵的东西，却也让彼此能保留下曾经最美好的情谊。原文链接：http://www.zreading.cn/archives/4572.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

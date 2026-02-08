@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻美的旅人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>寻美的旅人</h1>
+            <div class="date">2014-01-25 23:01:18</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/兜兜租赁合同到期，今天是退房的日子。退房时，因主卧洗水间外墙油漆脱落，我补偿了房东800元（钱已绰绰有余），用于此面墙壁的重新粉刷。油漆脱落，本属于工程质量问题，是开发商的责任，我无需做出任何赔偿。不过，我还是选择了自己独自承担。几套家具无法搬走，卖掉又实为可惜，便索性全部赠与房东。新房也是如此。几万元一平方，刚刚收楼，洗手间外墙油漆却已经开始潮湿变软。生活中，我们的时间常常会因为各种原因而被剥夺。喵喵也是如此。她是个乖乖女，学习刻苦，成绩优秀，升学及就业也都非常顺利，典型的“学霸”。但可悲的是，曾经抱着幻想走进教育的她，工作以后，却不幸发现自己成了应试教育的牺牲者，以及行政制度的受害者。在单位，行政命令压倒一切，学校领导强制老师看电影（爱国教育、安全教育）、监考（最近四周就有三场监考：司法考试、成人高考、职称考试），强制老师看午修、晚修、上下班签到，强制老师支教、排练节目、写晚会串词……高度集权形成了强权，普通老师不断地受到强力的约束，不断地被侵犯、被掠夺。强权者不仅控制你身体的自由，甚至企图控制你思想的自由。这样的体系下，大家对权利逐渐充满了强烈的畏惧与崇拜。十年前，喵喵高三，决定了将来当老师，教语文，只因她爱文字，爱纯净的校园，爱简单的生活。如今，喵喵已在高中的讲台上站了三年，带着学生享受美丽诗文之余，不得不面对两周一次的大考小考，然后是排名，平均分合格率优秀率贡献率，然后是开会。每天起早贪黑地工作，休息时间只有四五个小时，终于等到了周末，还要监考。好不容易有了个休息日，科长又让帮忙出市教研室的考题（我真想对她说，己所不欲，勿施于人）。终日辛劳，身体早已疲惫不堪，很累很累的时候，喵喵又一次生病了，我能感受到，她的无奈、痛苦与挣扎。我知道喵喵始终在坚持，让教育回归人性，让教与学都回归创造。正因如此，她太累，她不肯敷衍自己的心。人是被抛到这个世界上来的。喵喵时常说起荷尔德林的那句诗：人，充满劳绩，然而人诗意地栖居在大地上。她说，从前的她是飘在半空的云端女，过于理想化，现在的她正努力做到“诗意的栖居”，脚踏大地，心怀理想。她拒绝被奴役，她不听话，因为她向往自由。如果学生和老师都被学校剥夺了自由选择的权利，学校岂不是一个大监狱么？喵喵曾说过，高一的学生还懂得笑，孩子气，会冲动，会与老师争执，高三的学生却只剩下服从与麻木，课堂有时安静得可怕。她不愿看到这样的改变发生，可身边的老师、领导和各种无形的规则，却形成了一股合力，推动这改变的发生。从学校出来的人，就像是从流水线上下来的产品，都带着标准化的印记。人生被标准化，这不是荒诞么？更加荒诞的是，努力走标准化的路，害怕离经叛道，已经差不多成了全社会的共识。人们的逻辑是这样的：我是普通人，没有异常的秉赋，而规则又强大到无法抗拒，我只能通过勤奋与忍耐来适应规则，从而寻求安稳幸福的生活。既然道路已经很拥挤，为什么不换条路呢？当规则是既定而强大的，自由难道注定遥不可及？害怕失败的人，内心的恐惧已将自己困成囚徒。喵喵说，无论环境如何，她要坚持选择自己的态度，以各种方式，对抗枷锁，为了自由，为了美。卢梭说过，人生而自由，可是人无往不在枷锁之中。这句话如颠倒一下语序，会更具有“逃跑”精神，如索尔仁尼琴所言，那些“坚定不移的逃跑者”坚信人不能住在笼子里，而且对这个信念一分钟也未曾动摇过。我相信喵喵，她一定会从偶尔透进笼子的清风里，获取希望和力量。可是，我心疼喵喵，我必须帮助她挣脱枷锁，从制度的樊笼中解脱出来，找到真正属于自己的生活，而不是等着被体制化。《牡丹亭》里有一句，“可知我一生爱好是天然”，喵喵很是喜欢。“爱好”就是爱美，一生爱美是天性，喵喵便也是如此。她心中的美，一定是自由而舒展的。人生短暂无常，匆匆如寄，如果说真有什么值得追寻的，除了“爱”之外，便是“美”了。这样的美，必是天地大美，自在坦荡。我要坚守自己内心的意志，坚持选择自己的态度，勇敢地去追寻，为了自由，为了美。如果我可以不盲从不依赖不畏惧不焦虑不屈服不苟且，自由已在其中——那从未失去也无法获得的我的本质。我相信终有一天，喵喵和我都能感受到挣脱樊笼，回归天然的喜悦。我们都是寻美的旅人，我们一直在路上。【人物简介】喵喵，一枚脱尘出世、自命不凡的小森女，天生一张骗死人不偿命的稚嫩童颜，乖巧安静的学霸。路痴，数字盲，迷糊症患者。喜欢20年前的歌，喜欢燃香、品茗，喜欢诗歌、音乐，喜欢明月、清风，喜欢一切美好而不切实际的事物。她认定，生活与爱情都应该是清澈坚定的模样，像天上的星星。她用相机记录生活，用文字存放光阴，从朝七晚六疲惫刻板的每一天中寻找趣味。她相信，点滴坚持汇聚成海，终会抵达梦想：做一名行吟诗人，边走边唱，边唱边看，水阔山长，物我两忘……兜兜，一枚心地善良、追逐自由的老男孩，天生一副磁性共振深情温润的好嗓音，“不平则鸣”的大侠。洁癖、强迫症、完美主义。迷恋蓝天、清风、田野。不忘初心，追寻手工时代简单忠贞的爱情。梦想同心爱的喵喵一起，上雪山探秘，下深海探险，驾着飞机环游地球……他认定，生命在于创造，真爱诞于苦难。他脚踏大地，一路迎击风浪、种花酿蜜。他相信，忠于灵魂的爱，定能渡化一切的艰难困厄，救赎所有的渺小卑微，安顿全部的风尘劳碌。终有一天，他可以挣脱樊笼，感受到回归天然的喜悦。左岸记：有个女孩毕业了，她到了著名企业的offer，但她并不喜欢这份工作，她想开自己的咖啡屋。她想了很久，她不是富家千金，她不能再靠家人的帮助由着自己的性子去实现自己的梦想，她需要努力和男友挣钱买房子结婚过小日子。她做了个决定，她决定好好地工作。她说：“我要好好地工作，我还有一个计划表。每周我都要完成一个，我报了一个调咖啡的班，这周我的任务是认识各种咖啡豆。我有好多个星期要完成我的每一个小任务，等我都完成了，我就辞职去做我的咖啡馆。”当梦想和现实那么激情而矫情的冲撞，你要够聪明，通过学习着的梦想，不间断的赚来为梦想买单的资本。美好就在脚下，就在路上。原文链接：http://www.zreading.cn/archives/4205.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

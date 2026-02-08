@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社交动物 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>社交动物 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>Johnny Guo的投稿。</p>
+<p>原文：社交动物</p>
+<p>Facebook（脸谱）IPO了，国内的4大微博也搞得风生水起，不知从何时起，我已幻化为非传统意义上的Social Animal，社交动物。从未参加过真正意义上的Party，没有燕尾服亦或Iron Man的Casual Coat，真实的世界中没有朋友，MSN许久未上了，QQ长聊已经成为年少轻狂时的记忆，生活的圈子在结婚生子之后急剧萎缩, 自己去不知不觉成了微博控。</p>
+<p>如果能穿越回6年大学生活，一定要养成锻炼晨跑的习惯，虽然那时没有iPod，把SONY随身听或爱华复读机别在腰间还是很拉风的，清晨苏式品字形教学楼里，一个身穿御寒重装甲，不修边幅，靠着走廊上温热的暖气片，诵读英文的男孩将消失，而现在的我将是一个融钢铁侠斯塔克的智慧和美国队长健美体魄于一身的Super Man (最近老看同类型电影，幻想症加剧，早知道前几天怎么都要强忍着看完中国对科威特的足球友谊赛，肯定能杀死不少自我膨胀的脑细胞) 。不要再听老爸迂腐的建议，大学期间不能刮胡子，用不起欧碧泉，至少有大宝，不至于现在拿起一张大学时的雪中即景，都有冲上去打一顿的冲动。虽然没有泡到学妹，也不没炒过股，不至于像那些年一起追的女孩中那样放浪形骸，宣泄过剩的精力，全天候的校园足球场，通宵红警，星际争霸的网吧，“换片，换片”声此起彼伏的午夜场，不惧拉闸限电，充分利用电子工程专业从水房偷电看98年世界杯的寝室都足够让我心情澎湃。</p>
+<p>猛地被现实敲了一下头，环顾四周，自己不过是被困在Cubic里，沐浴在或明或暗日光灯下，承受着职业理想破灭的失落，面对Hunter的高端职位傻傻苦笑，每天只有10:00PM后给宝宝讲过N个故事进入梦乡后才有属于自己时间的闷蛋。从来不觉的自己是微博控，却总是不由自主得刷屏，晚上起来给宝宝兑牛奶也要浏览新热点， 工作遇到不顺心发几句牢骚，对神奇国度发生的新鲜事指点江山却不能激扬文字 （常常到高潮时字数受限），收藏奇文美图，光影时光，总幻想有一天可以背包环球旅行，再不济也可以一觉睡到自然醒，面朝大海，春暖花开。 这样浑浑噩噩的生活，已经有了几个月了，前两天撞了头，望着在镜子中久违的自己，好想泪如泉涌，可就是一滴都记不下来。</p>
+<p>小崔抑郁了，离开改变不了现实的“实话实说”，拯救被遗忘的历史。我抑郁了，工作中鲜有知己，真实的生活中没有朋友，人人上的同学N年没来往了，开心网送我喷气战机也提不起兴趣去提，微博成了唯一的救命稻草，喜怒哀乐都想在第一时间和微博中互粉的朋友大多是同事共享，渐渐地听到对我工作的支持，牢骚的认同，评论观点的附和，原来我并不是那么孤独。可这样就解脱了么？生活还要继续，拿着越来越拿不出手的CV，逐渐退化的技术能力甚至写完像这一篇文理不通博文的能力都在衰退，不是不想写，而是提笔忘词，注意力不能集中，难道这就是做了两年专职项目经理的后遗症，永远在Multi Tasks之间切换，鲜有淡定更别说禅定的时间，一天看几百封邮件回复几十封的Practice让我在微博上碎碎嘴的功力日趋化境，可是思维也碎片化，想法很多，没有一个做成的，追求完美却没有行动。</p>
+<p>看着牛人共享的2011年书单，未成年iOS开发者做的Apple APP，HTML5开发者演讲聚会上对知识如饥似渴的眼神，书架上Kindle里沉睡的技术管理文学金融社会书籍，PC中只运行过Hello World Android例程的Eclipse和日益缩水的税后收入，是时候告别微博和伪社交，将目光的焦点从我影响不了的国家大事也无法参透的国际棋局上移开，脚踏实地，为自己能触碰的未来做些什么吧。</p>
+<p>左岸记：社会的交替变更，把人的认识结构进行了重新洗牌，技术的进步改变了人们传统的社交模式，形成了新的社会生态时空，但愿人们都能从这一切当中获得自己想要的，而不是迷失在那一条条阡陌交错网路之中。</p>
+<p>也分享Jorywang投稿的一篇文章——我的非典型社会化网络一天[My SNS Life]</p>
+<p>这是一个普通的周末早晨，我照例打开普通的台式电脑。通常按照惯例，今天应该有一些粗浅的安排，不过我已习惯不要大量的依靠脑力，正所谓用脑不用 心。当灵感闪现时，就将大部分事情都Outlook一下，所以，打开Outlook，过滤一遍今天的安排，微调一番顺序，准备开始事物前的热身。当然，有 时候的周末安排是一片空白，有时候天气会好得让你想出去走走，所以空白状态和灵感乍现都让生活更充满想象力的空间。</p>
+<p>打开浏览器首页，新的百度首页在登录后有一个导航服务，里面记录和绑定了绝大部分的网站和账号。我看到126的信箱有4封未读的邮件；新浪微博有7个各类相关的提醒；知乎也顺手习惯性打开。进入标签页面里，处理邮件和微博。为了让时间不那么枯燥，有时候也会打开虾米的 音乐，虾米已经绑定了新浪微博的账号，所以只要登录了新浪，不必再登录就轻松进入。目前看来，类似虾米这样做细分功能的精品站，都会保持和大平台的接口， 拥有大平台就可以一号行天下。哪些算是大平台，大公司呢？无外乎新浪、QQ、人人等平台公司。而虾米这样的网站也做的越发的功能强大，根据我听的歌手和歌 曲推荐你可能喜欢的类型，怪不得微博上一个朋友就纳闷了：你是怎么知道我也喜欢些呢？这就是数据分析的力量。有时候，你也可以自己选择一些好歌曲打一张自 己的碟，看着自己的碟片四处流浪，噢，应该说是传播和发扬光大，也有一把出品人的成就感。这就是个人生产力的力量！</p>
+<p>虾米的音乐悠然响起，里面传来蔡琴的歌声——最好的女中音，“某年某月的某一天……”，悠扬而有味道。</p>
+<p>快速的回复了邮件和新浪私信，在知乎里面找几个感兴趣的问题，半调侃半吹牛的答完，嗯，这样的热身算是小有感觉。赶快关掉所有的标签页，开始写我的PPT，这是一个要和大家分享的PPT，所以需要做的精致那么一点点。</p>
+<p>按照惯例，我还是先乘着灵感最好的时候，把框架三下五除二写完，然后去找素材，去找PPT模板。扑奔PPT是我的宝库，花了大概20分钟，找到一个满意的模板，增色实在不少。然而，一个好的PPT实在是需要多种图片和素材支撑，庞大的图片库就是素材来源，有时候平时的好文章也堆积在EverNote里面，信手拈来。类似EverNote的，还有花瓣，积累也很重要，根据常用的主题，积累一下唯美的图片，就很少会感慨：图到用时方恨少了。</p>
+<p>我做PPT的习惯还是留白比较多，其他的就靠积累和感觉现场发挥了。所以，制作起来也不是很费力，行至中午，便也完成了。</p>
+<p>午饭和午休之后，忽然想起，昨天看的电影和书还没有记录。快速打开豆瓣，在豆瓣读书和豆瓣电影里面加上新的内容。根据感觉做个评分，也少量的八卦下别人的评论，发散下思路。豆瓣下方推荐的类似电影也随意巴拉巴拉，找两个觉得不错的“想读”下子。确保无聊的时候有个盼头。如果不慎遇到好书，就转到当当网， 把他们收藏起来，等手头的书看得差不多了，就去下单，不过书籍越来越有点收藏品的趋势了，好书一下就扫光，却常常补不上货。因为好不容易混到当当的钻石 VIP会员，又不乐意去别的商城下单，就常常这么耗着。好在，好书实在足够多，你天天读也读不完。所以，知行合一，行很重要。</p>
+<p>此时，门铃响起，想必是昨天京东商城上定的货到了，拿上信用卡，快速打开房门，三下五除二刷卡，收货。其实网购很早就有突破，几乎都是从淘宝练摊儿的一步一步发展到天猫，然后个别巨头有钱了又来做大商场。怎么和现实中的地产界一样一样的啊。先是动物园练摊，然后有了银子加盟双安或当代的大商场，最后自己搞一个商场，做平台开发商。不敢想象，突破了物流的京东对实体经济会有多大的冲击。</p>
+<p>收货完毕，Outlook发出提醒，要定饭店和同学吃个晚饭。赶快前往大众点评，在周边区域找一个特色的饭店，通过评价和比对终于选到了XX饭店。评估下和家里的距离，想想怎么去比较合适，赶往搜狗地图，查了个公共交通路线，点击搜狗的免费短信和飞信，发到我和同学的机子上。大功告成。</p>
+<p>此时想想，要是早些天在团购网上搞定了，就更方便了，物美价廉，还省得点菜。看来，下次需要总结经验了。</p>
+<p>“时光荏苒”，转眼就吃完了饭，晚上回家已经将近9点，边收拾，边在爱奇异上 随便找个电影看看，连拖带拽，总算用小学语文的功力理解了中心思想，也是需要睡觉的时间了。明天，还有一天的生活要继续。夜深，我知道，我最害怕的是断掉 网络，更害怕的是没有这一个个数据库的支撑，我会在北京这样的大城市中多么无助和迷茫。我们已然成为互联网云端外最微不足道的一个终端，享受着强大云端带 来的便捷，也感受着强大云端推来的匆忙。</p>
+<p>梦中，我挣扎，我不喜欢如此的匆忙，我更感到我还对匆忙有些留恋，哦，不仅是留恋，有时候甚至有点小得意：没错，我是特种部队，我身后是强大的互联网智囊团，我是指挥他们发挥作用的千军万马最高领导人——陆军总司令。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

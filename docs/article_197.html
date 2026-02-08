@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从平庸到幸福 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>从平庸到幸福 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>作者：文刀</p>
+<p>当一件事情刚开始时，我们总会偏向于好的预期，因为这样我们才会去行动。当事情在不断的进展时，外界的因素（客观条件）总会引起我们主观上的波动，时而信心满满，时而跌入谷底。然而事情总是要有个结果的，在这样一种偏向反复，时好时坏的自我预期中，有些人选择了放弃，有些了继续了坚持。放弃，或许是因为有更明智的选择，又或许已经没戏了。坚持，或许是因为没有了退路，又或许是总体偏向于好的预期。不管怎么样，预期总会无穷的趋于向现实要一个结果。而关于结果是正无穷还是负无穷，我们却无法量化，因为做每一个选择，特别是人生选择时，其机会成本（选择成本）是无法量化的。读三年研与先工作三年是难以在同一个人身上同时进行，是不可逆的单一选择，也就无法真正理性地去决定。而我们之所以能够去决定，大部分取决于我们自己与身边人的偏好。所幸，我们都能也都应该看到，做如此的选择并没有犯下方向上的错误。总体上这条路上，我们的步伐是朝前迈的。我们的学识，我们的视野都在增进，然而，要问我们是否就此告别了平庸，是否走向了幸福与快乐，这却是无关的。</p>
+<p>知识的增长并不意味着个人道德水平的提高或是人个涵养的提升。在物欲横流的社会中，总能听到那么多关于知识分子的道德丑闻与民工的善行。平庸并不是表明人的身份，而是表明个人的如何从众。所以，对于钱权与名利的追求，恰恰是平庸之举。再看看幸福，知识的提高会带来更高的视野，也可能会导致更多的欲求。有限理性的欲求会是生活源源不断的动力，带来的实现会成为幸福的体验。纵然如此，这也只是一时的，更多的幸福并不在于我们要不断去满足，而是要学会去知足，学会去感激，去给予。所以，幸福是一种认知状态，是一种心境。</p>
+<p>再来设想一下，当我们把梦想比作一种财富的实现，我们就会发现。当一阶段内的目标实现了，我们就会寻找下一阶段的目标，然后再去实现它。这样的生活是富有挑战与方向感的，也就是有意义的，这种不断的自在追求本身会是幸福的。如此，追求财富就如梦想一般无可厚非（可能财富就是梦想），但如果我们无法认清财富存在的更多效用，我们就免不了坠入平庸，欲壑难填，我们又何来幸福。一千万在当下社会足以自在一把，然而却已然超出了本身的欲求（理性的），那么就应该拿出钱来做好事，给予会让自己更为幸福，因为我们可以就此看到更多幸福的存在。</p>
+<p>即使把幸福看作是一种认知状态，一种心境，但其也应该是我们毕生的追求。以前，我们生活无忧无虑，饭来张口衣来伸手，但我们都明白，那也只是一时的，是建立在亲人的血汗之上的。如今，我们走出校园，参加工作，就要懂得去承担相应的去给予身边人力所能及的照顾。从接受到享受再到给予最终还是到享受，这一过程就是认知状态的提升，就是对幸福的追求。幸福是学会接受与学会给予的过程。心境是个什么概念，又要如何提升呢？我们都清楚，在现世中不存在世外桃源，田园牧歌也不太现实。那么，我们就要学会把这种不可能变成可能带到生活中，其唯一的途径就是提升我们的心境。而这并不是说，我们要在现实生活中学会自欺欺人，而是把这样一份浪漫主义的情怀赋予到真实中，做到真、性、情。对于生活中的真真假假，我们要学会看到，看透，看淡；对于生活中的点点滴滴，我们要学会感激，感怀，感悟；还有对于他人，对于自己，也要力求做到真与善，从而现实幸福的美感。如此，心境的提高是一个领悟与缓慢提升的过程。幸福是一生的追求。</p>
+<p>当我们意识到追求梦想更深的是在追求幸福时，我们又深深的坚信着幸福是一种心境，那我们何不学会像相信幸福总是存在一样去相信梦想会实现呢，我们又何必多去假定另一种不好的预期存在呢。既然我们已经走在路上了，在正确追求幸福的路上呢，那我们何不去幸福呢 ？相对于冷漠的大众，我深信，时时能感到幸福，时时有梦想，为断去追求幸福的人，注定是个不平庸的人。</p>
+<p>左岸记：如果胡作非为是一种大恶，那么不作为至少也是一种平庸的恶，它们都是幸福的敌人，胡作非为让身边人身受不幸，不作为让自己陷于等死状态，让人着急，别拿低调当平庸的挡箭牌。在《朗读者》里，文盲汉娜•施密茨通过学习，学会了阅读，领会了人性、善良、尊严，她明白了曾经在无知无识之间做过的恶是多么的令人发指，心底深处本存的善良复苏，她有了作为一个人的理性之后，无法再继续没有尊严的活着，她选择了踏着那些给她良知的书籍，有尊严地死去。幸福就是这样的一种认识心境。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

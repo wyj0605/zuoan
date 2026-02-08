@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我在大城市也挺好的</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我在大城市也挺好的</h1>
+            <div class="date">2015-12-03 00:51:29</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>两个月没动笔，实在是懒了。早上读了一篇文字有感——别为我担心，我一个人在打城市很好，于是再也睡不着起来写了这篇。文/Olia2013年6月，我也第一次做动车，也从哈尔滨到北京。兜里揣着的是半个月兼职的工资800块钱，翻译了2000条莫名其妙的句子，一条四毛钱。你们别笑我，这已经是七年里我能找到的最舒服的兼职，某车的神秘顾客除外，那个每次100车接车送，可也并不经常有。票是现在的老公那时候的男朋友买的，他去实习一个月才2000，刨去房租750，不知道怎么省吃俭用给我陶腾一张票。不然我是连卧铺都舍不得的。在北京呆了十天，我兼职7天。每天两个半小时公交，或者公交转地铁3次从丰台晃到闺蜜的公司，每天挣够200块钱就下班。不过我们的工资是要压半个月的，超过800还有20%的个人所得税，不知道为什么几个台湾老太婆翻译成的繁体就一块一条。为了给自己打气，我学习黄大锤，做一条在心里高喊四毛！四毛！或者在一堆声音里分别哪个噪音是人发出的，那个是非人其他以外的东西发出的……这个活每50条14元，毕竟四毛钱的翻译也不是每天都有。（当然后来工作以后惊奇地发现当年兼职的地方竟然成了俺们的乙方，顿时有种翻身农奴把歌唱的快感～）也许你会问做这样的兼职有什么意义？难道赚钱还不是最好的意义吗？某天下午下班去见了大学的学生导员，只大我一届的老培。有老培的日子那是怎样一种感受？大一军训小伙伴都在寝室睡觉或者练叠被子，从小学一年级开始住校的我分分钟叠好然后打电话给导员说心情不好想去网吧……十分钟后老培过来接我，现在终于明白这个词叫任性。总之在大学迷茫的时候老培好像一直都在，就像现在她略带河北味的声音就响彻在脑海里。我很想念她。在某线路地铁终点站的前一站下车，终于见到了久违的菜市场，价格亲民让我都想留下来，两块钱一斤的西红柿哇！也终于明白老培安家在这里的原因，而房租只要800元就可以住得很宽敞，比先生的六平米真是好上十倍。当然先生住那里连地铁都木有，每次出门都像是打仗。在菜市场旁边的商店给先生添置了价值50大洋的家用电器——电风扇。不足六平米的房间里有扇两米的窗，除了每天飞机起落会惊醒外，还会被无情晒醒。晚上请我吃饭掏钱的依然是老培，这么多年她还是惯着我。那一刻我意识到即使是在北京，也有可以过得很舒服的方式。剩下的三天假期我们去了那些不要钱或者门票不超过十元的景点，超过二十就头都不回地走了……爬山涉水逛街和名人故居也是很快乐的。好吃的快餐有楼下的田老师，可先生盘子里的红烧肉总是越吃越多最后都喂了我。在住的地方旁边有市场，没有锅灶总也可以自力更生吃顿蘸酱菜的，他说很久没有吃的这么满足过。最奢侈的是去湖广会馆看小岳岳，旁边有家清真馆十五块钱一大碗的羊汤我现在还十分想念。最喜欢的地方是后海，可以长时间地坐在岸边发呆。那一刻感觉时间都停下来了。可是并不能停太久，还要赶末班车回家。虽然那个家，只有一张我俩侧身才能挤下的单人床。一年前先生和我结束了崩溃的异地恋，先生从南方的项目上辞职回哈尔滨。这一年我们张罗工作结婚准备生宝宝，焦头烂额不亦乐乎，也让好多人身边的小伙伴羡慕嫉妒恨。前几天为了买房子先生把扔在北京一年的户口转回了家，估计我们和北京的缘分也就至此了。虽然我依然没去过故宫爬过长城，但是至少在天安门广场看过降旗，主要是舍不得早上起来打车的钱。后来去北京是参加俱乐部的比赛，虽然没能晋级到全国比赛，但是依然觉得很过瘾。晚上和小伙伴吃饭，工作了的我终于可以豪气或者扬眉吐气说一声，点吧这顿我请。还有一次俱乐部培训，看见Honeywell宽敞地茶水间、站在微软宽敞明亮的大楼里内心有点恍惚，是不是当年我们应该拼一把留下来呢？早上五点被肚子里的Max踹醒的我，看见先生睡得四仰八叉。估计是我俩身材都太好，三个人睡好像一米八的床还是觉得很宽敞。学生时代的贫穷像是一场噩梦，真的不想也不愿意再回去。离开家十年了，一个人背着双肩包拎着两只箱子从农场来到省城读书。比起家里，不用说北京，连哈尔滨都大得让人窒息。自来水里氯的味道让我适应了很多年，以至于再回家喝两天甘甜的地下水就开始满脸起小疙瘩，我不知道这算不算一种退化。第一次穿过学校门口那么长的马路，车那么多那么快，跟在一个七八岁孩子的身后一顿狂奔，后面的车呼啸而过还不停按喇叭，我坐在道牙子上狂喘了好一阵。前几年家里才修了第一条高速公路，路直接穿过稻田，据说一天能看见不超过十辆车。二十多前奶奶说明年就修过来的铁路依然鸟无音讯。我依然不爱逛街，那些琳琅满目让我无所适从，倒是菜市场让我流连忘返。和国际大牌流行趋势相比，我更熟悉什么样的蔬菜瓜果最新鲜。可我深深知道北京和哈尔滨都不是我的梦想，我的梦依然是家乡里的归园田居，是春天的时候一吸一鼻子的杨树油味，夏天里的三点就被邻居家下地干活的车响吵醒又睡过去的满足，秋天里躺在金黄的粮食堆里数多少大雁飞过的闲适，冬日里骑车穿过齐腰身雪，和爹爹去遥远的梦里刨冰打鱼，爹爹回头冲我笑呵出的一团白气。老爸老妈，可我在这里还是挺好的。Olia2015年11月12日 Max童鞋35周+2左岸记：我就是喜欢这样的人，做什么总能找到其中的乐趣，而不是活在虚妄里，活在怨气中，活在可望而不可即的不平里。原文链接：http://www.zreading.cn/archives/5161.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

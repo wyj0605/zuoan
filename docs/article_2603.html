@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蘑菇和一只流浪的猫</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>蘑菇和一只流浪的猫</h1>
+            <div class="date">2014-12-31 00:53:08</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/陈豪夏末，我们相遇；深秋，我们相爱；那个冬天，口袋里多了一只手，紧紧相握。起初的局促与不安，被同学无数次的调笑，你总是很勇敢，很大胆，像个男人一样去回敬。我也乐得清闲，带着那个冬天所有的阳光与你一起出入那家米线店，大妈家的小吃店，校园的每一脚僻静的小路，长满杂草的学校后山。你总是吃很辣的米线，穿粉红色带着小熊的帽衫，你说这样很萌，我不理解，女孩子为什么要萌，不是应该温柔吗。直到我和你一起像个疯子一样开辟校园里的每一条僻静的小路，为了爬长满杂草的后山扯碎了裤子，吃着口味颇重的路边小吃，我开始明白，我不需要你的温柔，静静的照顾你就好。如果可以，我愿意让你在我的身边就这么疯下去，萌下去，一辈子都穿带着小熊的粉红色帽衫，背着卡通双肩包，拿着小黄鸭的钱包，吃遍每这座城市的路边小吃，深巷里的糖葫芦，气质儒雅大爷的鸭脖，零食店的鱼豆腐，夫妻小摊的肉饼。我总是嘲笑你能吃，嘲笑你肚子上的肉，嘲笑你卡通的风格，嘲笑你敏捷的身姿，嘲笑你能被嘲笑的一切，包括那些不能被嘲笑的。你从最初的无力抗争，到后来佯装生气，再到后来的熟视无睹都让那个寒冷季节的每一天都开满了樱花。你总是怕煽情，说那样很骚包，偶尔却又很想骚包一下，经历过无数次的失败之后，你终于还是放弃了，你说：我就这样萌萌哒就好，你再说本萌一句试试！！我们是最不被看好的一对，大家都认为你只是个小孩子，我也曾因为各种各样的原因跟你分过手，可是你总是像个孩子一样任性的坚持，包括我做过的荒唐错事都可以原谅，从那一刻起，我就知道，有些事是注定的，大道理太多，大自然的规律太多，我们来不及去一一印证，人和人没有定义，没有公式，没有谁和谁在一起才能因式分解。我们就是这么简单的相爱着，合适着，互相明白。蹙眉轻叹，愁你忧心几许；垂首浅吟，知你颦笑哀怨。从小对感情始终报以漠然的我，却在不知不觉中被你蚕食。宛如那颗流浪的星辰，在心里留下一道道电光火石般的瞬间。也正如那流浪的星辰，不知道泯灭是终点还是最初的征程。我们终究敌不过这个现实二字，我们怀着对未来美好的向往开始学着像大人一样生活，我们一起洗衣做饭，一起收拾朋友走后的凌乱，一起谈论未来要生几个孩子，买多大房，看多少风景。你总是很懒，却理直气壮的跟你我：有你就行啦，要不然你有什么用！我也幸福的充当这个家庭妇男的角色，洗衣，做饭，打扫房间，养宠物。每天学着做一些不一样的菜，尽管手法粗糙，但是你也从不挑剔。我们有了一只猫，就像我们的孩子一样，尽管它很不亲人，总是挠你，可是我们像父母一样包容它。你给他取了个很神经的名字，叫提莫，源自一款我们都很喜欢的游戏，你说这样比较萌，我也觉得，是的，萌就好。我还记得第一次它挠了你，你哭着跑过来跟我说：完了，我要死了，我要去打狂犬疫苗，它给我抓流血了。尽管自然的规律对人的感情无法印证，可是也多少能说明些问题。那天我还没下班，你打电话过来，哭的声嘶力竭，我吓坏了急忙请假回来，看到你的第一句话就是：我把提莫送走了，我怎么能这么残忍，我把它放下来的时候就后悔了，可是找了它一个小时都找不到，他不知道跑哪儿去了。生活总是有些必然的联系，就像提莫一样，很多东西你很不舍，却又不得不舍的理由，等你下定决心放弃时，就不要再后悔，因为在你下定决心的时候，注定有些事就已经无法挽回了。因为工作的关系，我们分开了，来到了不同的城市，我们如那个季节一样相爱着。我试着给彼此信心，对未来无限憧憬，可是终究还是没能逃得过家庭的审判。我试着让你相信未来是美好的，结局会幸福的，可是你对父母的一次次妥协让我看不到希望，最终我们还是放弃了，就像提莫一样，在放下的瞬间可能都会后悔，却已经是再也找不回来了。而我，就像是那个被你放弃的提莫，尽管前途未卜，希望渺茫，可是却也不得不坚定的选择去流浪。人和人不存在公式，不存在定理，没有谁和谁在一起才能因式分解。但是人和人存在区别，我是一只被放弃的猫，而你是那朵惹人怜爱的蘑菇，蘑菇与猫根本就不存在因式分解。你说：叫我小蘑菇！你说：把他放下来的时候我就后悔了，可是怎么找也找不到了。希望你能遇见一个像我一样的人继续爱你，蘑菇蘑菇她不会开花，先生先生请你爱她。​左岸记：爱情可以很重，也可以很轻，谁都可以拥有，但要将爱情过得幸福完满，却是不易。爱的样子，千人千模，适合你的才是最动人的。下面是我个人比较赞同的一些关于爱情和婚姻的观点：有的人，执着去爱，却总是得到不到爱情哪怕一点儿的回赠。只有一种人，爱着也被爱着，才是最幸福的。爱情中没有无法抗争的未来，不要说我和他终是有缘无份的，虽然我们相爱，可是无奈的现实让我们不能相守。只要你想，那么现实总是会为之动容。为现实让步的爱情还是爱情么？现实从来都不是爱情的终结者，自己累了、困了、不想要了才是。爱情是两个人的事，一个人追求不到两个人的幸福。没有对方的回应，你的付出就不值一提。 如果爱情到最后真的不得不分手，那么成全和祝福该是最美的选择。在爱情的世界里，许多男人往往误解婚姻就是娶一个女人，而忽略了还要娶过来女人自身的追求，以及女人身后的背景。在爱情的世界里，许多女人误解婚姻就是嫁一个男人，而不知道还要嫁给这个男人的习惯和性格，以及这个男人背后的家族。原文链接：http://www.zreading.cn/archives/4726.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

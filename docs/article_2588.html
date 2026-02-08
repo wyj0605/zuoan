@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人最终是一个经济动物</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>人最终是一个经济动物</h1>
+            <div class="date">2015-01-16 01:04:54</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/廖超国管理学家从人的动机和行为模式出发，对人进行分析，将人分为社会人和理性人以及感性人等，并用马斯洛的层次需求理论对人实行引导和管理。但我以为无论对人怎么分类，从人性的角度分析，根本上说人最终是一个经济动物。而且人的这种经济性与出身无关，与教育无关，与学识无关，人天然就是一个经济学家。来到这个世界，从父母那里借来一生，除了出身不能选择，在一切有选择可能的时候，都在进行权衡算计，都会考虑投入与产出的比率，都会思考结果的输和赢。本质上看人生其实是一场交易。著名经济学家罗纳德 · 科斯提出的“交易费用”理论，虽然是对企业而言的，但对人何尝不也如此呢？ 只是有的人赢，有的人输，有的人平。一个哲学家曾经就一个人与这个世界的关系进行过梳理，从而得出所谓人的成功与幸福，关键在于处理好人与自己、人与自然、人与社会的三重关系。人的一生无时无刻不纠缠于这三重关系之中。所谓纠缠其实是一种选择和取舍的难度。选择就存在机会成本，取舍就关联到收益大小。它们本质上就是一种交易。马克思也说过，人的本质是社会关系的总和。成功与幸福的人总是在与自己、与自然、与社会的交易过程处于赢家的位置。他们将这些关系处理得如鱼得水，灵活自如，游韧有余。而那些不幸与失败的人也往往败北于此。处理好与自己的关系，其实就是让自己外化的我与内化的我达成一致。肉体与灵魂合拍，取得内心的平衡，既不自负，也不自卑。要完成好这笔交易，首先必须清醒地认识自己，摸清自己的家底，有多大本做多大事。要知道自己的所优所劣，明白自己的所长所短，知晓自己最终想要什么，凭自己的能力和条件，即自己所拥有的资本和资源，尽最大努力，能做成什么。定位自己的人生位置，扮演好自己的人生角色。这其中有一点要特别说明，认清自己，摆正位置不是要不努力、不奋斗、不争取，以困难为借口而自甘平庸，随波逐流，碌碌而为。而是态度积极，量力而行，少走弯路。其次管住自己的欲望，不要让自己的欲望大过了自己的能力，这是造成人生痛苦最根本的原因。一个人当欲望大于能力时，就很难把持自己，怨天由人，终难平静，痛苦或不幸将接踵而来。再次是要守住自己灵魂的底线。不论利益以什么模样出现，都不能用自己的灵魂去典当。即使人生再贫困潦倒，也别丧失了自己的人格，人格是人生的注册资本。即使人生再挫折不幸，也别丢失了人品，人品是人生的最高学历。一时的亏本可以，但绝不能破产。无论贫穷与富贵，无论伟大与渺小，人都应该有“成己为人，成人达己”的境界。处理好与自然的关系，就是要有感恩之情、敬畏之心。感恩大自然养育我们，敬畏大自然的神奇。不信头上三尺有神明无妨，但敬天畏地，对养育我们的大自然怀感恩之情不可少。可以不信佛，但因果报应总会显灵应不得怀疑。播下跳蚤指望收获龙种的人并不多见。和自然的交易，不能一味的索取，更不能蓄意破坏。对自然之物，不奢侈，不浪费，适中求度。爱护自然世界的一花一草、一山一水、一树一木。让天空更蓝、让大地更绿、让空气更清新、让阳光更明媚、让我们生活的环境更美好。从我做起，从现在做起善待自然，虽我们不能给她增添什么，但是我们总可以用行动减少对她的污染和掠夺。个人的力量虽微薄，但每个生命主动自觉，集汇的力量就不可小视。处理好与社会的关系则相对要复杂些。因为交易对象的复杂使其复杂。人与社会交易其实是与他人交易。社会由人组成，而人是这个世界上最复杂的生物。每个人的一生中会遇见各式各样林林种种的人。好在虽人的角色会随时空的转换不断变化，但固定的场景只有家庭、职场、公众场合三个舞台。在家里，你的角色要么是长辈，要么是晚辈，再么是平辈。在职场，你的角色要么是领导，要么是下属。在公众场合，你的角色就是一个公民。不同的场景你和他人交易的侧重点是不一样的。家庭里更多的是情，职场中更多的是钱，公众场合情和钱两者兼而有之。如果把人与社会的交易高度抽象化为人与他人的交易，其交易过程中应注意四点。把自己当自己，学会自尊自爱；把别人当别人，学会尊重他人；把别人当自己，学会理解他人；把自己当别人，学会换位思考。当你与社会交易，进入了先讲耕耘，后问收获、先慰他人，后祈我乐、先做成就，后计辛苦、先行付出，后求回报的境界时，你就成了谁都战胜不了的最大的的赢家。这个世界是一面镜子，你如何对她，她就会如何对你。谁都不傻，但只有少数人能真正做到，他们让自己心境平静的程度决定了他们的快乐度；他们让他人舒服的程度决定了他们人生的高度。或许这才是人生这场交易的最高原则，当你认为人生是一场交易时。左岸记：很有意思的一个结论，按这个观点去解释人的行为，大部分是可以解释得通的，人都是趋利避害，也追求利益的最大化，只是人也是最具情感（人与人的情感、人与自然的情感、人与社会的情感）的动物，如果将情感也当作一种价值来计算的话，那就是人应该不断提高自己的社会租值，从而提升自己的人生价值。原文链接：http://www.zreading.cn/archives/4761.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

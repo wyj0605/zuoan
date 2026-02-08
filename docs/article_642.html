@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命与负熵 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>生命与负熵 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>这是EagleFantasy写的一篇物理小论文，我很喜欢，能让我对熵有点儿了解，为什么要了解熵，因为在我的头脑里一直存在着一个平衡系统（从长趋势周期看，今天所做的何事、说的何话都会对将来产生叠加结果，通俗一点讲就是任何的谎言都会有被拆穿的一天），至于靠不靠谱就得进一步去证实。</p>
+<p>原文：生命与负熵</p>
+<p>热力学第二定律说道：在孤立热力学系统中，系统的熵永不减少。熵是用来表征系统混乱程度的物理量，因此这条定律实际上是在说，孤立系统的混乱程度永远是在增 加的。直到达到热平衡，系统的熵达到了极大值，系统状态将不再改变，归于沉寂。“落叶永离，覆水难收；欲死灰之复燃，艰乎其力；愿破镜之重圆，冀也无端； 人生易老，返老还童只是幻想；生米煮成熟饭，无可挽回。”【1】无数自然现象，无不印证着熵增原理的正确性。</p>
+<p>然而，生命现象却似乎是个例外。生命是一种总是维持低熵的奇迹。一个生命，在它活着的时候，总是保持着一种高度有序的状态，各个器官各个细胞的运作井井有条。它并不会立即达到一种类 似热力学平衡的不再活动的状态，相反，生物能够主动“做某些事情”、运动以及不断与外界进行物质能量交换恰恰是生物区别于普通物体的一个重要因素。而一个 生命一旦死去，就会很快被熵增原理的强大威力给收服，很快将趋于热平衡状态，变成一片死寂的一堆极其无序的物质。那么，究竟是什么原因使得生命看似违背了 普适的熵增原理呢？</p>
+<p>问题的根源就在于，热力学第二定律只是用于“孤立系统”，即与外界没有物质、能量交换的系统。而生命之所以能长时间维持自身处在低熵有序状态，其秘诀正是在于它与外界的物质能量交换，即新陈代谢。</p>
+<p>我们要搞清楚的是，新陈代谢的目的本质并不是交换物质。构成我们身体的原子，无非就是碳氢氧氮磷硫，和外界的普通原子没有什么区别，仅仅交换原子并不能给生命带来直接好处。</p>
+<p>更应该明确的是，新陈代谢的目的本质也不是交换能量。似乎很长一段时间里，人们一直把吃饭喝水看成是单纯的吸收能量，认为生命以能量为生，而且至今大部分没 有学过物理学的人也是这么看待的，人们满足于这样一种简单的理解。但是，“其实这非常荒唐，因为一个成年有机体所含的能量跟所含的物质一样，都是固定不变 的。既然体内一个卡路里跟体外一个卡路里的价值是一样的，那么，确实不能理解单纯的能量交换究竟有什么用处。”【2】</p>
+<p>那么，新陈代谢的本质究竟是什么呢？到底是怎样一种物理过程使得生命得以维持低熵，避免死亡呢？其答案就是，从环境中不断地汲取负熵，生命以负熵为生。或者说新陈代谢的本质就是，从外界不断地汲取负熵，以抵消生命运作过程中不得不产生的熵增。</p>
+<p>负熵就是熵的对立，熵代表的是无序，而负熵表示的则是有序。汲取负熵，可以简单的理解为从外界吸收了物质或者能量之后，使系统的熵降低了，变得更加有序了。 因此，我们吃的东西必须本身非常有序，即食物必须低熵，所以我们动物只能吃生命。植物则有所不同，对于植物来说，最根本的负熵来自太阳的阳光。阳光是整个 地球上所有生物所汲取的负熵的根本来源。因此，我们以后不要只感谢太阳带给我们的无限能量，一定要在后面加上一句，感谢太阳带给我们的负熵~！与此同时， 我们的身体不断地向外界辐射红外线，这就是带走生命运作增加的熵的一种方式；另一种方式是排泄，显然排泄物的混乱程度是比我们的食物更高的。</p>
+<p>有人可能会问，钻石之类的晶体，它们的熵也是很低的，如果新陈代谢只是为了汲取负熵，为什么人们不能吃钻石为生呢？我们所能给出的回答是这样的，钻石确实是 处在一种低熵的状态，这点大家都承认。但是生物体本身的熵很低，要维持这样一种低熵状态本身一定是一件很难的事情，需要很复杂的机制才能做到这一点，所以 人们能吃的东西就不仅仅低熵就可以了，而是通过自然选择，仅仅只有某一小部分低熵的物体是可以被吸收利用的。真实自然选择的结果就是，钻石不能成为食物， 而肉、菜之类的东西就可以。但是我们也不能排除在科技高度发达的未来会存在某种机器人，单靠吃晶体就能活…</p>
+<p>生命以负熵为生，也许，这就是生命的本质吧。</p>
+<p>参考文献：</p>
+<p>【1】赵凯华《新概念物理学教程热学》高等教育出版社</p>
+<p>【2】薛定谔《生命是什么》湖南教育出版社</p>
+<p>【3】熵，还可以参阅李淼的“关于熵”</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

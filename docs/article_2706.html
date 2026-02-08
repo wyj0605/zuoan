@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>性别标签</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>性别标签</h1>
+            <div class="date">2014-09-10 22:10:35</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/于震作为一个曾经因为被评价“男子气概不足”而感到失落到如今还挺喜欢“伪娘”这个称呼的人，因为性别标签所产生的诸多误解让我不但从书中有所阅读，也在现实中有所经历，我一度困惑，为何在一些微不足道的事情上可以如此轻易的贴上某种标签并且津津乐道？比如健硕的肌肉是“纯爷们”的象征，但是健硕的肌肉可能没能让他在遇事之后有所担当；比如把“以事业为重”挂在嘴边是男人“上进”的表现，但是这种上进可能带有着浓重的大男子主义；再比如顶着一幅沧桑的脸孔是男人有“男人味”的体现，但是这种“男人味”可能让他还是做不好一个丈夫或者父亲的角色；还有在酒桌上的意气风发是多么有“男子气概”，但是他可能在生活中的很多事情上不会说：加油，坚持下去。那么当你护肤时会被当做了“伪娘”；当你学习穿搭是会被认为了Gay；当你在酒桌上不那么豪爽时被当成了软弱；当你承担了半数家务和照顾孩子被当做了带有讽刺意味的“二十四孝老公”；当你没有表现出强烈的保护欲和控制欲是被当做“怂”的榜样，当你没有以“事业为先”又被贴上了“不务正业”。这些标签就变得不那么经得起推敲了。最后，我开始理解，原来有这种困惑并不奇怪，面对大多数人喜欢贴性别标签的行为，以上种种也不过是这种行为的冰山一角，而这种行为源于文化中的粗暴价值观，这种价值观认为女人做的很多事情，男人是不能做的，你做了就是懦弱、胆小，没有所谓“男子气概”的象征，甚至这种价值观直接无视这件事情是否真的有需要去做的必要和意义。那么只要你违背了这个原则，你周围就会有一大堆人出来调侃你，并非你真的错了，而是你作为他们的同类，居然率先踩了红线，这让他们感觉不适应。从任何一个角度来说，一个男人是不是有担当和他是否敷面膜没有半毛钱关系，但是前者太难量化，所以需要有一个粗暴简单的衡量方式来保持男人优越感和认同感，这种方式要足够简单来保证广泛的传播性，逐渐演变后的其中一部分就成了今天文章开始的困惑。当然，我无意去当什么布道者，也不觉得一篇文章能改变什么，只是对于我个人来说，我希望可以抛弃性别标签去做真正有意义，有必要的事情，它是健身，是护肤，是不无脑逞英雄；我希望我可以敞开胸怀接收周围所有人的任何评价，它可以是伪娘，可以是“你怎么这么女人”；我希望因为共鸣和悲悯可以成为一个有修养的人，我希望这种修养让我所处的环境因为我有了一点点的不一样。如今，尽管还有人给我贴上这样、那样的性别标签，但是因为这种改变也同时让我感受到更多人对我的善意和欣赏。我想，不去被某些主流价值观所裹挟，反而能体验到意想不到的生活。左岸记：为什么我们常常不屑与他人为伍，却害怕自己与众不同呢？或者喜欢与众不同，又害怕别人奇怪的眼光？只因自己的内心不够强大，无法独立的思考，还可能连说服自己的能力都没有。哪里需要刻意的标新立异、特立独性，倘若能有足够的勇气、善思、常识、理解、客观，大概也就不会无知无畏了吧。原文链接：http://www.zreading.cn/archives/4553.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

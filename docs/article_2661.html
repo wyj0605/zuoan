@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你是自己人生的工匠</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你是自己人生的工匠</h1>
+            <div class="date">2014-10-29 23:31:54</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>“君子不器”语出论语，孔老夫子对君子一直很感冒，估计是自己达不到，所以要不停的学习和宣讲。人器不器的，往低了说不能成为一种工具，往高了说无非是努力做到“无用之用”。至于不拘泥于自己的格局，要勇于尝试突破，背后也无非是学习和眼界。中国人，对于成器这个事情，一直纠结的可以，爱恨交加。匠气在过去我们多少有点鄙夷，因为大师们唯一需要甩掉的沉渣劣习，无非就是匠气。但物为之用，总要过了匠人的手，每个人拥有的总也不会都是大师力作，生活总是被各类匠人支撑着，也不管你喜不喜欢工匠。现如今，工匠精神却又流行起来，有点跟老祖宗对着干的意思。还好君子不器里还有容纳的意思，我们也需要对工匠精神多点包容和理解。中国流行的是巨匠、巨擘，需要庞大或值得竖大拇哥。而Craftsman’sspirit，真到了现代社会，越是欲望繁多、网络虚拟，这个最实在的精神倒是大张旗鼓的流行起来。也不知道是因为我们确实需要，还是因为缺失。有个朋友是做紫砂的，全手工，一般半年左右我会从他那趸个壶，林林总总，一大堆了。偶尔盘点，发现大多数都是光器，就是那种实用为主的传统器型，没有什么花活或是缀饰。又不能每把壶都用，偶尔换壶也是心情和季节使然，剩余的时间多少担负着摆设的作用，都质朴无华也不尽美么。于是，问他所以然，有点怪罪的意思。朋友倒是安静，说，最简单的最难。壶这个东西是拿来用的，于是它的美在于用的便利、舒服，失了用的功能算艺术品其实也死了。在你使用的时候越没有存在感，不让你觉得别扭和不顺手，才是好东西。而任何一个壶，都是充满曲线和互相闭合的东西，它要顾及到里面的茶叶怎么翻滚和舒展，也要照顾水如何的流，然后才是壶的存在。壶的外形是要让你知道他能包容的东西，而不是他外形是什么样的。光货的瑕疵是最显眼的，因为是光货，他表面的曲线带来的光影一定是确定的，充满美感和过渡的。任何的线条和造型的缺陷，是一眼的东西，拙了就笨，过于灵了又轻佻，圆润持稳、内敛光芒是没得什么可以掩饰、转移的，他们都明明白白在那。而且壶要烧，要选泥料，光货的泥料显而易见，够不够纯够不够老，越大面积的展示，越能显露。全手工么，除了技艺和纯熟，和心境、环境都有关，匠人都傻，也必须傻，做壶就是做壶。依着流程做就好了，但一方面要想象做出来的壶整体是什么样的，但每一刻做的事情却只和这个环节的一个点有关，串起来就是好东西，有一个点败了，也就整体败了。壶和别的东西不一样，艺术品或许需要激情，做壶要的是安静的力量。在做壶的时候，不管之前心情情绪如何，做完之后还有什么事情要办，做壶的时候必须安静，安静不安静做成的壶一眼看的出来。你不是常打坐吗？那种感觉跟做壶一样一样的。这样的说教跟卖货差不多，要说一个东西有价值，无非要么是充满故事、要么费了心血，最高境界自然是说这个东西是有生命的。但是好在能知道工匠精神也不易，最简单的最难？这就是Craftsman’sspirit？那人生也就需要工匠精神？其实这个世界是实用主义的世界，精致的利己主义大行其道，连贩卖思想、贩卖艺术，其实和卖东西都没什么差异。工匠精神，你再怎么喜欢或是鄙夷，总在你人生时时刻刻里如影相随。人生的讲述总是只有开始和成功，中间的过程和失败总是被自己有意识的掩盖，除非那些失败值得炫耀。人生就是个怀揣梦想，却又埋头前行的旅者。回望的必然，在前行时都是犹豫不决的选择。你总以为技能和技巧可以成为安身立命的根本，却永远不明白你做出来的作品才证明你的价值。人生的盛宴，不是你受邀参与、衣冠楚楚的出席，而是你在准备食材并下厨。你准备的材料，可能糊弄得了你，未必糊弄得了这个世界。你也或许暗暗操练很久，却在真正面对人生的时候惴惴不安。你梦想的筵席，和绝佳的食材中间隔着的，是安静的力量。即如一把壶和泥料之间，看似永远是个技能，其实是安静的去做，按部就班如仪轨，安静专注如婴儿。或许你选择更灿烂、更美丽的人生，但前提是你不是为了遮掩你材料不好，中间不够安静，人生的技能不足。当你为了掩饰自己而装饰自己，为了无用而装出一副有用的样子，如那些花俏的紫砂壶，收获的或许是赞赏，其实是人生的硬伤。世界从来都很诚实，你都骗过了自己，却骗不了世界；这个世界也很无聊，你以为费尽心血的人生，却被世界这个买家说三道四、指指点点。现实的生活，总被梦想叨扰的毫无心思前行。梦想和现实对立的时候，连安静的生活都变成了奢望。不管别人如何评价你的人生，你注定是你人生的工匠。锻造自己的材质，学习需要的技能，将技能转化为能力。很多的失败是因为梦想太大，或是因为梦想而无视当下。很多的失败，无非是懒得锻造材质，懒得遵循仪轨。更多的失败，是努力掩饰我没有安静对待我的梦想，只是害怕自己的人生被自己的努力戳穿，我越努力炫耀我人生的花活儿，越让我的人生无用和瑕疵尽显。我还有个朋友是做玉雕的，他把玉的美归结为对玉的敬畏，将作品归结为，在本质和祛除瑕疵之间寻找最美好的平衡。看似与做壶无关，其实如做壶一样，永远和人生有关。最简单的最难，抱着对人生的敬畏，做一个自己人生的工匠。左岸记：庖丁解牛，神乎其技！牛无疑是很复杂的，庖丁解牛，为什么能一刀下去，刀刀到位，轻松简单，原因是什么？是因为掌握了它的肌理。牛与牛当然各不相同，但不管是什么牛，它们的肌理都是一致的；每个人的生活也各有各的面貌，其基本原理也是近似的。庖丁因为熟悉了牛的肌理，自然懂得何处下刀。生活也一样，如果能透解了、领悟了生活的道理，摸准了其中的规律，就能和庖丁一样，做到目中有牛又无牛，就能化繁为简，真正获得轻松。原文链接：http://www.zreading.cn/archives/4610.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

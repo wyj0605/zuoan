@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何克服下载强迫症？ </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>如何克服下载强迫症？ </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>当下载成为一种习惯，就已 经不再是仅仅局限于下载本身了。如果你每天打开计算机第一件事就是把每个资源站，论坛啊，都看一遍，然后讯雷啊，电驴啊，BitComet啊，就总有东西 在下，不下就觉得很别扭，心里总是觉得不下就浪费上网的宽带，甚至一天总得把那些网站看好几遍，总感觉开着电驴，找几个东西让迅雷跑跑，生活才充实，这就 是典型的下载强迫症了。</p>
+<p>强迫症的其他症状：每天开机就挂上QQ，MSN，Gtalk，旺旺，看电影时一定要在后台开下载工具。</p>
+<p>严重下载强迫症，下载……删除……下载……删除……无限循环中。</p>
+<p>今天我才清楚认识到我也患上了下载强迫症，下午不知不觉的我操作着鼠标下载了3个G的游戏，安装的时候才意识过来，然后全删除了（左岸注：还好，现在已经不玩游戏了，但我以前不也是这样子吗？）。</p>
+<p>现在，我的硬盘里十几万本TXT小说，几千本PDF电子书，还有几百个G的电影和AV，无损FLAC，APE音乐也有10G（左岸注：我基本不下小说，但txt书籍却不少，电影是有好看的就下，还有好几十G的photoshop/flash/3Dmaxs教程，现在每天都在消化这些内容。），如果要从头看一遍，估计这辈子都看不完了。</p>
+<p>所谓的下载强迫症，总结如下：</p>
+<p>这种现象属于轻度强迫症的一种。</p>
+<p>是一种永不满足的人类特有的欲望所导致。</p>
+<p>会有很强烈的空虚感，寂寞感，其实就是一种心理扭曲，很多时候很难杜绝各种各样诱惑。（真正的宅男更是如此）</p>
+<p>特点是通常喜欢狂下载东西，只要是Free的就想要得到不管是有没有用的东西，之后就会扔到一边。有时想要控制自己的下载欲望，但实在是白费力气，心 里总是觉得不下就浪费上网的宽带，觉得内疚和不安，所以有时一天总得把那些网站看好几遍，比便下到最新的资源。（他们一般都只是知道“自己想要”，可是不 在乎要的是什么，只要他们的硬盘里不断的有东西进来就行了。）</p>
+<p>也会对得不到的东西有着强烈的欲望，经常做一些很无聊的所谓的未来打算。（如以后的游戏，下载的东西等等）</p>
+<p>并且在别人指出他的症状后会表现的很恼火，甚至口出恶言。</p>
+<p>如何克服下载强迫症？</p>
+<p>办理1MB一下的宽带，貌似现在电信最低的是2M了。</p>
+<p>卸载所有下载工具。</p>
+<p>硬盘一定要买小的，够用就行。</p>
+<p>留给大家补充……</p>
+<p>暂时也没其他方法来克服这个强迫症了。从明天开始，尽量少下载，要做到不下载。</p>
+<p>左岸PS：说说我的经验</p>
+<p>只要会上网的人，下载就再所难免，但下载前问问自己，“这个东西我真的是我想要的吗？”</p>
+<p>下载的书、电影一定要看，看完了再说，很多人都是认为书下载来了，就是自己的了，就与众不同了，就博学了。</p>
+<p>不要见什么都喜欢，只下载精彩的，我们真的没有那么多时间看那么多东西。</p>
+<p>本文修改自：Dianso——下载强迫症</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一个人要活成一支队伍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>一个人要活成一支队伍</h1>
+            <div class="date">2014-08-11 23:56:33</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>（本文是心灵鸡汤，其实我不善于写鸡汤。我觉得把它叫做正能酿好很多，喝了正能酿，鸡血无限量！PS，不喜慎入啊！一定要慎入！！）文/@隶书shu记得大学军训时有句话叫“双人成列，三人成行”一直记得很清楚。是说作为军人，两个人时就并排成列的走，三个人时就要排成行走，这是一种规范，一种纲纪。虽然我不太喜欢部队严谨扼灭人性的管理方式，正如我不太喜欢竞技体育那样把人“拔苗助长”最终长成比普通人身材壮硕那样，但是对于这种意志和精神，我真的非常欣赏。那么一个人要怎么走路呢，我想，一个人要活成一支队伍。曾经有人问我，自己已经很努力了，为什么还是到达不了心中的目标。我记得俞敏洪老师说过（大意），一个人的努力要达到那种自己回想起来仍然能感动自己至落泪的程度。这句话真是听得我全身都痛。不瞒你讲，我这短暂的人生中的那些经历，每一件都会被这句话唤醒，一定会抓着我的衣领呼喊着，为我哭吧，为我感动吧，你真了不起啊！突然眼泪成诗，悲伤逆流成河呐，这么努力的人生怎么还没有变伟大啊，可是凭什么啊，为自己哭这么笨的事我不做啊。人都有自怜情绪，这种自怜根本不需要多大努力程度就能唤起，每个人都会把自己的努力程度放大。由归因观点来看，往往很多人把自己的成功归因于内在，把失败的原因归于外在，成功了是自己的功劳，失败了一定会想到底是哪些绊脚石挡了去路而不思索自己的方案是否开头就有误。不是有句话很深刻的说过嘛，人们的努力程度根本还轮不到拼天赋的地步。说的就是这个道理吧，你觉得自己很努力了，其实你的付出也许微不足道而已。等到内心真正响起掌声的那一刻，就该为自己鼓掌了。我想，大概，一个人要活成一支队伍。这是一种什么样的精神呢，罗胖说“死磕自己，愉悦大家”，我支持他的这种态度，有时候你必须要有这种精神，一种头悬达摩克利斯之剑，死磕自己的精神。简单的说就是与自己好好相处的精神，然后再把自己拧成一股绳一股劲，成为一支战斗力强大的队伍。但是跟自己相处总是容易出事儿，比如那个砍死自己的顾城，诗写得多好多美，但是他砍死自己之前，还砍死了自己心爱的妻子。准备从明天起,做一个幸福的人，喂马, 劈柴,周游世界的海子，毅然选择结束自己的生命……不忍罗列太多，是这个世界太残酷，还是只有偏执狂才会对自己如此残酷。但是仍然有很多人即使潦倒不堪也选择苟言残喘，即使身负重疾依然想要向天再借五百年。这就是说，能与自己好好相处的人才能跟他人好好相处啊，能好好愉悦自己的人才能愉悦他人。一个人要活成一支队伍。我曾经调侃某位妹子，说她在嫁人这件事情上活成了一名战士，在这样一场没有硝烟的战场上，自己跟自己的内心搏斗，不时还要召集不同的自己组成队伍来对抗那些魔鬼一样出现的不同的自己。一个人要活成一支队伍。即使没有人站在道德的制高点上对我喊话，我也要有悲壮赴死好好荡气回肠一番的勇气，带领我和我的部队在这场战斗中拼劲最后一口气，用尽最后一颗子弹。只为值得为之努力为之战斗为之死去的东西。一个人要活成一支队伍。要相信即使命运给你的是一次又一次嘲弄，这些经历都是人生中一个个有用而精彩的节点，最终成长为支撑你的脊梁，吹响前进的集结号，即使只有你一个人，你也是一支队伍。一个人要活成一支队伍，并不是刻板的军人纲纪，不用上纲上线把自己绑架，而是一种倾其所有热爱自己、热爱生活、拥抱未来的决心；不抱怨、不贪心、不逞强、不气馁、有召唤、爱自由。什么是热爱生活，东东枪老师说，顺风顺水时的热爱不算热爱，那叫享用，谁都会；困厄时不改一颗“不改其乐”之心，才配叫热爱生活。人生总是需要点精神，需要点信仰的。只是不坚定的精神和信仰来到了某一个时间某一个地点就可能水土不服。而人生不如意事常八九，可与言者无二三。这时候的你，就是一支队伍，为自己摇旗呐喊、为自己治疗检伤、为自己招兵买马，目标不是要成为一名烈士，只为成为更加强大和更具战斗力的队伍。最后，写完这些，我突然变得很文艺，突然想高歌一曲——没有人  发现我路途比天空还遥远一个人  会不会寂寞忐忑的心一直辽阔就算世界只留给我一天也会这样选择  生活最后的最后，这篇文章写给近期生日的自己，不出我所料，今年的祝福来得又快又温暖贴心的还是你们，必须要点名赞扬一下，他们分别是（排名不分先后），工商银行、招商银行、兴业银行、支付宝、淘宝润**店、送我优惠券的某店，8折包邮的某店、1号店、163邮箱……左岸记：一直以来都不愿意让别人知道自己有多努力，因为如果看上去比别人努力实际成果却不尽人意岂不是很笨很丢脸，倒不如默默努力一鸣惊人。其实真相是“比你优秀的人比你更努力”、“比你聪明的人比你更勤奋”、“比你有钱的人更拼搏”，努力没有什么是丢脸的，知识是人内在的拯救，即使不能丰功伟业，变求不枉此生。原文链接：http://www.zreading.cn/archives/4514.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

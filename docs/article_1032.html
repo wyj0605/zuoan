@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瓶魔悖论与不完全信息 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>瓶魔悖论与不完全信息 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>作者：Matrix67</p>
+<p>原文：瓶魔悖论与不完全信息</p>
+<p>The Bottle Imp 是一则有意思的短篇小说。某日，小说里的主人公遇上了一个怪老头。怪老头拿出一个瓶子，说你可以买走这个瓶子，瓶子里的妖怪就能满足你的各种愿望；但同 时，持有这个瓶子会让你死后入地狱永受炼狱之苦，唯一的解法就是把这个瓶子以一个更低的价格卖给别人。如果你是小说里的主人公，你会不会买下这个瓶子呢？ 你会以什么价格买下这个瓶子呢？</p>
+<p>以什么价格买入这个瓶子，这个问题貌似并不容易回答。你当然不愿意花太多的钱，在你的愿望被满足之前你至少还得给自己留一点钱花；但你也不能花太 少的钱，否则你会承担着卖不出去的风险。但是，在做出一些理性的分析后，我们得出了一个惊人的结论：任何人都不应该以任何价格购买这个瓶子。</p>
+<p>和很多博弈问题一样，这一系列的分析首先从最简单的情形开始。首先，你是绝对不能只出 1 分钱就买下这个瓶子的，因为这样的话这个瓶子就永远也卖不出去了——没有比 1 分钱更低的金额了。那么，用 2 分钱买瓶子呢？这样理论上貌似是可行的，但仔细一推敲你会发现还是有问题——这样你只能以 1 分钱卖掉这个瓶子，但没有人会愿意用 1 分钱去买瓶子（否则他就卖不掉了）。因此，用 2 分钱买下瓶子后，你同样找不到下一个买家。和上面的推理一样，用 3 分钱买这个瓶子也不是什么好主意，因为没有人愿意以 1 分钱或 2 分钱购入瓶子，因此你的瓶子不可能卖得掉。依此类推，你不应该以任何价钱去购买这个瓶子，因为每个人都知道，他无法以任何价格卖掉这个瓶子。</p>
+<p>这个推理有意思就有意思在，它的结论和我们的生活直觉是相反的——花几万块或者更保险的，几百万块钱，去买这个瓶子，怎么想也不会是一个如此杯具 的结果。但上述严格的推理为什么会得到一个看似荒谬的结果呢？这个推理有一个很强的前提条件，这也是很多趣味博弈问题的基础——假设每个人都是最聪明的， 他们所做的决策都是最优的；并且每个人都知道，每个人都是最聪明的，都将选择自己的最优策略；并且每个人都知道，每个人都知道每个人是最聪明的；并且…… 这样无限循环下去。但现实生活中，这个假设明显不成立。或许每个人都绝顶聪明，但这一点并不是所有人都知道；即使所有人都知道，也不是每个人都知道所有人 都知道。这就是所谓的不完全信息，它会对整个游戏的结果造成根本性的影响。</p>
+<p>听一个朋友说，他在某堂经济学课上玩了一个非常有趣的游戏，那堂课的教授通过这个游戏完美地诠释了不完全信息。教授叫每个人在小纸条上写一个不超 过 100 的正整数，然后交给助教。由助教当场统计所有同学所写的数的平均值，并约定所写的数最接近平均值的 2/3 的同学将在期末考试中获得额外的加分。例如，若所有同学所写的数平均值为 44 ，则写下 29 的全体同学都将在期末得到加分。如果是你，你打算写多少？</p>
+<p>我们来看看，如果前面那个“人人都是聪明人”等一系列假设成立，最后的结果是什么。首先，你有理由猜测，大家所写的数随机分布在 1 到 100 之间，平均值大约在 50 上下。这样的话，你写下 50 的 2/3 ，即 33 ，应该是最合理的。且慢！不只是你，其他人当然也都想到了这一点，他们都会发现写下 33 是更好的选择。这样，你写下 22 便成为了一个更好的选择。不过，别人也会和你一样想到这一步，进而所有人都会考虑写下 22 的 2/3 也即 15 ……这样推下去，最后的结果是，所有人都会发现写下数字 1 是最好的结果。而事实上，这个结果也确实是最好的——在这种情况下所有人都将获胜，每个人都能得到期末加分。</p>
+<p>能上这课的人固然不笨，并且大家或许也都清楚这一点。更有意思的是，后来的调查发现，当时的课堂上有很大一部分人以前就知道这个游戏，并以智力题 的形式见过上面的分析。但真正敢写“1”的人几乎没有，因为信息是不透明的，你不知道别人能够想到多远，也不知道有没有写 100 的大傻子，也不知道有没有内鬼，等等。</p>
+<p>在 The Bottle Imp 的例子中，情况也相同——谁也不知道，有没有傻子来打破上面那个卖不出去的推理链条。更有趣的是，小说 The Bottle Imp 的情节本身还考虑到了另外一些非常机智的转折。可能会出现一些对许愿瓶上了瘾、根本不在乎入地狱的人，他或许不相信有地狱，或许已经犯过不可饶恕的滔天大 罪，觉得自己反正都得下地狱。还有这么一种可能：有人发现即使你用 1 分钱买下了这个瓶子，这也不是完全无解——你可以把瓶子卖掉其它国家去。由于汇率的原因，在其它国家里你或许能找到比 1 分钱更低的价格。这样卖瓶子是否合法并不重要，只要有人相信他是合法的就够了。他的存在，或者有人相信有这样的人的存在，或者有人相信有人相信有这样的人 存在，都足以打破上面的那个推理链条。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

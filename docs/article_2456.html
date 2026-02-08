@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天明水净，最终的自由</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>天明水净，最终的自由</h1>
+            <div class="date">2015-07-01 22:58:57</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/吱唔浙西南这座小小城市，用它甘醇的水一口一口喂养我，用它清冽的空气一呼一吸滋润我，以至于当周遭的新闻中充斥着大都市里的雾霾和污河时，我兼有一丝恐惧和庆幸。多想就这么安宁地与这座小小城市相伴一生。每天，就在这朝夕间安静生活，直到我猛地意识到，那绽蓝明亮的天空不光给了我温润的空气，那碧影婆娑的湖水不光给了我洁净的饮水。天空的晴朗，晴在夜晚，让我还能够抬头就看到繁星；湖水的洁净，净如明镜，让我还能行走湖畔照到自己真实的模样。一个优美的环境，多给了我一份从容地与自己的生命、与自己的灵魂握手谈心的机会。如果失去这样的机会，我就会感身而为人，难自律、不自在、无自由。以前，我不懂得自律。读书时，我总是奢望用智力去对抗勤奋，用技巧去代替反复的练习，习惯于求“奇胜”而不屑于“常胜“。遇事张扬个性甚至毫无收敛之心，并自恃为敢做敢当的个性。工作后，慢慢成熟。有一个晴朗的夜晚，我抬头望着夜空。看着看着，我的心里慢慢地升起了愧疚的情绪。有一个原因是，这一粒粒在我童年时就垂于天际的星辰，我竟有很多年没有像样地抬过头看了。还有一个原因是我突然地意识到，我肉眼看到的几乎所有星辰原来都有名字，那是从古至今天文先驱们无数次抬仰望的发现。从那时候起，我开始慢慢意识到，所有伟大的发现，是从最平淡处的重复开始的。比如，重复着抬仰望。所有令人咋舌的“奇”，都深深根植于朴实无华的“常”。这也是我后来懂得的自律的起点——只有让看似日复一日的人生用规律的作息、健康的身心、勤奋的学习和勤勉的工作重复好，才能进一步精益求精，为自律基础上的自在找到一条可行的路径。对，我特别想说，有了自律才有自在。以前，我一直认为人的才智与远见是人生制胜的法宝。有了“远见卓识”或“绝世武功”就可以御剑飞行、驰骋江湖。就能有如令狐大侠那样的浊酒相伴、琴瑟笙箫，如鱼寓江河的潇洒自在。后来我发现，其实，大多数看上去潇洒自在的鱼儿，其实是没有自己的。在一条河里，大多数鱼儿游在水中时一般只有两种状态，一种是跟着水流，河水往哪个方向，它们就习惯地偏向那个方向；另一种是跟着鱼群，头鱼去哪，鱼群去哪，哪怕头鱼本身就是无意识地游动。鱼儿们连“自己”都没有，怎么有“自在”呢？我慢慢体会到，一个人有远见是远远不够的，更需要的是定见，以及它背后坚韧不拔的意志。没有定见，就容易随波逐流，即使一开始有高明的远见也轻易就放弃掉了。毕竟群体的力量太强大了，哪怕有时候它是一种不分是非的力量。有定见，也就有主见，有主见才有“自己”，有了“自己”的定见，又能在不断的与时俱进中修正、坚持和精进，不就不必盲目逐流地获得“自在”了吗？而定见之“定”正源于自律。所以我觉得，有了自律才有自在。一个不自在的人，一定不自由。著名作家纪伯伦说，“自由是人类枷锁中最粗的一条”。这是对自由多么不自由的一句评价啊。细细体会，人有时候还真是“囚禁”自己时反而自由。自我“囚禁”意味着一种主动的隔绝。这种隔绝绝不是画地为牢，相反，它要求人不断地向外界学习，不断地以谦卑的心，去做到格物致知诚意正心。《大学》里讲得明白，“物格而后知至；知至而后意诚；意诚而后心正；心正而后身修”。心正了才刚刚跨进修身的门槛。格物致知是向外界学习，诚意正心则是学习之后的自我“囚禁”，通过“囚禁”把自己心中的虚荣、淫巧、功利放下，放在心门之外。只有把这些虚妄之物放在了心门之外，才能免受蒙蔽，才能依道而行，依志而动。还有比一个能以自己的志向行动的人更自由的人吗？更何况，还有得道多助的加持。只是，放下谈何容易。之所以困难，是因为像我这样的一芥俗子活在世上，哪能不食人间烟火、不被大千世界所左右呢？但这并非真正的可怕之处，可怕之处在于人容易把自己的欲望放大并投射在这花花绿绿的世界里，并把自己在这花花绿绿的剪影臆想和替代真实自己。比如，一件事实际得益于团队合作，却容易不自觉地认为自己发挥了主要作用；又比如，见一个人成就斐然，既心生觊觎，又渴求捷径，还谦卑乖张……这个臆想的自己啊，要么过于高大，要么过于卑微。每每这种状态时，我就会觉得自己像一个满身油腻的虚胖子，迫不及待地想跳进一个洁净的湖泊中涤去污秽，然后再认真地看一看湖面中那个真实的自已。只有回归那个真实的自己，才重新获得到格物致知的真实起点，也才慢慢有了诚意正心的底气，最终也才能轻装从容，依道依志，自由自在。至于如何界定这最终的自由，在我心里是真、善、美三个字。左岸记：妙哉！故常无欲，以观其妙；常有欲，以观其徼。原文链接：http://www.zreading.cn/archives/4965.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

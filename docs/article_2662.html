@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>就要摆事实，讲道理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>就要摆事实，讲道理</h1>
+            <div class="date">2014-10-29 00:05:22</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>按：通常来说，我对互联网上的各类言论大战基本不会马上去关注，因为我害怕片面的东西，更害怕情绪化的宣泄，我想看的是事实的真实。这往往需要等这件事平息之后，重新梳理事件的来龙去脉，或许才能见到月明石出。今天分享Lealie推荐的李银河的这篇评论。这篇评论的力量在于就事论事，摆事实，讲道理。正文：最近周小平因为被邀请参加文艺座谈会，在全国引起轩然大波。看了看他的文章《请不要辜负这个时代》，就是一个懵懵懂懂的年轻人，读了几本书之后发了一番感慨而已。他读的书很可怜，世界历史，还有《中国不高兴》。这么一个无知的青年，写了一篇充满常识性错误的文章，本来没什么可反驳的，根本不值一提，可是有些较真的人却认认真真地写了逐条反驳的文章，一一指出周文中的失实之处，每个失实之处都有一个资料链接，有数据，有图表，说明周文中的数据搞错了，正确的数据是什么。有的地方还附上了英文原文，比如周文中说奥巴马在一个讲演中公开讲到要遏制中国发展，附上英文的奥巴马讲演稿说的是美国不反对中国发展。显然是周小平搞错了，因为美国即使真心里是反对中国发展的，也不会公开说出来，奥巴马要是能犯这种低级错误的人，他就根本当不上总统。我原来看这两造骂架，是不屑一顾的，小孩儿进了青春期，心里躁动，动不动伸胳膊挽袖子不是太平常的事儿吗？用得着那么引经据典逐一反驳吗？周小平洋洋千言，其实就说了一个意思：别骂政府啦，中国没那么坏，外国也没那么好。他文中引用的那些数据本也不是那么认真的，充其量是他的情绪和感慨的一点佐料而已。他志不在理性分析，压根儿就是一个非理性的情绪宣泄，跟他的文章最对仗的不是条分缕析，引经据典，而是另一句话：我就骂，我就要骂。其实全世界没有不挨骂的政府，政府只能听之任之，也不会有一个政府仅仅因为被人骂就倒台。周小平说看到网上80%的言论都是骂政府的（又是一个典型的周氏风格：大约摸，80%这个数据怎么来的？感觉而已），心里气不过，要出来替政府说句公道话。所以他温情脉脉地说：要做祖国的暖男。其情可悯，其心可鉴，温柔体贴，惹人怜爱。可惜，祖国这个词有点所用失当，应改为政府才更贴切，因为祖国不等于政府，骂政府的人也不等于不爱国。大多数骂政府的人只不过是爱之深责之切而已，有些骂政府的人其实比周小平更爱国，如果说周小平是政府暖男，他们才是真正的祖国暖男。两造小孩骂架骂着骂着突然出了个变故：一边被封了嘴。网上那篇逐条反驳的文章忽然打不开了，方舟子因为说了一句周小平“梦游美国”微博被封了号，不得不搬去twitter了。至此事情的性质就起了变化，政府成了拉偏架的了。释放的信息是：我就爱听表扬，不爱听批评。这可就太小肚鸡肠了，也显得太没风度了。就像王小波在《花剌子模信使问题》一文中提到的那个国王，他有种天真的品性，带来好消息的信使就待为上宾，带来坏消息的信使就去喂老虎。这种做法在互联网时代尤其显得天真，封一两个人、一两篇文章，除了帮他们增加点击量之外，能有别的作用吗？那80%（对这个周氏数据姑妄听之吧）的人还不是该怎么骂就怎么骂？顺便说几句，周小平那篇感慨文中还提到了我和王小波，他是这么写的：“王小波和李银河吹捧了一辈子美国人的高尚道德，却很少有人知道他的弟弟就是在美国街头被人刺死的，根据事后的监控显示他临死前挣扎了很久，这段时间路过的车辆和人很多，但没有人停下来帮助他，等最后被发现并送到医院时，早已停止了呼吸。这段文字吸引了我的注意，我开始隐约感觉似乎外国人的月亮也不是那么的圆。”小波弟弟晨光1998年（小波去世一年后）在底特律下班开车回家时，车出了故障，停在高速路旁。他跟一个18岁的美国黑人借手机用，结果黑人为抢他的钱，用一把螺丝刀扎中他的颈动脉后逃走，晨光拦住过路车，送到医院时已经因失血过多而无力回天。在美国华人社会和中国驻美使馆的强大压力之下，此案很快告破，那个凶犯被判了无期徒刑。这件事惨痛异常，令家人痛彻心扉。但是它毕竟不是种族仇杀，不是政治谋杀，不是制度问题，而是刑事犯罪案件。按照周小平的逻辑，我和王小波应当因此痛恨美国，甚至去参加伊斯兰圣战，再搞他一个911，才能解心头之恨不成？或者应当主张中国政府因此与美国断交，才算不“吹捧美国”？遍查小波和我的文字，没有一字一句“吹捧美国人的高尚道德”，我甚至不知道所谓“美国人的高尚道德”是个什么东西，这是从何说起。我所受的社会学训练有一个规矩：社会学只关注两件事，一是是什么，二是为什么，绝对不可对研究对象做道德评判。我这“一辈子”谨遵此训，从未越雷池一步。无论研究对象是中国还是美国，从未做过道德评判，“一辈子吹捧”更不知从何说起。我劝周小平去读一读政治学家刘瑜的《民主的细节》这本书，里面写了一个中国留学生对美国社会、政治、制度、价值观的观察和思考，我对美国的看法跟她很接近。没觉得美国特别好，也没觉得它特别坏，有时候跟中国的情况对比一下，也不过是觉得各有利弊，应当取长补短而已，不像周小平那样，一直以为美国的月亮比中国圆，后来才“开始隐约感觉似乎外国人的月亮也不是那么的圆”。我不仅早就知道外国的月亮不圆，再悄悄告诉你一件事，不怕你笑话：我们从小受到的教育是：美国人民属于世界三分之二的受苦人，长大了要打到白宫去解救他们出苦海。读后记：雾满拦江在《崔永元证明了什么？》这篇文章中给出了答案——论战的双方，需要一个标准。质疑方和被质疑方，两厢里必须要有一个质证的标准。在质疑并拿出证据之前，事先必须明确这个证据的形式和内容。没有个衡量标准，任何证据都会落入到西瓜皮擦屁股没完没了死缠烂打扯皮不休大法的汪洋大海之中灰飞烟灭。而且，证据必须由质疑方提供，而不能由被质疑方提供。如果双方的价值取向是不同的，一方选择的是非，另一方选择的是立场，那么论战将永无休止。这种论战，无论是多么的激烈，于公众而言意义不大。原文链接：http://www.zreading.cn/archives/4608.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文艺女青年的任性</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>文艺女青年的任性</h1>
+            <div class="date">2015-11-08 00:36:00</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>——看萧红的温情回归文/喵达有种女青年穿着格子的棉布，清汤挂面的脸永远带着淡漠的知性，芊芊细手里玩弄着文字的小把戏，在感情的世界里任性又张狂。如果是一个粗俗的村妇今天爱这个明天爱那个，早就被塞进了猪笼，可是文艺女青年们用反抗礼教的幌子，堂而皇之地追逐真爱，我们就不能用世俗的眼光看待，在美好文字的放大镜下，一切傻事就有了意义，就像你一般不会同情阿娇，谁让你平时装纯装天真，而对于真性情的柏芝姐姐会感动得泪流满面，因为她够真性情。萧红是一位先知，她给朋友写信说：“当我死后，或许我的作品无人去看，但肯定的是，我的绯闻将永远流传。”她猜对了一半，她的文字还在被不停地咀嚼，透过它们揣测她背后伟大男人的种种共性。若把张爱玲的文字比作孤寂夜里的星火，冷漠中还有一丝敦厚，就像个穿旗袍的美人蹬蹬跨过乞讨小孩的身旁，可以不爱却不会伤害。而萧红就像青花纹的大理石板，无论怎样用体温去烘热，微微发热的石板面下藏着坚硬又淡然的心，狠狠地给每一个捧着热心的人一记窝心脚。但是你还是会爱她，爱她骨子里的悲凉，爱她描绘苦难直击心灵的笔触，爱她任意妄为的情思喷薄，因为你会觉得她只是个任性的孩子，在用真性情表达着偏执的内心。有人点评萧红，要用同情的眼光看待她人性的不洁与过错，或许正是她的瑕疵才让她的才气从云端落入凡间，有了世俗的哀叹。我曾使劲地看不起她的人品，两次怀着前男友的孩子和现任结合，生下的娃娃就像一只奶狗一样蹬掉，然后轻松地踏上革命的前程，潇洒得毫无人性，但必须承认美玉上的斑点也是艺术品鉴赏的有机整体的一部分。萧红的前半生就像饿死亲生女儿的乐燕一样，睁着楚楚可怜的大眼睛说：“我从小就没被人爱过，长大以后怎么会去爱别人。”，在她前期的作品在反复强调着革命的意志与决绝，在《弃儿》里她可以忍着七天胀痛的胸部不给孩子喂奶，坚决不瞧新生儿一眼。孩子这个柔弱的母性软肋变成了她革命的阻碍，所以新生儿常常像个小动物悄无声息地死去，在连大人都顾不上的时代，嗷嗷待哺的孩子让她措手不及，慌乱得让她觉得可怖，她只能将对孩子一点点卑微的情感在作品里作为反抗现实的匕首，所以我一见她作品里的乳娃娃心都皱成一团，有在娘胎里就被地主踹上一脚而早夭，有去找做乳娘的母亲讨要吃食而溺水而亡，有刚出生就躺在盛面粉的袋子上冻得嗷嗷直叫，我想揪着萧红的头发质问她还有一点人性吗，纵然悲剧要把破碎的美好呈现，为什么连最后一点同情都要碾成末扬在海里呢？可是任性的文艺女青年会垂着头，留着泪说：“我没有办法，为了吹响革命的号角，牺牲小爱成全大爱。”你听了，慢慢把拳头放下，喃喃自语好可怜的姑娘。可是文艺女青年毕竟是女人，读的书可以让她的意志和心灵坚强一阵子，在来来回回的爱情里总有疲惫不堪的一刻，她会空空荡荡得不知所措，会想起她从没见过面的孩子，所以我能理解萧红临死前念着要找回被她送人的孩子。一旦有了突破口，她的文字开始厚重和反思，犀利的号角开始吹奏出低沉思念的乐曲，走上了个人化和自我化的道路，她开始脱离空泛泛的打倒XX的口号，她在困惑中关注作为女性的体验，《呼兰河传》里有了一抹温情色彩，在非黑即白的世界里有了过渡，个人情感并非是政治思想的对立面，不需要像敌人一样严防死守，所以整死小团圆媳妇的恶婆婆疯了，冯歪嘴子的大公子在零下几度的房间滚着稻草也能活下来，二公子一张嘴露出了小小的白牙，绝望之处有了新生。女性的特殊身份，在男权林立的文艺界里，即使剪成板寸换上男装，也挡不住百转千回的旺盛生命力的娇啼。我更爱这样的萧红，就像浪子漂泊天涯，当眼角皱纹毕现，总想起故乡香喷喷的热粥和暖烘烘的被窝，过去是自己最不屑最想抛弃的，当如今兜兜转转踏回原点，内心却是饱满充盈的，就像冰心所说走在生命的两端，爱在左同情在右，踏上荆棘的道路上，有泪可落却不觉悲凉。文艺的萧红挺着瘦小的身躯在布满荆棘的道路上前行，有爱有恨，有得有失，短暂生命像流星般划过的天空里，让我们看到了全神贯注的生命力创作，没有政治的浸润，没有技巧的雕饰，展示出的不完美恰恰也是永恒的一部分。看汤唯在《黄金时代》里饰演萧红，那嘴角的倔强，那单眼皮里的纯真，真是有七八分像，我更爱电影的名字，和王小波的小说同名，这是一个最坏的时代，也是一个最好的时代，回忆起来却都是文艺女青年的黄金时代。左岸记：印象萧红，风格独特，情感基调悲喜交杂，语言风格刚柔并济，写作视角独树一帜。萧红，典型的女文青，爱折腾，不愿守本分，她短暂的一生奔波悲苦，却永远不忘吟唱那一首首凄婉的歌谣。萧红曾这样解读自己：“我一生最大的痛苦和不幸，都是因为我是一个女人。”这是一个时代的悲哀，而时代的发展方向就是让女人可以自豪地说：“我因为我是女人而感到非常幸福。”原文链接：http://www.zreading.cn/archives/5132.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

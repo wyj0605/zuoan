@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>观察一个人的方法 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>观察一个人的方法 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>善于识人是一种极高的智慧。画龙画虎难画骨，知人知面不知心。古人云:夫圣贤之所美，莫美乎聪明；聪明之所贵，莫贵乎知人。就我个人认为.只有一流 的人。才能看一流的人才。二流的人，才识二流的货色。一流之人也有不同的类型。道不同不足相为谋。也不能识别他人是一流之才。</p>
+<p>古人中，诸葛亮有七句话。我 印象很深：</p>
+<p>问之以是非，而观其志；咨之以计谋，而观其识；告之以难，而观其勇；醉之以酒，而观其性；临之以利，而观其廉；期之以事，而观其信。</p>
+<p>孔子也有 三句奇绝话：</p>
+<p>“观其所由，察其所举，视其所安”。或曰：居视其所安，达视其所举，富视其所与，穷视其所为，贫视其所取。</p>
+<p>总之方法千万条,都需要个人细心去 品味。刘邵的《人物志》有八观之说，也值得一读。不过看人其实不能有教条。因为有些人深藏不露，不是眼力所能及。而要经过自己的接处与了解。我从十三岁开始读这些东西，想想略有所得，信手写一段大家见见。</p>
+<p>我不喜欢骑摩托车比我快的女子，但极欣赏骑自行车比我快的人。我认为前者浮燥后者健康。我不喜欢染发，带大耳环衣着时髦入流的女人，这样的人必定少 文化或非我同类也。注重外表的人，难能注重内在的气质。看一个女性，最主要看她的手，是否养尊处优全写在她的手上。男人不一样，看一个男人，要看他读什么 样的书，说什么样的话，失败后又是什么表情。才能看他的心胸与气量。生活中看他的袜子就能看他的品味。看他的对手便能了解一个人的身份。</p>
+<p>他的眼神则能告诉你他的心术。看他的朋友或能知道他的交际方式。他的头发可以告诉你他平时吃得是否合理。</p>
+<p>奉上欺下的人，最讨人厌。这样的人也成不了大器。不过奉上欺下，又对实用人才谦合的人，往往野心勃勃，可以彼此利用，如果你认为可以利用的话。</p>
+<p>说话脸红，又最喜欢吹牛的人，心地善良，思想不成熟。</p>
+<p>说话谦合，又有文化，可以成优秀的父亲，与为人师表颇为合适。</p>
+<p>走路常低头，或有心机；抬头望天，往往高傲；脚步过快的人，略见性急。</p>
+<p>手大有力的人，一般有豪情。女人肤色白有良缘。习惯早起的勤俭。睡觉时四肢张开、仰面脚天的情性较浓，但有气魄。比手划脚，喋喋不休的人：有自己知 道的事情急着要在对方未言之前，先说出来的个性，这种人探知他人秘密的意识特别旺盛，这种人最好不要告诉他什么密秘，因为太难闭嘴。</p>
+<p>其实看人术与医学的关系非常大。一个人容貌憔悴，不是有什么发霉的运气。就是个人可能什么酒色财气的事。个人都有看人的观念。对于神密的东西我不知道。不过一个人如果经过我身边。我相信我的眼睛能看一个人能做什么事。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

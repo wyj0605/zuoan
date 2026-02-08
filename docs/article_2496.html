@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为承认不爱者鼓掌</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>为承认不爱者鼓掌</h1>
+            <div class="date">2015-05-20 22:25:09</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/鹿满川有一天，你突然发觉对方已经很久没有跟你接吻、牵手了，他好像变得越来越忙，还经常因为你一个很小的过失而大动肝火。你心里翻涌起一阵沮丧，却仍不忘告诫自己要保持乐观，把甜蜜相爱的记忆在心里回放上好几遍，甚至为他找了一百种理由来解释，最终得出结论：两个人不过是过了热恋期而已，这是所有情侣都要面对的必经阶段，没什么大不了。于是你不断提醒自己“不要慌，稍安勿躁”，仍在爱的轨迹里仔细地公转和自转，却只等来他那句关于分手的宣告。原来，那些潜移默化的冷淡，都是他为了和你分手而精心预留的伏笔。你一点力气也没有，像个沙袋被他狠狠地擂了一拳，轰然倒地，欲哭无泪。你怎么也想不通，那句“你不适合我”背后究竟藏着怎样的玄机。为了让自己“死得明白”，你不惜放下尊严向他再三“讨教”，平静，咆哮，软硬兼施，完全没有意识到已经把自己弄得多难看，到最后也只讨来一句更让你觉得迷糊的“你太不了解我”——你也根本不会知道，其实他还准备了“在一起太累了”“没有那种新鲜感了”“你的缺点太多了”“我们没有未来的”等层出不穷的版本。你殷切期盼的答案，不过是他从那当中乱序抽出的一个。而在你继续苦苦悟道的时候，他又跑到你跟前说一句“虽然我还爱你，但真的只能到这里”，且一脸痛苦，无尽深情，让你不得不带着疼痛对他感恩戴德，却又分明看到他转身离开的步调多么轻快敏捷、毫不犹豫。是的，其实他只是不爱你了。这跟之前你们感情有多好毫不相关，当下的感受才是作出决定的依据。只是那句“我不爱你了”或“我爱上别人了”，对他而言是多么难以出口，他不想在任何人面前扮演薄情的角色。欲加之罪，何患无辞？他肆意编造的理由足够让你在他跑远前好好纠结一阵子。而他之所以还不忘假惺惺地加上一句“我还爱着你”，不过是为了让你觉得，他对你有多么仁至义尽。你该庆幸自己离开了他，幸免被他骗得更久。所以，该为那些勇于说出“不爱”的人鼓掌，这样的诚实和坦率值得每一个人学习。即便那种准确和直接可能有些残忍，但那才是对对方真正的好和负责。有朝一日，他一定会因为这样明朗的处理而由衷感激你。爱的任何环节都没有对错可言，所以用不着任何形式的欺骗和隐瞒。“美丽的谎言”只是那些自以为是的、想太多的人，自行臆造出的一种“为了他好”。谎言永远都只是谎言，真相藏掖不住，苦涩在所难免，任何糖衣包装和粉饰都只是加剧那种苦的催化剂，你的多此一举只会加深对他的伤害。分手就应该开诚布公，直截了当地把自己最真实的想法亮给对方，让对方看透局面的难以弥补，明白你的心意已决。实在没必要历数对方的种种缺点，离开之前你应给予他更多的尊重，而不是搬弄是非、捏造罪状。更不要说什么“你该找个比我更好的人”——那只会让让对方心存幻想，跳进一场不必要的拖泥带水。干净利落，是分手的另一准则。不要忘记感激对方给你的痛快“了结”，至少要带着祝福的表情离开。你可以伤心，也可以因为一时难以接受而咒骂，但都应该放在心里，跑回家之后再进行释放。永远不要让任何人觉得，你离开他就会死。希望你能正视分手这件事，明白这也是恋爱的一个环节，要做就得做全套。也希望你能尽可能地坚强，不要为“一盒过了保质期的罐头”而过于感伤，非但毫无意义，甚至称得上是在浪费生命。记住，不是谁被谁甩了，只是你们的爱情寿终正寝了。那就让它安息吧。对这世界和你漫长的人生而言，这只是一件自然、渺小得不足挂齿的事情而已。作者简介：鹿满川，青年作家，前媒体人，曾任《影视图书周报》《北方法制报》首席编辑，做过内刊主编。新书即将出版。欢迎关注作者新浪微博@鹿满川。左岸记：关于爱，除了问自己，情感专栏作者的意见可以听听，下面是连岳写的分手的12条金规：1.分手的可能性永远存在，任何行为与契约都保证不了，我跟他上床了，我跟他结婚了，我跟他有孩子了，我重病快死了，我长得帅，我有钱……任何一条或几条都绑不住人，爱人有腿，随时会走，这种危机感会让你时刻证明自己值得爱。2.没有绝对合理的分手理由。所以分手的理由生硬粗糙、无迹可寻是正常的，不过是“我不再爱你了”的变种。所以主动提出分手的人，最好说：我不爱你了。别东拉西扯。3.不是“他们不爱你”，是他不爱你，你的价值不会下降，不要试图证明你可以更可爱，你证明过了，别做无用功。4.自残乃分手大忌，无论这个方法广为情人所用，也无论它在中国传统爱情关系占据多么重要的地位。切记：我们绝不会因为一个人血肉模糊就爱他!5.也别违心地祝福他，以德报怨不是常人能做的事情，以直报怨即可，不要为了一时展示风度而懊恼。6.干净切割。不要尝试发现他“是不是还有一点爱呢?”你多半找得到这种爱的遗迹，这会让你产生等候宠幸的侥幸心理;也不要尝试发现他“离开我是不是生活得不开心”，你一定找得到他的不开心，就像你找得到任何人的不开心一样，这会让你产生他终究会浪子回头的侥幸心理。侥幸催人老，人老更侥幸。7.不要过多倾诉，他人的不幸是我们的快乐源泉。像那句俏皮话说的：有什么不开心的事，说出来让我们开心一下。8.不要迅速寻找替身，也许人人都有几个暗恋者，更有不少假借提供肩膀吃豆腐的小人。你若试图用一个新悲剧取代一个悲剧，你将得到两个悲剧。9.不要绑架他人，如家人、共同的朋友、尤其是孩子，他人不必承受我们的错误，也许可以强迫他们接受(尤其是孩子)，但这反而证明你是一个活该被抛弃的绑匪。10.人可以成为简陋动物，害怕新事物，对任何旧关系都有依赖性——哪怕是痛苦的、凄惨的、受迫害的关系——分手悲情容易诱导我们热爱简陋。11.人有潜能成为最丰富的动物，分手刚好趁机接触新事物——新男人、新女人。12.祝开心。任何一个厌世者在他死前三小时内都笑过。笑最慷慨，要多索取。看了这么多，可别以为分手是一种时髦，分手是对曾经的爱的尊重，时刻记得还有前面我讨论过的“情深且寿”。原文链接：http://www.zreading.cn/archives/4906.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

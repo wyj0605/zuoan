@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快乐有多难</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>快乐有多难</h1>
+            <div class="date">2015-07-10 23:38:45</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>前些日子有个段子，大约是说，想看一个人到底长什么样子，去看他/她朋友的朋友圈，里面的照片通常比较真实；再就是，一个人和朋友的友情如何，只需看合影自拍，他/她在美化自己的同时，会不会也顺道美化一下你。智能手机淘汰卡片机，这个时代跑的太快，倒是人总还是很爱惜自己的羽毛，漂亮的自己那是必须的，特别是在别人的眼里。据说，最爱惜羽毛的鸟是孔雀，连过个小河沟，也要把尾羽翘的老高。于是，古人矫情，汉·刘向《说苑·杂言》：“夫君子爱口，孔雀爱羽，虎豹爱爪，此皆所以治身法也。”联系到了做人做事，人格品格。唐德刚《胡适杂忆》言：“适之先生，爱惜羽毛。”，老舍先生称张恨水是一位“最爱惜羽毛的人”，大约都是这个意思。于是乎，想来我们自拍美化、摆拍POSE，也是无可厚非。在这个世界展示自己尽可能的美丽，碍不着谁还比较快乐，何乐而不为？快乐么？前些日子，朋友带着孩子从澳洲回来旅游，专程来西安，寻根的意思。女孩，会说中文不会写，澳洲的历史简单到一句话，“英国人来了，发现有金子，于是把土著人都杀了，然后觉得受英国管没劲，自己成立国家呗。”，不如西安动辄几千年的厚重。偶尔想，国外的孩子还是幸运的，光历史就省了太多的精力。或许如她后来跟同学说的，我比较NICE，于是孩子叽叽喳喳的话停不下来。结果，我哩哩啦啦说了半晌的历史，不知道是否教育到她了，她却几件小事两句话教育了我。一是见到了几个小玩意，跟她妈妈撒娇要买，她的理由很简单，好玩好看。妈妈自然如大人般的思维和习惯，大致意思是这样的东西买来没什么用，母女情深，纠结起来也有趣。到了最后，孩子似乎使出了杀手锏，“能好玩好看，就是有用啊。”于是，孩子最后得逞了，小得意和快乐，母亲满脸的无奈。二是，席间我和同学合影留念，摆了姿势，微笑。孩子很不满意，说没有真正的笑，我说因为牙齿的问题，笑起来很难看。她倒是说，“笑本身就是快乐的啊，和漂亮不漂亮有什么关系呢？”想想也是，呲牙咧嘴的笑着拍了。同学解释说，孩子初回国的时候，经常会和她说起自己的疑惑，就是国内人不怎么真正的笑。三是对一切新奇东西最直接的惊奇，哇…哇…哇…的一路，一般这个情况，家长大致会说些大惊小怪、注意形象、叔叔还在旁边的话。同学虽有些不好意思，到没有说什么，只是说孩子是没见过这些。孩子倒是在真实、真性情，真诚的活自己。把好玩好看当做有用，把恣意的笑认作快乐，把惊奇最直接真实的表达出来，她应该是快乐的吧，她的羽毛是不是更五彩和耀眼？那我们的呢？“爱惜羽毛”该如鲁迅说的，如些“敝帚自珍”的意思，完全是个人的事情。现如今，倒是成了自己的壳儿，每天活在里面不自在，却还穷其所有的美化、打扮、化妆、打理不止。这东西是否有用，比这个是否带来快乐重要；这是否影响自己在别人眼里的形象，比自己能否开怀大笑重要；及至遇到自己心仪或惊奇的事儿、物件儿，我们先要矜持一下，看看四周，拿出一副稳重的样子，才顺势应境，应景儿而得体。大致着，自己为了一个别人眼里的羽毛，丢掉了自己的快乐。同时着，还矫情自己是多么有着修养和内涵。诚实和真诚是两码事，诚实是对这个世界、真诚多少是照应着自己的内心。诚实活着的，大多数被世界教训的鼻青脸肿，真诚活着的基本都修行的位列仙班。约摸着，又落到俗套里了，不真诚对待自己的内心，大约也无权快乐，也无权拥有自己的人生。老子说你最好活的像个婴儿，我们活如婴儿是没戏了，因为还要挣口饭吃，要不哪一天说不定就饿死了。倒是对待孩子，让他们带领我们学会真诚，这招儿倒是可用。快乐有多难？我想，偶尔也学会去好玩好看，而不是想着这个东西是否有用，快乐该是最有用的东西了吧。再，拍个照是真实的自己，真正快乐和大笑的自己，留下的该是自己记忆里的美好，不用那么磨皮美化。也或许，邂逅到惊奇、惊喜，我们真的可以让自己不顾及周边的表达，那样也就没那么多的无聊和悲欢离合。当我们的孩子如此的时候，我们不去质疑，起码做到旁观，或是进上一步，与他们一起快乐。这是对我们爱的人，和爱我们的人，或是对自己，最快乐也最简单的事情吧……左岸记：嗯，真正的快乐就是你正好实现了某种心理预期，这种预期越是真诚，快乐就越是持久，这种预期越是宽广，快乐就越是深远。原文链接：http://www.zreading.cn/archives/4976.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

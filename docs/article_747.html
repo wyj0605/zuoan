@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>等死模式与穿越模式 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>等死模式与穿越模式 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>摘自：古典《拆掉思维里的墙》</p>
+<p>我在飞机上遇到一位女士。她去年本想考自己喜欢的研究生，结果失败，却出乎意料地遇到了一份不错的工作。今年是考还是不考？她害怕考了又考不上，浪费时间；但是不考又不安心，已经纠结半年了。</p>
+<p>我问她，去年你每天花多少时间学习？</p>
+<p>她说我去年每天大概4个小时，学了3个月，考前一周突击了一下，就差3分。</p>
+<p>我又问她，现在你每天烦这件事情大概花你多少时间？</p>
+<p>她说从过年到现在（6个月）每天都在想，上班下班都想，烦死了。</p>
+<p>花时间来郁闷，是等待成本。</p>
+<p>花时间来尝试，是穿越成本。</p>
+<p>这位女生花来郁闷的时间，如果是每天5小时（上班下班都在想），一共6个月，那就是9000小时。而去年她差3分就过的考研，每天用4小时，3个月，考前突击一周（算每天20小时），成本计算如下：</p>
+<p>穿越成本：（4h × 3 × 30）＋（20h× 7）= 500 h</p>
+<p>等待成本：5h× 6 × 30 = 900h</p>
+<p>等待成本几乎是穿越成本的1.8倍!</p>
+<p>在这个故事里面，这个人陷入一个这样的心智模式：越等待，越没有时间和信心；越没有时间和信心，就越不敢考研。这个人会在今年考研前最终放弃，在新的一年，等待的焦虑会继续消磨这个人的信心和能力，一直到她终有一天完全放弃为止。</p>
+<p>当一个人等待与拖延的成本远远高于他真正开始行动所需要的成本，他就会慢慢陷入越等待越不行动的怪圈。我把这个模式称为：“等死模式”。</p>
+<p>我在一个聚会中间谈到了等死模式。听完我这个故事，我的一个朋友走出去，十分钟后满脸喜色地回来告诉我们，YEAH！成了！</p>
+<p>什么成了？原来这几天，她一直在纠结自己是不是该给一个大客户打电话。这个客户是她的一个重要资源：如果打了，她担心人家觉得自己公司刚创业，对自己印  象减分；如果不打，这个单子肯定就没有下文了。比这个更加纠结的是，她已经为这个事情头痛了一星期，开始失眠，和家人发脾气，面对客户越来越没有信心  了。</p>
+<p>她听完故事，迅速计算了一下自己的等待成本和穿越成本。</p>
+<p>与其在等死模式中消耗自己的心力与体力，还不如去试一试！她走到洗手间，心跳加速，打通电话，惊喜地听到对面的客户爽快地答应自己，对方还开玩笑责怪她说：为什么现在才说，还以为你找别人了呢。</p>
+<p>一旦你陷入了等死模式，最好的选择就是行动起来，进入穿越模式！穿越也许会有短期痛苦，但是等死往往会带来更大的永久损失。《战胜拖拉》的作者尼尔•菲奥里在书中写道：“我们真正的痛苦，来自于因耽误而产生的持续的焦虑，来自于因最后时刻所完成项目质量之低劣而产生的负罪感，还来自于因为失去人生中许多机会而产生的深深的悔恨。”</p>
+<p>PS：这下可以对前面“不等待，坚定走”这篇文章给予一个非常准确的心理解释了，这就叫一针见血——不等待，就穿越吧！。</p>
+<p>附：精美的ppt</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一个人的宽度决定高度 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>一个人的宽度决定高度 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/任俊正</p>
+<p>我们常常忽视个人的边界，因为我们无法感知到底什么是个人的边界，也无法界定。但是，我们常常又能够非常清晰地感知到别人的边界。</p>
+<p>我们常常讲“某个人成不了大事，做事太小气”。为什么成不了大事，因为他做事太小气，常常缺乏大气。那么什么是大气，什么又是小气呢？这就很难界定了。对此，有人会说，人应该胸怀宽广些，容不下人你就无法成就大事业；有人会说，人应该不要为眼前的利益所限，为了眼前的利益你会损失未来的利益；又会有人说，人啊，不要总是保守，要思维开阔，保守了你就成不了大事。</p>
+<p>胸怀有多大，事业就有多大，这就是格局决定结局。</p>
+<p>眼界有多宽，事业就有多大，这就是宽度决定高度。</p>
+<p>意识又多新，事业就会有多大，这就是性格决定命运。</p>
+<p>人的胸怀是一个能包容的东西多少，眼界是一个人看问题的方式，意识是一个人性格的体现。一个人能够包容的东西越多，不仅能包容眼前的人与事，也能包含天下的人和事，还能包含未来的人和事；他的视野越宽，不仅能看到现在的事物的表象及隐藏在背后的规律，而且可以看到过去的及未来的事物的表象与规律；他的意识越新，他不仅能够包容一切，看到所包容的事物的本质，而且他在自己的思维方式及意识方式都能够使他个人接受并随之改变，那么他的成功的可能性就越大。</p>
+<p>由胸怀、眼界及意识共同作用就决定了一个的边界。</p>
+<p>那么现在的问题是，边界又如何确定呢？它的确定机制是什么呢？我们又如何通过努力去改变自己的边界呢？如果不把这些问题搞清楚，那么就会陷入只知道概念，但不能落实的状况。</p>
+<p>平时，我们也知道性格决定命运，也知道应该胸怀更广，也知道眼界要宽，但是常常当遇到具体事情时，还是不能拿得起放得下。例如，你也知道不能为小钱计较，但是当同事比你奖励多拿了五元，你还是心里不舒服。不舒服就不舒服了，但还会因此让别人说你成不了大事。</p>
+<p>在看了有关企业的管理理论后，发现企业的边界实际上与个人的边界有着非常类似的机制。</p>
+<p>企业边界是由交易费用来决定的。市场交易总是要花些成本的，无论是时间成本还是物质成本。当生产方式以企业方式组织时，这些交易成本就会降低，就采用企业的方式。当采取市场方式成本低时，就采用市场的方式。随着企业规模不断增大，交易成本就会增加，增加到了，如果再增加就大于市场交易成本时，就不如不用企业方式。也就是说，企业的边界是由企业行政官僚体制构成的交易费用与市场机制所形成的交易费用相等的那个平衡状态决定的。</p>
+<p>再说到个人的边界。</p>
+<p>一个人随着事业的扩大，他所面临的事情当然就越多，他会越来越感到力不从心。我们经常能看到，做一个车间主任还可以，但是升到了生产副总就不行了。也常常看到，在一个小地方他能如鱼得水，但到了大地方却象是傻瓜一样。</p>
+<p>随着一个人事业不断扩大，他将会面临行行色色的人，行行色色的世界观及方法论。</p>
+<p>如果他个人的世界观能够融合别人的世界观，并能够将别人的世界观在自己世界观里有序排列，那么他越会感到游刃有余。他的范围越大，能够融合别人的世界观越多，但随着范围越大，有序可能性就越小，最终变得无序。</p>
+<p>个人的边界就在于当他的世界观包容有序度恰好等于世界观随机有序度时的位置。</p>
+<p>举个例子，我们一个人时，我们世界观假定也是单一的，没有吸收任何外界的信息，那么有序度最大。这就是我们感觉到婴儿有无限前途的原因。随着年龄的增长，我们不断吸收别的信息，我们世界观内有序度就会开始变小。我们常常会感到矛盾，但能够控制。不过人与人之间就有了差异。你控制不了了，你的边界就到了。</p>
+<p>世界上有着无数的世界观，之所以能够存在，就是因为他们可以融合。融合不了，是因为我们受到自己的范围内重新排序的难度，你越能克服这些难度，你的边界就越大。</p>
+<p>这就是所谓的大气。</p>
+<p>一个人要成就大事，就必须不断扩展自己的边界，使自己能够更多融合其他的世界观。</p>
+<p>这中间，一个人世界观有核心成份，有紧密成份，也有松散成份。</p>
+<p>不断扩大你的核心成份，你的核心竞争力就会越强。</p>
+<p>当你的核心成份很小，动不动就与别的成份冲突时，你就表现得越小气。</p>
+<p>那么，你的核心成份有多大呢？这就需要你不断思考，不断调整，你的事业就会不断变大。</p>
+<p>左岸记：我想，除了与人交往，阅读大概是最能体验到形形色色的世界观了，直接而高效，我们又怎么能错过这样的好方法呢！</p>
+<p>扩展阅读：建构自身的“知识生态系”</p>
+<p>学习知识的读书：扩展思考范围的“广读”</p>
+<p>掌握智慧的读书：亲身感受的“体读”</p>
+<p>心灵食粮获得的读书：与作者神交的“心读”</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

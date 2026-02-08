@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>做一个好的提问者 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>做一个好的提问者 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>这是在@秋叶的微博上看到的，觉得很有道理。</p>
+<p>给想做一个好的提问者的九个建议</p>
+<p>在网上时间长了，我有机会接触形形色色的求助者，提出种种不同的问题请教我。大部分热爱提问的朋友不过是用提问掩盖自己缺乏独立思考能力，用学习掩饰自己不思进取的现状而已。他们用一些容易的行动欺骗自己在努力，也希望别人看见他们在努力，但是一切自欺下的努力都不会导致真正的进步。</p>
+<p>对于网上求助者，我的心态也不是没有变化。刚开始觉得有人提问很有成就感，毕竟有认同度才问你，然后也会慢慢变得厌烦，毕竟大部分人问的不是有质量的问题， 他们不过是把你变成一个常规问题复读机，特别是有些问题，其实和我的专业完全无关，不知道为什么也问？但是也有开心的时候，因为偶尔还是会遇到有水准的朋 友，好问题会让别人愿意思考一个好答案。</p>
+<p>如果你真的想做一个好的提问者，我倒是可以提几条建议：</p>
+<p>1、如果你是要别人的联系方式，提问前请花一分钟看看别人的公开信息，也许你要的联系方式都在其中…</p>
+<p>2、提问前请判断下你问的人对此领域是否专业，假如你要问他一个非专业的问题，你得提供一个好理由…</p>
+<p>3、用不同的关键词在百度谷歌上试试搜索你的问题，或者去图书馆查查资料，无路可走再尝试提问。</p>
+<p>4、哪怕是非正式提问，也得先介绍下自己，别以为网络互动过，别人就该记住你…</p>
+<p>5、问题越具体别人越好回答，尽量让别人做判断题，没有交代背景的问题我们基本上只能用外交辞令回答…</p>
+<p>6、如果问题不紧急，优先去一些好的提问网站，比如百度知道，新浪爱问，知乎这样的社区提问…</p>
+<p>7、不要指望请名师指路，他们可以提出看法，但决定权是你的。</p>
+<p>8、有时候你的问题需要别人做大量的调研才能回答，你得评估下你是想提问还是想偷懒，假如想偷懒，你应该先考虑为别人的劳动付费，而不是打着所谓免费分享的口号去鄙视别人拒绝提问。（有内涵的人愿意免费分享是有爱，没内涵的人逼别人免费分享是自私。这点区别我很早就清楚，不过很多人不懂）</p>
+<p>9、不能强求别人回复，你都要先给别人一个谢谢，不管回复不回复，至少我要花时间阅读你的问题吧？</p>
+<p>最后一句忠告：不管你觉得通过提问学到了什么，但是伸手党永远是没有地位的，提问是为了让自己能够尽快独立思考，进而启发或者帮助别人，而不是爱上提问，依赖别人来指导自己的工作、学习和生活。</p>
+<p>左岸记：这里我补充一条，就是要记得给回复者进行一定的效果反馈，不论回复者的建议最终是否有用。这几年来，也有一些读者通过邮件与我探讨过生活中遇到的一些难题，只要我能回答的，我都用心地回复，遗憾的是，我很少收到回音，也不知他们后来问题解决了没有，有时想起，总觉得有些遗憾。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

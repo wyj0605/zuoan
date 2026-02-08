@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大通铺记忆——甜蜜的空气</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>大通铺记忆——甜蜜的空气</h1>
+            <div class="date">2014-11-02 22:04:56</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/夏天的风前天吃饭，朋友跟我讲起来她的住校生活，说她住过最苦的集体宿舍，是一个大屋子里有20多个人的通铺。我便想起了自己。2000年，我开始离家住校，那年我13岁，又瘦又小，一直到了高中毕业前几个月，我的座位才从班级最前排挪到了后面。宿舍几十平方米的屋子，住了上百个人，上下通铺，一人一个枕头的地方。那一年，我们抢床铺，像划三八线一样一厘米一厘米的偷偷挤过去，因为真的太狭小了。初三冬天的一个夜里，发现窗户玻璃不知道什么时候掉了，没人管，外面下着大雪，屋里就飘着小雪，隔天早上醒来一看，靠窗户的那排床铺上都已经落满了白雪。好在低一年级的妹妹们都已回家，床铺空了。什么炉子暖气空调，那时候通通不曾见过，也未想过。骑来上学的车子都是珍贵的，舍不得放在外面，就搬到了屋里。我们用厚厚的棉袄盖住头，钻进被窝，挤在一起，守着那一辆辆破车子，挨过一夜。第二天，却是睡过了头，那是我寄宿中唯一一次睡的失去了时间感，自然，挨了训。那时候的冬天我们不怎么洗脸，因为没有热水没有暖壶也没有自来水，所有洗刷的水，都要自己用水井压上来的。冬天清晨五点多的时候，漆黑一片，有勇气去教室学习，却少有人有勇气想办法弄开冰压水洗脸刷牙。我们土气，大概是因为，从理论上说，初中该变美少女的时候，我们却是“蓬头垢面”。不过现在回想起来，一点也没有不自在的感觉。参加中考时，我们住的还是大通铺。哪有什么父母陪读、接送考试，我们跟家里说要考试，便屁颠颠的跟着老师去了县城。考试为两天，要住两个晚上。现在我回想我当时考试的心情，已经完全没有印象了，我们都不怎么紧张，父母的心情却是很不平静，作为父母，不管有没有文化，贫穷还是富裕，心情大概是一样的。那时候我心里好开心，有免费的饭菜，还可以在县城住宾馆。到了宾馆，为了迎接中考，没有住几百人的房间，便在大厅设置了大通铺。大厅的外面是男生，女生在里面。晚上有老师整夜查岗，不让我们兴奋的聊天，影响睡眠。那时候不兴奋才怪，多么大的事儿啊！当时没觉得中考会决定我们什么命运，而后才恍悟，真的很多人就在那时改变了自己的人生轨迹。那年已是2003年了，条件好了很多，但是我的同学，依然有因为家庭贫困亦或是重男轻女的原因而终止学业的。我有一个朋友，就曾经一个人骑了好远的路，一路打听着到那个弃学的同学家里，劝说她的父亲，让他学习成绩还不错的女儿继续上学，结果无功而返，特别伤心，回来大哭了一场，还要我再去劝说。我现在回想起来，当时朋友的举动，真的堪称伟大，比我勇敢善良多了。大多数同学是继续上学的，分在了不同的高中班级，而后考进了不同的大学，如今过上了看起来一样的平凡日子，没有什么慷慨激昂的热血史。人生走来走去，总是要再次统一的。2003年，我考上了高中，家庭困难也罢，成绩不够拔尖也好，终归没有放弃继续求学，也不再有通铺。尽管冬天的暖气毫无温度，但是条件已经大为改善，终于熬上了一人一床的日子。那些挤挤插插的日子，再也未曾有过。2006年，我顺利地考上大学，住上了带有半圆阳台的美丽的大学寝室。冬天外面下雪的时候，屋里只盖一床被子便不觉得冷。毕业参加工作，在零下二三十度的东北，也不再有那么寒冷和拥挤的夜。现在住了公寓，通铺的生活越走越远，即便是时间不久，在我心里，也成了一个将来可以为后人讲述的，可圈可点的年代故事。那些曾经的通铺生活，今天重现于我的脑海，像一幅可爱温馨的画，把冬夜那些飘然而至的雪，都化为叮咚泉水，淌过心间，晶莹剔透。那些叽叽喳喳的小伙伴，如今散落天涯。夜晚爬铁门翻墙去厕所的日子，晚上点着蜡烛自习的生活，还历历在目，撩起今日的遐想，充满着对生活的珍惜和热爱。不管一个社会多么富裕，从一无所有的起点奋斗才是“王道”。失去了这种精神，社会就失去了进步的动力。这倒让我想起美国一位专栏作家说的一句话：“所有的中年成功者，如果可能的话，都愿意以自己所有的成就和金钱去换回当年那穷困潦倒的蜗居生活。”年轻时代是人生的幸福和美感所在，你失去了对这种东西的感受能力，你就失去了生活。我想，活着或者奋斗，就是为了眼见的幸福。要对得起那些逝去的岁月，要心中感念着走入生命中的每一个人，还要愉快的活在当下。对于热爱生活的人，过去、当下、未来一样好。原文链接：http://www.zreading.cn/archives/4616.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

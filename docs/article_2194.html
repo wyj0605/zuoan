@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们生而快乐，悲伤则让我们走得更远</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我们生而快乐，悲伤则让我们走得更远</h1>
+            <div class="date">2015-11-11 01:01:02</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/加布里埃尔最近，皮克斯的新作《头脑特工队》引起了电影人和心理学者的共同关注，这部电影被称为最适合大人观看的动画片，影评家更将这部作品评价为近年间皮克斯少见的精品。影片中形象地描述了儿童的性格、情绪、行为、记忆等一系列抽象思维，影片中的五位情绪小人：乐乐Joy、忧忧Sadness、怒怒Anger、怕怕Fear和厌厌Disgust，轮番主导11岁小女孩莱莉的行为，合力组合成她完整的人格。简而言之，皮克斯用一部动画片为大家科普了一把心理学。在电影中，11岁小女孩莱莉头脑里的5种情绪，都发挥着各自的作用。比如，乐乐带给她快乐，怕怕帮助她远离危险，厌厌让她免受伤害，而忧忧更是在片中担任了至关重要的角色。整部电影的故事主线是莱莉的两大重要情绪“乐乐”与“忧忧”，意外被发射到长期记忆储藏室后，两人克服艰难险阻，重回头脑总部。而在回家的路上，它们误闯了莱莉头脑里的各种领域，引发了一连串的行为故事。莱莉的性格最初由乐乐来主导，这与我们所了解的科学相符。我们的个性是由特定的情绪所定义，这形成了我们感知世界的方式，表达自我和回应他人的本能方法。正如影片所描绘我们生而快乐，快乐情绪是我们接触世界的原初表现。随着情绪小人的冒险之旅，莱莉逐渐感触到悲伤、愤怒、恐惧等情绪，童年、青春、成年、衰老，人生似乎就是一部走向悲伤的故事。然而故事结局却告诉我们，“乐观”需要明白，时不时让“悲观”待在控制室里没什么问题。一味的乐观并不能解决一切问题。有时，我们需要消极情绪的介入，恰恰是一系列复杂的情感之间的相互作用，才形成了人与人之间真正的联系。把“积极思维”放在一边你可能会觉得“悲观”是一种必须拒绝的负能量，代表着一切消极状态，是无用的行为。生活有以教我，事实并非如此。“当你发自内心地相信自己会成功”，有很大几率，结果没能成功；如果你最开始对成功抱有60%的希望，甚至做好了“最坏的打算”，有很大几率，最终你获得了成功。你通常不会在意这种情况，或许认为是出于偶然，其实这种情况却是有理可据。著名心理学家加布里埃尔•厄廷根提出了乐观与悲观共处的合理理论——WOOP思维理论。她向大家证明：美好的憧憬（乐观的幻想）对实现梦想的作用并非像人们鼓吹地那样好，美梦可能会让我们松懈下来，反而与成功渐行渐远。梦想很丰满，现实很骨感。乐乐和忧忧来到梦寐以求的想象之地，看到的是被摧毁的饼干城堡、破碎的公主梦以及倒塌的毛绒玩具名人堂。最后，乐乐和忧忧一起坐上思维列车，穿梭于莱莉的脑内，开回头脑总部。生活中所有的经历一点点汇集、堆积、分解、合成，穿过重重关卡驶向终点。那么我们如何控制和影响这一系列脑内活动，让梦想与困难“齐头并进”呢？加布里埃尔•厄廷根教授将基于“心理比对”的4个思维步骤称作“WOOP”，即“愿望（Wish）、结果（Outcome）、障碍（Obstacle）、计划（Plan）”来为这一系列脑内活动助力，引导我们通往梦想和成功。WOOP的原理在于，要让大脑行动，必得先告诉大脑“对结局保持乐观”，而后阐明“还存在哪些差距”，最后提出结果方案“遭遇挫败时该怎样行动”。现代社会，人们都是来去不定，愿望或目标，或追逐或撤离。WOOP是一种工具，它就像锤子、钢琴、自行车一样，可以有不同的用法、有不同的结果。它是一个机会，让你解开束缚，从壳里走出来。即使是在一个自由得到保障、有很多选择的社会里，由于受到多重烦心事或忧心事的困扰，我们真正享受到自由也不算多。我们跟自己说，不能做这个，不能做那个。我们不敢直视自己的不安，将挫败归咎到别人或外部环境上面。我们得解放自己。我们得调整自我，这样才能始终追求自己的梦想，而不是被别人的想法或言语所左右。我们还要管好自己，这样才能在千千万万条路里做出明智的选择。花一点时间，想象一下自己渴望的未来，再想一想妨碍了愿望实现的内部因素，这么一个简单的行为就能有天翻地覆的影响。透过层层借口和未经证实的信念，筛选种种彼此冲突的选择，从不切实际的愿望里抽身而出，向着可以达成的愿望前进。唤醒潜意识，锁定可以达成的愿望，全力以赴朝着选好的路前行。重新审视积极思维，进而形成新的动力学说，再将其应用起来，去改善人们的生活、解决社会问题；这件事我们才刚刚开始。但有一件事我们很清楚：要想活得明白、活得充实，就必须勇敢面对在妨碍实现愿望这件事上自己所扮演的角色。认识到这一点并不复杂，但其意义深远，足以影响你的一生。有了WOOP和“心理比对”，我们就能在它们会给我们及周围人带来益处的时候，全力以赴行动起来。如果能够一边在脑中“做梦”，一边立足现实的话，我们就能振奋精神，直面人生——抓住人生里最真切、最持久的东西。请记住，我们生而快乐，悲伤则让我们走得更远。文章部分内容来源于《WOOP思维心理学》《WOOP思维心理学》由美国纽约大学&amp;德国汉堡大学心理学教授加布里埃尔·厄廷根教授综合20年实验研究成果提出WOOP思维理论，为你揭开梦想与成功的心理学秘密。诺贝尔经济学奖（2000年）得主詹姆斯•赫克曼、2007年奥斯卡金像奖最佳外语片导演弗洛里安•唐纳斯马克、哈佛大学心理学教授丹尼尔•吉尔伯特、斯坦福大学心理学教授卡罗尔•德威克等数十位权威专家联袂推荐。原文链接：http://www.zreading.cn/archives/5136.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>走过的那座城市</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>走过的那座城市</h1>
+            <div class="date">2015-02-03 00:07:53</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/九曲三相你的一生到过多少城市？还没有到生命的终点，我怎么能知道自己会去过多少城市？那你迄今为止总共去过多少城市？我想想。北京，上海，广州，深圳，重庆，成都，西安，沈阳，大连，济南，烟台，杭州，苏州，镇江，石家庄，三亚，厦门。这些城市，到底都是去过的。大部分是因为工作、出差，少部分是因为旅游，但哪一个才是自己真正喜欢的城市呢？这三十多年来，居住时间最长的当属北京城。这座庞大的城市，埋葬了我十几年的春夏秋冬，凭添了几丝白发，加深了几条皱纹，但我却越来越害怕生活在这里，却也越来越离不开这座城市。初到京城，哪里都是欢喜的目光，哪里都是新鲜的足迹。记得2002那一年的夏天，和几个同学去南城看望另外一个同学。嘻嘻哈哈之际，天色骤变，紧接着是劈头盖脸的暴雨，让我这个从十年九旱辽西地带走出来的人十分惊奇。那一次大雨足足下了一天，大街上都是没过脚踝的流水，广渠门桥下也淹了好几辆车，其中居然还有一辆大公共。就在暴雨如注的时刻，我和同学泡在室内游泳池里，扒着池边，望着窗外的雨水，不知道在想着什么。现如今，同学们都已娶妻生子，见面的机会却越来越少。好几次说着要聚聚，最终都不了了之。只是那场大雨，至今让我难忘。以后的十几年间，这座城市越来越大，人口越来越多，遇见的人也各色各样。有些人巧舌如簧，有些人诚恳老实，有些人冷淡如冰，有些人笑靥如花，凡此种种，都或多或少在我的心间留下了一点点印记，又都随着另外一些人的闯入，而逐渐淡出我的生活。我没有可以怀念的谁，正如同也没有人会刻意怀念着我一样。大家都在某一个地方，不经意地共同度过一段时光，然后匆匆赶往下一个地方，继续着同样的轮回。但凡在一个地方久了，总会有些倦怠，有些厌烦，总想着逃离这里，去那些去不到的地方，希冀带给自己更快乐的生活。可是，沙漠的尽头还是沙漠，山的另一面也还是另一座山。每一座城市，都只是一个代号，一个空壳。无论这代号空壳，有着多少楼台殿阁，多少文物古迹，多少青山绿水，最终还是脱不了生活在这里的人，发生在这里的故事。所谓的倦怠和厌烦，并不单单是对一成不变或者日新月异的外观，更多地还是对那些影响自己的人，对那些看不过眼的故事。在广州时，很厌烦单位里的一把手，觉得这样一个有身份的人，整日找些乱七八糟的票据，套取千八百块钱，丢不丢人？事实上，有些所谓的高管人员，是不在乎这些丢人小事的，他们喜欢用这些看起来庸俗不堪的手段，小心翼翼的填补自己那些欲望的沟壑。后来，那个人不知所踪，他的龌龊故事则流传至今。可是，我并不因此讨厌广州这座城市。广州酒家的早茶，友谊商场的不见不散，顺德的双皮奶，都让我记忆犹新。尤其是几个大学同学在一间西北饭馆里，光着膀子喝啤酒吃汆白肉的画面，一直保存在我的记忆深处。那时，不需要顾忌体重，不需要考虑脂肪肝，只是为了曾经的同学岁月，为了异域的相聚，痛快地喝酒、吃肉，恣意地挥洒青春，仅此而已。曾经有一段时间，我沉迷于看玄幻小说，各种洪荒故事，百看不厌。但突然有一天，我就不再想看这类小说，没有任何可以认真思考的原因，只是不喜欢了。而我和同学的关系，也突然在某一个时间隔断开来，不再有聊天，不再有电话，就这样在同一座城市，自己过着自己的日子。原本惴惴不安的心情，也因为时间的麻醉而变得心安理得。同一条长河，在西藏叫做雅鲁藏布江，在云南叫做湄公河。同一个人，在十八岁遇见了学校里的同学，在二十八岁遇见了工作中的同事，一段故事紧接着另外一段故事。主人公还是同一个人，只不过变换了剧目和参与者，增加了阴谋与战争的戏码，分裂了纯洁与复杂的灵魂。事情变得越来越简单，人心变得越来越复杂，灵魂变得越来越沉重，步伐却还挣扎着要跑向光明的未来。即便到不了那个光明的未来，逃离这个舞台，去往另外一个城市，变换一下脸上的面具，短暂地改变一下自己，也是极其幸福的憧憬。人生终究是无法逃避的，纵然你去过再多城市，也必然要停留在一处，生根发芽。纵然你再厌烦那些你日日见的人，厌恶那些你不愿见到的丑陋交易，你也无法因此而否认生活中光明美好的一面。那大雨下的泳池，那粤语中的西北豪情，那一份份隐藏在内心深处的友情，都会成为你坚强面对你所厌恶的一切的源泉，成为驱散你前进道路上重重迷雾的阳光。一生何其漫长，足以让我们有时间踏遍无数个城市。一生何其短暂，我们只能选择一个城市匆匆埋葬自己的生命。无论你喜欢还是不喜欢，那座城市就在那里，静静地等着你的到来。-------------------后记：清晨离开家门，外面还是漆黑一片。遥远的东方，微微泛白的天空，散发着神秘的色彩。每一天，太阳都照常升起。每一天，都是崭新却又重复的一天。在这不断地重复与崭新中，我们迈入人生的一个又一个良夜，最终走向咆哮着的强光之中，化为无尽的尘埃。群星灿烂，月光温柔，一切如流水般梦幻，一切如梦幻般淡去。左岸记：一个时代，一个人是可以见证一座城市的发展变化的，有些东西会变，有些内涵却是岁就迷香。当小时候走过的古街，见到的门市，印象中的小店，留在记忆中的味道，如今要再去找寻的时候，已然不复存在。可是当你静静地站在以前走过的地方，那种几十年时间洪流的瞬间重叠让你会有眷恋的深情，你会释然一笑，城市是变了，人也变了，只要是都变得更好，那这座城就会永远美好地印记在彼此的心里。城市会记住你，你也会记得这座城里的每一个角落。原文链接：http://www.zreading.cn/archives/4783.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

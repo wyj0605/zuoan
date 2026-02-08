@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跑步管理学</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>跑步管理学</h1>
+            <div class="date">2014-07-08 23:09:18</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/古典(新精英创始人)“古典，很多商界大佬都喜欢跑步！”Jamie听我说在跑步，这么对我说，也不知道是不是要激励我。她自己也特能跑，跑过东京和波士顿马拉松。而我是一个刚起步的跑者，对成为大佬毫无兴趣，开始跑步纯粹是好奇 ——我认识很多以枯燥的跑步为爱好的人，每年还飞来飞去参加各种马拉松折磨自己。这些人大多不是宅男，还都是一些有趣又优秀的人。这里面肯定有点不试不知道的门道。开始跑才知道，和机械重复的外表不同，跑步是一项极其敏感的活动 ——你把身体向前倾斜一个细微不可见的角度，把手臂稍微摆高一点，速度立刻便有所改变，下一步小腿肌肉就会受力不同，呼吸会在十秒后变快，心率则会在1分钟后提高，而这些细微的影响的积累，会在 1公里以后让你越来越平顺，或者受不了停下来。在跑步机上看韩剧的人们，也许很难体会这些吧。也正是因为这种敏感，跑步与管理及其类似 ——看上起你在为要在某时达成某事持续做同样的事，但表面重复之下，需要无数次的微调，这些小调整或对或错，逐渐滚动如雪球，在日后积累出巨大的不同。改变你人生的也许不是惊天动地的大决定，而是那些日积月累的细小调整。试举其三。“全力以赴”最可怕为什么人们痛恨长跑？大部分人是被中学的跑步经历吓到：从来不锻炼的你双腿微抖站在400米操场跑道上，随着体育老师一声哨响万猪奔腾。你生怕落后，全力以赴。第一个400米就心砰砰狂跳，跑到第二圈肝开始疼，而且你还发现有个孙子第二圈才加入队列，超过你在前面做痛苦状冲线，然后是整整一个上午的恶心头晕……有这种印象的你很难不痛恨跑步。真正健康的长跑需要压低节奏，千万不要一上来就“全力以赴”，以能够正常和朋友说话聊天想事的节奏往前跑，并且一直保持下去。几分钟后，呼吸、心跳、脚步逐渐合拍起来，汇聚成一个独特的节奏。此时跑步变成为一种享受，内在的节奏稳定一致，而外在的景物流动，随着春夏秋冬，世界在你身边流转起来。同样道理的是管理 ——大部分的人之所以痛恨管理，因为他们的第一次的管理或被管理经验极其可怕 ——一次不得不开始的严肃谈话，主持一个明知道结果操蛋的会议或者是一个必须周末做出来的项目。这让很多人一上来做事情就“全力以赴”。全力以赴的管理和跑步一样，都不可能长久，一旦你的热情和自控力消耗完，你就会落入如高中跑步的状态，头晕眼花，发誓再干是孙子。而一个一拍脑袋热情的项目，即使最后成功，也会在结束后让你懒得碰流程表、会议或者沟通很长一段时间—— 失去了自己的节奏，看似走得快的人，现在变成最慢的了。跑步如人生，长远的胜利，来自于把握自己的节奏，要看多远？跑步要看多远？标准动作说，要平视看前面大概 5米的地方，但是在真实的跑步中，看哪里很有学问 —— 一旦你面临上坡，跑得很累，你就可以把视线往下看—— 这时地面嗖嗖向后，让你的潜意识觉得自己跑的还蛮快的。而一旦你跑的很舒畅，你不妨把眼睛看远一点，看到远处的目标，让你更有动力。人生管理何尝不是一样？当难度很高处境难熬，最忌讳的就是看得太远，此时不妨给自己定个短期目标。而当人生比较顺当时，一定要拉出个战略高度来，想想更远的未来，风物长宜放眼量。太多生活一直太顺而习惯了远视的人，遇到个上坡眼光收不回来，就会一直卡在某个坡下，或者虽然跑着，却永远觉得自己不够好。别当装备党如果你周日早上去北京奥森公园，你会看到装备党们集会 ——他们皮肤白皙，戴着专用跑步太阳眼镜、耳挂耳机连在臂带上的手机上、手臂下面是专业测心率的手表；身着荧光绿领跑速干衣、黑色半长紧身裤下带着2个护膝，配一双极炫的跑鞋，慢慢的被一个穿大裤衩的大爷以温柔而坚定的速度超过 —— 太阳眼镜有效的遮档了脸红。装备党的问题是什么？用一个哥们举例 —— 他一开始跑步，觉得需要听歌保持节奏，然耳机总掉，于是买了头挂式。接下来耳机线又总是晃来晃去惹他心烦—— 他认定这个才是他突破 3公里的障碍，于是网购了连耳机的头戴MP3，终于听上了音乐。于是他发现大部分歌曲与跑步时的心率不符，会产生干扰。他又花2天找到专门根据心率找歌的网站下载大量歌曲。你以为现在一切到位，可以开跑了吗？他的注意力又指向了北京的雾霾，据说上100对身体不好啊……是不是该搞一个运动口罩啊（还真有这个东西啊！）看出来了吗？装备党们的最大问题，是他们关注的不是目标，而是不断转换装备的新鲜感，这新鲜感给他一种“自己在变好”的幻觉，而这幻觉则让他忘记自己的无能—— 一旦一个人迷上这种新鲜感，他（和他的团队）就会处于不断的寻找新的“趋势”“模式”或者“工具”的路上，每隔一段时间换个方式，几次下来，耗尽人生与可能。其实最好的跑步者，都是系上鞋带就能开始跑的人，而最牛的管理者，不是每天玩 PPT讲概念天花乱坠的人，都是把自己肉身锻炼得炉火纯青的人儿啊。我要告诉Jamine ，商界大佬都跑步，我有点信了。左岸记：“当我跑步时，我在想什么？”村上君说，“提这种问题的人，大体都没有长期跑步的经历。”普通人的跑步，大概是为了不想什么吧。而对于已经习惯了跑步的人，跑步对身心的调节应该是很有帮助的吧。“当受到某人无缘无故（至少我看来是如此）的非难时，抑或觉得能得到某人的接受却未必如此时，我总是比平日跑得更远一些。”跑步，就是让柔软的时间和气流在有节奏的身体运动中变得无限充盈。如果你是个修行者，那么跑步正好是个很好的途径，村上跑一百公里超级马拉松所达致的境界是令人羡慕的：“我现在的世界，从这里到三公尺前就结束。没有必要想更前面的事。天空、风、草、吃草的牛群、旁观的人、加油声、湖、小说、真实、过去、记忆，这些对我来说，已经没有任何关係了。”然后他跑过了七十五公里，“好像一下子穿过了什麽东西……简直像穿过石壁那样，身体通到另一边去了”。他发现在“跑到最后，不只是肉体的痛苦而已，连自己是谁，现在正在做什麽，大体上这些事都从念头中消失了”。“我是我，我也不是我。这样觉得。那是非常安静的，静悄悄的感觉。所谓意识并不是什麽了不起的东西。”“这样的人生可能无常而无益，或者效率极低。那也无可如何。就算这是往底上漏了个小孔的旧锅子倒水般的虚妄行径，起码曾经努力过的事实会留存下来。不管有无效能，是否好看，对我们至关重要的东西，几乎都是肉眼无法看见，然而用心灵可以感受到的。而且，真正有价值的东西，往往通过效率甚低的营生方才获得。即便这是虚妄的行为，也绝不是愚蠢的行为。我如此认为，作为实在感受，作为经验法则。”原文链接：http://www.zreading.cn/archives/4444.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

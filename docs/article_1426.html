@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>写文章应该“朴素.亲切.实用” </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>写文章应该“朴素.亲切.实用” </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>昨天下午，我花了半天的时间，看完卢松松博客里的所有文章，看他的博客缘于他在左岸上的一条留言，我回访后发现一个惊人的现实——这才是真正写博客的人，每篇文章上万的访问量，上百条的评论。这个现象我只在可能吧见过。我不知道他是怎么做到，但有一点，他写的文章朴素、亲切、实用，再加上他的原创王道，让我学到很多。他的文章前半部分是一些生活的感悟，这里我摘录了一些；后半部是关于web设计的文章，比较实用。</p>
+<p>爱的符号</p>
+<p>距离如逗号</p>
+<p>相隔不是太远</p>
+<p>对你的思念却像顿号</p>
+<p>铺满字里行间</p>
+<p>如果生命之灯不是那一串省略号</p>
+<p>就请你把冒号转过来 ··</p>
+<p>那是前路上</p>
+<p>你凝望着我的眼睛 ^_^</p>
+<p>学做人</p>
+<p>我们还记得，</p>
+<p>刚进大学的时候，</p>
+<p>老师说，</p>
+<p>大学学习什么？</p>
+<p>学做人！</p>
+<p>但是两年前，</p>
+<p>快要毕业时，</p>
+<p>我却还有几门课程不及格，</p>
+<p>要交很多补考费。</p>
+<p>老师找到我，</p>
+<p>我摊开手，</p>
+<p>老师，我在学做人，</p>
+<p>老师说，</p>
+<p>没人叫你要学做好人！</p>
+<p>……</p>
+<p>这个世界永远只有两种人，</p>
+<p>一种是好人，</p>
+<p>一种是坏人。</p>
+<p>虽然我说得很极端，</p>
+<p>但这对你会有用，</p>
+<p>记下来吧。</p>
+<p>人生就是一个问号，而我则是这个问号的主人。</p>
+<p>一个脱离了低级趣味的人，</p>
+<p>活着又有什么意思呢？</p>
+<p>你和我都有一个共同点，</p>
+<p>那就是：</p>
+<p>与正义和良知初恋，</p>
+<p>失身于上学，</p>
+<p>嫁给了钱，</p>
+<p>被世俗包养。</p>
+<p>乌鸦会推理解决问题</p>
+<p>新西兰的科学家发现，</p>
+<p>乌鸦是一种绝顶聪明的动物，</p>
+<p>会推理解决问题，</p>
+<p>会将两件工具配合着使用。</p>
+<p>一家企业的老板为此发表评论说，</p>
+<p>看来，</p>
+<p>今年我们不用再去大学里招人了，，，</p>
+<p>我可能是太平凡了，没有个性！</p>
+<p>也许似乎大概是，</p>
+<p>然而未必不见得。</p>
+<p>我故意学习，</p>
+<p>故意工作，</p>
+<p>故意生活，</p>
+<p>故意活得像个人！每天早上起床都要看一遍“福布斯”富翁排行榜，</p>
+<p>如果上面没有我的名字，</p>
+<p>我就去上班……</p>
+<p>中关村人才市场招聘有感……</p>
+<p>更多的单位，</p>
+<p>其实是不需要人才的。</p>
+<p>他是一个搞IT的，</p>
+<p>去求职，</p>
+<p>他自我介绍说，</p>
+<p>我是个搞IT的，</p>
+<p>做过两个新浪，写过10个百度，参与20个…</p>
+<p>我点了点头，</p>
+<p>收下了他的简历，</p>
+<p>在简历上写了三个字：</p>
+<p>会上网。</p>
+<p>~</p>
+<p>很多很多时候，</p>
+<p>能力并不是很重要，</p>
+<p>阿根廷生物学家发现，</p>
+<p>乌鸦能造简单工具，</p>
+<p>十分聪明，</p>
+<p>其能力比成年黑猩猩还强。</p>
+<p>为此我采访了一只黑猩猩，</p>
+<p>它对此表示说，</p>
+<p>这有什么，</p>
+<p>我们还不是一样，</p>
+<p>做乌鸦的上司。</p>
+<p>我在图书馆阅览室上自习</p>
+<p>有一天，</p>
+<p>我去图书馆阅览室，</p>
+<p>打算把一部还没有看完的小说看完，</p>
+<p>但小说被一位PLMM看着，</p>
+<p>于是我和她小声地聊了聊，</p>
+<p>很多感兴趣的话题。</p>
+<p>但是我忽然有急事，</p>
+<p>只好先走了，</p>
+<p>MM说，</p>
+<p>我看完了给你发短信，</p>
+<p>我着急走，</p>
+<p>就把电话小本子留给了她。</p>
+<p>她问，</p>
+<p>你电话号码呢？</p>
+<p>在里面，</p>
+<p>我头也不回。</p>
+<p>她又问，</p>
+<p>你叫什么名字？</p>
+<p>也在里面，</p>
+<p>我仍然头也不回。</p>
+<p>爱情，</p>
+<p>就这样，</p>
+<p>很不经意地，</p>
+<p>我们永远地错过了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

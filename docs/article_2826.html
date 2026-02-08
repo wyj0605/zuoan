@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>只管开始做</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>只管开始做</h1>
+            <div class="date">2014-05-03 22:48:04</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/张佳玮要读书，怎生读？朱熹说：“书只贵读，读多自然晓。今即思量得，写在纸上底，也不济事，终非我有，只贵乎读。这个不知如何，自然心与气合，舒畅发越，自是记得牢。纵饶熟看过，心里思量过，也不如读。读来读去，少间晓不得底，自然晓得；已晓得者，越有滋味。若是读不熟，都没这般滋味。”简单说，“只贵乎读，也不如读，读来读去，自然晓得”，而且不讲道理，“这个不知如何”。就此一棍子，打翻了写读书笔记的、熟看过、思量过的诸般法子。要写字，怎生写？尼尔-盖曼说：写完一个，持续写。吉恩-沃尔夫：写下一个。帕慕克说他在书桌前，每天坐十小时。听此话，真是坑人。我们要的是诀窍，是建议，是张无忌练五年就抵张三丰一百年的是道，是游刃有余的秘方，你却叫我们照样子夯练！坑死人啦！是把我们当傻瓜吗？但稍微回想，还真是。庖丁说道之前，也解了十九年牛，而且这还是半小说性质。张无忌？那纯是小说。又说了：帕慕克，你是作家，你可以每天写十小时，我们没闲空啊。说到闲空，旁扯几句。马尔克斯说的一段子：1971年，聂鲁达在巴黎，听某个可靠的朋友透露，说他将获得诺贝尔文学奖。聂先生那年，六十七岁了，离过世还有两年。虽然终于在诺贝尔文学兼比谁晚死奖中，跑赢了那帮老头评委，到底不能像年轻人刚进洞房，猴急跳脚脸火烫。他只遍请巴黎的诸位朋友吃饭，人问他理由，他只笑而不答。直到消息出来，诸位恍然大悟，纷道恭喜。数中一位问：“那你颁奖词准备说啥？”聂先生一拍脑袋：“高兴忘了！”扯过张菜单，翻个面，就用他招牌的绿墨水开始写起来。这故事能讲得开，前提是聂先生那些年在巴黎。他在巴黎干嘛呢？工作，在大使馆上班。实际上，他老人家是正经外交官。有些人当官之余写诗，就能成诺贝尔；有些人当官之余，就只能写“一路声声频问好，千言句句尽关怀。殷勤答问唱和谐。 ”业余诗人很是不少，实际上，诗人这行当，大多是兼职：凯鲁亚克并不总是在路上奔驰，也会去铁路工作。艾米莉-迪金森除了写诗，也帮人养过猫。罗伯特-弗洛斯特一边写诗一边躬耕田园。华莱士-史蒂文斯一边写诗一边当保险推销员。胡安-鲁尔福也曾经一边在墨西哥到处开车推销保险，一边构思他影响整个拉美文学界的《佩德罗-巴拉莫》。杜甫做他的杜工部，一边顺手写诗，秦观认为他算诗歌界的孔子。曹操一边荡平宇内芟夷大难，一边顺手写诗开了个时代。李后主他爹外加冯延巳包括之后的晏殊，都是一边做着帝王和宰相，一边顺手把词从五代拓到了宋初。欧阳修、王安石都是宰相级的职位，又当朋党纷起，忙着指挥僚友，跟对手吵架，奏章一封封，还不能骂脏话，工作压力挺大，顺便也列了唐宋八大家。门德尔松是当老师的，夏天才创作曲子。李斯特得绕世界巡回，比如著名的十个星期演四十场之类的传说，顺手写曲子。马勒很长时间里主业是指挥。鲍罗丁本行是医院院长，又是化学家。等把些瓶瓶罐罐都处理罢，才能写曲子去。康奈尔大学教师纳博科夫带着两门课，讲义都印得出《文学讲稿》，趁假期出去捉蝴蝶时，下雨天闷在车里写小说，写了五年，弄出了《洛丽塔》。这些货们，大多是业余搞创作；本行另有职责，而且负担不算轻；业余搞创作，喧宾夺主成其大名。——当然你可以说，明清时许多老流氓，身兼儒道两种属性，偶尔还念念禅；当了公务员，有了铁饭碗，就抱定儒家精神，济世救民。没当上公务员，或者不被天子待见，就决定披发入山，云烟深处去，坐看云起。明清朝的名文人大多如此：做着好官，念叨归农，自号个什么斋主人，什么居山人，还写厚厚的诗集出来印，就是想来分富贵风流，两厢占尽——所以我不算他们。读过《月亮与六便士》的人，理当对斯特里克兰——原型为高更——反复陈述的那句话有印象：他所以要抛弃掉事业去画画，是因为“人生太短了，我来不及做别的。”实际上，每个人都会嫌时间太少，比起自己想做的事情来，实在太少了。放到我们每个人的身上，一个简单的算式：一个人，假设他的工作与爱好全不相关，则一天24小时，8小时睡觉，8小时工作，余下尚有8小时。纵算这8小时用以饮食、回家，去掉4小时，尚余4小时。每天4小时够做些什么呢？简单说吧，如果一个人假期每天睡8小时，空余16小时，那每个人一天的4小时，一年下来，等于一段三个月的假期时光。但是，当然，肯定，这是一种理想的算法。因为这每天至少可以自己支配的4小时，一定有这样那样的麻烦：要刷微信；要和朋友聊天；要看朋友转来的有趣图片；要慢慢消磨时光看肥皂剧；要打游戏；要发呆；要胡思乱想；以及最多的情况是：“好吧，我已经决定今天的4小时要用来看掉一本60页的浮世绘画册……等等，看得有点闷啊……不如我先去看点别的轻松的东西呢，比如，刷一集美剧？”——绝大多数时光，就是这样流逝了。这样做当然没什么可指责的，因为人类的天性，总会停留在让自己舒服的领域之中。那些微小时光的浪费，比如看微信、刷社交网络、慢悠悠听音乐、赖床，都是自我疗愈，是补充元气。但人们又有一种奇妙的惰性，不像机器那样，输满能量就能立刻开始运作：人是会贪恋舒服的动物，补充完汽油了，还不愿意出站，哪怕“我再听完加油站里这首歌吧。”想读一本书，买下来；买完之后，不读，放着；时候久了，越告诉自己该读，就越不想读；每当想起，从书架上拿起，翻几页，又放回去；“我已经读过了，过几天再说”。反复的自我轻施压，有了逆反情绪，觉得这是苦差事，越不想做。海明威说，艾略特的巨作《荒原》是在银行工作时写的，但没名没钱之前，艾略特就是不敢辞职，当时在巴黎的庞德，虽然诗稿卖不出去，穷得想去当翻译算了，但还是伙同诸友捐款，“把艾略特从银行拯救出来！”艾略特，一直描述：那些东西，他无法不去写。村上春树的第一二部小说，是在经营酒吧的间隙写完的。非常辛苦，辛苦到他写完第二部小说后就决定不再开店了。但他还是撑下来了。他自陈说自己写《且听风吟》时，甚至没有当小说家的念想，仅仅是必须写完这篇小说，他甚至没有考虑过写完之后怎么处理（最后投给了群像新人奖），但至少是：写完之后，甚为舒畅。这就是他们克服“舒适领域依赖症”=“拖延症”=“懒”的法子：写作就是他们的舒适领域，就是他们的自我疗护。他们写字，一如如今的我们，刷网络看轻碎有趣的信息似的。写字和读书当然有技巧，有仪式，海明威是这方面的大师。虽然世界一直在念叨“冰山理论”，但他最经常念叨的是这两条。A 优裕的生活环境、规律的生活、强健的身体，有利于持续写作。B 在写得顺溜时停笔，如此第二天才好很方便的继续。当然，他还有什么摸摸兜里的兔子腿之类玩意，给自己加油提神，那是迷信，咱不提这个。但他确实可以一下午写三个短篇，《杀手》、《雨中猫》是同一个下午写出来的——嗯，他没有“我写完一篇了，这下午没活了，我去玩会儿吧”的习惯。所以，我忘了是谁说的，塞勒还是谁，海明威其实真正解决的问题仅仅是put your FXXX ass down in front of thedesk and keep onworking。但这其实也就是做任何事的真正诀窍了。实际上，无论哪个行当，任何人都会有“今天老子不想干了”的心思，但到最后，还是去继续了。人想必都有这样一两次经验：当你有选择的余地，不去做一件事时，便多少会想法子推诿；但当你被限期勒令做这件事时，你还是会推诿一阵，你会觉得“这样实在太难受了，想起来就是地狱啊”，但压力之下，便会进入一种疯狂的工作节奏。你高速劳作，极为顺手，等做完后回看才发现自己有多大的潜力，“我居然做完了！”而在做完这档子事之后的一段时间，你会有些茫然若失；你会带着惯性，继续高效劳作，就像一辆刹不住的车子。你会习惯于这种紧张而高效的岁月，甚至对自己的清闲产生罪恶感；而促使你继续劳作的，就是这种罪恶感。因为人许多时候，就是这么种贱骨头：总会以为许多心结，自己无法克服；但时候到了，心理会自然把曾经厌恶的一切，归化为自己可接纳的部分，并自动从完成度上寻找快感；许多工作狂大多如此，靠着连续不断的自我施压、击破压力来获得快感，终于欲罢不能。所谓巧妙的读书方法，所谓巧妙的工作方法，许多仅仅是变着法的自我激励和自我暗示，是对心绪的谄媚，绕着弯哄自己，put your FXXX assdown in front of the desk and keep onworking。所以许多法子，能有用于一时，却无法持续刺激自己。除了少数天才，事情的成效在于你投入的时间，而投入的时间，必然受制于拖延症=懒，要击破这一点，就必须对所做的事情，不只有爱，而且有饥渴感，许多时候的爱慕，只是将之当成一种仪式；只有真正从中获得了乐趣，才会有上瘾般的偏好，才会有一种“我一空下来就得做这个”，而不是“我是要做这个的，不过等等我先看会儿闲书吧”。最后一个故事。马尔克斯早年在哥伦比亚当记者。白天工作，晚上去一个下等妓女睡的大车店歇宿，乘隙写小说。到他而立之年被报纸解聘后，他先在巴黎，然后去墨西哥。在墨西哥时，他已经写完了五部小说——全是工作之余写的——只有一部《枯枝败叶》出版了，印了千余册。很多年后，他回顾那段生涯，说过这么句话：“我当时觉得，我可能再也没机会写小说了，所以像写最后一部小说一样，把一切都倾泻进了《枯枝败叶》。”在从写小说中获取乐趣之前，他先逼迫自己写小说。这个原理，其实可以类比一下。每个人都会想：我周末要回家看爸妈；我每天回家要给爸妈打个电话问平安……但这心思总存不了太久；总得要父母说得了病，去日无多，有了个期限，人才会一股脑儿，把久已储藏的情感倾泻而出。将这里的父母和你从来想做，又从来没开始着手的业余爱好做个替换，道理相去不远。成就来自经年累月的累积，累积来自于坚持，坚持受着快感的鼓励，快感则是可以通过自我压迫+释放来获得的（再说一遍，人是有受虐倾向的）；而许多时候，自我压迫，就来自于永不得到或即将逝去的恐惧。所以，一种自我蛊惑的心情是：“如果我现在不做某事，也许以后也没时间了。”当然，到最后，当你把心理深层那些欺软怕硬、好吃懒做的东西都摸明白了，也就没必要自我蛊惑了。你能够洞悉所谓拖延症，也只是耽于舒适领域，所以便只剩干脆的一点，不要前思后想，只清空大脑，然后简单粗暴的给自己一下：“别多想，只管开始做！”原文地址：只管开始做左岸记：读书，大小通吃，横贯中西，纵览古今，配上自制的佳酿，入口滑嫩，爽口香醇，这是张公子的神奇技艺。原文链接：http://www.zreading.cn/archives/4356.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心灵的时差</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>心灵的时差</h1>
+            <div class="date">2014-12-20 00:53:27</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/克莱时间从来都是那么不讲道理，在错误的时间遇见对的人，结果也只能是一声叹息！~这个故事说起来已经有三年多了。那时的我刚刚跟女友分手，正处于情绪的低谷。而我这次要讲述的却不是我的前任，而是在这个时期突然出现在我生命里的另一个女孩。2011年的夏天，北京的雾霾还没有现在这么严重，而我心里的雾霾却严重的足以遮住我的双眼，让我无法看清这个诡异多变的世界。由于一些乱七八糟的原因，她跟他走了，留下我一个人在北京独自伤感。每天起伏不定的情绪让我害怕与人交流，也让我对自己精神状态产生了严重怀疑。而在某一个普通的晚上，我接到了一个突如其来的电话。电话里的女孩是我一年前在大连认识的，彼此只匆匆的见过两三次面，之后便少了联系，只有过年过节的时候才互相发个祝福短信什么的。而在这个时候，她的这个电话却意外的变成了驱赶我心中雾霾那一缕阳光。之前我从来没想过，这个女孩会有这么的善解人意。她是那么的懂我，她的每一句劝解都能说到我的心坎上；每一声轻训都能正中要害；每一个小故事都能说的那么贴切。让我感觉我心里的伤口经过了她言语的抚慰，瞬间就能愈合。然而，那种愈合只是短暂的，当电话里的忙音响起，伤口便又一次流出血来。之后的两个月，我基本上每天都和她通电话，感觉就像是吃饭睡觉一样的不可缺少。我们约好过几天要出来一起吃饭，好好聊一聊；也说好以后在彼此心情不好的时候，都要作为对方的精神力量……我每天享受着伤口愈合的那种舒适，自私又贪婪的吸收着她每一句话的养分。渐渐的，伤口重新开裂的速度越变越慢，最后甚至不再发作，只留下一道曲折的疤痕。心中的雾霾渐渐散去了，头脑也开始变的清醒起来。一个只有几面之缘女孩能够这样陪伴我度过感情的低潮期，真的让我十分的感动，而且除了这份感动，我也品出了更多的滋味。然而，那伤也许不疼了，但那份对感情的失望却依然存留在心中，于是我开始退却了……这个时候，单位搬到了一个很偏僻的地方，手机的信号非常差，有时候甚至打不通。于是，我便经常厚颜无耻的借着信号不好的理由，开始假装没接到她的电话。而不接电话的原因只是因为我害怕，怕的要死！而具体怕的是什么，我却一点都不敢去想。我感觉自己就像是一个可恶的小偷，偷到了需要的东西，就悄悄的逃走；又像是一个可怜的乞丐，要求了别人的施舍，却不予任何的回馈。每次看到手机上的未接电话，我心中都有一种负罪感；每次打开回拨的界面，我的手指都会在按键上犹豫，在按下与不按之间犹豫，在害怕与负罪之间犹豫，就这样犹豫着，度过了一个又一个本应很美的黄昏和夜晚。后来，她一定是察觉到了我的犹豫，便不再打电话过来。而我跟她之间的联系也渐渐的回到了最初那通电话之前的状态，没有近况的交流，只剩偶尔的寒暄。……这就是我要说的故事，一个从头到尾都是那么潦草的故事。而之所以又想起了这些，无非是因为最近的一些经历和某天晚上跟奇哥的闲聊。也许，当时我再勇敢一点，就可以保持住那份友谊；也许，我真的约她出来吃饭，我们就可以走的更近；也许，再多接几个电话，我的境况会完全的不同；也许，也许……只是我想多了。……而不管有多少个也许，它们也都只是一个简单的假设。真正发生了的事实早已经摆在那里，无法被撼动。我不确定她会不会看到我写的这些文字，可能以后我和她之间还是没有什么联系。但我会把这份难得的情谊一直记在心里，它会是我未来前进的某个动力，即使它另一半的主人，再不会出现在我的明天里。……或许这只是一个故事，但我仍告诫自己：“以后对任何的女孩，都不要轻易的承诺。一旦承诺，无论如何都必须做到。”这也算是对自己心灵的时差，做一个小小的补偿吧。奇哥对我说：感情的世界里没有谁对谁错，错的只是真实的世界就是如此，有太多的不尽人意。但也正是因为这样，真正懂你的人才显得弥足珍贵。左岸记：那主动地打电话过去，说明一切，而不是光等待什么下一次珍惜，这次不珍惜，哪来的下一次。原文链接：http://www.zreading.cn/archives/4677.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

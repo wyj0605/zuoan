@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奶奶家的餐桌</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>奶奶家的餐桌</h1>
+            <div class="date">2015-05-27 23:04:32</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/王雪洁Olia看了《小时候的美食》想起在奶奶身边吃过的那些河南与东北结合的美味。爷爷奶奶是59年从河南投奔抗美援朝归来的大爷爷来到的北大荒，途有饿殍在那个时候是很寻常的事情。于是奶奶拼命养活爸爸几人。奶奶在生产队的晒场（就是晾晒和囤积粮食的地方，一般有大面积的空地）帮忙，为了一家几张嘴，每到有粮食要装卸，奶奶就三十几的脚就登上爷爷四十几号的大棉鞋（鞋帮高），两脚先踩进粮食堆里让鞋子灌满粮食然后扎紧鞋子……不知道奶奶是用什么方法倒出来，积攒起来，还是会拖着沉重的鞋子继续工作，总之大家都愉快地成长起来了。当然，奶奶的天才还发挥在了给我们仨姑娘做饭的时候，每每这个季节是青黄不接。最爱奶奶餐桌上很难吃到的几道美食：蒸扫树miao 3子（河南话很难翻译好吗）乱入的名字。食材是常栽植在路边的一种绿色或者紫色的观赏用植物。会长成很圆一大簇植株，有时会用作制作扫帚，猜测所以叫做扫树miao3。取该植物的带一两叶的嫩芽拌生面粉，上锅蒸十分钟。食用时拌蒜泥，只加盐即可。回味无穷。奶奶偶尔也用此法炮制马齿苋，但味酸，不如这个好吃。难以描述那是怎样是一种体验，只是想念的不要不要的了。小豆腐和干菜包子萝卜英子（叶子）是个好东西，做出的两样东西无比美味。每到初冬，奶奶总会做一些小豆腐，也叫豆腐渣。不是做豆腐剩下的辅料，而是将生黄豆（我们叫大豆）用自己家的小石磨粗磨一下的结果。偶尔奶奶也会用蒜杵（奶奶叫兑窝子）来捣碎黄豆。准备好的豆渣要煮熟了才可以食用，奶奶叫这个过程插小豆腐。因为黄豆里的油脂还是十分丰富，所以一般烹制时不再加油，只用小火慢慢煮熟。冬天冻干的萝卜英子是极好的食材，切碎拌入锅中，丝丝清香沁入心脾。吃起来渣渣的，妹妹不太喜欢。但我一直觉得特别香。做好的小豆腐还可以用来做包子。当然还需要请出一位主角，油脂啦（在青岛叫脂渣是用肥肉炸成），切碎，加泡好的粉条切碎，作为包子馅的主料。每次奶奶问在外地上学的我想吃什么，必答，干菜包子。猪油夹馒头可能是中式汉堡的雏形。这个故事要讲到爸爸。那时的我还没上小学，某天满头大汗跑回家，跟爸爸喊饿。老爸眼睛一转，神秘兮兮地把我拉进厨房，切了半块凉馒头，然后又从顶端切一刀不到底。用小勺从熟肉盆（没有冰箱的时代，猪肉炒熟储存，上面覆盖着一层厚厚的白色猪油）里挖出一小勺猪油，薄薄地抹在两半馒头上，然后从盐罐里捏出一点盐均匀地撒在上面，两边一夹。然后非常陶醉地闻了一下，递给我。入口的瞬间，盐味和猪油的香气加上馒头的香甜混在一起，饿成那样，那一刻简直如升仙一般。爸爸说，这是奶奶教他的，那是他们小时候最好的干粮。有了奶奶当令箭，后来我还肆无忌惮地介绍给了从不吃猪肉的妹妹，以及其他小伙伴，只是大家反应都平平。只有，我还记得那个下午和爸爸在厨房小心翼翼探索美食的过程。那种满足感是当时欣羡的火腿肠面包和方便面都给不了的，也许后来就变成我勇于在厨房开发探索美食的启蒙课。后来，江湖上（连队里）盛传一个三年级的孩子发面蒸馒头，炖肉，给在田里劳作的爹妈做饭，再后来大学答辩完毕研究生入学的间歇我，成了当地最年轻技术还不坏，至少是学历最高的女插秧机手。朝鲜菜奶奶做的朝鲜菜让当年的很多知青难以忘怀，若干年后来看奶奶依然吵着要吃。那是怎样一种青菜我已经没有印象。总之在快收白菜的时候种下，用整颗菜揉入盐味后腌制如绿色的很多条线一团一团。不知是不是如丝的牵绊让当年借奶奶家谈恋爱的很多知青无法释怀。就像他们最美好青春都浇筑在这片土地上。是他们把“艰苦奋斗 勇于开拓 顾全大局 无私奉献”十六字北大荒精神，都唱进了我们的那首场歌里。“带着革命军人的无限忠诚，怀着热血青年的崇高理想，我们从祖国的四面八方汇集到北大荒这片神圣的土地上，艰苦奋斗勇于开拓 顾全大局 无私奉献。啊，饶力河在呐喊，为着新中国的繁荣富强，我们战天斗地寒雪风霜，把亘古草原变成了北国粮仓。 ”奶奶家的餐桌其实是那个时代人口大迁徙的一个缩影，闯关东也好，逃荒也罢，造就了下一代的我们包容性格和开放的心态。虽然生在东北，我们却操着一口流利标准的普通话，因为妈妈是安徽人，爸爸是在这里生的河南人。邻居小伙伴的爸妈来自山东、江西、四川、湖南各地的，在这里大家汇聚在了一起。也许我们的文化与传承会随着更多东北本地人口的迁入和我们这代离开老家居住在附近城市而改变，但永远改变不了的是内心里认定自己就是北大荒人的后代。王雪洁Olia：关注左岸五年年多，很想念上学的时候每天早上起来看左岸的时候。那时候自媒体没有这么发达网速也没有这么快，流量也没有这么费。现在过度丰富的内容除了分享更像是在抢夺和强奸大家的视线。感谢左岸扎扎实实兢兢业业的坚持。加油！左岸记：回老家是一定要去看望一下爷爷奶奶的，带点自以为他们会欢喜的东西，结果他们却总是塞了更多自己种的养的做的东西。奶奶八十几岁了，做的饭菜虽然简单却非常可口，回味无穷，是地地道道的农家饭菜，去的时候总是要蹭一顿饭才心满意足，心里踏实。原文链接：http://www.zreading.cn/archives/4914.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初冬至，风景依稀似去年</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>初冬至，风景依稀似去年</h1>
+            <div class="date">2015-11-14 00:31:07</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/落微2014年11月终于考完试了，我落荒而逃。初冬季节，天冷得很。学校一到冬季总是妖风阵阵，吹得人即便是把外套裹得再紧，也扛不住这冰冷，鼻涕直流。晚上八点多校园内只剩稀稀疏疏的几个行人，冷冷清清的。教学楼那边有个社团，有人在唱歌，在我听来，再差点那是噪音。不过有点声音也好，显得有些人气，让这校园不至于那么萧索。本来是打算多跑几圈的，却被湖边的桂花香吸引了，我停住脚步，仔细捕捉那几缕若有若无的香味，隐隐绰绰，甚是怡人。以前是不知道桂花也能在这样寒冷的季节开放的，太冷了，只觉得那一小朵一小朵的花该承受不住这刺骨的寒风的。可它们还是不管不顾地开了，暗香跳跃在清清惨惨的路灯下，无需别人的欣赏，自在地开着、香飘四野。细雨迷离，却不像是雨，小到朦朦胧胧，像雾飘飘散散，湿湿润润地扑在脸上，不太舒服。冬季么，还是晴朗的好，本就寒冷，再下一场雨，全世界都湿答答的，便要惹人厌了。好在还有一丝花香，那么乏味单调的寒，便在这幽香里变得不那么慑人了，仿佛一下子让人穿越到了温暖的季节，或许还会有一位穿着长裙的婉约女子，在树下托起花儿轻嗅着。本地应该是没有梅花的，因此从未领略过“疏影横斜水清浅，暗香浮动月黄昏”的味道，也未能如书中写的那样，捏几片梅花、煮雪烹茶。倒是这桂花开得勤，总是能有隐隐约约一缕清香沁入心脾。香味寻常易见，只是关注的人却是寥寥无几。因为普遍，所以不在意吧。万事如此，不在意的人永远不在乎，在意的人却只遗憾太少，转瞬即逝，想握在手中，却流失于指缝。这也没什么可哀叹的，是规律。“当时应逐南风落，落向人间取次生。”白居易大抵是喜欢桂花的吧。它执意要在冬季也绽放一回，我到底是不理解。是故，缺乏爱到骨血里的人吧？若冬季执意要停留，请不要掩藏了这微微暗香。它是漫长季节里的丁点喜悦，是流光飞舞中的小小温暖。2015年11月冬至，天始冰，地始冻，气温倒真是降下来了。眼见大风呼啸，飞沙走石，枯叶也零零落落地盘旋而下，路上学生无不裹紧了衣服，一副瑟缩的模样。怕是要有一场凉簿的冬雨了，远在远方的风中的你，有没有多穿一些呢？甚少有心思去多看一眼路边草地上枯黄的落叶，只怕多瞧得一眼，矫情的想法便又冒了出来，哈哈，其实说这话，就已是矫情了。遥遥记得去年初冬时期，还曾闻到淡雅桂花香，如今寒冬未至，却无了花香。书友来消息，说今冬北京初雪已降，点点黄叶缀入白雪中，甚是好看，最喜踏雪之声，颇寻得了童年趣味。在室内手捧热汤，围炉夜话，倒是极好兴致。我亦回复了诗一首，“绿蚁新醅酒，红泥小火炉。晚来天欲雪，能饮一杯无？”此诗我最爱，颇应景。若能与三五好友亦或心爱之人，趁雪闲谈，煮酒夜话，自是最惬意慵懒之事了。可惜，南方还没有下雪。欢喜难得，闲情难获，倒是这冬日，最是令人心悦。哪怕须得裹成粽子，也总乐意去赏玩一阵的。人么，总得偶尔矫情一番吧。去年的此时心境不佳，虽不至于过分悲观，却也难得几次喜悦。今年这个时候倒是不曾如此，明朗了许多，看事情的角度也开阔了许多，不至于总把自己逼进了死巷子出不来，想来人偶尔沉寂一下，也是很好的，抛却了犀利的外壳，我们还剩下了什么呢。有时候人不是真的就困在了一个思维里面左冲右撞破不开，而是自己潜意识里乐意如此，假装很痛苦，却不愿意真正地走出来，又是一番好藉口。我想我正在逐渐地改变这种形式，也收获了增益。不同的心境造就不同的景色，去年遇着雨了，便总是伤感得不得了，今年倒是不会了，除了依旧不喜欢那冰冰凉的落在皮肤上的感觉，倒是惹不起来悲观的情绪，反而是有那么一点点兴致去听听雨滴落在伞面的声音了。十一月过去以后，这2015年便又是真正的即将过去了，于是闲暇之余，翻了翻去年十一月份写下的一些很是随意的文字，想着去年此时的心境，对比着今年此时的心境，倒也自得其乐。人么，开心至上啦！左岸记：悲秋伤春，人之常情，心境不同领悟到的也就不同。杨万里在《小溪至新田》中说“懊恼春光欲断肠，来时长缓去时忙；落红满路无人惜，踏作花泥透脚香！”也有懊恼伤神，却终能自在淡然。原文链接：http://www.zreading.cn/archives/5140.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

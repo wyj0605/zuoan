@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回不去的是故乡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>回不去的是故乡</h1>
+            <div class="date">2015-08-14 13:18:52</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌再怎么一票难求，几番周折之后，总是能到达生我养我的地方。只是再回首，除了春节回家短暂的停留，一年到头似乎都在异地漂泊。在这个青黄不接的年纪，既不能与父母在一起享受人世的温暖，另一半还不知身在何方？同事朋友之间相处的温暖都碎在了酒杯碰撞的声音里，对于这种世俗孤单寂寞冷的无奈，就像看着满街的美女，除了多瞅两眼，又还能做些什么呢？20世纪初 80 年代末90 时年代初，随着沿海地区的开放，农民涌向沿海的大城市， 1992年邓小平南巡之后，打工潮呈波澜壮阔之势，农村年轻富余的劳动力涌入城市。于是这个世界就少了很多农民，却多了很多农民工。在农村人的谈资里又多了很多新鲜城市的名字。听得多的也就广州，深圳，附近的也就长沙。从小对那些外出务工的人充满了好奇。不知道他们在外边的工作生活怎么样，只晓得他们每次过年回来都会衣着光鲜，带很多好吃的回来。最早出去的一批看到了外面的世界，在外面扎根之后。过年回来就会有人托着一起出去，给介绍工作。对于我来说，最怕听到的就是自己的父母也要出去打工，如果母亲出去，就再没有人做可口的饭菜，日常的生活少了一个很大的依靠；如果父亲出去，意味着当我对这个世界充满好奇时，无人解答。一直都很庆幸我的父母在我成长的时候一直在我身边，给了我完整的家庭温暖。但我的哥哥年纪稍微大点就出去闯荡了。从小学就开始给身在远方的哥哥写书信，知道高中因为学业的问题，学校里收发信件管得严才停止下来。到如今我大学毕业参加工作，母亲一直都觉得对哥哥有所亏欠，因为哥哥那么小的年纪在外闯荡肯定受了很多苦。如今要是父母有什么事我不能照应的，就会心慌得很。儿时的我并不知道贫穷是什么，因为大家都一样。但童年时候是最快乐的时光，因为有太多小伙伴一起玩耍。我出生的年代正式计划生育抓得紧时候，很多家里为了要个儿子都会生二胎，哪怕面临罚款，只记得有人家里因为超生，交不起罚款，家里的猪都被牵走了。但这种罚款再多终究比不上新增的一口人。小伙伴们总是会有玩不尽的游戏，夏天大早晨会一起跳皮筋，玩沙包，直到家里做好早饭，母亲会在很远的地方呼喊你的名字，然后意犹未尽的回去吃饭。热得有点无聊的时候有也偶尔会去偷个西瓜，摘摘别人家的桃子。下午等到河里的水温下去，不那么晒的时候，偷偷的一起到河里去游泳。这在大人眼里是绝对不允许的，怕出事。总会传来隔壁村里有小孩游泳淹死，可幸我们一起的玩伴里并没有出事的。冬天里会到田地烧野火，烤红薯。儿时的记忆总是离不开那种泥土的芬芳。一直庆幸我没有成为留守儿童，完整的接受了父母的关爱。随着外面世界的经济发展增速，打工渐渐的取代了务农，有的两口子都出去闯荡了，小孩子就交给了爷爷奶奶，出现了隔代抚养的情况，这样农村的家庭教育就出了问题，很多智力不错的孩子因为缺乏管教而很少有能正常顺着学校教育的路线，初中进高中，高中念大学。能上大学就不错了，即使上个专科也是值得庆贺的，能考上本科那就是村里的骄傲了。农村本来就落后了，然后再加上教育资源的匮乏，更加不利于财富的积累。按时髦点的话说，这是个拼爹的时代，我们似乎就已经输在起跑线上。但话又说回来，谁家往上返三代，不是农村的呢？儿时好奇，那些往外打工的人他们到底在做什么工作呢？大多数的他们都会进入工厂做工，印象最深的一次大二寒假到广州姐姐工作的地方，她领我到车间转了转，到她办公室里坐了会。那是一个电饭煲车间，两排人对坐着，中间是流水线，一个人负责一个工位，看着电饭煲被一点点的组装起来，直到贴条封箱。他们每天都会重复这样一个动作，年复一年，想想都觉得可怕，可能中国人吃苦耐劳的精神就在这里体现吧！办公室里每个人一个格子，一台电脑。每个人的电脑都会有公司的主页，也就是我现在每天都要面对的OA 系统。其实等到我上大二时，很多和我同龄的人步入工作也成了农民工新一代了，他们衣着时髦，不时还染个发，打个耳钉之类的，新颖的服饰透露着叛逆和年轻。这正是精力最旺盛，对这个世界充满好奇，心性也不稳的时候。其实他们每个月也能拿个两三千块钱，生活也能凑合过下去，只是精神无处寄托的。这也是尴尬的一代，很早就从学校出来，在城市里闯荡。尽管一直生活在城市里，为这个城市贡献着自己的青春热血，但享受不到城市居民的福利待遇。保险，养老金等等社会福利始终与他们无缘，城市和农村的户口区别无形之中建立起这种隔阂。每到春节时，不管有钱没钱，都要回家过年。对于在外奔波了一年的人来说，家就成了信仰。城市没有正式接纳，始终就在异乡，回家却没有了生存的土壤。现在还有谁会放弃城市的工作回家种地呢？前后不适，倒显得这颗漂泊的心无处安放。很多时候人并不是为了谋求多大的财富，大多数情况都在寻求那种尘世的温暖，不然那酒杯碰撞的不是感情的笙箫又是什么呢？但回不去的是故乡，除了把握当下生活，有谁能告诉我，我终究去往何处？文昌 八月 北京   微信号：changchang010左岸记：这篇文章的文风不错吧，很接地气了，读来轻描淡写，却将许许多多的大问题隐藏其中，令人跨越城乡，跨越时光，跨越时代的变迁。好，真的很好！原文链接：http://www.zreading.cn/archives/5025.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

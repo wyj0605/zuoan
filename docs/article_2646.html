@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>他好像一只流浪狗</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>他好像一只流浪狗</h1>
+            <div class="date">2014-11-13 23:29:19</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>梁萧从复兴路的地铁站钻出来，习惯性的看了一下天。帝都的霾，还是执著的不理会人们的咒怨，依旧让天似人的心情，混沌着也包容着，然后就奇怪的让人难于下咽，忘记呼吸。口罩是用来展示自己还活着的工具，虽然早已经没什么作用了，最多是个昭示。之一梁萧每天要从复兴路去朝阳，几乎是自西向东。迎着太阳的初升，本是个值得雀跃的事情，但地铁从来都是不论晨昏的一个模样。最让梁萧纠结的是早餐在哪吃，在复兴路吃便宜，但要忍受地铁里每个人都发酵般的气味，间杂着为了生计和清醒而涂抹的味道，总让梁萧想把吃的先吐出来等下了地铁再咀嚼一次。但朝阳那边的有点小贵，这样的节省对梁萧还是值得的。于是每次站在地铁口，急匆匆的吃各类的早餐，看着地铁如何把其他人吸进去，又吐出来更急匆匆的人群。那一刻梁萧觉得很悲伤，连早餐都悲伤起来，嘴里呼出的热气和食物的热气，混杂在一起，孤零零的，要吃饱这样才能不冷。梁萧做着传媒业，纸媒和网络混杂着，行业很悲催，人不悲催。梁萧是西宁来的，一直觉得自己有绘画的天赋，杭州毕业后，就来了帝都。他知道，自己不想回去罢了，只要你不想回去，其实在哪都能活的下去。他明白，必须相信自己画的不错，虽然只是插画或是漫画什么的，要不说服不了自己怎么坚持。电脑前坐累了，梁萧会歪着头看天。他的座位离窗户很近，楼层很高，但是天还是会被其他的建筑挡着。平常的是，天如何无所谓，他只是看天，他不是帝都的人，所以阴郁的天，他觉得很正常。蓝天永远值得别人惊喜，因为他觉得帝都的天永远不会比家乡的蓝。于是，很多同事说他有点天然呆，没什么景色还要痴嗫的看外面，他只好说是休息脖梗。梁萧不懂帝都，不懂这个世界，自己也知道在可怜巴巴的坚守着自己都不知道的原则，不努力也不懈怠的活着。他只知道这个、那个不好，自己不会去做，但自己应该做什么，不知道也不想知道。“我不做的事情表明我是什么人，我做的不表示我是谁。”这是一个老师说的，他很笃信。之二这几天梁萧觉得自己被戏谑了，起因是他请K歌。这个答应很久了，久到别人都忘了，但自己却觉得越来越不得不做，要不自己把自己烦死。他小心回忆了当初的承诺，挨个通知了，轻描淡写却又正式刻意。该来的都来了，预计不会来的也没来。大家都很高兴，或许大家觉得他请是白捡来的，所以嘻嘻哈哈的快乐的很。梁萧喜欢女人们花枝招展再加点性感，特别是在帝都，在外衣褪下时，在K歌包间里，充满诱惑，而且是那种动物本能的散发性的诱惑，不是一对一的，是竞争的、是面对所有异性的。但等他把包里带的小零食，水什么的拿出来的时候，他感觉到冷场了。怎么回事呢，他们请的时候是这样的啊，为了便宜是带的啊。当初自己还觉得跟做贼似的，为什么他带大家会冷场呢？他有点小难受，身上各处都有点被检视的感觉，大家的眼睛似有还无的钉到他感觉有点疼。这些东西也没少花钱，都是好东西，未必便宜啊。歌照唱，舞照跳，大家在威士忌和啤酒的混杂里，微醺和各自为战。梁萧忍住没吐，毕竟每个人都喝几杯，也不是闹着玩的。这件事归根结底，梁萧想明白了，他不会被认为是帝都的人。这个和户口关系不大，是这个城市本来就在吞噬人们。吞噬的不简单是数量，而且是让每个人都变成一样的，简单的重复就是一种消灭。那些已经被消灭的看着他这样还没被消灭的，是另外一种眼神。自己要被消灭是需要投名状的，要进入他们的狂欢，不是做他们现在做的事情，而是要重复他们曾经做的事情才行。之三梁萧的隔壁坐着一个女孩，做策划的，比他资历好。传媒业需要拿得出手的东西，梁萧在努力，那个女孩似乎已经算有拿得出手的东西了。她也是外地来的，北京人似乎都没有在工作似的，他和她的周遭都是各类的外乡人。她也很淡定，自顾自的，不知道是抗拒世界的结果还是已然修炼成仙。梁萧不知道自己喜欢她不，或许仅仅是同病相怜的感觉，也或许梁萧根本无权去喜欢，所以不明白自己喜欢与否。他也试探过几次，不管是言语的还是行动的。吃饭还总是一起，公司都传的风风雨雨。她很闭合的回答，和淡定的和年纪不符的行动，让梁萧很沮丧。他们说自己是压不住这个女孩的，这个让梁萧偶尔就豪情万丈好胜心浮出来，想做一个斗士去抢一下争一下；偶尔也就刻意的躲避，想让别人认为是女孩子喜欢自己。他觉得自己有病，跟无关的人都很轻松，目的性颤抖的面对有些人就是不由自主的因为猜测而神经质。他在其他人面前是阳光的有趣的，在她面前就开始无趣也开始晒忧伤，这是病，梁萧觉得应该治。梁萧觉得，这个世界正在变得越来越可笑，但不影响自己学得幽默些。他努力的笑着面对世界，延续着和其他人快乐的没心没肺，和小心翼翼的学会对那个女孩的敏感。春天到秋天，他们猜着对方，也被对方猜着。这个帝都压根没有打算让人们去爱，因为爱本身是个奢侈的事情，不是没有爱，是无力爱也不能爱。你真的爱了，这个帝都还容得下你么，你还能忍受这个帝都么？帝都的雾霾总是随时的来，告诉你的无非是这是帝都，你还是老实点好。梁萧明白，梦想和现实之间，有些人只是缺个开始，有些人缺的是坚持，而有些人压根就是拿梦想来安慰现实，梦想和现实之间压根就没什么联系；有些人梦想和现实之间只有幻想或是自以为是，所做的就是扼杀梦想或是留着证据给未来后悔难当。而他自己，梦想是不存在的，因为只有现实，现实不是残酷，而是现实就是现实，他可以告诉自己必须成功的理由，不是他是谁，而是他要活下去。之四梁萧喜欢星爷大话西游里的一句话，“他好像一条狗啊…”。别人看的是好笑和可怜，他觉得那才是现实。记得一个老师说过，一个城市能被称为大都市，就一定有流浪狗和流浪猫。梁萧觉得自己就是一只流浪狗，来自哪里不知道，只知道混迹在这个城市里。这个城市大的足够包容他，奢靡的足够养活他。他从来不自卑自己的出身，因为出身好的宠物狗，自己既成为不了，也竞争不过，也永远没有交集。流浪狗不可怜，因为他们知道照顾自己，也知道如何活下去和打发时间，他们只和流浪狗交流。流浪狗最大的原则是不能轻信这个城市的人，有了施舍我很高兴，没了我不忧伤，期望随时按时的施舍，最后倒霉的一定是自己。这个城市是属于人和宠物狗的，一样是属于流浪狗的，偶尔流浪狗对这个城市更熟悉也更融入。流浪狗只有今天，没有过去，或许会惦记一下明天，连后天是如何都不奢望。于是他们吃的时候快乐的吃，玩的时候快乐的玩，不留给明天什么念想。是那么一群会悲伤会发情的动物，却从来不去爱。饥饿的日子或是变天的日子，他们总能找到可以捱过去的办法和地方，哪怕是公园长椅下，或是那些不能吃但是能维持咀嚼骗得了肚子感觉饱的东西。没打算在一个地方活下去，搬家除了被迫的追赶其实多是自己的厌倦。他们敏感四季却从来不在意，因为不值得在意。冷了暖了，自己要想不比其他的流浪狗差，只能靠外表看着的滋润和内里的狡黠。如何找到食物如何规避风险、如何快乐的玩、如何活下去，这个永远是自己的，不能告诉别人。流浪狗明白，装可怜和卖萌这个事情，流浪狗是不允许的，那个是宠物狗的专利。他们冷冷的矫健的梭巡这个城市，也小心翼翼的不激怒这个城市和世界。他们的梦想，是不再幻想自己的梦想，梦想是折磨人和危险的、致命的，没有梦想的那一天要么是我死了，要么是真的生活的不错。流浪狗充满温情，却永远冷静，温情是用来温暖自己的，不是去被世界发现自己有多脆弱的。流浪狗不嫉妒比自己活的好的，他只能活自己，于是满满的欲望，却最简单的表达。有玩伴，没朋友，有露水情，没有结伴。他知道就算有朝一日自己接了天上的馅饼，他还是一只流浪狗而已。一样会在乎吃，一样会随时的恐慌，一样会连自己都不信任，一样会在下雨天躲在长椅下发呆…之〇梁萧近来很喜欢后海，这地儿是这个城市的过去，也是这个城市最虚幻的地方。那里的酒吧，里面的人，没有区别，很是平等，都是流浪在这个城市的流浪狗。充满诱惑，还让诱惑激发着诱惑。只简单的因为，这里只有欲望幻想，没有现实，没有梦想…左岸记：将自己驻扎在大城市之中，首先要明白自己将以怎样的身份去面对这个城市的一切，其次是看自己能不能在这个城市中找到某种共鸣的东西，是某种文化，哪个能力，一座房子，还是有一个人……如果什么都没有，那么于这个城市，他就注定着一直的流浪。原文链接：http://www.zreading.cn/archives/4630.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

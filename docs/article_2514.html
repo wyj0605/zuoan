@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如果今天的快乐会变成明日的痛苦，那还要快乐吗？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>如果今天的快乐会变成明日的痛苦，那还要快乐吗？</h1>
+            <div class="date">2015-04-19 22:42:29</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/蓝菲杰大四毕业前夕，有一个问题一直困扰着我：如果相聚终会离别，那此时还处在相聚共欢的我们，应该如何面对明日离别时的种种不舍？一句“他日有缘再见”，各自背上行囊，走向不一样的方向，你知道，有些人可能这辈子都不会再见了。有此感伤，突然觉得彼时的快乐不过是一种短命的情绪，在时间的催化下，它终会变成离愁别绪。既然如此，现时的快乐又有何意义？不过，我并没有在此问题上继续纠结下去，因为我又问了自己一个问题：如果活着都会死去，那是不是就别活了？从小到大，我们接受的教育，无形中都告诉我们，自己是生活在一个二元对立的世界。父母老师教我们男女有别，电视里的人有好坏之分，颜色有白便会有黑，有光明也一定会有黑暗。等我们长大一点，会发现自己身上的情绪同样具有二元对立性：有快乐，但也有与快乐相对的难过；有期盼的兴奋，就会有达不到所望的失落。再长大一些，我们会爱，也会恨；会热情高涨，也会心灰意冷；会因为一个人而奋不顾身，也会因为同一个人而畏缩不前。只是在这个二元对立的世界，我们不可能一直拥有某种积极的情绪，甚至在我们开始拥有这种积极情绪的同时，也开启了对立面情绪的储存库，而且这种积极情绪的程度有多深，其对立的消极情绪的程度也一定会有多深。就像你曾经深爱过一个人，可是有一天，当他/她选择离你而去，那些美好的回忆不仅会瞬间失去光彩，而且还会成为你悲伤、压抑、悔恨、愤怒等一系列痛苦情绪的源头。当然，更普遍的情况是，很多人将爱情视作浪漫甜蜜的源泉，一如两个人刚开始一段恋情时那般，整个世界似乎因为另一半而完整。等到有一天，发现这个人的某些做法让自己感觉不舒服，便会开始责备埋怨，甚至暴力相向。我身边有不少朋友，都属于痴男怨女型，刚开始如胶似漆，你侬我侬，但久而久之，便互相指责，抱怨彼此的不是，最亲密的恋人，成为最亲密的“罪人”。爱这种东西，曾给予我们多少欢乐，就会给予我们多少痛苦。正如佛陀所云：“一切恩爱会，无常难得久。”所有的二元对立，都离不开无常循坏的本质。一个生命的诞生，就注定从此以后的道路是离死亡越来越近；我们会得到某样东西，有一天我们也会失去那样东西；某种形式上你成功了，但某一天你也会在这种形式下栽了跟头。我们把这个世界二元对立化，并在意识中对二元进行判断，生是好的，死便是不好的，得到是好的，失去便是不好的。于是乎，我们总会对生命中出现的“不好的”出现抗拒心理，并因此产生种种痛苦的情绪。埃克哈特·托利在《当下的力量》中说过：「在形式层面，每一个人迟早都会“失败”，每一个成就最终都会化为乌有。」只要是我们思维判定为“好的”东西，并认同于其带给自身的快乐与满足感，终有一天，这个“好的”东西会失去，会改变，甚至变成“不好的”东西，我们会失去这种赖以汲取快乐和满足感的“形式”，迎来事情的另一面。回到开头的问题上，如果今天的快乐会变成明日的痛苦，那还要快乐吗？可能你会说，既然快乐终会变成痛苦，那快乐又有何意义？就像某些曾经在感情中受过伤害的人，因为曾经的经历，在很长一段时间内都难以放下，不愿意接受新的恋情，也是因为害怕会带来跟上一段感情同样的结局。但这些想法未免有些跑偏。生命中那些美好的事情和事物值得我们去欣赏、去享受，只是我们不应在它们身上寻找形式上的认同或满足，否则你又怎么去面对它们消失时那种仿似从自己身上撕裂某个肢体一般的痛苦呢？世界在无常的循环中流动，“好的”与“不好的”又有什么绝对？生命的河流本就一直在前进，学会不再执着于“好的”，放弃抗拒“不好的”，用心活在当下，我们才能感受到生命流动时的那种与上帝同在的宁静。左岸记：没有永恒的存在，只有永恒的意义！就情绪而言，我们身上所具有的种种，喜怒哀乐惊恐思，是没有根本的好坏之分的，关键在于我们对这些情绪的管理上，一个被情绪控制的人，是无法处理好引发情绪的事情的。处理任何事最为不可取的就是单纯思维。在单线思维的人眼里，世界非常简单：非黑即白，非此即彼。有些道理很简单，但是被视而不见。形成的原因应该有很多、会比较复杂，不过其中一种情况是：缺少驾驭能力，所以守住一隅。比如，不能在享受孤独和在人群中狂欢都游刃有余，所以就只选择一样，而且，为了掩饰这种能力的稀少，就否定其中一样，“是我不要，不是不能。”否定了，就不是自己的问题而是他人的问题了。这样很省事，很省力。于是可以安睡在自己的梦境中。——萧秋水原文链接：http://www.zreading.cn/archives/4870.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

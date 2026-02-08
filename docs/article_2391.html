@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深夜食堂之1801</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>深夜食堂之1801</h1>
+            <div class="date">2015-09-07 22:10:39</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/ Olia谨以此文献给疯豆、娜娜、雪儿、涛哥和米豆同学，纪念那段我们一起吃吃喝喝的风花雪月。​Ⅰ. 回家1801是我们单位的单身宿舍。拿到钥匙的这一刻，我有家了！在此之前，我一直在外面上学。从小学一年级开始住校，94年到13年，小二十年。虽然是传说中不吉利的18层，虽然有三个室友合住，虽然在主卧和娜娜拼床，虽然仍然是在外面，但是因为经济独立我可以挣得钱养活自己，吃饭的时候不用再找食堂或者饭馆，终于有自己的地方可以做饭。毕竟这是一间两室一厅的公寓，水电暖气，各种家用电器一应俱全，物业靠谱，纯封闭小区……毕竟，这可能是我住过的最好的房子。​那是一个周四，正好轮值休假一天。我把三年装进25件包裹，花150块钱雇了一辆小货车。那天下着雨，我却没有一丝伤感，学生时代的贫穷是一种烙印，实在受够了整天想着如何打工兼职挣钱的生活。而此时终于远离了阴暗潮湿的8人寝，翻滚吧，学生时代！搬东西进门的时候只有豆子一个人在家，她兴奋地跟我打着招呼，帮我忙活。当天晚上，我们就动手做了第一顿饭，这顿饭可能就奠定了许久以来这里的基调——温暖。​辣椒炒蛋，洋葱炒蛋，拌黄瓜丝，炒土豆片还有工大的寿司Ⅱ. 我的室友们​1.豆子：咖喱、贝类和大雾霾天​豆豆大厨的代表作咖喱在很多人看来咖喱似乎是道很简单的菜，只要把很多蔬菜混在一起就可以。但是把这么多蔬菜配在一起，一一处理，考虑颜色、口感、切块大小和味道搭配实也并没有那么简单。不过豆子还是喜欢咖喱的味道，而大家又都爱极了咖喱，就像爱火锅，因为每个人都能在这道菜里找到自己喜欢的食材，一道菜所能呈现的包容亲和力，咖喱可能是极限了。又像极了豆豆自己，每天傻乐傻乐的没有愁事，除了感情上的偶尔纠结和挣扎。实践证明这些犹豫和等待是值得的，因为最后她终于等到了要等的那个人。上个月，豆豆出嫁了，自此，1801当年住的所有的妹子都有了自己的小家，而距离我们搬离也快一年了。​这是我们第一次做蛏子那时我们在同一个支行上班，单位附近有家大润发，于是我们经常去买一些小贝壳回来做着吃。在前台实习的时候我们一起上二休一、一起休假的日子里，正好赶上了13年最大的雾霾天。那是一个礼拜一，豆子睡眼惺忪地推开厨房门说，你好讨厌，大休班不睡觉在这做好吃的，都给我熏醒了。我盖上电饭锅说，你可以选择再睡五分钟，或者洗漱一下。骨头马上就炖好了。​于是在大家都吸着毒气上班的大礼拜一，我和豆豆在家里开心地啃着骨头。没有压力锅，一直用姐姐送我的这个电饭锅炖肉吃，简直无所不烂，所向披靡。后来豆豆嫁给了会给她做好吃的男人，闺蜜就是这么靠不住。​2.临别前的腊肠炒饭 雪儿​出来混迟早要还的，一般在三个要好朋友的关系里，总有一个人会包容你，而总有一个人需要你去包容。照顾豆豆已经成为我的习惯，而我却被另一个姑娘这样照顾着。我们俩的名字差一个字，我的名字好包括了她的名字，可我却比她少了很多温柔、美丽、善解人意、勤劳……总之在我眼睛里，这就是个完美的姑娘。她嫁给了自己的初恋，那个从初中起第一个向她表白的男生。大学异地，她出去交换那段异国的日子里，两个人还依然坚定。而现在又是三年的异地，为了前程和明天，她和老公几乎相隔大半个版图。有信仰的人运气总不会太差，就算是信仰爱情。因为同样的异地和奔波，我们有了更多的共同语言，所以格外亲近。雪儿是我们几个里面最有生活经验的姑娘，家里如果没有雪儿将不知道要乱成什么鬼样子，虽然我们没怎么一起逛过街，但和她相处的日子里学习了好多清洁本领。她做的菜都很好吃，炒土豆片，辣炒山药，山椒肉片……想得我都饿了。做饭的时候就是四个字速战速决，分分钟一餐饭就上桌。​但我记忆特别深刻是那顿临别前的晚饭，特别爱吃雪儿做的炒饭，一点都不油。这张小床我们一起哭过笑过，回忆过去畅想未来。虽然在单位我们的时间经常不一致，见到了也是匆匆一瞥，但那段在家里的日子想想都觉得是很久都再也没有的温暖，特别是在和先生因为家务的问题闹些小情绪的时候，真的很想直接和雪儿过算了。衷心地希望雪儿能够如愿以偿，去想去的地方，陪伴着想陪伴的人，在一起永不分离。蒜茄子是我自己腌的。3.一盏小台灯 娜娜虽然和娜娜在一个屋住了一年，但因为睡眠时间的不一致，除了周末之外的其他时间我们经常错过。一般是她回来的时候我已经睡了，要不就是我出门的时候她刚起，就这样生生错过了一年。对娜娜最深的印象就是她书桌上的那盏小台灯。通常她回来的时候就很自然地关掉大灯，点起桌子上的小台灯。有时我睡梦中醒来看见小台灯亮了，我就会很安心地转个身接着睡过去。除了体贴之外，娜娜还是个创意美食家，我们的煎蛋都是普通青年，你看人家的煎蛋……4.涛哥和米豆涛哥是我们楼下闷骚的小青年，和我们混在一起的时候还没有女朋友，被调到大成的第二天（当时大直传说中最崩溃最忙的网点）一进门看见涛哥手握一瓶酸奶靠在柜台上。我说，你怎么来了？他没好气地说，你猜！从此他就成了天天跟我们家蹭饭的家伙。涛哥做饭不难吃，曾经做过一次豆角让大家惊艳。再让我难以忘怀的就是涛哥妈妈做的罐头，后来发现，并不难嘛……米豆和我们混在一起的时候，还有女朋友。无事来我们家献殷勤的几个劳力之一，不过经常帮我们解决燃眉之急，比如修好了我们家厨房的抽屉之类的……因为米豆工作的地方离家特别近，所以经常因为此事遭到我们的排挤。米豆还挺爱做饭，经常兴冲冲端上来做的丸子汤或者排骨汤给我们品评，雪儿和我都一致表示好好吃呀！然后等他离开之后偷偷把碗洗了……家里经常很多人在一起吃火锅，就像笑话里的那样，打电话告诉他们就差肉了，就差菜了……于是一桌饭就聚齐了。而且不管多热……通常配的饮料是格瓦斯，大家都以为是啤酒，你们错了呢。豆豆拌的麻酱一绝，还拒绝承认是我告诉了她方子……不过也无所谓只要有人做就好。那是再也没有的时光，你想，在家里聚完餐还等待着男人洗碗吗？不过那个时候我们有两个很好的偶尔洗碗先生​呢。他俩真真成为我们家室友是有原因的，因为当我爹妈来的时候，也是把他俩都邀请了过来吃饭。虽然那个时候我们什么都做过，但是没有包过饺子。这样也算圆满了吧。现在，我和豆豆都有了自己的小家。米豆自己的房子也装好了，这个小团伙算是至此终结了。其实还有很多回忆，比如他们一起看爸爸去哪，不过我太困了就睡觉了……可这些都不如那些我们一起吃过的饭，那是我们一起对美好生活的探索和尝试。前几天把照片整理出来的，我发现我拍的都是饭没有人……一张合影都没有，好遗憾。米豆安慰我说，等豆子回来办答谢的时候咱们合一个。对的，其实米豆特别会安慰人。​写这个的时候他还单身，后来听说很快他就有了女朋友。我们所有人最后都幸福地分开了。Olia2015年7月29日 悟已往之不谏左岸记：推进生活的主线可以有很多种，吃、穿、住、行、思都是很靠谱的事。每件事都是一个点，串起来就是一段人生。上一篇Olia写《奶奶家的餐桌》，这一篇写《深夜食堂》，满满的都是温馨，美食是福祉，有缘人才能吃到最美味可口的饭菜。原文链接：http://www.zreading.cn/archives/5059.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

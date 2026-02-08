@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>炒股七记 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>炒股七记 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>炒股有点儿像猫捉老鼠。总的来说小散很难赢，除非你与别人想的不一样，又遵循一定的原则。</p>
+<p>一：止损和止盈。</p>
+<p>止盈位和止损位的设置对散户来说尤为重要，不少散户会设立止损位，但是不会设立止盈位。止损位的设立大家都知道，设定一个固定的亏损率，到达位置严格执 行。但是止盈一般散户都不会，但止盈却很重要。怎样设立止盈位呢？举个简单的例子，如果你顺应热点10元买入一只股票，涨到11元，你设立止盈10.4 元，一般庄家短暂的洗盘不会把你洗出去，如果11元跌回10.4元，你立刻止盈，虽然挣得很少，但减少了盲动。股价到12元后，你的止盈位提高到11元， 股价到了14元，止盈位设置到12.8元……这样即使庄家洗盘和出货，你都能从容获利出局。</p>
+<p>二：不要奢望买入最低价，不要妄想卖出最高价。</p>
+<p>有的人总想买入最低价而卖出最高价，其实是不可能的，有这个想法的人不是高手，只有庄家才知道股价可能涨跌到何种程度，庄家也不能完全控制走势，何况你 我。股票创新低的股票不要去看，新低下面可能还有新低。只买入大约离底部有10%左右升幅的个股，还要走上升通道，这样往往能吃到最有肉的一段。</p>
+<p>三：量能的搭配问题。</p>
+<p>有些人总把价升量增放在嘴边，其实无量创新高的股票尤其应该关注，而创新高异常放量的个股反而应该小心。越跌越有量的股票，应该是做反弹的好机会，当然不包括跌到地板上的股票和顶部放量下跌的股票，连续上涨没什么量的反而是安全系数大的，而不断放量的股票大家应该警惕。</p>
+<p>四：善用联想。</p>
+<p>要根据市场的反应，展开联想，获得短线收益。主流龙头股会被游资迅速拉至涨停，短线高手往往都追不上，这时候，联想能给你带来意外的惊喜。通过联想，在市场上哪些股票和主流龙头股关系较密切呢？联想不仅适合短线，中长线联动也可以选择同板块进行投资。</p>
+<p>五：要学会空仓。</p>
+<p>有些人很善于利用资金进行追涨杀跌的短线操作，有时会获得很高的收益，但是对散户来说，很难每天看盘，也很难每天能追踪上热点。所以，在股票操作上，不仅 要买上升趋势中的股票，还要学会空仓，在感觉股票很难操作、热点难以把握、大多数股票大幅下跌、涨幅榜上的股票涨幅很小而跌幅榜上股票跌幅很大时，就需要 考虑空仓了。</p>
+<p>六：暴跌是机会。</p>
+<p>暴跌分为大盘暴跌和个股暴跌，暴跌往往会出现机会，暴跌往往是重大利空或者偶然事件造成的，在大盘相对高点出现的暴跌要谨慎对待，但对于大涨之后出现的暴跌，你就应该选择股票了，很多牛股的机会就是跌出来的。</p>
+<p>七：保住胜利果实。</p>
+<p>不少人是牛市中的高手，但在震荡市中往往又会把获得的胜利果实吐回去。怎样才能保住胜利果实呢？除了要设立止盈位和止损位之外，对大势的准确把握和适时空仓观望也很重要。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

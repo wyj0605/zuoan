@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学会读人、读事、读书、读己</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>学会读人、读事、读书、读己</h1>
+            <div class="date">2015-10-20 01:14:15</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/yijiayou若你需要成长，我许你一段时光！然后就5年了！五年前的今天，我独自踏上这片土地，然后就无可奈何地爱上了这个有很多缺点的城市。回忆如潮，却不知从如写起，记得程Sir说过我们要学会读人、读事、读书、读己，那就走起吧~人回过头来看，生活好似一开始就像是规划好的般！一个个可爱的人儿从我的世界里一一走过。从在火车站画地图的师兄开始，然后宿室里的各种烂友、同学、老师、校友，然后到10班的战友们、中青的老师及各地的学员，再到毕业后的同事、领导、甚至客户都在那个对的时间出现在对的地方。有师有友，有亦师亦友！有的插肩而过，有的插刀而过！对了还有老罗那个死胖子、左岸、王利芬这些单向认识的人，一个个活灵活现地从天边走过来，同行、来不及告别就已各奔天涯！感谢你们出现，给我带来了一节节如香肠班美味的日子！柱子说你先在别人的世界里死去，然后别人在你的世界里死去。放心吧，我不死，你们就不会在我的世界里死去，给我死皮赖脸地活着！事大学里的那点事：还记上课回来就是三国杀，而背景音乐似乎永远是王力宏的《你不知道的事》，是不是？是！不是！有人说大学是个以不同眼光看世界的地方，我的大学却是做不同事体验生活的地方。第一次兼职、第一次逃课、第一拿证、第一次摆摊、第一次旅行等等的。也许并不都是美好，也不都有趣，但如诗里所说：所有的都成了亲切的回忆！！！中青里的那点事：我想多年后我还会记得那个下午：直直的马路上，温暖的阳光塞满了整个车箱，我们几个年轻人迎着风，大声地唱着《我相信》。青春无悔！感谢在那些年做了那么多事，在校里校外练演讲，在深夜坐在草坪里谈理想，提着裤子唱团结就是力量……也明白了，很多事并不是我们所想的那样，甚至不是我们所看到的那样。你永远不知道别人在背后付出了什么……玖和里的那点事：一句你是来做棒棒的头，然后一做就做了两年。其实初意是压压年轻人的那种浮躁之气！走马的玖和，确实是个好地方，仿佛又回到了学校的三点一线，然后有做不完的作业！两年的工作也活生生将一个马大哈炼成了神经质，这种感谢是必须的！当然还有那最爱厨房后面的那匹山，春有桃李花，夏有稻田苗，秋有落山日，冬天还有那呼拉拉的寒风真带劲……山无情，人烂情！嗯，好吧！要是有些事我没说，我的后花园你别以为我忘了，我什么也没忘，但是有些事只适合收藏。不能说，也不能想，却又不能忘。它们的领地只有两处：心与坟墓。这是史铁生说的，也是我想的！书这些年囫囵般的看了一些书。看过烂书也读过好书。烂书就不提了，反正一句尽信书，不如无书。当然最最爱的还是我的《小王子》（安东德圣艾修伯里）：很久以前，一个法国飞行师驾着飞机，因为故障，迫降在撒哈拉沙漠里。头一天晚上，飞行师比一个漂流在大海木筏上面的遇难者还要孤单。当天刚破晓的时候，他被一种奇异的小孩生叫醒，那声音说，请你……给我画一只绵羊……如果可以我多么希望我成为一个的小王子的一部分，我们一起旅行，一起忧伤，然后一起看落日！如果小王子是天上的星星，那《平凡的世界》就是地里的土地。这本书是泽羽推荐。一个擦肩而过的人，书却留下了！生活就是这么奇妙的东西。每一时代都有很多人想做英雄，包括我！可如果注定是一个平凡的人，该怎么办呢？其实我们应该明白的是平凡与否都是外面加上去的！不平凡的人注定不会平凡，因为他知道自己要做一个怎么样的人！这与环境与他人无关，如三毛。喜欢三毛的书，还不说喜欢三毛这人，一个真性情而又二的人，又有几个能有抵抗能力呢？是吧？己工作+爱情：一个人健康的工作近五十年，工作才刚刚开始呢。无论干什么，但愿自己沉心做事，不要急功近利，这也是目前最大的问题了。踏踏实实的每天有所长！同时也希望最后一份工作是成为MarvaCollin那样的老师！关于爱情，因为有了因为，所以有了所以！好吧，说人话：我相信爱情……没有再多了，再多都是罪！学习+思考：写到这突然想起：学而不思则罔，思而不学则殆！大惊，后面慢慢地理解这句话！想学的很多，这也就犯了贪念。可未来永远是一个学习的时代，坚持永久学习这观念，不会错！至于方法和途径嘛总是会有的！是吧，翼！才来那时，网名还叫一切皆为梦，到大学就充满了怀疑，因为这种思想有种不落地的感觉！于是觉得是因为我们是没有信仰一代，从而在精神上缺乏一种依靠！并提出我们该不该有信仰呢这问题。再后面认为一切都是因爱而存在，爱他爱己，爱这个世界，爱是这个世界的上帝。可也不完全认同这种理论，直到有天冒出：所有的思考都是大自然自己的思考。也就是目前的思考进度了，它让我感到自己不曾来到这个世界，因为我一直都在，从未离开。这个世界的所有，无论好坏都是我的一部分。至此，感谢你的阅读！这些年我过得还算可以，至少都对得起自己我才25岁，我还要继续继续走下去 继续往前进有一天 ，我将会老去希望那时依旧会觉得满意！！！原文链接：http://www.zreading.cn/archives/5108.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

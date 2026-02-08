@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丫头长工锡游记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>丫头长工锡游记</h1>
+            <div class="date">2014-07-02 23:46:28</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/盛夏文子这是我朋友丫头和长工的第一次出游，好吧，不是朋友。话说这天大雨如注，丫头不顾夫人的极力反对，大有私奔之趋势，收拾行李准备些许干粮，去往车站与长工会合。坐的士前往车站，司机大叔特别能聊，其啰嗦程度非3个长工不能比。丫头和长工终于在车站顺利会师，大雨将两人折腾的有点狼狈，衣裳湿了不少，就这样二人在大雨中离开魔都，奔赴一场江南的风花雪月（至少是期待中的）。窗外的风景如胶卷般一幕幕从眼前略过，约莫40分钟的车程终于到达无锡，此时已是中午时分，无锡却意外没有下雨，只是天空有点阴沉，真是“海”边有雨“锡”边晴，道是无晴却有晴。无锡是座小城，但对于任何的陌生人来说识路仍是困难重重，尤其是对于一次没有准备攻略的旅行来说。丫头和长工二人经过百度地图外加人工询问终于到达预定的客栈，客栈位于崇安寺附近。拍拍尘土，一番洗簌，二人出发觅食。前走，右行……寻寻觅觅，觅觅寻寻，传说中的小吃一条街始终不与二人相见。丫头：饿死。呀，有肯德基，要不吃肯德基去？长工：不行，来无锡一定要吃当地特色。丫头：嗯，对。呀，有甜筒，要不先吃个甜筒？长工：不行，来无锡一定要吃当地特色，那个餐后吃。丫头（欲哭无泪状）：哼，智者不与竖子为谋！二人饿的头昏眼花，崇安寺附近来回穿梭，好在柳暗花明又一村，在街边拐角处发现一老字号品牌“王兴记”。店面位于二楼，装修古色古香，木质暗色调桌椅，许是已经下午时分，用餐的人并不很多。用餐忌讳喧哗拥挤，零零散散的上座率最是悠闲享受。丫头和长工点餐之后找了一处靠窗的位置坐下。铛铛的铛，美食上桌，二人点了无锡有名的酱排骨、小笼包、砂锅、牛腩、蛋黄烧饼。（点评下：酱排骨做法特别，油而不腻，微甜，丫头这个不爱吃甜食的人都忍不住多吃几口，至于其他几道菜只觉一般，不值一提。）不知不觉在长工的协助下，光盘运动进行的很彻底。酒足饭饱，二人优哉游哉前往第一个景点——三国影视城。三国城坐落在太湖之滨，是中央电视台为拍摄《三国演义》而兴建的大型影视文化景区。丫头和长工的怀古之旅开始了。景区大门修建的如古代城门一样逼真考究，估计当初费了不少银子。城门处依旧有士兵（检票员）把守，须得出示通关文牒（景区门票）方得进入。该城池雄伟辽阔，建议取一张地图方便游玩。去某某景点处咔嚓一下表明到此一游这种匆忙的赶场子旅游，丫头不喜欢，因为丫头要的是……悠悠闲闲的咔嚓赶场子。倘若你来到这座城池，这些事情一定不要错过。漫步太湖沿岸，听听湖水拍岸，看看火烧赤壁，顺便笑笑曹操当时的智商。去看一场历史剧表演，领略一下那个锋芒万丈的时代，感受一下那个时代的英雄豪情，铁马兵戈和江山如画。那天，丫头和长工看的是《三英战吕布》，演员瘦弱，马上功夫却是了得，英姿飒爽。逛着逛着下起了小雨，细雨霏霏，天色朦胧，远山近水披上一层灰纱。长工与丫头二人匆匆找了一处屋檐躲雨，并肩坐在长廊上，吃着杨梅看着一批一批走过的行人，不知是否有个撑着油纸伞如丁香般结着愁怨的姑娘。这六月江南的雨为此行增添一抹迷离的诗意，也许最美的不是下雨天，而是与你一起躲过雨在屋檐下吃的杨梅。对，重点是杨梅，这里的杨梅汁水多，大而甜，据小贩称此杨梅才从山上采摘下来，无农药，免水洗可直接享用。少顷又少顷，雨停。雨后的太湖静谧温柔，这个点恰好可以去坐最后一班游船。此时码头人烟稀少，游船外观类似于古时的战船，游船共三层，建议选择站在第三层，高处俯瞰太湖，美不胜收，凭栏吊古也很合适，当然也有个别二货模仿着泰坦尼克号里的经典场景，例如丫头和长工。滚滚长江东逝水，浪花淘尽英雄。古今多少事，都付游客笑谈中！三国城游毕，二人公交回到市区，时近傍晚，晚餐着落未定。丫头主张去南长街吃遍各种美味小吃，长工主张寻一家餐厅正经吃下当地湖鲜。又是一番你来我往唇枪舌剑，小吃PK 湖鲜，丫头战败。走，吃湖鲜去！二人跌跌撞撞杀到一家无锡菜酒家（该酒家方圆千米内大众点评口味排名第一，真正的吃货当如此！）。千呼万唤，“太湖三白”作为最后一道菜压轴上桌。长工拿起筷子，欲一尝究竟，丫头：“别动，先拍照”，识时务者为俊杰，长工将夹起的一块鱼肉整整齐齐拼回鱼身上。微时代的人啊，哪里能忘了千里之外的好友呢！无锡人也真是大气，4道佳肴，道道量多实惠，吃的二人立马脑满肠肥起来。当二人晚餐后前往南长街之时，恍如穿越到民国。或许是才下过雨的缘故，游客稀少，古街静默如迷。这个古街干净优雅，沿着悠悠运河延伸出无限江南之意。小桥、流水、人家，商业化也穿插的恰到好处，还有那串串高挂的红灯笼，使古镇的夜景多了一层繁华神秘。此情此景，有人选择醉笑一场，不述离觞，有人选择滤去浮躁，沉淀深思。前者需要酒，后者需要茶。而丫头和长工需要的只是消食解解油腻，这同样需要茶。一番游荡漫步之后，二人被一家茶馆吸引，不自觉踏入。茶具考究精细，大多是店家自己烧制出来的，二人忍不住摆弄把玩起来。旅行在外，需讲究情调（十三），二人于二楼寻了一处靠窗的位置坐下，有一屏风将座位与外界隔开，自成包间，雅致异常。窗外是京杭古运河，偶有游船经过，河水泛着微光荡漾开来。店老板将茶具和茶叶摆上，其他烹茶斟茶之事需自己亲力亲为，方才能感受那份品茗趣味。长工乃福建人士，想来对饮茶之事也颇为在行，所以这事情自然当仁不让揽在身上。只见长工煮茶，清洗茶具，洗茶斟茶，像模像样，遗憾在茶叶不够好，味道差了点，略微苦涩，不够醇香，好在几杯下去有点回甘迹象。不远处有个小书架，长工找了一本林语堂的书（《生活的艺术》）供丫头消遣，这人文笔幽默潇洒，生活方式也足够小资，性格也好玩，丫头需仰视！都说男人如茶，需细细品味，那长工是一杯什么茶？是绿茶的内敛含蓄，回味久远，还是红茶的红艳高调，馥郁芬芳，还是别的丫头不知道的茶呢？走出茶馆，已是10点左右，运河的左边已沉睡入梦恬静安然，运河的右边夜生活却才刚刚开始，这里酒吧茶馆林立，因为世界杯的缘故，露天酒吧格外热闹，各色潮男潮女，喝着啤酒玩着游戏，快乐无比，无锡人真是懂得享受！夜沉下去，困了，晚安！翌日早晨，一阵悠扬的音乐把耳朵叫醒，丫头洗簌完毕，与长工汇合。因为所处异地的缘故，两人吃早餐的机会少之又少。早餐又见小笼，这是于无锡的第二顿小笼，之后当天的晚餐又吃了一顿，所以这次出游叫做寻味小笼之旅也不为过。当日的行程安排是，灵山大佛逛，南长古街吃。灵山大佛景区位于无锡偏远的郊区，车至郊区，树木葱茏，空气极好，好多小贩沿路叫卖杨梅，一篮一篮的，好不诱惑！车行1小时才到景区，晕晕沉沉，当见到大批大批的游客涌入景区，晕甚。景区票价较于西安更高，高价猛于虎，好像虔诚拜佛之人就不在乎钱多钱少一般！景区很大，宫殿寺庙数不胜数，需逛4个小时才可完成。灵山处处精雕细琢，太多华丽，贵气逼人。不过我猜佛祖定能一视同仁，虔诚善良之愿必会接纳，无关贫富，无关阶级，若众生心，忆佛、念佛，现前当来，必定见佛，去佛不远。梵宫内的吉祥颂值得一看，只是游客太多，太过喧嚣，少了些佛家的宁静。个中游玩细节不一一赘述，出景区，道路旁边满是贩卖水果的小贩，市井气息浓郁，与景区内对比鲜明。此番景象，丫头怎能错过，一番拥挤讨价还价，收获一篮新鲜杨梅满意而归。终于对夫人也有了交代，夫人电话里嘱咐要买的杨梅（大且甜）已兑现，丫头松了一口气。长工出钱出力，灵山脚下，愿佛祖佑长工！乘88路离开景区，88灵山！开往市区的路程长之又长，公交车上，二人无座，尽管拥挤，依旧优哉游哉，乐乎乐乎，时不时你来一颗杨梅，我来一颗杨梅，尽惹甲乙丙丁侧目。南长街上二人一番胡吃海喝（重点推荐胡辣汤、蟹黄小笼和酱排骨），几轮特产搜刮，于亭间听得几首民谣，终于依依不舍，二人和云伴月，大包小包告别无锡。此行终！旅行的意义是什么？狠狠地抛开烦恼，狠狠地吃喝玩乐，狠狠地自由？还是在旅途中重新发现彼此，发现另一座城市的温度，或是为平淡的生活增加美好的记忆点？千人千解。不过丫头和长工已经又开始期待下一次的旅行了！原文链接：http://www.zreading.cn/archives/4436.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

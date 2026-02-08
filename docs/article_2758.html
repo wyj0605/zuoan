@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一个伪球迷的世界杯</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>一个伪球迷的世界杯</h1>
+            <div class="date">2014-07-14 23:41:09</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/@隶书shu四年一度的世界杯结束了，足球最早是由我大瓷国“蹴鞠”得来，我国名气最大的球星是宋代的高俅高太卫，按今天的标准来说，他应该当数宋代的梅西，要是他老人家知道俺们国家的足球烂到全世界人民都不待见的程度，估计坟头都会冒青烟的啊。要我说足球真的算得上是影响世界最最最重要发明才对啊…那些什么杀伤力的火药，用来垫桌底儿的造纸印刷什么的，还有不知道风往哪个方向吹的指南针，可以靠边站一会儿么？在这样的一个火热的夏天里，我除了挥洒着汗水天天搬砖，还跟全世界人民一起透支着我的热情，假装很high的样子跳着自己都不懂的桑巴舞。其实世界——杯谁输谁赢关我球事儿啊，我觉得我更应该关注我的杯子里盛的是水是啤酒还是咖啡更重要点儿吧。但是一个伪球迷自我修养仅仅这些是不够的，起码一点点感想还是要有啊。足球为什么会有这么大的魅力呢，首先四年一度的赛事这样长的间隔时间增加了人们翘首以盼的期待，正因为难得和罕见，所以更容易受到大众的稀罕和欢迎；其次32支国家队的较量对地球村的人们来了个集体大唤醒，每个参与的国家都想要在这样的国际赛事中分得一杯荣耀，每一个没能参与的国家又都想尽办法的八卦各个国家表现，更多的是借力调侃自个偷着乐吧。正如我们不断的嘲笑日本和大韩民国被秒杀，其实自己国家创下26年对阵韩国没赢过这样的历史却被偷偷的隐藏了起来，反正这一届的焦点不在中国队上。卫冕冠军西班牙止步小组赛，英格兰成了欧洲的中国队，而巴西则成了南美的沙特，先忍住别笑。其实世界杯更多的是让我们看到，一个集体的竞赛中，人们怎样有尊严有责任的为自己的国家而战，怎样为足球这种他们为之奋斗的运动赋予观赏性和艺术性，为在这样一种全世界人们目睹下的竞赛中怎样给自己的行为标志和定位。知道智利为啥踢得这么好么，身在死亡之组的智利国家队在出战前推出了因矿难而奇迹生还的矿工们拍的宣传片，曾经战胜过死亡的矿工们励志效果很明显（没看过的，请戳智利国家队世界杯宣传片）；拉美小国哥斯达黎加2007年才与中国建交，但是他们在足球的世界里，甩我们大中华几条街，还有无冕之王荷兰队，一直兢兢业业的三剑客罗本、斯内德、范佩西以他们最优美的姿态最尽力的表现在今年的世界杯中未输一场球；连续多届的黑马乌拉圭，虽然没能一黑到底，但毕竟人家曾经这么出色的黑过啊。熬夜。做为一个真实的伪球迷，我的单眼皮都熬成了双眼皮。不熬夜对不起自己，熬夜又对不起工作，在对不起自己和对不起工作之间，我觉得还是向自己妥协，坚持不要对不起自己。就是为了见证goal的那一刻，仿佛没有亲见，进球就不能算是真正的进球，而通过网络或别人告诉你的进球时刻也成了隔靴搔痒，少了亲历的兴奋感和荣誉感，电视上的绿茵地、疯狂呐喊的球迷、夺球狂奔的球员们……虽不能至，心向往之。其实整个32天的战役之中，我也就熬了三天，揭幕战、冠军战以及英格兰对乌拉圭那场球（我是英格兰的脑残粉，脑残粉也有脑残粉自己的尊严，就是明知道英格兰会输球，也会想看看他是怎样输的。）为什么世界杯从来都和熬夜在一起，就像一个看欧冠的球迷，你说你没熬夜看球，那你看个锤子啊！看重播的都不是球迷好嘛。要想在家门口看球，我们只能呵呵了。买球。人类不劳而获的心态真是古已有之，世界从来不缺赌徒，随着网购的飞跃似发展，到今天发挥得淋离尽致。今年的足彩随处可得，轻触屏幕就能投上一注，何乐而不为呢。明知道玩不过庄家大佬们的我们，依然为了那些几块、几十块的赢利而感恩戴德，甚至有不少的人一掷千金，倾其所有，其实庄家们都在坐着摇椅慢慢笑看着呢。但是过把瘾就死的心态依然骑居在心头啊，我们除了调侃各支队伍差强人意的表现之外，买球又为我们增添了不少谈资，甚至增进了同事朋友间的友谊，拉近了人们心与心的距离，真是夏日里的一道冰红茶，给这个差点热得颓废的世界猛然注入了一剂兴奋剂啊！原来表面看上去很斯文很淑女的小陈竟然痴迷赌球呀，看不粗来啊，啧啧啧……哎呀，强哥昨天输了一千块，我这才输了100元而已，心理安慰很多啊，还有人上九楼的呢，神经病啊……既然大家心态都这么糟，那我们又可以愉快的玩在一起啦。我也买了好多场球，不过正如你所料，我输了很多场，但是让您失望了，我只是买几块钱，所以也就输了二十几块钱而已，大家都平衡了，我们还是继续埋头搬砖吧。看进球。就像是看一场非常好看的电影，但是比电影更好看的是，现场充满了不确定性了命运的交织。无法预言哪支球队必胜，每一个被门将扑打出的球，每一个只打在门框的球都让人多么的纠心，那种差一点点改变历史改变命运的瞬间就像你高考涂错了一个答案，分数立马从一本跳到二本那样失落悲哀。同样，每一个直射或做抛物线运动的进球总是掀起那么多人的惊叫和狂欢，足球不像蓝球那样每秒钟都可以进球，足球场上的进球就像大城市里的星星，抬望眼，没见一颗，仔细寻找，就会发现还是有那么一颗。或者说是薛定谔的球，进球不进球都难以断言。所以才有“梅开二度”和“帽子戏法”这样稀罕的形容词，你若见过对一个球员使用“帽子戏法”形容的话，那么这真是一个伟大的球员。但是巴西被猛灌7个球还是很惊喜的是不是（巴西球迷表打我），一次性满足大家看多个进球的愿望，相信巴西被灌了10个球（对阵德国及荷兰）的集锦很快就会推出，因为进球真的让人很兴奋啊。同样期待世界杯的续集，那时候演员可能又要换一大批了。孤独感。在这样平淡如水的日子里，每天像个皇帝般翻阅天下大事，偶尔做些批示什么的感觉很孤独吧。高处不胜寒啊。生活中没有波澜壮阔的冲击，又没有惊心动魄的爱情，那种只有爬楼梯才有心跳的感觉，那种深入骨髓的孤独感简直要把人折磨死啊，难得有这么一大件事可以自己参与狂欢简直像是偷偷溜出皇宫看到清纯貌美豆腐西施的皇帝啊。这么一场持续一个多月的世界杯，真的很解渴，好嘛。所以及时行乐显得是多么的重要。我们要做的就是enjoy。至少我的孤独感被存在感给掩盖了，在这样一种全民狂欢的日子里，我也是打着鸡血那样开心的笑着。在这一个月里，书记被带走了，副省长被带走了，宁财神被带走又出来了，亚洲人民的代表芮成钢也被带走了，这是一个全民狂欢又是全民的孤独的时刻…谢谢你们陪我渡过，让我知道我不是一个人。左岸记：世界杯看直播还是看重播，心情体验和看到的东西应该是不一样的吧，看直播时永远不知道下一刻会发生什么，而知晓了结果再看比赛，就好比知道了真相再看侦探片了，这时看重播，看的是战略战术还有每个人的具体表现吧。关于预测。心理学上有一个专门的名词来形容这种现象，叫Hindsightbias。我给它起个俗名，叫“我早知道就是这样了”综合症。当一件事情已知结果时，很多人会试图证明这件事情本来是可以预测的，为此他会扭曲记忆中的很多信息，去重组和重构自己的记忆片段，以达到虚假的“预测”效果。提出“黑天鹅理论”的纳西姆·塔勒布在他出版于2001年的名著《被随机性愚弄Fooled byRandomness》一书中，就曾说过：考虑到多重世界的理论，任何回溯性的观察都注定是“决定论”的，因为只剩下一个可能的观察；人类的大脑先天无法去理解这个世界的随机性，我们无法理解“9·11”这样的重大事件实际上是无法预测的，哪怕你事后诸葛亮地看过去觉得在某个时间段上是可以预测的。原文链接：http://www.zreading.cn/archives/4451.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

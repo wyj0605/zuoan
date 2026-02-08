@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从跑步说起：一个点，一条线，整个面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>从跑步说起：一个点，一条线，整个面</h1>
+            <div class="date">2015-03-19 21:45:45</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌每每想到2015年又要按着2014年的节奏一样走过来就有点恐慌，活得没有意思是最悲哀的事情。想方设法的要玩出点趣味，看到不一样的东西才不枉这大好的时光吧！遗憾就是源于曾经想做的事情没做，或者本可以做的更好而不得，对过去有所亏欠吧！张鸣教授说历史永远是人们现实行动的资源之一。想想不无道理，历史总是往前走的，这样的进步就需要每一个人不断的努力。从纵向来说，活着的意义无非是比昨天做得更好，精进不已。谈到跑步，就不得不提到村上春树，村上除了是一名职业的作家，还是一名专业的长跑运动员。每天奔跑过程中保持激情，并将激情成功的转化到创作当中去，这是一种理想的生活方式。大学时在同学的怂恿下，以陪跑的身份参加了2011年的大连国际马拉松。报完名之后，为了满足自己的虚荣心，以高调做事的风格昭告了天下。一下子骑虎难下，又不好意思说自己只是报着玩玩，只好硬着头皮坚持在操场上跑圈。当成为一种习惯之后，便成了生活的一部分，每天早上在海风吹拂下迎接第一缕阳光的到来。不曾想比赛时居然坚持到了最后，记住了全程马拉松是42.195公里，经历过那撕心裂肺的坚持过后面对大海的平静让我无法忘怀。对的，这就是曾经跑步的历史。一个人的力量终究是有限的，尽管从哲学的纵深角度来说，我们的归宿终究只是自己的，意识到这点是为了让我们更加的独立和坚强，而不是刻意的拒绝人世的温暖。人在最脆弱的时候，对方一句简单的鼓励足以让人重新鼓起勇气。想想第一次马拉松准备得太草率，连纪念奖牌都没有领到一个的遗憾。我决定再试一次。冒昧的在QQ群搜索里找到了怀柔马拉松俱乐部，没有想到我生活的周围还有这么多人热爱马拉松的跑者，群里还有很多人出国跑马拉松，而成员年龄基本在四十往上走，最大的68岁。感慨自己是奔三的人时，在他们面前像是个打酱油的小男孩。年龄难道是一个束缚么？想想有的人过了三十稳定下来，大腹便便，就自以为自己老了干不动了，看看还有68岁的人光着脚跑马拉松，我笑了!以前总觉得自己6点起来就足以让人惊叹，而他们约定是5点就集合开跑，到点了就走，不等人的。第一次参加时生怕自己睡过了点，半夜醒来好几次。跑到后面的红螺寺，来回11公里。以前总是在操场上跑，除了马拉松就没有在公路上跑过，这次算是将自己从操场上解放出来。据他们说，操场容易让人产生惰性，因为想停就停下来了，而公路跑就不样，将人置于没有退却的地步，必须坚持下来才能回归到正常的生活轨迹上。在奔跑中感受季节的变化，在奔跑中体会自己的存在，看着黎明到天亮，看着宁静的城市慢慢的喧哗起来。我见证了这一切，是的，地球从来没有停止过旋转，瞬间觉得自己的渺小。我跑不过队友，跑不过小学生的自行车，更跑不过那飞驰的汽车。但我在和自己赛跑，在和时间赛跑，于是我又强大了起来。早起奔跑的后果是白天上午的精力不那么旺盛，内心变得宁静起来，根本就不想说话。这时就会试着分配那有限的精力，反倒能够冷静而又理性做好手头的事情，卸下了那些琐碎的欲望人会轻松很多。跑步也给人一种战胜自我过后的自信，也让人勇敢。想想连那么早起来跑上11公里都做到了，还有什么好怕的呢？奔跑之中的思索也让人回归到自己吧！跑步并不图什么，只是保持一种生活的状态，能享受这样的过程就够了。我知道自己不是什么大才，能够在历史上留下自己名字均非等闲之辈，哪怕是坏人他也有自己的过人之处。意识到自己这点倒也安份了，我并不需要得到别人的认可来证明自己，可能是别人不懂或者自己不够，又何必在意呢？做好自己该做的事情，尽可能去做自己喜欢做的事情也就不枉此生吧！文昌  书于 三月 北京  微信号：changchang010左岸记：如果不满意自己现在的状态，那么就做出改变，改变不要全面铺开，可以从一点开始，寻找引爆点，由点成线的坚持，再扩展到整个面。文昌从跑步的角度证明了迈出第一步是多么重要，如何跑则是一条方案，直到改变整个的精神状态。我想说说关于阅读，我倒是有点心得，我的点在哪里，就是在左岸读书上每天更新一篇文章，线在哪里，就是从文章当中不延伸出去知识点，扩展到更多的书籍，由此改变了我的兴趣，我的眼界，我的人生。原文链接：http://www.zreading.cn/archives/4835.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

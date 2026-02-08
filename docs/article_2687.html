@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>孤独的存在，伟大与荒芜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>孤独的存在，伟大与荒芜</h1>
+            <div class="date">2014-09-30 22:20:23</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/田晋文近日跟风看了畅销书《你的孤独虽败犹荣》，看着作者用流畅的文笔将那些生活中的小故事写的栩栩如生不禁佩服其才情，羡慕他是一个有故事的人。当然我不是想写一篇书评向大家推荐，毕竟畅销书这种东西一般走感情路线，强调引起共鸣，一定程度和粉丝电影比较像，爱者爱之，远者远之，不评，勿语，挺好！毕业一年多，一个人吃饭、睡觉、上班，我只是想谈谈孤独，没有故事的孤独。一个人的生活远没有梭罗在瓦尔登湖的洒脱，对于自己更多的不过是无奈。一个人在安静的夜晚总会分不清，什么是寂寞？什么又是孤独？貌似孤独比寂寞更加高级，只是人有贫富贵贱难道词也有么？如果有，那么孤寂算怎么回事呢？呵呵，笑谈。孤独与寂寞的区别无非只在于，寂寞常关乎于情，更多是一种情感所求却难以满足的空虚。孤独却往往不知其所起，不知其所逝，它是生命隐藏最深的底色。就如同窗外又开始下雨，滴滴答答的声音已经持续了一整天，莫名触动了生命中某一段密码，忽然间会感到秋风萧瑟、万物寂寥，这是否也是一种天人感应，若是，那么这种萧瑟是我的寂寞抑或是天的孤独？这种闲暇时莫名其妙的呓语游思永远没有答案，却莫名的蹦入脑海，又莫名在喝一杯水、打一个电话或者看几分钟书后消失无踪好像从未来过，我将他叫做孤独或者说显性的孤独。孤独是上帝的赏赐，孤独不会带来什么，貌似也不会带走什么，但却在那惊鸿一瞬让我们看到了生命的伟大与荒芜。记得前几天看过叔本华的一篇文章“要么庸俗、要么孤独”，貌似高深，当时读来也确实振聋发聩，但现在想来早已雁过无痕忆不起只字片语，哪怕道理却原来也是孤独的存在着，或者说别人的道理总不过是别人的道理，也许有一天我们会恍然大悟不过是因为这些道理终于在自己身生完成了自我成长。那些于别人口中、书上学到的道理不过是与自己所悟相互印证罢了。每个人都孤独的存在着，每个人都只相信自我生长的道理。当然纯客观知识例外，知识可以积累、传递，所以科技可以累进发展，但道理由于其主观性，几千年间本质还不过是几种观点轮番演绎罢了，本质并无区别。人类最深刻的孤独就是我们只能理解自己却无力理解别人，甚至正确的认识自己都是个哲学难题，哪怕在进化的过程中我们学会了思考、有了语言、有了文字，但本质都不过是渐近的折衷手段，我们从未能真正抵达彼此。年岁渐长，越来越相信每个人都不过是欲望河流中漂泊的一座孤岛，也许漂泊中你我相遇、你我相交，本质都不过是抱团取暖罢了。所以朋友会根据境况一茬茬的换（当然心理每个角落也许深藏着几个一生知己，但现实中早已相望江湖，许久未曾联系），因为我们本质都不过是孤独的存在着。孤独与快乐、幸福无涉，孤独如同阳光雨露它只是客观存在着，直到有一天被作为人的一部分所遗忘，如同我们遗忘每一个艳阳高照、风调雨顺的日子都值得祷告！_______________________________________欢迎微信搜索“静读与争鸣”关注原文链接：http://www.zreading.cn/archives/4575.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

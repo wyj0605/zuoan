@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为什么很多人努力了却还死了一地？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>为什么很多人努力了却还死了一地？</h1>
+            <div class="date">2014-05-27 23:21:45</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/古典难道那些名人说“努力就一定能成功”是假的吗？他们好像没有必要骗我啊？我想你说得对，主张这个观点的人，虽然不乏有欺世盗名居心不良者，还是有相当部分的成功人士的发自内心，他们依然在坚持说“只要做你热爱的工作”或“只要努力就能成功”？答案是，成功人士有自己独特的视觉盲区。他们往往陷入叫做“成功漏斗”的心智模式中去。什么叫做“成功漏斗”？从现实的案例分析中我们能够知道，成功事件虽然往往不太可能完全复制，但是却自有自己的模式。第一步：看到趋势：朝传球的方向跑在我还没有发育到完全展现出来不适合打篮球的天赋的年少时代，我参加了年级篮球队，并且学到了篮球第一课，第一、打篮球不光是投篮，重要的是要跑位。第二，不要朝球的位置跑，要朝传球的方向跑。职业生涯规划多年，我深深理解这个道理，尤其对于“体力”不好的职场新人，不要向现在的职业最高点方向走，要向未来的职业方向走。不要做现在能兑换价值的事情，要做未来能兑换价值的事情。一个职业经理人，如果没有生存问题，三十岁前，不要想着赚钱，要赚本钱。我的一位朋友被邀请参加奥运会的演播，但是他正参与汶川地震的一个救灾活动，所以婉言谢绝。回来以后，失去了电视台的编制。我告诉他未来的趋势在互联网，如果你想重新赶超同事，现在可以去视频网站应聘。他们肯定稀罕死你了。当时09年，优酷土豆等网站并不算太火，而且也远不及电视台的气势。最后基于很多理由，他还是没有下定决心。几天后的课堂上，我举例子提到这事。说者无心听者有意，其中一位听众却暗暗做出一个决定。他几个月后从地方电台离职，进入视频网站。3年后该网站上市，前短时间再吞并另外一家门户，而那位同学，早已位列总监仙班，职业收益颇丰。所以刚进入职场，体力和能力不是最强，记得向球的方向跑。也许一个对于行业趋势的分析能帮你看到前景。如果你期待更大的成功，则需要看到更大的格局与趋势，耐心下一盘更大的棋。第二步：拥有才干与能力但仅仅看到趋势与定位，绝不会让你成功。我爸有段时间总在抱怨，说我们家曾经有过买一个房子的机会，但是由于种种理由错过，甚是可惜。我告诉他这没有什么好可惜的。没有赶上那个高潮的原因不是没有好的房子，而是没有投资的意识——当时的中国人还没有把房子作为投资手段，大部分人只是帮自己准备个好或者坏的住所。所以第一，不是你错过了那个房子，事实上你从2000年开始买什么狗屁房子都能涨N倍。第二这机会甚至到今天一直都有——如果我们那个时候买个深发展股票，现在也长了几十倍，难道不比房子值钱?关键还是我们没有这个意识和眼光啊。不过我们家用这么多年来投幸福和安心，倒也值得。趋势与机会到处都有，但是如果你看到，你就仅仅是观众。而决定参与和投身其中，则需要巨大的判断力。这其中差异巨大。看到趋势那叫视力，而投入趋势，才叫眼光。但是看到趋势，决定参与就一定能够成功？其实也不一定，你还需要拥有能够参与进入的能力与才干。就好比当年三国，天下大乱，各地枭雄辈出，谁都知道赢了就是皇帝。但是又有几个人能够剑锋所指，人心所向？曹操把着天子、孙权占着江东、刘备流着皇叔血统，这都是才干与资源。几年前的北京房市，谁都知道会继续涨价，但是也并不是所有人都能进得去，有人缺钱，有人缺意识。现在的电子书、移动互联、手机制作，也是人人都看到的趋势，但是能玩得好的又有几人？2007年，美国的次贷危机席卷全球，中国的现金储备一度超过了世界四大银行的总值。当我们雄心万丈的准备“买几家国际大企业玩玩”回来的时候，却发现我们国内能够领导跨国企业的领导人才几乎寥寥——能够流畅讲英语的倒是很多，能够多元文化管理的就稀疏，而有全球视野和战略的，几乎没有了。所以，比错过趋势更加恶心的，是看到趋势却发现自己完全插不上手——以此献给刚刚进入职场，忙于思考“公司战略、时代机遇、商业模式、定位”等的职业新人，当我们眼睛越来越高，手越来越低的时候，我们慢慢会成为一只长颈鹿。也以此提醒“吸引力法则”的盲从者，我觉得比吸引不到机会更恶心的情况是，机会吸引来了，你却HOLD不住。我觉得吸引力法则的真意应该是，如果要吸引外界，先吸引自己。总之，需要拥有能力，你才能成为竞争者，而不是观众。第三步：坚持与机遇如果你能过前两关，恭喜你，从炮灰升级为游戏玩家，但是不要高兴得太早。高手过招，除了各自的内力招式，往往还需要一些机遇与运气。《异类》一书中提到，大部分的IT英雄出生于美国50年代——如果你出生太早，则IT革命来临时，你已经年过30，家庭负担太大，机会成本增多，不敢放手一搏。如果太年轻，则无力积累足够对于电脑的才干与资源。所以前者更多成为“观众”，而后者更多成为“跟随者”或者“炮灰”。我们知道，福布斯排行榜的财富英雄们，也各有各的机遇。大陆的借着互联网起飞，台湾的借着加工制造业腾飞，而香港则遇到了地产大潮。周密的计划，以及计划外的机遇，都是成功的不二因素。作为70后，我热爱《英雄本色》里的小马哥。周润发凭这部电影一举从票房毒药晋身影帝，把整个80年代的香港影视圈变成“周润发时代”。当他回顾自己的演艺生涯，他认为《英雄本色》是一个重要的关键，“我在香港拍了七十部电影，只有《英雄本色》是一生难得遇上一次的好片。七十分之一的机会！我现在在美国一年只拍一部，就算拍二十年也只有二十部，而我可能再也碰不到另一个《英雄本色》。”七十分之一，这也许就是机遇和坚持最好的注脚。第四步：成功了！一直到现在你回头四顾，才发现身边当年同行者已经七零八落，一直能走到今天的没有几个。你们拥抱，拍着肩膀互相感叹，人生不易。正如下图：好的，这个时候，镜头打过来，闪光灯亮起来，话筒伸过来，大家围过来你问，为什么会成功？当你从漏斗底部向上看，你能总结的就是，“我看到了一个趋势，然后就坚持一直走下去。然后成功了。”或者你要说的再文艺一些：“发现心中热爱，坚持追随，不要放弃，就是成功。”这与你是实话，你看到了趋势（时代机遇），心中热爱（兴趣匹配），然后一直坚持（有达到生存底线的能力与才干，并且不断提升），然后你继续坚持，不言放弃——长生才能救世——一直到有一天，你遇到了机遇。但是如果你能走回去看看，你会发现很多看到趋势，并且内心热爱的人却缺乏能力资源的人，只是成为了观众（默哀下考公务员又被刷下来的人们吧）。很多看到趋势，拥有才干却竞争不过的人，成了炮灰（中国中小企业的平均年龄是2.97年）。还有一些死在最后一关的人，他们也许并不比成功者坚持得更加短，却还是没有等到机遇，他们没有成为先驱反成先烈，音容宛在。（还记得大明湖畔的团购网站吗？）坚持与努力是成功的必要条件，但成功的条件有很多，有时候，还需要一点点幸运。摘自：古典新书《你的生命有什么可能》原文链接：http://www.zreading.cn/archives/4390.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

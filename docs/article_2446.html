@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古人笔下的山水风月</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>古人笔下的山水风月</h1>
+            <div class="date">2015-07-13 22:50:42</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/吕达余古代的诗人骚客，多闲雅之志，颇多寄情山水、吟风弄月之作，摹景写情之高妙，千载之下诵之，尤如穿越时空，恍入其境，只觉美不胜收。只是以古人诗文摹写的意境衡今日山川风物之状，觉古人诗文词藻之美、古时山水风月之佳，又使人别生无限感慨。晋王羲之的《兰亭集序》，描写士子修禊日于山水之间曲水流觞之胜境云：“此地有崇山峻岭，茂林修竹，又有清流激湍，映带左右，引以为流觞曲水，列坐其次。虽无丝竹管弦之盛，一觞一咏，亦足以畅叙幽情。”一群峨冠博带、风流俊雅的才子，围坐于家乡山间清溪上下，流觞之来，饮者赋诗。此景真如晋诗人左思所吟“不必丝与竹，山水有清音”，风雅得让人恨不生于同时。处于今日之时的我们，于周边恐难再觅此胜境，即有仿佛处，怕也是细流如丝、浊不见底，且人声鼎沸、饮料瓶遍布矣。宋苏轼在《前赤壁赋》中写赤壁江山水月之景：“月出于东山之上，徘徊于斗牛之间，白露横江，水光接天。”其在《后赤壁赋》中又云：“江流有声，断岸千尺；山高月小，水落石出。”其景之空灵清澈与雄峻高远，令人不免神往。如今长江之沿岸，港口林立，工厂遍布，船舶穿梭，苏轼赋中所摹之月光、水光与江流之声，早为千重灯光所掩、轰隆之声所盖也。苏轼曾在前赋中说：“惟江上之清风，与山间之明月，耳得之而为声，目遇之而成色，取之无禁，用之不竭。”不想时至今日，赋中自然之物取用“无禁、不竭”之句已成虚语，倘苏子再世，怕是再也无赋可作，只落得仰天长叹了。唐张若虚《春江花月夜》描写春夜江天月色，甚是澄澈：“滟滟随波千万里，何处春江无月明？空里流霜不觉飞，汀上白沙看不见。江天一色无纤尘，皎然空中孤月轮。”好一派江天悬皓月、千里俱澄澈的春江月色图，皎洁月色与江中白沙、风中流霜绝无分辨，真个是“江天一色无纤尘”。此月千里同观，当是一般圆润。无怪苏轼在水调歌头“明月几时有”中吟道“但愿人长久，千里共婵娟”，他与相别异地的弟弟子由可借一轮明月互慰想思。我们今天赏月之习犹存，然今日之月与古时之月同耶？此地之月与彼地之月共耶？以今日环境污染之严重，怕是与古人之赏大异其趣了。张若虚在《春江花月夜》还有妙句云：“江畔何人初见月？江月何年初照人？人生代代无穷已，江月年年只相似。”借无穷之月而感叹人生短促，月可让一代代的人欣赏，而人却不能赏尽古今之月。今日人们面对世事变迁常谓“物是人非”，依今日之自然环境变化境况度之，人固依然代代为“非”，然物何曾为“是”？亦随人事之代谢而日益其非矣。古人流连山水，往往在所居之地，想见古时山川风物，处处皆景，不似今人要看山水，非得假日到名山大川旅游。即是名山大川，也因开发旅游的需要，弄得年年岁岁不相似了。吾尝与友人言，古人感叹人生短暂，而江山风月永存，然今人只要一、二十年功夫，便可让浩浩河流沦为涸池，巍巍高山夷为平地，这恐怕是古人未曾料想到的。今日之山水风月，后人尚得见否？左岸记：时过境迁，非常山水之高风月之奇也，亦在人之心，情之境也。人面不知何处去，桃花依旧笑春风，月还是那个月，人与非人。原文链接：http://www.zreading.cn/archives/4981.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

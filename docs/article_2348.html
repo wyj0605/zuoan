@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黄色格子线</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>黄色格子线</h1>
+            <div class="date">2015-10-24 00:19:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌临近八点的北城总是热闹的。公交车被挤得像沙丁鱼罐头一样不紧不慢的往前赶，长相都差不多的小轿车也中规中矩的排队过红绿灯，嘶哑的喇叭声在空中长啸，行人的脚步匆匆，也只有杵着拐杖的老大爷步履悠悠，生活就这样有一搭没一搭的继续着。太阳出来时遇到了点故障，老远就看到公司门口车堵得个水泄不通，一辆大货车堵在了门口。私家车自然是进不去了，司机着急的探出头观望，不能进去的大多数都在看热闹，还没有吃早饭的人，自觉的在门口的早餐铺子排着队。货车的前脸上贴着用白纸做的横幅，歪歪斜斜的写着几个大字“xx造假，请求索赔”。货车有个七八成新，为了方便验伤，后面的挂车给卸了，露出了底盘。据说是鞍座下面的车架横梁有裂纹，存在严重的安全隐患，车主质疑厂家造假，特来讨个说法。赶来上班的人越来越多，只听见车主逗着保安：“你看，这可不是我堵住的门，是你们不让进”。保安被憋得够呛，又不想随便搭话，更不能动武，只是生硬的把着门不让进。领导也出来交涉了，劝说车主先将车移开，有话好好说。真是秀才遇上兵，有理说不清，那谁又是兵，谁是秀才呢？反正车主横下心来就是要索赔，更何况这么人多看着，更是拉不下面子，就这样生硬的僵持着。上班打卡的时间要到了，等在外面的员工耐不住性子了。情急之下找到围栏薄弱处往里翻。三三两两的翻进去，自然不乏胆大的女生，偶尔异于常态的方式让人新奇，似乎又找到了高中时代翻墙出去上网的冲动。有人翻着围栏，有人吃着早餐看着热闹，有技术人员很懂的样子查看着车，有人围在一起聊着天。平淡的生活惊起的一阵波澜反倒变成了一场集会，像某个节日。节日也有散去的时候，工作终将继续，情急之下只好报警了。北城不大，警察很快就到了。几个警察下车之后，简单的几句话，刚才还神气活现的车主一下子就蔫吧了，只得先将车移开。围观的人期待着一场大事件，聊以在平淡的生活里增添一些谈资，没有想到这么快就解决了。等待许久的轿车终于可以开进去了，聊得正嗨的朋友们只得悻悻的进去上班了。影响工作节奏的一个小插曲，无伤大雅。但堵门所造成的负面效应直接影响到公司的声誉。每次发生这样的事情，领导们总会聚在一起开会讨论，大概就会分析，车为什么总出现这样的问题？究竟是谁的责任出了问题为什么不去找4s店或服务站？今后出了此类情况怎么解决？想必会讨论得风声水起，但每次出问题总得找警察，孙大圣遇到难缠的妖怪也会找观音菩萨。后来警察也被请烦了，这样影响社会秩序的案件说大不大，说小不小。有没有长久之计杜绝此类事情呢？最后还是交警分析得有道理，不就是堵门么，只要他车不停在门口，怎么闹都不会引起堵门的恶性情况，那就在大门口划上黄色格子线，看他还敢不敢停。自从有了黄色的格子线，大门就再也没有堵过了，生活又恢复到了正常。文昌   怀柔   微信号：changchang010读后记：世界最简单解决问题的办法：培养解决问题的能力/弄清问题的原因、考虑对策/设定目标、决定实现方法问题解决一族的特点：明确现状+知行合一：1.通常有具体的目标 2.态度非常积极 3.探求现象内部问题的本质 4.找到具体的解决办法，马上付诸行动5.经常检查进展情况，每次都能学到东西，不断进步。解决问题的步骤：1.把握现状 2.找出原因 3.决定对策 4.实行。（点击查看大图）原文链接：http://www.zreading.cn/archives/5112.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

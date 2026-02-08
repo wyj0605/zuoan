@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们，在回家的公交车上</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我们，在回家的公交车上</h1>
+            <div class="date">2015-02-14 00:16:54</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/汪俊成Mario公交车已经挤满人了，偏偏不巧又要靠站。站边上只等着一个大叔，大冷天的，他灰瘦灰瘦的西装沾了好多尘，远远地就看到，他探着脖子向着车来的方向瞪着眼睛，看到这辆车时，露出大白牙挥起手来，看来，这辆车不巧就是他等的那辆。车上的每个人，都对他手里拖着的大麻袋露出悲伤的表情。大家都使劲挪了挪身体，真的很想透过车窗告诉他，等下一班吧，这班车不属于你，你要自己明白。可惜大叔不明白，也有可能是回家的心情太急切了。或许那个让人望而生畏的麻袋里，装着给小女儿的礼物，今天可能是女儿五岁的生日，他从工地下班，就着急去玩具店里买了她说了好久的洋娃娃，可是一个大男人抱着这玩意儿走在人群中间，好像不太合适。于是他下班的时候，拿了工地的一个麻袋。也许拿一个麻袋站在公交车里会比较舒服吧，毕竟比较符合他的身份，让他更有安全感。可能别人心里多多少少会不舒服，每个人看到弱者时都会有的，尽管他自己可能也是弱者中的一个。这种不舒服，也许是鄙夷也许是同情，那算得了什么呢，今儿个是女儿的生日啊。就这么想着，尽管吹了好久的冷风，他还是一直吃吃笑着，心里想着女儿长大的时候是多么漂亮。公交车司机，王师傅，今天确实不是非常愉快，以往和和气气乐乐呵呵的，这次脸上却挂着乌云闪电。我不是第一次坐这班车了，但是这是第一次来回都是老王开的。张师傅跟李师傅呢？可能张师傅腰椎间盘突出住院观察了，李师傅儿子非得今天结婚，所以这班车只剩王师傅一个人在开。师傅确实是个热心人，没等老李张嘴就主动答应下来，还是在半个月前。但是他没想到老张的腰椎这么不争气，突然就突出，直接突到了医院。尽管加了一倍的工资，开这么多班下来也累得够呛。尤其是这一班，不知道为什么人这么多。坐过这么多趟，我也是头一回见这阵仗。照理说司机不会被乘客的数量影响，毕竟他只管开车。或许他的腰椎也不太健康，他的儿女也在等着他回去吧。前排的乘客有点慌张了，随着车慢慢靠站，议论的声音越来越大这车挤不下了吧？今天怎么回事呀！大家都抱怨着，似乎没有人关注这个即将上车的人。车轮在地上蹭出尖锐的声响，感觉像是在回绝大叔想回家的愿望。终于有人开口：师傅继续开吧，挤不下了老王楞了一下，看着这个年轻姑娘。她看起来跟我差不多大，身上穿着红灰的制服，从上面印的标记来看，她应该是某个机械制造厂的员工。刚刚在车站等车的时候，我听到她跟朋友的谈话，她是流水线工人，今年刚毕业，毕的高中的业，还是留过两次级的那种。我也不知道为什么她会说这些，如果她们是认识很久的朋友，这些应该早都了然于胸，可能她们才认识不久。她的朋友看起来要老得多，估计是老员工了，说话的方式相较于小姑娘显得圆滑，事故。她们正好发现下班时搭的是同一班车，或者是老乡互相照顾，或者只是简单的有话聊而已。姑娘继续说：车都这么挤了，他提着这么一个大麻袋，挤不上来的。他一个人上来，全车的人都不舒服。听到这句话，大家心里既是同意又是反对。如果不让他上车，似乎有点鄙视的色彩，大家都知道如此公开地鄙视一个人是多么可耻。但是如果他上了车，他的麻袋给大家造成的困扰又是不容忽视的。每个人脸上都是一副在做选择的表情，可是又同时把目光投向王师傅。也许这个时候把选择的权利交给最有能力的人是最合适的。王师傅看看后视镜，大叔快走到车门边了。离车停稳只剩几秒钟时间。也许，这个时候他心里闪过好多念头。他想起突然突出的张师傅，其实是去参加老李儿子的婚礼。老李儿子结婚居然没给他喜帖。不过这事单位的人都明白，老李向来跟王师傅不和，因为老王啊，太实诚，总是拆老李的台，让他的小心眼没法施展。“反正老王是老好人，他会帮我们的”，老张老李心里都是这么盘算的吧。王师傅眉毛抖了抖，嘴角抿了抿，当了大半辈子好人啦，名声倒是可以，可是从没人真正把我放在眼里。这车究竟要不要停？大家都呆呆地看着王师傅，都在想他的右手食指究竟会不会落到开门键上。不管开还是不开，最终都不能带来一种解脱。车停了，门迟迟没开。大叔把大麻袋扛到肩头，乐呵呵地敲着车门，那个袋子它是那么大，它的占地面积对于这辆车来说简直太奢侈了。王师傅叹了一口气，大声地对着门外的大麻袋说道：这车都这么挤了，等下一班吧。大家都明白，车门外的他怎么听得清老王的话。大叔看着王师傅的表情，起先有点疑惑，由于车门迟迟不开，他着急了，猛地锤了几下车门，操着很重的乡音说了一堆话，车里的人都听不清楚，所有人都沉默地看着这个场景，放学回家的学生看起来很难受，把耳机摘了，好像也想听到些什么。他继续敲着，王师傅又把那句话重复了一遍，等下一班吧。女孩旁边的女人用胳膊蹭了一下她，小女孩很聪明，马上明白了她的用意，她转头对老王说：师傅，走吧，让他等下一班。车驶出车站，留下原来就在等他的人，他灰瘦的西装，以及大家都害怕的袋子。下一班还是我啊。老王心里不是滋味，也不明白他的做法究竟是对是错。车上慢慢又恢复原有的状态，大家继续低着头玩手机，女孩继续听着工厂里的八卦。我继续想着这件故事。这趟旅途，因为心里这么一点点的沉重感显得略微漫长。这师傅真没公德心，再怎么样也不能歧视农民工啊，挤一点又没什么。下车的时候，我听到背后有人这么说。左岸记：是的，无论王师傅开不开门，他都会被责怪，至少很多人在心里会有抱怨。怎么选择呢？开门，让大叔自己做上不上车的选择，并温情劝导他等下一趟公交车。当我们选择一件两难的事时，无论怎么做都注定了要让某些人不满意，我觉得只要你做好了你所在职位上应该做的，就可以无愧于心。在基督教中，上帝是至善的，这就产生了一个两难问题。既然上帝是至善的，为什么他创造了一个充满苦难的宇宙？如果智慧生物存在，他们能够感受到苦难，那就和上帝创造世界的目的有所矛盾。他是至善的，为何不让有感觉的生命免于苦难？苦难与恶都是坏的，都属于魔鬼，所以这个难题又叫魔鬼难题。这个难题还可以缩小范围。既然魔鬼给世界带来恶与苦难，上帝为何还让魔鬼存在？在基督教中，魔鬼是堕落的天使，上帝为何允许他堕落？原文链接：http://www.zreading.cn/archives/4795.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

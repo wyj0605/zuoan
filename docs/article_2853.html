@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>思文故事会 之 消失的记忆</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>思文故事会 之 消失的记忆</h1>
+            <div class="date">2014-03-09 20:39:16</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>整理|书卷多情似故人思文群有很多人讲故事，对于故去的事，每个人都有自己的感慨跟回忆。今天群友陵游随性讲述了一个故事。我觉得随便讲讲就能把故事讲这么出色，很不容易，所以也分享一下。以下是群友陵游的原话：今天有兴致，打了段文字，打算深夜讲个故事。不知道有人听么？一个有关于七年之痒的故事，不过这个故事并不牵扯到婚姻。他和她相识，距今已第七年。水瓶与巨蟹，两只不太典型的水瓶与巨蟹的结合，两个对立，而注定要悲剧的星座，却有着无数的默契，同样的三观，相似的爱好。都信奉格物致知，克己复礼，认为原则是人作为最后底线的存在，都有着精神洁癖，都是被动的物种。一个管乐高手，一个弹乐外行，对古物有着很浓的兴趣，崇尚简单憎恶一切繁复的事物。她喜欢古建筑，恨不得八班武艺样样皆懂。他喜欢古乐器，恨不得自己能得心应手地制笛弄萧。他说她是穿过枝叶斑驳的阳光，温暖而充实；她则认定他是自由的像穿过山脊的风，凛冽而洒脱。他们喜欢长途旅行，平时却宅到出奇的两个怪咖。都遭遇过人生最致命的伤痛，感同身受并且相互慰藉陪伴走过最艰难的岁月。曾经可以为历史问题争论到面红耳赤，又会因为心理学的认知而殊途同归；曾经会为一部电影而讨论到深夜，更会因为一首曲子相互点赞。他们常做的事就是交换书单，歌单，电影单，当然也矫情的写诗对过对子，一道讨论足球、游戏、冷兵器，以及纪录片。年少时，都写过科幻小说。都深深折服于日本的原声乐，又欣喜于上尉诗人的高品质灵魂乐。涉猎广泛而繁杂，这俨然成了他们的惯性。曾经以为这份友情能走到很远，曾经认为彼此是最特别的存在，却相互默契到谁都不愿意踏出超越友情的那一步。他们相信前世一个是书生一个是僧人，与寺庙有着解不开的缘。他们曾经，天南地北，无所不谈。她走遍了24城，立志用脚步丈量地球。每到一个地方，第一件事就是买下当地的明信片，集齐想去的地方所有的明信片送给他。因为他职业关系，答应在他到不了的地方，算是他也一同游历的痕迹。而他，细致的记得她说过的很多话。她无意间提过的曲子，他自行编了谱吹给她听。他也记得她曾经说过这辈子就想去东非看一看扎罗山，也记得40岁之后要去参加无国界组织，去东非以及世界各个角落救助更多的人，也因此曾经疯狂的自学外语。而如今，他们彼此说不上话，气氛冷到冰点。她觉出了彼此的异样，自嘲道“看来是七年之痒了，突然和你没话说了”；而他沉默是金，没有挽留，没有刻意的制造话题气氛。就像水瓶座惯有的沉默，巨蟹惯有的自尊。而现在，他们互相都记不起对方的脸。结缘于平淡，终结于平淡。他们曾经有过很多经历，想着这世间也许最化不开的就是记忆，但同样的，最容易遗忘的也是对一个人的记忆。无论六年时光的牵绊还是执念，主动也好，被动也罢，时日过去，在弄不清是退步还是进步之际，与过去告别。人总是很努力的尝试记忆，也很努力的尝试遗忘，仅留的，只是自私的为自己的现在找一点可以安心的真实。故事讲完了，有群友静牧评论了如下两句：有些人我们曾经以为无论怎么样都会相伴到老，但是却是在某个路口突然分开，有点始料未及。想过挽留，但是却不知道如何开口，总觉得这么知己的一人，不说也许也会懂。然后事实偏偏是，说与不说，最终总是留下空留无力感而已。后记：多少新欢成故旧，而今只做点头交。人生最让人唏嘘的事情，大约不过是本来毫无交集的两个陌生人，因为缘分而成了朋友，一时之间言谈甚欢，双方都颇有相见恨晚之意，于是，二人之间，无话不谈，引以为知己；可是，及至二人相交日久，彼此之间的话题却逐渐变得稀少起来；乃至最后，终于无话可说，甚至于，这人竟然逐渐从自己的印象中消失了；直到有一天，某个时候，却忽然从某件旧物上想起了这人，却也忆起了那时的情形，恍惚之间，二人相交的过程，竟如同隔世，纵然彼时再想去联系对方，却发现二人之间不知何时，竟然已经不知从何说起，已经变得无话可说，甚至，这时会想，若是当初不曾那般相知该多好，那么如今或者还可以做一普通朋友吧。知己，陌路，一线而已，朋友，大约不过如此....这样的故事有的人读的云淡风轻，也有的人读的惊心动魄。是谁成为了记忆，谁又成为了追记忆的人呢？我不知道，或许谁都是谁的记忆，谁都是谁的追记忆的人。我想，再无话可说的一个最重要的原因概括起来就一个字——累！原文链接：http://www.zreading.cn/archives/4255.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《小孩不笨》-Terry成长的十个故事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>《小孩不笨》-Terry成长的十个故事</h1>
+            <div class="date">2014-09-19 22:52:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/迈克故事一我妈很疼我，因为我很听话，我听她的话是因为她很了解我，什么西她都会替我安排好，我们的亲戚朋友都说她很像政府，尤其是她讲话的方式。在日常生活方面，我们做任何事她都要插上一脚，实际上这是她关心我们的方式，因为有很多事我们小孩子是不了解的，表面上看好像很简单，所以我们经常自作聪明，不过当问题出现的时候她会立即提出比较实际的做法来开导我们，这就是我妈。（发现别人扔蕉皮terry上前劝阻结果被辱骂，妈妈就对他说：“以后见到这种事，最好不要管，becausenon of these is your business…”结果terry 最初的最纯真的想做一些好事的欲望被妈妈抹杀在了摇篮中…）故事二很多人很羡慕我们什么都有，可我总感觉自己缺一样东西，是什呢，就是想不起来，总有一天我一定会知道的…（在自己的家中聚餐受到别人家小孩的欺负，terry哭着鼻子向妈妈告状，结果妈妈安慰他：“别人是客人，我们是主人，对待客人要友好，来，给他们点饮喝…”结果换来的是更可恶的欺辱，呵呵，我不禁要问难道听话的结果就是让人受侮辱吗…）在自己的家被别人欺负，我只会哭，难怪连姐姐也看不起我…故事三妈妈和姐姐在争论房间里挂什么装饰物，最后妈妈让terry评价到底是自己的好，还是姐姐的好，结果terry说：“I don’t know，thisis not my business.”terry知道这是件麻烦事，得罪哪一方都不好，结果就听妈妈的建议，不要管好了…当然家庭之争不是什么大事，可就怕当大事出现的时候（后面要救人了），自己已经被这种思想奴化了…故事四测验成绩出来了，EM1的忠明羞辱国彬考分差，结果打了起来，被明的老妈揪到办公室，这时国彬和文福急需朋友terry来作证，结果terry却在关键时候掉链子，他哭着说：“我什么也没有看到，我什么也不知道…”朋友有难挺身而出，这不正是我们培养孩子应该教导的么，只有这样孩子在以后社会上才能有朋友才能立足啊！此时的terry选择逃避，真让我为他们的家庭教育感到悲哀！当然家长们也没让他见死不救，但就一个“听话”就足以毁掉一个孩子！所以不要教孩子一定要听大人的话，而是让他们多听听自己内心的想法，多鼓励他们按自己的想法去做事，并能够负起责任…故事五（下课了，文福和国彬责备terry没有帮他们作证人）算了吧，你是什么朋友见死不救，我绝对不是那种人，因为我妈妈有交代，算了，不要再说了，你妈妈，你妈妈，只有你有妈妈，难道别人就没有妈妈，这么听话，如果你妈妈叫你去吃大便，那你也去吃吗，就去吃了，反正只要我妈妈在，就算是大便，她也会把它弄的很好吃的，总之，你根本就不是男人，你不应该叫terry，而应该叫sely啊，谁说我不是，我跟你们一样是上男厕所的…（呵呵，可怜的terry到现在还以为只要是上男厕所的就一定是男人，岂不知爱心、智慧、勇敢、坚强、自信更能成为男人的标志…可怜的大人们，难道你们一直教孩子听话就是为了培养这样一个可怜虫？）故事六又一次测验成绩出来了，故事四重演了，不过这次terry主动提出作证人，让我们看到了他思想的转变…故事七（terry被绑匪关了起来，绑匪买来了terry要吃的早餐）我不会涂面包，不会泡咖啡，你可不可以帮我，我是绑匪啊，不是你家的菲律宾女佣，要我服侍你？…你们有钱人的孩子不会泡咖啡的？不会涂面包的？在家里你是小皇帝啊，啊？你妈妈叫你做什么你都不要做，结果就什么都不会做，这样你跟废物有什么不一样，我不是废物，是我妈妈叫我不要自己做，让佣人来涂的，我是照妈妈的话才这样做的，可是你们却说我没有听妈妈的话，我很乱，我被你们这些大人搞的很乱…喂，这是个好机会，走吧…去哪里？没有人看守门，我们趁机逃跑，不行，我们要做个听话的孩子，不然被抓到的话要被断手断脚的！你为什么什么时候都那么的听话？没有自己的主见！你平时不帮我这就算了，现在你连自己也不帮自己？…好吧，走就走…（劫匪看到terry连面包都不会涂就骂他是个废物，这个镜头很经典，他骂的只是terry吗？如果terry听妈妈的话情有可原的话，因为妈妈是关心他，那么他在这里听劫匪的话不逃跑就有点戏剧性了…孩子们实在太可怜了，因为他们不但要听他们亲人的话，就连害他们的劫匪的话也要听，因为那些都是“大人的话”，我不禁要问大人的话都可以奉为圣经吗，什么时候让孩子听听自己的内心，你们就是要教导孩子成为一个危险的时候连自己也救不了的呆瓜吗！？）故事八（逃跑时文福和terry的对话…）不是每个大人的话都要听的，就像刚才那两个，根本就是坏人吗，对对对对对…喂喂喂不要走这条路，这条路太直了肯定会被抓，这里还有什么路可以走，啊？这条路，从来都没有人走过，会不会有危险？什么事情越是怕危险而不去try，结果只有死路一条，走吧…故事九（捐骨髓，电影的高潮，随着主人公的哭泣，我也哭泣，因为他道出了大家的心声…）爸爸，从小到大不管什么事情我都听你们的话，你们常说这是为我好，所以你们要我怎么样我就怎么样，可是到头来我就发现，我什么事情都不会，同学一直笑我只会盲目的听话，没有帮助过别人，现在，连我要救一个人的命，也要由你们来决定。爸、妈，骨髓是我的，你们可以让我自己决定吗…呜呜呜…（现在我想说，人生是我的，爸妈你可以让我来做决定吗…）故事十（故事二重演了，可这次terry可与原来不一样了，因为这次就像他说的那样，他知道自己缺什么了…他当然不缺钙…缺的是主见！）太过分了，在自己家里被别人欺负，如果只会哭，别人会更看不起我的，现在我终于知道我缺少的那样东西是什么了…（被欺负就要反抗，哭是解决不了问题的，难道这也要妈妈教吗？乖孩子？哈哈。谁欺负你，就走向前去和他们拼了，就算打不过也虽败犹荣，这才是男人的真性情！！）与那些有和terry相似经历的朋友共勉！《小孩不笨》在线播放地址：http://movie.douban.com/subject/3155683/左岸记：TERRY的妈妈，简直一专政，虽然我们都知道她是因为太爱孩子们。但是这种爱太狭隘，太霸道。就像男朋友经常对女朋友说的“请给我一点隐私好吗？”爱箍得太牢，会压抑，会难受，更会想着逃避，所以TERRY姐姐就是TERRY口中的“反对党”。 刘墉说过，爱得太满，反而会让对方失去被爱的空间。片头那句“这是一座每个人都曾经坐过的监牢”。这就是小孩对学校的定义，很真实。可是如果不去坐牢，怎么知道不坐牢的感受。不能否认，学校教育的过程是一个约束的过程，一个规范的过程。只是，当教育走向另一个极端，教育的本质就被遗忘。freedom,enjoy,leisure time，我们一直都在追求着，不论小孩还是大人。一个小孩，如一朵花开，看见小孩上课时整齐背过身后的双手，听见老师问他们喜欢不喜欢，愿意不愿意时统一喊出的“喜欢”、“愿意”，你会不会心疼？小孩啊，你们不笨！小孩啊，你们本该如花开，自由的绽放，开出你们喜欢的色彩，在阳光下露出你们快乐的笑脸。原文链接：http://www.zreading.cn/archives/4563.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

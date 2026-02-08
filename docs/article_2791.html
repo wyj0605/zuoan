@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动物细胞没有细胞壁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>动物细胞没有细胞壁</h1>
+            <div class="date">2014-06-11 02:13:18</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌高考备战时，需要铭记在心的知识点有很多，比如：“动物细胞没有细胞壁”之类的经典常识，从来就没有在显微镜下观察过动物细胞的模样，但并不影响我们做题得分。正如诵读圣经的基督徒们谁又见过真正的上帝呢？如果有人问到：“知道又能怎么样？能多挣几块钱还是咋的？”，估计这会让那些孔乙己似的人物一时语塞。回头再想我们曾经费尽心力牢记的知识点，苦思冥想做过的数学题对于如今现实的生活意义究竟何在？时过境迁早已忘记了那些知识的琐碎，解题的技能早已荒废殆尽。爱因斯坦说：“所谓的教育，是要将学校学到的知识忘掉后剩下的本领。”其实强调的不是知识本身，而是接受教育后思想的转变，以及学习和改造客观世界的能力。可惜了现实与理论的差距横亘在高考前进的路上。我们只能在茫茫的题海中练习解题的绝技，注定能培养成满分王，却培养不出大师。其实高考它早已偏离了教育的航线，不过是同台竞技的人太多，竞争过于激烈，实在找不出比高考更加经济有效的筛选机制。两天解决战斗，允许来年再战，于是真的出现了八年抗战，胜利了也该结婚了！在如今这个不那么公平的现实社会里，高考可能是唯一比较公平的制度，无数人通过高考实现了命运的改变。再怎么调侃和嘲笑这种制度的残酷，但不得不承认我如今的处境得感谢当年的高考，不再像父辈那样继续耕种在那块祖辈们耕耘了千百年的土地上。尽管随着大量的农村人口涌入城市，不经过高考也能落脚，谋得一席地，通过高考步入大学对我来说，让我可以名正言顺的在一个城市生活度过青春年岁里最美好的四年，也让我有足够的资本迈过一些企业的门槛。又足够的闲暇和精力探寻世界，并与大学同学结下了深厚的友谊，增长了见识，并有足够时间和精力思考自己未来的方向。高考虽然只是张船票，但没有船票无法上船。备战高考的知识早已忘却殆尽，但依然怀念那段浴血奋战的光辉岁月，当时手机还没有完全普及，互联网还没有完全渗入到我们学生的生活，自然了解外面世界和人情世故的方式极其有限，周围除了和自己一样的同学，就是老师。那时的单纯和青涩思想观念尚未成熟，生活里唯一的憧憬就是老师对大学美好的描述。上一所好大学几乎成了那时的梦想，而有着明确的目标而不懈努力的充实，前赴后继的激情始终无法让我释怀，尽管当时的结果并不如意。随着认知水平的提升，对外在世界理解的深入，见识和眼界的开阔，已不再那么容易轻信那种鸡血似的努力。赞同有人说的“人生苦短，用心用力更重要”，并非这句有多么正确，而是提及了一个做事方式和做事效率的问题，光卖蛮力是不够的，还得用心思考。所谓的社会现实残酷不过是以结果作为评判的标准，创造出来的东西不行就不行，不需要就是不需要，没有人会在乎你为此付出过多少心血，哪怕你为此痛不欲生甚至要跳楼自尽。可能当年的高考，不少人处于形式的努力，创造了很多貌似努力的假象，最后以天赋不足为借口。有句话说得好：“以大多数人的努力程度之低，根本轮不到拼天赋”，当然这里的努力是有效的努力，不是两眼无神将板凳坐穿的苦守。“动物细胞没有细胞壁，只有植物才有细胞壁”，你还记得么？書于 北京 六月左岸记：有些事件，你还真得过了，才能算真正明白那是怎么一回事，高考就是这么一件事。下面是嘉倩对类高考一些的见解，读来也有几分道理。“人有两件事，一件是应该做的事，另一件是自己想做的事。”这样的观念下，我们常把高考考研考证书看作“应该做的事”，当科学家骑川藏线做演员创办慈善组织就是“想做的事”。于是，有人能为了“想做的事”上天入地，却不能为了“应该做的事”多背一分钟单词。高考、专六专八、考研、考职称、考证书、结婚、买房、买车…如果是为了和一个偷偷暗恋的学长进到同一个大学，为了给心爱的女友一个温馨小屋，为了让父母不再操劳而找份安稳工作，为了接送小孩上下学买辆车…这些事就从没意义却不得不做的“应该”变成了心甘情愿的“想做”。至于那句代代相传具有恐吓意味的格言：“高考决定你的一生”，经历过的人大多笑而不语。决定一生的事很多，譬如骑川藏线不小心得了感冒，谈恋爱遇到了个人渣，在雾霾中猛吸口气，人群中多看了杀人犯一眼。别担心，没有一次考试会要了一个人的命，因为接下去要你命的东西太多了。每件事，最后能坚持下去的，不是别人嘴里或者励志书里告诉你的某句话，而是——你想不想做？原文链接：http://www.zreading.cn/archives/4409.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

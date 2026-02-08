@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超前与落后</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>超前与落后</h1>
+            <div class="date">2015-01-25 00:39:21</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/自远先生车上的声音依然很嘈杂，又到一站，应该有人下车。在车门关上的刹那，有人高喊：“师傅，下车，开一下门”。我很诧异，既然要下车，为何不早点准备，是不知道还是没听见，抑或有其他什么原因，但都不能成为理由。我想，不给别人添麻烦，也就是给自己少麻烦。象棋，在中国应该很普遍，基本上人人都会下，但要想下好，就有点难了。有些人走一步算一步，有些人走一步，想多步，这样结局就可想而知了。前者是一种方式，后者也是一种方式。前者目前过得舒坦，以后不敢保证，但却可以留下很多选择的余地，随对方变化而变化。后者现在过得不是很舒服，以后应该会舒服点，但很多事是意料之中，却又常常是意料之外。由我选，我会偏向于选择后者，人总要讲究未雨绸缪嘛。春天百花盛开，姹紫嫣红。每一朵花都想尽情地绽放、展示自己。在这样花的海洋中，有些难免就黯然神伤。天地万物就是这样奇怪，有些就不选择在大家都开的时候，偏偏在万物萧条之时，迎来自己的青春。秋天的菊花，冬天的腊梅，此时他们却带给人们丝丝的惊讶，他们能开好吗？能经受住这恶劣的天气吗？他们，以自己的品格，告诉我们，行，虽然我落后，但并不比别人差，也更加的被人们欣赏啊！转念一想，对啊，他们是来得迟，可这季节不比下一年的春天早吗？喜欢看些古典的东西，在二手书店里也尽找那些落满灰尘的，当在某一角落里，找到它，就很兴奋。我想，它也等待了很久了。因为这样，没少被周围人说：“你这人，落后，都快成古董了。”古董就古董吧！说不定还价值连城。新事物层出不穷，越换越快。不喜欢去挤电影院看那刚出来的大片；不喜欢买刚出来的新书；不喜欢连夜排队去买些东西。落后吗？我想是有点。污浊的水需要沉淀才能变清；酿出来的酒需要珍藏才能醇香，结出来的果实需要等待才能甘甜。过早地尝试并不一定就美好。“人无远虑，必有近忧”，“出名要趁早”，的确，如果不做点提前的准备，必然会猝不及防，力不从心。早点提放，早点发展，是会带来很多的好处。不然，也不会有那么多人你争我抢；不然，也不会有那么多新科技的诞生；不然，也不会有那么多伟大人物的永恒。思想要超前，生活可落后。后记：一直在想一个观点——人定胜天，先贤提出这样的观点，到底该如何解读，我说说我的看法。人定：《大学》中的“物格、知至、意诚、心正”；禅宗中“平常心是道”，都与人心相关，所以我把人定理解为——人心定，“心不在焉、视而不见、听而不闻，食而不知其味”，通过修炼达到一种平淡、从容、和谐的境界，就像日出日落，下雨刮风那样自然，回归到最本来的样子，心安定，才能思虑，才能得，这也是一种禅修。胜天：“谋事在人，成事在天”、“天命”，这两个天可能有所不同。第一个天，是在做出缜密的安排、统筹的规划后，可能出现的意外的统称。而天命的天，是自然、是道德、是精神、是自由、是永恒。在自然面前，古人、来者都无法逃脱死亡的命运，人们无法抗拒自然的规律，有的只是一种渺小、无奈、敬畏。人，是靠着其他生物（也包括他人）活下去的，这中间会暴露人的野蛮、凶残、自私、冷漠等，而此时道德的出现，会约束人的野性，净化人的灵魂，导向真善美。天地不仁与永恒，往往让人们感受到短暂、失落、不甘，相对与物质、肉体而言的精神，在实现自己人生意义与价值的同时，让人们找到一种寄托和出路。在不断体认、感悟、敬畏，再到持守，完成了人——天——人的内化的过程。此时，人们平淡、从容的面对天加给自己的一切，不再彷徨、胆怯、无所适从，这恐怕就是人定胜天所要传达的意思吧！左岸记：菊开深秋，梅香腊月是它们的特性使然，因为它们无法在其他的季节开放。也可谓是顺其自然。那么大家说说，老子的这句话是超前、落后还是过于理想化呢？——天下皆知美之为美，斯恶矣；皆知善之为善，斯不善矣。故有无相生，难易相成，长短相形，高下相倾，音声相和，前后相随。是以圣人处无为之事，行不言之教。万物作焉而不辞，生而不有，为而弗恃，功成而弗居。夫惟弗居，是以不去。原文链接：http://www.zreading.cn/archives/4772.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相亲热 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>相亲热 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>每隔一阵子，社会总会冒出一种“热”来，以证明其欣欣向荣的活力。</p>
+<p>众所周知，这种“热”非常有意思——不管是正面的还是畸形的，起码代表着一种文化，比如说之前的超女热，赶场的特别多，大街小巷都是他们的美妙歌嚎，还有疯狂歌迷的四处拉票，甚至还有漂亮女粉丝为了拉票跑到男宿舍楼扫荡的现象（我当年就给扫了一回,花了一元钱），很有一种歌舞升平的感觉。</p>
+<p>又比如说几年前的博客热（现在是微博），所谓的自主化媒体，全民皆博，上到八十，下到近八，都来谈谈理想说说思想发发狂想，热闹得一塌糊涂，不亦悦乎。</p>
+<p>除此之外，类似的还有还珠热、穿越热，更早的还有文化热、抵日热，总之是五花八门、分外妖娆、百花齐放、精彩不断……</p>
+<p>如你所知，以上所例举的热都已经退烧。也就是说，不管有多热，总会有长江后热推前热的时候，重点是谢幕那天，我们那些被热过的人，回想起当年的所作所为，还有没有一种平常心，抑或是遮遮掩掩，生怕世人知晓。</p>
+<p>近段时间，国内刮起了一阵相亲热潮，相亲的形式有很多种，最火的莫过于电视相亲，从《我们约会吧》到《非诚勿扰》，再到《为爱向前冲》，《百里挑一》等等，收视率最高的时候直逼国内第一收视栏目——央视的天气预报，大有君临天下的感觉。</p>
+<p>这些特色各一、环节类似的节目还衍生出来了一系列的新词汇，比如说高富帅，白富美。也因此走红了几个主持嘉宾，比如说碎牙孟飞、光头乐嘉。更是让一些不少的痴男靓女（来宾）一夜成名，成为各大媒体或餐桌礼仪的八卦头条。</p>
+<p>除了上电视高调相亲之外，低调一些的线下活动也是五花八门，颇有看点：从千人白领齐聚相亲活动，到富豪游艇诚征女友俱乐部，再到双十一单身贵族party等等，个个都宣传花俏，策划独到，套钱还套名，闹情还闹心……由此可见，我们有很多的朋友削尖了脑袋要攻打进婚姻的围城里，而且还必须是心中想要的那种城——这一点倒无可厚非，毕竟在城外太久了，容易寂寞，一个人在江湖里漂久了，也容易孤独。与其一个人孤独和寂寞到老，倒不如拉多一个人作伴，人生漫漫路，即便没走到尽头，走一段算一段吧。</p>
+<p>那天坐地铁，在手机上读到一则新闻，说广东省目前的大龄剩女有200万人口，其中广州有60万。也就是说，大概每30个广州人里就有一位剩女。对于这一结论，相信很多朋友都会有深刻体会，周围随便一抓一大把都是光棍妹儿——光棍当然也不会少，至于抓着抓着的同时自己也一不小心就变成了光棍也难说。</p>
+<p>我有一个女性朋友，从大学一直剩到现在，当然期间也有过一些短暂的插曲，有火花没给燎原，故而始终没进围城。眼看就要奔三了，剩也剩了七年之痒，加上家里人从焦急万分到心灰意冷再到万分焦急了几个回合了。无奈之下，她跑去算命（在此之前，我一直以为她是一个骨子里的唯物主义者），都说某个地方准，结果就跑过去了，找到那地，还没坐下，人家就说：这位女士今年芳龄不到30，是来问姻缘的。</p>
+<p>她顿时给雷住了，立马坐定掏钱。随后就给云里雾里地忽悠了一堆，有些对有些错的离谱。她却尽挑对的来信，信得踏踏实实，给了尾款，欢快离去，临走前虔诚万分地说要是进城了，下次一定回来还愿。</p>
+<p>比起这位朋友的算命，我另外一个朋友的做法倒是更为靠谱，那就是去相亲。其实去相亲挺有意思的，这方面我还是有一些发言权的，毕竟有过亲身体验，而且还是以第三者的身份——当然这里的第三者指的是旁观者。</p>
+<p>记得不久前的一次，我再次被朋友拉去相亲，把关兼保镖。朋友是我高中的同学，差点做成恋人，后来没做成，就成了好友。相亲的那天晚上，我们来到一个装潢精致的西餐厅，灯光、音乐、氛围营造等组合拳都非常靠谱，朋友的相亲对象（都是某婚庆网上登记的）如期而至，第一眼看去打扮还可以，年龄相仿，等一坐上来，我顿时就给石化了——哇噻！原来是我大学同学啊！顿觉这个世界太小了，相亲立马变成了欢快的老同学聚会。所幸后来，我朋友跟同学硬是凑成了一对，闪电结婚，如今育有一女。</p>
+<p>当然，相亲也不是都这么顺利且浪漫的。电影《非诚勿扰》里吐血的相亲剧情暂且不说，就说前不久的一个新闻吧：某男女电视牵手成功，之后拍拖，男同志送了女同志一宝马，结果后来生米没煮成熟饭，最要命的是女同志还拒绝归还宝马，说是恋爱期间的合理赠品，于是男同志一怒之下告上了法庭，弄得满城风雨，鸡飞蛋打，更有好事者把此个案升华到现代拜金女恋爱价值观低俗的高度去，一棍子打死了很多剩女，所谓拍案惊奇。</p>
+<p>曾经苦难的中国一直经历着时代的变迁，从以前的“父母之命，媒妁之言”,到吵着闹着要的自由恋爱，“雷雨”似的反抗包办，再到现在的相亲浪潮，其中到底经历过什么样的文化变迁呢？这的确是一个值得思考的问题。</p>
+<p>我想，相亲热潮的兴起，一方面让我们看到了进入围城的希望，看到了建立家庭的热情；另一方面却也折射出了很多人的绝望，许多人的无奈和孤独。或许。这正是我们这个时代的文化吧：既乐观又绝望，既充满斗志又容易孤独，既义无反顾又彷徨失措……</p>
+<p>◆ Weibo: http://weibo.com/shenwanjiu （杂的文·愚己娱人）</p>
+<p>◆ QQ: 35854946</p>
+<p>◆左岸记：除去被逼应付了事，大概是因为目的明确，意愿强烈，相亲往往会是求偶的最后一站。是什么原因让你与几千几万人擦肩而过，却没人让你有私毫的动心？是要怎样的重山，才能分割你们的缘份，需要那么多人的牵线搭桥？如若不懂自己，又怎么可能让人找得到你。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

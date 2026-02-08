@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>避免谈话地雷 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>避免谈话地雷 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>来自——每日小抄：知道分子养成地</p>
+<p>中国人说 “世事洞明皆学问，人情练达即文章”，其实老外也不都是口无遮拦，到处捅娄子的直肠子。虽然中国人是天生的“打太极”高手，给人的感觉总是太过于圆滑，那么，在人际交往中我们却也可以借鉴一下老外一些恰到好处的说话艺术。下面就是Kristyn Kusek Lewis提出的18 Common Phrases to Avoid in Conversation（谈话中应该避免的18句套话），看看其中是不是有好多句是你常常脱口而出的呢？</p>
+<p>一、外表篇</p>
+<p>.</p>
+<p>Don’t say:“You look tired.”</p>
+<p>Why:It implies she doesn’t look good.</p>
+<p>Instead say:“Is everything OK?” We often blurt the “tired” comment when we get the sense that the other person feels out of sorts. So just ask.</p>
+<p>不要说：“你看起来很累。”</p>
+<p>因为：这意味着她看起来很糟。</p>
+<p>换句话：“一切都还好吧？”一般来说我们会脱口而出说人“累”是因为我们觉得他们可能不舒服，所以直接问好了。</p>
+<p>.</p>
+<p>Don’t say:“Wow, you’ve lost a ton of weight!”</p>
+<p>Why:To a newly trim person, it might give the impression that she used to look unattractive.</p>
+<p>Instead say:“You look fantastic.” And leave it at that. If you’re curious about how she got so svelte, add, “What’s your secret?”</p>
+<p>不要说：“哇，你瘦了好多哦！”</p>
+<p>因为：对一个刚刚减肥成功的人来说，这可能会让对方觉得之前自己很不好看。</p>
+<p>换句话：“你看起来棒极了！”这就够了。要是你很想知道她是怎么变得这么苗条的，就加一句“你有什么秘诀吗？”</p>
+<p>.</p>
+<p>Don’t say:“You look good for your age.”</p>
+<p>Why:Anything with a caveat like this is rude. It’s saying, “You look great―compared with other old people. It’s amazing you have all your own teeth.”</p>
+<p>Instead say:“You look great.”</p>
+<p>不要说：“以这个年纪来说，你看起来好极了。”</p>
+<p>因为：任何有这样潜台词的话都很不礼貌。这好像在说：“你看起来好极了——跟别的老人比。那你的牙还没掉实在是太让人吃惊了。”</p>
+<p>换句话：“你看起来好极了。”</p>
+<p>.</p>
+<p>Don’t say:“I could never wear that.”</p>
+<p>Why:It can be misunderstood as a criticism. (“I could never wear that because it’s so ugly.”)</p>
+<p>Instead say:“You look so good in skinny jeans.” If you slip, say something like “I could never wear that…because I wasn’t blessed with your long legs.”</p>
+<p>不要说：“我可穿不了这样的。”</p>
+<p>因为：这样的话可能会让人以为你在批评她。（“我可穿不了这样的，实在是太丑了。”）</p>
+<p>换句话：“你穿这种瘦腿牛仔裤太好看了。”要是你已经脱口而出了，马上补句：“我可穿不了这样的……我可没有像你这样的长腿。”</p>
+<p>.</p>
+<p>Expert:Clinton Kelly, cohost of the TLC show, What Not to Wear.</p>
+<p>专家：Clinton Kelly，TLC电视台节目《不该穿的》主持人。</p>
+<p>二、职场篇：</p>
+<p>.</p>
+<p>Don’t say:“That’s not my job.”</p>
+<p>Why:If your superior asks you to do something, it is your job.</p>
+<p>Instead say:“I’m not sure that should be my priority right now.” Then have a conversation with your boss about your responsibilities.</p>
+<p>不要说：“这不归我管。”</p>
+<p>因为：要是你的上司让你干什么，这就是你的工作了。</p>
+<p>换句话：“现在我不知道自己的首要任务是什么。”然后开始跟你的老板讨论一下自己手上的活。</p>
+<p>.</p>
+<p>Don’t say:“This might sound stupid, but…”</p>
+<p>Why:Never undermine your ideas by prefacing your remarks with wishy-washy language.</p>
+<p>Instead say:What’s on your mind. It reinforces your credibility to present your ideas with confidence.</p>
+<p>不要说：“这个主意可能很蠢，不过……”</p>
+<p>因为：永远不要用这种犹豫不决的话让自己的点子看起来不值一提。</p>
+<p>换句话：直接说出自己心中所想。信心十足地提出自己的想法能让你显得更有能力。</p>
+<p>.</p>
+<p>Don’t say:“I don’t have time to talk to you.”</p>
+<p>Why:It’s plain rude, in person or on the phone.</p>
+<p>Instead say:“I’m just finishing something up right now. Can I come by when I’m done?” Graciously explain why you can’t talk now, and suggest catching up at an appointed time later. Let phone calls go to voice mail until you can give callers your undivided attention.</p>
+<p>不要说：“我没时间跟你聊天。”</p>
+<p>因为：这太不礼貌了，不管是面对面还是电话里。</p>
+<p>换句话：“我手头还有点事，做完了就过去找你怎么样？”礼貌地解释为什么现在不能说话，并建议晚些时候再聊。要是暂时没时间，就不要接电话，让对方直接去语音信箱留言即可。</p>
+<p>.</p>
+<p>Expert:Suzanne Bates, president and chief executive officer of Bates Communications, an executive-training firm in Wellesley, Massachusetts, and author ofSpeak Like a CEO(McGraw-Hill, $22,amazon.com).</p>
+<p>专家：Suzanne Bates,Bates沟通（一家位于马萨诸塞州的高层培训公司）总裁、CEO，著有《CEO的说话之道》一书。</p>
+<p>三、面试篇：</p>
+<p>.</p>
+<p>Don’t say:“My current boss is horrendous.”</p>
+<p>Why:It’s unprofessional. Your interviewer might wonder when you’d start bad-mouthing her. For all you know, she and your current boss are old pals.</p>
+<p>Instead say:“I’m ready for a new challenge” or a similarly positive remark.</p>
+<p>不要说： “我现在的老板糟糕透顶。”</p>
+<p>因为： 这样说很不专业。你的面试官可能会觉得今后你也会说他的坏话。从你的角度看，他们都是一国的。</p>
+<p>换句话：“我觉得自己已经准备好接受新挑战了。”或者类似的正面理由。</p>
+<p>.</p>
+<p>Don’t say:“Do you think I’d fit in here?”</p>
+<p>Why:You’re the interviewee, not the interviewer.</p>
+<p>Instead say:“What do you enjoy about working here?” By all means ask questions, but prepare ones that demonstrate your genuine interest in the company.</p>
+<p>不要说： “你觉得我会适合这个环境吗？”</p>
+<p>因为： 是你在被面试，不是面试官。</p>
+<p>换句话： “你个人觉得这个工作环境最好的是什么部分？”面试中你也可以提问，但最好提些能说明你对该公司非常感兴趣的问题。</p>
+<p>.</p>
+<p>Don’t say:“What are the hours like?” or “What’s the vacation policy?”</p>
+<p>Why:You want to be seen as someone who focuses on getting the job done.</p>
+<p>Instead say:“What’s the day-to-day like here?” Then, if you’ve really jumped through every hoop and time off still hasn’t been mentioned, say, “Can you tell me about the compensation and benefits package?”</p>
+<p>不要说： “工作时间怎么样？”或者“假期是怎么安排的？”</p>
+<p>因为： 你应该表现出自己可以专心工作的样子。</p>
+<p>换句话： “日常工作环境是什么样的？”然后，你就可以得知该公司的工作环境了，要是对方没提到休假的问题，可以说“请问公司的奖惩以及福利制度是怎么样的？”</p>
+<p>.</p>
+<p>Expert:Mary Mitchell, president of the Mitchell Organization, a corporate-etiquette training firm in Seattle, and author of The Complete Idiot’s Guide to Etiquette (Alpha, $19,amazon.com).</p>
+<p>专家：Mary Mitchell，西雅图公司礼仪培训公司Mitchell公司的总裁，也是《礼仪指南》一书的作者。</p>
+<p>四、孕婴篇：</p>
+<p>.</p>
+<p>Don’t say:“Are you pregnant?”</p>
+<p>Why:You ask, she’s not, and you feel totally embarrassed for essentially pointing out that she’s overweight.</p>
+<p>Instead say:“Hello” or “Great to see you” or “You look great.” Anything besides “Are you pregnant?” or “What’s the due date?” will do. Save yourself the humiliation and never ask.</p>
+<p>不要说： “你怀孕了吗？”</p>
+<p>因为： 要是你问了，可她并没怀，那就实在是太尴尬了，这不就是在说她太胖了吗？</p>
+<p>换句话： “你好啊”或“见到你太好了”或“你看起来好极了。”总之不要问“你怀孕了吗？”或者“预产期几号？”就行了。为免尴尬还是不要问这种问题吧。</p>
+<p>.</p>
+<p>Don’t say:“Do you plan on breast-feeding?”</p>
+<p>Why:The issue can be controversial, and she may not want to discuss her decision publicly.</p>
+<p>Instead say:Nothing. Unless you’re very close, don’t ask. If you slip, make up for the blunder by adding, “And do you feel comfortable telling me?”</p>
+<p>不要说： “你打算喂母乳吗？”</p>
+<p>因为： 这种问题有点复杂，可能引发争论，也有可能她会不想在大庭广众讨论这些。</p>
+<p>换句话： 什么都别问。除非你俩特别亲近，否则就什么都别问。要是不小心问出了口，就补上一句：“跟我谈这个不尴尬吧？”</p>
+<p>.</p>
+<p>Don’t say:“Were your twins natural?” or “It must have been hard for your child’s birth parent to give him up.”</p>
+<p>Why:You’re suggesting that natural conception is better than in vitro fertilization (IVF) or adoption.</p>
+<p>Instead say:To a parent of multiples, try a light “Wow, you have your hands full!” To an adoptive parent, say the same stuff you would to any other parent: “She’s adorable!” or “How old is he?”</p>
+<p>不要说： “你的双胞胎是自然受孕的吗？”或者“你宝宝的生身父母放弃他肯定特别难受。”</p>
+<p>因为： 这么说感觉好像自然受孕就比人工授精或者领养更好。</p>
+<p>换句话： 对多胞胎的父母，可以轻松地说：“哇，这么多肯定累死你了。”对收养的父母，说你对普通父母会说的话就行了，比如“她真可爱。”或者“他多大了？”</p>
+<p>.</p>
+<p>Expert:Kim Hahn, founder and chief executive officer of Conceive magazine.</p>
+<p>专家：Kim Hahn，《孕期》杂志创始人及CEO。</p>
+<p>五、剩女篇：</p>
+<p>.</p>
+<p>Don’t say:“You were too good for him.”</p>
+<p>Why:You are basically saying she has bad taste. And you’ll be embarrassed if they ever patch it up.</p>
+<p>Instead say:“His loss!” It gets the same point across without disparaging her judgment.</p>
+<p>不要说： “他配不上你。”</p>
+<p>因为： 这么说就意味着你觉得她的品味很差。要是他俩又复合了，你就丢脸了。</p>
+<p>换句话：“这是他的损失。”这句话的效果是一样的，但又没有鄙视她的选择的意思。</p>
+<p>.</p>
+<p>Don’t say:“I’m glad you got rid of him. I never liked him anyway.”</p>
+<p>Why:She’ll wonder about your fake adoration for him while they were together.</p>
+<p>Instead say:“I’m confident you’ll find someone who will give you exactly what you want.” It focuses on what’s to come, not on the dud you’re glad she’s done with.</p>
+<p>不要说： “你能甩了他我太高兴了。我本来就不喜欢他。”</p>
+<p>因为： 她会觉得之前他俩还在一起时你的善意很虚伪。</p>
+<p>换句话： “你肯定能找到一个完全符合你要求的男人。”这句话的重点是未来，而且很支持她这样做。</p>
+<p>.</p>
+<p>Don’t say:“How could someone as perfect as you still be single?”</p>
+<p>Why:A statement like this comes off as a backhanded compliment. What she hears is “What’s wrong with you?”</p>
+<p>Instead say:“Seeing anyone?” If she’s tight-lipped about her love life, move on to other topics.</p>
+<p>不要说： “你条件这么好，怎么还会单身啊？”</p>
+<p>因为： 像这样的赞美听起来有点讽刺的感觉。她可能会听成“你到底有什么问题？”</p>
+<p>换句话： “最近有目标吗？”要是她对感情生活讳莫如深，就谈别的吧。</p>
+<p>.</p>
+<p>Expert:Bethany Marshall, Ph.D., a psychotherapist in Beverly Hills and the author of Deal Breakers: When to Work On a Relationship and When to Walk Away(Simon Spotlight Entertainment, $23,amazon.com).</p>
+<p>专家：Bethany Marshall博士，比福利山地区的心理理疗师，著有《忍无可忍：何时修补裂痕，何时慧剑斩情》。</p>
+<p>六、内部战争篇：</p>
+<p>.</p>
+<p>Don’t say:“You always” or “You never” or “You’re a [slob, jerk]” or “You’re wrong.”</p>
+<p>Why:Speaking in absolutes like “you always” and “you’re wrong” is playing the blame game, and resorting to name calling makes your partner feel helpless, which puts him on the defensive and makes a bad fight worse.</p>
+<p>Instead say:“I’m upset that you left the dishes in the sink again. What can we do so that this stops happening?” Starting with the pronoun I puts the focus on how you feel, not why he’s in the doghouse, and it will make him more receptive to fixing the problem.</p>
+<p>不要说： “你总是……”“你从来都不会……”“你这个[没出息的，混蛋……]”或者“你就是错了。”</p>
+<p>因为： 斩钉截铁地说“你总是”或者“你就是错了”这样的话是在说他都是错而你都是对，而恶语相向则会让对方觉得非常无助，他会马上转为自我防御，这会让一场已经很糟的争吵更加糟糕。</p>
+<p>换句话： “我不高兴是因为你又把脏盘子放水池不管了。到底怎么样才能让你改了这个坏毛病呢？”用“我”字开始，将重点放在你自己的感受上，而不是为了让他丢脸，这样他会更加愿意接受意见，解决问题。</p>
+<p>.</p>
+<p>Don’t say:“If you really loved me, you would…”</p>
+<p>Why:The more you treat your partner as if he’ll never satisfy you, the less satisfied you’ll be. Controlling your partner by imploring him to do something isn’t a good way to build intimacy.</p>
+<p>Instead say:“I feel taken for granted when you don’t help around the house. I would feel better if we could…” The best way to keep a productive fight from becoming a dirty one is to be clear about why you’re upset and then offer a solution.</p>
+<p>不要说： “要是你真的爱我，你就该……”</p>
+<p>因为： 你越表现地好像他永远不能满足你，你就越不可能被满足。用威胁哀求让对方做你想让他做的，这种控制对方的方法并不能巩固两人的亲密关系。</p>
+<p>换句话： “你不帮忙家务这让我觉得很不被重视。要是我们能……我就会好受多了。”要想保证争执是有建设性的而不是一团糟，最好的办法是直截了当地说明你为什么不高兴，然后提供一个解决方案。</p>
+<p>.</p>
+<p>Expert:Terrence Real, a family therapist in Newton, Massachusetts.</p>
+<p>专家：Terrence Real，麻省家庭咨询师。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

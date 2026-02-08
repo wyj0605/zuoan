@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我买了五个故事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我买了五个故事</h1>
+            <div class="date">2015-01-11 23:07:50</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/潘志峰我很少买书。书太多、种类繁杂，实在难选，所以索性就先交由时间去筛选掉一大部分，正如《挪威的森林》里渡边的铁杆一样，只买经由岁月沉淀后留下来的作品。不过最近买了本刚上市不久的书——《做一回久违的自己，勿忘初心》，作者是沈万九（后面我还是叫老沈吧）。言归正传，其实我是买了五个看似不同却连接成诗的故事。故事一：秀才遇到兵12月25日（应该算是去年了），老沈来宣传他的新书，被我碰了个正着，于是拽着不放，非要让他讲个故事，否则坚决不放他走，在我的吆喝下，引来好几个围观的，一致要求讲故事。正所谓此路是我开，此树是我栽，要想做宣传，先讲个故事吧。老沈遇到我们，也算是秀才遇到兵了……不讲不行啊。也许对我们来说会有个故事，可是对老沈来说，算是个事故了。故事二：万事开头难讲个什么呢？讲一下关于这本书出版的故事吧。老沈最后讲了这么个故事。《做一回久违的自己，勿忘初心》这本书原本是**出版社负责出版的。可是跟进这本书的编辑突然计划离开**，去北京发展。当时书的排版已经做好，于是便给了老沈两个选择，要不留在**出版，要不跟着她走。留下的话，可能还是会继续出版，不过可能草草了事，淹没于书潮，因为没有人跟进。不过，跟她走的话，那也是一个强大的不定数。在经过激烈的思想斗争之后，老沈觉得反正都等了这么多年了，不想这么随便出版第一本书，处女座的完美主义吧。于是决定让书跟着那个素未谋面的编辑走。可是如何拿回自己的版权也是费了周折，虽然商量好等合同满一年后（再大半个月到期）自己解除，然后拿回版权。就在这时编辑要走的事情，提前走漏了风声，被要求提前离开，书也就搁置了，拿不回版权。拖了一段时间后，编辑总算出现了，说目前自己已经去到了磨铁图书，然后跟磨铁图书谈好了，答应提前支付买断这个设计的版权，然后再出版。接下来书就到了磨铁，成功过渡，看似一切顺利。不过接下来又耗了一年，因为封面被调整了7、8次。最接近的一次，书都已经在购书网站上架了，可是还是给磨铁的老板沈浩波给一票否决了。接下来编辑就快被逼疯了，私下跟老沈说要是再改，宁愿辞职了。所以上天还算有好生之得，最后就有了现在的这个封面。这本书是老沈的处女作，单单是出书的时间，就耗费了很久，猜到了结果，却没猜到了过程。第一步总是这么难。故事三：缘系象牙塔在老沈讲故事的间隙，我趁机溜出来一会，找了一下度娘， 度娘说：老沈是中山大学汉语言文学系的……大学，在我心里，那一直是种种精神的象征。虽然我在里面是越来越不像样，但回想起来，对我影响最大的大学，有两个。一个是我的母校——中国地质大学（武汉），其实压根没喜欢过，但终究是收获了不少东西，哪怕真是那些不像样的。另一个就是中山大学，毕业后在广州的近两年时间里，去中山大学的次数，少说也有一百多次。在这一百多次里，当时更多的感觉是受尽了折磨，可如今反倒是有不少美好的回忆。一是学会如何从一无所知到接触采购、系统集成安装、调试、培训、以及处理售后服务中的种种问题；二是从一个文科生的直觉思维、联想思维、灵感思维等向清晰的逻辑思维靠拢；三是让我从大学刚毕业，有了被叫做老师的资本（吹的够厉害的）；四是让我在社会学与社会工作系大楼外捡了好多的海红豆，俗名相思豆，虽然这玩意其实是有毒的……故事四：久违的信任听老沈讲完故事，我就有种想买书的冲动。我说买书想送人，就找他要签名书，他告诉我出版社还没安排签名售书。我心有不甘，问他还有没有别的办法。最后老沈建议，既然要送人，还想要签名书，那就先在网上买一本吧，随后出版社送来样书了，给我快递一本签名书。我自然同意，我知道，这时买书，已经买的不是书，而是信任了，而且是当下功利社会当道的久违的信任。故事五：表妹的初心看着书名，做一回久违的自己，勿忘初心，让我想起了表妹。她最近似乎情绪很不稳定，除了简单的说几句，似乎也帮不上什么。一直没有关心过她，就送她这本书吧，希望她能读一读，能帮到她。网上买的书，很快就到了，于是给表妹打电话，说要送她一本书，但是要她做个选择：一个是拿现在这本在网上买的书；一个是等签名书，但签名书存在的问题是，一方面不知道我能否收到，另一方面也不知道什么时候能收到。我要她做选择，但不能反悔。她倒是很干脆，没有犹豫，说签名书留给我吧，她拿现在网上买的，签名书就留给我了。看来是我想复杂了。也许选择有时候是很简单的，根本不是我们想的那么麻烦……今天收到签名书，书静静地放在桌子上，趁着这夜晚的寂静，带着对初心的悸动，我慢慢地写下了以上文字。购书地址：当当：http://product.dangdang.com/23496450.html淘宝：http://detail.tmall.com/item.htm?spm=a230r.1.14.8.xDJD3P&amp;;id=43044088432左岸记：人生的第一本书，绝对是一个作者最用心去写的一本书，是将之前自己的人生概括到书里的一本书。也许稚嫩，却绝对的非常有诚意。故美其名曰：处女作。没出过书的人都觉得作者自己的书，作者难道没个千八百本放家里能送人么？所以只要一出书，周围看书的不看书的都要来讨一本。但实际上，出版社肯给你30本样书就算好的了，每一本书出版社是有成本的，比如一个书号就几万块钱，还有印刷啊宣传啊什么的，出版社就算不赚钱也要平回来，不会给你无限量免费书，何况中国出版业还是挺艰难的。如此你对出书也感兴趣，可以参考一下特立独行的猫写的这篇如何出版人生第一本书。看完你也许真的会想不断地去买书，那么，买回来一定要记得看哟。原文链接：http://www.zreading.cn/archives/4754.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

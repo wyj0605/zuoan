@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彼得·德鲁克：奶奶的故事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>彼得·德鲁克：奶奶的故事</h1>
+            <div class="date">2014-08-01 23:27:51</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>下面是摘自彼得·德鲁克最喜欢的作品《旁观者》的第一篇，这是一个人生宽度最美的原型，是德鲁克笔下的奶奶。奶奶年轻的时候十分纤巧，娇小玲珑而且容貌出众。但是，我所看到的奶奶已是迟暮之年，看不出一点青春美丽的痕迹，不过她还留着一头亮丽的红棕色卷发，这点让她引以为豪。她不到40岁就做了寡妇，而且百疾缠身。由于得了一种严重的风湿热，造成心脏永久的损伤，因此好像老是喘不过气来的样子。关节炎使她成了跛子，所有的骨头，特别是手指，都又肿又痛，加上年事已高，耳朵也不灵了。但是，这一切却未能阻挡她到处溜达的雅兴。她风雨无阻地走遍维也纳的大街小巷，有时搭电车，不过多半步行。她的随身“武器”就是一把可做拐杖的大黑伞，还拖着一只几乎和自己一样重的黑色购物袋，里面装满了一大堆包装得好好的神秘小包裹：有准备送给一个生病老太太的一些茶叶，为一个小男生准备的邮票，从旧衣拆下半打“高级”金属纽扣打算给裁缝……奶奶家中有六姊妹，每个至少生了四个女儿，所以侄女就多得数不清了。这些侄女小时候或多或少都被奶奶带过，因此跟奶奶特别亲，甚至和自己的妈妈都没这么亲近。在她拜访之列的，还有从前的老仆人、贫困的老太太、以前跟她一起学音乐的同学、年迈的店主和工匠等，甚至连去世多年的朋友家的仆人，她都不忘问候。有一回奶奶想去看住在郊外的“小葆拉”。这个老寡妇是奶奶已过世的表哥的侄女。她说：“如果我不去看这个老女人，还有谁会去呢？”家族中的老老少少，包括奶奶自己的女儿还有那一大堆侄女，都一律喊她“奶奶”。不管和谁说话，奶奶的声音都愉快而亲切，并且带着老式的礼数。即使多年不见，她仍然记得人家心中牵挂的事。有一次，奶奶有好几个月没见到隔壁的女管家奥尔加小姐，再次看到她时，就问她：“你那侄儿近来怎么样？通过工程师考试了吗？这孩子可真了不起，不是吗？”她偶尔也会到老木匠的家里走动，并问他：“科尔比尔先生，市政府不是跟你们多课了些房屋税吗？后来解决了没有？我们上回见面的时候，你不是还为这件事心烦吗？”奶奶的妆奁就是这位老木匠的父亲做的。奶奶公寓旁的街角常有个妓女在那儿拉客。奶奶和这个妓女说话一样是客客气气的。其他人对这妓女视若无睹，只有奶奶会走向前去跟她寒暄：“莉莉小姐，你好。今晚可真冷，找条厚一点的围巾，把身子包紧一点吧。”有一天晚上，她发现莉莉小姐喉咙沙哑，于是拖着一身老骨头爬上楼，翻箱倒柜地找咳嗽药，之后再爬下去交给那个妓女。在战后的维也纳几乎没有一部电梯可以使用，所以奶奶只好这样爬上爬下。奶奶有个侄女就很不高兴，告诫她说：“奶奶，跟那种女人说话，有失您的身份。”“谁说的？”奶奶答道，“对人礼貌有失什么‘身份’。我又不是男人，她跟我这么个笨老太婆会有什么搞头？”“但是，奶奶您居然还给她送咳嗽药去！”“你啊，总是把性病当做洪水猛兽。对此，我虽无能为力，但是我至少可以使她的感冒赶快好起来，不至于让那些男人被她传染，得了重感冒。”…………奶奶死时，也和生前一样，留下了一则“奶奶趣谈”。有一天，风狂雨急，她仍和平常一样风雨无阻地到处溜达，走着走着，竟走上了车道。司机看到她，想绕过去，但还是让她摔了个跤。于是，这司机连忙下车搀扶。奶奶虽毫发无伤，不过却吓坏了。司机说：“老太太，我送您到医院去一趟，好吗？还是让医师检查一下，比较妥当。”“年轻人，你对我这个笨老太婆实在太好了，”奶奶答道，“还是麻烦你叫辆救护车来好了。车上多了一个奇怪的女人，可能会损及你的名誉——人言可畏啊。”１０分钟后，救护车抵达时，奶奶已因严重的心肌梗塞而死亡。弟弟知道我和奶奶很亲，因此打电话告诉我。他以哀伤的语调说道：“我有一个非常令人难过的消息要告诉你……奶奶今天一早过世了。”但是，他一开始描述奶奶死亡前的故事，音调就有点改变，最后终于笑了出来：“想想看吧。只有我们的宝贝奶奶会这么说，高龄七十几岁的她，居然还担心和一个年轻人同车会给他带来‘绯闻’的困扰！”我也笑了。不过，我倒想到一件事：一个75岁的老太婆自然不会损及这个年轻人的名誉，但要是一个陌生老太太在他车内死去的话，他要如何向世人解释？读后感：我们每个人身边都应该有过这样的“奶奶”，他们也许不是你的亲人，却总以所有人的庇护者的身份出现，关心每一个相关不相关的人。拥有生涯宽度的人，他们的心最宽大、最柔软、最细腻。没有这种人，人类作为一个物种根本无法延续到今天。人们很容易对人生的高度产生无限的向往，对人生的深度也愿意奉上崇敬之意，对有温度的生命更是由衷的赞叹，却没有意识到，在更高和更深、更自由之外还有一个宽度。高度如攀山，越高位置越少；尝试如挖洞，越深知音越少；自由如灵感，却不是想有就有；唯有加上宽度，才会让人们从山上和洞里走出来，越走越宽，越来越多地与世界联系。所以，特蕾莎修女说：“不管怎样，把你最好的东西给这个世界吧！”人们经常是不讲道理的、没有逻辑的和以自我为中心的不管怎样，你要原谅他们即使你是友善的，人们可能还是会说你自私和动机不良不管怎样，你还是要友善当你功成名就，你会有一些虚假的朋友 和一些真实的敌人不管怎样，你还是要取得成功即使你是诚实的和率直的，人们可能还是会欺骗你不管怎样，你还是要诚实和率直你多年来营造的东西有人在一夜之间把它摧毁不管怎样，你还是要去营造如果你找到了平静和幸福，他们可能会嫉妒你不管怎样，你还是要快乐你今天做的善事，人们往往明天就会忘记不管怎样，你还是要做善事即使把你最好的东西给了这个世界也许这些东西永远都不够不管怎样，把你最好的东西给这个世界你看，说到底，它是你和上帝之间的事而决不是你和他人之间的事原文链接：http://www.zreading.cn/archives/4500.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

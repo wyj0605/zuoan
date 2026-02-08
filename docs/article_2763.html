@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一座城池一个人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>一座城池一个人</h1>
+            <div class="date">2014-07-09 23:57:28</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/一心@gitanjaly相遇二月份的江南还有些冷，习惯了火车里的温暖着实不想出去。晓盏拍了拍脸颊，像是在安慰自己：不想出去也要出去啊，到站了。杭州，春节过后的第一次旅行，她选择了杭州。一个有着许多爱情的城市。走出站口的时候，晓盏双手合起祈祷：请赐给我一个白马王子吧。晚上的杭州有些冷，作为超级路痴的晓盏，望着来往的车辆叹了第一百零八次气：对不起，我不是有意打扰你们的，我只是把我的方向感丢在家里了。“你好，是XX青年旅舍吗？我是前几天在网上订房的客人，嗯？我现在的位置是在XX路，可是我不知道怎么去你们哪里了。”电话的另外一头传来一个很温和的男声：“别着急哦，我是旅舍的前台，等一下我要出门办点事情，可以顺便去接你，你坐地铁吧，做到龙翔桥站，我在三号口等你。”“嗯嗯，我现在就过去哦，你一定要去。拉钩。”电话的另外一头传来笑声：“好的，拉钩。我的手机号码等下发到你的手机上，你可以喊我叶隐。”“嗯嗯，那一会见。”此时的杭州还是有些冷，可晓盏的心里却觉得暖暖，她甚至有些期待这次见面。一阵风吹过，晓盏不禁打了一个冷颤，加快了脚步，心里默默念叨着：进了地铁站就不怕了，好冷好冷。晚上的地铁人不是很多，晓盏拖着行李箱来到三号口，远远就看着有个瘦瘦的男孩子站在出口地方。晓盏拿捏不好是不是叶隐，索性拿起手机打了起来，看到男孩子接了电话，晓盏像是中了彩票一般欢喜，小跑到他身边：真好，一出来就遇到你了。男孩子愣了一下，语气里有一丝的不确定：邓晓盏？晓盏像是捡到钱一样狠狠地摇了摇头：嗯嗯，我还担心你会不来。男孩子笑了起来：看来你很活泼啊。活泼？人家才不是，人家是用说话来掩饰内心的恐惧感。晓盏有些底气不足的解释：其实，我挺安静的，我很内向。叶隐又笑了，心想这妹子还真逗。叶隐就在晓盏的碎碎叨叨中带着她回青旅了。青旅在虎跑路上，附近有动物园。在回去的路上，叶隐告诉晓盏在动物园里有一眼泉，早上会有很多杭州本地人大桶小桶的敢去打水，而且清一色都是老爷爷老奶奶。晓盏来了兴趣，眼巴巴的望着叶隐：明天早上你也会带我去吗？叶隐顿时惊呆了：嚓，还说自己内向，哪个内向妹纸会主动让第一次见面的男生带她去玩？想归想，他还是顺了晓盏的心愿。晓盏也惊呆了，在叶隐说出好字那一刻。晓盏愣住了：尼玛，老子不过说说而已，这货竟然同意了？不过这小哥长得不错，我也不吃亏。这样一想，晓盏也放开了，和叶隐一路有说有笑的回了青旅。或许这就是生活，你永远无法预测下一秒你会有什么样的经历。命运沿着既定的方向前行，偶尔会迷路，但很快就会被拉回既定的路线。其实，晓盏心里暖暖地，想想多久没有人对她这样好了？一个人一直在路上，遇到时是欢喜，分别时是离愁。次数多了对相遇离别没了感觉，只想守护着最初的小心愿。一路走，一路散，一路的感动，一路的失落。或许，这就是生活真正的迷人的地方，无数的希望在路上，无数的失望也在路上。后来，晓盏离开了杭州，她在日记中这样写道：人生或许有无数次的相遇，或许这一次的相遇让我无法忘怀。第二天，只睡了三个小时的叶小哥带我去打水，严重睡眠不足的他竟然会跟着我这个刚刚认识一面的陌生人挥霍他的生命，说不感动是假的。只是，我一直很理性，我无法把这种好和爱情挂钩，或许这只是一种类似爱情的感觉。更何况，这货是前台呢？我是客人，哪有前台不对客人好的道理？生活需要感性，但更多的还是理性吧？悸动早晨的阳光看起来很柔和，想必此时披上毛毯，端上一杯热咖啡坐在太阳下，更能体会江南小资的感觉吧。前一刻晓盏还在幻想着她的小资生活，后一刻就被这屋外的江南的冷气袭击了，晓盏禁不住打了一个冷颤。叶隐皱了皱眉，让晓盏在门口等他一下，转身回到屋里了。当他再次出来的时候，手里多了一件羽绒外套，很体贴的披在了晓盏的身上。晓盏不客气的接受了他的外套：服务很好哦，赞一个。像是隐藏自己真实的情绪，晓盏坏坏地笑了起来：亲，用美色服务女客人不是好习惯哦。那不经意流露的红晕还是被叶隐抓拍到了，原来不好意思还是真的。这一路晓盏走的很安静，短短几分钟的路程像是走了一个世纪那么久。一个在前，一个在后。或许这一生晓盏都不会再有这样的经历，一座城池一个人，一份体贴一丝感动。来到动物园门口，门卫看了看他们，让他们出示进园证。叶隐小声对晓盏说：糟糕，没想到六点就有人守门了，我只带了一个。叶隐把进园证塞给了晓盏：你先进去，我等一下翻墙进去，我们在里面碰头。“那你小心一些，别被他们抓到。”遇到突如其来的事件，晓盏也慌了，老老实实地听着叶隐的安排。“喂，那你快些进来，我…..我可能会迷路。”可能会迷路？噗，这妹纸要不要这么搞笑？什么叫可能会迷路？叶隐又笑了，拍了一下晓盏的脑袋瓜：“别担心，我会很快的。”“嗯，那拉钩？骗我你是小狗。”叶隐脑子里突然冒出来漫画里三滴汗的画面：“嗯嗯，不骗你，快些进去吧。”看着叶隐的背影，晓盏突然心底像是被阳光洒满了一样。许久许久没有人温柔地对她了。像是被蒙上了眼睛，握住你的手，走过一条长长地走廊。当睁开双眼的那一刻，镜子中的我已经不是我。那穿着红舞鞋的女孩子，已经失去了最初的魔法，王子不见了，红舞鞋也消失了。剩下孤独的小女孩轻轻地哭泣。很久很久的某一天，当晓盏再次哼起这首歌总是会想起那天的早晨，叶隐站在入口处的地方等着她，阳光洒在叶隐的身上，透过他褐色的头发落在他的脸上，那一刻，晓盏像是看到了王子。公主对王子说：嗨，我的红舞鞋不见了。红舞鞋？叶隐愣住了：耳朵没有毛病吧？“姑娘，没有睡醒吗？”“天呐，你怎么可以这么帅，你看看这眼睛，这鼻子……”像是掩饰自己失态似得，晓盏夸张的说了起来。叶隐的脑子里再次浮现起漫画里三滴汗的表情：尼玛，这是个什么怪胎。直到现在晓盏也回忆不起来那眼泉的名字，只是那个早晨的某些场景永远的刻在了她的日记中：到地方的时候，已经看到一条长长地队伍了。叶小哥就是骗子，说什么早晨不会有人打水。或许就是在那个早晨，突然有种想在这个城市生活的想法，将我一路的流浪在这个城市画上句号。一座城池一个人，那个早晨如此美好，让我有丝不忍打破它的犹豫。终归是两个人，偶尔的交集终将代表着越走越远。明信片或许时间太短，短的无法让一个人为了另外一个人留在一个城市；也或许时间不对，一个心在远方的人无法在没有找到自己的心之前停留在一个城市。或许，她原本就是一个流浪的人，不会为任何人。三月份的最后一天，叶隐收到了晓盏的明信片。明信片上画了一个大大的笑脸，一个城市的邮戳，再也找不出其它的消息。叶隐笑了笑，把明信片放在了青旅的墙上。那个大大的笑脸淹没在了一整墙的明信片中。或许早已预测到了这个结局，翻开晓盏的日记：青旅的墙上满是寄给叶隐的明信片，一张一张的看，看到最后鼻子酸酸的，他的好是属于大家的，而不是属于某个人。或许大家出发的原因不一样，可走的时间长了总是会想在路上遇到温暖，在冬天喝一杯热乎乎的咖啡。左岸记：一个让人感到温暖的人，就像一棵大树，根长长地扎进泥土里，枝杈努力伸向天空，活得坚韧而自由，自然而包容、平和温润而有力。爱比较的人，总是看着有谁比自己好，又有谁比不上自己，而其实，为你的烦恼和忧伤垫底的，从来不是别人的幸与不幸，而是你自己的态度。有大快乐的人必有大哀痛，有大成功的人必有大孤独。如果你的生活已处于低谷，那就大胆地往前走，因为你怎样走都是在向上。原文链接：http://www.zreading.cn/archives/4445.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>七年了，相见还是怀念？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>七年了，相见还是怀念？</h1>
+            <div class="date">2015-06-08 23:29:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>导读：这篇《七年了，相见还是怀念？》是上一篇《毕业了：再见，再也不见》的故事的后续，在这个属于毕业季的夏天，作为一个毕业了7年的老人，谨此两文，惦念那些过往时光，然后继续努力前行。文/图 韦宇教生命，是一场单程旅行，我们永远无法回头。在这场或短暂或漫长的旅行中，因心之所求各异，眼前会呈现出不同的风景。一路上，有风有雨，茫茫人海，我们不知道会在何时何地与何人相遇。彼此是擦肩而过的缘分，又或者可以相依相伴，这一切的一切没有谁会提前预知。就像2004年前的我们，就像2008年后的我们，就像2015年的我们。“时间是扇颠沛流离的大门，平凡的我们注定孤独一生。日子一天一天就这样过去，那些荒诞的时光都已经忘记。想起那些慢慢变的陌生的朋友，一回头，青春都喂了狗。”——题记你好，我叫XXX，我是XXX人。上课了，快起床！玩升级了，一缺三！谁去打篮球？谁去踢足球？帮我带份二餐的干煸豆角！去图书馆帮我占个座！有去湖边背单词的么？你又不去跑早操啦？老师点名记得帮我喊“到”！你的小抄给我复印下！XXX，考微积分的时候让抄下啊！靠，我挂科了！XXX，帮我替考吧！那女的不啥样，还是算了吧！晚上看看《山村老尸》吧！跟我玩拳皇97，一个大招就能把你KO！XXX呀，他又通宵去了！你暑假回家吗？熄灯了！睡觉了！考试了！四年了！毕业了！再见了！再次听到这些熟悉的话语时，我在梦里看到了你们。大家还是老样子，似乎什么都没有变化，除了时间。还记得正对大门的左边床位依次是：尹洪帅（下铺）、张艳慧（上铺）、任兰存（下铺）、吕威（上铺）；而正对大门的右边床位则是：李明松（下铺）、韦宇教（上铺）、张健（下铺）、肖顺生（上铺）。这是2004年至2008年的我们，这是大学毕业7年前的我们，这是我们曾经最爱的324宿舍。2008年6月，潍坊的最后一个夏天。炎热还没开始，但我们的心都已经按耐不住的骚动不安起来。2008年6月4日，我们结束了论文答辩。当我走出答辩教室404的那一刻，心里只有一个声音：毕业了，就这样毕业了。就在论文答辩的前两天，经管学院04级市场营销本科1-3班，在学校北门附近的鹿苑酒店举行了毕业离别聚会。导员拿起话筒，刚说完“同学们，再过两天你们就正式大学毕业了”，几个女生“哇”的一声就大哭了起来，于是我们所有人都抑制不住的跟着笑了起来，然后是哭着，遗憾着，满足着，喜悦着，又悲伤着。那是一种难以言表的复杂的心情，我们的眼泪不知道为了谁而流，也不知道为了什么而流，只是每个人都觉得很哀伤，也许是因为马上就要分别了。大家心里很清楚，来自天南海北的我们，此去一别，再聚首是一件很难的事情。这一生，也许不会再见面，只能珍惜现在，所有的话语都沉淀在啤酒的泡沫中，都倒进了身体里。而我能听到你们内心的声音，就像你们能明白我文字中蕴藏着的情感。2008年6月4日，四年，落下帷幕，带着些许遗憾，留下些许故事。在阳光依旧的盛夏，我们挥手作别，背上行囊，再一次奔赴下一段未知的旅程。如果没记错的话，我是324宿舍第一个离开学校的吧！参加完论文答辩，我回到宿舍，把这些年写的十多本日记、散文、随笔和小说原稿在厕所里付之一炬后，收拾背包，坐上56路开往火车站的公交车，回头对着正在拍各种毕业照的身影道一声：再见，后会有期。这个夏天，在彻底告别学生时代前，我没有参加毕业典礼，我没有穿上学士服留下最后的学生照。我在开往北京的火车上对自己说：人生总会留下些许遗憾，就把这些遗憾当做是留在潍坊的最美好的记忆吧！7年后，艳慧从潍坊到北京参加我们的宿舍聚会，可以选择动车和高铁。这一年，我离开学校坐过的那趟火车已经没有了轨迹。而我离开的那一年，坐的还是T字头的火车，还不知道什么叫动车和高铁。人生就是这样，谁也不知道自己的生活轨迹里，明天来的是旧友还是新人，更不知道来的是意外还是惊喜。7年了，我在北京不好不坏的走走停停，短暂的离开后，总会再次折返。这个城市对于我而言，更多的是一段旅途，一次见证青春湮没的时光留守。这次相聚，艳慧从潍坊来到北京，洪帅和小威从上海来到北京，我、小松和兰存，从北京的五环来到了三环。这次相聚，让我看到了这世界最长的旅程，就是从我们的头脑到我们的心的距离。这样的重逢是美好的，美好就在于绕了一圈回来，发现原来大家还在这里，发现我们以为的已经放弃的坚守，依然孤单而倔强地矗立在我们生活的城市的废墟中央。小威相比我2011年去上海看到的那个他，瘦了不少，更加精神矍铄了。他也买了单反，他也开始了一个人的独自旅行。我们都是喜欢在路上的人，很多时候感性凌驾于理性之上。只是我没有小威那么善于识人，能言善道，也没他那么从容和掌控自如。小威说，我开始有北方人的性格了。是呀，30岁了，我拒绝过很多的酒宴和别人的敬酒，但这次我没有拒绝兄弟们的盛情，虽然一次只喝了将近4瓶啤酒，却是我这30年来喝得最多的一次。作为舍长，尹洪帅还是被大家尊称为“114”。事实上，相比于5年前的那个快乐的2货，他成熟和沉稳了很多。时光总是这样，不停的雕饰一个人，直到自己都看不出的面目全非。好与坏，只能留给时间和旁人的嘴巴和耳朵。艳慧是唯一一个提出去天安门看升国旗的，我不知道国歌响起的那一刻他是否激动万分，抑或是泪流满面。但我知道，作为班长的他，绝对是一个无比忠诚和忠实的共产党员。聚会的这些天，早在13年就奔三的艳慧喝了很多酒，说了很多话。作为一个丈夫和父亲，他更有男人的责任感了。在北京生活7年了，我只看过一次升国旗。那是08年的1月9日，我初到北京。在凌晨寒冷的风中，我从北京站走到天安门，观看了此生第一次也是唯一一次的升国旗。但说实话，当时我的身心已经冻得麻木了，自豪感和各种感都被冻住了，无法在心中萌发。小松还是那个童颜的纯情小男生，7年过去了，他的那张小白脸，还是让我们感觉他永远活在大一那年的18岁。他跟我一样，还是那么内向和少言寡语。毕业7年了，被社会玷污和蹂躏了7年，我们却还是单纯得像一张白纸，还是一样的不胜酒力。这是好事还是坏事呢？我不得而知。就像临近毕业的那个夏天，我们谁也未曾料到如今的自己，会扮演这样的一个角色。作为我们宿舍也是我们专业学习最好的人，兰存还是那样充满着干劲和闯劲，而且更加睿智和干练了。从潍坊到上海再到北京，山东人的淳朴和厚道在他身上依旧展现得淋漓尽致。谁跟了这样的男人，幸福绝对溢于言表。远在海口的顺生以及定居云南的张健，因各种原因，未能前来北京，我们只好给他们点烟、洒酒祭拜了下，以示惦念。一宁还是那么帅气，看来长期的美容养颜和健身真不是白费功夫的。席间，他说他已经被身边的很多单身女青年盯上了，而且已经有人在筹划着潜规则了他。听完，我们肆无忌惮地笑了。卖艺和卖身，许多时候，都是一样地在“卖”。去年看到他的时候，他还是个男模和演员。此番再见，他已是个老板和导演。只是那份帅气和能言善辩永不褪色，一如7年前他在辩论会上的舌战群雄。有一点忘了说，他还是那么豪爽和海量，不减当年。大学毕业7年，我们相聚北京，重温旧日时光，6个都快奔三的男人在酒店里打了一晚上的升级，就像7年前经常在宿舍里玩牌一样，如痴如醉。第二天，再次站在清华大学里，我们已经没有了学生时代的那种膜拜和向往。毕竟，现在的我们，都已不再需要这个光环了。从南锣鼓巷到后海，从清华到北大，从鸟巢到水立方，从中关村到西三旗，从周五晚上到周日晚上，我们继续续写大学毕业7年后相聚的故事，继续吃喝玩乐，继续开房，继续玩升级。写到这里，突然感觉到了词穷，不知道该写些什么。眼睛盯着电脑屏幕，手却敲不出任何字眼。很多时候，我总是莫名其妙的没有了倾诉和表达的欲望，文字在我手里被一次次的揉碎，然后丢弃于心的荒野。大学毕业7年了，我们看到彼此后只是微笑的说了声：你也没什么变化呀！殊不知，2008年的那个夏天，很多人，很多友情，很多爱情，在一句“再见”声中真的成了“再也不见”。在香烟燃起的烟圈中，我的视线不断变得模糊，耳边不断响起的是“还记得大一那个时候吗，你……”。所有的景象似乎都历历在目，却又模糊不清。7年了，我渐渐明白，任何文字在离别面前都显得那么苍白无力，任何文字在友情面前都是那么的肤浅。也许，成长总需要伴随疼痛与割舍，但没有破茧成蝶的毅力，亦不会有打磨至善至真至美的自己。我坚信：再过一个7年，我们的再次相聚，一定可以看到每一个神采奕奕的你们。再见，艳慧。再见，洪帅。再见，小威。再见，离开北京的你们！从501室到324室，再到211室和324室，四年，搬了四次宿舍。熟悉的56路公交车，盛开在一餐厅前的迎春花，厕所里燃烧着的灰烬，蜀都小吃里的那道美味的口水鸡，大雨里的那场带血的足球赛。那些一晃而过的身影，那些似曾相识的场景，那些……太多的那些，也只是午夜梦醒后的回忆而已了。“流干了理想的血都来不及歌颂，日子一天一天就这样过去，那些荒诞的傻逼的时光都不该忘记。想起那些慢慢失去联系的朋友，一回头，青春都喂了狗。”——后记【作者简介】韦宇教，80后，金牛男一枚，文案策划师，专栏作者。喜好文字，摄影，旅游，养猫。在文案策划的江湖中，已来回穿梭七年。常静坐深夜，焚香，饮茶，煮字疗饥。亦是一个行者，在路上，或充斥着想念，或浸润着孤独。站在奔三的道口，回望素履之往，愿无岁月可回头。有生之年，感恩遇见——QQ：278135479微信：weiyujiao1985原文链接：http://www.zreading.cn/archives/4933.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

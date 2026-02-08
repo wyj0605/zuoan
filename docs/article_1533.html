@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每班都有一个被孤立的人 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>每班都有一个被孤立的人 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>每个班上都有一个被孤立的人。</p>
+<p>或者因为太骄傲，或者因为太自卑，或者因为太臭美，或者因为太邋遢，甚至，没有任何原因，突然有一天，这个人的性状就发生了变化——从班级的一员变成了集体的公敌。</p>
+<p>身在其中，似乎很容易就成了孤立他们的人。事后想想，自己都觉得莫名其妙。可是当时，却不得不如此。想想，记忆中的每个班级，是不是都有一个孤单的背影？</p>
+<p>1、毕业合影,她没有出现——米芫</p>
+<p>前些天收拾抽屉，翻出了我的初中毕业照。</p>
+<p>十几年过去了，一张张稚嫩的面孔恍若隔世，即便是当年那些朝夕相处的名字，现在回忆起来，也觉得生疏了许多。可是我却很清楚，照片里少了一个人——妍。</p>
+<p>妍是个不起眼儿的女孩，有些黑，微胖，长相平平，走起路来屁股一扭一扭的。起初，她在班里的众多女生当中，一起说笑打闹，一起写作业做值日，并没有什么特别之处。</p>
+<p>那个年龄的女孩大都爱美，每天穿着校服，能拿来做文章的“阵地”就只有头发了。妍喜欢在马尾辫上扎头花，哪怕是上课的时候，也不忘掏出小镜子来自我欣赏一番—后来我们才知道，那是因为她偷偷喜欢上了坐在她后面的男生。</p>
+<p>有一天自习课，妍摆弄着头发，转过身来悄悄问那个男孩：“好看吗？”</p>
+<p>男孩根本没有意识到这本该是个秘密的，下课后便当做谈资跟小伙伴们议论起来，神情里带着鄙夷、嘲笑、不屑。很快，这件事就像病毒一样在班里蔓延开了。男生 们哄笑，因为这个“丑女孩”太做作，太自不量力，太自我感觉良好；女生们则暗地里议论纷纷，觉得她说出这么不体面不检点的话来简直“太恶心了”。</p>
+<p>从此之后，妍就成了我们班里的一个笑话。</p>
+<p>同学们争相收集关于她的一切负面消息，并且当成公共话题踊跃分享——她上课挖鼻孔，她考试的时候偷偷翻书，她又拿着小镜子臭美，还有，她竟然用红墨水涂指甲……天哪，她怎么这么恐怖？！</p>
+<p>谁都不愿意跟妍搅在一起。排座位时，不幸跟她邻桌的人总会得到大家的同情，坐在她后面“抬眼就能看见”的，更是恨不得抠出自己的眼珠子来洗洗干净。有家长 因为座位的事来找老师，要求把自家孩子换到一个远离妍的地方。刚开始，老师还替妍说话，揪出几个闹得欢的人批评教育一番，说要注意团结同学。可时间长了， 再仁慈的老师也不会格外恩宠一个与全班为敌的“异类”。</p>
+<p>后来，妍甚至被当成了一个“有毒的放射性元素”—她一走过来，周围的人迅速闪开，躲到两米之外；她看谁一眼，那人恨不得当场呕吐；她用过的东西，没人再愿 意去碰；谁拿到她的作业本，就马上冲出教室去洗手；进而，那些跟她名字读音相同的字，比如盐、言、岩、颜，大家也都避之唯恐不及……</p>
+<p>做这一切的时候，没有人知道妍在想什么，当然，也没有人愿意知道。每天，她都是一个人独来独往，很少说话。她的学习成绩越来越差，从不参加集体活动，整日无精打采的，眼睛里没有一丝这个年龄的人应有的光芒。</p>
+<p>事情闹得最大的那次，是妍的“割腕事件”。那阵子她的座位在教室的角落里，挨着窗户，不知为什么，窗台上有几片碎玻璃，妍就拿了起来，在手上划来划去—— 果然，出血了！她被老师送到医务室包扎，班里一下子炸了窝，目击者纷纷描述当时的情形，试图拼凑起整个事件的全貌。最后大家得出结论：她可能是想自杀！</p>
+<p>此后，班里的气氛有所收敛，但妍始终被我们孤立。初中三年，她在班里没有一个朋友，没有任何一个人愿意去接近她、了解她，甚至连外班的老师和同学都知道，妍是个不受欢迎的人。</p>
+<p>后来，听说妍列了个“黑名单”，把她最恨的人统统写在了上面。“她说她以后要一一报复回来的。”大家议论纷纷。随后就是猜测，看谁是那个最有可能被记在名单上的人。不过，这份名单到底是不是真的存在，究竟列了哪些人名，无从考证。</p>
+<p>照毕业照的时候，妍没有来，这让我们大家都松了一口气。照片里的每个人都在微笑，笑得天真无邪，可是，谁又能知道照片之外的妍，此时是一种什么表情呢？</p>
+<p>2、四面楚歌,也笑着走过——邵果</p>
+<p>成为“公敌”，是一夜间的事儿。如同睡了一大觉，睡前还是笑靥如花，醒来已是满面泪痕。以今天的话来说，我早在中学的时候，就被认为是“小三”。大概大家都对“小三”有一种狐狸精似的推理，所以，我的处境，你大概可以想象。</p>
+<p>是误会，也不全是。总的来说，我和我的挚友，都栽在了一个很平庸的男生身上。</p>
+<p>平庸男高二下学期的时候开始追求我的挚友。我只是他溜须拍马的对象，他竭尽所能地护送我出门回家，帮我摆平一些麻烦，摸清我所有的好恶，欣然奉上，尽管我 嗤之以鼻。他几近小丑般的讨好，无非是希望我在挚友面前美言几句。高傲如我，对这类男生是俯视以及斜视的，但是鉴于他是我的邻居，不便搞得太难堪，所以， 我即使不理睬也是不驱赶的。</p>
+<p>或许源于这种“同上学同下课”的假相，突然有一天，就刮起了我们谈恋爱的旋风。这种旋风如同飓风，不仅毫无防备，而且势不可挡。我知道，我百口莫辩，索性不辩。我和他？大概有点常识的人都会作出最基本的判断吧。</p>
+<p>又是我这种不澄清的态度，让更多的人觉得是默认。</p>
+<p>风言风语起来的时候，我觉得我有“死党”——我们班关系最好的四个女生，其中包括我的挚友。我一直以为，她们了解内情，肯定不会有别的想法，还会帮我澄 清流言。可是，也是不经意的某天，我惊诧地发现，上午第二节课长长的课间，她们落下我自由活动了。第一天，我以为是偶然；第二天，她们看我的眼光带着揣 测；第三天开始，我就默默地自己坐在座位上了。</p>
+<p>后来的一年，我都是如此境地。本来挺活跃的自己，变得越来越沉默，连最喜欢我的班主任都找我谈话，提醒我注意群众关系，不合群将来要吃亏的。</p>
+<p>我知道班主任是为我好，但是，我能告诉她实情吗？说我是被动孤立，不是主动离群？那么，结果很可能是，她在全班同学面前说不要孤立同学，而事实上，我被更严重地孤立，罪名再加一等——打小报告。</p>
+<p>我不齿做这种人，硬着头皮自己承担，那时的我坚信，流言止于智者，清者自清。</p>
+<p>可是，整个高中，我都如同跳进了黄河，怎么也洗不清自己。</p>
+<p>我带着灰色的心情上课下课，最怕的是第二节课课间，20分钟，从前是四人小组一起争奇斗艳，秀新衣服；一起出去买零食，轮流付账；一起树下谈心，看看谁又收到了情书；一起交换笔记，畅谈谁瞄准了哪所大学。</p>
+<p>如今，她们故意在我面前亲密无间，从我的座位前走过，在我目光所及的窗口提高声音，勾肩搭背。她们以为，这样会深深地刺痛我。她们的确做到了。</p>
+<p>妈妈有一天突然说，懂事了，知道操心学习了；班主任惊讶地发现，随着一轮轮模考，我越来越往前冲，从前她眼里聪明但不努力的学生，突然厚积薄发了。</p>
+<p>她们看到的是结果，没有看到原因。</p>
+<p>我带着忍辱负重的决心，打算扳回自己，无论以怎样的方式。我数着日子，和教室后面黑板上的倒计时一起。大家都在紧张高考一天天临近，没有人注意到我淡然背后的期待。</p>
+<p>我仿佛定在那里，别人都在动。</p>
+<p>挚友和那男生恋爱了，轰轰烈烈，我明白即使是块鸡肋，如果有人心仪或者被认为有人心仪，也是香的。他们大张旗鼓地走到了一起，在我面前带着耀武扬威的笑容。不过，这没有刺痛我，反而让我有一种置身事外的清醒。</p>
+<p>大家都以为“小三”落败了，带着幸灾乐祸的表情。至此，每一个幸灾乐祸的表情，都不会对我造成伤害了。是的，我突然变得从未有过的从容。</p>
+<p>高考过后，我以高位占了学校的红榜，挚友却不在榜单。而入校时，她是中考全校第二的苗子，我仅仅刚过这所重点高中的录取分数线。</p>
+<p>说这话不是炫耀自己的英明，而是作为陪衬为挚友扼腕。不过一介平庸男，却让我们反目。而且，以挚友的前景陪葬。</p>
+<p>毕业十年聚会上，我被人簇拥着问东问西。挚友迟来，坐在我的旁边，我低低地问了句：“还好吗？”自己的眼圈已经先红了。</p>
+<p>挚友手里挎着的，是另一个男人的胳膊。</p>
+<p>3、到底谁在保护谁——晓弓明月</p>
+<p>11月初，天很冷。我只身前往沈阳，参加一个老朋友的葬礼。最主要的目的，是想在这个特殊的时刻，好好陪陪她7岁大的儿子。</p>
+<p>没想到，那天我却没看见孩子——眼瞅着就要“三七”了，他们全家人竟然还没把母亲离世的消息告诉孩子，还把他一个人留在大连只有家庭教师的家里！</p>
+<p>晚上，我压着心里的火，找了个时间问他爸爸：为什么要瞒着孩子？</p>
+<p>他回答：怕孩子受不了，怕影响学习。</p>
+<p>他还告诉我，就在妻子离世的当天，他就和几个亲戚专门商量过要怎样跟孩子说明。只是商量来、商量去，大家越说就越觉得真相太残忍，孩子知道了一定会崩溃。所以，事情出了后第三天，他自己回了一趟大连的家，跟孩子说：</p>
+<p>妈妈的病好了，但是还要到外地去疗养，得过一段时间才能回家。</p>
+<p>那要多久啊？</p>
+<p>等你二十岁，妈妈就回来了。</p>
+<p>太长了！可我想妈妈啊！</p>
+<p>那就十五岁。</p>
+<p>好。</p>
+<p>这孩子后来就真的再也不问妈妈的事了。不仅如此，听家庭教师电话里说，他每天都高高兴兴地去上学，很乖、很听话，见人就说：我妈妈的病好了，等疗养好了就回家看我！</p>
+<p>没听完两句我的眼泪就下来了，忍不住问：你们真的相信孩子还不知道吗？</p>
+<p>没人回答。</p>
+<p>到底是害怕孩子会崩溃？还是大人们不能忍受自己已经崩溃？</p>
+<p>大部分时候，我们向孩子撒一些所谓“善良的谎言”，真正想要保护的人，其实是我们自己。</p>
+<p>当孩子爸爸和亲友在讨论要不要告诉孩子时，他们头脑里出现的所有孩子“要崩溃”的想象，都是他们自己内心最真实的第一反应向外的投射。他们想要崩溃，但现 实层面又不能允许自己崩溃，就把崩溃的愿望转移到孩子身上，然后用想象中的对孩子的“保护”，来保护自己接近崩溃的自尊。</p>
+<p>因为在那一刻，失去亲人的打击，让我们为丧失感到强烈的悲痛的同时，也为自己的无能为力而感到深深的恐慌。当我们自以为是地采取行动，以为自己在保护孩子的心灵时，更多、更深层是为了多少找回一些自己的控制感。</p>
+<p>但孩子呢？</p>
+<p>当大人们连伤痛的机会都不给他，都期待他“不能崩溃”，孩子就只好开始自我欺骗。</p>
+<p>问题是，孩子真有那么脆弱吗？今年地震后，多位去灾区做心理干预的同事回来后都感慨——相对于失去孩子的父母，失去父母的孩子要比我们想象的坚强得多。这也许是因为他们拥有更多未来，更愿意立足现实往前看。</p>
+<p>在这个朋友家里也是，孩子最终成为了最坚强的那一个，勇敢地承担了保护爸爸的责任。孩子的潜意识感觉到，此时的父亲需要做点什么来找回自尊，就接受了父亲的谎言，给父亲提供一个“你保护了我”的机会。</p>
+<p>但这样对孩子的伤害太大了。在哀伤辅导中，重要的一环，就是让生存者正视必须面对的真相。这样活着的人才能有机会与死者在心理上完成“告别后，转身”的全 过程，了结“被抛弃”、“被孤零零地扔在这个世界上”的感受。如果大人剥夺了孩子与离世亲人最后告别的机会，那么，孩子对于那个亲人的等待或期盼，可能会 纠缠他的一生，成为一件“未完成事件”，反而使他难以全心全意过好自己的生活。</p>
+<p>写到这里，我突然想起很久以前看过的一部古龙小说。</p>
+<p>小岛上住着一个姑娘和一个武士。姑娘是瞎子，武士对她特别好。姑娘常常问：你为什么对我这么好？每次武士都回答：因为你是天底下最漂亮的姑娘，照顾你是我一生最大的荣耀。</p>
+<p>一天，小岛上来了一群强盗。他们要来抢这天底下最漂亮的姑娘。武士寡不敌众，没挡住强盗冲入茅屋。没想到的是，所有的强盗见到姑娘都愣住了，然后哈哈大笑：“原来这就是你的美女？简直就是一个丑八怪，白给我们都不要！”</p>
+<p>强盗走后，武士不知道该怎样安慰姑娘。姑娘却十分平静地说：“没关系，我早就知道了。虽然你不说，岛上的邻人们怎样谈论我，我也会听得到。只是，既然你希望我以为自己是最漂亮的姑娘，那我就以为自己是最漂亮的姑娘！”</p>
+<p>好一个“我就以为”！这到底是谁在保护谁？</p>
+<p>也许，有一天，这个孩子也会对他的父亲说类似的话：既然你希望我以为妈妈没事，那我就以为妈妈没事！到时候，我们这些大人，都该好好谢谢他。</p>
+<p>来源：中国青年报</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嗨，我想到一个绝妙的主意！ </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>嗨，我想到一个绝妙的主意！ </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>Jeffrey S. Young写的乔布斯传记《iCon Steve Jobs: The Greatest Second Act in the History of Business》中提到乔布斯一个“臭名昭著”的性格特征：</p>
+<p>乔布斯身边人才济济，经常有人会向他提出不错的主意。当时的乔布斯要么置之不理，要么把对方（的主意）骂得狗血喷头。一段 时间过去之后，某一天乔布斯会兴冲冲地对大伙说，“嗨，我想到一个绝妙的主意！”大伙一听，乔布斯说的是之前有人告诉过他的、曾经被他忽略或者驳斥过的那 个主意。[1]</p>
+<p>事实上，不是乔布斯一个人有这个特征。我个人就见过很多人这样的人。</p>
+<p>遇到这样的领导，下属当然非常不满，觉得（事实上也真的可能是）自己的想法被不合理占用了（甚至说是剽窃都不过分）。而最终很多人妥协的原因在于类 似乔布斯这样的人可能会把那个“说得过去的”主意完善成“了不起的主意”，于是，最终觉得还是跟着他（毕竟这种天才不多）干更划算一点。</p>
+<p>而如若仔细观察，就会发现乔布斯这样的人并非有意去“强取豪夺”他人的主意。很可能是这样：</p>
+<p>在他置之不理、或者大声驳斥那个主意（任何主意在起始的时候都可能有这样那样的缺陷）的时候，他是真诚的。他当时确实看不上那样的主意。于是他就那么做了。然而，毕竟那个主意像颗种子一样留在了他的脑子里。这种人最基本的特征就是具备旺盛的好奇心，拥有一个无法停止转动的大脑。 一段时间过去，那个种子开始生根发芽，甚至最终枝叶繁茂。主意在发酵，他无时不刻完善自己的每一个想法，终究有一天，他觉得他有了个“绝妙的”主意——当 然，他已经不记得（可能从一开始就不记得）那是别人给他提供的种子，因为，无论是什么对他来说都可能是种子。于是，当他对别人说“嗨！我有个绝妙的主意” 的时候，与他当初对“种子”置之不理或者大声驳斥的时候一样真诚。</p>
+<p>如果一定要深究乔布斯那么聪明的人为什么会有这么令人讨厌的性格特征的话，倒是有一个相当合理的解释。</p>
+<p>这种人的大脑运行机制里有个漏洞。他们在判断一个主意好坏之前，先去判断那个人牛还是不牛——而并不是直接去判断那个主意好不好。事实上，几乎99%的人都是如此，要么我们怎么总是看到人微言轻的现象呢？事实上，先去判断说话的人牛不牛，某种意义上是一种省时省力并且常常正确的捷径——要命就要命在这个捷径“常常”正确，却又“并不总是”正确。而这是个思维习惯，一旦养成，很可能一生难变，且又难辨。对乔布斯这种人来说，几乎所有的生活经验告诉他，“他是最牛的”，而他也确实就是牛人一个；于是，他会自然而然地低估别人的主意。事实上，很多团队领导者都会一不小心就被这个不良习惯所绑架，且不自知。</p>
+<p>群众永远是大多数，领导永远是极少数。群众和领导相互依赖，却又常常会因为类似的问题剧烈冲突。领导也是人，有这样那样的缺陷，绝大多数成功的领导 之所以成功不是因为没有缺陷，而是因为确实在某一方面（甚至很多方面）牛到了极致，才乃至于那么多的缺陷也都奈他不何——乔布斯就是这样的罢。</p>
+<p>那群众应该怎么办呢？群众应该明白的是“仅仅有个主意”并不稀奇，“主意”是廉价的，谁都有主意。难得的是反复推敲、完整完善、无懈可击的主意。锤炼这样的东西，需要时间、需要耐心、需要能力、需要各方面的条件甚至包括运气……总之不能只拿着一个“起始阶段”的主意就当作宝贝。当然，如果一个人有能力把一个主意贯彻到底，甚至“化腐朽为神奇”，他自然而然就可能成为众人依仗的领导了……</p>
+<p>Footnotes:</p>
+<p>苹果公司对这本传记非常不满，有传言说苹果零售商店的货架上曾因此把出版这本传记的出版商Wiley公司的所有图书都撤了下来……</p>
+<p>来自:李笑来——从乔布斯的臭毛病说开去</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

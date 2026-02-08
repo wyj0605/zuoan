@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记住了，学会了，就行了吗 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>记住了，学会了，就行了吗 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/zhangqian.psy</p>
+<p>中国的基础教育使学生成为一台学习机器，一切都有固定的、现成的答案，你所需要做的一切就是将它记住、学会。对，学会，这是我们最常听到的一个词。</p>
+<p>中国的基础教育不要求学生唤醒身体、唤醒心灵，学生们不需要用自己的身体和心灵去寻找自己的答案，甚至也不需要用自己的身体和心灵去证悟这个已知的答案 —— 用不着，都用不着，这太费事，太费时，你有这么多东西要学呢，每一样都去寻找，去体悟，还学得过来么。短平快，记住了，学会了，能依样画葫芦了，就行了。</p>
+<p>我自认是一个顺从环境的人。于是，在这十二年的教育中，慢慢地，我切断了大脑与身体之间的链接，我压抑身体的活力与身体的感觉，我努力把自己的大脑变成一台合格的学习机器，而不是一个感受者、体验者和思考者。</p>
+<p>必然地，我失去了自己，也失去了自己应有的高度。</p>
+<p>现在想来，这是我能够在学习中胜过许多人的原因，但同时也是我永远都胜不过那一撮最优秀的人的原因；这是我能够比许多人都快乐的原因，但同时也是我永远都无法像那一撮最优秀的人那样真诚、自由、充满生命力的原因。</p>
+<p>高考结束，进入大学，这是大部分中国学生生命的转折点。没有人告诉你该怎么转，甚至没有人来预告一下这个转折点的重要性。其实，人与人之间的距离，是从这时候开始拉开的。</p>
+<p>而所有的人都告诉我们，拉开距离的是高考，我想，更加重要的是高考之后，确切地说，是高考之后你决定如何对待自己的人生，如何对待这个世界，如何对待自己。</p>
+<p>至于我，我有一个好消息，和一个坏消息。</p>
+<p>好消息是，我模糊地知道，之前的我并不是真正地活着，并且我决定从此开启真诚而自由的生活，让我的大脑和我的身体重新链接到一起，打开我身上所有的感觉通道，体验生命的全部，让我这个生命和这个世界链接到一起。</p>
+<p>坏消息是，我对学习的认知并没有改变。我以过去十二年形成的顽固眼光看待学习这件事，以为凡学习就必须压抑身体、压抑感觉、压抑体验。必须切断大脑和身体的链接，必须切断自己和世界的链接。必须关闭视觉，不能去看这个五彩斑斓的世界；关闭听觉，不能去听这个生机勃勃的世界；关闭嗅觉，不能闻到空气里生命的气息；关闭味觉，不能品尝舌尖上食物的美味；关闭触觉，不能触摸这个真实的世界；关闭情绪，不能去感受令人身心荡漾的、激烈的体验。</p>
+<p>以上这些，我以为，就意味着专注和投入。</p>
+<p>可以想象，它们令我走入歧途。这些年来，我从未做到过专注和投入，因为我害怕这个状态，我排斥这个状态，我抗拒这个状态，我认为它和死亡没有什么区别。而我，想要活着。</p>
+<p>而且，即便我强迫自己做到了，也往往毫无收获：这是必然的，一个关闭了自己全部感觉通道的人，一个关闭了自己全部体验和情绪的人，一个切断了大脑和身体链接的人，一个切断了自己和世界之间连接的人，怎么可能有力量，怎么可能有灵感，怎么可能有发现？</p>
+<p>脱离了身体的大脑，是一台毫无内容、毫无意义的机器；脱离了大脑的身体，是一具空壳。</p>
+<p>无源之水，无根之木。这就是为什么，我总是感到焦虑，总是感到恐惧，总是感到如此无力。总是疲于奔忙，却一无所获。</p>
+<p>保持感觉通道的畅通，保持大脑和身体链接的畅通，保持自己和世界之间链接的畅通，是力量的来源，是生命力的来源，是创造力和发现力的来源。</p>
+<p>再回过头来，工作和学习中所需要的专注和投入绝不意味着需要关闭自己的通道，恰恰相反，它意味着要最大限度地打开并清空自己全部的通道，然后，将它们聚焦在一点上。这时候，我的大脑和身体彼此融合，我聚焦全部的自己去和这个世界的一部分真正地相遇并相互了解，或许还擦出了火花。</p>
+<p>这时候，我不是死去的，而是活着的，而且，活得很鲜明，很锐利。</p>
+<p>左岸记：</p>
+<p>我不喜欢和一切角色意识太强烈的人打交道，例如名人意识强烈的名流，权威意识强烈的学者，长官意识强烈的上司等等，那会使我感到太累。我不相信他们自己不累，因为这类人往往也摆脱不掉别的角色感，在儿女面前会端起父亲的架子，在自己的上司面前要表现下属的谦恭，就像永不卸妆的演员一样。人扮演一定的社会角色也许是迫不得已的事，依我的性情，能卸妆时且卸妆，要尽可能自然地生活。</p>
+<p>苏格拉底的雕塑手艺能考几级，康德是不是教授，歌德在魏玛公国做多大的官……如今有谁会关心这些！关心这些的人是多么可笑！对于历史上的伟人，你是不会在乎他们的职务和职称的。那么，对于你自己，你就非在乎不可吗？你不是伟人，但你因此就宁愿有一颗渺小的心吗？</p>
+<p>歌德说得好：“虔诚不是目的，而是手段，是通过灵魂的最纯洁的宁静达到最高修养的手段。”从本义来说，虔诚是对待信仰的一种认真的态度，而不是信仰本身。一个人倘若并没有真正的信仰，却要做出虔诚的姿态，我们就有理由怀疑他别有所图。因此，我认为歌德接下来说的话是一针见血的：“凡是把虔诚当作目的和目标来标榜的人，大多是伪善的。”</p>
+<p>——周国平</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活成一棵树</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>活成一棵树</h1>
+            <div class="date">2015-05-17 22:58:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/吱唔二十年前，如果上课时开小差，我总是会透过教室的窗户望着校园花坛里的两棵松树发呆。在方圆局促的花坛里，两矗青色那么苍劲挺拔，巍然不动地擎起我年少的记忆。不久前，我略带惶惶地重回校园，大致的楼堂，陌生的旁人，直到我发现那两棵松树还在。突然地，就像一艘随波逐流的船找到了它的锚。十多年前，当我迎来自己在华北平原上的第一个春天，白杨絮漫天飞舞，纷纷扬扬地从它们那二三十米的树冠上飘落下来。与这如雪交织的柔软杨絮相比，白杨树干却是纤瘦刚直斑驳朴素。它们不随风、不逐雨，不畏烈日、不惧冬雪。偶尔走过大学校园里的这一排排白杨，我总是疑问，那浅浅寸土的一据，怎么能长出这二三十米的伟岸呢？五六年前，我接到本地一个偏远山村的村民电话，说是村口的一棵老樟树病了，恳求电视台记者帮忙找找林业专家为老樟树看病。几天后，我的一位同事开着自己的私家车，载着我和两位林业局的林木专家颠簸了近两个小时的山路终于来到了一个青山环绕的村庄。村里的乡亲听说记者带着林业专家来了，几乎倾家而出。一村的族亲邻里就这样熙熙攘攘地站在一棵老树的荫下，为它的疾患操心。我那时想，从这棵树种在这村口的近千年里，有多少熙熙攘攘的人群在它身旁走过，在它的身旁出生、成长、衰老，重归土地，又把他们与这棵老树的联结传递了下来。一棵棵树木，郁郁葱葱地装点着这个星球。它们难以挪动，没有选择。也许是某个清晨的一粒树种的落点，就注定了它此后几十年甚至上百年的落脚。看似孤独，这份注定不变近乎宿命的落点，在这个有无限可能的新时代里是多么的不合时宜。市井的阔论中，甚至是书店的推介里，有无数成功者的“箴言”和过来者的“技巧”要告诉你，这是一个“树挪死、人挪活”的黄金时代。一个人怎么也不能活成一棵树，那是一棵活生生的木头！看着朋友圈里常常流传转发着一个个郁郁葱葱的故事，那枝繁叶茂的茁壮令人向往。许多人渴求一窥那郁郁葱葱的秘密，期盼着化朽为奇的神秘药水。其实，哪有秘密。人其实也是一棵树，和这颗星球上每一棵生机勃勃的挺拔身影一样。我们都有自己的局限，就像一棵树总要囿于一方土地。这是每个人不同的命格，但却绝非宿命。就像树的本貌——它自己改变不了那块立足之地，但它所能做的仍然不可限量。在漆黑的地底，它伸出了探索黑暗的根须，并在黑暗里汲取养分，在砂粒里强健根基。在树干之上，它享受阳光，也甘淋雨露，还不惧风霜。渐由躯干分出枝芽，获得了与天空更亲近的自由。它虽甘于一寸方圆，却经由风霜雨露数度轮回，不断茁壮。它在土壤和沙粒中扎根愈深、磨砺愈久，在天空下的枝叶便愈茂盛。慢慢地，繁茂的枝叶便能吸引云雀栖身，吸引行人休憩，与自然归于大同。也许，在这个张扬的而瞬息万变的时代，做一颗树还是显得太呆板与无趣。可是，别把那命格源点的驻守看作是呆板和无趣。让我们抬头仔细体味，其实那一棵棵树才是最浪漫不羁的代表。那在天空下伸展的枝叶最是错落成趣、不拘一格。我想活成一棵树，像它那样，将根茎牢牢地扎于一点，稳固而自律；但它的枝叶却要浪漫开散不拘一格。其实，和那树木枝叶的繁茂与不拘一样，这世上所有真正的浪漫，恰恰都得益于坚若磐石，甚至有些冥顽的根基。左岸记：吱唔写了篇非常棒的散文，满满的都是正能量。当我们站在一颗大树下面，望着它枝繁叶茂的样子，它的沉稳，它的坚实，它的守护，你能感受到它所经历的流年，年复一年的风霜雨雪，却依然的如此骄傲地存在着，当你来到一棵历经百年的大树面前，抱抱它吧！原文链接：http://www.zreading.cn/archives/4903.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

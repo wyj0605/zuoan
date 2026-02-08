@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>想做一只快乐的井底之蛙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>想做一只快乐的井底之蛙</h1>
+            <div class="date">2015-10-14 00:43:32</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>——选自《想对这个糟糕的世界说点什么》亲爱的世界：你好。小时候读到《坐井观天》这篇课文时，别的同学都在嘲笑这只可怜的青蛙，唯有我产生了一个不敢告诉老师的想法：“即使这只青蛙知道天有多大，它也跳不出这口井呀！”如此想来，这只青蛙如果知道真相，不是更可怜？长大后，把这件事给忘在脑后，但类似的观念有时却更加强烈。比如写不下去时就经常这么想，要是干脆一个字都不会写就好了。但我偏偏知道写作这片海有多广阔，偏偏知道无数的人在里面自由自在地遨游。就连名家如苏轼，也写出“人生识字忧患始，姓名粗记可以休”这样的诗句，以感叹思想带给自身的伤害。知道天有多博大其实并不是坏事，我们无非不想面对自己只是微尘的事实。作为一个农村出来的孩子，我明白自己是一只井底之蛙。17岁之前，我还不知道电脑为何物。20岁之前，我还不知道电梯如何开关。25岁的时候，第一次坐飞机。那时我运气很差没有搞到窗边的票，厚着脸皮与人交换位置，结果遭了一个妇女的白眼。我一直羞于承认这些事情。面对那些所谓见过世面的人，我无法不自卑。比如一位比我小好几岁的朋友，她经常在国外旅行，据说有许多优秀的朋友分布各个大城市。用她的话说，她朋友的优秀度几乎可以打100分。100分是什么个状态？我无法想像。于是在她面前正襟危坐，汗不敢出，生怕说错话以暴露自己的浅薄与无知。也许那时候我已经知道自己是只井底之蛙，只是不甘承认，只好伪装着应和着，以免露出马脚。一旦知道世界的辽阔，心就不可能保持平静，心就会因为无法见识世界的美丽而感到痛苦，让人蒙生出一种“世界很大，我想去看看”的念头来。我的岁月几乎是逆行的，30岁之前已经开始捣鼓着建网站开论坛，30岁之后还在ICQ上用半懂不懂的英文和外国人聊天。就像一个渴极了的人，想透过铁窗呼吸一下外面的新鲜空气。更重要的是，我想通过这种方式证明自己至少是属于整个世界的。但我就是那只跳不出井口的青蛙。当年扛着行李回小县城工作时我就明白了这一点。那时我还是县城职业高中的一名老师，学生晚自修的时候，我并不像别的老师一样安坐讲台，而是不断来回在教室走动，丈量着教室有多大有多宽。这间教室对我来说就是一口井。我不知道什么时候才能跳出去。不是不喜欢教师这门职业，而是内心因为整个世界而不断骚动。期间不断听说有同学辞职远走，在大城市混得很不错，内心就产生了一股想要远走他乡的冲动。只是一回到家，看见父母辛苦的劳作，感受一下家中压下来的沉甸甸的担子，就将那种骚动的感觉强压下来。这一压就是十几年。并不是所有人都有底气说我的生活我自己作主。亲爱的世界，我絮絮叨叨这么多，就是想告诉你，做一只知道真相的井底之蛙真不是一件有趣的事儿。不过，这并不值得埋怨。时至今日我才明白，也许大部分人都是一只井底之蛙，不管他（她）自不自知。作为极其狗血的例子，就像古希腊哲学家芝诺画的那个圈，圈外是无限的知识，而圈内是我们所知道的事物。我们的区别无非是圈子的大小而已。只是面对自己未曾经历的事情，我们是否有勇气挺直腰杆说出“我不知道”“我没玩过”“我没去过”之类的话，这才是关键。我一直在反省，为什么我羞于承认自己的浅薄和无知，为什么怕别人看穿我生存空间的狭小及所接触事物的单一。大概在我的内心中，我一直期望自己成为一个更为博大的人，我想成为的那个自己和现实中的这一位差距实在有些大。这让我羞愧。我严重忽略了一个事实：就连像井一样小小的世界，我都没法与之好好相处。我曾采访过一位老人，他名校毕业后下放到这个小县城，这一生就没离开过。他和我说，不管在世界的哪个角落，我们都能干出其他人干不出的只有我们才能做的唯一的事儿来。作为这句话的有力说明，他这些年一直在搞木制玩具设计，他设计过一座可以供行人、铁路和公路同时运行的大桥，还利用七巧板原理只用一种形状相同的木片就能拼出各种图案来。他还利用木制玩具制作了日轨运行的模具，在他讲述制作模具所用到的数学原理时，我在一旁张大嘴巴不断地点头，其实一句话都没听懂。这位老人的话给了我些许安慰。于是那一年我在阁楼埋头苦写，好歹写出了一部长篇小说，结果至今放在抽屉就连自己也懒得去翻了。写作似乎是我唯一能做的事儿了。但别人轻而易举能摘到的果实，我在地上拼命蹦哒却连果实的屁股尖儿都摸不到。这给了我相当大的刺激。我想通过写作来证明自己的如意算盘显然落空了。有人说，上帝给你关上一扇门的时候必定会给你打开一扇窗。但在井里没有门也没有窗，只有一个洞，远远的，高高的，亮亮的，任你怎么扑腾都够不着。在这口井里自怨自艾或是醉生梦死只能换取一点自虐的快感，一切都不会有任何变化。但奇怪的是，怨天尤人似乎是我们的本能，从心理学上说，我们会本能地转移这种情绪，将所有的不满发泄到这个世界的头上。一天不承认现实，这种情绪就一天得不到改观。这个世界有多少人不得不放弃自己的理想？我总觉得有必要为这些人辩护，我知道并非所有的人都是因为缺乏勇气，我不希望他们用鄙夷的眼神看待自己。我关注的是，即使放弃了理想，我们也应该而且必须好好活下去。作为一个平凡人，作为大多数人，快乐地活下去。我们从来不知道实现理想的真正途径。说不定等我们真的放弃它时，它会不期而至。只要努力活着，理想就会作为一种可能性而永远存在。我所说的放弃，实质不过是放开而已。就像你再也满足不了情人的诸多要求想要一个人好好生活的时候，才能够明确地知道自己在对方心中的分量。理想和爱情一样也许都不仅仅是靠追求就能实现的。亲爱的世界，冲着这一点，我才逐步看清了你的真面貌。真相不仅是外面的世界很大，属于我的世界很小。真相更不是外面的世界很精彩，里面的世界很无奈。它仅仅提供了一个有形或无形的空间，不管你身处井里、河里还是海里，都有相同的命题，即如何与它们好好相处。有趣的是，近几年来我经常看到一些旅游大巴在小县城转悠，车上坐着的那些人基本来自大城市。更有甚者，还有个别来自大城市的女孩子来这里转一圈后就不想走了，结果成就了一段佳话。这口我日夜想跳出去的井竟然有人主动跳了进来，这着实让我纳闷了一阵。我想跳出去和她想跳进来的理由几乎一样，就如同钱钟书笔下的围城那样，我们身处的世界并不是用大小来区别，我们给自己设定了一口井，然后又埋怨自己跳不出去。所以我想，这个世界，也就是你，会不会由一口又一口的井组成？不管我跳到哪儿，这口井从来就没离开过吧。这就是我所理解的你的真面貌。如果有人辩驳，我也绝不抗议，就像我不会去嘲笑那只可怜的青蛙一样。既然我是如此理解你的，我唯一能做的事就是如何在井里像模像样地活下去。虽然无知，但我可以真诚地表露。虽然浅薄，但我可以大方地承认。我在我所能理解的世界中认真地活下去，不管这个世界有多小，我们都能想方设法让自己快乐地和它相处。快乐不是一种选项，而是选择后的豁然。快乐基于真实和真诚，真实和真诚源于对这个世界的认可。亲爱的世界，我所看见的你不过是你在我心中映射的投影。我永远不敢说自己对你了解有多透彻。面对你就是面对我自己。和你相处就是和自己相处。既然如此，我有何理由不让自己真诚？我们总是误以为伪装是为了保护自己，但又有几个人通过伪装通过应和他人通过戴上面具得到了安全和快乐？在属于我的小小天地里，我能向谁去证明自己的存在？存在本身就是一件无需置疑的事实啊！亲爱的世界，我们不是为了探求未知而仅仅是为了逃避活在一口井中的现实在努力挣扎，在你看来，这样徒劳无功的挣扎是否毫无意义？我很想将《坐井观天》的故事来个续写：青蛙坐在井里。小鸟飞来，落在井沿上。青蛙问小鸟：“你从哪儿来呀？”小鸟回答说：“我从天上来，飞了一百多里，口渴了，下来找点水喝。”青蛙说：“朋友，别说大话了！天不过井口那么大，还用飞那么远吗？”小鸟说：“你弄错了。天无边无际，大得很哪！”青蛙笑了，说：“朋友，我天天坐在井里，一抬头就看见天。我不会弄错的。”小鸟也笑了，说：“朋友，你是弄错了。不信，你跳出井口来看一看吧。”青蛙想了一阵说：“可是这井太深，我根本跳不出来啊，朋友。所以对我来说，天就是这么大。”小鸟说：“是吗？那你太可怜了。要是像我一样有双翅膀就好了。”青蛙说：“不对，朋友。我不可怜，我不可能跳出井口，也不可能有一双翅膀，能看见井口一样大的天空，已经很幸福了。”真的，即使你飞遍全世界，能看见的也只有眼前的风景。2015年7月25日至26日于云和作者简介：王建平，豆瓣作者，著有《请珍爱这样的自己》、《般若》、《众生之死》等作品。个人微博：http://weibo.com/wasu/原文链接：http://www.zreading.cn/archives/5101.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

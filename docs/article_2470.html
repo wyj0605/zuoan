@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当真爱遇上无赖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>当真爱遇上无赖</h1>
+            <div class="date">2015-06-17 23:22:51</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/尘尘最近重读《德伯家的苔丝》。苔丝是个好姑娘。又善良，又美丽，又温柔，又坚强。在美好的年华遇到美好的恋人，这是件美好的事情。当他们彼此计划托付终生的时候，恋人克莱尔在无比的自我纠结和苦恼中向苔丝吐露了自己曾经在巴黎拥有过一段肆意挥霍的风流任性并请求原谅和包容，苔丝当然这么做了，不仅如此，苔丝还满怀信任地向他倾诉了自己被侵犯的悲惨经历，她多么希望克莱尔可以像自己一样用同情用温柔来安抚自己伤痛的心灵，可是，没有。克莱尔容许自己荒淫无度的过去，却无法谅解苔丝纯洁却惨遭蹂躏的曾经。即便他的荒淫是主动行为，苔丝是被动的受害者，他还是怒赴巴西了。等到他想明白回来，苔丝离破灭也不远了。这是一个悲伤的故事。自古易得金万两，难得有情郎。苔丝懂得珍惜，所以她用坦诚来回馈克莱尔的信任，而克莱尔却不值得她付出一片赤诚。后来回来，那又怎样，苔丝早就被生活逼迫勒索，她也竟然还有着对克莱尔不变的真心和爱，而这恰好成为了她最终破灭的原因。苔丝见到昔日的恋人，看到眼前令他生活如此不堪的仇人，愤而举起了屠刀，所以被法律裁判。如果克莱尔不回来，苔丝的生活会一如既往悲惨，所以他的回来点亮了苔丝的生活，苔丝在幸福中悲哀地死去。而他凭什么就能那么狠心、抛弃苔丝许多年呢？他把自己的经历和苔丝的分而论之，期待苔丝原谅他的过去，却毫不接受苔丝的过去，这是什么混账逻辑，不讲道理的人是无赖。克莱尔就是个无赖。最痛心的地方就在苔丝的真爱遇上了这么一个无赖。如果苔丝和克莱尔吵一架，跟他理论为什么你可以荒淫我却连被人侵犯都被你鄙夷；如果苔丝在克莱尔离开之后有机会独立工作并开始新的生活；如果苔丝对克莱尔没有那些根本就不公平的歉意和爱意；也许结果都会不一样。苔丝的时代给了她悲剧。而在差不多同时，简爱向罗切斯特先生大声喊出了我在用我的心灵与你的心灵讲话，伊丽莎白即便贫穷也拥有骄傲的偏见。时代这个宏伟的名词，柔弱女子如何来把控？唯有自己追寻出路罢了。幸福只能在自己的手中。爱本就是对等。如果苔丝不懂得爱是对等，她宁愿让自己卑微到尘埃里，那么她的悲剧真的无药可救。我相信她的爱天真无邪，可是失去了对等，她的真爱遇上了无赖，那也不过是一厢情愿罢了。既是一厢情愿，成为悲剧在所难免。今天，我们的时代与苔丝的不一样。我们可以自由地思考、工作、迁徙，所以当我们再读苔丝，在感慨苔丝悲剧的同时，更可以此为鉴将幸福的能力把控在自己手中，与伴侣平等相待，与朋友互信互助，对同僚不卑不亢，如此一来，也算是用我们的幸福来祭奠苔丝的悲剧人生了。左岸记：时代是真的进步了很多很多，从这本书我们可以看出当时男女在观念是多么的不平等，尤其是对女性的伤害，几乎苛刻的挑剔。而现在，我们有了更多的选择的机会。在现实生活中，与那个人相处是因为那个人值得你相处，与他在一起，你变成更好的你。如果在一起变成痛苦，你受到可怕的伤痛，那选择离开，锻炼自己的生活本领，提升自己的生存能力，美好、自在、宽厚地活着比什么都重要。我们的爱要为值得的人付出，因为我们的爱都非常的珍贵。而对自己的认可，拥有独立的思考力是多么的重要。原文链接：http://www.zreading.cn/archives/4944.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

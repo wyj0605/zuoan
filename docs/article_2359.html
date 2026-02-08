@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你对生活满意吗？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你对生活满意吗？</h1>
+            <div class="date">2015-10-11 01:16:58</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>估计很多人都会回答：不满意。恭喜你有前进的动力，悲哀你一生像追日的夸父，累死路途中。满足！你这一辈子也就这样了。人活在这两者的过渡区，位置自己来调节。自己是谁？自然，老子所说的“道”。我之前对生活也不满意，于是不断地寻求改变，后来我认识到：缺的那个才叫幸福。吃穿不缺的人对吃穿无乐趣，自然在吃穿上也体会不到幸福。前不久我辞职了，在辞职以前，觉得自己当老板好，很多事可以自己决定，财富也可以持续积累。早上想睡到几点起来就几点。辞职后我体会到给自己干更累，也不像此前想像的那么自由。要说辞职后悔了，也错。不辞职永远不会懂得这个道理，会永远停留在羡慕别人单干的阶段。经历是财富，让我内心牢固丰满。经历生是生命大锅里的粥，酸甜苦辣都是佐料，少了苦味如同缺盐。这么说读者以为我是受虐狂。其实我也知道白面馍好吃，但在只有黑面馍吃的时候，我会用心体会黑面馍的优点，而且知道不吃黑馍体会不到白膜的香，理智让我常吃黑馍。我强调的是要用理智驾驭情感，把烦恼扼死在受精卵阶段。这段时间发生了一件事情：由于辞职在家时间比较自由，也不用担心第二天上班精力不集中，我一连坐在客厅沙发上看了七个小时电视剧，第二天洗脸时扭了腰。我去看医生，医生说生活不规律，加之我之前是伏案工作的，典型的腰椎间盘突出。我当时痛的连在床上翻身都困难，但我把扭腰当好事看，庆幸这次扭腰，使我感受到健康有多重要。我之前从未有过扭腰的体会，虽然大街上常看到病人，但病的不是自己，体会不到伤了腰的人行动到底有多困难。我坚信自己很快就会康复，康复后我体会到一个健康人本身就拥有很多财富，而此前我不知道自己有这么多财富。现在清晨醒来，我在思考什么是幸福？知足就是幸福，珍惜现在的一切，用心感受自然，感受生活就是幸福。幸福就是接受现在，接受缺陷，又对生活抱有美好的希望。扭腰的事给我的体会是如果你未曾失去，就永远体会不到什么是幸福，失而复得才是幸福。有人说我本来就没有，哪敢说失而复得。要知道缺陷是痛苦，本来没有就是说你连缺陷的意识都没有，有何谈痛苦与不幸。一个从未生病的人是不会体会到健康的幸福的。所有的不行幸都是比较来的，没有参考物自然没有痛苦。即使是含着金汤勺出生的富家子弟，物质没有受过穷，精神上没遭受过下人的冷眼。他在物质上从小比穷人家孩子富裕，但感受不到，精神也未必有普通家庭的孩子富裕。这么说有点仇富，我更喜欢揭示被人忽视的道理。物质体现精神的丰富，但也有假象。我有一邻居，家里是开工厂的，以前住厦门，夏天来这里走亲戚，就喜欢上这里。立马在这里买了一套房，全家搬过来住。我有幸和这对夫妻聊天，他们都接受过良好的教育，待人大方热情，见识很深是我不能及。他们的生活正是我向往的，说实话多少有些羡慕。但理智告诉我他们有自己的烦恼，我不该羡慕任何人，要羡慕就羡慕自己。我没有完全褪去世俗的愚昧。一个人不能把所有事全部搞定，是人都有烦恼，有烦恼是幸福的。一个没有烦恼的人才真的不幸。我每天都会遇到烦恼，生活在烦恼包围之中，我思索人活着的意义。人世间只有两样是真实的：因果和无。因果不用说，老子说天下万物生于有，有生于无。我深信不疑。烦恼天天有，不想自然无。换言之世间一切都是无中生有变出来的，烦恼也是变出来的。人们有追求幸福的本能，幸福用什么来制造——烦恼、苦难。天下皆知之为美厮不美矣，故难易相成，高下相依……恒也。追求幸福即是本能，烦恼也是人的本能。山里的放羊娃本来生活的很平静，记者给他带来了大都市繁华的信息，让他在内心燃起希望，从而产生想离开山区去都市闯荡的想法，但因为自己没有技术却难以过上自己想要的生活，进而产生烦恼。烦恼是幸福的魔咒，求幸福的人都会被他诅咒。但人类不会因此放弃对幸福追求，就像飞蛾对火的执迷。幸福求之愈坚，烦恼越深。用失望来烘托希望，用苦难的体会来成就幸福。人的幸福和他占有多少资源没有关系，但和他过去的努力有绝对关系，取决于从无到有的量化幅度。已有的资源不能带给人幸福感，就像你不觉得有水幸福，但缺水的时候，你一定因为有水幸福。人类的生物本能产生感官和欲望，感官刺激欲望，产生需求，进而产生人类社会，自然界其它生物也是如此，万物并作气象森然。这就是生命的本质——欲望取悦生命，没欲望的生命是一滩死灰，而生命是自然。人是被欲望驱赶的奴隶，还是欲望的主人？至虚极守静督，万物并作吾以观复。生命本质是道，但人不认识自己！道有规律吗？我宁肯认为它没有规律。我赞叹它的神奇，造化世界非人能理解，上望星空下视海洋，不免又想起那个古老的问题：我是谁？再回到本文开头的问题：你对生活满意吗？千百年来的先人用自己的生活回答了。我又一遍的问自己：我是谁，在干什么，应该干什么。这是一个最好的时代，也是一个最坏的时代；这是一个智慧的年代，也是一个愚蠢的年代。原文链接：http://www.zreading.cn/archives/5098.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>木铎琅琅  执我一心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>木铎琅琅  执我一心</h1>
+            <div class="date">2015-06-28 23:36:21</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/荠麦青青很多人都知道大名鼎鼎的陈丹青，而对令其推崇备至的恩师——木心先生则鲜为人知。如果不是先生的一首《从前慢》火遍了朋友圈，如果不是在这之前早就有陈丹青等诸多热爱木心的学生及读者的大力推荐，也许木心的名字会一直萧索下去。木心，1927年生于乌镇，画家、诗人，文学家。在海外华人圈享有盛名，被喜欢他的人尊为中国传统文化的一面旗帜。1971年文革期间，木心猝遭无妄之灾。所有作品皆被毁，被拘18个月，三根手指被打折。狱中，用写“坦白书”的纸笔写出了洋洋洒洒65万言的《ThePrisonNotes》，并手绘钢琴的黑白琴键，在暗无天日的囚牢里无声地“弹奏”莫扎特与巴赫。1977年——1979年间，复遭软禁，这也是木心二十年间第三次被限制人身自由。1982年，先生客居纽约，盘桓欧洲，全力从事艺术创作。出身名门，中年罹难，是更大的考验。但有的人把苦难反复咀嚼，似乎将其当作骄之世人的财富，其实它对于人生的意义，无非三种，或凤凰涅槃，或被之毁灭，或无谓影响，一直波澜不惊地活下去，仿佛曾经的一切都已随时光湮灭，终至无痕。木心，无疑属于第三种。1984年木心答台湾《联合文学》编者问说：“一切崩溃殆尽的时候，我对自己说：‘在绝望中求永生’。”晚年的木心眼神依然明亮澄澈，你从中看不到任何沧桑和苦难的烙印，为什么要那些丑恶阴魂不散，如影随形？原本这劫波渡尽，依然剔透干净的双眸，便是睥睨一切屈辱的骄傲。文革时被关在积满脏水的防空洞里，看守他的人想，该是爬着出来了吧。可他坐着，裤子还有笔直的裤缝。先生曾在一首诗中写到，“不知原谅什么，诚觉世事皆可原谅。”木心共出版过十六本散文、诗歌及小说。他的文字深得白描的精髓，洗练之至。不枝不蔓，剔除一切繁复的缀饰，像一位素衣简妆的女子，洗尽铅华，但那皎洁的容颜仍如明月的清辉般漫溢开来。有人形容章子怡在《一代宗师》里扮演的宫二先生堪称“硬净”。什么是“硬净“呢？身为习武之人，宫二一定是有种硬朗的气质的，但过刚则流于刻板和僵硬，而以女子的“素净”充之，则是剑上那一抹被浣洗过的光芒，却不是孔雀开屏那般恣肆张扬，兼具青铜的凛然与珠玉的温润。娱评人韩松落说，干净是自求圆满。他风格的硬与净，没有斧凿的痕迹，任何技巧都可以磨砺出来，但那种浑然天成的骨骼与气韵却是与生俱来的。所谓葳蕤自生光，绝非匠心所为，亦不必靠那些虚与委蛇的吹捧，更无需自贬身价，迎合某些平庸或刁钻的口味。他在自己的世界里占山为王。暮年之时的木心有时仍像顽童，他曾戏谑地说，“一次青春怎够用，必得期之于二度三度的青春！”于文如此，于我们匆遽的人生更需如此吧?更令人莞尔的是，他笑嘻嘻地要学生替他作证：“木心不是妖怪，是个普通的健康的老头子！”朴拙得可爱，从心而不逾矩，又带着肆无忌惮的率真。人不要到了一定的年纪就把自己活成老朽，仿佛从骨头缝里都透出一股阴风和腐败的气息。站在人生边上，千帆过尽，返璞归真，回到最初的赤诚，投降于时光还是服膺于内心？全在自己的选择，谁说不可以让岁月逆流成河？而有时他的角色又发生乾坤大挪移，化身成为一个字字珠玑的智者。但他厌恶好为人师，在纽约给那些留美的学生讲世界文学史时，完全是应那些求知若渴的年轻人之邀，你的来与去都是自由的，若你喜欢聆听，便驻足流连；若你不屑受教，自可归去。然而绝大多数人坚持下来，不是靠毅力或者捧场，他们真的愿意在这一泓清泉边，沐风而歌，濯足而舞。他讲课过程中睿思频现，又时而禅机云涌：他认为今日所有伪君子身上，仍然活着孔丘；他视嵇康为兄弟，推崇屈原是中国文学的塔尖，把陶渊明喻为“塔外人”；他将杜甫晚年诗作与贝多芬交响乐作比较；他犀利点评中国古典文学，“儿女情长，长到结婚为止；英雄气短，短到大团圆，不再牺牲了”；他妙论巴尔扎克是彩色的陀思妥耶夫斯基，陀思妥耶夫斯基是黑白的巴尔扎克；他说鲁迅的幽默其实黑多红少，是紫色幽默；他形容莱蒙托夫的厌世，“人生舞会中退出的孤独者，在冷风中等待死神的马车”……一部蔚为大观的世界文学史生生被演绎成了他个人的性灵说，不见得多么高大上，亦不必作为权威教材，但这么有趣，有灵性地去读史读文学，难得一见！他会让你忽然发现，原来这个世界竟有如此别致做学问的人——不扮皓首穷经状，亦全无庙堂之高气，你自有你的通衢大道，我亦喜我的曲径通幽。对于传统文化，他一直以一种“卫道士”的身份固守着，尽管绝非刻意，而是那种血液里的东西不肯轻易丢弃而已，这是他的徽章，如同宝剑之于勇士。他永远属于那种老派绅士，却并无任何迂腐的拘泥。他活得超然而又鲜活，他的文字就是他性情的投影。对于他的作品和成就，一直褒贬不一，毁誉参半。最高评价是，“我们时代唯一一位完整衔接古典汉语传统与五四传统的文学作者”，相反的看法类似“浅白无味不足观。”无论是受顶礼膜拜，还是被积毁销骨，他都是那个永远无法被复制的独一无二的木心——那些失传已久的文字与美在他的笔下古意盎然，似细雨敲檐，如茶香氤氲，不消数代，或成绝响。“顷刻一声锣鼓歇，不知何处是家乡。”萍影无踪，让人无着，故，落叶归根是许多艺术家最终的皈依。2006年木心受邀回到故乡定居，他愿终老于此。2011年，木心在尚未醒来的乌镇溘然长逝，享年84岁。一生未婚，孑然一身，缪斯是他永远的情人。他曾如此自陈心曲，“我爱兵法，完全没有用武之地；人生，我家破人亡，断子绝孙。爱情上，柳暗花明，却无一村。说来说去，全靠艺术活下来。”木心去世3年后，他的纪念馆被正式开放。陈丹青在一篇纪念恩师的文章中描述了这样的场景：“东栅，游客蜂拥，瞧着纪念馆标牌，纷纷问：谁是木心？开馆第二天，我亲见几对相貌好看的都市白领牵着手进门，略一张望，即回身出馆。他们是对的。馆员说，陈老师你不知道，每天都有木心的读者从各地专程赶来，盘桓终日，还有连续三整天待在馆内，踯躅不去的人。入夏，有位外省大学男生来到乌镇，也是木心的小读者，只为在馆内谋一看守的职位，我初秋去，见他站在入口处，不声不响。”木心，生前并不热闹，颇有躲进小楼成一统的散淡逸趣，死后，多了纷涌而至的读者和崇拜者。对其不感兴趣的，转身走掉；将其奉为知音的，甘愿只在他的纪念馆当个忠诚的守门人。清风惹寂寥，幸有明月照。左岸记：真正的大师就是有如此的胸襟，包容一切，他不必靠揭人之短处而显自己之博学，他不站在谁的对立面，他只与大家作伴，谈笑风生，兼收并蓄，自成一脉，生动有趣。原文链接：http://www.zreading.cn/archives/4961.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

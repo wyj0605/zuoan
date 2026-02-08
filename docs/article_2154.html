@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如果你不是天才，就没资格说怀才不遇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>如果你不是天才，就没资格说怀才不遇</h1>
+            <div class="date">2016-02-04 23:17:44</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/静静这里说的天才是指那种在某一方面有特殊天赋的人，他们不需要后天学习，而是先天具备的某种能力。我想这种天才是极少数的，大多数都只是普通的人，我们从小到大都是通过不断的后天学习在逐渐成长。从小时候学习叫爸爸妈妈，学习走路，学习奔跑，到上学后学习语数外，学习政史地，学习理化生以及生活中学习如何待人处事等等。一位四十不惑的老师说“人生，就是不断解决不断出现的问题”，所以，作为普通人我们最重要的就是学习能力，甚至可以看作是一个人安生立命的根本！人生中会遇到各种各样源源不断的问题，你都需要去学习，去了解事情的起始和根源所在，然后才能解决这些问题。寒窗近二十年，每天都在学习，却在最后临毕业的校招阶段才学会什么才是真正的学习以及学习的重要性。这种学习不是课堂上被动的对知识的学习，而是一种学习能力，一种独立思考的能力，一种独立解决问题的能力。反思自己的找工作之路，一次次的简历被否定，无数次的怀疑自己，但同时又想起诸多老师同学以及实习期间的“领导”给予的认可，有时候难免心生一丝丝的怀才不遇，当然我很快就意识到自己这种毫无意义的孤芳自赏。我开始意识到企业需要的是具备学习能力，能做事，会解决问题的人，而作为普通人的我既然没有与生俱来的天赋，那就应该具备优秀的学习能力才能赢得企业的offer。而我如果不能学会调整自己的求职策略，不去了解和学习所应聘岗位又怎么能证明自己的学习能力呢？企业又怎么会给一个连自己所应聘岗位都不了解的人伸出橄榄枝？！一个连基本的学习能力都不具备的人，又如何谈得上是有才之人呢？我开始停止毫无意义的抱怨，而是去总结学习。每一次简历被刷，笔试被刷，一面被刷，二面被刷……与其抱怨“这些公司凭什么只要985！”；“为什么这些岗位潜规则中就只招男生！”；“这些公司笔试题好变态！”；“这些公司的面试官问的问题好奇葩！”等等，我更愿意从自己身上去找原因：我与985的人简历差距在哪？真的只是因为学校吗？面试被刷的原因是什么？是我不适合这个岗位还是我的能力没达到？面试官问的题目的意图是什么？是考察逻辑还是考察应变能力？……现在回想，很感谢这段曲折的校招之路，虽然走了很多弯路，比如一开始把自己认为很重要的经历写在简历上，但对应聘的岗位而言并无卵用，适合远比优秀更重要；比如对岗位了解不透彻，非专业出身又无相关的实习经历真的很难在几十万的简历中脱颖而出；比如盲目自信，挑地域、挑行业、挑岗位错过了很多面试机会。但正是这些弯路，让自己学会了思考，也更深刻的认识自己，也真正懂得了一些道理，也许你听了很多道理却依旧过不好这一生的原因就是因为你没有真正的尝试，去实践，很多道理只有在你真正经历过了你才能真正的懂得，否则那些道理也只是别人家的道理而已。有时候只有走过一些弯路才能让自己更坚定的在直道上走下去。遇到问题可以偶尔吐槽，但一定不能习惯性的抱怨，抱怨只能让你成为“loser”，你需要的是思考总结，学习适应。人之所以为人，最重要的就是思想，所以思考力特别重要。这让我想起初中语文课上的一篇文章，帕斯卡尔的《人是会思考的芦苇》，人脆弱的时候就像一株芦苇，风一吹就倒，但人又是强大的，其强大的力量来源即思考。“以大多数人的努力程度之低，根本轮不到拼天赋！”，是的，我们都只是没有天赋的普通人，我们都需要具备学习能力，去解决人生中不断出现的问题。我们都没资格说怀才不遇，因为在现在这个互联网技术如此发达的时代，你的不遇一定是因为你的不才！作者：静静，QQ/微信：1280876499，公众号：music-zone。人生三件事：伴着音乐运动、读书、旅行。左岸记：屈原能做九歌、离骚而楚怀王不用，流放，郢都城破后抱石成江；冯唐易老、李广难封，说的是汉朝冯唐身历三朝,年轻时遇到文帝喜欢老成持重的，不赏识他，年稍长而景帝又喜欢年轻的，到武帝时,举为贤良,但年事已高不能为官；李广马上功夫赫赫有名，可惜不是生在楚汉相争的时候，汉初对匈奴求和，他有才二无用武之地，武帝时候终于大规模开战，他又多次迷路延误军机，始终不得封侯。唐代的时候李贺号称鬼才，可惜科举的时候却因为以父名晋肃，不肯举进士，出不了仕，当不了官早早的就死了；还有李白，一代诗仙，自负有经纬才能，可惜唐明皇只把他当作御用文人，之后又碰到安史之乱，终究怀才不遇；清代曹雪芹，能写出红楼梦，却终究出身罪家，贫寒一生。有人说，世上最难伺候提所谓“怀才不遇”的人物。怀才不遇也许是读书人的“专利”，没见过木匠、瓦匠、理发匠发出怀才不遇的牢骚，偏就读书人，读了几本书、写了几篇文章，就自认为有治国天下之才，眼睛长在头顶上，万一求职不遂，或没有人三顾茅屋邀请，便大叹怀才不遇。以前社会价值认可单一，社会发展到现在，这世界上基本上应该没有真正“怀才不遇”的人了。没有一辈子“怀才不遇”的人，但确实有好运和背运之人。同样，也没有一辈子连续好运和连续“背运”之人。连续好运的人一定不仅仅是运气，肯定有几把刷子你没看见！连续“背运”之人一定有可恨之处！每个人一辈子总有几次属于自己的运气，只是有些人把这些运气当成了灾难，更有些人把运气做成了灾难！当然绝大部分人是运气来了他们还不知道，甚至把灾难当成了运气！所以，是性格和能力决定了命运，你的本性决定你的命，而你的格局决定了你的运！原文链接：http://www.zreading.cn/archives/5262.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从前有只狗</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>从前有只狗</h1>
+            <div class="date">2015-01-26 01:13:05</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/烛光一从前有只狗，爱上了一只猫狗每天都给猫送狗最喜欢吃的七彩骨头。这是狗平时都舍不得吃的肉骨头。可是猫不喜欢骨头。可是猫喜欢的是鱼。狗说，可是鱼有刺唉，划破喉咙了会不会痛。猫摇摇头，那也比你的破骨头好。狗说，那我帮你挑刺好吗。猫说，不用，你很脏唉。狗低下头，摇摇尾巴说，这是我最珍贵的东西了。后来猫嫁给了另一只猫。狗把收藏了好久的骨头全部扔了。后来猫们有了一窝小猫。二从前有只鱼，想要变成一滴水。鱼问海巫女，我怎样才能变成一滴水呢。海巫女说，为什么要变成一滴水鱼的脸红了，说，我爱上了一只猫，可是我不想失去生命。只想接近它一次。海巫女说，傻子，那你为什么不想变成一只猫。这样你们就能在一起了啊。鱼说，我离不开水，又爱上了猫，我都无法放弃。后来，猫爱上了鱼，鱼却成为了一滴水，那是猫的眼泪。三从前有只卖火柴的猫头鹰。有天晚上，它把火柴摆放在它的翅膀上等着客人光临。这时候来了一只猴子。猫头鹰说，猴先生，请买一根火柴吧。猴子尖嘴猴腮的说，买你马勒戈壁。猫头鹰说，请买一根吧。于是猴子上去把火柴点燃了，猫头鹰就被烧死了。第二天，人们路过的时候都在轻轻议论着。哦，那里好像被烧死了一只猫头鹰。它是谁呢。谁知道呢。也没人想知道吧。四又有只狗，斑点狗。误杀了一只它暗恋已久的猫。警察叔叔都在抓它。它躲进了海水里，遇到了鱼。狗挟持了鱼，说，嘘，不准说话，不然杀了你。鱼说，你骗人，我知道你是条好狗，一定不会杀我。狗说，才不是呢，我说杀就杀，骗你是小狗。鱼说，可你本来就是狗啊。狗说，我对不起你，可是有警察叔叔在抓我。鱼说，那你愿意成为一条鱼吗。狗说，我愿意。鱼说，我也愿意成为一只狗。狗说，为什么。鱼说，去看一眼外面的世界，哪怕就一眼也好。狗真的成为了鱼，鱼成为了狗。然后狗爱上了猫，鱼成了一滴水。五猫头鹰被烧死后来到了地府，牛头大叔问它想投胎做什么。猫头鹰茫然地眨着眼睛说，我真的可以自己选吗。牛头摇晃着它的大头，说，俺都能办到。不过你得给俺钱。猫头鹰说，变成狗需要多少钱？牛头说，三百块。变成猫呢。两百块。变成鱼呢。一百块块。那我还是做一只猫头鹰吧。牛头瞪大了眼睛说，一百块你都不愿意给我？你还愿意做一只被烧死的猫头鹰吗。猫头鹰叹气地说，投完胎继续卖火柴，下下辈子凑足钱再投胎吧。后来猫头鹰赚了很多很多钱，投胎了很多次。它是一只爱上猫的狗。它也是一只爱上鱼的猫。它是一只杀死猫头鹰的猴子。它是一条愿意变成水的鱼。原来我们不只是错过，遗憾我们从来不在一个轮回。我希望宁愿错过也不愿意过错。左岸记：如何破解人生当中的恶性循环？附篇文章——《如何做好决定》为什么需要去学会做好决定？生活中充满了选择，而我们的当下很大程度上是由过去的种种选择所塑造出来的，而未来，也在当下错综复杂的选择中酝酿。就算是单纯着眼当下，在此时的一个决定，也会影响着下一刻的行动，假日来临，想去旅行，却迟迟没有准备的自己到了前一天才匆匆忙忙去订票，结果只买到了一班很晚的车次，而到了那时，因为时间的紧迫，又压缩了游玩时间，行程变得更紧凑，可现实总不是理想化的，能连贯起来的，那样的行程安排也更容易受到外在因素导致的波动，那又会影响自己做别的选择的状态，于是就出现了恶性循环。拖延也是一种选择，不做决定也是决定，而错误的选择，就更是确凿无疑。停止继续执行错误选择，是做新选择的第一步。而做出正确的决定，做一个更好的决定，比更正一个错误的决定要更快，对执行来说，则意味着一个相对高效的起点——不必在方向感上付出时间的代价，自然就能有更充裕的时间集中精力去做好本应该做的。对自己的提问基于现状的提问———我是不是满足自己真正的需要？是不是告诉了自己所有可以选择的方法？并且对于事情深思熟虑？第一个问题让我们能面对现状，倾听内心的愿望，专注于自己的选择，而不只是自己想要的，为了满足自己欲望而去做的。无疑，清晰地感受自己的需要，不是那么容易的事情；第二个问题让自己有意识地通过观察与询问收集、证实必要信息，让自己对情况有全面把握；第三个问题，在已有的相关信息之下，设想自己的决定说可能引发的结果，对此能有所概念。基于原则的提问———做这个决定对自己是不是诚实？有没有信赖自己的直觉？是不是应该得到更好的？第一点，摆脱幻象，越早看清真相，就能越快做出更好的决定。而对于自己，主观上的视角不免限制着自己，所以他人的建议是值得听取的——虽然不一定采纳，但从中我们能得以对自我局限有更清晰的认识。我们的性格能反映在做决定上，而清楚自己的性格对于自己也会更有针对性克服自己的弱势。第二点，敏锐的直觉。“直觉就是你根据以往经验获得的深层认识，你会在某种程度上认为它对你来说是正确的。”如何培养直觉？就是让自己对于决定有更佳的预见能力，去将过去做决定时的感受与决定带来的结果相联系，进而对一般状态下的局面有所认知。当情绪糟糕，比如心怀恐惧时、担忧、愤怒之时，都会干扰个人决策。此外，还需要注意的是，感觉可以预示未来的结果。第三点，突出的是，要善于深刻反思。我们得到的结果，往往是我们自己决定自己应该得到的。而倘若自己希望，那又应该怎么做？要激励自己去寻找答案。学会如何做正确的决定，会让你的未来受益匪浅。原文链接：http://www.zreading.cn/archives/4773.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

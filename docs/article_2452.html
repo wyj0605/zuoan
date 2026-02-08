@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小说写作方法初窥</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>小说写作方法初窥</h1>
+            <div class="date">2015-07-08 00:39:32</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/祭酒青词在书的世界里，我现在拥有两个身份，读者和作者。我想从作者的身份去推荐书籍，一定很有趣。我常说自己是码字员，甚至是码字汉，一个女人，发育成熟，工作尚算顺心，没有男朋友，没有固定约会对象，你还能指望她干点什么？可是我还不算一个合格的码字员，因为我一小时都码不了三千字，一天下来能出一首诗，一千字就沾沾自喜了。一起写书的朋友说：小青，不要写诗，太浪费时间，字数又少，读者还看不懂。Who care？写小说就是仗着我这点任性，不然你以为我怎么坚持写到十万字的？我不仅要写诗，还要学习平仄韵律写合格的诗。扯远了，先说明白，我只推荐小说，其他心理学、经济、哲学……这些东西对我来说都是小说的基础，跟四书五经和个人经历是一样的，有了这些我才可以继续学习小说写作技巧，这也是我推荐这些小说的核心。有我之境——严歌苓《扶桑》苏童跟严歌苓一样运用语言文字描述心理与情景精致而独到，不同的是苏童咯里啰嗦自以为自己精到，而严歌苓总把女人的心思抓得让你吐血，不造作，不悲喜。从大局来看，此书总体时代背景在清末的旧金山，其中穿插时空旅行者——作者，以历史之眼，与扶桑对话，描述一个大时代下一个妓女的爱情，写法让我很惊奇，原谅我的乡下人嘴脸。严歌苓很善于通过动作，对话，情景来描写各个人物的心理活动。这其实不是一件容易的事情，尤其是从一位角色转移到另一位角色的身上来写这些东西，怎么自然地去表达？因为作者完全是在揣测角色，所以更容易生硬。《扶桑》这本小说算是短篇了，若是长篇更是要取舍主次，顾及的条件更多，例如人物性格细微的区别等。扶桑第一次见到克里斯是在镜子里，一般人便会从头到脚的以扶桑的眼光打量一遍这个男孩，说说衣着，动作表情，严歌苓到底不一般，少量描写了此类累赘叙述只作水到渠成的铺垫之词，却从时空旅行者的角度，阐述了一遍小男孩的偷窥行径。“扶桑从镜子里看见了他。她一咬唇，把胭脂吃掉了不少。他连笑都没有。他就那样半个人在门内看扶桑从凳子上升起，眼睛不懂得和不相信地瞪着。……扶桑不知这男童许多次藏在树影和墙影中看她。……扶桑不知道他用一面小圆镜将她一个细部一个细部地观赏过。他从小就学会了用那面镜子把广漠世界的任何景物收拢为他瞬间的收拢和私藏。”这个步骤更多的是要彰显小男孩的好奇，他是被好奇驱使来嫖扶桑的，最后一句则说明了他的孤僻与寂寞，这在后文中会做详细描述。后文中又通过对扶桑的一系列女性动作，牵动小男孩的内心世界描写，甚至到一两个小动作，一个心理变化，这种细致，让人膜拜。充分满足了克里斯和读者的好奇心，因为这就是克里斯爱上她的开始，也是悲剧的开始，更是小说主旨的开始“爱我，但不要拯救我。”正由于这些感同身受的细致，严歌苓是阐述自己世界观的艺匠，有我之境不言而喻。节奏之美——玛利亚·杜埃尼亚斯《时间的针脚》想看这本小说，是因为介绍太吸引人，用针脚做密码，还蛮好玩的创意。不好意思，每次我get到的点好像都有点不同。其次，就是作者和我一样第一次写小说，我也想感受一下其他新手的无能为力。这部小说的成功妙诀在于，作者很好地掌握了小说的节奏。她讨巧地开头了，故弄玄虚地说“如果我不走进这家打字机商店，我的命运便不会改变。”害我一直在猜谁是军情六处的情报人员，看简介的错……于是第一节便有了个高潮，24岁的西拉被34岁的大叔勾引了，真是大叔一出手，各种小姑娘手到擒来啊。于是顺理成章地取消与未婚夫的婚礼，得到一笔素未谋面的父亲的财产，去了西班牙的殖民地摩洛哥，这便是缓处。等我调试好心情继续下去的时候，陡然大叔抛弃西拉，让她承担债务不说，还给了她一个胎儿，这又是一个高潮，命运当然不会终结，西拉女主光环不会消失，于是遇到了一个正直明理的警察，一个勇敢坚毅的胖大婶儿，又是一个缓处。由于战争由于饥饿，胖大婶儿不得不与女主倒卖军火，高潮又起。有钱了，女主开了个裁缝店，安生了，终于遇到了一个英国妞，我以为我想看的间谍部分终于来了，我真是太天真了，这回缓得有些久。终于西班牙内战结束，二战爆发，西班牙政策左右摇摆不定之际，女主最终被母亲说服加入了军情六处，回到西班牙本土，最终以西拉危险执行任务获得详细情报结尾，最后一个漂亮的高潮。其实这么狗血的情节，好点儿的网文都可以写。然而，我还是很舒服的看完了。这就是节奏的魅力。并不代表没有瑕疵，此书有四十万字，但在处理女主西拉被说服做间谍之处有些过于轻巧了，毕竟间谍这个活弄不好是会死的，而且前面铺垫过多女主只想跟母亲安稳地生活下去，却被母亲一句“你不知道内战的时候我们是怎么活过来的”（大意，非原文）改变了自己的想法。若是我写，可能就要回忆西班牙内战时，西班牙本土母亲与裁缝店主遭遇的一切，来佐证西拉的决定。虽然如此，作者掌握的小说节奏依然值得称赞，读者看得舒服也正在此点。剥落所有修饰的真情——埃里奇·西格尔《爱情故事》很不争气地说，这本书我看哭了。这本书剧情没啥特别的，设定和旧韩剧一样，高富帅爱上不起眼的穷人姑娘，不顾家庭反对，结婚，刚过上好日子，姑娘白血病死了。可它的巧便在于不修饰，把年轻人之间的爱情赤裸裸地给你看，看到这种赤裸的我根本接受不了结局。作者的笔法可用速写来比喻，三两笔勾勒了一个爱情，却又能有些许细节，让人看起来津津有味。有此，本书相较于20万字算得上是微型小说了，但是故事叙述完整，还能对爱情，父爱，乃至一个社会有一个完整的表述，实属不易。据说这本书原本是剧本，所以精于对话描写。一开始便是“我”在叙述，因为詹妮已经去世了，典型的电影开场方式。后来几句对话，交代了“我”的家庭问题，还有詹妮的性格特征与爱他的方式。书中男女主角的对话很多，可以按下不表，然而配角本身设定对话不多，作者却能三言两语给他们定性，令我记忆犹新的就是在处理“爸爸”之初，“我”就先表白了：“吃饭时，我们照例又做了一次话不投机的谈话。这一套永远循环不息的谈话，每次总以‘你这一阵子过得怎么样啊？’开头，以‘有什么事要我帮忙吗？’结束。”这样的叙述也同样表达了“我”对“爸爸”的抵触，开始了一代人与另一代人的撞击。埃里奇·西格尔让我一个年轻人看到了文字的张力，原来有些事情真的不必矫情。这是这个剧作家教会我这个新手最有用的东西。我的见识不多，认知也不比谁深。但是我想吧，每本书其实都是传递了一个世界观，你不必认为那是对的，也不用批判人家那有多错，至少要有自己的衡量判断的标准，这个标准可以不用多具体，甚至可以是感觉，就是不要偏听偏信，尤其是现在中国的媒体，各路宣传，大张旗鼓，基本可以称为狗屁。看书就看对胃口的，把有趣当做有意义就变成了无趣。左岸记：能引起读者对小说人物命运深度关切，并因这种关切欲罢不能去思考其间的道理的，为好小说。如这部作品对你产生了这一效果，对你而言，是好小说。如对一部分人数产生了这一效果的，对这部分人群而言，是好小说。好小说中的上品是：对相当大一部分人群，或者对对社会有影响的人士产生了这一效果；对某些人性的特征的把握，达到了标杆级的效果；为某些有代表性性格特征的人物留下了历史印记；以塑造人物的方式留下了思想积淀。至于故事情节、趣味性、语言运用、结构形式，一般的小说，都应该有所讲究，但都只具有从属性，而非好小说上品的核心标准。原文链接：http://www.zreading.cn/archives/4972.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

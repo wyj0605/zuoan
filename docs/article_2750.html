@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面对孤独，寻找自由</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>面对孤独，寻找自由</h1>
+            <div class="date">2014-07-22 23:52:30</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/荠麦青青十几年前，张楚有首歌，叫《孤独的人是可耻的》，虽然我很喜欢它低回忧伤的旋律，但张歌手居然不辨菽麦、混淆视听地将“孤独”与“可耻”相提并论，颇令当时尚年轻气盛，有些小资情怀的我愤愤然。张歌手也许不知道，但凡学过点文学的人，大多很欣赏或者非常推崇孤独，尽管从词语的感情色彩上看，孤独是一种无关乎好坏的精神状态，然，在我们这些被文学浸淫日久，中毒甚深的人眼里，孤独的人非但不可耻，反而会因其拥有孤独而臻于一种超凡拔俗、幽邃唯美的境界。那么，何谓孤独？孤独是苏东坡“谁见幽人独往来？飘渺孤鸿影”的不屑同流合污，耿介孤傲的姿态；孤独是南唐后主李煜的“流水落花春去也，天上人间”的物是人非、国破家亡之痛；孤独是柳宗元的“孤舟蓑笠翁，独钓寒江雪”的峭拔清寒、超然物外的冷峻；孤独是陆放翁的“驿外断桥边，寂寞开无主”的不为时用，壮志难酬的怅惘；孤独还是海明威笔下的桑地亚哥老人独自与鲨鱼搏斗，永不屈服的顽强执著；孤独更是十年浩劫后，在一片沉默和谎言声中，巴金先生敢说真话，勇于自省的良知与操守……然而时下，“孤独”却经常被偷梁换柱，与“寂寞”混为一谈。但，境界不同，实为云泥之别。寂寞只是乏人陪伴，百无聊赖之状；而孤独则是即便在稠人广众之中，依然会逸出红尘的冥思与冷静。寂寞是空虚的产物；孤独则是精神的归属。若寂寞是身上的伤痕，那么，孤独则是刻骨铭心的记忆。若寂寞是天上的浮云，那么，孤独则是脚下的大地。若想解除寂寞，易如反掌：或呼朋引伴；或觥筹交错；或网络神游；或一段艳遇……而孤独则是权利、金钱、美色，表面的浮华与盛世的喧嚣都无法掩盖和救赎的心灵的宗教。台湾知名精神病专科医师许添盛，在谈到对抑郁症应持有的正确态度时如是说，“我们不要将抑郁症看成是我们的敌人，而应该是朋友。”那么，推而广之，孤独不应是一种我们须极力摆脱的负面情绪，更不是令我们身陷困顿与绝望的精神之狱，相反，我更愿将之视作一种清醒、自省的心境；一种无论面对怎样的人生际遇，都能始终保持的一份人格的独立与完整的精神气质，因此，纳悦孤独，享受孤独，不亦乐乎？如今，我们可以随意撞见铺天盖地的寂寞之网，但蓦然回首，我们已再难遇到踽踽而行的孤独的背影。所以，在这个时代，我们匮乏的从来不是享乐，而是精神。左岸记：这里孤独，不是孤苦无依、独自一人的意思，这个孤独是指人在一生的旅途中要能有时间勇敢地、安静地面对真实的自己，这样才能解开人生枷锁中最粗的那一条——自由。自由是枷锁中最粗的一条作者：吴淡如忙碌的人，对忙碌的感觉总是爱恨交加。一边怨着自己太忙，但真要他们闲下来，他们又会找很多理由让自己不要闲下来。比如：“没办法，我是劳碌命啦！”“哎，习惯了！”……可一旦真的闲了下来，他们反倒浑身不自在，又开始问自己：“现在该做什么才好？”我一直在思考一个问题：企图让自己保持忙碌的人，是不是因为害怕孤独，才让自己忙得没有任何空当？可害怕孤独，就意味着害怕面对自己，害怕真正的自由。我有这样的问题吗？是的！我有！我不敢说我面对孤独时已能全然安心。我常常独自一人，但仍然忙碌，我不看电视，但我看书，不断看着书，写着东西。有一天，我忽然想放自己一天假，不写稿、不看书，可巨大的孤独感竟然像海潮般向我袭来，我手足无措，觉得自己像一艘没有锚的孤舟。我开始问自己，我一个人时选择读书、写作，是在享受自由，还是变相地借读书、写作来让自己忙碌呢？这时的惶恐使我体会到，原来一直以来我是借着读书和写作让自己回避孤独，拒绝面对自己。不然我为什么会感到不安呢？！“什么都不做”却又保持清醒而宁静，原来是最困难的。因为害怕自由，所以我们沉浸在自己并不喜欢的习惯里，被自己憎恶的关系肆意捆绑。如果切断这些牵绊，我们该如何才能让自己镇定下来，去面对来势汹汹的自由？纪伯伦说，自由是人类枷锁中最粗的一条。我不知道，他的体会是否正是我的感觉，我是否因害怕自由而自愿成为奴隶？美国国家公园之父约翰·缪尔在他的夏日日记中描写寻找羊群的经验，写的不只是羊，还有害怕自由的人类：“我找到羊群时，发现它们害怕而沉默地缩在一起。显然它们已在这儿待了一个晚上又一个上午，根本不敢出去觅食。它们虽然逃离了桎梏，但就像我们所知的一些人一样，反而对获得的自由感到恐惧，不知道该怎么办，而且似乎还很高兴能回到原来熟悉的牢笼中。”是因为害怕自由，才使我们日复一日地过着不想过的日子，又或是不太甘心却又有点儿情愿地把自己交给忙碌呢？很多人过完一辈子，一生中真正自由的时间，却少得可怜。我试着在行程表里清出一些空当，让自己有时间体会无所事事的乐趣———我也不想一直与自由为敌，抗拒它的亲善访问啊！原文链接：http://www.zreading.cn/archives/4460.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仅仅知道是不够的 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>仅仅知道是不够的 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>知识的英文为“knowledge”。它的第一个音节是“know”，知道。但是knowledge这个词的末尾是edge, 是边缘。我们可以“知道”回字的四种写法，可是它并不能让我们处在领先地位（leading edge）。中文也是一样，“知识”中，只有“知”与”识”结合时，它才能产生edge,  成为力量。狭义的knowledge本身是没有力量的。</p>
+<p>当我们说知识的时候，有时候我们说的是知道，比如鸦片战争哪一年爆发。有的时候我们说的是常识，比如一年有四季。有的时候我们说的是见识，比如认识到是什 么原因，造就了现在的金融危机（当然这是见仁见智的）。一个知道很多事实而不知如何处理的人，现在我们已经不叫他知识分子，而称之为知道分子。知道而无见 识，徒增谈资，于世无益，那么又有什么意思呢？</p>
+<p>钱钟书的《管锥篇》，是好书，但余英时说它是 “一地散钱”。李浔阳就问了一个很有价值的问题：钱钟书到底提出什么创见了没有？没有印象。这可能是当时的社会现实，做这样的学问更安全一些。你可以旁征 博引，天花乱坠，可是那又怎样？如今，天下文章一大搜，掉书袋没价值。久了，人们会发觉，很多文章写出来，隔三四里都能闻出Google和维基的气息来。 过去学人引用文献冷僻，人以为奇，可是如今我发现，古腾堡项目把所有古代稀奇古怪的文献都在往网上搬，以至于过去的海量文献离我们只有一个鼠标那么远。在 这样的背景下，整理诸如《四部文明》齐、大、全、备的纸质文献库价值十分可疑，因为稀缺的不再是信息资源, 而是在运用信息的能力。</p>
+<p>1956年，教育心理学家本杰明·布鲁姆（Benjamin Bloom）发现，美国学校的测试题95%以上是在考学生的记忆。他于是发明了一个新的学问分类法，就是影响了两代美国人的布鲁姆学问分类法（Bloom’s Taxonomy of learning）.该分类法说学问由低到高，分知识（Knowledge）、理解（comprehension）、应用（application）、分析（analysis）、综合（synthesis）、评估（uation）几个类别。 这个分类法在美国教育界，尤其是中小学，几乎是人所共知。很多学校的课程设置，就是以布老的分类法为依据，经过两代人的时间，美国的教育成功地走出了“记 忆”为主导的测试方法。即便在小学阶段，如我们家费思这个年龄段，它这些分类技能也是齐头并进的。比如应用，我看小孩从小就在学着如何将自己的知识用在实 践当中，比如我记得她一年级就有“访谈”作业，让他问家里人喜欢香草冰淇凌，还是巧克力冰淇凌，然后制作成图表出来。我看这就是讲究多项认知技能的组合。</p>
+<p>现在我们常讲“分布式认知”（distributed cognition）的，也就是大脑一部分（如记忆部分）被解放出来，被电脑、手机等外部智能辅助设施取代。那么大脑干什么呢？得侧重于分析、应用、综合、评估这些“高层次思维”（higher order thinking）.当然，思维的类别不能简单用低层次高层次这么来区分，因为有些“低层次”技能，也具有高价值，例如“知道”吃毒药的危害，或许会拯救一个人的生命。同样，一些“高层次的思维能力”低价值，比如对赵薇着装的评估。但是总的说来，低层次知识和技能容易复制和传播，而“高层次技能”，尤其是批判性思维能力，创新能力，和普遍意义上的学习能力，培养起来比较困难一些，且宜早不宜迟。</p>
+<p>人们常说新经济是“知识经济”，其实再往下走，应该叫“学习经济”。我最近看到一个有趣的说法，说过去的大学学历是“四年制”（four-year degree）。现在是“四十年制”(forty-year degree)。 过去，学习是为了积累各样知识以防万一（just-in-case）, 现在是按需定制的及时学习（just-in-time）。过去，一个人掌握一门技能，一门知识，可以管他一辈子。现在的好多职业注定要终身学习。比如 IT，简直就学得没完没了，一有松懈就要落伍。IT的老师常常拿英文系老师开玩笑，说还是他们好，学会一样管用一生，反正莎士比亚死了就死了，不会冒出一 个莎士比亚3.0, 莎士比亚XP出来。但即便是在英文系，据我所知，学习方法和领域也在更迭不息。老师的知识，更新换代慢一些，但是学生如果也是抱着一定的知识一辈子，那就 只有自己慢慢落伍去了。</p>
+<p>本文开头，我们说知识的第一步是“知道”（ know），最终的目标是产生领先（edge）.那么know和edge中间这个L 是什么呢？它就是热爱（love），它就是学习（learn），它就是生活（live）。</p>
+<p>来源：南桥的博客——知识不是力量</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

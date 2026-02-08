@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识分子与自了汉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>知识分子与自了汉</h1>
+            <div class="date">2015-07-22 01:15:47</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌此前有提过，文艺青年是介于专业学者和屌丝之间的一种称谓。那知识分子又是怎样的一个称谓呢？喜欢读点书，偶尔还很小资的炫耀一下算不算知识分子呢？非常轻松的就从百度找到了答案——知识分子是具有以下四个特征的群体：首先，当然必须接受过完整的高等教育，或者实际上已经达到这样的水平。其次，必须拥有某一专业或某一方面的理论或比较系统的知识，即成为某一方面的专家或学者。第三，不能局限于自己的专业或职位，而应该关注整个社会，至少应关注本专业以外的领域。第四，必须具有批评精神。如此看来，知识分子比文艺青年，专业学者更高一层，至少他应有社会责任感，具备独立精神和批判态度。在中国传统社会里比较接近的身份也就是“士”，谈到“士”也就不陌生了，儒学经典要求为士为官者，须抱定“先天下之忧而忧，后天下之乐而乐”的道德使命感，古代读书人的理想差不多都是“修身齐家治国平天下”，“学而优则仕”。在时运不济的时候，也会有“穷则独善其身，达则兼济天下”可进可退的选择。对于皇恩浩荡的朝廷，即使再怎么不堪，也不会有反抗的决绝，只有君君，臣臣的忠诚，难以想象孔乙已拿起武器反抗会是什么样子？知识分子其实是古代读书人或古代“士”的现代延续。“士”是为某个姓氏的朝廷效力。如今没有封建朝廷了，对于毫无信仰的知识分子而言又该为谁效力呢？心忧天下？天下又是什么呢？能够如此心忧天下而敢于担当的人，大概是经济独立不愁吃喝，也有一定的言论空间，当然也有一些批判勇气的人了。按狄更斯的说法，这是一个最好的时代，也是一个最坏的时代。这不是一个盛产大师的时代。在军阀割据的民国时期出了很多大师，反倒是建国后大师少有。乱世出英雄吧！那个时候需要知识分子像智者和牧师探索着民族未来的走向，喜欢那种氛围下知识分子的炽热和真诚，像闻一多写到“这是一沟绝望的死水，清风吹不起半点漪沦”的困顿，对的，就是这种绝望下的赤诚。此后经过文革的洗礼，改革开放的冲击，经济像大浪一样席卷着人们的生活，历史上的百姓从来没有这么如此富有过。互联网技术的发达，自我意识的觉醒这些都是最好时代的表现，但明哲保身的稳当里似乎少了一些对政治的关心，隐隐对强权有些畏惧。知识分子是有担当的，尽管难以做到虽千万人，吾往矣的魄力，但至少是可以批判发声的，表达自己的关心。相对而言就是自了汉了，尽管是佛家用语，指小乘佛教修炼者，修炼的目的是为了修自己，颐享天年，而非普度众生。本无可厚非，但听着自了汉多少有些被人小觑的意思。自了汉大概就是这种囿于自我的世界，沉浸于内心平和而不问世事的人吧！他们太多是不发声的，于是龙应台呐喊了，“中国人，你为什么不说话？”，于是王小波说这是沉默的大多数。纵然想法千千万万，终究是没有横眉冷对千夫指的勇气！现实的生活大概不需要这种无用的勇气，大多都曾在应试教育里寻找标准答案，然后朝着大家所希望的方向前进着。从这个流水线出来的读书人似乎缺乏活力和生气，平和了也柔弱了！知识是一种力量，但终究抵不过刀枪。阿基米德沉浸在数学之美时惨死在士兵的刀下；秦始皇为了统一六国的思想，下令焚书坑儒；希特勒当总理后，为了禁止人们反对纳粹而烧书。昔日的王者不在了，他们的刀枪和火炬也不在了，但那个时代的知识分子所留下的文化知识却影响了世世代代，宛如哲学尽管没有改变世界，但解释了这个世界，让我们看清了本质，这也是对现世的一种贡献。知识分子?自了汉?如果说大胆的追求需要勇气，那么蒙昧的舍弃一些担当也是需要勇气的。文昌 北京 微信号：changchang010左岸记：引用王小波《写给新的一年》一文中的一段话，是为记：很多年轻人会说：平淡的生活哪里有幸福可言。对此，我们倒有不同的意见。罗素先生曾说：真正的幸福来自于建设性的工作。人能从毁灭里得到一些快乐，但这种快乐不能和建设带来的快乐相比。只有建设的快乐才能无穷无尽，毁灭则有它的极限。夸大狂和自恋都不能带来幸福，与此相反，它正是不幸的源泉。我们希望能远离偏执，从建设性和创造性的工作中获取幸福。创造性工作的快乐只有少数人才能获得，而我们恰恰有幸得到了可望获得这种快乐的机会——那就是做一个知识分原文链接：http://www.zreading.cn/archives/4992.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

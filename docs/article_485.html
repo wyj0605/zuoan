@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文如其人，有时候是骗人的 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>文如其人，有时候是骗人的 </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>看了林徽因的传记，想起很久以前，看她的那些唯美小诗和散文。当时第一个本能的反应就是生疑，她的文字稚拙可爱，没有烟火气，但是，感觉很人工。记得还特地去翻她的创作年表啥的，看完恍然大悟，丫在装嫩。写这些东西时，小妮子早已过了二八稚龄。这些诗，实在是和她的年龄和经验，都不太匹配。她本人有颗务实心，非常懂得把握人生大方向，合理避险，且有点大志向。我想，她就是那种把现实和诗情分离的很清楚，整体理性控局，局部短时感性，文字形象和现实面目有落差的人吧。</p>
+<p>在我的经验里，这种落差比比皆是。比如张爱玲，不过，她是反向经营，结果把自己搞的血本无归，也是意料中事。张的文字刻毒蚀骨，通篇都是算盘打的劈啪响的计较。人情，感情，金钱，利益。但是，和林徽因一样，张也是个文字形象和现实面目脱节的人，胡兰成遭难，避祸乡下，派人来求援，她二话没说就找了戒指递给来人。全然没有想到自己一个弱女子，乱世里也得有个防身银两。这哪里是一个精明计较的女人所能为之。张阿姨是典型的聪明脸孔笨肚肠。文字里装精逞强，冷冷的，渲染性不强。在人生阅历上，她尚年轻，不过她够天分，对于自己不了解的地方可以用想象力和文笔带过。但是，这在高明人眼里是能看出破绽的，笨拙于人事、自抑成性的她，找个出口转移释放力比多而已。文字状态下的张爱铃，固然是满树梨花压海棠，枝节楚楚，而现实生活中，她却是个连日常应对都很畏惧的木讷之人。</p>
+<p>而林徽因则相反，她的文字干瘪细弱，纠结迂回，本人却是个爽朗开阔、长于交际，话锋伶俐之极的可人儿。由此可见，把一个人固定在她的文字形象上，实在是野蛮且幼稚。</p>
+<p>有时落差是因为注意力的不平均分配，伍尔芙，就是这样。她在文字里刻薄锋利，骁勇无比，处处把人往死角里逼。而在现实中，却是个混沌不堪的低能儿。她的聪明半径不外乎是她的小书房，一出了这个势力范围，厨娘不让她帮忙，因为她不是把戒指丢在面粉里，就是把调味料弄混了。丈夫不敢携她去社交舞会，因为她交际笨拙，不知进退，有一次甚至把衬裙都给穿反了。以伍尔芙的智性，应对这点柴米油盐算什么，只是她舍不得，她是高度的精神化，每一点注意力，都用去补给自己的精神生活了。她对现实生活中的人并不刻薄，不是因为她宽厚，而是因为她对他们没兴趣。</p>
+<p>理念有洁癖的人，多半会给人制造错觉。比如托尔斯泰桑。托叔太有自省力了，他体内有个二十四小时马达不停的自我监控装置，时时向他反馈个人道德指数的涨跌情况。为了维持大盘指数，托叔非常辛苦。晚年他的文字，几乎通篇都是道德说教、宗教救赎。但是他对家人却非常冷淡，人情味稀薄，用他老婆的话说就是“家里的孩子病了，他都不肯抱一下，然后就穿个袍子跑出去，在铁道旁转来转去，寻找做善事的机会”。就连外人都能觉察出他老人家不合群。莎乐美在浩如蓝藻的废话日记里也摆了托叔一道“我去庄园看了托尔斯泰，他似乎很孤独，家人都不搭理他”。</p>
+<p>高瞻远瞩,常常造成近距离失焦，比如奥威尔酱。他在生活中马甲叫做布莱尔，可是他把全部的精力都拿去营养那个叫做奥威尔的抽象存在了。重宏观，轻生活，厚此薄彼，那个“把全部的爱都勇敢献给他”的女人，差不多就是在他的眼皮底下，慢慢的被癌魔咀嚼吞噬的。而他呢，压根就没注意到这件事，因为他正忙着攥写政治小说，去打击极权，维护全人类的利益，实在无暇他顾。临死之前，他嘱咐别人勿要给他写传记，因为奥威尔这个名字太重，布莱尔这个名字太轻，他怕别人找不到兼顾调和的落点。</p>
+<p>这种落差也可以成于双重自我的冲突。比如卡波特，他自小寄人篱下，性格疏离冷淡，凭着一身伸缩自如的迎合技术混迹上流社会。可是，再看他的《圣诞节忆旧》和《小童星》（这两本书我都满喜欢的，多可爱），我从未见过那样春水般的柔软和温情。不能把这个平面的解释为表演人格，或文字演技，我倒觉得是卡波特那个潜在世事水面下的隐性自我之花，在文字里勇敢的盛开了而已——换句话说，他是在文字里闷骚了。</p>
+<p>有时，坚硬的文字，是因为作者羞于示弱，或者说是对自己柔软内里的保护和自卫心，比如麦卡勒斯就是，文字是沙暴触面的粗砺疼痛，可是人却是极度的纤细敏感易挫。朋友忘记回复的一封信笺，都能让她难过的失眠。还有米切尔，人人都以为她就是《飘》中赫思佳的原形，也是那样不顾来日的泼辣生猛，其实根本不是。《飘》才写到一半，她看见有个九流南方作家写的垃圾文章，立刻觉得自愧不如，几乎封笔。她是个自信心严重匮乏的人。</p>
+<p>说起来生物规律就是这样：往往看上去越硬的，骨子里越柔软，比如贝壳类动物；而貌似软体的，多半才是最毒的，比如蛇。</p>
+<p>满口真理的人往往比较危险。因为人都是血肉之躯，公共语系之外，她们也需要一个私话的出口。伏波娃，半个世纪以来的女权先锋，独立意志的形象代言人，看她的《第二性》，俯拾皆是格言语录，铮铮作响的大道理，拿支彩色荧光笔划重点，估计立刻满纸烟霞。“没有理由认为，劳动会剥夺女人的性魅力” 、“父权文明的价值与制度仍大部分存在，女性要争取自己尚未得到的抽象权利”。再看此人的书信集，整个一八卦死磕老八婆。妇解语系一下转变成“某是个和几千个人男人睡过觉的放荡女人，50岁，但极力使自己看上去象30岁”、“他是一个可怜的说谎作家，一个可悲的废物。”</p>
+<p>怪就怪她生不逢时，找不到发泄口。要是换在网络时代，我相信波伏娃和鲁迅都是穿个马甲奔走于各种论坛欢场的常客。骂完人后继续正经，何乐而不为。个人经验，越是在成天在文字里“温情”来“慈悲”去的人，翻脸骂人的时候就越刻毒。因为，她们的敦厚，都是后天的修养调节的。你想，那个被压抑的刻薄机制，一旦反弹多可怕。温厚的人，我也认识一个，我外婆。她一手拉扯大一堆儿女，还帮着照顾了众多孙辈。累的时候，她老人家就趴在硬木椅子上盹着。她没读过什么书，她做了一辈子好人，也说不出一句成型的大道理。我猜，她这辈子都没听说过温情这个词。</p>
+<p>大爱都是无声的，文字表达从来也不是朴素的事情。</p>
+<p>【注】</p>
+<p>“适度绝望”作品，真名不详。初读便深以为然，故转载于他处，未得到作者授权。</p>
+<p>部分内容有修改，如果原作者认为本文的存在有不妥之处，可立即删除。</p>
+<p>事无绝对，沧海遗珠，各有立场。诸位臧否自便，但求有个尊重。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

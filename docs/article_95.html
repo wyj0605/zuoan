@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻找进化的动力[Find The Evolutionary Dynamics] </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>寻找进化的动力[Find The Evolutionary Dynamics] </h1>
+            <div class="date">2026-02-08 18:20:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/Jorywang</p>
+<p>最近一个朋友说：“看了一阵子你的博客，发现你的想法真多啊。我也想经营一个博客，每天写点东西，但是却没有那么多的想法。”我被朋友虽不能至心向往之的精神小小的感动了一下，更主要的是被自己坚持写东西的精神窃喜了一下。我告诉他，其实，真实的奥秘不是我有很多的想法，而是我有一个博客需要经营，所以我必须找到足够多的想法。</p>
+<p>于是，问题回到了著名的“钉子和锤子”的故事。在故事里面，钉子隐喻了问题，锤子隐喻了方法。在关于我博客的想法对话中，钉子隐喻了想法，锤子隐喻了博客需要经营。所以，我们究竟是先有一个问题，再来找答案呢？还是先有了一个方法，再找个问题去练练手艺？想必不同的人有不同的答案。但是，以我吃了不算多的盐的经验来看，有了钉子再去找锤子似乎更符合绝大部分情况下的习惯，因为我们更多时候习惯于被问题推着走。而为凭空研发一把锤子，似乎还不完全符合全人类解决温饱问题的现状吧。</p>
+<p>很快，我在另一篇讲话中再次嗅到了类似的问题。12年12月30日，中科院院长白春礼先生在科学与人文论坛讲话时，说出了他对当前世界科技趋势的判断，白院长说，科技革命有两种驱动：一种是社会需求驱动，一种是知识与技术体系内在的驱动。到现在为止发生了五次科技革命，其中两次是科学革命，三次是技术革命。</p>
+<p>好吧，看起来很干燥的两句话。不过却切实的再一次说明了“钉子和锤子”问题。社会的需求，显然是一个钉子，需要我们及时的找到一把锤子；而科技体系的内在动力，则是一把锤子，随时可以作用在钉子上。然而，为什么不符合人性的先研发锤子再找到钉子的模式，我们在科学界却可以独立成为两种力量之一的力量？</p>
+<p>这确实是一个好问题，因为我们已经在用锤子找钉子的思路进行工作了。如果政治经济学家马克思来解释这个问题的话，我猜想答案是这样的：“随着生产力水平的提高，我们有越来越多的剩余劳动力可以去做知识工作，对过去的知识进行总结，发现其中的规律。所以，今天我们可以有很多知识随着积累的深入，推动一些创新的科技进步。”嗯，有道理，如果换做哲学家波普尔来解释的话，答案可能是这样的：“科学的方法应该是推论——试错——验证——总结——再推论的循环过程，我们不断的总结知识并去试错，无疑加速了社会经验的积累。”听起来也很有道理，那么作家舍基的答案可能是更现代话的，舍基说：“科学由于大量工作者的参与，通过期刊、网络的传播，加速了分享，最终推动了各类知识解构的完善，并最终服务人类社会。”好吧，各位实在是让我收获很多。</p>
+<p>不过总得看来，也许问题的解决，持续的来自两方面的力量，一种是简单的就事论事模式，另一种是你做了把锤子，钉子来投奔的模式。也许，我们可以发明带磁性的锤子，这样，铁钉子就被自动吸引来了。</p>
+<p>于是，锤子和钉子再也不分家。</p>
+<p>原文：http://blog.jorywang.com/show-441-1.html</p>
+<p>左岸记：关于进化，也看看难得的人对阿凡达之后的想象。</p>
+<p>昨晚把《阿凡达》又看了一遍，临到睡觉还意犹未尽，于是自个儿在床上脑补了个后传，这里简要的讲述一下。</p>
+<p>电影的末尾是人类落败，在纳美人的监控下搭乘飞船灰溜溜的返回地球，但是仅仅就这样吗？人类会甘心这样的结局？要知道纳美星发现的unobtanium（常温超导体）将在很多方面改善人类科技，其重要性从它的价格――两千万美金一公斤，就知道。对此，无论是从历史还是从人性角度去考量，我们都明白人类是不可能就此罢手的，也许四肢发达头脑简单（这不是鄙视纳美人，相反我更喜欢那种简单的社会）的纳美人会以为这一仗打败了人类就此万事大吉了，但是上传了葛雷（死了的女科学家）的记忆的伊娃（纳美星的大地之母）肯定明白事情没有这样简单。</p>
+<p>说到伊娃，我不禁会想，她到底是个什么角色呢？电影里她响应了主人公杰克的祈祷，派出一大堆天上飞的地上跑的来攻击人类军队，最后才得以战胜人类，那么伊娃是神吗？别傻了，这他妈可是科幻哪（好吧，请无视《雷神》和《复仇者联盟》）。最科学的推断就是纳美星所有动植物的神经网络组成了伊娃，整个纳美星就是一个智慧体，这种智慧体在科幻里看过很多了，《基地》系列里就有，《我，机器人》里也是，当然科幻里的集体思维都是“人”造的，而非自然形成，我感觉自己也越来越倾向于觉得生命不可能自然形成了，估计达尔文的进化论最近一直被人尝试推翻，也是因为越来越多的疑点与漏洞吧。所以在这里我也倾向认为伊娃并非自然进化而来，而是由史前某个先进宇宙文明为了探索文明发展和延续所做的一项社会实验的产物，而那个文明则在实验还未有结果时，已经消失在宇宙的历史之中了。</p>
+<p>而伊娃则一直在沉睡中等待着自己的创造者归来，直到人类的战火把她惊醒，于是这一台生物超级计算机从人类文明历史中得到启发，暗生了自己去寻找创造者的想法，但是它自己是没办法离开纳美星的，最后想到借助人类的力量，所以伊娃派遣了驻地球特使团，与人类一同回到地球，为了取得人类的好感，纳美人同时也带上了一批特产――常温超导体矿，借助这一材质和技术，人类制造的飞船可以从克服地球引力，从而更快达到最高速度，航行到纳美星的时间消耗从五年缩短到几个月，最后利益驱使，人类与纳美人定下盟约，联合国提供一个岛屿给纳美人建立纳美驻地球使馆区，同时也是作为旅游区和纳美生态研究区向那些地球游客和研究者开放，作为交换条件，纳美人免费向地球供应超导体矿，但地球人不得踏足纳美星，以保护纳美星生态环境。表面上看似乎是纳美人向人类进贡超导矿，以免除人类的侵略，似乎是人类占了便宜，然后却隐藏着伊娃的巨大阴谋，虽然纳美人没有宇宙航行的技术，但是借助于种植在纳美驻地球使馆岛上种植的灵魂树，伊娃可以以光速与地球上的纳美生物通信，也就是通过使馆岛，伊娃把她的神经末梢申到了地球，同时伊娃还可以通过灵魂树把人类的记忆和灵魂上传，所以虽然纳美人在地球的活动范围被限制，但实际上到过纳美使馆岛的一部分人类已经不知不觉中转而效忠纳美人，成为了伊娃的一部分，而其中部分因基因不匹配的人则在被伊娃同化失败的过程中丧失了记忆。</p>
+<p>从这样的设定出发，可以产生无数种发展和结局，从昨晚刚开始幻想到现在我脑子里每回忆一遍就都会出现数种变化，这种游戏蛮好玩的，在这里提供给各位，希望有兴趣的一起来幻想大碰撞。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

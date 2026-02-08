@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生死事小，信仰事大</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>生死事小，信仰事大</h1>
+            <div class="date">2014-07-19 23:49:21</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/子轼依稀记得蒙学时手上有一本蔡志忠先生编画的《庄子》，我对里面的“子非鱼”和“鼓盆而歌”两则故事印象尤甚，前者是看着好玩，后者是完全无解。那时候还不明白庄子对于“气”和“形”的描述。稍大一点，读到了苏子的“千里孤坟，无处话凄凉”便情不自已的想到了庄生鼓盆。同样是悼念亡妻，庄苏二人殊途同归。借用泰戈尔的话，“我们心里全都有一个王国，一个死人的乐园，那里存在着对一些人永恒的回忆，这些人曾给我们的生活经历带来神圣之光，而他们也许不为他人所知。”在我们都将庄苏二人的行为看做悼念亡妻之举的时候，不知是否曾思考他们的行为也是在悼念已经逝去的岁月和过去的自己，曾经的生活，曾经的挚爱，曾经的理想，或许随着斯人远去，真的“白云千载空悠悠”了，生死两别，他们的信仰还在吗？在20世纪初，中国叱咤风云的人物里，刘师培的妻子何震的一生让我唏嘘不已。何震原名何班，字志剑，1904年随未婚夫刘师培往上海后入读爱国女校。书香门第的二人在接触新思潮后思想变得激越，尤其是何震，她在《女子解放问题》中提到西方社会男女的平等是“假”，必须“根本改革”；她又因性格强势让刘师培吃了不少苦，在日本时何震一边向苏曼殊学画，一边在章太炎的眼皮底下和汪公权出双入对。面对何震的“河东狮吼”，刘师培有苦难言。何震终因备受党人冷淡而不得不和刘师培一同回国。回国后，刘师培沉潜国学，何震渐渐平静下来，不仅相夫持家，也不再参与革命事宜。1910年一女早夭，1911年辗转千里从武汉赴四川寻夫（刘师培归国后投门端方，后随其入川）后到了山西做家庭教师。1919年刘师培英年早逝，何震因精神受到刺激而失常，后来削发为尼，法名“小器”，不知所终。想想十几年前还宏愿改造男女社会，最终归位“小器”，震烁一时却旋即歇绝，此中种种我们这些后人到底能够体味多少……或许正如苏曼殊留下的八个字吧，“一切有情，都无挂碍。”庄子鼓盆而歌，苏子相顾无言，何震“小器”而归，生死之间，似乎一切都显得不那么重要，于是罗素说“人生唯有面对死亡，才能变得严肃，意义深长，真正幸福和快乐。”可问题依然存在，既然面对死亡之时“华枝春满，天心月圆”，为什么鲁迅还要在死后“一个都不宽恕”呢。加缪将这个问题引向了更深的层次，“真正严肃的哲学问题只有一个，那就是自杀。判断生活是否值得过，这本身就是在回答哲学的根本问题。”依着这句话，我发现了两个人物，梁巨川和王国维。人间草木太匆匆，剩水残山供一死。周宁说梁济的死是沉重的，静安先生的死是轻盈的。周宁这么说自然是有他的道理的，我只是一直不明白这二人的死到底是殉“清”还是殉“道”。1918年农历10月10日，梁济六十岁生日，在完成了他的《别竹辞花记》后带着“这个世界会好吗”的疑问在积水潭自尽。他的手书写着“吾今竭诚致敬以告世人曰：梁济之死，系殉清朝而死也。”何以为一个已经灭亡而且肯定不会再次复活的王朝殉节呢？徐志摩有一番评论“它的起源与所能发生的效果，决不是我们常识所能测量，更不是什么社会的或是科学的评价标准所能批判的。在我们一班信仰（你可以说迷信）精神生命的痴人，在我们还有寸土可守的日子，决不能让实利主义的重量完全压倒人的性灵的表现，更不能容忍某时代迷信（在中世是宗教，现代是科学）的黑影完全淹没了宇宙间不变的价值。”陶孟和则认为梁济之死有两个向度，其一是“殉清”，其二是他还试图唤醒当时的人们以图改造的未来。无论为何而死，梁济都“以诚实之心对以往之国”，望世人亦“以诚实之心对方来之国”。所以他的死“非仅眷恋旧也，并将呼唤起新也；唤新国之人尚正义而贱诡谋”。9年之后，同样在北京，不同的是这回是在昆明湖，王国维吸完了一根烟后，跃身头朝下扎入水中，于鱼藻轩自沉。王国维同样留下了遗书“五十之年，只欠一死，经此世变，义无再辱。”生死之间，一水之隔。“在死前的片刻时间里，一个人能看到一盏蜡烛，烛光里他正在读那本记载着他的一生的书。这本书记载着各种问题、谎言、罪恶、灾难。在其奄奄一息之时，这盏蜡烛用一种非常明亮和醒目的光照亮了整个世界，照亮了一个人的生活的各个角落，甚至照亮了那些一直在被黑暗笼罩着的角落；然后，它会发出某种轻微的噪音，烛光随机熄灭，并永远消失。”（列夫˙托尔斯泰《生活值得过吗？》）清华园中所立的《海宁王静安先生纪念碑》，碑文由陈寅恪撰写，林志钧书丹，马衡篆额，梁思成设计。结尾的几句很值得玩味“呜呼！树兹石于讲舍，系哀思而不忘；表哲人之奇节，诉真宰之茫茫，来世不可知者也。先生之著述，或有时而不章；先生之学说，或有时而可商；惟此独立之精神，自由之思想，历千万祀，与天壤而同久，共三光而永光。”梁巨川和王静安都以沉湖的方式结束了自己短暂而又漫长的一生。二人在是以生待信仰，还是以死卫信仰的问题上高度一致，不知道是二人的幸运还是世人的悲哀。其实，二人看似殉清，实则殉道。鲁迅所不宽恕的，梁济和王国维二人是以身而试，庄子苏子和何震则感于至亲，无论从哪个纬度，宽恕和不宽恕的意义就变得不那么重要了。因为，生死事小，信仰事大。细思之下，我竟然也是无言以对，却又想鼓盆而歌。我们都希望进入神的天堂，但在此刻，我们就与他同在天堂。与他同在的意义是：如他一般地慈爱，如他一般地助人，如他一般地给予，如他一般地服务，如他一般地拯救，24小时都与他同在，在苦难的化身中接触他。神不是庄苏，也不是梁王，是我们心中的信仰。记起一段经文，就让它作结吧。“众生扰扰，其苦无量，吾当为他。为早作润，为温作筏。饥食喝浆，寒衣热凉。为病作医，为冥作光。若在浊世颠倒之时，吾当于中作佛，度众生矣。”（《布施度无极经》）左岸记：生死呼吸之间，其后是自己建构起来的思想大背景。生，再艰难也能活着，希望还在；死，再明媚也己无痕，因为视不见。原文链接：http://www.zreading.cn/archives/4456.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

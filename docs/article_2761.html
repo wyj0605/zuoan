@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百无一用是好看</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>百无一用是好看</h1>
+            <div class="date">2014-07-11 22:08:10</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/于震曾几何时，我的观念中一直存在这么一个误区，高外貌分的人都不会有高内涵分。尽管在很多时候，漂亮的人们因为这个优势大多不会去修炼内涵分，但这依然不能说有高外貌分就没有高内涵分的逻辑是正确的。当然，仅仅一个简单的逻辑有误并没有什么，但这种有误的逻辑如今逐渐发展成为“长得好看没有什么用，又不能当饭吃”、“在外貌上有所投入就是无脑智商低”这样粗暴价值观。以及“男人的帅气不在脸蛋，而在岁月积累下的睿智和淡定”，“长得好看不如活的好看”这类句子的广泛流传。妈蛋啊，我根本不是来哗众取宠的好不好，那句名言明显是劝诫有先天优势的人儿不要忽略内涵分的建设的呀，谁说它是告诉你，你可以放弃外貌分去安心打游戏的呀？（不要提看书，因此而放弃外貌分而省下来的时间根本都没放在看书上，不服来辩）然后当你变成了老男人以后岁月就给你睿智和成熟了吗？还有那些真正活的漂亮的姑娘，哪一个不是能控制住自己的体重，养得好自己的皮肤，让其他人一看就能感觉的到魅力和品质，而转发这句话的大多数人，可能连其中一个都做不到。是的，作为曾经存在这个误区的我，一度也把这些广泛流传的句子当做是救命稻草，它给我以安慰，让我觉得现在这样并不差，让我觉得即便我是战五渣，我也有春天。不过可惜的是，好多年过去，岁月留给我的是一个超标的体重，一张不会打理的脸，没有春天。有人也会反驳说，努力勤奋才是更核心的东西，请先做到这个再谈外貌分。我想我从来没有否认过勤奋努力是核心的东西，也从没认同追求高外貌分就代表着要不务正业。如果当我在谈到外貌分的时候你还认为我是以忽略勤奋努力为前提的话，那么我们显然没有继续讨论的必要（小伙伴们还能不能在一起快乐的玩耍了）。同时我也认为高外貌分和高内涵分是同时成长的，不存在必须要先做好其中一个的情况，追求这两点都需要付出努力，这两种努力都值得让人尊敬。因此，如果你也是战五渣，你要知道这个时代对于好看这个优点因为妒忌又诋毁的复杂逻辑从来没有给以正名，你要从太多的主流声音中听出“百无一用是好看”的这种论调背后的虚妄；你也不能相信只有那些跨越你超标的体重，太差的皮肤的男人女人才是真的爱你；你更不能对美丽抱有敌意，甚至你要先成为修炼高外貌分的一份子，当你真正成为一名合格的外貌协会成员，你会发现一个全新的价值观——外貌分和智慧从不对立，甚至它们还是一对好兄弟。我用了5年时间才知道，这个世界从来没有学会过同情，那些长得好看的人反而同时拥有财富智慧才艺，而那些长相一般的人好多还真没什么能拿得出手的。于是，我开始劝自己：如果你先天不好，你就要从一种绝望中找寻一种沉重的希望，努力跑，努力跑，而这种跑不一定能够有多大改善，它也不算正能量，更多的时候它是一种交代，一种不屈从的交代。左岸记：《盘山语录》——“积木成林，积石成山，积水成海，积善成福，积恶成祸。祸福之源，本自一心。积心方成，可不慎之！”为人如此，处世如此，内外兼修，既是内涵，也是风景。附：YK——丑陋有罪今天让我们来谈谈一个让人难以启齿的问题：怎么和公司里那些长得难看的同事相处？把这个问题摆到桌面上，十个人里有九个会冠冕堂皇地斥责你政治不正确。到办公室是来干活的又不是来看戏乱搞的，你要求每个人都长成吴彦祖是什么意思？以貌取人，失之子羽，招聘人才不允许搞歧视，那些因为肥胖、矮小、残疾……而拒绝录用人才的公司都要格外小心，想好借口，免得被人控告，招来一身骚。但是实际上，允许我冒天下之大不韪说一句：外貌，难道不也是大多数职位的资质之一吗？当我们招聘一个销售经理，资质要求里经常有一项：善于与人打交道，性情随和，令人愉快。一个另人见之不愿意再看第二眼的人，怎么能指望他卖出产品！不，我们也决计不会雇佣一个口眼歪斜、牙齿黑黄、形容猥琐的人作公司的公关总监的。但我们决计不会松口说是因为她长得难看。正因为在外貌这件事上不好要求过高，所以每间办公室总会有那么一两个长得特别惹人憎的员工。而且这些人不知道是不是也早对自己放弃了，除了面相不佳，气质也猥琐，渐渐连个人卫生也不肯注意了。他们头发油腻，穿着邋遢，但气势却不减。仿佛知道自己反正不能讨人喜欢，干脆破罐破摔起来，大喇喇地跟人抬杠开玩笑，嬉皮笑脸调戏女同事，以自己所有的恶意来对待这个不公平的世界……是，世界十分不公平，有的人天生长着一副人见人爱的面孔而有些人不。但其实丑绝人寰的人是极少极少的，大多数的面目可憎都是后天造成的。皮肤油腻的话不能多洗几把脸么？胖子就不能想法裁几身合体的衣裳么？或者干脆少吃几碗饭运动运动，你可以放弃自己，但没有权利给别人添堵！同事的美丑绝对名列职场中最困扰的问题TOP3。WHY?因为它是一个无法解决的难题。公司不景气、工作难为、老板苛刻……顶不济你还可以辞职。但是你好意思因为同事长得难看换工作吗？你也不能拧着同事耳朵说：求你了，去换件衫、去洗把脸、去把那身狐臭治一治。我见过一位英国老板，因为忍不了下属腋下常年的汗渍送他一本“男士如何职业地着装”，对英国人来说，这举动已经顶不含蓄了吧？前几天有刚进职场的小姑娘向我诉苦，好容易换了一份自己喜欢的工作。搭档是一个蓄着脏胡须的黑胖子，此人丝毫也没为自己的外表自卑，每天兴致勃勃地凑近来谈天说地要这用那。新丁怎么好对前辈摆出嫌弃脸，只好瑟缩地保持距离。但可怕的是，作为单身少女，公司里的人还毫无同情心地把两人往一块拉拢。天啊，还不要说成为一对，仅仅把两个人的名字连在一起说也够让少女急怒攻心了。我的建议？即便亲如一个TEAM的同事，也还是冷艳点摆出professional脸让他知道界限在哪里吧，或者公开含蓄地谈论男士应该注意的仪表和礼貌，令他明白：你实在不是我那杯茶。你要是不想法改善自己的外表，你简直就不是任何一杯茶好吗！原文链接：http://www.zreading.cn/archives/4447.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>假如我的大学时代重来一次</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>假如我的大学时代重来一次</h1>
+            <div class="date">2015-10-09 00:17:23</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>推荐/田琦推荐语：以上文章是来自夏鹏老师的演讲《假如我的大学时代重来一次》。已经毕业3年的我，读完之后很感慨。遗憾自己大学入学前没有读到，又庆幸自己现在读到了。我们每个人都会有觉得失魂落魄或小有所得的时刻，但我们该如何正确看待，是值得思考和琢磨的。记得小时候爸爸曾说：“你一定要树立远大的目标，只有这样，你才会不被眼前的困难或小小的成绩迷惑前进的脚步。”当我看到这篇文章的时候，好像时光回流，又回到了曾经的少年时光，也鼓舞自己，不要停下前进的脚步。希望也能给其他前行的小伙伴一丝触动。随附正文如下：过去的5天我一直在思考一个问题，如果真的让我回到2003年，我变成了一个小男孩，站在南京大学的校门口，拎着行李，作为大一新生开始报到，我希望我的人生出现什么样的选择让我的现在不一样。我想了很久，结果我发现我没有什么需要做的不一样，更关键的是，我没有办法再回去了。我03年进入大学，07年毕业，我干了一件应该来讲，在很多人感觉是惊天地、泣鬼神的事，就是代表中国去参加所谓的世界英语演讲比赛，跟英国、美国、澳大利亚新西兰这帮人对骂，结果我把八国联军骂回去了。骂回去之后，受到菲利浦亲王的接见，就是这样的故事，但是我现在反思，深刻的反思，其实这是一个失败，这是一个巨大的失败，为什么呢？因为到今天为止，10年过去了，我是05年代表中国出战的，虽然中国没有第三个人再取得世界冠军，但是对我来讲，最大的失败在于，10年过去了，我仍然还在讲这个故事。这10年，我的时光到哪里去了？我为什么不能再去讲述比这更精彩的故事呢？所以我反思了，原来我在大学如果真正重来的话，我一定要告诉当时03年的那个小男孩一句话，请你一定记住，目标和梦想的关系。获得世界演讲比赛冠军，对我来说是一个目标，目标有短期性，目标可以达到，目标如果达不到，你会灰心丧气，但是达到了以后，你可能会失去了前行的动力。什么是梦想，目标是海上航行遥远地平线的灯塔，梦想就是雾霾重重之下，透过云朵我们可以看见的那一颗星，而这颗星，距离我们亿万光年，一速光打到我们人类眼睛之上，有可能那颗星已经是不不复存在了，但那就是我们的梦想。目标是可以达成的，而梦想最基本的特质叫做其不可实现性，正是由于其不可实现性，我们仍然奋不顾身地每一天朝着这个方向努力，这才是梦想之旅，这才是梦想的价值。05年我比完了世界英语演讲比赛，回到学校，校长接见了，也颁奖，兄弟们说，夏鹏你得请客，我一摸兜里也没有什么钱，我想我得变点现，这个时候我看到了南京新东方的招聘广告，跟思思非常像。我分析了一下当时我的自我优势，我认为新东方无非是在很多人面前讲话，且讲英语，这个我擅长；在很多人面前讲话，我讲英语，还获得了世界冠军，那么这个职位就是为我设计的，我就应聘了，在短短一次试讲后就开始代课了，我的第一个班，200个人的班打的是满分5分，校长把工资发到我的手里，我请我的哥们吃了一顿好饭，喝了一顿好酒，从此我的周六周日，原本我感觉应该在图书馆安静度过的时光，贡献给了课堂。如果当时我树立的是一个梦想，而不是一个目标，去夺取英语演讲比赛，也不是为了请哥们喝大酒，如果说我真正的梦想，是让中国之声传遍世界的话，很有可能，我现在不是在梦想之旅的舞台上跟大家分享，我很有可能现在在联合国的会议大厅，代表着中国向世界宣布中国大国的崛起。正是由于我把目标完成了，产生了所谓的倦怠，才让我今天不得不以所谓一个成功者的角色，在这里跟大家分享10年之前发生的故事，而我不得不一次又一次去讲这个故事，我不希望这样的事情在未来接着发生。所以谈到目标，谈到了梦想，我们一定在大学阶段就要把梦想真正的展开。我在准备这次分享之前，收拾家里，发现我当时大学我做的一个笔记本，读书笔记本，我翻开我的笔记本第一页，我这个人比较臭美，喜欢自己给自己题词，写完了以后夏鹏题。我的题词是宋朝大学者张载的那段话，“为天地立心，为生民立命，为往圣继绝学，为万世开太平”。我当时就感觉这四句话，让我感觉特别的开心，每天晚上学习起来都特别的有动力，但后来，梦想没有了，只剩目标了。英国的一个女作家，现在最富有的女作家，中文名字J.K罗琳，大家都知道她吧，哈利波特的作者。毕业于英国的大学，学的专业是文学，我也学文学，文学是没有出路的，除非你做研究，或者是教课。这J.K罗琳刚开始的时候是做义工，自己是单身母亲，没有什么钱，家里交不起暖气费，家里很阴暗，他从小让自己的孩子，入睡的时候可以听上一个漂亮的童话故事，然后信仰这个世界美丽是本质，所以她自己开始拿出笔记本，拿出笔，开始写童话。她就一直写下去。写完之后，他的朋友也读了，都说罗琳你的这本书写得太好了，不如找出版社出一下，投稿被拒，再投稿再被拒，其中一个非常著名的企鹅出版社，它现在一定后悔死了。我们想自己，每一次做一件事的时候被驳回，被打回，被压抑的时候，我们还有没有前行的动力，我们没有，因为那是一个目标。目标一旦不能被达成，你就坚持不下去，但是J.K罗琳，她不是为出版，她为的是一个梦想，她为了自己的孩子，在睡觉之前读上一个相信世界是美的故事，所以说出版社出版不出版她的书，她仍然可以写下去，所以到最后她连续出了7本，成为世界上最伟大的女性作家之一。你现在去英国，你仍然能看到在第9站台墙的位置有一半的行李车。因为在哈利波特的故事当中，所有的霍格沃茨魔法学院的学员将推着自己的行李车撞过那个墙到九又四分之三的站台，坐着列车驶向那个魔法世界，魔法世界从未存在，J.K罗琳给了我们关于梦想的定义。这就是对梦想的定义，这也是新东方对梦想的定义，你们来到我们的课堂里，到底追寻的是什么？我现在经常跟我的学生讲，你走进这个课堂，如果仅仅是想考一个高的分数，对不起，你不是我的学生，我也不需要这样的学生。作为一代宗师级老师的我，怎么能仅仅教你考一个高分呢？高分在我眼里那是一个目标，除非你这么跟我说，夏老师我想考托福考130分，因为托福的满分是120分。这是一个段子，如果他说我想考130分，那虽然是完全不可能实现的情况，但我感觉他是一个有梦想的人，我愿意教他。当他不断的每天向130分发起冲击，即使是失败了，继续努力的时候，我知道这个孩子的未来是不可限量的。左岸记：梦想是在前进的道路上你能感到永久的幸福。幸福是做自己喜欢的事并有选择的权力，而不用为了现实的残酷失去后退的余地。再通俗一点就在，对梦想有一种永久性的痴迷，在那个领域想懂得一切，因为自己足够爱，舍得所有。原文链接：http://www.zreading.cn/archives/5095.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>
