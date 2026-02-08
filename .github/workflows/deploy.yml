@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 如默认分支为 master 或其他，请修改此处
+
+permissions:
+  contents: write  # 推送到 gh-pages 分支需要写权限
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      # 如果没有构建过程，可以去掉 Node.js 与构建步骤
+      # - name: Set up Node.js (如需 Node 环境)
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '16'
+      # - name: Build project (如有构建过程)
+      #   run: |
+      #     npm install
+      #     npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # 如果你的站点在根目录使用 index.html（并包含下载资源），推荐发布整个仓库目录
+          publish_dir: ./
+          # 若你希望只发布 docs 目录，请改为：publish_dir: ./docs
+
+      - name: Clean up
+        run: echo "Clean up"
