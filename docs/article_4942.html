@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当我们迷茫的时候，总希望一个转折能彻底改变生活</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>当我们迷茫的时候，总希望一个转折能彻底改变生活</h1>
+            <div class="date">2026-02-09 11:07:35</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/立夏 1.《寻梦环游记》有这一幕，米格偷偷跑进德拉库斯的灵堂去拿他的吉他，此处有两个细节，地上铺满了亡灵回家要踩的树叶，米格爬上棺木时碰开一个缝隙。此时的配乐十分低沉，带着些许吓人的安静，当时我想故事会怎么继续下去？歌神会穿越到人间，突然站在米格面前，帮助他在比赛中获胜并且赢得家人的认可？可是画风一转，穿越的那个角色是米格，是人类的男孩穿越进亡灵世界。这个反转让我始料未及，所以看到画面中绚丽多彩的亡灵世界时，我被震住了。</p>
+<p>多么强大的奇妙的想象力，太精彩了！我看这一幕的时候想起来自己曾有过的一些想法，遇到困难的时候、生活不如意的时候，真恨不得突然发生一些事把自己带离现实世界，等回来的时候一切恢复正常；或者突然出现一个人、发生一个转折，生活从此大不相同。不知道这是不是懦弱的想法，但是当自己很无力的时候，确实需要一种辅助力量，现实中找不到，就想从未知中获取。然而真实的情况却是，人生没有如果或者但是，只有继续、继续、继续。2.前天，大学睡在我上铺的姐妹突然发微信问我考公务员的事，我们就此谈论了很长时间。</p>
+<p>全职妈妈的她想重新开始工作，却找不到方向和目标。我理解她的焦虑和苦恼，全职妈妈想踏入职场，其实和我想转换职业一样，都有最开始的阵痛期。她苦于找不到合适的工作，我苦于没机会做自己感兴趣的职业，一样都有烦恼。她在大学刚毕业时就结婚生子，当时对我的冲击特别大。我觉得自己压根不知道生活是什么样子，怎么去面对社会，她就敢扛起家庭这个责任，真的太勇敢了。</p>
+<p>她说其实有第一个孩子的时候也很纠结，那时候日记本上写着：“我一直觉得有了孩子，我就是个完整的女人了，但就在我的人生仓促地走向完整的时候，我却带着些许遗憾来接受这个事实。”（我觉得她这段话写得特别好，我想每个人都有这样的时刻吧）对比她怀孕的时候，正是我努力奋战考公的日子，那是一段我此生难忘的岁月。压力特别大，每天都是一边哭一边看书，看着看着眼泪就滴在了书上。无处诉说的焦虑、痛苦的迷茫，唯一能做的就是等待，等待生活出现一个拐点。我想我和她在同样的时间里，其实经历着同样的抉择和折磨。</p>
+<p>接着我就开始上班了，她就迎来了自己的小生命；我努力适应工作环境，她努力学做一个母亲。那段日子我们联系的很少很少，彼此都不知道对方在经历什么。但是现在来看，我的工作和她的孩子，就是我们生活的重大转折。我渴望通过工作获得独立和自由，她渴望通过爱情家庭获得温暖和稳定。我们都做着自己的选择，自以为是瞬间的变革，其实却是一秒一秒的时间累积。</p>
+<p>3.两周前回家我照例去看心爱的小表妹，在她妈妈的办公室，小姑一边抄着笔记一边跟我聊天，她说你看这样的工作多好啊，有事的时候忙一忙，没事自己想干嘛干嘛，工资按月照发，风雨不侵，你好好珍惜吧。我说不是啊，有的人就不想坐办公室呢，就想去闯一闯呢。她说出去做事哪有那么容易的，做生意多累，还会赔，公司里不安稳还有风险，我就觉得这样的日子很好！我无言以对，猛然间意识到原来人与人真的不同，没办法去说服别人接受自己的价值观。有的人就觉得拿着几千块钱的工资不旅游不进修安稳到老就是最好的生活，有的人就是贼心不死的想去看看外面的世界。</p>
+<p>对追求安稳的人来说，最大的折磨不是生活的拮据，而是平静生活中发生的巨大变故，这些挑战着他的既有生活规律，逼迫他去解决不想面对的问题；而对于充满好奇心的人来说，最大的折磨是生活的单一和未来的一望到底，平静使他没有机会去接触挑战。我想不管哪种人，都有迷茫的时候，都希望一夜之间到达理想的那一步。但是生活从来都没有心情和你玩戏剧化，变化对前者来说可能是苦恼，对后者来说也许就是无措。无论哪一种，大家都在时间中煎熬。4.上学的时候写作文，我特别喜欢用“人生如白驹之过隙，忽然而已”这句话。</p>
+<p>每次写的时候都感觉能穿越时光，去遇到未来的自己，我非常喜欢那时候充满着希望和力量的自己。就是这些不死的贼心，让我自顾自的折腾，总觉得还不够、还不行，想要的还有很多很多，想走的还太远太远，想遇见的转折还没遇见。骑着白驹穿越时空的间隙，是想象中才有的梦幻；生活的大河一望无垠，滔滔不息，从来没有为谁停留。我看历史书的时候，会感觉就像小时候仰望满天闪耀的星河，时间被拉长再拉长。我们经历的漫长生命，真的就是历史的一瞬，漫长和瞬间重叠，有时候会有偶然的顿悟，大部分时间是重复的追索。</p>
+<p>生命中布满迷雾的森林，什么时候走进去的、走多深了，什么时候能走出来、还要走多远，没有人知道，也没有向导。摸着石头过河吧，每个人都是第一次经历生命。当我们迷茫的时候，到底会出现什么转折能彻底改变生活，只有走过去，回头才能看见啊。加油，希望每个人都能好好的。左岸记： 与其等待奇迹，不如脚踏实地地去创造可能，没有谁是谁的救世主，要说在关键时刻有谁能帮自己，那都是平时积累下来的人脉、人品。</p>
+<p>知道要靠自己，就不会去赌运气，不会将希望寄托在别人身上，这样做的好处就是不会轻易是将自己的人生交出去，而是牢牢掌握在了自己的手中。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>只 “剩”这件事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>只 “剩”这件事</h1>
+            <div class="date">2026-02-09 10:00:49</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>&lt;p id="filepos1740302" class="calibre_"&gt;&lt;span class="calibre1"&gt;&lt;span class="bold"&gt;只 “剩”这件事 &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;文/奶茶不太甜&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;“你不是说主任让写假期见闻？你咋还不写？”老妈觉得主任和老师一样，说的话都是圣旨。&lt;/p&gt;&lt;p class="calibre_"&gt;哪怕完成的不好，也不能抗旨啊。&lt;/p&gt;&lt;p class="calibre_"&gt;可是每天都窝在家里看电视、吃饭、睡觉，都不知道今天初几的我确实没有什么新鲜见闻。&lt;/p&gt;&lt;p class="calibre_"&gt;“要不你写写我吧？”老妈一脸坏笑。&lt;/p&gt;&lt;p class="calibre_"&gt;“可是，你也没干什么惊天动地的事情呀，除了做饭、吃饭、睡觉、遛狗、走亲戚，说我、嫌弃我、鄙视我、恨我，好像也没干什么美女救英雄的大事儿啊。”&lt;/p&gt;&lt;p class="calibre_"&gt;“总比你强啊，你这么大了，比二右（小侄女，一岁）还不让人省心，你觉得你以后跟婆婆一起住，人家能忍受吗？你觉得你这么大年纪不结婚，你想干啥？你到底想干啥么?"老妈的语速越来越快，语气越来越严厉，刚刚还万里晴空的脸一会儿就乌云密布了。尤其说到最后一句，她特迅速、超敏捷的甩开手中的拖把，哐当关上了卧室的门，一声巨响。&lt;/p&gt;&lt;p class="calibre_"&gt;连我家小狗皮皮都低了头，缩了脑袋。&lt;/p&gt;&lt;p class="calibre_"&gt;一片乌云来， 一阵风儿刮，眼看着家里就要把雨下，躲也没处躲，藏也没处藏，心里默默地唱起“回娘家”的我，一直以来的拖延症被瞬间治愈，顽疾还得猛剂啊，睡意全无，以超级快的速度穿好衣服，梳好头发，轻轻打开又悄悄关上门，没办法，一屋子狼藉实在不敢见人。&lt;/p&gt;&lt;p class="calibre_"&gt;“好了，吃饭吧，我也不想说你，我根本管不了你么。”这句话最近出现的频率越来越高，老妈的内心被我无意中伤害了多少次啊。&lt;/p&gt;&lt;p class="calibre_"&gt;“哦。”&lt;/p&gt;&lt;p class="calibre_"&gt;“哦啥呢哦？你根本就不知道这个事情的严重性，简单的举个例子，你说，中午十二点的菜就算再好，还有人买么？没有了。最后那可不得便宜处理了。”这就是老妈的菜市场理论，再好的菜过了时候，没人买啊，反过来，过了时候的菜能好到哪去啊？老妈一定会非常戳心地加一句，你看你，现在可不年轻了啊，你能跟人家现在的大学生比吗？不能啊。上次我从科大门口过，人家那女娃一脸的稚气，你看你，眼袋多重啊，我都看见你的皱纹了，还不止一条啊。&lt;/p&gt;&lt;p class="calibre_"&gt;额，这是实话实说、有一说一的节目现场吗？关键是一人独挑大梁啊，老妈这个主持人直接把节目玩转了。作为访谈嘉宾的我，其实是没有发言权的。节目最后，老妈一定会说一句：“我不是跟你开玩笑。“好吧，你伤害了我，还一笑而过......&lt;/p&gt;&lt;p class="calibre_"&gt;那就只好我吃我的，你说你的。老妈幼稚啊，把好吃的菜都挪到自己那一边，  “有本事你别在我家呆啊？有本事你结婚啊？”&lt;/p&gt;&lt;p class="calibre_"&gt;额，这顿饭吃的真糟心啊。&lt;/p&gt;&lt;p class="calibre_"&gt;上帝为你关上一扇门的同时，一定会为你打开一扇窗户，哈哈哈哈，手机响了，是小曹同学发来的黛西游泳视频。黛西圆嘟嘟，胖乎乎，脖子上套着游泳圈，胳膊和腿在水里来回扑腾，脸上一副又无辜又纠结的表情，眉毛挤在一起，太可爱了。&lt;/p&gt;&lt;p class="calibre_"&gt;”让程奶奶看下黛西么。“小曹就是这种什么快乐都愿意和闺蜜一起分享的小朋友。&lt;/p&gt;&lt;p class="calibre_"&gt;“妈，快看一下。”我把手机递过去，缓和一下气氛，毕竟下午、明天以及很多个周末还是要回家吃饭滴。&lt;/p&gt;&lt;p class="calibre_"&gt;“CL她娃看起来可爱很，身体美得很。”望着黛西，老妈一脸慈爱，嘴角还有了笑意。&lt;/p&gt;&lt;p class="calibre_"&gt;不过，接下来的这句话令我瞬间石化了。“CL结了婚又有了娃，人生也算完美了。”&lt;/p&gt;&lt;p class="calibre_"&gt;哎呦，我的人生居然在不知不觉中残缺了，你说当初我为什么就不自私一点，独享这份快乐呢？咋就看了一下黛西，我妈就悟出了这么一个艰深难懂的人生道理捏？&lt;/p&gt;&lt;p class="calibre_"&gt;怎么才能让我妈走出这个“被剩就不能得到幸福”的心理阴影呢？&lt;/p&gt;&lt;p class="calibre_"&gt;想了很久才想起“剩者为王”里舒淇爸爸说过的话，必须用别人的父母来教育自己的父母。这叫以其人之道，还至其人之身，因为我们的父母总是用别人的小孩教育自己的小孩。小时候总是说你看人家小孩比你学习好，比你讲卫生，比你听话，比你勤快，你要向人家学习呢；长大就说，你看人家小孩比你毕业早，比你工作好，比你结婚快，比你生娃早，你这辈子都赶不上别人咧；可是，我们从来都没说过，人家父母比你长得好，比你身材棒，比你结婚早，要不同班同学的父母怎么比你年轻啊。嘿嘿，我为自己被老妈逼得偶尔增高的智商而感到小小的激动。&lt;/p&gt;&lt;p class="calibre_"&gt;“妈，快过来，给你看个搞笑视频。”&lt;/p&gt;&lt;p class="calibre_"&gt;“不来，搞啥笑呢，有啥好笑的，你都不结婚，我有啥高兴的事情值得笑呢？”&lt;/p&gt;&lt;p class="calibre_"&gt;额，引诱失败，还无意中又一次点燃了了内心的愤怒之火，只有走下策了，把视频声音放大，让我妈在潜移默化中接受再教育。&lt;/p&gt;&lt;p class="calibre_"&gt;“只要她认定了，我就会陪着她，如果她忍着不哭，我会烧一桌好吃的给她吃。她不应该为父母亲结婚，她不应该在外面听什么疯言疯语听多了就想着要结婚。她应该想着跟自己喜欢的人，白头偕老地......"舒淇爸爸眼眶含泪，看得我黯然神伤了。对于我们这种被嫌弃惯了的人，这种话太特么窝心了。&lt;/p&gt;&lt;p class="calibre_"&gt;“妈，你看看人家爸妈，没有该结婚的年龄，只有该结婚的感情啊。”&lt;/p&gt;&lt;p class="calibre_"&gt;“看啥看呢，我都给你做了多少次好吃的了，也没见你良心发现啊？（这个点，我也是醉了）你现在已经傻了，整天活在电视电影里，快醒来吧。再说这娃他妈也没那样说啊，她妈要是那样说了，我或者还能受点启发。她妈妈呢？“我妈一脸认真，一语中的。&lt;/p&gt;&lt;p class="calibre_"&gt;额，目瞪口呆。我能告诉您，她妈已经老年痴呆了吗？&lt;/p&gt;&lt;p class="calibre_"&gt;我不敢啊，您那脑洞大开的丰富想象力一定会狠狠地置我于万劫不复之地啊。&lt;/p&gt;&lt;p class="calibre_"&gt;我错了，在您眼里，作为一个混吃混喝的剩斗士，我说什么做什么、不说什么不做什么都能让您绕到结婚这一件事情上，就连让您换个牙刷，您都说我不找男朋友，您就不换。分分钟僵化的节奏......相处了这么多年，现在才发现您竟然如此深藏不露，逻辑思辨能力和推理能力简直逆天啊。&lt;/p&gt;&lt;p class="calibre_"&gt;我只能说，亲爱的husband，你是迷路了吗？就算是西天取经，走了二十几年，也该到了吧。&lt;/p&gt;&lt;p class="calibre_"&gt;这里有一个比我更想见你的人哟。&lt;/p&gt;&lt;p class="calibre_"&gt;当然，我也很想见你，在上帝那里分开的时候，还是没睁开眼睛的小屁孩儿，这么多年过去，不知道你吃的好不好？长得高不高？会不会也有别人所说的似曾相识的感觉呢？&lt;/p&gt;&lt;p class="calibre_"&gt;好久不见啊。&lt;/p&gt;&lt;p class="calibre_"&gt;还有我一直在这里等你，从没想过放弃。特别想像舒淇爸爸说的那样，领你到我妈面前，骄傲地告诉她，我赢了，这就是我要嫁的人。&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;&lt;span class="calibre_2"&gt;左岸记：&lt;/span&gt;&lt;/span&gt;&lt;span class="calibre_2"&gt;真是非常幽默的文章，嬉笑怒骂，皆成文章。父母最不能干的事有三件，逼着学，逼着嫁，逼着人家要孩子，应该鼓励去学，相信孩子，尊重孩子。找到门路孩子不用扬鞭自奋蹄，遇到的对的人谁会放过Ta呢？父母应该是孩子人生的后花园，只要看着孩子能独立、快乐、自在选择，那么还有什么可担心的呢？&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:0pt"&gt; &lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

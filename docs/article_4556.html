@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事无所祈 不忘初心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>事无所祈 不忘初心</h1>
+            <div class="date">2026-02-09 11:07:02</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜 看过《澜本嫁衣》之后，再看《大地之灯》，就好像经历过凛冽冬日的彻骨荒凉之后，重新遇见三月暖阳，仍旧不舍生机盎然的世界。简生出生在寒冷的东北林区一个荒僻的林场，父母都是下乡知青，拥有他时，父亲已经从清朗干净的吹箫少年变成满腔愤懑的怨夫，母亲也从未喑世事的少女蜕变成哀叹生活的少妇。荒凉的东北，向来不是父母安心生活的地方。父亲谎称有病，获得了回城的资格，便拉着母亲一起，在临上车前，狠心的将尚在襁褓中的简生扔在了人潮拥挤的车站。就这样，简生被一生未嫁的东北老太太收养，在七岁以前，婆孙两人相依为命，在晴朗的夏夜，一起坐在门前的花园里乘凉，捡起从银河坠落的星光，活得简单惬意。</p>
+<p>可母亲突然闯入，把简生带到了城市，主观上，她是想要弥补多年缺失的母爱，客观上，已经事业有成的母亲，有了物质能力塑造简生的人生。可母亲忘了问简生的意见，而是自作主张安排儿子的人生。不擅言谈的简生，明明喜欢画画，可母亲执意替他报钢琴课和各类补习班，无论生活还是学习上，母子二人的分歧和斗争从未间断，母亲觉得良苦用心被误解，简生亦觉得家庭生活充满压抑，至母亲发现简生喜欢上美术老师，恶言相向，简生以死相迫，母子关系降至冰点。从医院出来之后，简生住进了美术老师家里，老师以长辈的姿态，给予他诸多关怀与照顾，从学业到生活，无微不至，两人并未逾矩。之后，简生顺利考入美术类高级学府，留学娶妻，收养藏族孤女，举办巡回画展，人生这一路的繁华盛景，老师并未参与，实际上两人已失去联系多年。</p>
+<p>多年后，两人再次相遇时，简生得知，老师离婚之后生了重病，生活艰难，尽管对妻子诸多不舍不忍，他还是决定回到老师身边照顾，直到老师离开。短短的二十几年，简生经历了被遗弃、从农村到城市的孤寂，母亲自杀等诸多伤心之事，但他选择淡化这些，记住老师给过的光亮。书的最后这样写：经历一些静水流深之事，缓缓地在生命的荒原上陷入时间的流沙，万劫不复直至窒息，一种圆满而洁净的救赎，列车上，简生在疲乏与嘈杂中黯然入睡，再也没有梦靥，再也没有不甘，但他依旧想念老师。书里还有一条线，是简生收养的藏族孤女卡桑的出走与回归。看书评时，很多人都说，这是一个不断找寻最终回归的故事。</p>
+<p>我倒更愿意把它理解为，不断经历摧毁，又反复心理重建的故事，所幸的是，简生初心未改。人们在不断的经历中，样貌、心态都会改变，这本是一件无可厚非的事情，但改变不应成为世故且凉薄、极端自私且急功近利的“替罪羊”。常常听到这样的说法：如果不是经历太多不公，就不会变的这么充满戾气且自私自利，毫无羞愧。就这么简单的将自身的变化，全都归因于外部世界。真如这样，何必谈初心？</p>
+<p>一如简生，即便过早体会世间冷暖、人情凉薄，还是长成了心智健全、温暖宽容的人，没有将生活里遇到的苦楚不公锐化为对抗世界的满腔愁怨和愤恨，没有趁着年轻便可犯错的叛逆心态蹉跎人生，误把荒废当潇洒。相反他说，回忆经过时间的酝酿，散发光彩，苦难竟也变得面目和善。记得知乎上，对“生命是积累苦痛的巡礼”这句话这样解答：“巡礼”是圣徒跋涉的艰辛，也是信念的辉煌灿烂，对着名为希望的绝望展露微笑，即为生命的巡礼。而知乎上对不公这样回答：与其花费时间抱怨不公，不如把时间用在争取不公平的机会上，要努力。想来，这么多年的成长之路，一个人身上总会有很多标记，却又不停转移，如同季节轮换，看起来周而复始，其实一春有一春的花，凋零和生长层层累积成现在的样子。</p>
+<p>在时间长廊里，每个路口停步的你，无数的你，贯穿到尾声，故事像潮水般传递，最后一朵浪，应当依然带着第一朵的推力，事无所祈，不忘初心。就像后记里所写：“也许忧伤并不可耻，但我们需要重新诚恳地看待它，并且从那些析出的沉淀中找出另一些更有意义的获得，并且将这些获得意义铭记，将剩下的忘却，或者原谅。在这样的过程中去成长，而且感恩。”愿我们拥有海风习习潮来夕往的未来。左岸记： 人生皆苦，不觉得苦那是因为觉得值得。</p>
+<p>事无所祈，心有坚毅，才能战胜命运之苦，获得快乐。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

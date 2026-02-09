@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>假如时间可以追赶</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>假如时间可以追赶</h1>
+            <div class="date">2026-02-09 11:07:37</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/谢慧敏 我的人生，大部分都是在浪费时间。&lt;br&gt; &lt;br&gt; 曾经有一则事例让我发笑不己：一位科学家，也是个球迷，在足球赛期间，既想看比赛又舍不得费时，于是他想了一个点子，一面看电视一面剥粟子，电视看完了，无用的粟子也被剥了一堆，他心安了，仿佛时间被揪回来了。我没有理由不发笑，多大的事，不就时间，它们对于我，就好比金钱对于王思聪，多得数不完。没有不够用的困扰，只有花不完的烦恼。通宵追剧、整日打牌、睡到日上三杆那是家常便饭。</p>
+<p>在暑假期间，它更是一桩负担，出行、泡网、逛店犹不足以排遣。时间就像韭菜，割掉一茬，又长出一茬，无休止到令人生厌。我这个败家子，终日为如何消磨而发愁。挥霍不掉的，成为过期电影票。你不得不承认，年龄是一道切割线，它把人生分为上下半场。</p>
+<p>当下半场逼近时，你发现，它是与上半场截然不同的风景。很多是问题的不再是问题，很多不是问题的摆在了你面前。你突然就觉得时间金贵起来，以前被你推开的那个缠人的孩子，一夜之间，长成了大人，轮到你千方百计地挽留他。如今，科学家被奉为楷模。我一边收拾餐桌，一边把眼睛瞄向电视里的新闻联播。</p>
+<p>刚从书桌上立起来，转身又趴在地上，一把一把地抹起地板，活络筋骨和尽主妇职责可以兼得。在出差的行礼箱上，总不忘塞上一两本书，以此抵抗候车室动车上让人难以忍受的虚耗。家里洗碗机、洗衣机一应俱全，因为懒，更因为不愿把时间投放在无休止的重复劳动上。富兰克林说：时间是组成生命的材料。&lt;br&gt; &lt;br&gt; 时间和生命划上等号。</p>
+<p>人生太短，世界太大。于是我成了精打细算的主妇，自然地做起了“加减”工作。首先是减法。&lt;br&gt; &lt;br&gt; &lt;br&gt; &lt;br&gt; 朋友圈的半径收缩了。点头之交、泛泛之交被删除了。</p>
+<p>古语说“多一个朋友多一条路”，我认为“多一个朋友多一份精力”也很正确。友谊之花需要情感精心浇灌。成年后的朋友，亦如人生知己，可遇不可求。与其把时间虚掷在空中楼阁上，不如把精力投放在知心朋友上。应酬裁减了。</p>
+<p>确切地说，几乎没有。三五成群去烧烤，呼朋唤友吃龙虾，隔三差五农家乐，这类抱团取暖打发空洞光阴的消遣几近绝迹。乌合而来的朋友，获得的烦恼可能大于真趣。风流云散以后，终究是桥归桥、路归路。许多嗜好被割舍了。</p>
+<p>比如追剧，比如打牌。偶尔也会以此取乐，作为裨益身心的调节剂。但长期沉湎于此道，把它变为生活方式，得到的不是由衷的快乐，而是短暂刺激后的空虚。也有很多方面做起了“加法”。学习的份量被加重了。</p>
+<p>更多的时间用来看书。没有什么比书本更让人沉迷的了，没有什么乐趣大于思维的乐趣。这是睁眼看世界的一个很好方式。出生时是一张白纸，去世时还是懵懂无知，是一件挺对不起自己的事情。打开书本，也就握上了突破时空的金钥匙。</p>
+<p>历史在你面前回放，真相在你面前呈现，世界在你面前敞开，足不出户遍行天下，身无异能穿越古今。或许世界太复杂，你终究难以洞穿，但它让你走出了偏执和狭隘。更愿意与亲人相处。这个世界很热闹也很荒芜，热闹难以遮掩荒芜，唯有真爱可以击穿荒芜的硬壳。假如他人微不足道的友情都可以成为沙漠中一片的绿洲，亲人无私的关怀便是你生命驰骋的原野。</p>
+<p>在这个世界，支撑着你走得更远、活得更好的，是你身边的亲人。旅行多起来了。“纸上得来终觉浅，觉知此事要躬行”。其实纸上得来的不一定肤浅，学问家大多时间埋头书斋。躬行此事也不一定深刻，单纯经验不一定让你成为智者。</p>
+<p>但是两者结合，肯定是最完美的体验。我愿意把更多的时间用在行走上，走得更多，也走得更远。努力培养兴趣爱好。书画等艺术固然不能带给我美好前程和更多钱财，但是“美”所馈赠的精神愉悦，足以让人摆脱时间的空洞，抵御识智的贫乏和消除趣味的低俗。这是高官厚禄所不能替代的，也让孤独成为一种享受。</p>
+<p>能被删除的，都不是生命的重心，留下来并加重份量的，才是人生的主旋律。一天二十四小时、一年十二个月被切割成一份份。像幼儿圆保育员那样分起了蛋糕，这块归工作，那块归学习，早上归锻炼，晚上归学书……，无奈蛋糕太小，孩子又太多了。一望无际的兴趣又让我陷于烦恼。因此，每当经过街角看到棋牌室里用麻将打发时间的人，玻璃窗内茶吧里发呆的人，用手机玩王者荣耀的人，我总会想，要是世界上有购买时间这回事，那有多好，这样肯定是皆大欢喜，买者固然情愿掏钱，卖者也不会犹豫，那是帮助他们摆脱空虚无聊人生的良法。</p>
+<p>我还希望，可以向自己的过去购买，人生的键盘应该装有“后悔键”，按下按扭，时光倒转，那些像废票一样被虚掷的光阴一点点地被赎回。左岸记： 时间是掌握在每个人手中最客观的现实，人的价值在时间里被创造出来，或如涓涓细流，或惊涛骇浪，但无论是什么，都要有不同的精彩，充满丰盈和欢乐。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

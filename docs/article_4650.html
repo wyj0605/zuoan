@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三分之二的美好</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>三分之二的美好</h1>
+            <div class="date">2026-02-09 11:07:11</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/一小点 “月盈则亏，水满则溢”，&lt;br&gt; &lt;br&gt; 是形容事物盛极则衰的一种状态。&lt;br&gt; &lt;br&gt; 这句话的道理凭着字面意思也能简单理解，&lt;br&gt; &lt;br&gt; 可真正能做到的人却又有多少。&lt;br&gt; &lt;br&gt; 尤其涉及到情感问题，&lt;br&gt; &lt;br&gt; 我们总是想第一时间拿出自己的一腔热血和满满诚恳，&lt;br&gt; &lt;br&gt; 因为情感的付出本就是件让施予者有满足感，&lt;br&gt; &lt;br&gt; 让受予者有幸福感的事。&lt;br&gt; &lt;br&gt; 夸张地说，这世上最难掌握份与量的，怕就是“情”字。在与人相处的过程中，&lt;br&gt; &lt;br&gt; 无论两个人基于哪种情感，&lt;br&gt; &lt;br&gt; 不可避免的总会有一方付出较另一方多，&lt;br&gt; &lt;br&gt; 哪怕所差无几，&lt;br&gt; &lt;br&gt; 如若较真起来，&lt;br&gt; &lt;br&gt; 这“无几”之差也会显得格外扎眼。</p>
+<p>&lt;br&gt; &lt;br&gt; 你知也好，&lt;br&gt; &lt;br&gt; 不知也罢，&lt;br&gt; &lt;br&gt; 倘若我们要的就只是这份纯粹的感情，&lt;br&gt; &lt;br&gt; 就不要再去计较所谓的多少得失，&lt;br&gt; &lt;br&gt; 公平与否其实在你一开始的前赴后继中就已经失去了发言权，&lt;br&gt; &lt;br&gt; 同时你也应该清楚并不是所有人都有办法很好的回应你的欢喜热烈。&lt;br&gt; &lt;br&gt; 当你的期待一次次落空的时候，&lt;br&gt; &lt;br&gt; 是不是也应该冷静的思考一下，&lt;br&gt; &lt;br&gt; 并不都是别人的错，&lt;br&gt; &lt;br&gt; 是否应该尝试着让自己炽热的“情感烙铁”逐渐冷却下来，&lt;br&gt; &lt;br&gt; 让每段感情都有所留白。&lt;br&gt; &lt;br&gt; 好比一张被彩笔画的满满当当的纸，&lt;br&gt; &lt;br&gt; 很少有人再想去看看细节的勾勒、色彩的搭配，&lt;br&gt; &lt;br&gt; 更多的是抽出一张崭新的白纸，&lt;br&gt; &lt;br&gt; 再开始自己的新的天马行空。所有你眼中的完美都是在一定的认可度上建立的，&lt;br&gt; &lt;br&gt; 你的“完美”在他人那里或许就只是应当，&lt;br&gt; &lt;br&gt; 不要怀疑“在你那里那么宝贝的东西怎么在他那里就一钱不值了”，&lt;br&gt; &lt;br&gt; 毕竟价值观因人而异。&lt;br&gt; &lt;br&gt; 所以之后每当你着手于一件事儿或者开展一段新感情的时候，&lt;br&gt; &lt;br&gt; 不要以做到完美要求自己，&lt;br&gt; &lt;br&gt; 只要尽善尽美，问心无愧就好，&lt;br&gt; &lt;br&gt; 对你不会造成太大伤害，&lt;br&gt; &lt;br&gt; 对别人也不会造成不必要的压力。</p>
+<p>其实凡事行进最好的状态是细水长流。&lt;br&gt; &lt;br&gt; 给它以足够的时间和空间沉淀、过滤，&lt;br&gt; &lt;br&gt; 它才会变得透彻、明亮、欢快。&lt;br&gt; &lt;br&gt; 我们需要不断的告诫自己，&lt;br&gt; &lt;br&gt; 永远不要将自己的热情一股脑的在一件事或一个人身上耗尽，&lt;br&gt; &lt;br&gt; 当你的疲惫感和失落感累积到一个峰值的时候，&lt;br&gt; &lt;br&gt; 定会造成一些负面情绪，糟糕的状况自然也会接踵而至，由此形成恶性循环，&lt;br&gt; &lt;br&gt; 结果往往是伤人伤己得不偿失。&lt;br&gt; &lt;br&gt; 当然，&lt;br&gt; &lt;br&gt; 这样说并不是让我们刻意的去克制自己“爱”的能力，&lt;br&gt; &lt;br&gt; 我们一样要阳光热烈的生活，&lt;br&gt; &lt;br&gt; 用最高质量的“爱”对生活、对他人、对自己，&lt;br&gt; &lt;br&gt; 只是不要忘了控制这份爱的力度，&lt;br&gt; &lt;br&gt; 保持三分之二的美好，&lt;br&gt; &lt;br&gt; 你的爱才会被认真对待，&lt;br&gt; &lt;br&gt; 未来的更多美好才有地可盛。左岸记： 只要知道一切都无法圆满，就能轻易接受那正适合的美好。</p>
+<p>为什么要留有余地，那不只是留给自己的，更是让给彼此的空间和信任。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

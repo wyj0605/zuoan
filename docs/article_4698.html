@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间是水壶， 经历是水杯， 幸福是杯里的白开水</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>时间是水壶， 经历是水杯， 幸福是杯里的白开水</h1>
+            <div class="date">2026-02-09 11:07:15</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>作者：符毅 1 昨天读书分享会，我问大家，什么是幸福？书友说，关于幸福，我有些迷茫；书友说，幸福是做自己喜欢的事；书友说，幸福是从不同的角度看事情。每个人对幸福都有自己的理解，幸福没有标准答案，每个人都以自己的方式在寻找幸福。对于沙漠中的行者来说，有口水喝就是幸福；对于路口的乞丐，有顿饱饭就是幸福；对于监狱里的囚徒，自由就是幸福；对于病榻上的患者，健康就是幸福；对于战乱中的人民，和平就是幸福；对于垂死的老人，活着就是幸福。我们有水喝，有饱饭吃，拥有自由和健康。</p>
+<p>我们生活在和平的国度，我们活着。我们同时拥有这一切，我们幸福吗？2 我不幸福。六月初省图举办唐卡展，创作者嘎藏加措大师到了现场。我向他问惑。</p>
+<p>“大师，我拥有很多，可是我不幸福。”“你只顾着往前看，忽略了身边的温暖。”我环顾左右…“我没有看到。”“你走得太快了。” 3 我试着放慢了脚步…我看到，幸福都很小。</p>
+<p>一个一个的。幸福是，分享，分享一份食物，一个笑话，一张图片，还有…幸福是，两个人撑伞，互看，吹耳朵。是你右手牵我左手。幸福是惊喜，是单膝下跪，是在转角处遇见。是假装不记得，却偷偷摸摸筹备了好久。</p>
+<p>是书里掉出书签钱。是闹钟响，好困。蓦然想起是周六，又睡了。幸福是陪伴，是和你玩。是看你长大，是陪你变老。</p>
+<p>幸福是做了恶作剧，爸爸捏捏我小鼻子。是过完年，奶奶送呀送呀，一直说 “要回来，要回来。”身边好多平凡却温暖的小幸福，我们都收到了吗。4 与十年前相比，我们拥有更多的东西，但我们拥有更多的幸福了吗？有位朋友，很成功。</p>
+<p>打开窗就看到海，大大院子里大大的车…大大的幸福也在吗！宗萨仁波切说，通往幸福的路有两条。一条是实现了所有的愿望，一条是舍弃了所有的愿望。实际上，我们不可能实现了所有的愿望，也不可能舍弃了所有的愿望。或者说，我们不可能拥有完全的幸福，也不可能失去所有的幸福。</p>
+<p>幸福是相对的，所有的事情在一定程度上都是幸福。年轻时长青春痘，长痘痘无疑是痛苦的，挤痘痘却可以带来快感。如果长了满脸的青春痘，挤青春痘便不再快乐。而且每一个人都明了，没有一个人会为了挤痘痘的快乐，喜欢自己长青春痘。完美也是相对的。</p>
+<p>我认识几位书友，很优秀，可是单身。有一个大哥，在西藏边防部队呆了六年，经历过生死考验。我问他，为什么现在这么多剩男剩女。他笑了笑， “世界是不完美的，你们却要在这世界找一个完美的人”。5 我们已经拥有很多，我们还要更多。</p>
+<p>有一种能力，叫觉知力。觉知力的缺失让我们渐渐失去了判断，拥有多少都觉得不够。那种不够的感觉，是不幸福的根源。还有一种能力，叫正念，我们也失去了。前天，我一边看手机一边吃苹果。</p>
+<p>我爸说，你能不能放下手机，专心做一件事。我拿着手机，塞着耳机，咬着东西，看着短视频，脑里盘算着一会的行程。于是我闭上眼睛，用心的咀嚼，感受它的水分，感受它的纤维，感受它通过喉咙…我感到一点小小幸福。6 幸福不分大小，回想起来，那一直让我们忘不掉的，都是最简单的快乐。既然忘不掉，那有永恒的幸福吗。</p>
+<p>我觉得没有。人生很奇妙，事情一直在变化，热恋时最甜蜜的瞬间，失恋后，也是回忆时最痛的那个点。到老了，再看人生，过往一切，都是淡然。时间是水壶，经历是水杯，幸福是杯里的白开水。你往里加点糖，它就甜了。</p>
+<p>你往里加点盐，它就咸了... 左岸记： 幸福无处不在，幸福就是你赋予生活的意义并把它实现出来；幸福不是永恒的，它是当下的一种感知，体现着你对自己所拥有的理解和对未来的把握。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

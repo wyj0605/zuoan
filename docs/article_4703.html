@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱，真的会让人发光</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>爱，真的会让人发光</h1>
+            <div class="date">2026-02-09 11:07:16</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜 黄昏，太阳还没落下去的时候，天边一圈红晕，好像整个小城的角角落落都被这自然的聚光灯点亮。曾经有很多个午后，我们皮皮都懒洋洋的趴在客厅的阳台上，欣赏着这一幕幕日落，眼睛都不带眨的。我妈坐在沙发上，望着皮皮的黑白斑点的背影，又跑到窗边，抬头看看有时候很蓝有时候又很灰的天空，低头望望院子里跑跑跳跳的孩子，匆匆忙忙的大人、步履蹒跚的老太太，没发现什么特别的风景，回头一脸认真地问我：“你说，皮皮脑子里在想些啥呀？”我还没来得及回答，她就摸着皮皮的头，得出一个结论，咱们皮皮估计是得了抑郁症。我正喝水，被这话笑的差点呛住。</p>
+<p>我妈却罗列出一堆证据，比如皮皮白天脾气暴躁，除了她之外，逮谁咬谁，虽然不是真咬，但还是成功引起了诸多人的讨厌；不爱出门，拽都拽不出去，但却喜欢趴在阳台上，一趴就是一个下午；不好好吃饭，吃什么都是先闻一阵子但只吃几口....。“要不是这样，你过来假装打我几下，看下皮皮有反应没？”在说完一长串问题之后，我妈竟然提出这么一个不知所谓的测试措施。“能不能不这么无聊？能玩个其他游戏不？</p>
+<p>要不好好看电视也行。”我抗议，可我妈坚持这是一项测试，不是玩。为了不引起其他不快，我只好妥协，懒洋洋地起身拍她肩膀两下，谁知我妈像戏精附身一样，演得跟真的一样，好像我真的虐待她，这成功地引起了皮皮的注意，它迅速跳下窗户，站到我们中间，对着我叫唤了半天。我妈坐在沙发上哈哈笑，然后拍着皮皮的头，叫它坐下，又说：“对了嘛，不开心的时候就是要发泄，不能总是憋着不说。”真是被笑死，可我妈说，皮皮一定能听懂她说的话，这个时候皮皮就趴在她脚下，歪着头看她，黑眼珠子滴溜滴溜地转，一副安静小奶狗的样子。</p>
+<p>其实大家都不喜欢皮皮，几乎每个人都能说出皮皮的几个缺点：比如，特别爱掉毛，弄得沙发上全是狗毛；不爱好和平，远远的看见小狗就大吼大叫，脾气一上来，见谁咬谁，搞得没人愿意带它出去；不尊重大家的劳动成果，好不容易洗了澡转身就去草坪里弄的满身是土……静若处子，动若疯子，动静转换之间没有过渡带，这一箩筐的缺点让大家对它喜爱不起来。唯独我妈，虽然嘴上总是应和着大家的话说，要把皮皮送人，可是下一秒就忙着给皮皮洗澡、做饭了。每次大家围攻皮皮的时候，她就会列举出皮皮一大堆优点：比如皮皮会自己上厕所，从来不在家里随地大小便（在外面另说）；每次想出去转的时候就使劲儿拽裤脚，多机灵的。最关键还知道挺身而出保护妈妈，在它以为别人要打妈妈的时候。她坚持，皮皮和人一样，有血有肉有感情。</p>
+<p>所以，在她认为皮皮有抑郁症症状的时候，就开始了一系列身心治疗方法：宁愿不逛超市也要带皮皮出去散心，拽都要拽出去；宁愿被溅一身水也要给皮皮洗澡吹风，（洗澡让人心情愉快，身体舒适）尤其是特别爱干净的她从来没有抱怨过皮皮到处乱飞的狗毛。皮皮不喜欢狗粮，就给它做饭，什么麻食、面糊之类的，看着皮皮把碗里的饭菜吃的干干净净，我妈才一脸放心。虽然我妈一直坚持，爱是最虚无缥缈的生活幻想，却一直在身体力行的实践着这样的幻想，最怕麻烦却又最放不下麻烦。记得前年冬天的一个晚上，皮皮出去上厕所，晚上十点都没有回家，我妈找遍了她能想到的每一个地方，始终找不到，就急哭了，还在心底设定了一万种皮皮可能会遇到的生活，如果皮皮被别人捡了，希望这个新主人对它好一点；可万一皮皮的新主人对它不好呢？皮皮脾气不好，估计得受罪了，越想越难过。</p>
+<p>这时候，门突然响了，皮皮在用手抓门，我妈特激动地跑去开门，又高兴又气愤地蹲下来把皮皮凶一顿，又继而捏捏它的尾巴，给它端来水和饭，催促着他快吃快吃，这大概就是又爱又恨吧。后来，皮皮走了，我妈每次提起都会掉眼泪，说以后再也不养狗了，可在大街上看见别人牵着黑白斑点的小狗，她又指着人家说，这个跟我们家皮皮挺像的，可是我们皮皮头上那个斑点比它小，爪子也是黑色的，还有，它没有我们皮皮好看。这就是我妈和皮皮的故事。都是细碎生活里的温馨日常，偶尔也有一两次，因为皮皮乱喊乱叫，我妈不得不给人赔礼道歉的烦心时候，但每次说起皮皮，我妈还是一脸光彩，紧锁的眉头都被笑容熨平，脸上的皱纹都舒展开来，后来很多个午后，我们一起安静的坐在小花园里，看夕阳渐渐染红整个天际，各自想着各自的心事。偶尔她会转过头来问我：“你猜我在想什么?”我说，想我怎么这么不听话呗。</p>
+<p>我妈说，是啊，你都没有皮皮听话，养狗比养娃容易，虽然感情投入差不多，但皮皮还会保护我嘞。你就只会气我。哈哈，我被这话说的无言以对。这个时候突然觉得自己很有福气，和皮皮共同拥有一个善良又可爱的妈，开始相信，爱真的会让人闪光，对万事万物存有善意，世界会变得光亮。左岸记： 喜欢这样温情的故事，人与动物之间建立的情感想来是更单纯的喜欢和爱，因为没有人与人之间的冲突，虽然动物也会给人们还来很多的麻烦，但都会被人们理所当然地接受，就像人们爱孩子一样。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

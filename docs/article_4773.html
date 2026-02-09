@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>颜值与言值</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>颜值与言值</h1>
+            <div class="date">2026-02-09 11:07:21</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/廖超国 每个人除了有三个“我”外，本我、自我、超我，其实还有两幅面孔。一幅外在的体态容貌，一幅内在的心灵长相。人的体态容貌，一眼就可以辨认出丑美，但心灵的长相如何则要通过观察其言行才可得知。人们常说“言为心声”就是这个意思。所以，人的两幅面孔，也可称之为颜值和言值。</p>
+<p>颜值，真正流行起来，得益于网络。它其实是一个流行的网络词汇。其起盛于北京卫视和能量传播联合推出的一档大型原创新锐语言竞技真人秀《我是演说家》节目，北大博士王帆在一期节目上，以此为题作了一个演讲，其后，颜值便流传开来，常见于人们的口头和笔端。颜值，是指颜容英俊或靓丽的数值，用来评价人物的容貌。言值，是一个臆想“批凑”的词汇，可理解为人之言语、建议所具备的隐形“价值”。</p>
+<p>通俗地讲，言值，就是一个人会说能说，说出的话，人家喜欢听，而且对听的人有用有效。言值本质上是一个人思想的外衣、心灵的名片、品格的标签。颜值，有具体可衡量的标准，可以测量和比较，甚至容易目测。颜值高、“颜值爆棚”者众人趋之若鹜，留下的往往是直接的感观印象，却难以揣摸其内心的真实。言值，目不所及以至于逆耳，其华丽和酷俊的外表下，潜藏的思考的空间，却具有巨大价值。</p>
+<p>环境对人的影响，首先是周围人语言价值的影响。语言价值其本质的表现就是言值。如果你非常幸运，天生一幅好容颜，长为男人，英俊潇洒似潘安，身为女人，美若天仙像西施，而且还慧心妙舌，满口生花，那真应该祝贺你，人好运佳，格外受到上天的眷顾，天然胜人一筹。但大多数普通人，就没有那么好的运气，来到这个世界时，就像被上帝咬过一口的苹果，总留着一些缺憾。在颜值和言值之间，难得两全其美。</p>
+<p>而无论古今，还是中外，爱美之心人皆有之，美是一种刚需，长得好看是传奇，长得不好看是遭遇。高颜值永远都是一张特别优待的通行证，人们对美者都不仅另眼相看，而且还另外相待，特别是当下更是一个看脸刷脸的时代，靓女帅男，格外招人待见。演员的名气和颜值决定着电影的票房，影响着电视剧的收视率。日常生活中，长得好看，会比一般人有更多的机遇，得到更多的赏识，觅对象、找工作、做业务都比他人容易。这种重外表轻内涵的风气误导很多年轻人把精力放在整容美容上，把心思花在穿衣打扮上，而不是潜下心来读书学习，注重自身言值的提升，许多年轻人由此走上岐途而悔恨。</p>
+<p>其实，颜值和言值，如果同时具有，那当然是天下最好的事，但若两者只能取其一，我以为言值对人生的影响更甚。高颜值的“空心花瓶”，观赏可以，但不实用，而且会遗误人生。通常的情况下，美貌既有天生优势，同时也藏着一时不易发现的劣势。因为长得好看，容易被追求得宠，过早恋爱而分心，难以专注于学习。因为年轻，因为自恋，以为美貌就是一切，不需要其他就可以过好一生。</p>
+<p>殊不知，青春易逝，美貌难留。花瓶只能是花瓶。当其明白，长得漂亮只能让人羡慕，活得漂亮才让人佩服的道理时，已为时晚矣。因为荒芜了青春，错过了最好的学习用功时期，人家对其的好感，却永远停留于始于颜值，陷于颜值，止于颜值，最后废于颜值。高颜值虽好，但没有谁能青春永驻。</p>
+<p>美貌是碗青春饭，青春饭只能吃一阵子，而不能管一辈子。就长远的看，人的命运更多地是由言值决定的，无论多么靓丽的颜值，都会随着青春岁月的逝去而消褪，而言值却会随着人生阅历的增加更加光彩照人。有一句话说得好，时间既是对美人最大的公正，更是对美人最大的残酷。无论多高的颜值都饶不过岁月，当日月沧桑了容貌，美颜逝去，留下悲凉的空叹，难道不是对美人最无情的残忍吗？而言值则是与颜值恰恰相反，它会随生活阅历的增加，人生进步的成熟而增长。</p>
+<p>言值表现为一种力量，它可以化解人外表上的误解而造成的人与人之间的纠结。一个人的言值，既是他智慧和内涵的外在凸显，更是其个人综合素质的体现。言值高的人，人们无法忽视他的存在，因为他总是能迅速抓住别人的注意力，通过说服而借力，从而达到自己的目的。言值是一种积蓄的力量。语言是上帝赐于人类最高奖赏。</p>
+<p>因为有了语言，人类才有了真正的思考，人与人之间也才有了真正的交流。正如法国作家莫里哀所说“语言是赐于人类表达思想的工具”。一个人从生下来的呀呀学语，到最后比较熟练地掌握和运用语言，是一个不断学习、积累、提高的过程。言值的提升本质上是思想的提升。思想的提升会积蓄改变人生的力量。</p>
+<p>言值是一种思想的力量 。语言是灵魂的外衣，是思想的化身，如英国生物化学家马·霍普金斯所言“语言是思想的图像和反映”。一个人只有想清楚才能说明白，思路不清的人不可能有清晰的表达。于己，昏昏噩噩，于人，糊糊涂涂。这样的人，谈何言值。</p>
+<p>一个人的言值，某种意义上代表着思想的价值。因为，作为一个人，最能衡量和表现其价值的就在于思想。古人说得更甚“人之所以为人者，言也，人而不能言，何以为人？”。于国，一言可以兴邦。</p>
+<p>于人，一言可以立身。可见，言值表现出来的思想的力量多么强大。言值是一种感动的力量 。人们之间沟通思想、交流感情、表达心愿都离不开语言。一个人的感动也首先源于言语的感动。</p>
+<p>所以，言值充满着感动的力量。荀子曾说，赠人以言，重于金石珠玉；劝人之言，美于黼黻文章；听人之言，乐于钟鼓琴瑟。人与人之间的交流，除了传递信息，剩下的就是说服和感动了。一个会说话的人说出的话，大都能拨动人的心弦，如同一种魔力，沁人心扉，控人情绪。很多时候，当想去感动一个人的时候，言值的高低也决定着感动的深浅。</p>
+<p>言值是一种改变的力量 。说话是一门技术，语言的力量可以征服人心。语言鼓动改变的力量强大无比。这也是语言的核心力量。海涅在《法国的现状》中曾说，言语之力，大到可以从坟墓中唤醒死人，可以把生者活埋，把侏儒变成巨无霸，把巨无霸彻底打垮。</p>
+<p>世间有一种成就可以使人很快达成自己的目标，并获得他人的认可，那就是讲话让人喜悦的能力。言值改变世界，言值改变自己，言值获得人脉、言值促成人生。《罗辑思维》的罗振宇说，职场，或者当代社会，最重要的能力是表达的能力。因为在未来社会最重要的资产是影响力。影响力由什么构成？</p>
+<p>第一是写作，第二是演讲。我理解这两项归根到底其实就是言值。言值于人生如此重要，那么，如何提升言值呢？想说，腹中要有墨，肚里要有货。想学会说话就必须勤于学习，不断积累，有足够的知识储备，人们通常说，腹有诗书气自华。</p>
+<p>要想讲得动人，一定要学得漂亮。要把学习当成一种生活方式。没有相应的知识储备，无论有怎么会讲的技巧，都会言之无物。其实，多读书丰富自己，勤思考爱琢磨才是道，说话的技巧只是术。开口前，要有充分的准备，想清楚才能说明白。</p>
+<p>腹中无墨少开口，肚里无货不说话，否则，就是开口神气散，舌动祸根生。能说，目中要有人，心里要有谱。说话是人与人之间的交流沟通，始终不能忘了眼前的人。第一 ，要以诚相待，相互尊重，交流过程中要做到尊重而不轻视、热情而不冷漠、积极而不消极、理解而不排斥、论事而不贬人、讲理而不抖狠、耐心而不性急、委婉而不直露、全面而不片面、互动而不罐输。第二 、要突出重点，注重方法，不要忘了沟通交流的目的，围绕目的突出主题和重点，做到言之有情、言之有理、言之有物、言之有利、言之有趣、言之有力、言之有度。</p>
+<p>要警惕犯下杰·魏斯曼在《说的艺术》中指出“五宗罪”，他说，很多交流沟通都沦为“五宗罪”的刀下鬼，那就是：要点不清；听众没有获益；条理不清；细节太多；篇幅太长。第三、 交流沟通中要灵活运用十大“谱”。即用词的简明性，一耳就能懂，不用查字典；用句的简洁性，尽量用短句，易懂好记；内容的可信性，要讲得有根有据；前后的一致性，不要自相矛盾；话语的新颖性，要与时俱进，不说过时的话；语言的韵律性，要抑扬顿错有音乐感；听众的关注性，找听众关心的话说；表现的视觉性，能用图代替用图，能讲故事的讲故事；现场的互动性，交流一定要互动，不能自顾自说；表达的语境性，前因后果，来龙去脉，尽力说明白。会说，嘴上要有艺，口里要有趣。讲话是一门艺术，同样一句话，有的说得人笑，有的说的人跳。</p>
+<p>所以说话要注意“艺”和“趣”。第一、 怎么说比说什么还重要。自己的事，想好了再说；别人的事，谨慎地说；尊长的事，多听少说；夫妻的事，商量着说；孩子的事，开导着说；紧迫的事，慢慢地说；不急的事，择机去说；天大的事，简要地说；细小的事，幽默地说；没谱的事，不轻易说；伤人的事，尽量不说；开心的事，分场合说；伤心的事，不随便说；做不到的事，别夸口说；没发生的事，不要胡说；现在的事，做了再说；未来的事，未来再说。第二、 注意形象，俘获听众开好头，给听众最完美的第一印象。要知道塑造第一印象的机会只有一次。</p>
+<p>无论是正式的演讲，还是会谈以及平时非家人之外的沟通交流，都应注意着装，注重形象。给人留下的第一印象严重影响交流沟通的效果。同时，沟通交流的开场白也非常重要，一个好的开场白等于成功了一半。演说的经典式开场白有七种，即提问式、陈述式、回顾/前瞻式、轶事式、引证式、格言警句式、类比式。可根据不同的需要作出选择。</p>
+<p>总的要求是，要做到一开口就能吸引听众。把听众的注意力吸引到自己身上，这是沟通交流成功的关键，需长期练习方可获提此功。第三、 说话要风趣，风趣幽默才有吸引力，才不会让人听得厌烦。要学会讲故事。第四、 不断重复，消除曲解，防止误会，重要的事说三遍。</p>
+<p>沟通交流时，不在于你说了什么，而在于别人听到了什么。开口说话时，我们以为是在与别人分享，而人们却难免会自行解读，有时甚至改换和曲解我们的原义。所以，不要自以为是，以为我都说清楚了，要明白，有一百个观众就有一百个哈姆雷特。为此，我们要细心观察沟通交流对象的反应，要用别人喜欢的方式说别人喜欢听的话，澄清原义，消除误解。此外，说话分寸感也非常重要。</p>
+<p>你说话的分寸，就是你做人的尺寸 。积德首先是积口德，消极负气抱怨的话不能说、损人的话不宜说、隐私的话不必说。巧说，脑里要有法，胸中要有情。说话除了内容精道外，一些综合手段的运用也不可忽视。第一 、说，必然是通过声音表现出来的。</p>
+<p>所以吐字、音量、音色、语速、语调，节奏就显得格外重要。交流沟通过程中，注意音量要适中，不要过大，让人觉得躁，也不能过小，人家听不到。要把握好音色，力求圆润悦耳，优美动听。吐字清楚、清晰、准确，节奏不快不慢。第二 、善于使用肢体语言，让心、神、体三者联动，饱含深情，以情感人。</p>
+<p>用心说，全神贯注地讲，辅之以肢体语言，注意面部表情和眼神的交流。做到声情并茂，心神互通，让听者深深的感动而沉浸交流沟通之中。弗克兰·伦茨在《说话的力量》中说过：“人们会忘记你所说的话，却永远不会忘记他们产生的感受” 。能让听者产生不一般的强烈感受，引起共鸣，离嬴在终点，达到交流沟通的目的就不远了。颜值与言值，前者可以美容，但掩盖不了本质；后者可以添彩，却是本性的彰显。</p>
+<p>虽然，这是一个看脸的时代，但是，如果我们要想成为真正的羸家，不仅要嬴在脸上的颜值上，更应修炼自己，提升自己，嬴在脸以外的言值上。是人才未必有口才，有口才必定是人才，口才即言值，言值的高低决定并影响着我们的人生。2018年6月3日写于南湖之畔水域天际 左岸记： 言值是一种改变的力量，因为一个人的外貌是基本固定的，虽然可以衣妆，却很容易露馅。和一个会说话的人在一起，如沐春风；和一个不会说话的人在一起，如坐针毡。当然了，你总能看到特例，比如各种大嘴，也能一时叱咤风云，那是一种偶合，所谓的巧言令色吧。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

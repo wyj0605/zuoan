@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>“距离” 不仅仅是距离</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>“距离” 不仅仅是距离</h1>
+            <div class="date">2026-02-09 10:51:36</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>“距离” 不仅仅是距离 文/康永王1.不知从什么时候开始，就深深的认为，“ 距离 ”是个填满哲学味道的词。也难怪，但凡与时间空间扯点边的问题，必然会谈到起源。再外延，也就是我是谁，从哪来，到哪去。“ 距离 ” 恰好被用来衡量时间和空间，背后连接着这三个终极哲学问题，不偏不倚。既然是个哲学味道浓郁的词，各种感情、情绪、积虑，随着时空流转，自然而然，也就万物生了。</p>
+<p>同样是听雨。少年听雨歌楼上。红烛昏罗帐。壮年听雨客舟中。江阔云低、断雁叫西风。</p>
+<p>2.最明显能触摸到的距离，是远近。高中那会儿住校，在县城读书。会暗暗羡慕住在县城的同学，办个出入证，晃荡晃荡就回家了，不用苦等月底的双休。距离近能让人有安全感，归属感，甚至让人在面对未知的环境时，更有底气。这一点，在高中入校的时候就得到了印证，县城的孩子相对更积极主动些。</p>
+<p>距离远除了让人感到没有安全感，却也能促使让同样没有安全感的人，默默的走近，相互慰藉，惺惺相惜，抱团取暖。离家远，所以有了更多的时间，有了更多的额外沟通机会，有了更深的同窗情谊。倒也正应了老子的有无相生，难易相成。万事万物不过一恒字。也正因为离家远了，每一次回家都格外让人欢喜雀跃，是的欢喜，雀跃。</p>
+<p>不怕说来笑话，初中在镇上上学，一周回一次家。每到周五放学，才会大方的掏出五毛钱，买包辣条，宫保鸡筋。落霞与哈喇子齐飞，走在乡间的小路上。读大学真正走出去了，走出省了，应该更有体会，尤其是异地恋。我在上海，她在北京，异地恋。</p>
+<p>两地高铁距离是五个半小时，地缘距离是一千多公里。不过，这些我都不关心，我只清晰的记得到北京，是在T110坐一晚硬座的距离。距离能让人对时间产生格外的珍惜。君离别意，同是宦游人，海内存知己，天涯若比邻。触摸到的是距离，触摸不到的是那一段段因距离留下的时光，留在心底。</p>
+<p>3.还有一种距离，是情感，远近疏离。人也是个复杂的动物，宋冬野写在了《董小姐》里。再多贡献，老板和员工，也要保持距离。曾读过些描述职场生存法则的书，上面写道上司绝对不能太亲近下属，老板永远不能与你做兄弟，交浅言深是大忌……凡此种种，自有道理。关系再好，朋友之间，也要保持距离。</p>
+<p>尴尬之所以产生，多缘于距离太近。明代吕坤有言，事从容则有余味，人从容则有余华。我想，从容之根应该在于按原则办事，凡举动有其常度罢。夫妻之间，也要有距离，这种距离并不是指不能黏在一起，而是彼此留有独处空间，做自己爱好的事。记得前两天读过豆瓣新世相的一篇推文，大体讲的是，大多数人都说要早睡，说熬夜不好。</p>
+<p>可最终还是抱着手机，每每熬到深夜。不是不顾身体，而是每个人从心底都想为自己争取些独处的时光。在漆黑的夜里，窝在被窝里，抛开嘈杂，静静地偷自己。是啊。感情也需要距离，只不过是我们主动调整空间，人为创造出的一点距离。</p>
+<p>刻意，或者不刻意。4.从小到大，“ 别人家的孩子 ”总会给我们留下望尘莫及的距离。这时的距离，是差距。这种距离，会因一句话，一个场景，都让我们很难释怀，甚是一生都耿耿于怀。前段时间朋友圈的一个有趣段子，正中了很多人的七寸，诙谐的道出了每个人心底的不甘。</p>
+<p>说是妈妈你看，读书的时候学习最好的，清华研究生毕业的他终于进我公司啦！我是他老板。这种距离（差距感），在幼年的时候是老爸老妈长辈老师给横加的，稍大一点，成年了，也是自己给自己加在身上的。生活在物欲时代，很难清心寡欲，真的成这样了，也不现实。我们习惯对比，习惯羡慕，习惯在朋友圈里看世界，我们以为这就真的是头顶的天空。</p>
+<p>佛教里提到的有三毒，贪（嫉妒）嗔（发怒）痴（抱怨），是让人沉沦的三不善根。倘若慢慢的远离这些不善根，水平上的差距或许不在是差距，时间问题。毕竟大师不会骗人，聪明和智慧不属同门，变得智慧，距离便非距离。5.最终，距离还是个平凡的词，平凡到每天我们会重复说到好多次。看过一期非诚勿扰的节目，一位男嘉宾说，他特别不理解他身边都是平凡的人，平庸的人，没有大理想，没有大抱负。</p>
+<p>距离近在咫尺的人，却和他有很多差距，他不能忍。嘉宾黄磊说了一句让我印象深刻的话：平凡往往在孕育伟大。后来不经意翻到他给两个女儿写的信，的确也有认同感。“ 诚实于你们自己，忠诚于内心的简单与轻松，不去计较周遭和自己曾有过的怀疑与不满，诚实地接受并且消化自己的人生。”黄磊说，除此之外的都是雕虫小技，不会也罢，“相信爸爸，你们即使一事无成也不必难过，没有世俗认同的成就的人是多数，你们不必成为少数，平凡最好。</p>
+<p>”我们周边是距离交织出来的感情大网。仍会有一波又一波的寄宿生怀恋家的距离，仍会有一对又一对的异地恋彼此牵挂想念。距离是平凡的，普通的，客观存在的。但总会有一些东西，我知道，让距离都隔不开。原文地址：http://www.wangyongkang.com/post/life/2016-08-01个人公众号：康永王左岸记：&lt;br&gt;大师询问他的弟子：“为什么在愤怒的时候，我们会呼喊？</p>
+<p>为什么在烦恼的时候，我们要彼此呼喊？”&lt;br&gt;一名弟子说：“因为我们失去了镇定，所以彼此呼喊。”&lt;br&gt;“但是，为什么当另一个人就在你旁边，你还是选择呼喊呢？难道不能以柔和的语气跟对方说吗？”大师继续问道。</p>
+<p>&lt;br&gt;弟子们给出了各种各样的答案，但是没有一个能使大师感到满意。&lt;br&gt;最后大师解释道：“当两个人相互愤怒的时候，他们的心和心相距很远。为了填补这段距离，他们必须呼喊，这样彼此才能听到。他们越是愤怒，心和心距离则越是遥远，他们只有越发强力呼喊，他们彼此才能听到。”&lt;br&gt;大师再次问道：“当两个人相互爱慕，会发生什么呢？</p>
+<p>他们不需要彼此呼喊，只要轻声交谈，那是因为心与心的距离变得紧密了。当他们彼此爱得更深，又会发生什么呢？两个人相爱的时候，他们的心靠得很近。他们甚至都不用说话，只需看着对方，就够了。”所以，距离是相对，人类的进步、智慧和情感都在改变着距离的长度。</p>
+<p>飞机一夜千里，互联网即可可现，智慧可以通达心灵，情感可以亲密无间。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

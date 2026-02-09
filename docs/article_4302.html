@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>偏见源于无知</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>偏见源于无知</h1>
+            <div class="date">2026-02-09 10:51:02</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>偏见源于无知 文/若水这句话是我从土摩托那里记来的，以前总会固定地去浏览那位仁兄的博客，里面的文章很不错，最欣赏的就是这句话：偏见源于无知。于是把它变成了自己在豆瓣上的签名。因为这几个字很能说明一个问题：我们对一些事情的偏执见解，来源于我们对这个事情的无知。上午浏览一个朋友的空间，看到这样一段话：(宋)陆九渊《送杨通老》云：“学所以开人之蔽，而致其知。学而不知其方，则反以滋蔽。</p>
+<p>” 学所以立人之志，而励其行。学而不知其理，则反以失志。学所以进人之德，而涤其心。学而不知其道，则反以损德。除其蔽，立其志，进其德，悟其道，学而有成矣。</p>
+<p>这个是与大家来分享的，这段话与本文的题目有些微妙的联系，为了不无知，我们就要学习，但学习也要知其理，知其道，我们老说：知道，知道。就是这个意思。每天听着身边人大言不惭的对一些事情评论，我会先倾听，然后微微一笑，不发表自己的言论。为什么呢？因为他们已经存在偏见，而偏见之后就是不讲道理，所以和他们是没有道理可讲的。</p>
+<p>人到了一定的年龄，就知道人要少说话，也就是慎言。因为言多必失。我有自知之明，不明白的不妄加评论，只对自己熟悉的方面发表看法，才不至于被大家笑话。就如同前两日有感而发的“我有笔如刀”一个道理。说出的话泼出的水，是覆水难收的，而文字更厉害，通过网络的快速传播很容易以讹传讹，人言可畏啊，当自己的轻佻之言，自己的一些不负责的言论被夸大其词的传播的时候，谁知道会带来什么样的后果？</p>
+<p>所以不光要慎言，还要慎用文字。当我们对事情了解的如同盲人摸象的时候，给出的评论难免不被人指责为偏执之言。比如自己对一些身边人的评论一样，一个朋友的文中写道：我自己的生活都如此的狗血，有什么资格去评判别人？这个自省让我汗颜。于是反省自己是不是也在夸夸其谈而误人子弟呢？</p>
+<p>所以有了“请不要叫我老师”的感慨。如同文中所说，自己实在是懂的太少，在给朋友做自我介绍的时候，我通常会告诉大家，我最擅长的就是信息搜索，因为我学的专业就是这个。很多朋友听到这个介绍会恍然大悟，怪不得我们说个什么资料，老马很快就能找到。但是除了这个还有什么擅长的么？还是有的，只是每个人都可以学会的，就是学习，所以没有什么是可以值得炫耀的。</p>
+<p>同理，知识也不是拿来给朋友炫耀的。梁文道先生说，从一个人的书房就可以看出最真实的一个人。而前些日子，就是上一部电脑被盗之前，我却总把自己的藏书晒给朋友看。现在想起来真是幼稚。自己每天给别人说：知识不是用来炫耀的，而自己却总在炫耀。</p>
+<p>虽然是出自助人的心理，但看到的人会这样想么？还是爱人教训的最好：你就是不知道自己几斤几两，还给别人当老师！惭愧啊。看来自己还真的需要不断的修炼才可以。为了不至于偏见下去，我努力的学习，为了不至于一直无知下去，我坚持的学习。</p>
+<p>以至于有朋友说：在你身上，我看到了什么叫学习力。其实自己只有一个很简单的理由：活的更明白一点。而已。左岸记：偏见源于无知，又和一定的心理因素有关。例如你不喜欢一个人，明明这个人这桩事办得不错，或者这个人在某个问题上的见解比较好，但和你的意见不一致，你就是不愿意承认，甚至还故意挑刺，这是因为你对这个人或者这个问题有偏见。</p>
+<p>我们来看看罗素先生是是如何避免愚蠢的见识的：怀有各种各样愚蠢的见识乃是人类的通病。要想避免这种通病，并不需要超人的天才。下面提供的几项简单原则，虽然不能保证你不犯任何错误，却可以保证你避免一些可笑的错误。如果一个问题但凭观察就可以解决的话，就请您亲自观察一番。亚里士多德误以为妇女牙齿的数目比男人少。</p>
+<p>这种错误，他本来是可以避免的，而且办法很简单。他只消请他的夫人把嘴张开亲自数一数就行了。但他却没有这样做，原因是他自以为是。自以为知道而实际上自己并不知道；这是我们人人都容易犯的一种致命错误。我自己就以为刺猬好吃油虫，理由无非是我听人这么讲过；但是如果我真的要动手动脚写一部介绍刺猬习性的著作，我就不应该妄下断语，除非我亲自看见一只刺猬享用这种并不可口的美餐。</p>
+<p>然而亚里士多德却不够谨慎。古代和中古时代的著作家谈起麒麟和火蛇来头头是道；但是他们当中的谁也没有觉得，既然如此自己从未见过任何麒麟和火蛇，那就必须避免武断。许多事情不那么容易用经验加以检验。如果你像大多数人一样在许多这类事情上有颇为激烈的主张，也有一些办法可以帮你认识自己的偏见。如果你一听到一种与你相左的意见就发怒，这就表明，你已经下意识地感觉到你那种看法没有充分理由。</p>
+<p>如果某个人硬要说2加2等于5，或者说冰岛位于赤道，你就只会感到怜悯而不是愤怒，除非你自己对数学和地理也是这样无知，因而他的看法竟然动摇了你的相反的见解。最激烈的争论是关于双方都提不出充分证据的那些问题的争论。迫害见于神学领域而不见于数学领域，因为数学问题是知识问题，而神学问题则仅是见解问题。所以，不论什么时候，只要发现自己对不同的意见发起火来，你就要小心，因为一经检查，你大概就会发现，你的信念并没有充分证据。摆脱某些武断看法的一种好办法就是设法了解一下与你所在的社会圈子不同的人们所持有的种种看法。</p>
+<p>我觉得这对削弱狭隘偏见的强烈程度很有好处。如果你无法外出旅行，也要设法和一些持不同见解的人们有些交往，或者阅读一种和你政见不同的报纸。如果这些人和这种报纸在你看来是疯狂的、乖张的、甚至是可恶的，那么你不应该忘记在人家看来你也是这样。双方的这种看法可能都是对的，但不可能都是错的。这样想一下，应该能够慎重一些。</p>
+<p>有些人富于心理想象力。对于这些人来说，一个好办法便是设想一下自己在与一位怀有不同偏见的人进行辩论。这同实地跟论敌进行辩论比起来有一个（也只有一个）有利条件，那就是这种方法不受时间和空间的限制。圣雄甘地就对铁路、轮船和机器深表遗憾，在他看来整个产业革命都要不得。也许你永远没有机会真的遇见一位抱有这种见解的人，因为在西方国家里大多数人都把现代技术的种种好处视为当然。</p>
+<p>但是如果你确实想同意这种流行的看法乃是正确的，那么一个好办法就是设想一下甘地为了反驳现代技术的种种好处而可能提出的论据，从而检验一下你自己想到的论据。我自己有时就因为进行这种想象性的对话而真的改变了原来的看法；即令没有改变原来的看法，也常常因为认识到假想的论敌有可能蛮有道理而变得不那么自以为是。对于那些容易助长你狂妄自大的意见尤宜提防，不论男女都坚信男性或女性特别优越。双方都有不可胜数的证据。如果你自己是男性，你可以指出大多数诗人和科学家都是男子；而如果你是女性，你可以用大多数罪犯也都是男子来反唇机讥。</p>
+<p>这个问题本来就根本无法解决，但是，自尊心却使大多数人都看不到这一点，不管我们属于世界上哪个国家，我们大家总是认为我们自己的民族比所有其他民族都优越。既然每个民族都有自己特有的长处和短处，我们就把自己的价值标准加以调整，以便证明自己民族的长处乃是真正重要的长处，而其缺点相对来说则微不足道。在这个问题上，一位明白事理的人也一定会承认，它没有明显正确的答案。由于我们无法和人类之外的智者辩论清楚，所以要处理这个人之作为人的自高自大的问题就更加困难了。就我所知，处理这个普遍存在的人类自高自大问题的唯一方法就是，要经常提醒自己，在茫茫宇宙中一个小小角落的一颗小小星球的生命史上，人类仅仅是一个短短的插曲，而且说不定宇宙中其他地方还有一些生物，他们优越于我们的程度不亚于我们优越于水母的程度。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

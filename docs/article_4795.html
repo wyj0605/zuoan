@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一别两宽 各生欢喜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>一别两宽 各生欢喜</h1>
+            <div class="date">2026-02-09 11:07:24</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜 最近，每天晚上都会做梦，梦见那些曾经无比要好的同学，他们或面带微笑，或满目愁云，或灵动俊秀，或木然呆滞，好像我身边的那些同学，离开了我的生活又忽然出现了。大家的关系在这几年的空白里变得疏远淡薄，明明离的这么近，但又好像隔着千山万水，忐忑不安地望着成长之后的彼此，欲言又止，像从来没有熟悉过。梦里，夕阳西下，红彤彤的晚霞把整个天际都染成了绛红色，远远的圆圆的落日，浅浅地被这印红了的山川托着，囡囡像是从画里跑出来的一样，被这抹红色追逐着，又将这团红色甩在了身后，扎着马尾辫，穿着再普通不过的红白相间的宽大校服，上气不接下气地跑到了我面前，气急败坏地说：“让你等等我，你怎么又给忘了。”她蹲下去系自己的鞋带，大声埋怨我的不长记性。起来的时候，我才看见，她额头上沁满了小小的汗珠，小麦色的皮肤差点掩盖了因为极速奔跑而好不容易得来的绯红脸颊，大大的眼睛盛满了不满。</p>
+<p>我这么慢的人，怎么每次放学都走在她前面了。百思不得其解。她是个非常漂亮的女孩，除了皮肤之外，五官近乎完美，那时候，我妈看“幸福像花儿一样”的时候说了一句，嗯，就说孙俪咋这么眼熟，囡囡跟她长得挺像啊。现在我妈看“那年花开月正圆”又加了一句感慨：囡囡确实跟孙俪长得像，哎，可惜了。小学六年，我们形影不离。</p>
+<p>上厕所，即使上课铃声响了，如果一个人还没出来的话，另一个就在厕所外面边催边等边嘀咕，反正绝不会舍对方而去教室；写寒暑假作业，我们就坐在她家的写字台上，你拿我的数学，抄数学答案，我拿你的语文抄语文答案，之后交换，抄的时候一句话不说，都憋着劲比谁抄的快，好不容易同步写完了，两个人都着急忙慌地直奔厕所，这下又争着抢着了，她奶奶在一旁笑：你们两个呦，见不得又离不得，一个一个来嘛，囡囡，你让下她嘛。她极其不情愿但又只好让我了。读到六年级，老师都在强调说，马上要升初中了，大家要珍惜一起读书的机会，互相之间不要闹别扭，不要吵架打架，上了初中，都不一定在一个班了。这是第一次，我们一点都不相信老师的话，一致认为，老师在骗我们，小学不会这么快结束，应该还会再持续个十年八年的吧，反正我们那时候觉得十年八年都快跟一生一世一样长了。可还没反映过来，就已经如老师所说，两个月的假期以后，我们就升到了初中，分到了不同的班级，遇见了各式各样的新同学。</p>
+<p>上学的路长了一点，学校大了很多，除了学校门口零食的牌子变多了之外，生活也渐渐有了一些别的变化。我还和小学一样，不上不下卡在中间的成绩，普通的可以被忽略的尘埃，就像学校里最常见的那种低矮冬青树，因为太多而最容易被人遗忘的存在；而她那时候就像一珠清水芙蓉，出落的越来越漂亮，高挑的身材加上干净的脸蛋，引来了很多追求者，最要命的是，她的成绩也变得出奇地好，在全年级十二个班，一千多名学生里，竟然能排到前五十名，多了很多羡慕的眼光，也多了很多朋友。自然而然，我们一起玩的时间越来越少，但互相等着对方放学一直坚持了三年。不管相处的时间被压缩了多少，我们在一起的时候，始终还是小学的状态，互相嫌弃对方的慢悠悠，又耐着性子慢下脚步等着；她在给我看她成绩单的同时，也会给我讲一讲做数学题的思路，或者我拉着她一起补课；那个和蔼可亲的物理老师每次一讲课我都忍不住要睡觉，听了无数次都听不懂什么电路电流原理，害得我不得不借各种理由逃课，她却一次不落的把课听完，回来再讲给我听，可我还是一副茫然无措的样子，她气的用笔敲我的头。那时候我妈最爱说的一句话是：你啊，看看人家囡囡，再看看你自己，咋这么笨呢。</p>
+<p>为了让我追上她，我妈也是想尽了办法，又是找科大的学生当家教，又是拖熟人找老师补课，可我就是那种，嘴上说听懂了，脑子里还是一团浆糊的糊涂虫。我妈说我，心大的可怕，人家囡囡上大学的时候，你就知道哭了。就连一向不关心我学习成绩的奶奶都说，你可得好好学，再不敢吊儿郎当了。到时候人家穿名牌的时候，你只能在菜市场买几十块钱的衣服了。他们表情严肃，甚至可以说是恐慌，而我却不以为然。</p>
+<p>谁会在十四五岁的时候，想到十年以后的事情？更何况他们说的好像是五十年以后？而她的爸爸比我妈还要恐怖，把我和她放在天平称上，称來称去，看着天平一边倒，就开心地忘乎所以，似乎我的存在就是为了证明她的万般好，而相反的，在我妈眼里，她的好只能一次又一次地验证我的一无是处。那时候她爸每次来我家，都笑眯眯地问我，女子，这次考的咋样？囡囡这次考了个第八，没有上次考的好。</p>
+<p>而我妈就瞪着我，又挤出一丝笑容转向她爸爸，低声说句，哎，考的不好，反正没在前十名。天知道，那时候的前十名对我而言，就是一个梦。连二十名我都没有进过。三年，就在两家父母比来比去中度过了，中考成了重头戏，她当然不负众望，考取了市重点中学的火箭班，第一学年学费全免；而我跌跌撞撞考了个省重点中学的普通班，还得意洋洋的告诉我妈：我们老师说了，我这次发挥超常了，本来都可能考不上，你还要花一万块的借读费呢，现在我挣了一万呢。我妈噗嗤一笑，没心没肺啊你，还好意思说这个。</p>
+<p>可囡囡她爸一来，说她不用交学费，我妈脸上的笑容就凝固了，没一会儿就阴了下来，像六月的天气，说下雨就下雨，还是大暴雨，把我浇了个透心凉。刚刚答应好的夏令营就变成了在家扫地拖地收拾屋子一暑假的决定。奇怪的是，我从来不讨厌她，在我面前她几乎从来没有刻意表现过自己的优越感，所以父母们比的不可开交并没有影响我们之间的革命友谊。在我的心里，始终愿意相信，她会一直优秀下去，拥有一个灿烂光明的未来，尽管这样的未来跟我是没有什么关系的。但我还是打心眼里为她高兴，觉得拥有这样一个什么都好的朋友，就可以弥补我学习不好的缺点。</p>
+<p>我从来不对未来的日子做设想，那么有生活经验的父母不是都替我们想好了嘛，可我没想到这条路不由什么人决定，竟然如此出乎意料，不知道进了保险箱，还可以被无情淘汰。高中，我们不在同一个学校了，课业更紧了，我妈竟然对我的学习又充满了信心，于是我的课余时间几乎被补课占据了，物理，英语，化学，数学，什么差补什么，什么不会学什么，我面前永远是一堆堆的练习本，我的生活被这些包围了。那时候最大的消遣就是上语文课，听我们那个戴着眼镜，乐嘻嘻的语文老师用陕西话说：来，来来，给我把这提记下，百分之九十九点三七要出这道题；或者下课时间跟同桌趴在楼道上望着天空，一脸茫然，这样的日子什么时候是个头啊。没有电话，周末时间又安排得紧，根本不可能找时间跟她玩了，两个学校一个在南，一个在北，离的挺远，渐渐的我们就失了联系，她的消息还是从我妈那里得来的，哦，囡囡这次考的很好呢，年级前十，高一的时候，我妈老说这句；高二，高三，我妈都不再说了，有时候探究性的一句话，最近也没听囡囡她妈说她，她妈好像跟着陪读去了，听说，她在学校谈恋爱了，从重点班给踢到普通班了，学不进去，成绩不行了。可我并不相信我妈的话，连我这么笨的人都能被硬灌进去知识，都能耐着性子一坐一上午，笔记抄了一个作业本又一个作业本，她底子那么好，怎么可能呢？</p>
+<p>这三年里，我很少遇见她，没有机会问这样的问题。直到高考完之后，我才知道，她没有去高考，第一天去了，到第二天就没有再去了。她落榜了，那个暑假她爸爸不再到我们家来了，而她们家却多了一个客人，那个男生又白又高，圆脸大眼，每次来都开着一辆车提着一堆东西，这就是囡囡好了两年的男朋友。在外人看起来蛮帅，可她的奶奶提起这个男生总是一副恨恨的表情：如果不是他，我娃至于考不上大学嘛。她爸爸觉得是她发挥失常，让她再补习一年，可第二年她勉强考完了试，成绩依然不好，随随便便填了个大专，就去读了。</p>
+<p>她毕业后，跟初恋男朋友结了婚。那个时候，没有人会在乎工作，家庭出身，未来发展，唯一握在手里的砝码就是感情。感情这种无形的力量足够摧毁任何物质标准，况且幸运的是，除了工作之外，这个男孩并不是一无所有，他家好像环境蛮好。只能说她是个善良的女孩，命中注定就该遇到一个顺其自然什么都不缺的男孩子。她结婚的时候我还在读书，没有收到她的消息。</p>
+<p>有很多年，我们不联系了，自从高考完之后，我们几乎没有见过。后来听苏打绿的小时候，我第一个想起的人还是她，我时常在想，她的高中三年到底是怎么过的？为什么我们班那么些学习好的人也谈恋爱但不影响升学呢？那个男生，到底是个什么样子的人？可从来没有人给我这些答案。</p>
+<p>有时候真的很奇怪，那么小的一个地方，住的那么近的两个人，曾经无比要好的朋友，可就是碰不到，永远碰不到，真的一次都没有见过。直到几个月前再次遇到她，在他们家小区门口，她插着耳机来回踱步，我伸着脖子看了好久，才敢叫她，她一惊，然后愣住，微笑，依旧是扎的高高的马尾辫，白色T恤，黑色裤子，平底鞋，还是漂亮，可好像比以前呆了一些，眼睛里的光少了很多很多，我们打了个招呼，寒暄两句，然后她电话响起，她去接孩子了，走了好远之后，才回过神，我们竟然连想要留电话这种稀松平常的事情都没有想起过。回家向我妈提了一句，没想到她叹了一口气：“她妈妈说，她丈夫醉驾出了事情，赔了一百多万，现在要离婚，因为离了婚，这些债务夫妻双方都要共同承担，她要背上至少五十万的债务。这都不说了，当时她丈夫出事的时候，她妈还把几十万积蓄全都填进去，这下看来也甭指望他还了。囡囡这些年，也没个正儿八经的工作。</p>
+<p>可惜这么好的娃了！”我妈的这几句话，在我心底引起了一场大地震，在我犹豫着要不要开始进入生活好好生活的时候，她已经经历了这么多，在我看来不可想象的事情，不知道她是怎样挨过这些痛楚的日子，不怪她的眼睛里没了亮晶晶的光芒。我貌似稍微明白了那句，活到二十六岁然后死去的话。如果，如果我们早一点知道，后来面对的世界不过如此。那么，年少的时候，是否会少一些因为过度期待而产生的怨怼。</p>
+<p>生活会安排什么，实在无从知晓，有什么足够坚硬的东西能支撑一个人一辈子，以前以为小学到初中近乎十年的时间，对一段友谊来说，至少足够维持它的稳定。现在看来，似乎不是这样；以为背叛这种事情只适合于没有感情基础的两个人，其实不然，多年爱人但始终看不清对方的心，这种情况实在多见；以为善良的心一定会换来善意的结果，但种花有时候得的是草，甚至是苦果。越来越明白，生命是个过程，享受其中的乐也要承受得住相应的苦，有时候生活就自然而然地让大家分开，曾经很亲密的人后来几乎都不会再有交集了，远到就剩下听说和感慨了，然后仔细一想，哦，我们曾经还这么好啊，像是我们熟悉过，又好像没有，恍如一个梦。梦里还是湛蓝的天空，空旷的操场，楼梯上以为十年就是一生的孩子，醒来时，打一个冷战，已经过了二十年，我们走散在了人海，彼此遗忘。即使住的依然很近，但好像永不会再见了。</p>
+<p>即使一片迷雾，你还有你的路，而她有她的。没有谁比谁好，谁对谁错，只是不会有交集，遗忘比死更可怕，在人生谢幕以前，她从你的生活中彻底失踪了。除了一别两宽，各生欢喜之外，还能说些什么? 左岸记： 看完，心中一陈嘘唏，自然明白那种成长之后过大差别的境遇横亘在人之间所产生的情感鸿沟是怎样的难以逾越。她还是不想让她知道自己的近况吧，让她们的情感还能停留在以前那个美好的记忆里，她知道现在不一样了，见面又能说些什么呢。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

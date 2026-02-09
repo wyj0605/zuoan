@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你还没有成功？是不是太努力了？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你还没有成功？是不是太努力了？</h1>
+            <div class="date">2026-02-09 11:07:40</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德鲁伊（朗读： 微微 ） 中国人的思维一直很可爱，对事物“度”的把握无处不在。就说秋天吧，“秋浅”、“秋深”，和春天的“早春”、“晚春”相得益彰。形容秋天总是和颜色有关的，想必是秋天的斑斓是一点点来的，一层秋雨，染了一些性子急的草木，那些有点耐心的，都慢慢的等着秋深。东方思维么，第一，事物一定是有趋势、方向的；第二，一定有内在逻辑；第三，不管怎么也会有昭示的蛛丝马迹；第四，事物总是渐变的、结果未必能找到原因，但一定会有过程。所以，中国人骨子里的东西还是道家的“天人合一”，“道”这个玩意儿，贯穿了三教九流。</p>
+<p>一个“天人合一”，中国人就拉近了和神佛的距离，中国人造神快、赶下来也快，反正谁做的好了都能成神成佛，这东西算中国人的发明之一，这点说起来比西方开明的多。网络时代，造神容易的多。中国人耻于把金钱看得很重，但属于最明白钱和文凭、颜值、家世背景什么的一样，只有拥有了才能说那玩意儿不重要。但“成功=金钱=神”基本大家都认可。于是大家都很努力，或说不承认自己不努力。</p>
+<p>成功像好身材，你越努力似乎离你越远；失败倒像是赘肉，你都不吃不喝了，它还蹭蹭蹭的长。***也或许，你还没有成功，是不是因为自己太努力了？你总是高估你的付出，也同样高估你应得的。我们不知道别人在做什么，付出了多少，再加上“二手车心理”，你总觉得自己付出的够多了，努力的足够了。同时还觉得别人不够努力，付出的不够多。</p>
+<p>结果就是，总觉得自己得到的和应得的差太远。你不愿意承认，你的努力连平均水平都达不到，你得到的已经是最好的回报了。你的工作任何人都可以替代，你凭什么成功？我们没有经历生产流水线对手工业的摧毁，但网络时代，过去貌似永远不会被流水线替代的岗位，如今因为流程、模式、数据分析、规范、标准等等所改变，连企业的中层管理人员，过去认为最核心的岗位，也变得随时可以找人替代。偶尔想想，自己的位置换个人有多大差异，就知道自己的价值所在了。</p>
+<p>等待老板的认同，跟等待施舍差不多。你永远记住，你努力的是想做到你的岗位无人可替代，而老板永远营造的是谁走都可以的环境。你期望得到的认同永远不会来，在没有合伙制和给与股份的情况下，老板的认同等于是你的死刑判决书。他决定认同你的价值，却又没有其他行动时，你大致可以另寻出路了。具有能力的时候再说能力不重要。</p>
+<p>我们看着周边的人飞黄腾达、吃香喝辣，我们最容易得出的结论就是能力不重要。拥有社会普遍认可的能力才是能力，不是你认为的能力才是能力。要么你有独门秘籍，要么你永远要操练你的能力。在拥有能力的时候，再说能力不重要，在成功前永远要坚信，能力是成功的必需品。复制成功基本等同于复制失败。</p>
+<p>成功学是鸡汤的另外一个马甲。连你自己谈起过去的经历，也会把苦难描述的很深重，把努力描述的足够坚持，把机缘巧合描述成理所应当，一样不承认自己的侥幸所得。何况那些已然把自己经历神话的成功者？复制谁的成功都等同于复制失败，时移势易，别人站在潮头，你在低谷仰望，还是先学会游泳的好。你的能力体现在让别人帮你做事上，而不是你一个人能做多好。</p>
+<p>你可以是万金油，也可以是多面手，但你永远不可能一个人包打天下。你可以懂，不必去做，最关键的是你能否调动尽可能多的资源帮你去做。成功一定是从专业向管理专业的过渡，也一定是把自己从工具化变成操作者的过渡。机会和背景真的很重要，你能操练的只有选择的能力。你不用自怨自艾，因为有背景和拥有机会的人，才有权力去怨天尤人。</p>
+<p>当你没有背景和错失机会的时候，你唯一能做的，就是学习选择的能力，用选择的能力抵消你背景的单薄和机会的错失。人生没有什么跃迁，真正的跃迁除了能力，更多是选择的正确。你开始停止学习，就是你开始失败。有人问现代社会里，最显而易见的失败如何察觉，答案就是：停止学习。不需要每一天去自省，只需要每一周想想自己又学习到什么。</p>
+<p>如果信息爆炸的今天，你一周都没有学到什么新的东西。失败不就是你脸上的刺青么？***今天的窗外，秋天已经让风雨不停歇的宣告他的存在，我们不知道秋天是怎么来的，夏天是怎么走的。我们总是在秋天来的时候，想起来夏天已经过去了。这个和成功差不多，或许我们太努力了，忘了成功应该是怎么来的。</p>
+<p>左岸记： 文章好，朗读的也好，很搭。我们努力不是为了做给别人看的，连莫扎特都感叹“我每天花8个小时练琴，但是人们却用天才两个字概括我全部的努力。”努力是告诉自己能做到怎样的程度，要拼一下，能不能配得上自己想要的，要尽力，因为想让自己和所爱人能过上更好的生活。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

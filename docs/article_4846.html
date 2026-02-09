@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有些事我不说，不代表我不痛</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>有些事我不说，不代表我不痛</h1>
+            <div class="date">2026-02-09 11:07:28</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>作者：劳拉•利皮斯基 你有没有隐藏在心底的创伤，久久不能治愈？王小波说：人一切的痛苦，本质上都是对自己无能的愤怒。我想大多数人心里是认同的，如果承认痛苦，那就等同于打开一扇门却不知道如何再关上。1.卫生学院的在读博士生安娜和我讲了这样一件事。十几岁那年，安娜的邻居希希在小区里发生了意外，不幸地离开了大家，大家都为这个花季少女惋惜。</p>
+<p>为了安抚希希濒临失控的父母，整个小区都在为希希的事情忙前忙后。没有谁去事先安排，大家就是自觉地想为这个遭遇不幸的家庭做点什么。等一切结束后，大家聚在一起，聊聊她，吃吃饭，事情就这样过去了。后来，希希的父母搬家了。大家也没再提起这个事，或者说所有人有意识地将那段经历藏起来，不再和他人分享。</p>
+<p>事情过去15年了，希希的妹妹却突然联系了安娜。她说：她花了很长时间，在全国各地寻找当时小区里的人，她的父母想再和大家见一面。当天，她邀请了几乎当时所有在事故现场的人。见面会上，大家不自觉地讲起了当时的情景，慢慢地，每一个人都开始分享自己对那件事情的回忆。安娜说：希希始终活在我心里，那天的事情我大概永远不会忘。</p>
+<p>说实话，她感到特别惊讶，即使希希只是她童年里一起玩过几次的玩伴，但这件事似乎一直还深深地锁在她的心底，说完之后她有一种如释重负的轻松感。从没想过这些年来在希希的这件事上，给在场的每一个人留下了深深的伤痕，包括安娜自己。这次见面会上没有沉痛的悲伤，大家侃侃而谈，谁也不舍得离开，活动持续了4个多小时。那次之后，安娜回到了学校深造，捡起了本来想放弃的医学专业。安娜告诉我，她当时只有一个想法：“如果这辈子我一定要做点什么的话，我希望自己能在急诊室工作。</p>
+<p>”创伤，从来伤害不到离去的人，而是留给那些还活着的人。很多人出于自我保护，会为自己筑起心墙，它让你忘记原本还在的创伤。如果说无视创伤被看作是一种荣耀，我认为我们所有的人都在粉饰太平。想要活得有希望，首先要做的是打开自己。2.“在成为母亲的那一刻，我感到自己无比的渺小。</p>
+<p>”一个单亲妈妈坐在诊室对面这样和我说。自从13岁母亲离开自己之后，她还是第一次如此敬畏生命。癌症的阴影一直伴随着她的整个青春，医院的药水味和病危通知书强行填满了她青春的记忆。她对我说：“我曾经花了很多时间去想，到底怎样才能结束自己的生命？在妈妈生命的最后一年里，这个想法常常让我半夜惊醒。</p>
+<p>后来，她过世了，我的世界也变了。我让自己看起来坚韧不催，我去挑战各种极限运动。我，甚至在期待一次意外。”还没说完，她就把脸转向窗外。有些晶莹的东西，在她的脸上泛着光。</p>
+<p>后来她又来过几次诊所，给我讲了后面的故事。十九年后，她在医院接受剖腹产。在十几米的手术室里，她恍惚又回到了13岁那年。她不断地深呼吸，为了自己的孩子拼尽全力，就和当年母亲和死神搏斗一样。只是这一次，她感觉自己第一次战胜恐惧，感恩生命。</p>
+<p>这是创伤研究所创始人劳拉在《治愈之书》中写下的故事，也是她收集的数百个真实故事中的一个。这个故事让她坚信自己在创伤心理的研究，不是为了满足自我的心理需求，而是一次全新的人生开口。因为在13岁那年，她的母亲也因癌症不幸离开了自己。美国自然主义者约翰·缪尔曾说过：“当我们想要把某种事物单独挑出来时，我们会发现它总是跟世间万物牢牢地捆在一起，总是无法从它们之间那千丝万缕的联系中挣脱出来。”所以，治愈疗伤最好的方式，就是被同样身陷困境的人解救。</p>
+<p>只有痛过的伤，才会变成坚硬的钢。3.时间能治愈一切么？每一天，奔波于可能早已偏离梦想的工作，絮絮叨叨的诉说着自己不太如意的生活，回想你和你身边的人，这样的生活让你痛过么？这世界上，很多事情，无论我们怎么做，都会后悔。不要假装一切都没有发生过，不要指望别人的救赎。</p>
+<p>劳拉在《治愈之书》中写道：上帝之所以创造指纹，是因为他想让人知道，其实每个人都有伤痕。电影《深海长眠》的主角雷蒙·桑佩德罗一生中的26年都在为自己死亡的权力而斗争。他四肢瘫痪并萎缩，平日里都是躺在床上，只有头可以微微转动。家人对他的照顾无微不至，但这样的生活对他毫无意义，他甚至不能触碰三英尺之外那个美丽的女律师朱丽娅，对于别人可以忽略不计的距离，对他来说却是一个妄想，一种梦。生命不是无病呻吟的痛苦，而是面对这些苦难仍能微笑。</p>
+<p>但微笑的前提，是要勇于直面自己内心的创伤。痛是要说出来的，心灵的枷锁永远在自己身上。不要问世界需要什么样的人，而是问问自己怎样才能更加活力充沛。但愿我们都能苦中有乐，在迷茫的生命旅途中彼此信任，抚平伤口，修炼一颗真正坚韧的心。部分内容选自：《治愈之书》江苏凤凰文艺出版社 作者：劳拉•利皮斯基，精神创伤专家、社会工作者、教育家。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岁寒时节觅新知</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>岁寒时节觅新知</h1>
+            <div class="date">2026-02-09 11:07:01</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/读博在四方 长夜到极致，白昼到极短，冬至悄然来袭，饺子吃了一份，心里很是满足。冬至十天阳历年，老话果然常说常中，收拾好前一程折腾，在小长假里休憩一时。心中一团火焰燃起来，只是没有去年那么旺，看到之时也就熄灭之际，寄希望于来年吧。冬至后越发觉得早上天色更晚了，起早贪黑里看天空变换，看雪背诗中听情怀荡漾。熬到最后一天零点，匆忙里又是一年新启，讲些道理给自己听，买本日历让自己翻，生活毕竟是要献身其间的，干嘛不热爱。</p>
+<p>道理差可拟 第一集 别样的号角。变形金刚电影前五部完了之后，大黄蜂的独传影片已经袭来。预告片是个好东西，信息有限半遮半掩的同时也揭开了一丝丝神秘的剧情面纱。对于地球和人类，是守护还是毁灭，一直是科幻、魔幻以及外星生物电影的大主题，to be or not to be是个大问题。超级英雄们层出不穷，宏大叙事脉络千变万化，我们就在每一次被影像所吹响的集结号角所吸引，也心甘情愿地被吸引。</p>
+<p>至少电影的二个小时内，心与魂与灵都属于自己，可以沉醉在不现实的光影世界里。不由得想起同事说的话，加班班车上的半小时属于他的独享时间，之前要处理单位业务，之后要斗争家里顽童，在班车里虽是座位空间和固定路线所束缚，不过借助手机连接的网络世界，视野是宽阔的，心思是自由的。第二集 收敛的道理。初始状态总是要体现随机性的，至于最后能不能找到最优解，要看在一定求解方式过程是不是收敛的。有线性收敛也有平方收敛，收敛速度上有差别。</p>
+<p>以前看求解偏微分方程组的弦截法和牛拉法，不是很明白收敛速度意义，后来再看就有点意思，算法复杂度和速度是一个平衡，弦截法每一步迭代格式简单，自然能用到的启发知识比较有限，只好放任给时间了，牛拉法反之。这背后也是取舍代价。求解有的受不了扰动，有的扛得住扰动，收敛可以磕绊偏颇，但结果终将达到，这也是鲁棒性的体现。我想把收敛比做专注，时代浮躁在个人身上显现，专注成为稀奇的资源，而干扰源也越来越强大，还能做成事做好事，大约切断干扰途径的同时，要增强鲁棒性，提高收敛度。装腔诉情怀 第三集 背了几首诗。</p>
+<p>说起杭州，白乐天先生就甚爱之，除了亲自督造绿杨阴里的白堤，在他这位诗魔笔下，杭州更有一番特色，这特色在他离开杭州后的日子运化为思念的味道。忆江南中的第二首写到，最忆是杭州，山寺月中寻桂子，郡亭枕上看潮头。抛开赏月观潮这些民间节气活动，开头五字，在千百年后成为G20晚会的主题词，那夜在西湖水面上盛开的一把扇面，是那么的赏心悦目。其他的“乱花渐欲迷人眼，浅草才能没马蹄”，更是《钱塘湖春行》里最熟悉的一联。然而在会议室外的墙上还裱了一幅字，是这一首叫《春题湖上》，湖就是西湖，在最后两句中，白居易深情地写到，“未能抛得杭州去，一半勾留是此湖”。</p>
+<p>文字就是这么的有活力，可以穿越初唐的风，吹落盛唐的花，飘到中唐的湖。这个湖也在几百年后又有一道苏堤，东坡先生用妙笔写到，“欲把西湖比西子，淡妆浓抹总相宜”，拟人写景之时，两位大文豪也跨越时空为西湖为杭州代言。第四集 听闻故乡雪。早上醒来一看墨迹天气，显示最低零下十二度、最高零下六度，顿时取消了换一条薄秋裤的想法。出门两步就一股冷风吹寒了脑门，不管不顾地戴上帽子，哪怕会把不服气的头发压成一个拍子。</p>
+<p>皱眉看天，南边一颗星亮得出色，特别是满天的云彩被安排得像毛笔刷出来的样子，白色、黑色以及灰色相互掺杂，空隙里的底色是早晨天空的深蓝。出门前在朋友圈里看到的小视频，老家已经在下雪，下得还很大，雪片在路灯下不紧不慢地跌落。坐到了办公室里，又看到表哥发的一个视频，雪已经堆积在他家的石榴树上五六公分厚了，雪还在不停地下着，貌似在抢夺本年不多的时间余额。回过神来感慨，没想到在华北的冬天雪也成了一种稀罕事物，大家对下雪的期盼在感冒疯狂流传时达到顶点：“下点雪吧，下了雪就好了”。庄里十年前下过一次暴雪，厚度可以埋到大腿，真是活久见。</p>
+<p>旧家邻居大爷用土簸箕车把巷道里堆积的雪推到村外河沟里，前后花了一个月时间。朋友圈的雪还在下着，新的一天又开始了，再听听《雪落下的声音》吧。起早且贪黑 第五集 月明星稀外。下了公交车，进小区门口，时间在晚上七点半左右，圆月已爬上东边的树梢。早上出了门洞，拐到小路上，那轮圆月还挂在西边的楼顶上。</p>
+<p>早晚顶月而行，星星稀疏到不见踪迹。过了一个冬至，并没有觉得夜消昼长，反而感觉夜晚把日出挽留的更久了，坐上车好一会儿，周边才会大亮起来，慵懒的天色与着急的交通同时醒转过来。哈欠连连之际，十字路口堵成了一串红灯闪烁，车身一停一起之间，手机屏幕把眼神晃荡到模糊。预报说周中以后开始新一轮降温，这个冬天的冷，实实在在地有劲，但天空也确确实实地干净，玻璃窗边上的不死花，开了一群又一群，朱红、明黄和淡紫轮番在小小枝头盛放，冷热交互，冬春转换，这一年的余额只剩六天。第六集 满目尽黄昏。</p>
+<p>每天下班准点走不了，可能是习惯问题。今天长者说他从来不提倡加班，因为但凡你脑子里想到加班了，你潜意识里就会放慢你的效率，认为时间比较多了，毕竟推迟满足感总是与人性相反的，这个值得自己反省。等办公室里清静下来，窗户外的天色也开始变暗了，火红的日头挂在西部的山峦上，很快就落了下去，留下半天的云彩，在追慕里变换着颜色，暖色调到冷色调。按错了楼层，来到好久不到的七层，在天桥过道里穿行，这个高度可以看到公园，河流，树冠，房屋以及山峰，依赖远近的视野，高低的布局，深浅的色彩，把画面铺展的立体。漆黑夜幕从四周涌了上来，贪婪地隐匿着每一缕光线，直至笼罩天际。</p>
+<p>在夜色的怀里绽放开各样灯光，它们心照不宣勾勒着自己的势力范围，不让度丝毫，吸引着观察者的眼睛。匆忙又新年 第七集 新鲜的一年。三百六十五天数尽，又一个新的三百六十五天开始。越发觉得时间过得太快，眨眼就是一年。现在的寒冷已经让自己想不起夏天的溽热，还好有写的说说作为记忆。</p>
+<p>而体重计上的数字也恢复到了跑步前的样子，这是自己最不想看到的事实之一。因为假期里的最后一天才是元旦，今年的最后几天过得有点错觉，总以为已经到了2019年，后来一琢磨还不是，所以流量还可以赶紧用一用，信用卡的次数赶紧攒一攒。开始立的百篇计划却是赶不出来了，三分之一的差距跨越起来还是有难度。今年都看了些什么呢？忘得很快，能感觉到惯性思维的强大势力，好几本看了开头的新书还犹自躺着，好几场精彩的展览就已经错过，好多篇可写的文章还占着内存，好些个良好的习惯又没有坚持，这是遗憾吧。</p>
+<p>今年看到了兰州段的黄河，非实地不足于感觉其恢宏气势，参加了三联杂志的千期晚会，非现场不足于感触其深厚积累，留下了于己十分珍贵的记忆。今年在划上不甚圆满的句号，很多事情傻傻花了很多没用的心思，很多事情又没有花上足够的精力，得失取舍之间匆忙又老一岁。新的一年正在在走近，又一个三百六十五天的循环即将开始，那些未来得及实现的愿望要继续行动下去，新的愿望也要记录在心头。愿2019年，时光与我，互不辜负。第八集 跨年的方式。</p>
+<p>时间之矢，所向披靡，无一物可以拦截，但可以让它有点仪式感。这仪式感可以私人，可以大众，可以普通，也可以别致。跟随着电视频道里的晚会，屏幕内外一起倒数，是个方式。守在传统规制的钟楼外面，等着凌晨时分大钟被敲响，而后欢呼，是个方式。穿好衣服装备齐全，来到家门口空地，背对夜晚寒风，放一长串鞭炮，是个方式。</p>
+<p>灯光秀，声音秀，美食秀，全方面开发多层次感官，硬生生又美滋滋的把这个跨年这个时刻跟其他的分秒区分出来，仪式感加持之后觉得非比寻常。这么多年的元旦过去了，想不太起来以前都咋过得了，估计大部分是睡过去了。还记得大一那年借了一套金老先生的《天龙八部》，宿舍里台灯下看了一晚上，校园的游园广播充当了美好的BGM。这个跨年是听了元旦致辞、吃了一盘饺子之后，安心静气地喝着茶看着书度过的，没什么特别，一如往常跨过了零点，远远地听到有人放了一阵鞭炮。是啊，又是一年，哪怕自欺觉得过完农历新年才是一年。</p>
+<p>需求也精分 第九集 亏损的咖啡。还在感叹于luckin coffee的迅速扩张，以及大量补贴带来的美好体验，就看到瑞幸净亏损8个亿的新闻。于是大家见面多了一句戏谑，你看你看，都把它喝亏损了。报道里说瑞幸高管是网约车里突围出来的，这种初期大量补贴迅速占领市场的招数见怪不怪。作为一个普通消费者，我们组建了luckin红包消费群，一帮爱好喝咖啡或者被事务逼得不得不爱上喝咖啡的同好们入群，把红包福利share出来。</p>
+<p>三个张震图像或者三个汤唯图像或者三个鹿角头像或者三个杯子图像，对应的2.8、1.8、3.8、4.8折，但凡有一个不一样就奔5.8或者6.8，这是第一种抽红包。后来又多了一种投骰子，点数对应几点八折，现在已经进化到抓娃娃形式了，明显感觉3.8折及更低优惠出现概率降低，所以也可以看出商家也开始调整补贴力度。这种模式有的力挺有的唱衰，但我们更喜欢物美价廉，但愿不要像共享单车一般，发展过山车后，进入一种非常不容易找到的局面。第十集 日历的多样。这几年感觉日历有了新动态，一个办公室里有果壳的物种日历，豆瓣的电影日历，故宫的文物日历，还有书店的单向日历，展现形式图文各有偏重，但都有自己的妙处吸引人。</p>
+<p>生物的萌美，影像的经典，文博的历史，警句的深刻。内容依托于专科知识积累的数据库，也意味着细分后的消费者人群。关注了读读写写，它日更里是每日读诗或者红楼梦，所以果断下手出了一本日历。关注了丁香医生，它出了一本健康日历，对其健康专业知识的信服，也果断下手买一本寄回家给父母。虽如此，纸张显得粗糙的月份牌还是有市场，大约每一页撕了也不心疼，平常也不撕，只是卷上去夹住，上面的黄历禁忌与便宜成了点缀，多年受欢迎的精致挂历胜在一下子展现一个月所有天，一副挂历可以占不小一块墙面，约等于装饰了，一冬天烟熏火燎，等它光荣下岗时墙面白于他处，新年还得找寻一副差不多大的。</p>
+<p>左岸记： 世事洞明皆学问，人情练达即文章。古今多少事，都付笑谈中，唯有饮者留其名。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

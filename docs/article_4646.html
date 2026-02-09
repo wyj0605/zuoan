@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生如夏花，别样精彩</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>生如夏花，别样精彩</h1>
+            <div class="date">2026-02-09 11:07:10</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌 泰戈尔在《飞鸟集》中写到“生如夏花之绚烂，死如秋叶之静美”，花儿之所以美丽，在于竭尽全力的绽放，释放出生命该有的绚烂和精彩，活得极致且得体，美感自然呼之欲出，也只有活过，经历过，面向死亡这座人类为之匍匐前进的灯塔，才会心态平和。随着工作节奏加快，时间像火车一样飞驰而过，人生在世短短几十年，愈发觉得时光短暂，要提高做事效率，在闲暇时光尽可能享受生活的美好，能按自己喜欢的方式度过这一生，我想这也是一个人的成功。在最近两个月里我努力地朝着这个方向努力，很是体会到了这份持续行动的精彩。1. 坚持三十天的挑战 如果随波逐流，随应外界环境变化，而忘记聆听自己内心的召唤，毫无坚守而言，那么时光的流淌会毫无痕迹；但如果每天坚持同一件事情，让事情随着时光一起，形成一种连续，自然会有水滴石穿的魔力。八月初到本月初的坚持三十天，每天坚持读一篇英文版的《国家地理》，三十天下来，居然完成了三本原版杂志的阅读，认识很多陌生单词的同时，也开拓了眼界——有人研究睡眠，专业捕捉蝴蝶的岛民，全球垃圾的分布，其中四分之一来自亚洲，北极熊因为冬季变暖而失去了栖息之地，种族歧视是种人为的偏见，人类的源头来自非洲等等。</p>
+<p>学习英语，保持良好的英语语感的同时，也开拓了视野。本月初至今，第二个三十天，选择了日更，每天写六百字的短文，哪怕是手机有时打开了话匣子基本也停不下来。最近几年每到下半年都会有一拨日更的挑战，不管是有意还是随意的，研究德国史，利用心理学的知识演绎各种短故事，到如今日更分享管理方面的经验。写作这个习惯一直断断续续坚持，坚持的过程并不痛苦，为什么喜欢?写作需要专注，享受这种心无旁骛的心流，看着脑海的想法一个一个的落实成文字，再多的情绪和苦恼都会定格成为过去。此外是与自己的对话，听着脑海里的声音，像有个人在脑海里絮叨，只不过化为文字的过程，别人听不见，写出来之后，别人看不看，那也只是别人选择的结果，传递美好，分享温暖，这份努力也会有意义。</p>
+<p>然后就是个人最小的产品，每天我们都在消费时光，利用各种资源，真正属于自己的产品并不多，造个车需要三到五年，但是一篇文章只需要集中精力两三个小时，就会成为成熟的产品，打上自己的烙印。再者就是输出倒逼输入，逼迫自己学习提升，整理思路，思考总结接受到的各种信息，这个坚守的过程会让个别的经历，形成高度概括的经验，分享给更多人避免走更多的弯路，自然也算是功德一件。三十天日更太短，一百天也不算太长，还真心希望日更能够更长，一年三百五十六天，我想要是持续三年，这份积攒的势能足以让我挣脱当下的环境，成就更好的自己。2. 向外探索自我 玩，像个孩子一样郑重其事的玩耍，这对于当下的我而言极为重要，也是当下自己不要刻意追逐，放开了玩耍就像自己没有来过一样。最近一个月时间，每周周末都会出游，与同学结伴同行。</p>
+<p>选择一座方圆不超过一百公里山攀登，这样驱车可以当天去当天回。回到大自然的怀抱享受自然的风光，享受阳光和长距离徒步登山的挑战乐趣。第一周我们去达蓬山，那里是第一次越野的地方，路线爬过已经很熟，越野那次已经爬了十五公里，前半段已经耗尽了力量，一座小山坡就像登天一样难，体会到自己选择的路，跪着也要走完，真到了山坡上，即使跪着其实也是挪不动步子，千万不要高估了自己的实力。这次先去爬山，大汗淋漓之后，缓过劲来，其实也没有那么艰难。下山之后，找到一家湘菜馆，朝天椒做调料，再加上开水的滋润，辣得脸和胳膊酥麻，整个人辣得欲罢不能，极致的味道又回到了家的感觉，够爽。</p>
+<p>第二周我们去了五磊山，此前团建去过一次，只是简短的休闲。这次我们背着包，逛完景区之后，又找了一条小路，绕过沿着山周边走了一圈，然后在山间小路上前进，新鲜的空气，没有人烟的小道，灿烂的阳光，还有走不尽的山间小路，忘我的走在那里也是享受之极。那次不小心走到了山下，停车场在山顶，又只好沿着公路上山，沿着杜湖上山，蓝天白云，青山绿水，手机根本停不下来，美不胜收，彻底忘却俗世的烦恼，沿着盘山公路，大概有十公里徒步上山，山间的泉水可以直接喝，也有人用五加仑的桶直接装水，纯天然的泉水，为后续爬山积累了经验，留下矿泉水瓶子，然后接泉水直接喝。第三周到北京跑了北京马拉松，9.16那天的北京天气极好，空气也难得的干净，北京的秋天干爽，一路跑下来衣服都没有完全湿透。从天安门出发，沿着长安街，经过西单，学院路，一路再跑到鸟巢。</p>
+<p>此次跑步有跑友一路陪伴，彻底体会到了朋友陪伴的温暖，每次跑马都在进步，开始理解了马拉松脾气，长距离的奔袭需要有目标，有配速策略，要有合理的补给。有序且有节奏的控制，不再轻易的抽筋，也体会到了马拉松的乐趣，突破自我之后驾驭马拉松的快乐，像一个蹒跚学步的孩子，终于可以放开束缚安心走路了，我想这也是一大乐趣。此次北京马拉松不仅完成了马拉松本身，更重要的是见到了老朋友，轻松愉快的环境里，仿佛回到了从前，早上在体育场跑完步，一起拉伸闲聊享受阳光的恩赐，享受慢生活的乐趣，享受朋友之间的温暖。见到了老同事，体会这一年半的变化和成长，成长的路上从来没有离开，但又仿佛走了很远。第四周遇上中秋，前两天到了温州的雁荡山，在大雨中登山前进，荒芜人烟的小路上听自己心跳的声音，听雨中嘀嗒嘀嗒的打在伞上的清脆，汗水和雨水裹挟在一起淋漓的酣畅，看着高山之上，巨石之下，小庙的静谧安然，庙前菜园和菜园，归隐山间的佛家生活让人浮想联翩。</p>
+<p>站在高山上，看着云雾缭绕的山峰连绵，天地之浩然，置身其间唤醒了自然的美好，人终归是动物，对于大自然有股天然的亲切感，美不可言。品尝当地的梅子酒，入口醇厚，有梅子余香，半杯酒下肚已然微醺，回到酒店之后，听着雨声入睡，妙不可言。第二天又寻着险峰攀登，在悬崖边小路前进，在路可走的灌木丛中拽着草往上攀登，为了下山开辟新的道路往前进，胳膊被荆棘划破，浑身已经湿透，直到无法再下山时，才选择折返，回到山顶上精疲力竭看着群山，喘不过气来，庆幸自己安全上来。仔细回想那一幕幕，足以写进年度历史。趁着大雨来临前，回到安全地，如计划进行，安全回来才松了口气。</p>
+<p>那时觉得在前不着村，后不着店，荒无人烟的山脊上，钱又能派上什么用场呢？简短的一个月时间，彷佛经历了半个世纪，每次出行都是那么的精彩，回味之下，从来没有这么精彩的活过一样，唯有如此探寻，探索生命精彩，才不枉此生吧！3. 成长型思维 不管是坚持学习，还是向外探索游玩，这都是在打破常规的局限。人难免懒惰和自身认知的局限，陷入迷茫和情绪的泥淖。成长型思维，相信可以通过自己的努力，假以时日，自然会打破当下的局限，获得更好的发展，我们需要在不断的尝试中，寻找自己喜欢的事业，全情的投入享受其中的精彩，不管是工作，还是生活，尽自己最大的努力做好，两者才能获得平衡，不然混迹于工作，毫无成长，沉溺于生活的琐碎，又无增长见识可言，我们终将会稳稳的平庸一生，乏味无趣大概不是我们所追求的。</p>
+<p>4. 总结 “生如夏花之绚烂，死若秋叶之静美”，是对待生命的态度，也是一种理想。努力的向外探索的过程，也是另外一种重生，努力大胆的追求生活的美好，我想耗尽心力也为过，是生，还是死，这是个问题。既然选择的生，那就该生如夏花之灿烂。以上，愿我们在未来的路上，越来越精彩，也越努力越美好！左岸记： 向知识的求知者、未知的探索者、坚韧的挑战者致敬！</p>
+<p>他们的生命极具张力，生机勃勃，他们的身上充满着无限可能。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>困住的灵物</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>困住的灵物</h1>
+            <div class="date">2026-02-09 11:07:03</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/读博在四方 本属于夏天夜晚大自然的灵物，却因为门窗开了五指宽的缝隙，误入了这一隅焦灼的空间。里面的空气很躁动，气温高了许多，连原来灵活的腿脚都莫名地会感到战栗。为躲避豆粒大的雨滴，冒冒失失地飞进来了，以为这里是避难的天堂。细观四处，一片漆黑里，待机电脑的指示灯持续闪烁着迷幻的蓝光，电脑的风扇在角落猛烈地吹着，它轻易不敢靠近。趋光性让它决定向灯扑去。</p>
+<p>它提高振翅，加快了速度，却硬硬地撞在了屏幕边缘，一下子跌落下去，头昏脑胀。还好只是自己出丑，没有被谁看到这窘状，它伸出前腿梳理梳理碰歪的蛾眉，让晃荡的脑液回归平稳。也不知过了多久才清醒过来，听不见了雨声，为了躲雨的自己也不知道在躲避什么了。脑袋转向窗外，夜色中透露着些许微光，那是它本应在的地方，是前半生最熟悉的领域，有蜜源，有同伴，也有一贯鄙视的蚊子，好歹蛾们也是为夜晚开放的花朵授粉的，蚊子是what？昆虫界最知名的vampire，当然还有神一般出没的敌人——蝙蝠。</p>
+<p>什么是回声？没感觉自己翅膀被声波逮住过呀，就被敌人用去当武器了，还是精准制导打击。想飞翔，要回去，这念想突突的。窗外看得真真切切，却被某种透明的叫玻璃的东西硬生生地挡住，落在人工绿植叶子上，闻到了杀虫液体的残留，一脚还踏在某只蚜虫的尸体上，幸好粘液不足以粘住六条腿中的任何一条，也庆幸不是背部先着地。歇会儿，着急也没有用。</p>
+<p>远处大桥缀着的灯光不停地变换着颜色，生活真的精彩。清清长脚，抖抖翅膀，也学学那种软体动物蜗牛，一步一步往上爬，虽然也问过其中一大哥，确实是被歌词塑造的励志偶像群体。沿着草本海棠的枝干爬到了旁边的鸭掌木上，叶子还是去年的，不够新鲜，也没有凝结的水珠能用来解渴。沿着最长的枝干继续往上爬，一片叶子的尖角挨着铝合金门窗的边缘，这种材料貌似平滑，竟然是可以抓把住的。慢慢一蹭一滑爬上了一个小平台，这里足够舒展翅膀了。</p>
+<p>凑到这个平台的里侧，有个小斜坡，是发干变硬的粘合剂。借助斜坡倾角，抬起头，看到灯光里某些飞舞的同类，那么自在。哎……一声长叹尚未落地，瞬夫之间看到同类就被神出鬼没的蝙蝠逮住，没有了踪影，没了明天。庆幸吗？蛾类的小悲欢不足以挡住蟋蟀的大鸣唱。</p>
+<p>看困了，呐喊也没有谁听到，就算听到也看不到，窗外的世界比窗内的要明亮得多，小小的躯体埋没在几何暗影里。可能是多次撞击过多损耗了蛾力，困意一浪一浪地袭上来。要不睡吧，暂时也没有危险。梦里有一场景，我好像还在玻璃下使劲振动翅膀，希望声音能绕过眼前的庞然大物，让外界知晓我在这里，却始终无声无息。睡了一个长觉，很长。</p>
+<p>什么东西就像针一般，刺痛了千万枚细小的复眼，被惊醒了，是东边的曙光逐渐地明显了，太阳要抑制不住地从杨树高墙下蹦出来。按照天然习性，这个点应该回归到某处洞穴，静静地待到下一个夜晚到来，而今却滞留在天光之下，都快亮瞎了眼睛。忍不住开始想念同伴们，想念她，想念那些个充满熟悉气息的地方。气息？近似封闭的空间里，味道也堆积到了极点，特别是新增的工业家具的味道，都快被熏晕了。</p>
+<p>忽然一个长方形的物体从斜上方直接逼近下来，越来越靠近，物体前面两个黑洞洞的圆孔快贴到翅膀上了。这是什么怪物，还是头回见，吓得没敢扇动双翅一毫，僵死一般爬着，一动也不动，留着蛾眉轻轻地颤抖。这个物件经过蛾类世界一小时后迅疾地离开了，被拍的蛾感觉一口气还没有松下来，圆孔就又贴上前来。反复几个来回之后，静静地等那个物种完成某种猎奇，最后听到一个声音说最后这张拍得不错。平日里飞翔，都是从上往下看陆地上来来往往，这回却被从上往下看了，特别想问人类这个个体一声，蛾们翅膀上的纹理好看吗？</p>
+<p>蛾自己从来没有看到过。后来也不知道外面的世界过了多久，一切都归于平静了。昨晚开始吸得那点花蜜早没有了踪影，这个房间里的植物多是不开花的肉肉植物，甚至仙人掌，天干物燥的，饥与渴反复纠缠，没想到蛾生困在这里……过了没几天，一只飞蛾的尸体被傍晚保洁大姐扫到了垃圾袋里。这或许就是生活，永远难于预测会掉入哪个坑里困住，貌似唾手可得的自由，却被撞不破的东西阻隔着，那是什么呢？是那条拴着小象长大的绳索，还是那块挡住跳蚤蹦哒的玻璃，抑或是煮着一锅青蛙的温水。</p>
+<p>左岸记： 这是个寓言故事，是一只飞蛾的命运，飞蛾扑火，它的的生命注定了短暂。那我们人类呢？要等待多久才能突破那无形的屏障，站在更高的层次看世界，就像那庄公，能遥望千年。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

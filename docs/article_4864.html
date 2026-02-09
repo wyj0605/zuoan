@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>远离你身边的假朋友</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>远离你身边的假朋友</h1>
+            <div class="date">2026-02-09 11:07:29</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/西风烈 很多时候感觉自己有很多朋友，但是这些朋友有多少是真朋友，有多少又是假朋友。真朋友能帮助你完善人格，自我提高。相反，假朋友则只会像吸血鬼一样，吸血吸髓。大学宿舍里碰到第一个这样的假朋友刷新了我的三观。因为在外地上学，老乡的关系显得很亲近，所以刚开始走的很近。</p>
+<p>一起上课，一起上自习，一起讨论男生。后来就是给她带饭，出门帮忙买零食，帮她倒垃圾，陪她做头发。我们洗澡要用水卡，她水卡没钱了就用我水卡，衣撑不够用了就用我的。一个学期之后我发现，我去澳门给她带东西带了八件，她去香港却拒绝给我带，还用着我的皮箱。我给她倒垃圾，她就算亲眼看到也不会说谢谢，她说了句，你好勤快，意思仿佛是，你勤快你就倒了吧。</p>
+<p>我跟她第一次争执是发生在衣撑上，因为她明明用了我的衣撑，却硬说是自己的。后来开始接二连三的发现了各种事情。让别人帮她带饭却拒绝给别人带饭。偷偷用我们宿舍其他人的洗护用品，偷吃我们的零食。晚上十一点半之后开始用洗衣机洗衣服（洗衣机声音很大，屋里可以很清楚的听到。</p>
+<p>）夜里用焖锅一直不停的炖东西，锅里咕咚咕咚的响。平常我们宿舍一般都是她分享别人的八卦然后我们开始议论一番。慢慢的发现她也在对别人议论着我，添油加醋又风淡云轻的说着我的各种事。有段时间我真的特别抑郁。第一次碰到这样的人，厚脸皮，爱占便宜，人懒，脾气臭。</p>
+<p>很多时候会埋怨自己，上次吵架，明明是我有理，为什么没说清楚呢。我对她这么好，她怎么能这样对我？有时候一想会一晚上气得睡不着，直到后来遇到了人生中最重要的一个朋友。他点醒了我，教会了我很多道理。我才终于认识到，这种朋友压根没必要深交，更没必要放在心上。</p>
+<p>我看开了，也释然了。现在的我不会帮她倒垃圾，她也不再用了我的东西不还。我不会再随意送出自己的好心，也不会辜负别人的好意。之前网上很火的江歌案，我也一直有在关注。大致案情是这样的。</p>
+<p>刘鑫得知被前男朋友威胁，让手无寸铁的江歌来接她。快要走到家门口的时候，前男友追来，刘鑫跑进房中，江歌被前男友杀害。期间房门从未打开。撇开锁不锁门不说，单说她后来的表现，让人心寒。江歌替她而死，她却连死者葬礼都不去，不接江妈电话，死者死后一年多迫于网络舆论才与江妈见面，推卸责任，甚至于爆出言论说江歌是同性恋。</p>
+<p>一个人竟然可以凶残到如此程度。也无怪乎鲁迅说从来不殚于用最坏的恶意来推测中国人。从我的大学室友起，我开始慢慢认识人性。发现身边真正的坏人很少，伪善的人很多。有的得势时门庭若市，窘迫时门前冷落，就连之前受过恩惠的亲兄弟也避之不及。</p>
+<p>有的看不得别人比自己过的好，嫉妒愤恨，暗中作乱。有的用得着了好言相待，用不着了排挤打压。从小到大，爸妈教的，老师说的，都是仁义礼智信，待人要真诚，顾全大局，要为他人着想。但是从没教过如果别人待你不真诚，自私自利的时候，你要怎么办？忍气吞声还是当面指出。</p>
+<p>一次的忍气吞声，以后就会有更多次的暗自神伤。最好的办法就是当面指出，然后躲得远远的。这种假朋友不值得深交。如果继续跟这种人纠缠，你有可能就是下一个江歌，因为这种人只会让自我利益最大化，从来不会考虑你。所以远离你身边的假朋友，才是对你最大的保护。</p>
+<p>左岸记： 大年初三了，这几天是不是见到许多往日的朋友，那么这些人谁是你心中真正的朋友呢？怎么辨别谁是你真正的朋友呢？真朋友就是不管什么时候只要你需要他，他就会站在你这边，在你最困难的时候他会帮你一把；假朋友就是那种平时说的很好，到你真的有事的时候他就会假装不知道的人。假朋友在喝酒时会说，你不喝完这杯就不是朋友；真朋友在喝酒时会说，不要喝太多了。伤心时，假朋友能陪你喝完几瓶烈酒，真朋友能陪你长谈一个黑夜。</p>
+<p>真心的朋友，没有怀疑，只有信任；没有施舍，只有帮助；没有鄙视，只有尊重。而最重要的是，你想得到真朋友，首先自己要对别人真。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

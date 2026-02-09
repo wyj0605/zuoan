@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>总有一些纯真，会在烟火之间飘来</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>总有一些纯真，会在烟火之间飘来</h1>
+            <div class="date">2026-02-09 11:07:38</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/YolandaYu 常看到网络上有关于“如何成熟/成功/更美好/高效的生活”的文章。一二三四五六七，条条框框很道理，看完似乎就奔走于人生巅峰，又很不尽人意。因为，所有文章都指向一个问题：越来越没有生气的成年人思维。记得一位外国人说，每次他看见幼儿园里怀有各种奇思妙想的孩子时，他就会纳闷，这世界上那么多无趣的大人是从哪来的？前一段看《潘神的迷宫》， 片中的小女孩深信童话世界的奇异和美好，为母亲采来曼多啦草祈福，她深信那植物来自神奇的王国。</p>
+<p>母亲发现以后，拿起那株草，走到火堆边，用力扔了进去。流泪着说：“奥菲利亚，有一天你终究会明白。对你，对我，对于这个世界而言，童话是不存在的。世界是残酷的，终有一天你会明白。”其实，不是不存在，只是你看不见了。</p>
+<p>&lt;br&gt;&lt;br&gt;宫崎骏的《哈尔的移动城堡》，就是这样的一个隐喻。金发的哈尔，飘一样的出现，俊朗的面容和美丽的衣装，淡定自若地带着苏菲跃上天空并一路跳着轻盈的舞步落在阳台上，像极了天使怪盗中的怪盗以及柯南中的基德。宫崎骏没有把这个人物就这么脸谱化下去。哈尔，为了追求自身的强大力量，跟火魔卡西法订下契约，交出心脏。之后，他再也无法获得真心爱人。</p>
+<p>一旦他追求的对象爱上他，他对对方的感情就结束了。脆弱而自恋的哈尔，发现自己的头发被染坏的时候，发出一声尖锐的惨叫，不知所措的念叨：“不美了，活着没意思”，差点儿自杀只因为头发的颜色死去。他胆小而害怕上战场，甚至让女主角扮演成他妈去王宫和魔法师说自己很弱去不了。光鲜亮丽的表面之下，变回原形后丑陋的哈尔，黑暗而恐怖。苏菲，曾经是一位妙龄女子，因为魔法一夜之间变为老太婆，决定离开自己的城市，到野外流浪。</p>
+<p>哈尔把她当做一个女佣，以为她脆弱不堪，没想到最后却是女佣的顽强一次次救了他的命。哈尔，这么多因素揉成一个人物，强大又卑微，自私又懦弱。他曾经无所牵挂，游荡世界，得到又失去大把姑娘的心。没有想到最后却听命于一个老太婆。当魔法师微笑着说：“我知道他的弱点在哪里”的时候，哈尔也悟到了。</p>
+<p>当他变成燕子冲出屋外，微笑说：“我已经逃避了这么久，好不容易出现需要保护的人”之时，那颗被偷走的心似乎已经回到他的身体中。这颗心已经失落了那么久，以至于安放下来时，他还不习惯有那么沉重的分量。宫崎骏的每一部动画，都是一个寓言。不论是飞行的机器，还是移动的城堡，细节之中亦有一些隐喻。火魔子在哈尔面前巨大而惊悚，在善良而坚强的女主角的面前，只是一个超Q的单纯的小火焰。</p>
+<p>女主角被魔法变成老太婆，消除魔法的方法是帮助魔法师找回自己的心。满脸皱纹的老太婆甚至比年轻俊美的魔法师更有力量。这是一个怎么样的比喻呢——这种力量，大人们做不到，因为利益的交换如此茫茫无期，可能血本无归的事情他们不会做。这种力量，在人们忙忙碌碌的旅程，是那遗失已久的单纯童心吧。现实生活的繁杂和黯淡，无数人在碾压中渐渐失去天真。</p>
+<p>大师希望把那颗童心给人们偷回来。给一群无趣的成年人一场不荒诞的奇思妙想，总有一些纯真，会在烟火之间飘来。不过，哈尔也说，那感觉，是有点沉重的。&lt;br&gt;&lt;br&gt;左岸记：一方，我们要成长为勇敢坚韧的生活强者；一方，我们要保持心灵最纯真的善良。这样的生命才能绽放出最美的烟火。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不开心的源泉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>不开心的源泉</h1>
+            <div class="date">2026-02-09 10:51:36</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>不开心的源泉 文/阮阮-T其实大家可能不知道，以自我为中心这个心理十分常见，它便是矛盾的来源，不开心的来源。举个例子吧。我高中住校，住寝室难免会遇到很多问题，比如晚上睡着不舒服，稍微翻个身床就会摇，会发出声音；早上起床床又会摇，会有点声音。&lt;br&gt;其实这些对我来说都不成问题，我从来不会因为别人发出了这些摇床的声音影响了自己的睡眠而去指责别人，毕竟是住寝室，每一个人都不容易，大家互相得理解。可我第一天跟她们住一起的时候，我6点就起床了，因为我想7点到教室还可以看下书，我小心翼翼地行动着，昨晚和小伙伴相约早上一起起床，于是我就去拍她想让她起来，结果她一起来声音特别大，很多人都被吵醒了，这下可好，她们把我俩沦为罪魁祸首，在教室方面指责我叫我以后晚点起床，不准那么早起床。</p>
+<p>所以以后早上我就一个人起床，她再也没有说过这句话了，我也曾对她怨恨，可后来也就不在意了。一次偶然我给我们班班长说起这事，本来是诉苦的，可她却指责我，说她要是爸妈早上叫自己起床自己却还没睡够的话就会很生气。其实我当时就以为是自己错了，认为我不该起那么早。当时班上有个不爱换衣服的男生，因为他妈妈去世得很早，他爸也不管他，基本上他没有要勤洗澡勤换衣服的意识，同学们都了解他这一情况，有同学提议去给他写匿名投诉信，我是觉得这样太伤别人自尊了，这个时候班长义正言辞地说了句：我小学的时候就自己洗自己的衣服了，他凭什么不能自己注意卫生。所以谜团解决了。</p>
+<p>因为班长是以她的思维来审判我们的做法，而事实上因为我们的阅历不够，我们能做的也就是用自己以前的经验去处理事情。那以此看来，每个人都是以自我为中心？相同的例子，有天我在家，早上起床之后我想先写作业于是就没先叠被子，而且被子刚起床之后还是热的，不能马上叠，可是我妈并不知道我的想法，她买菜一回来看到的就是我没叠被子，就把我骂了一通。现在看来不仅是因为她不了解我当时的想法，还有就是她认为她自己能做到的如此简单的事我却不做，所以才如此生气！我之前会怨别人，因为我平常真的还蛮多为同学考虑的，像发生什么矛盾口角，基本你说我几句我是不会回的，我有什么不舒服我也不会讲出来因为怕别人不高兴，而被人冠以了“以自我为中心”的帽子，这下我真的开始怀疑这个社会，就因为我的存在感低，我的闪光点没人看到，我就不好了？</p>
+<p>每个人都有自己的光芒，别人没看到并不能证明你不够好。也就是说，用别人赞美自己的方式来证明自己的价值是不对的。用别人指责自己的方式来判定自己是错的这个行为也是不对的。别人都会以自我为中心，你为什么不看透呢？人生真的没那么多烦心事！</p>
+<p>左岸记：我的生活，我能处理好，这正是一个人的可爱之处。和菜头有段语说得很好：“认识到自己并非无所不能，同时，也让别人认识到自己并非无所不能，这是大家的自我解脱的开始。我们都是凡人，我们都拥有肉身，这使得我们都会犯错，并且因为自己的敏感和感性而遭受更多痛苦。正视这种痛苦，且不把它视为一种自我愧疚，不去进行自我惩罚和自我折磨，我们才有自我修复的可能。”不要埋怨别人无知，不要指望别人和你站在同样的高度。</p>
+<p>其实，一个人所处的高度，决定了他的见识。与其埋怨别人，不如用一种亲近的态度和平和的心态，去和别人交流、沟通、兼融……这样，你就可以做一个很可爱的人。上面作者的这些例子都有一些不错的破解办法：宿舍的床摇得厉害，就把床修好，让它没有音响而影响别人；男生不爱换衣服，可以找那位男生聊聊，听听他的故事，并巧妙地说说讲卫生的好处；大人不理解孩子的心是因为大人对很多事的看法都是理所当然，还没听孩子解释就妄下结论，所以，大人在要生气批评前要先听听孩子的想法，孩子要在父母生气完之后要找机会告诉他们心中的真正想法，避免下次犯同样的错误。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

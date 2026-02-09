@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本来就该是你</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>本来就该是你</h1>
+            <div class="date">2026-02-09 11:07:27</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德鲁伊 冬天很漫长，春天很短暂。刚捱过冬天，进入春天，周边的朋友却都声称抑郁了。基本是“新的一天，新的难过；新的一年，旧的焦虑。”。冬天里，万物世界都蛰伏着，天下大同，没有对比就没有伤害。</p>
+<p>到了春天，一阵春雨，次第花开，万物喧闹起来，显得自己寂然而了无生趣，于是都开始抑郁了。***A先生，混到项目经理了，子女双全，要车有车，要房有房，虽然都是贷着。去年从干活的被举上项目团队的头儿，拼了一年，颇有成效。然后过了个年，突然感觉被扼住喉咙似的，呼吸都是从逼仄的缝隙里使尽全身气力。这像极了他小时候的溺水经历，一群孩子出去玩水，他本身游的不错。</p>
+<p>但是腿抽了筋，水里扑腾、无比恐惧，但周边的、还有岸上的都以为他玩的高兴。就像现在，周边的人可能觉得A正春风得意、一马平川，自己却连呼吸都需要拼尽全力。A先生基本被“为什么是我”，“为什么又是我”，“为什么还是我”的三连击，天天无情打击。当一个人对生活没有讨价还价资格的时候。所谓的决策，其实是被当做工具；所谓的选择，该是开卷考试的对错题。</p>
+<p>A先生发现，自己在被需要的时候才有价值、才有存在感。可是，真到自己需要的时候，别人都成了既聋且瞎的主儿。亲人、妻儿、朋友、同事、领导、下属，都觉得A很重要，也仅仅是觉得重要和需要他。A觉得，自己高兴的事情没太多人关注，别人在意的事情自己必须“看见”。这让他觉得，就算自己是人生的一个演员，我演技越好，角色越出彩，我越任劳任怨，我倒是得到认可了，但是“我”没了。</p>
+<p>“一方面我给每个人都说，你要关心我的角色，评价我的角色，我这个演员不重要，也没必要关注我。但真到大家习惯了角色，我却感觉我就没有任何时间不是角色……”然后我问他，“当初你溺水的时候，呼喊了吗？”“没有。”，“为什么没有？”，“不知道”。</p>
+<p>“那后边是谁救了你？”“我自己啊，一瞬间的惊恐，然后我想我会游泳啊，我会自救啊。然后就好了啊……”“那你以后有后遗症吗？还去游吗？”“去啊，我喜欢水。</p>
+<p>” ***B小姐，天生丽质，大学没毕业就被老公搞定了。当时，在小城市里，原本介绍给她的是老公的哥哥，她没看上。老公是跟着哥哥来相亲的，她觉得本分、阳光、沉稳，阴错阳差毕业就结婚了。老公来到大城市打拼，略有成绩的时候，把她和孩子都接了来。又生了女儿，一家生活不错。</p>
+<p>她是朋友们羡慕的对象，她也没有放弃自己，漂亮、知性，有爱好，教育孩子也有一套，几近完美的生活。但自从她来到大城市，其实也搅乱了过去老公的生活和工作。独自打拼、自由自在，在家庭这个从内容到形式都完备的时候，反而显得既别扭也无法熔融。矛盾不可避免，是否在意彼此，生活习惯，教育想法，事业方向……她试图适应，也试图掌控，在适应和掌控中，她越来越失衡和烦躁。她以为做的更多就会回报更多，她也以为她要他就能给予。</p>
+<p>当初那个周边都觉得是他下嫁的人，现在一股脑告诉她，当初他们说的是多么的对。她后来习惯了，他是这个家庭的成员，仅仅是成员而已，她自己也是。她能做的就是做好自己应该做的，至于回报，那是可望不可求的事情。她信佛了。但是，他开始家暴了，酒后。</p>
+<p>一开始是胡言乱语，砸摔东西，事业受阻、合作伙伴不给力或是背叛，诸如此类的原因。醒后会道歉，会沉默，会给她买礼物，带孩子出去玩，她会唠叨，选择原谅。然后，开始在每一次她伺候酒醉时，或想让他睡的时候推推搡搡。话里的厌恶和说辞，她只能不停的告诉自己那是醉话。她只能费劲力气让他回到卧室，不能给孩子留阴影，是她唯一想做的。</p>
+<p>再醒来，他会出差，他会道歉，但是是微信、短信，还会买礼物、带孩子出去玩。前些天，他动手狠了，她身上青紫，脸被扇肿了，她吵吵着要离婚，她说绝望+失望，在春天里要抑郁了。*** 莎土比亚在《皆大欢喜》中这样写到： “全世界是一个舞台， 所有的男男女女不过是一些演员； 他们都有下场的时候， 也都有上场的时候，一个人一生中扮演着好几个角色。” 社会角色(social role)是在社会系统中与一定社会位置相关联的符合社会要求的一套个人行为模式，也可以理解为个体在社会群体中被赋予的身份及该身份应发挥的功能。换言之，每个角色都代表着一系列有关行为的社会标准，这些标准决定了个体在社会中应有的责任与行为。</p>
+<p>每个人在社会生活中都在扮演自己应该扮演的角色，这里不仅意味着占有特定社会位置的人所完成的行为，同时也意味着社会、他人对占有这个位置的人所持有的期望。***抛开“二手车心理”（总觉得自己拥有的事物价值高，或是付出希望得到更大回报），更多的是我们扮演角色不开心，我们希望得到认可和回报，却放弃角色应该承担的责任。我们有一整套的说辞来说服自己，自己是正确的。但每一个角色深层次的、需要负担的，我们却视而不见、有意识忽略。“为什么是我”，“为什么又是我”，“为什么还是我”的三连击，答案只有一个，“本来就该是你”。</p>
+<p>你哭爹喊娘、鸣冤叫屈，失去自我的时候。一句“本来就该是你”，“我”也就回来了，你也不用抑郁了。春天要是抱怨为什么是我去驱赶冬天，被夏天替代，春天会抑郁。春天只是做好自己该做的，也得到自己该得到的。扮演好你的角色，寻找角色外人生的意义。</p>
+<p>左岸记： 春天，如约而至。她从来不会把自己的使命推给别人，她总是最不吝惜自己的付出。因为她知道，她只相信夏天，给予最丰富的生机，夏天就会助她成长，到了秋天会有更充实的收获，经过一个冬天的酝酿，待到来年，会是个更加美丽的春天。&lt;br&gt;&lt;br&gt; 作者简介： 德鲁伊，70后。理工科硕士，喜欢写作，职业经理人。</p>
+<p>人入中年，携妻带子，止思践行，与世界融洽、与自己坦然，充满快乐生活的勇气。“质朴、灵动、喜悦、淡和”是为人生准则，“于人有用，于己有趣”是为人生标准。文风以毁鸡汤、静心冥想、儿童教育、心理应用等见长。著有：《不曾孤独，怎会懂得》（散文杂文集，作家出版社出版）， 《不曾孤独，怎会懂得 2》（散文杂文集，作家出版社出版）， 《没走过的是路，走过的才是人生》（心智成熟心理学作品，作家出版社出版）， 《在疲惫的世间任性的活》（散文杂文集，文汇出版社）</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

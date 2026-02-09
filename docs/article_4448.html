@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朋友圈点赞真的那么重要</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>朋友圈点赞真的那么重要</h1>
+            <div class="date">2026-02-09 10:51:52</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>朋友圈点赞真的那么重要 文/熊雨凡&lt;br&gt;微信：WeStayYoung“嗡嗡，嗡嗡……”一直安静地躺在桌面上的手机突然震动了一下，屏幕亮起，显现出一行信息：“XX请求添加你为好友”。打开一看，对方发来的验证信息显示对方是我“失散多年“的初中同学，当时毫不犹豫地接受了对方的请求。心里想起好久未联系，得好好叙叙旧了。在心里盘算着，到底该怎么开口比较好，心中有些小小的不安。手指放在手机键盘上敲打出一行字，又删掉，就这样反复折腾了快有5分钟时，手心里传来振动感，还是对方先发来了消息：“你好，可以帮我的朋友圈第一条点个赞吗？</p>
+<p>（笑脸）谢谢。”这一看，心中马上升起一股愤懑和失落：你加我为好友就是为了让我为你点个赞吗？还是群发的，一点诚意都没有。所幸我马上平复了心情，看了看她的第一条朋友圈，不太愉快地点了个赞，然后，默默按了返回键，点了一下那个垃圾桶的标志，把她从通讯录里删除了。点赞，真的那么重要吗？</p>
+<p>我是个不怎么喜欢在朋友圈里点赞的人，因为能让我主动点赞的好友动态实在太少了，但经常被动点赞。也不知道从哪时候起，朋友圈里多了个“新功能”，那就是集赞。微信里不时会有些平时不怎么联系的好友发来消息让我打开他们的朋友圈帮忙点赞。在我看来，叫朋友帮忙集赞的不外乎三种情况：①我想要这个东西，大家帮我集赞让我得到它②我参加了这个活动，大家帮我点赞提高人气③我想得到这次机会，大家帮我集赞提高被抽中的概率第①②种情况一般会赞，而第③种，我是不喜欢点赞的。因为第③种情况，集赞后被抽中的概率不大，运用这种投机的方式最后从中获利的，一定是活动的主办方。</p>
+<p>而最终得到这个机会的，也一定是从众多集赞者中挑选出的最符合主办方要求的人选，而不一定是集赞数最多的那位。更为重要的是，朋友，我不希望你通过这种集赞的方式，来获得那些本应通过自己的努力去赢得的机会。有些东西，在你让朋友帮忙点赞的时候就已悄悄流走，像是时间，还有花费在集点赞数时的精力。我也不希望你发来一条消息：“帮我点个赞吧，谢谢。”然后，我们便再也没了交集。</p>
+<p>看过一篇很荒唐的故事——《S小姐的朋友圈》，描述的是S小姐对朋友圈里的朋友进行分组，每个分组的人看到的都是不同版本的S小姐，有土豪版有草根版，也有专门对男性开放的女神版……她沉溺于塑造各种不同的个人形象，醉心于收获点赞数量。即使最后因为个人和财务的原因被父母带回了家乡，她还是没办法摆脱获得点赞数带来的扭曲满足感。当然，这个故事有点夸张了，但却是我们不少人一不留神就会变成的妖魔化形象。朋友圈，算是信息时代一个记录、扩散个人日常和感悟的地方，本着一种记录的理念，最终却发展出了点赞的机制。也不知道是从什么时候开始，我们通过朋友圈的状态更新来了解彼此的近况，点赞，竟成了我们最便捷、最频繁的相处和沟通方式。</p>
+<p>发了个朋友圈，返回聊天界面，没过几分钟，发现界面下方那个指南针图标处出现了一个红色圆点，里面赫然显示着几十条信息，是朋友们赞了自己发的那条朋友圈状态。点开一看，没有人评论，全部都是点赞。点赞的数量让我们有种被关切的满足感，但又说不清楚地，感觉心里有点空。渐渐地，我们不再把生活中不愉快的东西发上朋友圈，我们学会了不把想说的话通过朋友圈抒发出来，我们学会了在朋友圈里分享些经过修饰的照片和文字。看起来，朋友圈里似乎一片繁荣和美好。</p>
+<p>当我们习惯性地把自己生活中最好的一面展现在朋友圈里时，那些关心我们的人，除了点赞默默祝福，便再没有了进一步的问候。看着你在朋友圈里最近的生活状态那么好，想必现实中，也过得不差吧。但是现实生活，哪有那么多的美好时光。更多的时候，我们被各种各样繁琐的事情围绕着。朋友们发的朋友圈状态那么美好，收获了无数的点赞数，可是，我们却慢慢看不清朋友们最平常的生活状态了。</p>
+<p>就像学会了在朋友圈里发送那些编制过的美好状态的我们一样，渐渐地，也少了能在我们身处困境、身心俱惫时在远方给我们一声安慰的朋友。以前以为，社交媒体能够拉近人与人之间的距离，而现在却发现，它将我们与现实拉得越来越远。所以，朋友，我不想点赞，并非我不关心你，而是，我觉得，因为点赞而产生的交集，不应该成为我们之间最频繁的交流方式啊。让我们脱下社交媒体上的面具好不好？让我们悠闲地坐在咖啡馆里，面对面，喝杯咖啡聊聊天好不好？</p>
+<p>这难道不比点赞，来得更加自然吗？左岸记：点赞是一种关注，只要真的喜欢，那么点赞是对生活日益个体化的一种弥补，如果觉得点赞不能满足你心中的情感，那么就用心评论，这可比单纯的点赞更受人们的青睐吧！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

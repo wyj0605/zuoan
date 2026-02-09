@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>与其烟雨暗千家，不如赏尽眼前花</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>与其烟雨暗千家，不如赏尽眼前花</h1>
+            <div class="date">2026-02-09 11:07:08</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/黄震 少年时代曾经一度超级喜欢苏轼的那首《望江南.超然台作》。“春未老，风细柳斜斜。试上超然台上看，半壕春水一城花。烟雨暗千家。寒食后，酒醒却咨嗟。</p>
+<p>休对故人思故国，且将新火试新茶，诗酒趁年华。”和很多人钟情“诗酒趁年华”这个名句不同，我更喜欢“烟雨暗千家”这句。少年的时候一边念着，脑海里浮出了一幅江南美景的画卷，烟雨弥漫的树木中，一座座黑瓦青砖的亭台楼阁错落其中，安静唯美的意境油然而生。未经烟火熏燎的我对这样的意境一度神驰，不由自主地把自己想象成其中一户人家的主人，如果身处其中，拥有这样一片美景，置身旖旎秀丽的江南美景中，是多么幸福的事。这样的情景每每伴随着读“烟雨暗千家”而出现。</p>
+<p>从异地求学到参加工作到结婚生子，一路行色匆匆一路风尘仆仆。粗砺的生活早已把人消磨的沉默和务实，工作和家庭成为生活的主旋律。偏安于沿海小城，远方没有，诗，也好久不读。最近偷得一些闲暇再读诗，如遇故人般读到“烟雨暗千家”，依然惊喜但已不再脑补江南烟雨图也不再神驰自己成为景色中的一个人。因为家住海边的我深知生活在阴雨潮湿的环境中是什么样的感觉，衣被潮湿生活不适自不待言，就是心情也因为环境莫名的低郁。</p>
+<p>王朔有本书是《看上去很美》。书名很值得玩味。生活中很多事情真的是看上去很美。我们生活在现代传媒无比发达的时代，我们接受到的讯息都是经过加工的，媒介化的。电视上的演员、海报上的风景、广播里的声音、微信上的生活圈。</p>
+<p>即使是没有经过刻意加工，我们的讯息也是短暂的一瞬、唯美的一角。再加上我们不由自主的脑补，很自然的让我们对自己的生活充满厌倦，而对媒介化的事物心驰神往艳羡不已，很自然的心态就会浮躁，每天想的是世界那么大外面那么美，想的是诗和远方，想的是别人岁月静好自己却在每日苟且。有这种心态的人比比皆是，家庭主妇对着朋友圈艳羡他人旅行生活的同时对丈夫吐槽我们过的什么日子你看某某某活的这么精彩又去哪嗨皮了，同样的情节每天在各个家庭上演。一位美女邻居，你每天看到她光彩照人的出门，明眸皓齿暗香盈袖，在职场上利落干练纵横捭阖。但每个人都有放松和倦怠的一面蓬头垢面打噜扣鼻的一面你看不到，伤心疲惫倒在床上的一面你依然看不到。</p>
+<p>或者你有足够的思考，或者是某一天某个意外，比如你一直认为风光无限的朋友事业变故一败涂地，比如你多年不见的同学提前人生离场，比如你获知邻居家从小优秀的孩子因为学习压力大生病休学……这个时候你才会让自己浮躁的心收一下，让自己充斥自卑嫉妒的心略微平复。此刻，或许才会发现自己被欺骗了，被这个媒介的化的世界欺骗了，别人的世界没有那么风光，每个人的生活冗长而沉闷，而责任又让我们难得片刻休闲。这就是本原的生活，非媒介化的生活。知止而后有定。所有的思考和顿悟都让我们活得更明白，活的更踏实，活的更有价值。</p>
+<p>别人的生活看上去很美，实际没有那么美，即使美，也是别人的生活;外面的世界没有那么精彩。即使精彩，你去后已时过境迁今非昨昔。并非不再欣赏烟雨暗千家的美景，并非无视别人的成功和精彩，只是，我们应该持更平和的心态理解，用更从容的姿态面对，不会因此而迷茫慌乱。怜取眼前人 。珍惜家人，多一些时间陪伴，父母终将离去，孩子成长也不会等待。</p>
+<p>珍惜朋友，能和你休戚与共和你共走一段人生路的人，难得几个。尊重对手，如果你成功，记得有他一份功劳，更何况哪有真正的敌人。珍惜当下时 。不要虚掷光阴，如果不能作伟大的事就做有意义的事，比如读书休息抽空看看好久不见一直想见的长辈、老师、朋友，和他们聊聊并表达你迟迟羞于表达的感激或歉意，生活中我们永远不知道明天和意外哪一个先到，尽量不要留这样的遗憾。感恩平凡事 。</p>
+<p>无论做什么，用心做，认真做，带着敬畏心和责任心，任何一件事就会有禅意，通常，你坚持的话就会有发现很多奇妙的事情，这是秘密，只有实践的人才会发现。左岸记： 诗意江南，令人向往，诗意般的生活，读起来很美，我们却也知道这是诗人历经的多少坎坷才磨砺出来的洒脱和淡然。倘若我们没有这样的才情，我们至少可以将眼前的事做好，把身边的人照顾好，好好欣赏每天见到的风景。朴素的、平实的、有秩序的生活，被认为是老年人的生活。年轻人好像很害怕，这是天大的误解，这种生活是成熟的生活，是好生活，人应该尽早进入这种状态。</p>
+<p>这种生活不意味着你无趣、无聊，相反，是你真正产出、真正被需要的开始。今天要再分享一篇文章，左岸公众号里回复“ 中年 ”可见。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

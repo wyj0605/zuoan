@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记忆，你别离开</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>记忆，你别离开</h1>
+            <div class="date">2026-02-09 10:51:41</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>记忆，你别离开 文/王沛童（一）一路坐着我爸朋友的车，他们俩操着方言叽哩哇啦，两个大老爷们儿寒暄之后不知怎的开始调侃对方小时候的糗事，他说你小时候最贪吃，把书钱换来买小金枣和麻片被你妈骂死，你说他那时候拿木棍，捅驴子屁眼差点被驴踢到小弟弟,吓得以后看见驴就躲得远远的。那位朋友还说我爸小时候特别皮，某天想吃豆腐，就骗那卖豆腐的说：“老师儿(北方方言，类似于老板，老伯)，俺家要买豆腐勒。”等卖豆腐的进去，就掀开那盖在豆腐上的白布，一抓一把的吃，等那卖豆腐的发现被骗，急冲冲出来后，白净的豆腐变得坑坑洼洼，多了几个黑手印，气得卖豆腐的冲回去要打死我爸。我爸呢，做了错事就躲到地里到天快黑都不敢回去，最后被我爷揪着耳朵从地里出来，一顿臭骂暴打。还有村里那时候种果园，我爸老馋，叫上小伙伴溜进别家的果园摘桃吃，被看门的狼狗发现了，追着我爸直咬，我爸吓得爬到了树上，慌张过后居然还用桃子去砸树下的狼狗，一边砸一边学狗叫唤，后来一个小伙伴跟我爸声东击西引开了狼狗，他才得以从树上下来。</p>
+<p>我吃着熟牛肉，嘴里的肉屑差点就喷到车窗上。（二）车开到农村了，高大的杨树，广布的农田，灰蒙蒙的天。记得小时候我晕车，我爸就叫我数那杨树上的鸟窝，说数出来到奶奶家有多少个鸟窝，等到了就给我多少钱。我那时候来了劲，能看见的鸟窝大的小的一个都不放过，可惜数了一半，就睡着了。等我醒了，都到家了，钱是没拿到，但亲人的招呼声，飘香的饭菜味足以弥补这失落啦。</p>
+<p>路上没了高楼大厦，变成了砖砌矮房，墙上遍布着油漆涂成的广告卖化肥的装空调的什么都有，以前我总觉得它丑，影响美观，现在想想这和城市施工地周围用钢架立起来的房地产广告没什么两样，只是放广告的地方不同，也很少有人去看。以前从N市回趟我爸老家很不容易，早上的火车坐一天多，到了Z市，坐大巴，两个多小时到了车站，再打车去奶奶家。等到了我奶奶家门口，北方的天也黑了，我跟我妈晕车吐得眼睛通红，胃里早没了东西。奶奶家门口挂的红灯笼那时候醒目的很，和着家乡菜的香味，一股脑吸进鼻子里，既温暖又勾食欲。后来有了直达的动车，回去更方便了，但我回去的次数也渐渐从一年几次变成了几年一次。</p>
+<p>（三）奶奶家门前的路修好了，水泥铺的，和不远处的田地相比总是扎眼些。门口的红灯笼依旧挂在那里，多了几层灰，暗淡了不少。踏进院门里，眼前的还是熟悉的样子，但总觉得哪里不太一样。奶奶在我脸上嘬了一口，爷爷用力拍了拍我的背，“哎哟，可算回来了”。院里有辆电动三轮停着，车上放着晒玉米的大筛子。</p>
+<p>那辆摩托车不见了，以前我爸带我串亲戚，骑得就是那辆红色摩托车。我尤其记得我爸穿着黑夹克抬腿跨上那车，脚踩蹬杆发动它后转头对我说上车的样子，很帅，像电影里的古惑仔。发动机的声音“突突突——”的响，我费力爬上去，把手伸进我爸的口袋里，心里憧憬着亲戚给的压岁钱。（四）正屋外头有个砖头搭成的楼梯，没有扶手，上去就可以站在房顶上，硕大一个卫星天线锅摆在那，下头还放有结实的砖头围着。农村的房子一座挨着一座，所以伸腿就可以跨到邻居家的房顶。</p>
+<p>过年不想看大人搓麻将，又看不了除了中央台其他台都是雪花闪烁的电视的时候，我偷偷和堂姐们爬上去过很多次，挑了个平坦的顶，跳皮筋儿，玩“飞檐走壁”，最后总被大人发现，灰溜溜爬下来，却还琢磨着下次怎么上去。我本想快速地走上去，可刚跨上第二脚，听见砖头活动的声音，只好认怂，四肢并用，像母猪上树那般爬了上去。站在房顶，我觉得它前所未有的高，顶下的景色变得极小，也不再想不再敢将腿跨到别家的房顶。以前从没怕过，而现在站在屋顶上，手心却不争气地冒汗。直到爷爷把我喊下来帮他看看手机，我才回过神，笨拙地下来，接过他掏出来的边角磨损的不成样的滑盖诺基亚。</p>
+<p>屏幕像贴了好几层磨砂膜般，上面显示储存空间不足，短信电话记录积太多了。删除完没用的信息，才发现有的按键都不会发光了，边缘竟还有个能拉出来的天线可以听收音，不知道这是多少年前用旧的手机了。（五）离开奶奶家的前一天晚上，我走出院子绕着房子踱步，头顶上没有洁白的银辉洒下，田地里也没有富有韵律的虫儿声，只有无比的静谧和安宁，仍让我想起了一首小时歌谣，唱了起来：“月光光—光亮亮—大树底下去乘凉，唱支歌儿夸夸家乡山水美，一片好风光—好风光。”夜深了，将去远方的姑娘该睡觉了，明早就得启程了。左岸记：记忆是不会消失的，只是被埋藏在了大脑深处，当遇到熟悉的人，经过熟悉的地方，哪怕事过境迁，物是人非，记忆也会如电光火石一般将往事一一重现。</p>
+<p>而最奇妙的是过去的种种与现在的境遇会形成对应，现在幸福的，过去再苦也是一份感动；现在不幸的，过去的记忆则会带上悲伤的情绪。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

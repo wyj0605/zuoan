@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佛系姑娘的二三事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>佛系姑娘的二三事</h1>
+            <div class="date">2026-02-09 11:07:03</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/落微 1.外公 外公今年八十来岁了。他在迅速衰老，老到，分不清站在面前的人是女儿还是孙女，记不清我是在上学还是上班，不知道自己有没有吃午饭有没有洗脸，甚至开始分不清此时是白昼还是黑夜。外公几乎吞不下硬食了，只得把粥熬得稀烂，将肉做成末儿，亦或是蒸得烂熟，一勺一勺的喂。每一刻都离不了人，外公倒退成为了婴儿。见不到人便要爬起来去找，他忘记了自己已经支撑不起自己的身体，亦或是忘记了前几天晚上爬起来摔到了腿或腰。</p>
+<p>他不愿意承认自己已病倒于床，不记得自己在鬼门关前走过一次又一次，不知道什么是梦什么是现实什么是臆想，有时候会说房间里在冒水，有时候看见床上有无数的虫子，有时候觉得早已逝去的外婆就站在他的床沿边上，他分不清自己身处何方，时不时便唤来子女说要回家，不要待在医院。他害怕死在医院，这是老一辈人的顽固与执念。当我回到家的时候，总要一遍又一遍的与他重复同一个话题，甚至连一个字都不用改，进行无数遍同一个对话：你毕业了吗？我已经上班啦咧！上班了啊，工资多少啊？</p>
+<p>X千左右。那还可以啊。公司有食堂吗？没有啊，我每天在外面吃呢。外面吃不健康…………时间再往前推二三年，那时候外公还能记得大部分子女及孙辈，还能够絮絮叨叨的“想当年”，甚至兴致勃勃的坐在桌边看子女们打牌。</p>
+<p>然而人的衰老犹如大厦倾倒，不过是一瞬间的事情，说不得从哪一天开始，就不记得人生那几十年的事情了，只余下年轻时候那一段岁月，仍在记忆中颤巍巍的飘摇，仿佛下一刻也将如溪流入海，自此不见踪迹了。每年家里前院的茶花开得茂盛时，我们又高兴于外公又多活了一年，又多过了一年的生日。这是在死亡的边缘上赚来的日子，使得所有人都暗中拍拍胸口庆幸如此，又怅然于他的日子终究过一日少一日。今年我家的茶花还只开了三两朵，在大雪中摇摇欲坠。希望剩下的花苞们都经得住严寒，在外公生日那天绽放。</p>
+<p>2.我自己 我今年过得好又不好。在23岁这个年纪，刚正式毕业一年，跳槽升职，涨薪带团队，混得风生水起，内里春风得意，给自己评了个优，飘飘然觉得自己的价值终于得到了体现，认为自己所学所知收获了回报，肯定自己这条路走得正确极了。后又由于集团内部问题而选择跟着上司跳平台，于是几番波折，辗转又回到了离开一年的长沙，开始了新征程。顺利，又波折，想要平平稳稳，约摸在我如今这个现状而言是非常难的。至于此时此刻，人是在颓然的状态下来写这段文字的，激情持续了半年之久，终于在年底这段时间崩塌了，冷静了，随意了。</p>
+<p>而生活上，生活上便是一团糟了。失控，失控，失控。几乎很少花时间去思考自我了，过得狂妄而自知，并且认为就应该如此，并没有任何问题。我甚至鼓励我自己持续这样的状态，如今想来也不知道是着了什么魔。这个状态现在想想觉得还挺有趣，有什么比自己明明白白透透彻彻却又孤傲狂妄自负，更好玩呢。</p>
+<p>大抵那也不是真的透透彻彻，只是上边儿飘了两个分身，一个不断怂恿着我过分相信自己的能力与见识，一个则双手抱胸冷眼旁观。总的来说，一个并不怎么优秀的我，怀揣着我很优秀的思想，过着眼下的生活。有一点点漠然，又竭力想要获取一些激情。3.关于2019年 每一年的年初都是充满希望的，制定各种计划。今年要读多少书，要如何健身运动，生活要如何有序，工作要如何进步，要存多少钱，学多少技能……最后几乎没有一个是认认真真的坚持完成了的，但起码有过目标，有过计划，还曾兴致勃勃。</p>
+<p>今年是个例外。直到现在，我也没有办法真的制定出一个像模像样的计划出来。从18年年年底开始酝酿，然后接下来就一直活在不断否定自我中，写下任何一个目标，立刻就下意识的划掉了。会设想无数种打断这种目标的达成的“意外”，并且坚信总有一种会成真，于是好了，干脆什么也不必做了，且过一日算一日，颇有种破罐子破摔的节奏，尽管这是一年的开端。可能这也预示着今年不会过得太好，但一定过得很随性。</p>
+<p>哦，我差点忘记了，我其实向来“佛系”。是不是感觉到了浓浓的悲观气息，事实上我也找不到什么值得乐观的事情。因为感觉自己简直已经失去了对未来的设想的能力，千千万万种“意外”消磨了它们，使之只能窝在心底时不时发个芽，然后又被扼杀在长出 第一片叶子之前。但愿大家都过得好吧。包括我。</p>
+<p>左岸记： 生活从来不是容易的，谁不是一边不想活了，一边还努力地拼着。佛系姑娘，是指一个女生不管处于什么样的境地，都能保持理智、善良、平和的状态去处理问题，不和人撕逼，也不会和人发生矛盾和冲突。要做到这个可不容易，正如强大才能真正善良，智慧才能保持理智，豁达才能拥有平和，不在乎才能跳出矛盾冲突。随心，随性，随缘，不悲不喜，再难也不难了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>低头觅容颜，一身是浮尘</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>低头觅容颜，一身是浮尘</h1>
+            <div class="date">2026-02-09 11:07:23</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/邹近夫 最开始工作的前几个年头，你认为读书仍然是改变命运的途径，常常握笔冥思，理想在这时候仿若星辰闪闪发光。你也认为世上之所以有人功成名就，坚韧不拔的意志是一方面，而时机却往往是无可取代的条件之一。你还认为假以时日必定清鸣于云中，与其庸俗地混迹于人群，倒不如待到梅子青时把酒言欢。可是后来，鼓噪而进的生活方式使你胆战心惊，入不敷出的薪水使你彻夜难眠。无论你如何尝试以雄健洒脱的笔势把字写得工整，依然是越写越苍劲，力破纸面的笔痕是现实在你心里撕裂的伤口，你看出市场根本不关注你的字迹，却更关注你是否会熟练地使用办公软件。</p>
+<p>接着，你用一目十行的阅读方式抚慰躁动不安的灵魂，可越读越空虚，既无法从书籍里获得充实感，也无法从字里行间闻得一缕清风，你领悟到决策能力并非以文雅的谈吐作为前提的，凡是有效的沟通恰恰是以位高权重作为基础的，你也明白了“言轻莫劝人”的道理。理想并没有带给你实惠的东西。你开始怀疑读书，怀疑青梅煮酒，怀疑那百折不回的意志，甚至怀疑之前所有的信念。理想，清高，意志，但能拥有一点便足以让世人惊慌，更何况你同时兼备，教谁来和你青梅煮酒？慢慢地，你的生活圈子越缩越小，不过你很快就找到了应对策略，你把腕上的手表调慢了一分钟，以此放慢时间的脚步；你叹惜终南山的隐士传说，你感慨金子失去光泽，光阴似箭的年岁里，你认为自己只是缺少一个机会。</p>
+<p>但是你忘了这世上谁也扳不住罗盘上的指针，你忘了金子也要提炼加工，世间根本没人愿意花时间发掘你的内心，你也忘了机会是菩提树上的花，瓜熟蒂落时早已人老珠黄。传说永远是传说，你不过是个凡人。作别昔日的云彩，你才发觉别人早已舍弃所谓的理想扎入到现实当中，你见识到别人如何用屈膝谄媚的方式捷足先登，你发现别人如何对财富狂追不舍，但是你还发现别人如何日夜兼程、不顾风雨。总之别人是活在现实里，而你活在梦里。归入泥土，争做凡人，自然也就多着一些机遇和变化，倘若碰壁，那不算，这不过是上天在考验你是否具备做凡人的本事，只要成功就会收获一些多于期望的报酬。</p>
+<p>你也知道这些不完全出自于机遇，也需要具备凡人精神，虽然不必凡到尘埃，但成功在河对面，那儿杀声震天，人仰马翻。于是你抓住现实的边沿，试图游过面前这条河流，然而底下仿佛有一锅滚烫的开水，你慢慢地把脚放进去，尝到了一种撕心裂肺的灼痛，但你不甘示弱，习惯了疼痛之后，你做出游泳的姿态，把头贴近水面，然后松开双手用力俯冲，不论肮脏与否。终于有一天，你学得凡人一身本领，轻松自如地漂浮在现实的河流之上，也往里边倾倒了各式各样的欲望。一觉醒来，忽远忽近的欢呼使你对此深信不疑，尤其是被树立为榜样之后，你看着自己的模样，看着年轻的面容，想一想你也应该拥有这个资格。看得见的薪资在水涨船高，看不见的理想在节节败退。</p>
+<p>排队上岸时听得掌声雷动，谁知身后惊涛拍岸，前方水泄不通。你一下子惊慌了，密不透风的人潮几乎把你淹没，来时的渡口又无踪可觅，你低头觅容颜，一身是浮尘。尽管有人和你说话，可说得都是同样的事情，有人和你同行，可走得是同样的方向，有人和你分享，可分享的都是同样的快乐。慢慢地，你感觉圈子变大了，但是世界却越缩越小了。最终明白，原来生活才是那条灼人的河流，你从渡口下来，一直漂浮在河里，只是有一天，河水越流越慢，欲望掩住了去路。</p>
+<p>你开始怀念那个圈子很小、世界很大的时光，怀念握笔冥思、理想会发光的岁月，怀念读书，怀念写字。左岸记： 这首《凡人歌》正是众里寻他千百度之后大多数人的归宿。一个人都希望自己是独一无二的，可是个性化的自己却在人世巨大的洪流之中常常被拍死在海滩岸上，往往只能自己替自己收尸。而如果你能基于现实之中，稳住根基，在此之上建立自己风格，那么你就成了这片蓝海的风向标。笔者简介： &lt;br&gt; &lt;br&gt; 爱生活，爱音乐，爱写作。</p>
+<p>&lt;br&gt; &lt;br&gt; 生于安详而轻舒的村庄却活在人声鼎沸、环境嘈杂的建筑工地，工程是我的合法妻子，写作则是我的情人。&lt;br&gt; &lt;br&gt; 著有长篇小说《白茶花》、《长门》https://read.douban.com/author/63722106/</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

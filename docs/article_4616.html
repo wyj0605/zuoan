@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>别离之地是故乡，回望之愁是乡愁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>别离之地是故乡，回望之愁是乡愁</h1>
+            <div class="date">2026-02-09 11:07:07</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>作者：稻田 王陂河是一条普通的小溪，依着不高的山丘悠悠地流淌，却流进了我的生命之河里。那是我十岁左右的一个阴雨天，我与家人一道坐着堆满家具的带篷卡车，“下放”到离河不远的工人居住区。从楼房到平房，推门便是大地，转角便是山野和田畦，三个岁数相差无几的兄弟便像被放生一样，四处撒野起来。登高望远间，我们看到了山脚下的王陂河，如玉带一般泛着灵光。灵光带给孩子的不是诗情画意，而是戏意玩心。</p>
+<p>靠河的山坡极陡地披挂而下，上面生着一簇簇的灌木，像一个个堡垒。于是，我们从工厂的废堆里找来一片巨大的圆形钢片，直径有半人高，黑黢黢的钢片，中间厚，边缘薄，像锋利的刀刃，更像我们狂野的童心。三个顽童心里装着比钢片还大的期盼，吃力地将它滚到山顶，马步，扶正，对准山下的河流，推动！钢片如脱缰的野马出发了，先缓后急，夹烟带尘，呼啸而下，一路攻城拔寨，草飞石跳，所向披靡……此后，在这几十米的山坡上便时常可见三个浑身水湿，躬身滚推钢片的孩童，一天天，一次次......终于有一天，在欢快的呼啸和烟尘之后，如飞碟般的钢片划着弧线，沉入水中，再也摸寻不到了。像那沉入大西洋底的泰坦尼克号，被泥沙覆盖，被流水腐蚀，也宣告了一段岁月的消逝和铭刻。</p>
+<p>王陂河，水不深，河不宽，但在市场经济的潮水还未涌来的年代，却积蓄了丰富的蕴藏，给人们带来了丰富的馈赠和快乐。河里的鱼儿久无惊扰，也无喂食，大人们沿河一排站着，手握竹竿，起起落落，觅食的鱼儿便入了鱼篓，鲫鱼、鲶鱼、草鱼，甚至还有珍贵的桂鱼。但最有趣的还是放夜钩，在河的一侧将挂着鱼饵的竹竿插进岸边的土里，或者用一条长长的鱼线，连着一排鱼钩，像晒着衣服的绳索，沉入水中，两头以竹竿固定，便等着起钩。起钩的乐趣是远大于握杆垂钓的，放完夜钩后，便回去长久地等着，夜半十分再寻到下钩的地点，水流潺潺，四野宁静，找到鱼线的一端，摸索着涉水，慢慢地提起，前景完全无法预知，突然手里一沉，水花翻响，接着便可见钩上闪着银光的鱼儿了。放夜钩是父亲带着我们去的，那段记忆是那样的深刻和美妙，可惜回望之时却已苍茫。</p>
+<p>记忆里，王陂河的水很清澈，浅水的河段，可以看到河底圆亮的鹅卵石，是戏水的好地方。夏天天晴的时候，弯腰掬起凉爽的河水抹在脸上和身上，很是爽快；又或者仰卧在水里，任流水缓缓地推着身体，眯着眼看高天的太阳，世界变得无限广大和魔幻。河水顺山流淌，在一个山势急转处受阻，水流回旋，形成了一个水潭，我们叫它“大水坑”,我的狗刨式游泳技能就是在这个水潭里学会的，记得一次正在水里狗刨，迎面有一绿色的东西瞪着黑眼游来，“蛇！”恐慌中我手脚乱舞，逃命一样地爬到岸上。这是一条叫竹叶青的毒蛇，许是受了我的惊吓，并无敌意，便独自游去了。</p>
+<p>水潭不仅是天然的游泳池，更是鱼儿的聚集地，于是我便有了如今已不可得的“炸鱼”经历。几个“活泛”的年轻人，借着工作的便利，偷偷地将雷管和炸药夹带回来，生活便有了新的神奇和刺激。悄悄地在几个油纸做的圆筒里埋进电线，再将灰白的药粉填压紧实，带上点火用的电池等，一伙人便奔向王陂河的水潭了。炸鱼是一种什么样的情形呢？雷管沉入潭中，一人手扶着连着雷管的电线，猫腰后退，像战争电影里的工兵似的，其他几个则像准备冲锋的战士，屏住呼吸，趴在草坡后面，目光如炬，盯着回旋的水面。</p>
+<p>两个线头相碰之间，闷响轰然，水面鼓胀，爆裂起高高的水柱，接着又哗地泻下，水面回归原貌不久，白花花的鱼儿就成片地浮到水面上来了。记忆里留下的更多是游戏的快乐，至于鱼儿是怎样捞起，又怎样下锅和入口的事，倒模糊不清了。王陂河从何处来，又向何处去，我并不知道，只知道她是一条大溪的支流。而我与她的渊源只在住地附近的一小段，但在我心里，却是最美的一段。站在山坡望去，王陂河如银蛇般蜿蜒，窄窄的河道上有一座小木桥，木桥将一条弯弯曲曲的小路连接起来，小路在远方通向大路，在村庄密集的地方则是大山的出口——一个热闹的火车小站。</p>
+<p>不知有多少人从小桥上走过，最后在火车的汽笛声中驶向山外的世界。我是一个漂泊感很强的人，这与我总在外乡生活有关，因此内心里总在找寻着故乡，思考着故乡。有人说，故乡就是乡村和自然，思乡就是对城市文明的背转，对此我无法评判。人是自然的附属，没有了一河一溪，一山一树，一井一屋，故乡又该在何处生根和呈现呢？但只有自然景物并不足以构成故乡，还要有相关的人生经历和故事，否则大千世界都可以是故乡了。</p>
+<p>其次，在故乡的经历和故事还得发生在人生的初始和成长阶段。生养之地，青春之乡，悲欢离合酿思肠。此外，离别亦是必须，别离之地是故乡，回望之愁是乡愁。这样看来，那悠悠的王陂河就是我的故乡河，河水流淌的那方土地就是我的故乡了。左岸记： 好美的一篇散文，这些细节让人如临其境，每个人的心中都应该有一条溪流，流过童年，装扮青春，成为人一生永远快乐的源泉。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

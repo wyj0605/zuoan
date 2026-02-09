@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分享，情感，管理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>分享，情感，管理</h1>
+            <div class="date">2026-02-09 11:07:23</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌 久不更文，笔触也开始生疏了起来，不是工作忙碌倒没有时间，只是忙碌之下没有了那份真诚表达的心情，是在工作现实的压力之下，面对外在的世界，缺乏了吐露真诚的勇气。但对于平庸的生活终究是不服的，人总需要点行动来表明自己的态度，证明自我思考的存在。「 分享 」 分享是一种美德，如果这个世界因为自己的到来而变得有点不一样，或者说世界会变得更加美好一点点，也算是我们莫大的功绩。如今在日益繁杂的信息时代，与世界建立连接的方式，不一定要通过自己亲身参与，通过个人的文化产品与别人交互反而是性价比最高的方式。朋友圈只需要发一条，百千个好友均能看得见，可以记录你个人生活的精彩瞬间，也可以展示自己的专业素养。</p>
+<p>文章只需要写一遍，如果质量过硬，信息有价值，他将会毫无成本的在互联网世界里进行自由的飞翔，给个人增值不少，要是有人赞赏，那也会是意外的收获。木心先生写从前慢，那是因为现在太快，来不及安静的坐下来喝杯茶谈谈心，更没有那么大耐心重新开始了解一个人。互联网社交通讯拉低了人与人之间的距离，极大的降低了沟通成本。如何快速的了解一个人呢？按自己的经验，搭讪成功的标志是加了微信，然后翻看对方的朋友圈，你可以非常轻松的了解他生活的点滴，从而判断这将是怎么样的一个人。</p>
+<p>如果设置朋友三天可见，大概不是那种特别自信开放的人。如果直接不可见，大概加你只是为了通讯，而不想让你做进一步了解。对于普罗大众，朋友圈是个人品牌传媒的天然渠道，也是点亮个人的方式，不妨做一个开放的人，分享个人的美好也算是个人生活的小创造，假以时日，他一定会给你惊喜。「 情感 」 不管是分享，还是情感，其实都是一种连接。如果说分享是为了在茫茫人海里寻求志同道合者，向外界释放呼唤的信号，那么情感本身就是人与外在相互依恋的连接程度。</p>
+<p>谈到情感，无外乎爱情，友情，亲情，忙碌的工作掩盖了人内心的情感需求，此前从来没有意识到。在自我意识崛起的时期，向往着梭罗在《瓦尔登湖》里离群索居的状态，也希望自己能够像稻盛和夫在《活法》里谈到的，牛逼闪闪之后，放下自己，到了六十岁再体会出家的生活，也曾为尼采的超人意志的宣传而兴奋不已，甚至恋恋不忘李敖先生“虽千万人，吾往矣”的勇气和决绝，也曾在准备不充分的情况下挑战马拉松，以试图证明自己的强大。回头再看，对成就感的追逐，对痛苦的忍耐，掩饰的其实是情感匮乏，试图通过他人的关注从而获得情感的连接，曾经所信仰的也慢慢在改变。三月份出差到了瑞典，第一次出国的冲击和反思之后，导致我一直处于怀疑自己人生的态度。欧洲人口向来匮乏，瑞典也不例外，但瑞典政府的思考不是简单的鼓励生育，增加人口数量，而是追求人口质量，政府为了提升家庭教育，鼓励人们下班之后回到家里带孩子，并按在家的天数给予相应的鼓励，成天老婆孩子热炕头的生活，但他们过得很幸福。</p>
+<p>以往总有点鄙视老婆孩子热炕头的人生追求，总觉得追求不高，回头再看他们整个国家都是这样的文化，他们的生活质量也很高，家庭幸福，工作轻松又有什么不好呢？回头再对比我们目前的状态，不管是国家的进步，还是公司的发展，普通人都做出了很大的牺牲，高昂的房价，妻离子散的状态，即使挣了钱，离家庭幸福也存在很大的距离，努力奋斗一生也不过是要过上普通人的生活。五一回到北京，见到了以往的同事和一起奔跑的老大哥，待我如亲人般的热情，倍受感动，这才感觉到人之人之间真正的温暖。在酒桌上看着老朋友，就像不曾离开过一样，酒至半酣，还是忍不住潸然泪下。世界再怎么繁华，个人成就再斐然，缺乏情感的连接，我们终究是在流浪。</p>
+<p>不管是追求个人的成就，还是与他人共事，作为社会动物，终究还是不能牺牲感情连接，即使你赢得世界，而人人敬而远之，也就成了孤家寡人。「 管理 」 分享是对世界施以善意，情感是与他人建立连接，那么管理呢？也是在组织结构里谈关系。《西方管理思想史》洋洋洒洒五十三万字，阐述西方管理思想的进展，路途漫长，而中国现代企业管理慢了近一个世纪，水平自然不可同日而语，按王小波说的，如果人不思考，不仅人受不了，神都跟着受罪。或许中国这种企业管理的进步不仅需要思考，也需要时间。</p>
+<p>这里我将个人的观感分享一二。在管理的要素里面，我觉得要把人放在第一位的。激发员工的潜能是领导者的本事，但以个人的意志强加在员工身上，逼迫员工释放潜能其实是有悖常理的，执行者本身要承受巨大的心理压力，徒增心理成本，造成执行者内心的抵触，长期的压抑之下，现代社会职业选择这么多，等到九零后，零零后更加个性自由的一代上来，这种方式将更加不可执行。管理者本身是组织的一员，只不过是角色定义不一样，企业并不是部队，讲究令行禁止，绝对服从，企业管理要更加复杂，牵涉的面要更广，你得尊重人性本身的多样性，管理本身也是人性的管理。管理者的权力，通常会有三种，一是职位权力，也就是角色定义所赋予的权力，比如签字批准，下执行命令；二是个人的专业权威，不仅是对管理者，对员工而言，也拥有同样的权力，可以通过大量的知识学习和经验积累，形成专业落差，在专业上形成一定的话语权；三是个人的影响力，比如良好的人品，通过与员工建立良好的关系，或者在专业之外有个人专长可以超过别人。</p>
+<p>对一个优秀的管理者而言，要尽量的避免使用单一的职位权力，这是职位本身赋予的，是谁在那个位置上都会有的，如果除此权力以外一无是处，那会生硬的让人讨厌，充其量只能称之为管理者（只会管还不一定理得通），压根谈不上领导者，因为这是自上而下的，无法有效的与人平等交流，而人性深处都是不喜欢被人管的，猪在风口上飞，不是猪自己能飞，而是风太大了。至于专业权威，这是普通的我们需要追求，也是可以做到的，尤其是现代社会很多知识唾手可得，也便于学习，如果不花时间有效积累专业知识，很难在某个领域有所建树，对于管理者本身也会因为专业技术支撑，拥有更大的话语权。只是在目前管理水平落后的情况，优秀的管理要远胜于单个技术指点来的功效大，因为他能批量解决同性质问题，从而达到收效最大化。此外就是个人影响力，朋友圈是通过互联网展示自己的一种渠道，在现实的工作生活中，与人为善，待人以真诚，并能及时予人以帮助，建立良好的口碑也是我们可以做到的。我们可以通过控制自己的情绪，或者提升说话艺术来解决问题，这是最快捷有效，但又是最难的，这需要通过不断的修炼，学会照顾别人的情绪，从而达到自己的目的，我想这也是我当下能做的。</p>
+<p>「 结语 」 每个人都是孤独的个体，渴望与他人建立联系，享受人世的温暖，如果忽视这样的需求，纵然我们获得了巨大的成就，那也是牺牲了人性最重要的那一部分。任何一件事，总是存在最优解，永远都不是非黑即白的状态，我们努力的方向应该是达到事情生态的平衡，很难，但也一定可以。文昌 宁波 五月</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

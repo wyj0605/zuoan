@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱上简单的生活</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>爱上简单的生活</h1>
+            <div class="date">2026-02-09 11:07:36</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/吾趣 有一天走在街上，无意中听见一对母子的对话，孩子看上去只有五六岁吧。“宝宝，你以后要做什么呀？”“我要挣好多好多的钱然后买棉花糖。”边说边露出了纯净美好的笑容。我不禁莞尔，人最初对于金钱的渴望，不过是为了满足这简单的愿望。</p>
+<p>可是不知从何时起，人们开始妄想将一切收入囊中。我们的祖先说：“广厦万间，不过夜宿一床；良田万顷，不过日食三餐。”所谓绚烂而丰盛地活着，那不过是文字游戏的嘘头，人所能做的，不过是简单而努力地活着。想象一个人，无所不能得到，可是因他年轻时过于贪婪和复杂，以至于年老体衰失去味觉，面对一大桌山珍佳肴无动于衷，是否过于悲哀?诗人纪伯伦说：“当睡在天鹅绒华丽温床上的皇帝做的梦并不比一个露宿街头的乞丐做的梦更加甜蜜的时候，我们怎么能对上帝的公平失掉信心呢?”因为皇帝过着锦衣玉食的生活，但他依旧不快乐，究其原由，不过是因为他有太多繁杂的事物，他有太多需要顾虑、提防的人，他无法简单地生活。简单对于生命的意义太重要，不是因为它高尚，而是它意味着，快乐可以来自很小的事情，比如一个冰淇淋，一块棉花糖……便足以使你快乐。</p>
+<p>而在这样一个物欲横流的世界里，快乐是太难买到的东西。这就足以解释，为何陶潜甘愿修篱种菊，退隐南山；林徽因为何拒绝可以带给她浪漫生活的徐志摩而选择了踏实温和的梁思成；国学泰斗季羡林为何摒弃一切在外人看来无比荣耀的光环，甘心成为一名为小花小草小猫小狗而忧愁的老人；而老舍也是一再强调他是一个普通的人，他写作不是因为他有才华而是因为他有感情……他们都明白，只有抛开繁杂迷乱的外在，才能永远保持内心的简单，从而因为简单而快乐。周云蓬有一次在他的民间演唱会上，做出了求助的示意。于是旁边的人走近，俯首问：“有什么事吗？”周云蓬说：“现在开了几盏灯?”那个人说，两盏。</p>
+<p>周云蓬说：“那关掉一盏吧，听众只需要我的音乐，而我不需要灯，所以这样浪费了光明。”我不知道现在还有多少人能达到这样的境界，能够纯粹地沉浸于音乐。而现在太多太多的人成为歌星，画家，甚至是作家，为的都是华丽的外衣，为了享受奢华的生活。郭敬明曾公开承认他写作就是为了挣钱，就是为了享受奢华的生活。真是大言不惭。</p>
+<p>却又想在文章里为自己洗白：“你们羡慕嫉妒以至于辱骂我的时候，却没有想到在凌晨一点我独自一人写作时，你们都已进入甜美的梦乡。”不是因为热爱而写作，仅仅为了光芒四射的外在，便如此忙碌而复杂。有人可能会问，前面提到的小男孩不同样是想要挣钱吗？没错，表面上看两者并无太大差别，而本质却大相径庭。小男孩仅仅是为了他的棉花糖，这是一种自然欲求，那是一种非常简单的渴望，并非是奢靡的生活，并不是为了让自己有一个华丽的外在条件。</p>
+<p>我想，如果你自身的修养以及你的财富真正达到了一定的高度，你会停止像他那样无知的幼稚的行为，不会再觉得等有钱了要买豪华别墅各种跑车。不会，也没有兴趣追求奢饰品。就像西恩.潘所说：“我要过恬静的隐居生活，尽可能对人们做些简单有用的善事，做一份真正有用的工作，最后休息，享受大自然，读书，听音乐，爱戴周围的人。”我相信最终你会爱上这样简单的生活的。左岸记： 为简单而简单不是真正的生活。</p>
+<p>简单不应该是刻意的行为，而是一种自然流露的生活态度。对不同生活状态下的人来说，简单生活的含义是不同的。简单不是简陋，在贫困线上挣扎的人是难以理解衣食无忧的人所谓简单生活的含义的，他们没有时间和精力去思索什么简单生活，怎样生存下去才是最最重要的，所以简单生活至少是应当在温饱的基础上才会产生的困扰和追求。当我们的生活达到一定层次（物质上与精神上），才会开始反思自己的生活状态。所谓简单，自然是欲望越少越简单，但普通人的生活怎么可能无欲无求呢？</p>
+<p>一个人要真的看得通透，往往要经历人世间的悲欢离合、富贵荣辱，一切都经历了，才会明白是非成败转头空，人世间的一切不过都是梦，这样才有可能化繁为简。是真正的拿得起，放得下。我想，只有理解了下面这段话，才能真正理解什么是简单的生活。如果你欢快地迎来了白天和黑夜，&lt;br&gt; &lt;br&gt; 生活像鲜花和香草一样芳香，&lt;br&gt; &lt;br&gt; 而且更有弹性，如繁星灿烂，&lt;br&gt; &lt;br&gt; ——那就是你的成功。整个自然界都庆贺你，你暂时也有理由祝福你自己。</p>
+<p>&lt;br&gt; &lt;br&gt; 最大的益处和价值往往都受不到人们的赞赏。&lt;br&gt; &lt;br&gt; 我们很容易怀疑她们是否存在。我们很快把它们忘记了。&lt;br&gt; &lt;br&gt; 它们是最高的现实。&lt;br&gt; &lt;br&gt; 也许那些最惊人、最真实的事实从没有在人与人之间交流。</p>
+<p>我每天生命的最真实收获，&lt;br&gt; &lt;br&gt; 也仿佛朝霞暮霭那样地不可捉摸，不可言传。&lt;br&gt; &lt;br&gt; 我得到的只是一点儿尘埃，&lt;br&gt; &lt;br&gt; 我抓住的只是一段彩虹。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>
