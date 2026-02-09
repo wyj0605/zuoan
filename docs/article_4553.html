@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一米阳光</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>一米阳光</h1>
+            <div class="date">2026-02-09 11:07:02</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/陈守亮 一、初次邂逅 最早的用“灿烂”一词形容事物，总在脑海中迅速的闪出“阳光”二字。它轻轻的滑过脑迹，瞬间的温暖便流溢到了周身。阳光总是能趋尽所有的寒冷，前一刻还厚重的喘息已渐渐的舒缓，温度由内到外的提升，血液不自主的开始了沸腾。正如我遇到他，在那个秋日午后不经意的一瞥，便被一种潇洒与优雅的姿态感动着了。那扇虚掩很久的门，在无任何预知的瞬间打开了，我如何能让自己相信，我惊异于的是那片刻的安宁与稳重。</p>
+<p>风，在这里喘息，云，在这里止步。我停顿在我单一的匆匆里，怀揣着冻解了几千年的心，深深的低语了一句：“这种感觉我真的，等了很久。”爱，是一种奇妙的感觉，让人脆弱，又给人以勇气。就在我前一刻还犹豫不决是否走近他时，我的勇气已牵引着我的手一步一趋，站到了他的面前。他的微笑似漆黑夜空下爆开的朵形礼花，真诚、饱满、热情而又给人以快乐的暗示。</p>
+<p>如果说世界上还有什么比阳光更加灿烂，我想那一定是此生等待之人的微笑，他的微笑就是我生命阴之峡谷里，受上帝馈赠的一米阳光。我不知如何的面对他，驯服的目光轻轻的滑过他的面孔，在他的耳际停顿了片刻，我犹豫不决，是否，要告诉他深藏在我心中关于他的秘密。我机敏的避开他的眼神，怕他和我的目光纠缠在一起，我更无法克制的慌恐与窒息。秋日的阳光泛着点点的暖意，我再次见到了他，还是意料之中的激动着。我的心似一只快要从口中蹦出的兔子，涨红的脸毫不客气的暴露着那一刻我所有的无措与慌乱。</p>
+<p>他却似一个绅士，不变的微笑洋溢在那张原本清俊的脸上，更显得我表情的滑稽与天真浪漫。从来都没有想过，这一途的孤独之后，我的不甘心，也悄悄的酝酿起了青春的美酒，我单纯而细腻的心，静静的盛装着如雨水般点点滴滴的晶莹可爱而认真的，做起了酿酒的工艺。美酒溢散着阵阵醉人的清香，我迷失在了那一望无际的甜蜜的原野。目不转睛的仰望着头顶上空不可一世的孤鹰，样子正如他一样神气。二、我的遐想 很久以前就感动于那样的一句话，这个世界上总有一个人他是因为你的存在才来到人世间的，他仅为你而生。</p>
+<p>我久久的咀嚼那“那你而生”的厚重与暧意。大概，他，就是那个为我而生的人吧！我被自己的固执与梦幻打动了。收拾心情，收拾头发，收拾阳光底下迷离的眼神，去流浪，放任自己。我的放任，注定了我的孤独，因为他的不可一世，是我永远也温暖不了的乌托邦，是我永远也不可抵达的梦幻城堡。</p>
+<p>我的甘愿，是渺小的苍海一粟，是无论如何也无法与他伟岸的身躯平等的。可为何，我就这样固执的认为，他就是我苦苦寻找的爱的载体。他的眼，他的眉，他的嘴角漾起的微笑，他思索的眼神，他说话的语气，甚至是他叫我名字时的口形，我就被这样一些平实的存在感动着、幸福着。十九岁的女子是最爱幻想的，我的幻想缘于我对感情的寄托与信任。那幻想的门闸打开了我缓缓而温柔的情河，也让我由一种平和与安静走向了急躁与脆弱。</p>
+<p>我，忘却了含蓄与衿持是爱的必须，甚至期待不应该是期待，而是漫长而寂寞的等待。我的心急致使我急促的脚步，踩坏的是情人坡上阳光般男孩的梦。问自己，那彻夜的思念带给我的，真的是一份气急败坏的破碎吗？为什么，我愚蠢的思绪会如此的轻易取代了理智的高地。是我原本的资本不够，还是这爱的重量要以时间为砝码。</p>
+<p>思念敲打着记忆的窗，我看到的是斑驳的月影下他灼热的目光，他的眉宇间呈现的是对生活的自信与热情。他的凝视同样告诉我，他的生命正如那暗色天幕下瀑布状的爬山虎，是青翠欲滴、生机勃勃的。是啊，他是风之娇子，颀长的身影忽现在暗色的天幕里，冰冷绝美，永嵌进顾影自怜者的心。那神秘的邂逅，是生命暗示里奇异的诡笑，让痴情的女子疑惑着，到底，该如何的搜肠刮肚倾尽所有的，才能承受那一米阳光的温情。我被一种力量牵引着，甘心停留在他的身边，不忍离去，他说出只做朋友的那一刻，我没有着落的笑半天才找到了归宿，痛苦的撕扯着嘴角，露出一个麻木的O型。</p>
+<p>他走了，没有回头，我细数着归途的脚步，跌倒在那一望无际的荒野。为什么啊！我隐约的预测来的如此的迅速，是他习惯了轻易的攻城，带着一脸的自信与骄傲，然后又在城陷的一瞬间，决绝而冷酷的离去。是他厌烦了我目不转睛的守候，还是我原本伤春悲秋的性格，被他视作庸俗与无聊。即使被他轻视了，我只会自卑，我的自卑只会提醒我，一遍遍的解体，去升华，去趋于完美。</p>
+<p>哪怕我是经历着炼狱的折磨，我也心甘情愿。因为我明白，从邂逅的那一刻起，我就注定伤害。他是我生命中的一滴眼泪，我死死的咬着泛青的唇，不让泪流出，告诉自己，决不能就这样轻易的说放弃，即使在生命的弥留。秋日里的风格外的呜呼与萧瑟，起伏在那漫长而孤单的途中，我那往昔轻盈的身躯，似乎逐步的增加了沉重，每一次的跌倒都摔疼了我单薄的身体，而每一次的爬起都让我几乎耗尽了周身的精力。一步步的，我被一种前所未有的疼痛刺激着，我晕晕乎乎，直到麻木了身体，再没有站起来的力气。</p>
+<p>没有人珍视我的存在，仰望天空，也没有空气作传播的媒介，告诉我期待的人，我的痛苦与孤独。因为我的心，是一碗死水，荡不起任何的涟猗。感怀是这个肆溢着忧郁气流的季节里浓艳的底衬，我的出现只能算作修饰的凄楚，点缀的可人。可是，我的点缀又能搏得何人的同情与怜惜呢？热闹的风景伤逝，寂寞的心情流逝，我的脆弱而敏感的存在一点点的消磨着，最后剩下的也只是单纯的平淡了。</p>
+<p>有人说，每个人的生命是没有区别的，只是有些人活得淡然，有的人过得浓烈而已。我的平淡如水，准确的定格了我落漠日子里最后的归宿。我静坐在大理石的台阶上，又一次的仰望天空，飞鸟掠过，遮住了秋日里午后的最后一缕阳光。起风了，天空不再澄蓝，隐隐的泛着灰白，我的泪流下，还是痛着我的爱到了尽头。是我得不到。</p>
+<p>我想尽了种种继续的方式，却怎么也不能说服自己以固定的方式与他交往着。我，还是有丝丝的牵挂。是内心深处，对爱热切的呼唤，才致使我，如此的痛失着现在。其实，还有别的方式的，是我的方式，淡淡的方式，全新的体验又一次开始了。那片空白靠谁来频添。</p>
+<p>也许这漫长的等待的日子里，我真的收获了许多。我不应该苦苦的折腾自己，甘心痛死在一颗茂盛的苹果树上。树上的果子尽管诱人，但是它还未熟，只是一个受骗的幌子。我，应该明智一点的。也许有一天，他从一片阳光中走来，轻轻的漂落到我的身旁，看着疲惫不堪的我，伤痕累累，会发出一声沉重的叹息。</p>
+<p>我的知觉告诉我，他善良的本质将再次牵引我抵达幸福的彼岸。是的，他不会忍心看着我的伤痛，无动于衷。我被一种熟悉的气息唤醒了，我小心翼翼的睁开眼，看到了他一如既往的阳光般灿烂的微笑，我的眼泪包裹着那一刻我所有的辛酸与痛楚，一涌而出。他是如此真实的又一次站到了我的面前，我明白，他的微笑是来自一个友人的亲切的慰安。可即使只是一个友人的慰安，已惊起了我心中的一滩欧鹭。</p>
+<p>过了这么久，我又如此清悉而真切的看到了他，我的目光缓缓的划过他依然朗若明月的容颜，内心温暖而甜蜜。其实不是没有人爱的，不是吗？大把的朋友都是生命中不能承受之轻，大把的爱都需要时间与精力去偿还，我暂且欠朋友们给予的爱吧！那天晚上上网聊天，双手熟练的敲击着键盘，我对朋友说，我依然孤单，随意的一句话脱口而出，还没来得及伤感，朋友已迅速的回了一句，当你不想孤单的时候，你就不孤单了，我的泪喷涌而出。是啊，为何总是要如此的娇情与脆弱，而甘心背负着疼痛与孤独呢？</p>
+<p>我该知足了，就当是忧郁的旅途中更加忧郁的流逝，寂寞的心情重又附着在我的身上，我想念的心干净而透明。时光漫步，漫步时光。生命的主题追随着时光的脚步，由单纯而步入了厚重，由简单接近完整。我，不再愿做那个多愁善感，悲春伤秋女子了，我想追求那些原本属于我的应有的快乐与幸福。对幸福，我突然的忆起了从前的自己，那个感动于生活的点滴，然后觉得淡淡的幸福的自己。</p>
+<p>那时的我，是处在一种多么自在与平和的状态中啊。我的感动是一朵花开，一片雪落，是无意中传入耳朵的窃窃私语，是生活中简明而熟悉的存在。三、我的思绪 我，试着去寻找幸福。当我漫步在公园小径上，看到迎面走来的男子小心翼翼的搀扶着白发苍苍的老人，我想，那个老人一定是幸福的；当我看到绿色草地上和谐的一家三口，快乐的做着捉迷藏的游戏，我知道他们是幸福的；当我看到那一群兴致勃勃的大学生，背着行难囊，准备徒步旅行时，我知道他们也是幸福的。幸福真的就是身边的每一份真实，是我们再熟悉不过的情景，是自然界中能用心感知的宁静与祥和。</p>
+<p>如果幸福真的可以如此广泛的定义，那么，我也能将那份苦涩的伤逝理解作幸福了。徐志摩说：“我挥一挥衣袖，不带走一片云彩。”我想，他的那种恬淡和轻轻的伤离也是一种幸福吧。我们的生活总是在悲伤与喜悦中演绎着真实、幸福，正是这样一个真实的物体。想想自己也拥有着的大学生活，即使不如别人的精彩纷呈，但是，也有只属于自己的天空可供飞翔，难道还不能从中找到幸福的慰藉吗？</p>
+<p>每个人的感情都是一段一段的，因为生活中遇到的人总是渐次出现。有人说，前世的百次回眸才换回今生的邂逅一面，那么相遇已是上天的恩赐，若相遇本身就是一种幸福，那又何必痛苦于擦肩而过后的陌生呢？更何况，我生命中的过客都一遍遍的回忆着我的名字，和这个名字勾联在一起的故事，那我，还需要奢求什么吗？不了，夜漆黑一片，知道回头张望看到的不是等候的那个人，那就大踏步的向前走吧。也许前行的路上，我更能收获到意料不到的东西，就是这样的。</p>
+<p>又是一个陌生而熟悉的我，独行在秋日的林荫小道上，纷纭的黄叶飘飘悠悠，似翩翩起舞的少女，姿态楚楚动人。我弯下腰，认真的挑选着落叶中最能寄托思念的那一片，我的耳边是早已熟悉的曲，我轻哼着小曲，告诉自己，这是一个“面朝大海，春暖花开”的季节。左岸记： 清新、纯净、动人，哪怕内心万般纠缠，也能保持平和、安然的心态正视情感、直面生活，然后将爱炼化，化茧成蝶，这是最美的爱的诗篇，也是在青春收获的最珍贵的礼物。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

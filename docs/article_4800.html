@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暗夜月光</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>暗夜月光</h1>
+            <div class="date">2026-02-09 11:07:24</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/巽 这是一个秘密，关于黑夜的秘密。多年之后，若不是某个瞬间，恍若隔世之感袭来，忻大概永远都不会也不能记起，在曾经某段时光里，有这样一段回忆。夜晚总是让人寂寞，心底荒芜一片。手机拿起放下，无人倾诉。忻辗转反侧，夜不能寐，还以为孤单是一件能够习惯的事呢。</p>
+<p>恍若是在梦中，忻躲在角落里，哭的很隐忍，却是极其悲伤。祹静静地陪在一旁，沉默相对。许久，祹扶起这个悲痛不已的女孩，轻轻将她抱在怀里。"好了，没事啦，还有我呢，"暖暖的气息，从忻耳旁拂过。祹身上的温度传来，似乎让人镇定许多，“一切都会过去的，相信我。</p>
+<p>”忻紧紧地抱住眼前这个人，害怕这一切只是一场梦。“傻丫头，怎么哭的这么伤心。”祹放开了她，倚靠在一旁的石阶上。“爱而不得。”忻抬起头迎上黑夜里传来的目光，那么熟悉，却也有些异样，纵深一跃，坐在了一旁。</p>
+<p>祹似乎很无奈地笑了笑，侧过头，沐浴在了柔和的月光里。“我得不到你们的爱。祹，你知道吗？”忻望着他的侧脸，低声呢喃，沉浸在这静谧的夜色里，“从我情窦初开起，没有人喜欢过我。”“所以你这么抗拒这个世界，装出漫不经心的模样？</p>
+<p>”祹回过头，盯着她的眼睛。“我们回去吧。”祹拉过她，走在一片空旷的原野里。忻有些讶异，怎么会突然在这里，这不是小时候回家经常走的那条路么。“你知道吗？</p>
+<p>每次回家我都是一个人。这条路不知道走过多少遍。春天的时候山花浪漫，我却很孤独。便想到了你，那时候很希望自己能在你身边，在你觉得孤单的时候，陪你走过那段路。我不想你像我一样孤单。</p>
+<p>”忻望着这月色下的田野，花海一片，别有意趣。祹静静地听着，小心地牵着这个女孩。“你看，那里是我下车的地方。有一次下车后，看到这广阔的天际，想到这放假的三天里都见不到你了，突然就难受起来。我觉得自己不能再这么喜欢你了，可是我又控制不了自己。</p>
+<p>便在这旷野里放声痛哭，像今日这般。”忻似乎嗅到了悲伤的气息，停下脚步，蹲下身，抱住自己。祹俯身，细嗅她发丝的清香。“你怎么留了这么长的头发？”仿佛是为了缓解这悲伤的气氛，祹抚摸这及腰的秀发。</p>
+<p>四周一片寂静，没有回答。“我们继续走吧。”忻一改悲戚的神色，像是下了很大的决心似的。挽过他的胳膊，半靠在他的身上。“祹，有次我好像看到你和一个女孩很亲密地在聊天，觉得你们般配极了。</p>
+<p>那是真的么？”忻的语调里听不出半分悲伤。“现在或许还不是，但将来总会是真的。”忻没有再说话，看着周围熟悉的环境，走在熟悉的路上，和身旁的这个人。不管将来会怎样，此刻便足够。</p>
+<p>走了很长很长的路，却再也没有对话。夜里有些寒气，忻察觉不到冷意。“小心！”祹拉过忻的胳膊，一辆汽车飞驰而过。忻有些受惊，呼吸不太均匀，还没回过神，便迎来一个温暖的吻。</p>
+<p>只是蜻蜓点水一般，忻来不及思考，在他的嘴角回吻。这一切发生的猝不及防。“忻，快起床啦！待会儿拍毕业照小心迟到。”忻木然被惊醒，那一刹那不知身处何方。</p>
+<p>揉了揉眼睛，慢腾腾地爬下床，走到镜子前，忻仿佛还沉浸在另一段时空里。镜子里的人睡眼朦胧，神情疲倦。忻揉了揉自己的乱糟糟的短发，好像突然回过神来了。“你真舍得把你的头发剪了，不是说好要等那个人娶你么？”舍友瞟了一眼镜子里的忻。</p>
+<p>“不啦，我昨晚和他告别了。”忻耸了耸肩。“你昨晚不是很早就睡了么？而且你暗恋了七年，就这样不了了之了？”“毕业快乐！</p>
+<p>”忻偷袭了舍友的纤腰，笑着跑开了。左岸记： “南有乔木，不可休思。汉有游女，不可求思。”有人概括了自己暗恋的心情，恰如其分。暗恋就像一只守着宝藏的巨龙，凶猛又天真，强大又孤独，温柔又狼狈，胆小又自由。</p>
+<p>说是看TA的动态就像做阅读理解。告别暗恋，或祝福，或得到，都只因了自己的成长，变得强大了。毕业了，你终于不用再做“阅读理解”了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

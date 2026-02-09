@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我和RSS那点事儿</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我和RSS那点事儿</h1>
+            <div class="date">2026-02-09 10:51:59</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>我和RSS那点事儿 文/子轼早在Google Reader还活着的时候，我就已径开始用RSS聚合了。从青葱少年成长为闷骚大叔，这么多年的使用已经让我对其产生了依赖，成为了重度RSS用户。当年的Google Reader总让我觉得各种好，曾经的我因为Google Reader的关闭伤心难过了好久，一度坚信RSS会在不久后不复存在。现在看来，当时我真的是很少很天真。在当今这样一个信息爆炸的时代，我们需要信息的过滤。</p>
+<p>曾几何时，我和我的小伙伴们还是捧着《读者》《青年文摘》《vista看天下》《中国国家地理》这些杂志读的津津有味。而如今呢，网络资讯如同自助大餐，只要你愿意永远都读不完，但与此同时，很多争先恐后挤进眼球的东西着实不怎么有营养。微博信息太过碎片化，好东西容易被淹没在时间流中；微信本质上是聊天工具，把阅读和聊天混合到一起容易互相干扰；而许多新闻客户端，大都只是一家之言，内容的可定制性并不是很强，时而出现的“贴心”小广告不免影响阅读体验。如果想在浮躁年代回归优雅的阅读，或许 RSS 会是你一直等待的邂逅。RSS 的全称是 Really Simple Syndication。</p>
+<p>它可以说是注重浏览各式内容网友的福音。注册 RSS 服务，在其中添加你喜欢的订阅源，诸如新闻、博客之类的网站，甚至微博和微信公众号，都可由RSS自动收集这些网站的文章更新然后在网页或者应用中方便地阅读。RSS 的优点有很多，其中最重要的三个是： RSS 不需要科学上网也能订阅墙外的网站。阅读界面干净，免除了网站广告的干扰，适合深度阅读。高度定制性，只要你喜欢的内容出现。</p>
+<p>那么我是如何使用RSS的呢？嗯哼，且听下回分解？？？！</p>
+<p>！！……呃，不对，是且听我细细道来。在Google Reader的时代我一直是使用Google Reader的web端浏览订阅的内容。2006年的我还在上初中，没什么眼界更没什么需求，有web端就已经很让我心满意足了。</p>
+<p>更何况我一直用的是英文版。在那时已经逼格满满了好吗，还有什么不满意的。因为Google Reader帮我收集了许多素材，在当时还没有几个小朋友可以和我比写作文的料的。再次小小地骄傲一下。就是那时尝到了RSS的甜头，让我养成了这个近10年的习惯。</p>
+<p>2013年Google Reader无情的关闭后我就转向了Feedly，同时也不再满足web端而开始追求更好的阅读体验。Reeder就这样一直伴随着我走到今天。Reeder是一款小而美的老牌RSS阅读app，我在Feedly上的所以RSS订阅都是通过Reeder进行浏览。虽然很多人诟病Reeder的后续创新不足，设计一成不变，这些影响不了我对它的热爱。在我看来，一个好的app所需要的不是全面，而是精致。</p>
+<p>Reeder就是一个专为RSS阅读而生的app。当然不止阅读体验这么简单。如何将阅读的信息内化也是我所思考并不懈追求的。每当我在Reeder上浏览RSS时，有需要细读或者二次阅读的文章我都会将其保存到instapaper上，instapaper会定期推送到我的kindle。每周我都会整理instapaper里保存的内容，需要收藏的就剪藏到Evernote里，剩下的就存档或者删除。</p>
+<p>简而言之，所有的RSS订阅源都会经过我的三次处理，第一次处理是通过Reeder浏览，第二次是通过instapaper精读，最后的处理是通过Evernote收藏。浏览时获取了每天最新的资讯，不会让自己与世界脱节；精读时进行思考，丰富知识的同时也为自己增加了谈资；收藏时进行总结，分门别类的同时进一步内化。这三个步骤相辅相成，缺一不可。正是凭借着多年不懈的积累，我成为了女朋友眼里的百科全书。果真是“书中自有颜如玉”啊。</p>
+<p>近一年来，Feedly越来越不给力，让我萌生了寻找替代品的念头。在互联网时代，优胜劣汰已经成为了常态，既然如此为什么不选择一个真正关心用户体验的app呢？最终我投入了inoreader的怀抱。inoreader是一个小众的RSS订阅平台，不仅更新速度快，而且是非常节制的收费。inoreader不仅有着自己的跨平台app，也可以在Reeder上使用。</p>
+<p>我最看重的是inoreader已经分类整理了各式RSS订阅源，当我想要添加某一类别的订阅源时，我可以直接在inoreader上搜索即可。省时省心不费力。说了这么多，当然也需要附上我的RSS订阅源。我按订阅源的内容分成了八类，Art &amp;amp; Design，Business &amp;amp; Finance，Deep Reading，Health &amp;amp; Lifestyle，Knowledge，News &amp;amp; Politics，Technology，Thinkers。那么我一个一个来说。</p>
+<p>Arts &amp;amp; Design 优设 - UISDC 优秀网页设计联盟，SDC（Superior Design Consortium）简称“优设”，是国内最专业的网页设计师交流学习平台。坚持开放、分享、成长的宗旨，每周召集众多设计总监、资深网页设计人员、设计爱好者等杰出人物，分享他们关于职业的技术、理念、思考和探索理想生活实验室</p>
+<p>『理想生活实验室』是一家关注创意设计与生活消费的媒体。我们致力于：以国际的视野去关注品质生活发展的驱动力；把品牌、设计师与普通人群真正联结起来。Business &amp;amp; Finance FT中文网</p>
+<p>『FT中文网』是英国《金融时报（ Financial Times）》集团旗下唯一的中文商业财经网站，旨在为中国商业菁英和决策者们提供每日不可或缺的商业财经新闻、深度分析以及评论。凭借英国《金融时报》遍布全球的丰富报道资源，『FT中文网』深入分析对中国经济和全球商业具有影响力的重大事件，并揭示事件的来龙去脉，以真正富有国际视野的权威报道成为中国高级管理人员“必读”的商业财经资讯网站。</p>
+<p>S. 我入『FT中文网』还是因为徐达内的专栏《媒体札记》，可惜2015年他自己创立了媒记网后就没有在FT中文网继续写专栏了。不过依然保持着阅读，尤其是里面的许多文章可以做为双语阅读练习。The Economist 《The Economist》中文翻译为《经济学人》，这个名字有没有高大上的感觉？还是觉得经济学家们都是有组织金融诈骗集团的一分子？人家的内容和报道可是非常专业的。</p>
+<p>《经济学人》主要专注经济事物，关注政治和商业方面的新闻。由于该网站的订阅源很多，大家可以自己找。我订阅的是每周世界，特别报道，金融与经济，商业，中国这五个项目。不过需要注意的是《经济学人》本身以受过高等教育的读者为受众，又是全英文，对于许多中国读者而言是不小的考验。The Economist: The world this weekThe Economist: Special reportThe Economist: Finance and economicsThe Economist: BusinessThe Economist: ChinaDeep Reading 左岸读书</p>
+<p>做为『左岸读书』的老人和撰稿人怎么能不强力推荐呢？</p>
+<p>这是一个与读者聚在一起共同致力于美好的阅读体验的网站，不仅是简单的资料堆积，也是一种进取心的表达。在『左岸读书』可以聊天，读书，写作，分享，共同进步。湾区日报</p>
+<p>湾区日报是一个在旧金山工作的工程师运营的个人博客。该博客每天挑选5篇他主观认为高质量的文章，针对每篇文章拟一个中文标题，写一两句简单评论，通过近10个据道（比如网站，iOS app，微博，微信，Twitter等）推送给读者。知乎日报</p>
+<p>不需要多介绍了吧。</p>
+<p>知乎每日精选</p>
+<p>这个也不用介绍。译言精选</p>
+<p>这个，好吧，说两句，『译言』的RSS订阅源也蛮多的，好像有十几个。我只订阅了『译言精选』，编辑精选出来的文章，练习英语，扩展眼界。Health &amp;amp; Lifestyle Warfalcon</p>
+<p>如果把“Warfalcon”翻译为“战隼”你是不是就熟悉了？这个是从他的微信公众号上抓取来的。</p>
+<p>由于他的网站从2015年6月起就没有更新了，只能抓取他的微信公众号了。只要他更新了微信公众号，那inoreader就能及时抓取。WebMD Health</p>
+<p>国外权威的健康网站，有很多健康知识和相关研究成果。全英语。腾讯佛学</p>
+<p>做为一名正信的佛教徒，怎么能不每天看看有关佛学的内容呢？</p>
+<p>可惜的是许多关于佛学的微信公众号还不能很好的抓取，只能抓取了这一个，剩下的继续看微信公众号了。我关注的关于佛教的微信公众号有：月悟法师弟子道场（我的师父上月下悟法师的每月开示），甲和灯APP，无尽传灯（宗舜法师的微信公众号），天台教观，柏林禅寺，灵隐寺，智悲讲堂，多宝讲寺法师法语，念念观自在，百年虚云，我家法王，佛大论坛，佛学资料共享。褪墨</p>
+<p>『褪墨』的网站全称是『褪墨˙时间管理，个人提升，生活健康与习惯』，这是一个关注时间管理、GTD、个人提升、生活健康与习惯、学习方法和演讲技巧的网站。Knowledge 果壳</p>
+<p>传播科学知识的网站，不需要太多介绍吧。科学松鼠会</p>
+<p>和『果壳』是双胞胎，关于科学的网站。</p>
+<p>计兮</p>
+<p>有非常多的财务、法律方面的知识分享。News &amp;amp; Politics 南华早报</p>
+<p>对就是香港的《南华早报》，被马云收购了的那个。立足香港，面向世界，关注中国。《南华早报》有中文和国际两个版本，我订阅的是中文版。墙外楼</p>
+<p>『墙外楼』一个境外网站，自序为“网络热门话题追踪”。</p>
+<p>嗯，还是有一些料的。纽约时报中文网</p>
+<p>《纽约时报（The New York Times）》本身是一份有影响力的报纸，以前我的老师会找来给我们看，所以它的中文网在我高中时推出的时候，我就开始阅读直到现在。就像《纽约时报》一样，中文网也会有很多深度报导，对于中国事物的视角是值得关注的。和之前的『FT中文网』，《The Economist》一样提供双语阅读。Technology Engadget中国版</p>
+<p>科技博客，主要是关于硬件方面的，每天更新，和主站内容不同。</p>
+<p>因为我订阅了『Lifehacker』所以就没有再订阅『Engadget』的主站。Lifehacker</p>
+<p>分享一些科技产品的小知识和窍门，以及最新最酷的技巧。全英语。少数派</p>
+<p>分享优质应用、游戏与设备周边。这是我目前我认为中国最好的科技媒体。</p>
+<p>爱范儿</p>
+<p>在中国『爱范儿』是一个内容非常优质的科技媒体。Thinker 政见</p>
+<p>发掘海内外研究中国政治的智慧成果，引进思想资源。这是一个完全由志愿者组成的独立网站，成员包括海内外政治学研究者和国内一线时政记者。梁文道文集</p>
+<p>梁文道，香港文化人，传媒人。这个网站集结了他2000年起写过的文章，以及访问稿（主访或受访）。</p>
+<p>左岸记：我曾是RSS阅读的重度依赖者，但时代真的不一样了，平台的变革只能尽快地适应新的阅读方式，我越来越习惯在微信上阅读自己喜欢的订阅号文章了。很高兴子轼也建起了自己的个人网站——子轼看书写字的地方，现在有心自己做个空间写写东西的人真的不多了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

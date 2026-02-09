@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《一出好戏》：你的冰淇淋怎么样了？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>《一出好戏》：你的冰淇淋怎么样了？</h1>
+            <div class="date">2026-02-09 11:07:16</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/立夏 （公众号：立夏时节 ）最近我看的几部电影（西虹市首富、小偷家族、一出好戏），自以为都是大人的电影，但是每一场都有孩子前来观看。或许大人们把这些全部当做喜剧片对待吧，但让我感慨的是，孩子们都看得很认真，从头至尾没有见到孩子哭闹和退场。《西虹市首富》能吸引孩子我可以理解，那么《小偷家族》和《一出好戏》呢？这样意味颇深的电影孩子看得懂吗？今天在思考这个问题的时候，想起来松居直在《幸福的种子里》写过，“即使是幼儿，也希望看到真实的东西”。</p>
+<p>这句话是针对大人如何给孩子挑选图画书而言的，但是我觉得放在如何尊重孩子的意识上也可以说得通。我很喜欢的公号主人大J说过无数次，你要相信孩子能听得懂你说话的意思，他才真的能懂你教给他的东西。这句话和我成长经历中的很多事产生了触碰，我一直都觉得家人不理解我、不尊重我，说到底，他们一直把我当做一个孩子，特别是一个没有自我意识、不会分辨事物的孩子来看待，才自以为是地忽略我所有的需求和诉求。今天想说周末去看的电影，黄渤的《一出好戏》。本以为这部戏并不适合孩子看，但是我错了，每一个去看了电影的孩子都乖乖地看到了最后，这让我有一个思考的角度，这个电影哪里吸引孩子，或者说孩子为什么能安静的看到最后？</p>
+<p>翻开豆瓣和各种评论文章，多么深的解读都有，我当然没有那么专业的视角，那么就像平时一样，说一说我作为大众水平的普通观众的感受吧。电影开始15分钟的特效做得特别好，看着滔天大浪席卷而来的时候，我使劲捏了捏Charles先生的胳膊，心跟着屏幕一阵一阵的嗵嗵直跳，直到第一个团队领导者小王被拥护上位。原谅我看着电影还跳戏出来思考，我第一个想法就是：史教授说的都是真的吗？为什么众人会相信他的末日论？仅仅因为他是天文学专家？</p>
+<p>影片最后证实了他的推断是错误的。如此一来，我的想法就是，这部电影是不是在这一个角度上讽刺了所谓的“权威”，戴着专家帽子的人们随便说几句专业的话，就会被大众当做论断，舆论就会被引导过去，即使假的也变成真的了。《一出好戏》就在这样的情况下上演，众人相信史教授的末日论，才有接下来的种种情节，这是电影能够继续下去的基调，暂不论这理论现实不现实。整部电影看下来，我有三点想法。第一，每个人都有自己的伪装。</p>
+<p>穷途末路之际，人与人之间的阶级层次消失了，回归到生存本能的人们褪去文明社会的伪装，才真正还原出本来的面目。马进得知自己中了六千万后的舒展和兴奋，司机小王成为领袖后的暴虐和作威作福，张总另立山头后的嘚瑟和专制，史教授为了有鱼吃时的低三下四……我们总说人都是多面性的，但是现实生活这层伪装遮蔽了很多东西。突出其来的灾难、紧急的突发事件、发酵后的言乱等等，很容易把人的伪装撕开，这时候才能看到一个人的本质。这种人性的复杂才是电影好看的根本原因吧，我们在电影中看到欲望、赌气、顺从、暴虐、真情、抢夺，才真正能够震慑心灵。第二，是什么决定一个人在极端情况下不会迷失人性。</p>
+<p>整部电影的女性比男性让我感觉更舒服，不仅因为她们温和顺从，还因为她们不是舆论和权利的主导者，没有过多地迷失自我，至多是为了生存争抢食物而已，这是人的本能。四位男主演，黄渤除了主角光环以外，确确实实是没有过于迷失本心的一个人。他真实——我就是要拼了命回去兑那六千万的奖金； 有血性——我跟着你张总就是为了能回家，而你违背了诺言我就背弃你； 有真情——始终爱着姗姗，为她着想（送她很多鱼做生日礼物）； 有道德——不愿小兴黑化，想扭转他，愿意告诉众人真相。于和伟饰演的张总也不错，不过因为他的定位是特权阶级和规则制定者，于我们这些普通人的身份相差太远，所以没有马进这个人物更有亲和力。看完电影后Charles先生说，什么样的人才不容易迷失本性啊？</p>
+<p>是追求真实的人啊。马进一心爱着姗姗，这种真诚的情感是他性格的底色，姗姗一心追求真实，她对马进的一通表白触动了他的心，激发出他的本性，也最终让荒诞回归正轨。当我们渐渐长大，见识了虚伪，也学会了保护自己，得到的越来越多，但有时却越来越焦虑。我到底是什么样的人、想要什么、怎么去得到它、离目标还差多远？这些是现代人容易忽视的问题，也是因为不再认真思考这些问题，我们才会在洪流中挣扎。</p>
+<p>小兴之所以黑化，不是他有多么坏，而是从来没有努力去改变过现状，通过努力去做成一些事，所以在权力流转到自己手中后才会害怕失去，才破釜沉舟的去保护那个幻象。如果他试过，知道自己几斤几两，知道能力和理想的差距是什么，也许不会那么残酷的对待张总（虽然可能他也罪有应得）。第三， 在封闭的回归本能的环境中，如何保存实力和保证自身安全。小王的体力、张总的头脑、马进的运气、小兴的技术，貌似哪一种都是生存必不可少的能力。电影中一次次的权力流转，人的悲欢和起落都在不断的更迭，即便如此，我觉得在这种情况下还是首先要保持冷静，了解所处的环境，观察身边人们的反应，提防自私的举动，并且充分调动自己的知识和判断力，得出科学的判断，避免因人云亦云而丧失希望。</p>
+<p>其次就是要找寻同类，团队协作才能增加生存的概率，而团队协作要的就是无条件的信任，马进和小兴能够笑到最后也是因为彼此无间的配合。最后就是摸清环境，等待机会，了解身处的世界是什么样的，才能做出准确的判断。如果众人少花点时间内耗，分头组织起来搜索小岛、打探消息、分析信息，或许早早就能发现路过的大船。整部电影荒诞中带着合理，因为人会在那种情况下那样选择，才让故事能够继续下去。也因为每一次决定和冲突都出于人的本能，才让这个故事足够吸引人，我想，这也是孩子能够看得进这部电影的原因吧。</p>
+<p>不知道电影的情节会在孩子们的小脑瓜里产生什么样的发酵，也许需要等待某一个时刻，他的经历和脑子里的想法撞出火花，但愿这火花是有温度的。黄渤用一种皆大欢喜的结局结束了故事，也是希望给各个年龄段、各个层次的人们一个闭合的结果吧。他亲手来了断一桩尘事，用最人性的手段，避免给人们无限的遐想，同时给人们最大的希望。出走、回归，是艺术作品喜欢表达的主题之一。托马斯·福斯特在《如何阅读一本文学书》中说，“每一次旅途都是追寻”，是主人公在未知旅途中找寻自己命运的答案。</p>
+<p>当黄渤对着镜头泣不成声地说，我是怕冰淇淋化了的时候，他才真正在这次旅程中找到自己的归途，因为，“追寻的真正原因总是认识自我”。我总是认为，除我之外的所有人、所有事，其目的都是映照自我。那么，看过这部电影的你，在里面照出自己了吗？左岸记： 可以说能吸引小孩子的电影才是好电影，不久前带小治去看了两部电影，一部是《金蝉脱壳2》，一部是《动物世界》，结果是看《金蝉脱壳2》不到20分钟，小治就躺在电影院的椅子上睡着了，而看《动物世界》却能全程全神贯注地看完，还意犹未尽。不说《动物世界》有多好，至少在孩子的眼中，有足够吸引他们的东西。</p>
+<p>对，就是那种叫“真实的东西”。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仇猫记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>仇猫记</h1>
+            <div class="date">2026-02-09 10:51:51</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>仇猫记 文/驰云一个未婚女子，如果说自己喜欢小动物，定会在那些看脸的男士心中博得一个“有爱心”的美名，可是，我从不占这种便宜。&lt;br&gt;像我这种低情商的人，都难以容忍一个不喜欢的人，何况不喜欢的畜生呢。如果非要我认养一两样生物，那就只能是鱼和乌龟了。和猫有仇的就只有狗了，我可丝毫不介意这话有骂自己之嫌，因为猫狗的仇恨是世人皆知的。我儿时看见猫收起平日一身的慵懒，弓着身子浑身戾气地和狗打架之时，就好奇猫狗间的恩怨了。</p>
+<p>&lt;br&gt;母亲大人告诉我它们是百千年前竞选十二生肖时结下的梁子。话说当年的竞选项目是赛跑，在比赛过程中，不巧在过独木桥的时候狗不小心把猫碰落水了，而猫天性好漂亮，非要等毛干了之后再续赛，等它到达终点时十二生肖早已选好了。所以其中有狗而没有猫，为此猫怀恨在心，立誓世代与狗不共戴天。&lt;br&gt;我当年的疑问是：“老鼠怎么可能跑最快呢？”&lt;br&gt;“那是因为它使诈，躲在牛的耳朵里搭了顺风车。</p>
+<p>”&lt;br&gt;“那牛能跑得过老虎吗？”&lt;br&gt;“牛一开始刚好跑在老虎的前面，习性使然，就拼命地跑了第一，刚要宣布自己是冠军时，老鼠从它耳朵里跳到前面去，说老子早到了。”&lt;br&gt;当年那场比赛一定激烈非常，对于猫的失利我刚开始觉得有几分可惜，要是它入选了，如今就会有人属猫了，转念想想可也觉得它活该，因为臭美而错过了比赛，果然猫天生就有浓浓的bitch味。小时家里养猫，没少听“一条猫毛三条虫”的训语，所以所有吃的东西都要避开猫的染指，为此而多出来的成本就通通化成怒气加在猫的身上了。&lt;br&gt;不过据研究表明，猫身上果真有大量的寄生虫，其中弓形虫就是一个典例。</p>
+<p>据说弓形虫能够引诱老鼠，使它更容易被猫抓住；养猫人士也无可避免地被弓形虫染上，当然人不会成为猫粮，但是弓形虫进入人体后，会让细胞变得更加活跃，据此养猫的人士通常有几分敏感和神经质。在日光绚烂的午后，猫就懒洋洋地躺在被窝、沙发、枕头上睡觉，然后徒留一席腾飞的猫毛让你收拾，并没有丝毫的歉意，就像饱餐过后赖在沙发上看泡沫剧的抠脚大叔，哈哈大笑地无视收拾满桌狼藉的人，这怎么不让人火冒三丈呢？&lt;br&gt;所以爱猫人士必定是个胸怀宽广的人，要么就和猫达到同一个层次的懒惰境界了，为此才能无动于衷。&lt;br&gt;我天生是个小气的人，没有比海洋还宽广的胸怀去包容一只畜生。我讨厌猫，很大程度上是因为恐惧蛇。</p>
+<p>&lt;br&gt;可能在此猫会忿忿不平：哼，欲加之罪，何患无辞！&lt;br&gt;可是猫啊，这真关你的事。家住山脚的农庄，难以避免的是老鼠的理想栖息之地，所以家中多年来都养猫。一个夏日的漆黑晚上，我在迷迷睡梦中感觉身上有东西，用手一赶，大概是碰到猫的尾巴了吧，那种滑滑蜿蜒的感觉让我想起了蛇，瞬间惊醒并喊叫“有蛇”，然后一大家子灯火通明地找不出元凶，却看见一只猫在旁边“目无王法”的走动，最后被人以“扰人清梦”的罪名臭骂了一顿。&lt;br&gt;那些委屈加上当时心中的恐惧，我分文不少地全都转加在猫的身上了。</p>
+<p>于是对猫又深了一层的厌恶。养了猫，我小时曾担当过一段时间的喂养员。猫性嗜鱼，而鱼腥味最令我不喜了，这也罢了，它们还爱乱找地方拉屎，旁边放好的沙盆偏是不用，这都是让我生气而无处泄气的地方。每清理一次它们的便便，我对它们的厌恶就大朵大朵地在心中肆意地绽放。&lt;br&gt;有一次到了喂食时间，几条猫咪在我脚边乱叫嚷吃的，恰逢我当时心情烦闷，就将平日积蓄的怨气凝聚在脚边，对着一只发声的猫一脚踢了过去，于是我的怨气得到了最大程度的报应！</p>
+<p>我一脚刚好踢在它张开的口上，脚趾碰上它的门牙，华丽丽地挂了彩滴着血！&lt;br&gt;历经那次战役，我对猫就不再是厌恶，而是“血的仇恨”了。看到这里，可能很多爱猫人士要心情大好了，同时也要为不懂人语的猫鸣不平。你们养猫还不是在利用它们，有本事你别养啊？必须承认，当年养猫确实是贪图它们会抓老鼠的本领。</p>
+<p>&lt;br&gt;猫捉老鼠，这事地球人尽知，可是真正见过的应该不多。如果你有缘见过，你就知道猫有多贱格了。它们抓到老鼠了，第一时间并不是马上吃掉，而是拿来当玩具。我当年见过一只猫早上抓了一只老鼠，一直玩到晚上，它会松开爪子让老鼠走，然后在一定范围内立即抓回，如此反复，到最后老鼠都深知在劫难逃索性放弃了，它就退后给与老鼠更大的逃跑空间，当老鼠试图最后一搏时，又被抓住了……直至老鼠力尽而亡！这是世间少有的酷刑！</p>
+<p>古代砍头刑场上，死囚都希望能遇上一个快刀的刽子手，待宰杀的生灵，即便卑微如老鼠，也应该是有同样的希望吧。在杀生道行上，一个生物究竟有多邪恶，才能玩出像猫那般的花样！在行刑中享受着无限的乐趣并包揽最后的胜宴。&lt;br&gt;而我注定不会喜欢这种动物。此外，养猫的另一糟心之处就是碰到猫的发春期了。</p>
+<p>无论平时多么乖巧高贵的猫，一发春起来就本性大变。公猫一发情就离家猎艳，很多都不会再回来了，等于白养了；母猫发情时那声声凄厉且刺耳的叫声，不论夜黑天明，都向全世界通告它的生理需求……这个时候，就苦了平日里喜欢它们的小孩子。他们发现猫并非饿了病了，却仍叫得那么急躁且痛苦，多少会感染到纯净而不明事理的他们，我正曾深受其害。&lt;br&gt;所以如今的养猫人士都会给猫做节育手术，可是这种因一己之私而蛮横地剥夺动物权利的做法，我虽不喜欢猫，可是我并不苟同。近十年来，只身在外，住所终于从心如愿，再也没有猫的痕迹了。</p>
+<p>&lt;br&gt;可是我跟猫的前尘过往，有着无尽的误会和偏见，早丧失了任何一丝和解的可能。如今所见的爱猫人士都会给猫洗澡，或给猫穿上奇丑无比的宠物服，寄生虫应该是很大程度的降低了；况且如今养猫也不利用它的天资，它们过着锦衣玉食的生活，大概连老鼠的样子都忘记了吧。&lt;br&gt;它们如今就是好吃贪睡卖萌求关注，称为电子社交圈的常客，成天眯着双眼粘在主人身边，有几分邀宠卖笑的风尘骚味，就正是它们如今最被我所不喜的一点。即便如此，这些人家豢养的宠物猫可算是猫中的贵族了。我曾见过一个同事的朋友，养了一只猫，正中了养猫的人有几分神经质的魔咒，无论他人怎么劝说，她就是害怕她的猫会离她而去，所以从刚买来开始就一直将它拘禁在一个不足一方的铁笼子里面。</p>
+<p>那只可怜的猫，如无意外，终其一生它的天地都不足一平米。我虽然不喜欢猫，但总会为这只生灵一生所失去的色彩伤心。再者曾拜访过一个亲戚，家中的老太就养了一只胖猫作伴。当我们正和男主人交谈之际，那只猫跃上沙发，然后我看见男主人瞬间抓起手边的一根拐杖，用尽全身力气地朝它头上打去，且正中头部！虽说“猫有九命”，他那一棒下去，那只猫应该也只剩下八条半了。</p>
+<p>它想必受了不轻的疼，惨烈地“喵”一声溜走了，男主人恨恨地瞪着它，然后无比心痛地摸摸他刚炫耀过的真皮沙发！我也仍记得在几年前的一个阴冷冬日早晨，在小区楼下的垃圾车旁边见过三只浑身湿漉漉被遗弃的小猫仔，可怜的叫着却无人（包括我）搭理，最终生死未卜。&lt;br&gt;而关于流浪猫的新闻也经常见诸报端，它们在垃圾堆里觅食，被人驱逐，而更惨的是被人虏去最终血淋淋地成为餐桌上的肉食……纪晓岚在《阅微草堂笔记》中有则残忍见著的孽猫屠宰事件。说是一位官夫人特喜吃猫肉，而她杀猫的手段却非同寻常。将猫抓来放入一个大缸里，加上些许石灰，然后往里面一点点地加沸水，猫就在里面蹦跳挣扎，由于石灰的作用，待猫力竭气衰之时，全身的毛也脱干净了，据说这样死去的猫肉味还更鲜美呢……&lt;br&gt;这种残忍和猫戏老鼠相比，有过之而无不及。</p>
+<p>可见在残忍作为上，人毕竟略胜一筹。写到这里，我突然觉得我也不是那么讨厌猫了。我讨厌的只不过是当年那些怀着本性折腾过一个小女孩的家庭动物，而如今对于那些落尽本性曲意苟活的生灵，似乎有几分同沦天涯之感，却怎生也痛恨不起来了。（原文链接：https://www.douban.com/note/565050731/）左岸记：好好地养一只猫，爱一只猫，绝对能让你的人生境界提高一大层。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

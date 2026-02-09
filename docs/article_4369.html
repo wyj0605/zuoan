@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给坏时光一点时间</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>给坏时光一点时间</h1>
+            <div class="date">2026-02-09 10:51:26</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>给坏时光一点时间 文/丹丹看到这个题目，许多人一定以为我是写鸡汤的人，我一定是一个阳光灿烂，爱生活的人。其实我并不是那种别人眼里看起来任何困难打不到，永远一副常胜将军的模样。别人总是说我“怎么那么爱笑”，说我“不操心，大大咧咧”，说我永远活的那么潇洒，好像没什么烦恼，什么都不去在乎，说我即便遇到天大的事，我一个人也能去处理好。连那些安慰和关心的话都略显多余。其实我自己心里很清楚，自己比任何人都脆弱，只是比较善于隐藏。</p>
+<p>别人的一句话就可以刺伤我的心，我也一直会被别人的一个小举动泪湿枕边。会因为一串糖葫芦的记忆埋藏十余年，会在别人都笑的时候黯然伤神，会在每次聚会狂欢的人群中悄然离去。会躲在无尽的黑夜里把自己抱紧，撕心裂肺的哭到没有力气。会在每次淋雨后，看自己满身的狼狈……之所以写这篇文章，是最近父母给了我一丝感动。因为母亲要来我这边做眼睛内囊通道手术，也不是什么大手术， 父亲冒着大雨去车站送母亲，每次打电话回家，我问：“妈，我爸干啥呢”，回答就是“做饭呢！</p>
+<p>”这些小举动却让我很是羡慕，父亲确实给母亲做了大半辈子的饭。你们一定觉得这是对模范夫妻，其实你们错了。打从我有记忆开始，自己一直被家暴笼罩，以至于我承认到现在快30岁的年龄我都不敢步入婚姻。而很小的时候，我就畏惧男人，即便我身边一起长大的小伙伴都是男孩，我选的也是理科，男多女少，看起来追我的男人也不少，实则自己谈过一次三年恋爱，还已失败告终。心理的阴影我挥之不去，从记事起他们一个星期至少打三次架，总之就是一些芝麻蒜皮的小事。</p>
+<p>高考那年他们不停的闹离婚，以至于我都做好要成为单亲家庭子女的准备，我厌烦回那个家，被争吵，被痛苦，被那种气氛压抑的窒息。毫不讳忌的说，我甚至希望他们离婚，我就不用再看到两个至亲的人打的你死我活。我特别想离开家，离得越远越好，甚至想到了死，就不用承受这份折磨。我终于熬到高考毕业，可以不用再看到那一幕幕一次次痛不欲生的场景。可是无论走多远，那些淋漓尽致的场景总是从你的恶梦里袭来。</p>
+<p>每次接到家里的电话仍是父亲酗酒后耍酒疯，乱砸家里的东西，又开始抡起他的拳头打母亲。母亲又是没完没了的诉着苦，破口大骂，母亲的眼泪连着委屈，疼痛，绝望。而我也被这种家庭，这种状况撕扯的麻木，第一次，我会拉架，第二次，我会流泪，第三次，我会劝他们，第四次，我开始想逃避，第五次，第六次，第七次……我已数不清多少次了。直到我大学毕业，我只会沉默，什么也不想说，也不想管。我一度的羡慕那些家庭和睦的孩子，而我有家不能回的苦楚一直独自承受，我不能跟同学说，我怕他们拿我的秘密当笑柄，正所谓家丑不可外扬。</p>
+<p>曾经小女孩的时候几度在寒冬的大街上哭便整个轮回；几度夜里不敢入睡，怕那种吵闹声把你吵醒，怕恶梦又重演；几度我想去一个他们找不到的地方，一个人清净；几度站在路口看着家的方向驻足。不安，恐慌，惊悚……让我觉得生不如死，我开始神经衰弱，甚至觉得会得精神病，我猛然间有种想失忆，忘记一切的伤害，或是做一些割腕之类的傻事来威胁她们，让他们停止战争。可是突然最近自己没那么不看好他们的婚姻，不知道是一个人在外的这十几年（从高中毕业算起）看了太多冷漠，还是经历了太多岁月的变迁。他们打架的次数慢慢减少，从一个星期三四次，到一个月一次，到半年一次，到一年一次……我突然开始想起他们年轻时那些同甘共苦，想起那些病床前的不离不弃，想起打到老都没有一拍两散，想起他们风雨同舟，想起……而现在看多了那么多表面的相敬如宾，却各自背叛；看多了为了利益金钱争的你死我活；看多了不愿忍受对方一点缺点，不愿去受一点委屈；看多了对方一得病另一方现实到马上可以嫁个老头，或是娶个更年轻的；看到了那么多谎言，欺骗……经常也听到那些我曾羡慕的同学的父母已离异，偶尔也听到好友的父亲或母亲已去逝的消息。而我在电话里还能听到他们的声音，在我不在他们身边的时候，对方还彼此相互照顾着对方，还能感觉到他们分开一个月，还惦念着对方。</p>
+<p>父亲还会做好饭叫母亲起床吃饭，还会冒着雨去车站送母亲，半夜起来去诊所给母亲抓药，所有的钱还会交给母亲管，还会帮母亲一起洗衣服，洗碗。母亲也还关心着父亲一个人在家有没有又喝醉在哪冻着，是不是躺在沙发上又没有盖被子等等。突然间想起了那句打不散的爱情，这些，人快到老年，细枝末节的平淡生活却成了我嫉妒的画面，我开始重新审视以前的自己，还有他们的感情，就想起了这个题目，给坏时光一点时间，也许多年后曾经那些让你心痛的记忆成了如今最美好的眷恋！左岸记：痛就是痛不能因为后来变好了就去合理化那些曾经的伤害。大家在经年之后突然领悟到彼此的需要，那是因为真的已经错过了太多美好的时光，愿一切还来得及，愿在你变好的时候还能弥补以往的过错。</p>
+<p>我更愿意看到的不是相生相杀的爱，而是从一开始就用智慧尽自己所能地去经营好自己的爱恋、婚姻和家庭。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对生命流逝的唏嘘叹息</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>对生命流逝的唏嘘叹息</h1>
+            <div class="date">2026-02-09 11:07:14</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文&amp;amp;图/唐唐 （一）以前的农村，人多热闹，村里和我同一两年出生的男孩女孩大约就有一二十。大家一起去上学，一起在学校里打闹，一起长大的过程中自然发生了很多故事。现在到了而立之年，各自天南地北，几乎没了任何联系和交集，青春年少时的记忆早已蒙上了灰尘。但其中一个孩子L的故事大约以年为间隔单位总会莫名地出现在脑中，让我终于忍不住写下来。L大约比我大，是让家长老师都头疼的那种，做着很多那个时候的“坏孩子”做的事，不好好学习，欺负同学，打架等等。</p>
+<p>隐约记得，他也经常欺负我，当然，都是小男生欺负小女生的那些把戏。比如，上课的时候向我扔粉笔，或者在我头发上沾个什么东西，印象最深的是他前前后后给我起了三四个外号，每天换着叫…… 那时候，简直“恨他入骨”……后来，大家都离开了村里的学校，去乡里上初中了，都进入了更大的小世界，遇见了更多不一样的人。“乖孩子”们按部就班地上学，而他和村里那帮“不太乖的孩子”也认识了新的“朋友”，做的“坏事”也升了级，时不时地就听到他们又和哪个村的孩子约了架，打架斗殴似乎成了家常便饭，甚至有一次亲眼看到他们拿着刀在马路上追人……大家的青春年少时光，在课堂里，在朗朗读书声中，在野外，在打架斗殴的吼叫中，不知不觉地流逝着。几年后的某一天，突然听到一个震惊所有人的消息，L杀人了！说是L的亲戚叫他去帮忙打架，最后L把对方捅伤了，死了……虽然平时也常听到打架斗殴的事，但更多的时候只是把那当成孩子之间的不懂事，而杀人，则是彻彻底底的犯罪，已经超出所有人的认知，一时间成为了村里村外既避讳又忍不住谈论的话题。</p>
+<p>最后，大家得到的消息是，他被执行了死刑（大约那时他刚过法定成年线）…… 从那以后，村里再也没有了他的消息，甚至他的家人也都离开了村里，再也没有见过。如今，曾经和他肩并肩打架斗殴的“兄弟”们，纷纷娶妻生子，成或未成家，立或未立业，过着平凡的日子。过年回家时，每次见到他们，我都会忍不住想起L。那天我跟妈妈说，有时候会想起L，妈妈一脸愣住地看了我几秒，然后说“发什么神经，想他做什么”。她的表情和话语里，透出对我的意外和担心，还夹着些对L和那件事的避讳。</p>
+<p>过了一会儿妈妈又说：“也有人说他还活着，可能在监狱里。”“他们的家人亲戚不是应该清楚吗？”“可能他们不愿意告诉外人吧。”是啊，杀人、犯罪、坐牢、死刑这些字眼相关的事，足以让人讳莫如深。既然存在不确定，主观上我宁愿相信他还在，在为自己曾经的不知天高地厚，伤人性命而忏悔，并付出应有的代价。</p>
+<p>有一天，或许还能够像他曾经那些所谓的“兄弟们”一样， 平凡简单地活着，而不是无知但不无辜地就那样离开了人世。（二）还有一个关于我表叔的故事。以前从未细想，此刻突然意识到，表叔，似乎很像是年长版的L。在表叔年少（年轻）的时候，打架斗殴也是家常便饭，娶妻生子之后，和妻子打架，赌博，甚至后来吸毒，是看守所/戒毒所里的常客，每当听到家人说起他时，就连我这个晚辈也忍不住有种“恨铁不成钢”的感慨。当然，当面还是会保持基本的尊重和礼貌，一方面源于他毕竟是长辈，另一方面是因为某种程度上来说，他是讲义气的，整个大家族里的亲戚遇上一些难事时，他会挺身而出。</p>
+<p>他做的那些“坏事”伤害了家庭、伤害了自己，当然也一定伤害了其他某些人，但不是那种鸡鸣狗盗的小人。岁月流逝，我们这些孩子都长大了，因为远离家乡，关于家里的那些事也只是偶尔听父母亲戚提起。只知道表叔还是那样，我行我素，完全没有因为年龄的增长而变得“成熟和规矩”。以前迫于各种原因，表婶只能将就着，而当孩子们都成家立业之后，大家都有了更多的选择权，渐渐地表婶便搬去跟他们的孩子住了，只剩表叔自己一个人生活。后来，表叔瘫痪了。</p>
+<p>听到消息时，我一阵愕然，那样一个不算老、从来不消停的人，瘫痪了，不忍唏嘘。不过基于他长期各种自我作乱，这个结果可能是种必然吧。那之后，为了便于照顾，孩子把他接到城里。病情时好时坏，偶尔能自己行动，偶尔又只能躺着。以前，夫妻之间、父母子女之间本来就有各种矛盾，所以才没有同住一起，这种情形下，家里的氛围可想而知，前前后后可能折腾了一年半载吧。</p>
+<p>突然的一天，爸妈说要回村里吊唁。表叔去世了！准确地说，是……自杀了。原来表叔趁自己能稍微行动时，一个人回到了村里，大概是回去后的第三天，亲戚给他送饭时发现，他上吊了……好久，我都没有缓过神来。虽然在大家眼里他一直在做着“坏事”，但大概没人会想到他会自杀，是经历了怎样不能忍受的苦难，最终选择这样结束自己的生命？</p>
+<p>或者，他那样的人，是不是本身就比其他人更不能接受自己处于近乎没有尊严的状态，更容易绝望，还是因为别的什么？大概没有人知道了…… 今年年初，外公去世了。对于耄耋之年被病痛缠身的外公而言，客观地说那可以算一种解脱。想起来还是一定会难过悲伤，但不至于无法接受。可是，在写前面的两个故事时，感觉有千斤重石压在胸口，全程常常忍不住就流起泪来，一点点敲出些只言片语，无法回头去深究其中的道理或什么，甚至并不明确自己是否想要表达什么观点，只是想要记录下来这些逝去的人和事。</p>
+<p>（忍不住特意选了几张有生命力的照片。）写完，静静的，几声叹息。左岸记： 在我的心里我最害怕两种人，一种是好勇斗狠又穷凶极恶的人，一种是极度自私又死皮赖脸的人，遇到这两种人我都会很害怕地躲得远远的，即使这样的人出现在身边，我也是避之唯恐不及。像L这样的人属于边缘人，他怕是从来没有给身边的人带来什么幸福快乐和希望，他的生命最终也只能成为别人的棋子，毁灭在伤害的路上；表叔的版本却是常见，只是程度不同，他们是缺少付出爱的能力吧，然后用最笨的方法不断地证明自己的愚蠢，最后窒息了自己生存的空间，连苟延残喘活着的欲望也没有了。这是美好生命的反面，让人唏嘘叹息，对生命的不尊重又怎么能得到生命的眷顾呢?</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

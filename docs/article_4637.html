@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你无聊了你的人生</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你无聊了你的人生</h1>
+            <div class="date">2026-02-09 11:07:10</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德鲁伊 接纳自己是一个流行的话。似乎接纳了自己，世界就和自己和平相处了。但可惜的是，大多数人，累死累活建立了所谓的三观，坚守了自己，突然就有那么一天，自己觉得很无聊，很没有意义。中国的思维里，人如水是个高境界，流动、自洁、静水深流、居下不争等等。可惜，但凡有这个理想的，最后的结果多半是泥沙俱下，最终成了标号不高的混凝土，总觉得自己的人生“凝固”了。</p>
+<p>“我觉得无聊了…”，“我觉得自己缺乏斗志了…”，你纠结很久，自省+审视，旁观+借鉴，然后继续一头雾水。其实问题的答案一直在问题里，很多时候，换个提问的方式，或许让人能警醒一些。“你能寻找到不无聊的方式吗？”，“你缺乏斗志是因为没有潜在竞争目标，还是压根恐惧于失败，或是简单的因为畏惧改变？”拿我自身写作讲，当初的目的是什么呢？</p>
+<p>记录心境，调节情绪，最多算有文采的日记吧。及至码了些字，发了些文，突然发现原来你在默默的影响着别人。这就需要正襟危坐好好思量一下了。毕竟强调自律的人通常不太会对外部要求太多，同样也不希望自己的言行太多影响到别人。但你真的影响到了，就该变换一个姿势好好想想如何应对。</p>
+<p>于是乎，自己码字为文，多了些顾忌和讨巧。会关注大家的评点和意见，其实讨巧八成是这个世界上最容易的事情，言之无物却言之凿凿滑稽地融合得天衣无缝，观者欣喜，写者轻松，然后的然后，鸡汤无毒，饮者自伤。有那么一段时间，自己看自己写过的文章，诧异于为什么要那么写，莫名的思路哪来的？然后觉得无聊，扔了笔，爱谁谁吧。但依旧忍不住，因为写作成了自己生命的一种表现形式，生活的一部分。</p>
+<p>在提笔的时候，或许悟到些东西，不那么讨好但起码充满善意。尽可能的保有自我认知，又兼顾些观者的心态。自我感觉不错，算是进步了，反倒是不那么在意评点了。其实我知道自己写作的问题，我很少写到“我”，我很少去尝试写“故事”。虽然预约了不老少的故事，却恐惧于自己写故事时的辛劳和情绪起伏。</p>
+<p>或许，我再老些，从德叔变成老德头的时候，会认真写写吧。说到前几日答应朋友写写关于自律的人，如何解决无聊和斗志。回头倒是很认真的想了，朋友是个自律的人，还是那种自律还得到社会认可的成功的人。及至自我也觉得还算成功，问题就出来了呗。既然成功了，我能不能不再自律了？</p>
+<p>我的自律得到了成功，与我无关的人，我干嘛要去影响？我的斗志是和自己，还是和心目中新的目标，或是其他的人和环境？自律是需要付出极大代价的，也未必一定有好的回报。那些说自律一定成功的，多是以结果论原因。自律的人强调自我的控制和目标的达成，尽量少受外界的影响，却追求一定程度的和谐平衡。</p>
+<p>这样一想，朋友的现状几乎是命中注定的。你自律、你成功、你辛苦、你收获，那目标达成了，还继续？你周遭都和谐了，看似稳稳当当，你怨什么平静如水？怨什么凝固的感觉？你太自律了，你不想影响别人，懒得去改变别人，哪有斗志？</p>
+<p>跟自己斗？因为昨天很成功，于是今天很失败？其实想想还是三板斧有用：如果你觉得没必要影响到平衡和他人，那你让自己在自律下，多点爱好，那种可以让自己独处且惬意的爱好。如果觉得自己值得为改变环境和他人努力，那就尝试总结自己，慈悲别人。如果觉得自己还能承受失败，那就寻找一个竞争对手，不管是人还是事，撒开了整。</p>
+<p>其实自律的人永远会面对这些，我自律了，我达成了，我建立和谐了，然后“我”没有了。我成了某种平衡和和谐的一部分，为了维系这些，我最终就凝固了。我和朋友开玩笑说，什么叫自律的人？就是那种，不管他/她和谁结婚，婚姻的和谐都差球不多，不是说没有爱情，其实是忘了“自我”。人生就是这么无聊，自律就是这么伤人，但成功总是让人渴寄，你总是不安分的想改变。</p>
+<p>左岸记： 我们都想让生活变得丰富多彩不无聊，我们也渴望着变得全能有才华，那种被别人喜欢的感觉也想拥有。我们曾幻想去跑步，等到有了一双好鞋之后，我们曾经幻想写作出书，等到有了好的灵感，我们曾经幻想着向心爱的女孩表白，在有了物质基础之后。可是因了现在，一无所有，所以感觉自己什么都做不了，再等等，再等等，等有了之后立马就行动，一步步为自己设置障碍，到头来，度过了一个无聊的下午，一个无聊的星期、一个无聊的整年，一个无聊的青春，或许整个人生。而且要克服掉无聊的感觉，足够的自律是必须的吧，自律又哪里有什么止境呢，都成了习惯，成了身体和灵魂的一部分。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

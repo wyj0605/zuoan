@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一万种生活方式</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>一万种生活方式</h1>
+            <div class="date">2026-02-09 11:07:33</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/夏小喵 这个世界上，其实有一万种生活方式 。有人每天在地中海小岛上沐浴着蔚蓝色的晨光醒来，有人流浪到新西兰皇后小镇的街头抱着一把破吉他，却有大把大把吃不完的车厘子。有人喜欢安逸有人想要流浪，有人迷恋觥筹交错灯红酒绿，也有人沉醉南部安逸的小镇，喜欢田园小径，木屋篱墙，荷叶和麦香。看《七月与安生》的时候，感触颇深，这两个完全不同的两种人，各自生活方式的好坏我们自然无法定夺。但却像极了某方面的我们。</p>
+<p>七月像我们大多数的普通人一样，按部就班地考大学，毕业，在家附近的小城市找到稳定的工作，然后和相识多年的男友商量婚事，进行着一系列雷同不出差错的程序。安生选择流浪，她想看外面的世界，一个人背着小包踏上了寻找自我的旅程，去草原，去荒漠，看翻滚着波浪的大海，抽烟，喝酒喝的烂醉，和满是纹身的吉他手谈恋爱，颓废又堕落，像是一个坏女孩。七月有七月的安稳，安生也有安生的洒脱。也许物极必反，我们正处于她们之中的某种状态，懦弱着想变得勇敢，或者流浪久了想过平淡的生活。但唯独我们不能否认地是，谁都曾想过要像烟花一样绚烂，哪怕是飞蛾扑火。</p>
+<p>一次暑假回家的路途上，遇到了一个女孩，短发牛仔裤，靠着窗户坐着。萍水相逢却终身难忘。和我同岁，却有超乎这个年龄的成熟倔强，眼神里满是不屑。带着一个黑色的大包，随后丢在车座底下，看起来像是一个浪迹天涯的人。我对她充满好奇，她看起来有些漫不经心。</p>
+<p>她说自己没有上大学，高考失意后就一个人出来生活了。去过很多城市，换了很多份职业，从不看别人脸色，心情不好了随时跟老板大吵一架摔门走人。这次她要去长满椰子的海南，厌倦了四季分明的北方，想去色彩明媚的热带海域。我抑制不住还是想问她一个人在外会不会害怕，她表情平淡像个老者：“人本来就一无所有”。戛然而止，再无话题。</p>
+<p>她好酷。有一年夏天去厦门，第一眼就爱上了这个缤纷浪漫的城市。生活节奏很慢，随处散布着甜品屋和奶茶店，随便一个角落就可以静静地坐一下午。傍晚时分，很多情侣在沙滩上漫步，空气中到处都像是弥漫着粉红色的泡泡。连续好几天日暮的时候经过一条小街，都能看到一个中年大叔，面朝大海，在画板上作画，颜料在宣纸上晕染开来，能看到他笔下的夕阳和海岸，还有翩飞的海鸥，静谧的像是另一个世界。</p>
+<p>四周车水马龙人来人往，有很多人停步驻足在他周围。但这些外界的纷扰他丝毫没察觉到，一笔一画，认真地融入墨蓝的夜色中。朋友有一次去香港，在机场，为了争抢时间穿着十厘米高跟鞋妆容精致的女人们，细碎的脚步踩着地板咯吱作响。在这样一个极尽繁华和物欲的人流涌动中，竟然隐约听到了钢琴的声音。朋友寻声望去，看见了一个穿着白色西装扎着领结的老人，应该有七十多岁了，手指流畅地在琴键上飞舞，戴着金边的老花镜，眼睛微闭，沉浸在声音营造出来的灵魂世界里。</p>
+<p>在这周围，显得多么的格格不入。有些不太着急的路人，也停步聆听，一曲罢，听众掌声涌动，老人便拄着拐杖站起来，脱下礼帽，鞠躬回敬给他们一个微笑，绅士又儒雅。哪怕是人到暮年，也可以做自己喜欢的事，一定是个幸福的人。一直喜欢大冰，二十多岁的时候无不正业，成为了最早去西藏的那一批背包客。白天在街边弹唱，和路过好看的姑娘瞎聊，晚上开着亏钱的小酒吧，听陌生人讲故事。</p>
+<p>铺张旧报纸能在拉萨阳光最好的地方躺一整天，也厚着脸皮搭乘免费的顺风车去可可西里看过海。到处蹭吃蹭喝，有很多朋友，都是有趣的人。做过铜匠木匠，是正儿八经的背包客，也喜欢过陶艺，其实吉他谈的并不好，但他却只做自己喜欢的事，不想做了就随手丢下，用最任性的方式活着，活成了一个不一样的人。你每天早上在无数个闹钟声中挣扎醒来，拖着日复一日疲倦的身体在地铁上被挤成肉饼，有人可能正听着窗外的鸡鸣，嗅着新开的蔷薇花的香气，等着身体慢慢苏醒，你是大城市的精英，她可能是个农村的普通妇人。你穿着上百万的高定一天飞去不同的国家开会，夜晚还有处理不完的公文，有的人可能正在海边吹着温润的海风，辨识着今晚的星星和昨晚的有什么不同，他可能是个吃了上顿没下顿的流浪汉。</p>
+<p>所以也无需羡慕别人，每个人都有自己的活法。这世界上有太多的人，喜欢不同的颜色和风景，都有各自的节奏和规律。喜欢的衣服不需要再去问别人好不好看，想过的生活也不需要得到别人的允许。厌倦了一个城市，就换一座生活。如果厌倦了人群，那就去孤岛。</p>
+<p>这世界上其实有一万种生活方式，没有任何一种方式是绝对的好 ，作为局外人的时候更没有资格去肆意评判。好或坏，都在于内心，而不在于他人。但你要知道，真的有人在过着你想要的生活，有时候，只要勇敢一点点，就会有无数的可能， 有这么多活法，为什么不选一个喜欢的？不论做什么，只要自己觉得幸福就好。左岸记： 还是要温馨提示一下，无论哪一种生活方式，你都要思考一个问题，那就是你现在追求的生活是你未来5年、10年的起点吗？</p>
+<p>不会悔不当初，对不对？不会早知道我就……，是不是？那好，你选择对了。作者简介： 夏小喵：一个记录青春的无敌美少女 个人微信公众号：南部小镇 欢迎来南部小镇找我玩~~~</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

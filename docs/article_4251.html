@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>砒霜，还是浓点好</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>砒霜，还是浓点好</h1>
+            <div class="date">2026-02-09 10:01:40</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>&lt;p id="filepos1868606" class="calibre_"&gt;&lt;span class="calibre1"&gt;&lt;span class="bold"&gt;砒霜，还是浓点好 &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;文/Yoga&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;今天，也就是今天，在这个不太重要的日子(周六，然而我要上班,一脸苦)里，最适合深度的剖析一下令大家过得惨不忍睹的心灵砒霜这类误人终身的文、颜、言。&lt;/p&gt;&lt;p class="calibre_"&gt;心灵砒霜的由来，大概是由心灵鸡汤浓度过深进而转化为心灵洗脚水再成功升级到害死人不偿命的有毒砒霜。由于受到特大部分伪文艺青年的热捧，已经在安利洗脑的领地里稳稳地站有一席领地，并成功的逆袭为这一领地的扛把子。深浅易懂的鸡汤文已经满足不了苦闷抑郁青年的幼小心灵，而砒霜这剂猛药却使陷入困顿生活的青年重新看到人生的希望，并且有素质的引伸于自己苦逼的生活中，仿佛又重新燃起了对生活的热情，仿佛又回到了那个举起拳头就能成为海贼王男人的时代。&lt;/p&gt;&lt;p class="calibre_"&gt;遇到这样的人，大部分时间我都是敬而远之，毕竟他的光芒太亮，而我400度的双眼怎么着也算是高度近视。小学的眼保健操白做了，但成年人唯一可以做的就是要对自己负责不是。但小部分时间里，有些砒霜是不得不喝的，像马云爸爸的经典网络用语 “梦想还是要有的，万一实现了呢。”拯救了多少僵躺在床上就以为能得到全世界的“植物人”。对于这类鸡汤洗脚水都无法拯救的人，也唯有砒霜是他们的最佳药方。&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;文，砒霜文。&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;这大概是大部分青少年、中老年接触砒霜最常见的途径。“早上起床叫醒你的不是闹钟而是梦想。”这已是对我伤害最大的一剂。看吧，这种毒药已经在不知不觉中慢慢渗入到你生活的每个细节，连他妈(脏话请自动屏蔽)闹钟都叫不醒我了你觉得梦想可以?(看来我的确没接受过砒霜的洗礼)回归正题，随着80、90后文艺有志小鲜肉队伍的壮大，大部分有才又有颜的男青年们成群结对的出书，仿佛这已经成为一种热潮，就好像你没出过书就不配有那么多粉丝支持一样。书的内容也都大同小异，标题大概都是"你不好好努力，怎么配拥有更好的生活。梦想在远方，你有胆量去追吗？如何变成更好的自己，来虐死当初看不上我的你......"青少年看了热血爆棚，开始去上晚自习，开始点名答到，中老年看了回忆青春那些自己错过的美好相遇。中小学看了仿佛就立马立志非清华北大不考。看，这些砒霜还是有用的。这大概是偶像力量作祟，你崇拜的人给你熬了一锅砒霜，你就要把它当成糖一样，一滴不剩的喝下去，喝完后也不忘补一句爱你。&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;颜，砒霜颜。&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;所谓的砒霜颜，应该就是一个模子里刻出来的网红脸吧，在这个领域最成功令人最深刻的属baby 莫属，成功升级为黄晓明妻子之后，她的励志逆袭更加带动了网红产业的发展，目前网红已经霸占了网络的一大片天地，没有网红脸你都不好意发个自拍。这一类砒霜给人的打击也不小，因为你不知道什么时候早上起床后看一下自己关注很久的低调博主也会变成砒霜颜控，开始在自己的平台上做代购，卖衣服。还整天嗷嚎着要大家理解他，生活不仅只有诗和远方，还有眼前的苟且。而每到这种时候你发现，难道之前的诗和远方只是他现在作为苟且生活的筹码？可是你也没法怪人家，毕竟你连诗和远方都没有。他的故事仍然在继续，砒霜也下的越来越深。&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;言，砒霜言。&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;砒霜言，大多都出自于亲近人之口。担心自己的父母，愁自己嫁不出去的七姑八姨，关系特好的朋友。这类的砒霜用量少倒没有太大的影响，但万一进多了，也会有后遗症。最常见的，大概就是父母所灌的砒霜。这是一剂不得不喝的猛药，它浇灌着你的三观，滋养着你的荷尔蒙，让你深刻的认识到这世界最重要的事就是有  对  象，让你明白他们为你所做一切的真正意义。就这样带有温度的砒霜，你不喝的话，肯定都会怀疑自己可能不是他们亲生的（这类猛药我喝过不少，目前还没有浇灌到我灵魂深处)。再者就是七姑八姨，这是一种我家闲事你非要管，你闺女没嫁却担心我孤独到老的砒霜。对于这一类看热闹不嫌事大，找对象不闲个高的七姑八姨我只想说一句，拜托，对象这种生物品种，一定要介绍好的给我。这一点我同学是深有体会的，并将其中的精髓传授给了我。168的理科男，妄想用公基金买房月入不到2000的工厂男，聊天必须一刻不停大男子主义到炸的狂妄男.....以上各种不靠谱男子均来自她舅妈的分享。顺便说一句，她的舅妈是亲生的。最人性化的应该就是来自铁磁的一碗苹果气泡水味的砒霜。这碗砒霜的确还得喝，并且千万别闲多。所谓出来混都是要还的，在他人需要安慰时，你尽力供给的砒霜，正是你在需要安慰时，别人偿还给你的。这类砒霜，午夜12点后味最浓。&lt;/p&gt;&lt;p class="calibre_"&gt;各式各样的砒霜品种充斥于我们生活之间，隔几天喝上一碗，有益身心，但常喝却有百害而无一利。你能做到的只是在你摄入劣质砒霜时千万不要传送给下一位患者，因为毕竟这是同为病友之间的基本信任点。好好的砒霜，千万不要喝成苦大仇深的感觉，也千万别拿喝砒霜当作日常，毕竟苦药加上再多的糖也没有任何意义。&lt;/p&gt;&lt;p class="calibre_"&gt;喝了砒霜也千万不要有成就感，哪能没有需要灌一剂猛药得时刻，又怎么可能没有那种把自己的快乐建立在别人痛苦上的腹黑感。喝自己的砒霜，做不成海贼王，就要立志做海贼王的男人(呃...啊...哦...好像有地方不太对的样子，我是女孩纸。不要怀疑我)。在失意并且遗失勇气的时候，也许一剂砒霜会让你满血复活。但一定要用对药量。一位伟大的哲人曾经说过，砒霜别闲多，要挑好的喝。&lt;/p&gt;&lt;p class="calibre_"&gt;最后。&lt;/p&gt;&lt;p class="calibre_"&gt;友情推荐几种带有温度和苹果气泡味的心灵砒霜。&lt;/p&gt;&lt;p class="calibre_"&gt;于丹&amp;lt;&amp;lt;论语&amp;gt;&amp;gt;心得   于丹著&lt;br class="calibre2"/&gt;&amp;lt;&amp;lt;优雅的老去&amp;gt;&amp;gt;       大卫•斯诺登著&lt;br class="calibre2"/&gt;&amp;lt;&amp;lt;社会心理学&amp;gt;&amp;gt;       戴维•迈尔斯著&lt;/p&gt;&lt;p class="calibre_"&gt;这些砒霜请你们一定要好好喝。&lt;/p&gt;&lt;p class="calibre_"&gt;改天换个机会给我。&lt;/p&gt;&lt;p class="calibre_"&gt;我一定加大药量。&lt;/p&gt;&lt;p class="calibre_"&gt;该吃吃，该喝喝，该灌灌，&lt;br class="calibre2"/&gt;反正砒霜又不要钱，&lt;br class="calibre2"/&gt;反正砒霜就是诗和远方。&lt;/p&gt;&lt;p class="calibre_"&gt;最后，请把这剂砒霜分享给你的病友，&lt;br class="calibre2"/&gt;让我们喝着砒霜缓慢老去。&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;左岸记：在万方中的《&lt;a href="https://www.douban.com/note/304367001/"&gt;我为什么憎恶心灵鸡汤？&lt;/a&gt;》一文里，就提到了心灵鸡汤文的普遍特征：&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:0pt"&gt; &lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

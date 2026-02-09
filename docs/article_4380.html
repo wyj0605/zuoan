@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒，醉人，醉心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>酒，醉人，醉心</h1>
+            <div class="date">2026-02-09 10:51:30</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>酒，醉人，醉心 文/碧云天酒真是个奇妙的玩意儿。遥想老祖宗当年，缺衣少吃的却整什么劳什子酒，要知道一斤酒至少要消耗2斤以上粮食，更别说工艺那么复杂，发酵时间那么漫长，耗费大量人力、物力了。看来老祖宗一点也不穷，而且很有闲。我基本是不喝酒的，尤其在工作场合、陌生人场合。可是碰到某人撺掇时，或者一群同性好友相聚时，也会禁不住酒的诱惑，欣欣然端起杯来。</p>
+<p>第一次喝醉，是和老A在我们的出租屋里，当时他炒了两盘小菜，买了一瓶十几块钱的廉价白酒，两个人傻乎乎开始对饮，结果酒未过三巡菜未过五味，我顺利被他干翻，吐得天昏地暗，鼻涕眼泪流了一大把。能把自己媳妇喝趴下，也算真是亲老公了！至此，他也知道自己媳妇就那点量，在酒量上无法和他平起平坐。本着爱护媳妇的原则，等他酒瘾上来难以克制之时，只好找他的孤朋狗友一醉方休。而身为媳妇我，既然不能陪酒，也只能由他偶尔在外边喝得醉醺醺晚归了。</p>
+<p>最近一次喝晕是他生日那天，和友约定顺便两家人小聚。在饭店两个老公异口同声决定他们不喝，负责让两个媳妇喝好。于是，两个傻媳妇一人抱一瓶自酿的葡萄酒边喝边八卦，很快把各自的酒喝个底朝天，结果出饭店门后就觉得头发晕，脚发飘。幸亏有爹娘和一双孩儿在场，才未胡言乱语。但等回到家中卧室之内，自己就浑一个醉眼迷离，飘飘然不知所以，借着酒劲缠着老A，娇声嗲语，隐约间听老A大呼：酒能乱性，再也不能让您老多喝了。</p>
+<p>当然，后来我直接睡了过去，没有故事，没有事故……哎，让两个相伴二十年的人发生点故事真是件难事，即使有酒 精助力。至于“酒能乱性”之说，纯属胡扯，实在是那人存了乱性之心，借酒成就，却把罪名安在酒的身上。其实，我是喜欢喝啤酒的，最早喝啤酒时，还少不更事，跟着家里大人偶尔蹭点，觉得这个酒挺解渴的，比白酒好喝多了。再后来喝啤酒是大学毕业那年，正逢离别季，同学们三五成群地搓堆聚会，顺便找个小店点两个小菜，喝点啤酒，划个小蜜蜂，说些废话。不知道是离别的原因，还是酒精的原因，觉得原来讨厌的同学变得可爱了，原来陌生的同学变得可亲了。</p>
+<p>而自己也惊奇地发现，连喝两瓶啤酒的自己神志清醒，只是稍微话多而已。之所以独爱啤酒，是因为啤酒没有白酒的辛辣、红酒的讲究，价格亲民且不易醉，喝起来随性、自在，经常会恍惚间一瓶啤酒在夏日的燥热里入肚，人渐微醺，话渐俏皮，思维也活跃跳动起来，束缚自己的壳子也被这莹黄剔透的液体融化。有次，初中女同学去红家聚会，她家有一个大平台，被她捯饬的有花有草还有藤，外加秋千椅、石磨盘，整一个土豪加小资。于是一群女人疯了，一边围坐着烧烤炉吃烧烤，一边端着碗喝自酿的葡萄酒，葡萄酒喝完喝啤酒，人手一罐，喝完直接一扔，浑似孙二娘附体，一个个豪爽得像个女侠。原来女人年过四十，日子还可以这样过。</p>
+<p>真是怀念那天的时光啊！听说，附近开了一家不错的啤酒屋，咱们什么时候去？左岸记：酒的事，我就不好意思说了，你们知道的……想起李白，五代时期王定保在《唐摭言》中记载：“(李白)著宫锦袍游采石江中，傲然自得，旁若无人，因醉入水捉月而死。”真是爱酒如痴啊！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

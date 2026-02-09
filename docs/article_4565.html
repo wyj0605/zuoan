@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我生本无乡，心安即归处</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我生本无乡，心安即归处</h1>
+            <div class="date">2026-02-09 11:07:03</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌 夜深了，推着行李箱，走在无人的北京街头，滚轮哗哗的声响有些寂寥，北京寒冬袭来的冷涩让人清醒。还没有来得及加糖的咖啡就是这个味道，闻起来清香，品起来有些苦涩。总归还是回到了手机号码的归属地，一直不舍得换号，也不舍曾在北京那些青涩的记忆，不舍曾在此结识的朋友们。念念不忘，果然会有回响。北京，我又来了。</p>
+<p>不敢说“回来”，毕竟客居他乡，终究还是客。推着行李箱细细品味漂泊的苦涩，并不是件令人高兴的事，但回不去的是故乡，既然选择了出发，要选的话，那就选朋友最多的地方。对我而言，北京是不二选择，曾经深交的朋友和跑友都在这里。同时作为首都，它也集中了各类优势资源和人才。更何况在新单位能和更优秀的人一起共事，那更是幸事。</p>
+<p>十年的异乡生活，已经让我模糊了南北的概念，遇到别人浓重的东北口音还是会莫名的亲切，也习惯了北京腔里的优越感和热情，作为地道的南方人，经过近两年的温习，也品味到那种勤劳务实，敢打敢拼的血性，为了事业成功不惜一切代价的狠劲。一方水土，养一方人，各有特色，没有高低贵贱之分，各取所好而已。人生之路漫长，需要不断尝试和体验，自然就不会因为地域局限了个人的选择。换句话来说，在城市化程度差不多的地方，其实你工作生活在哪里并不重要，重要的是谁跟你一起工作，那个工作系统里默认的优秀，其实就是你发展的上限，这是工作系统与个人之间相互选择的结果，在优秀的人事环境里，可以节省很多沟通成本，人的修养自然也会受到滋养。此前在《对不起，我要走了》有过分析，其实在宁波也是可以做得风声水起的，但终究难以掩饰内心的不堪，付出的代价比较高。</p>
+<p>在个人的男性思维里，每次开会，面谈，我保持沉默是为了保全自己，也是在保护对方，因为沉默的牢笼里锁住的不同意，不快，一旦释放，杀伤力也是有几分的。太多的沉默一旦爆发，也就是要离开的时候吧！既然已经选择了转身离开，也就没有后悔的余地，毕竟那已经是当时我个人的最好表现了。那就再回头看看眼下的北京和未来吧！北京房价还是那么坚挺，居高不下，看到这里我也就放心了，不饮任它酒价高。</p>
+<p>说逃避也好，个人主动选择也罢，房子始终未能列入现阶段的待办清单里，总以为这个不是我当前阶段所要考虑的。乐观的相信，真的到了不得不的时候，自然会有解决办法。尽管走在高楼林立的街道，看着豪车遍地的马路，疏离感油然而生，心里清楚这是现代化城市的优秀的表现。此时的格格不入，只是差个朋友漫步街头而已，与房价真的没有关系。当人形成自己的行为模式和思维模式之后，其实到哪里都是自带系统的。</p>
+<p>入职之后，第一时间启动熟悉的工具，按自己的习惯建立文件夹的框架，饮水机和卫生间熟悉之后，自然也是往常的节奏，与人打交道的方式也如出一辙。人的本身不会因为环境的改变而有本质的变化，只是在某些细微的方面做出调整，新的环境也不需要你做出大的调整，这也是当初选择的成果。这样分析下来，只是需要时间适应而已，也没必要有太多的担心和纠结。既然环境允许，个人操作系统也不需要做出痛苦的更新迭代，那么接下来就要学会享受属于自己的时光。按照以前的工作节奏，加班到八九点很正常，回到家里还要消化工作积累的负面情绪，周末又要尽情的玩耍弥补工作生活的单调，完全被占满的状态，很难有优雅的闲暇时光。</p>
+<p>如今新的工作按点下班给出的时间福利，我又该做些什么才能不虚度呢？这是工作之外最值得期待的事情，我可以心无旁骛的跑步，阅读，写作。这三大爱好其实是自己长期积累，精挑细选的结果，他们完整地够成了一个系统，足够的输入保证优质的输出，然后跑步锻炼保障充沛的精力。当然这套系统是为了解决独处而建立的，将来如果有伴侣进来，也只会加强这套系统的生命力，而不是一种消耗，这无形之中也会形成择偶的标准，能让你成为更好那个她，才是真正的她。稳定且低功耗的心理形态，有利于长期且持续的积累，这也是值得期待的，人生苦短，做更有价值的事情，同时激发出生命的浪花，享受生命的精彩，才不枉这一生。</p>
+<p>至于无谓的消耗，还是离得越远越好。我生本无乡，心安即归处，北京，我又来了。左岸记： 祝文昌在北京工作顺心，生活开心，事事安心！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

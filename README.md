@@ -5,14 +5,13 @@
 在线阅读：[https://wyj0605.github.io/zuoan/](https://wyj0605.github.io/zuoan/index.html)
 ## 背景与来源
 - 抓取时间：2015 年 12 月
-- 来源网站：zreading.com（目前已无法访问）
+- 来源网站：zreading.cn（目前已无法访问）,现有有微信公众号可以访问，搜索：左岸读书。
 - 说明：当年从网站抓取并整理为电子书，现以备份形式保存，供朋友们下载阅读。
 
 ## 文件说明
 - 电子书文件：`左岸读书.epub`、`左岸读书.mobi`
 - 格式：EPUB、MOBI（通用电子书格式，适配多平台与设备）
   - 原始数据文件：`zuoan.sql`（用于再制作与数据恢复）
-  - 标题目录：`zuoan_toc.md`（从 `zuoan_output.txt` 自动抽取，便于快速浏览）
 
 ## 如何阅读
 - macOS / iOS：使用 `Apple Books` 或 `Calibre`

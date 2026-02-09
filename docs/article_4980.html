@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吃透概念非常重要</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>吃透概念非常重要</h1>
+            <div class="date">2026-02-09 11:07:39</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/ Sanding 当我们接触到新事物的时候，我们总想知道它是什么。那它究竟是什么呢？你会发现当事物变多然后慢慢地变得复杂的时候，我们会归类并尝试定义它，它是.......这儿就有两种声音站了出来，也许有更多，但这个世界正是因为有了这些更多，才变得多姿多彩。有的认为当我们接触新东西的时候，重在运用，在运用中去学习它，理解它，掌握它的特性。理解它存在的优点并想办法在项目中运用；理解它的缺点并试图寻找其他方式弥补；当深入理解它的时候，我们就可以去组合其他东西的优点并以此来解决我们的问题。</p>
+<p>这样很好。如果我们理解事物的方式是这样的话，一旦深入理解了，我们会发现原来概念早就说得明明白白了，为什么以前没有注意呢？其实吧，刚接触一个东西的时候，很难有一定深度的理解，但是有一点是正确的，先理解概念，把概念吃透，把概念之间的相互关系吃透。这样会达到事半功倍的效果。在实际运用过程中，要想到概念是怎么解决问题的。</p>
+<p>有的认为我们应该先理解其背景知识。它为什么存在？它的存在是解决了什么问题？它前世、今生与未来？它的优点？</p>
+<p>它的缺点？当我们对这些东西有个框架式或者说逻辑式的理解后，我们在实际运用中去体会它的特性，去感受它所带来的概念是怎样解决问题的。在理论概念的理解中，我们想象在现实生活中是怎么运用的。基于两种方式，我们可以试图寻求一个平衡。理论中想到实践是如何运用概念的，实践中想到概念是怎么解决问题的。</p>
+<p>吃透概念是非常重要的，无论我们是先运用后深入概念，还是先理解概念后运用。在吃透概念之前，就需要我们去定义一个东西，按照自己的理解去定义它。在我们的世界中，无论是伟人，还是平常如你我的人，我们都想去理解这个世界，想认清这个世界究竟是什么。所以我们试图定义一切我们所遇见的事物，并随着环境的发展保持着对这个定义的更新，以使其经过历史的检验仍然能够站得住脚。理解并吃透概念。</p>
+<p>就拿学习Java来举例子吧。一切事物皆对象。这个时候我们需要理解什么是对象？当我们理解什么是对象的时候，我们也会问这个对象与其他对象的关系？这个对象为什么存在呢？</p>
+<p>如果这样一直追本溯源可能会上升到哲学高度。它为什么存在？它的存在就是为了解决问题的。那它又解决什么问题呢？当然是基于现实生活中复杂的实体，然后我们高度地把它们抽象为对象，并运用相关的概念来描述它们之间的关系。</p>
+<p>这个过程会涉及到很多很多的概念。也只有吃透这些基本概念才能深入理解其思想。我们每一个人都有自己对这个世界的理解。有的是通过生命周期的概念来理解世界；有的是用复杂的分布式系统的概念来理解世界；有点是利用大自然本来存在的规律来理解世界，但有时候会发现有些现象是超理解的，但是它又是确实存在的。比如水槽有大量的水，一旦把水塞子拔掉，将会出现旋涡，在《失控》这本书中定义为涌现的概念，是超人类理解的。</p>
+<p>对世界的理解其实更多是对我们接触到的事物理解，而对事物的理解其实就是对它的定义的理解，对它定义的理解其实就是对概念的理解。所以对概念的深入理解是非常重要的。最近跟表哥通电话，他说人生很短暂，如果想靠自己去创造新东西可能是一件非常难的事情。所以我们应该深入理解一个东西（概念），然后两个东西........直到有一天我们把概念融合在一起了，利用了两个甚至更多事物优点去组合成一个新的概念，以此来解决我们所面临的问题。那个时候我们就会有成就感，也会发现深入理解概念是值得花时间的一件事情。</p>
+<p>概念是解释一个事物的，是用长时间凝练的最简洁的文字来进行说明事物的，是需要深刻理解其含义并用自己的逻辑进行描述的，是解决问题的“工具”。你可以叫它小猫抑或小狗，也是可以的，只是这样的叫法没有意义。就像时间和空间的概念，你甚至可以不叫它时间和空间，它叫什么不重要，重要的是你能否理解，并且把你对时间和空间的理解说出来别人也能够理解。从宏观角度上说，概念囊括一切知识。它把知识串联为一个不可分隔的整体。</p>
+<p>从微观上说，理解一个具体的概念，比如java里的多态机制，首先理解到这个自身概念的含义，然而我们理解到这个自身含义的深度却是跟其它具体的概念是分不开的，比如我们所理解的抽象类，接口，继承的概念，这样一层一层剖析，会发现这些东西都是一体，我们必须用联系一切概念的眼光看问题。所以，学什么东西都是相互联系的。对基本概念的认知广度和深度代表我们联系事物的效率和强度，而学习就是在已有的基础上进行不断地联系，而联系一切需要我们对概念深入理解，以此进入良性循环。理解概念有什么意义？李笑来在《把时间当做朋友》一书中说他妈妈让他学习东西的时候，先理解概念，概念理解不到先记下来，随着对事物的认知，慢慢也就理解了。</p>
+<p>理解概念就是理解事物，理解事物就是认识世界。因为花了很多时间去理解这些概念，让我体会到事物的整体性，相互依赖性，不可分隔性。当我们的基础知识（对基本概念的深入理解）有了一定的广度和深度时，我们在理解新的概念时，联系事物的效率和强度就会变好。也正是对概念有个清晰的认识，并体会到一切知识都是概念，而概念又把这些知识串联的特别好，并且概念有最简洁的最有效的表达方式，不用去记，我们只需理解它含义，并用尝试着用自己所理解的逻辑进行输出（写作或者解释给别人听，不一定是同行）。但在理解这些概念的过程中，有认知是对的，有认知是错的，有各种情绪会迫使我们不在平和和宁静，这些需要我们去慢慢感受，不排斥只是接纳。</p>
+<p>当我们对概念认识愈加深入，哪怕是错误的，都没有关系，因为我们总归更深入理解它了。错误的理解不一定就是坏事。真的。因为错误的反面就是正确，我们都知道了错误，肯定知道什么是正确的。理解人生这个概念有什么意义？</p>
+<p>找到自己喜欢的东西，不问结果只问耕耘。在探索过程中体会概念是如何解决问题的并感受这些事物的强大魅力。不过，正是因为写了这些，对概念的认知深度会更上一层楼。如果我们只是一味地把新东西装进自己的脑袋而没有输出对这些概念的认知，也许我们理解的概念并不深刻。通过输出这样的文字，强调自己对概念的重视程度。</p>
+<p>因为把概念吃透了，对事物的理解就达到一定的深度，而且联系其他相关概念也就容易了，不相关的也可以平行理解或者反面理解（对比理解，正面对比或反面对比）。一切都是为了提高理解力。左岸记： 明确概念就是要明确概念的内涵和外延。&lt;br&gt; &lt;br&gt; 定义是明确概念内涵的逻辑方法，划分是明确概念外延的逻辑方法。&lt;br&gt; &lt;br&gt; 概念的形成过程告诉了我们如何去使概念深刻的进入到我们的头脑之中。</p>
+<p>1.了解概念的基本特征。&lt;br&gt; &lt;br&gt; 2.通过概念的实例去体会概念的含义。（概念往往是有一定的适用背景的，我们将概念放入一定的环境中，放入一定的实例中，会更容易理解，因为概念的最初理解来源于感性认识） &lt;br&gt; &lt;br&gt; 3.尝试将概念分解，查看底层的东西。&lt;br&gt; &lt;br&gt; 4.尝试将概念综合，去构造更高层的一些东西。为什么计算机可以模仿人类的行为，就是人们为它们建立了理解这个世界的语言，并讲这个世界的事物无穷尽地概念化，不断地建立事物对象之间的逻辑关系，不断地扩展，使得所有对象独立又和其他对象紧密连接。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>希望有个如你一般的人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>希望有个如你一般的人</h1>
+            <div class="date">2026-02-09 10:51:09</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>希望有个如你一般的人 文/end国庆的一个下午和朋友去看了一部在空间不断刷屏的电影--《从你的全世界路过》。尽管各种评论都有说很感人，拍的很棒，尽管做好了心理准备，依然哭成了狗，泪流不止。不仅因为这些故事。我相信，被触动的人一定心里有着自己的故事，在电影的某个画面恍惚看到了自己，想到了自己。那些或隐藏在深处的仿佛已经忘了的，或压抑在心尖难以释怀的，在这样一部浪漫文艺温暖的影片中，随着眼泪荡漾。</p>
+<p>我多希望，有一个如你一般的人。最先触动的，是陈末陪他已经痴呆的母亲在楼梯上坐着，陪她等她的儿子。她已经忘了很多事，已经分不清一些事物，会把洗衣粉当做调料倒进汤里，会不认识自己的儿子，可是不会忘记等儿子回家，等儿子吃饭。我们总是想着飞更远，去更广阔的世界，却忘了他们。无论什么时候，都是见一面少一面。</p>
+<p>你永远不知道下一秒会发生什么。所以有时间就多陪陪他们吧，他们是这个世界上，最爱你的人。茅十八与荔枝的甜蜜让人羡慕。当各个地方都在说，荔枝我爱你，我爱你的时候，那种情绪达到最高点，只是可惜，他已经不在了。多想有一份简单的幸福，不一定需要全世界知道，但，只要是你，就好。</p>
+<p>当路上的车打起双闪，当大楼的灯忽闪忽亮。我觉得特别温暖，特别感动。有一个人，用收听率很高的电台，为你亮起了整个城市的灯，想要告诉你，我在找你。而在这个忙碌的城市，有那么多人愿意帮你寻找，愿意帮你传达你想要表达的消息。这两种感动穿过荧屏将温暖送到你的心底，直达最柔软的地方。</p>
+<p>泪眼朦胧的看着灯火通明的城市，眼前全是光，特别得亮。幺鸡和陈末在稻城相遇，有点出乎意料，却也在希冀之中。路过又怎样。只要最后，是你，就好。燕子留着泪，依旧远去。</p>
+<p>猪头说着没了我你要好好地，要幸福。似乎大度，却是那么的难过，那么的绝望，多希望她的幸福是自己给的。他吼叫，没了你让我怎么活。之后他开始带着燕子爱吃的小吃去燕子去过的每一个地方。多傻。</p>
+<p>又或者说，何必那么贱。可是爱了，怎么办呢。就像幺鸡说的，爱一个人眼里没有其他的东西，就算受到了伤害也会告诉自己，要坚强。仿佛这样，那些伤就可以很快的愈合，就可以假装不存在。可是总在某个时候被想起。</p>
+<p>我看过这本书。在一个冬天，在我高三的时候，在我处于很糟糕的状态的时候。我抄下一些话，拍了其中一段，在短的可怜的寒假的一天，发了出去。很快，我收到了一条消息：我有喜欢的人了。如果你在等我，我真的只能抱歉。</p>
+<p>如果我想多了，那么我会很高兴。抱歉。高考加油。那瞬间，世界静音。事实上，我知道这件事。</p>
+<p>可是他那么直白的告诉我，依然让我所谓的知道显得很可笑。同样的，这也不是他第一次说这样意思的话。这其实是一个很乏味的故事。一个女生单恋一个男生。女生选择表白，被拒。</p>
+<p>但是女生一直没有放下。即使，男生告诉她，他有喜欢的人。即使，男生后来追到了他喜欢的人，他们很幸福。即使，男生大学所在的城市离她很远，她很难见到他。完全没有什么看点故事，也没有什么坚持的理由。</p>
+<p>可是不知道为什么女生就是放不下，就是那么在乎他，在乎到对他的女票都那么小心。可能因为，她真的认真了。喜欢就是那么霸道，没有任何理由。她在这部电影中的某些画面看到了傻傻的自己，不顾一切的自己，难过绝望崩溃的自己。我依旧很清楚地记着那段话：我知道自己喜欢你，但我不知道将来在哪里。</p>
+<p>因为我知道，无论哪里，你都不会带我去。而记忆打亮你的微笑，要如此用力才变得欢喜。我希望有个如你一般的人，贯彻未来，数遍生命的公路牌。可是，再像也不是你。如果是你，多好。</p>
+<p>左岸记：承认每个人都是不一样的，然后去珍惜，去放下，不必也不能非要去寻找替代，这对谁都不公平。那个特别的人就是特别地存在着，和任何人无关，只因为他（她）是他（她）。另外，电影就是电影，每个人看到的都只是生活的一小方面，看了自己想看到的，其中的不合理，不合逻辑是经不起推敲的，就比如里面有些桥段太矫情了，矫情得害了性命。电影拍的是导演编辑的故事，读原著读的却是自己的心事。为什么只能是路过，而不是留下？</p>
+<p>因为你根本就是相信彼此。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

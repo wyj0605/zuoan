@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们是否该拒绝亲戚朋友介绍的相亲对象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我们是否该拒绝亲戚朋友介绍的相亲对象</h1>
+            <div class="date">2026-02-09 11:07:10</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/陈玫瑰 年近三十，已被默默纳入剩女的圈子里，比你年纪小的嘲笑你还单身，年纪大的不明白这一代人为何结婚如此难。于是我越来越不想回家，不想过节面对三姑六婆的苦苦劝说，但是家长亲戚还是会通过各种网络手段给你介绍对象。于是，这个时候问题就来了，他们介绍的对象该不该都去相，不去相亲亲朋会说闲话，自己条件不怎么样，还要求那么多；去的话，却满足不了自己的内心，要如何委婉的拒绝亲朋的好意？2018年已经过了5/6，年初给自己定的“带一个男朋友回家”目标又要落空了，发愁要怎么跟父母交代。父母一直问，你到底想要什么样的？</p>
+<p>我同样也在问自己，我想要什么样的？越来越不知道自己要什么？随着朋友圈变得越来越窄，发现自己并不想花太多精力在一个人身上，更懒得去认识一个人。我也知道这样的状态是不好的，但对自己来说确实是最舒服的状态。一个长我10岁的同事告诉我，舒服的状态是不行的，哪里有那么多舒服的状态呢？</p>
+<p>人跟人都是这样不舒服的渡过一生，我们这些过来人的话你要听，不能太挑，也不能太舒服。听完之后我的情绪十分抵触，却懒得跟他去争辩什么了。在我26岁那一年，发现身边的朋友和同学都陆陆续续结婚，就连一个早已决定好单身的好友也找到了男朋友，于是心里越来越着急，着急找男朋友，怎么连谁谁谁都谈恋爱了，我是怎么了？有这么差吗？后来我下载了几个交友软件，异性水平层次不齐，难以描述。</p>
+<p>同龄的单身者，都跟我一样处于焦躁的状态，更多男性表现出想要以一炮之约解决现在的压抑状态。更有甚者振振有词：如果连炮都打不好，还怎么谈恋爱？转头回到父母介绍的对象，摆出了结婚时的硬条件，我们家需要一个勤劳肯干的女孩子，我希望回家后可以放弃现在的工作，去男方工作的小城市，甚至我可以养你，你就在家里带小孩，不要上班了。如果你还想工作，我家亲戚可以帮你找一份清闲的工作。我这份工作在XX还是很不错的，我想安定下来。</p>
+<p>似乎网友和相亲对象都不是很好的选择，说30岁不着急的都是假的，至少我是着急了，但并不代表大多数。有人劝过我，你可以不用结婚，但是一定要谈恋爱。大学同学在帝都，跟并不合拍的男朋友谈了4年后分手，又迅速复合，并且要在短时间内结婚；听完这个消息，心里很感慨，也许是作为在大城市的打工仔，必须得承认，爱情是很多年轻人继续留在大城市的一个理由和纽带，因为不知道什么时候，会因为反正都市没有了爱情，还不如回老家去，安安逸逸过一辈子的想法吧。当我还在犹犹豫豫的时候，我想过是否去一线城市，想过自己如果35岁还是一个人要怎么办？要不买一套小居室吧，至少在没有爱情的时候，还有物质。</p>
+<p>低头算一下自己的积蓄，少的可怕，当年大手大脚花掉的钱，就是现在留下的悔恨的泪水。只好开口找父母借钱。第一次去认筹，一下子刷走了20万的时候，我的心和手都在发抖。可惜运气不够好，没有中奖，还亏了一个月的利息。第二次认筹的时候知道只有1/3的概率，只好抱着试一试的态度。</p>
+<p>当我在泰国游玩的时候，知道了中签的消息后，惊喜来得有点刺激，因为这次试一试的态度却意外中奖，实在不敢相信。在泰国购物的时候都小心翼翼，不敢多买，似乎节省下每一分钱，都会对将来的还款有很大的帮助。当自己一步一步办完了贷款的手续时，想到还贷压力一次次袭来，想到补交首付款想的睡不着，但是有一点不可否认，经济越来越独立后带来更多自信。接下来跟身边的朋友谈论的，抱怨的，都是房子，金钱，和如何在大城市立足，都是如何去提升自己，找一份薪水更优的工作，换一个城市，是否要给自己设限？这些问题想多了，精力自然不会太多放在如何去结束单身上，自己反而更加轻松自在。</p>
+<p>合理安排自己的时间，更有效规划自己的投资方向，工作方向。身上的责任也越来越多，相信一切付出都会有所回报。单身的时候享受单身，谈恋爱的时候享受两个人的时光，等自己的最好的状态时，一切都会来临，而且都是最好的。左岸记： 如果你身边有很多人想介入你的生活，那么要尽可能地让自己远离这个地方。婚姻爱情是一个人的附属性，是你努力完成人生成长之后才能真正拥有的美好。</p>
+<p>当你执着于爱情之中，爱是无法得到的，反而是你把自己该做的事做好了，自己有足够能力的时候，需要的就会水到渠成。另： 2008年10月20日，这个左岸读书正式开始发布第一篇文章，没想到一坚持就已经十年了，不愠不火，却要感谢大家一路的陪伴，感谢大家对左岸的信任和支持，希望我的坚持能带给大家一份小小的力量。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

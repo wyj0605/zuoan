@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人间有味是清欢</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>人间有味是清欢</h1>
+            <div class="date">2026-02-09 10:51:49</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>人间有味是清欢 要说成功的人，苏轼算一个，不喜欢苏轼的是少数，恣意肆意的活了一辈子，留得身后一片仰视的脖颈，治疗了太多文人的颈椎。虽然看看他的人生，吃货+文痞+落魄政治家+二流书法家，拉帮结派什么的，但不妨碍他就是那么招人喜欢。苏轼：《浣溪沙从泗州刘倩叔游南山》：“细雨斜风作晓寒，淡烟疏柳媚晴滩。入淮清洛渐漫漫。雪沫乳花浮午盏，蓼茸蒿笋试春盘。</p>
+<p>人间有味是清欢。”苏轼基本上一辈子都在文坛、政坛，圆润的滚来滚去，文字不怎么圆润、不自暴自弃，也实属难得。偏这阙词，写的清丽自然，若有处子之静香。虽然细想起来，早春细雨，寒峭烟笼的，不会怎么好受，但敌不过咱心情矫情阿。野菜配午茶，冷哇哇的，肠胃扛得住，一定是吃货。</p>
+<p>真到了远看近思，无非是得了清欢，砸吧砸吧嘴，人生味道何所似啊。心灵么，总是需要涤荡的，这个是中国人的臭毛病，定期的洗洗涮涮那还是必须的。太高深的诸如当下、诸如静心、诸如喜悦、诸如冥想什么的，论起来云山雾罩，说的人不明白，听的人似是而非。所以，过去多是一杯茶搞定：“施主，来杯茶吧。”,茶者“查”也。</p>
+<p>但讨厌的是，茶解决不了欲望，也治不了什么毛病，还喝的人有点饥肠辘辘。于是，来点鸡汤聊胜于无，温暖一下肠胃抵御一下外界的残酷阴冷，偶尔滴几滴眼泪进去，还能补充点电解质。再不成，来点兴奋剂、致幻剂，打点鸡血什么的，虽然透支了你的精神，但起码看起来神采奕奕好似甲亢。最不济，也要点安慰剂效果，自己骗把自己，望梅都可以止渴，给你点东西郑重的告诉你是灵丹妙药，多少激发点你可怜的免疫力和意志力，人生也能好过些。都不行的时候，终极法宝出来了，“我就是对的，我的世界就是整个世界”，“如果世界告诉我我错了，那一定是世界错了”。</p>
+<p>唯识宗大爆发，内心的欲望可以说出来做出来，说出来做出来就离成功不远了。你干嘛要说我错，或许你才是错的，我们都是独一无二的，我们只要和自己和解、接纳自己，我们就是成功的。禅宗讲究棒喝，打出来的悟，那还需要师父打呢。这边倒好，拿着砖头往自己头上拍，看谁敢惹我？咱不用悟不悟的，舍得拍自己的、舍得拍别人的，都是爷。</p>
+<p>这个跟毒药、毒品类似，好吃不好玩。生命在不在于运动不知道，人生毫无疑问在于折腾。人么，都不是什么好东西，能耐的人折腾别人，不能耐的人折腾自己，真到了折腾不了别人和自己了，要么是心灰意冷要么是行将死去。所谓成功的人，无非是既能折腾别人也能折腾自己，然后大家还都不反感，自觉还能进步的。等绕了圈子回来，开始圆润的便于随时滚动了，却想静下来，安静待会儿。</p>
+<p>人差不多都这德行，棱角嶙峋的时候，偏偏想去外面多走走、多动动，动一下多难阿，磨掉撞掉一小块儿多疼呀。但真到好不容易圆润起来，合着血泪、唾沫、臭汗、人油的包浆出来了，想往哪滚往哪滚，姿态优美、启动迅速，静摩擦为零了，你却要静下来。你说你作死都这么花样，总想干最难干的事儿，为什么还觉得自己这不行那不行的？于是，人间有味是清欢，于是宋邵雍就说：“稍近美誉无多取，纔近清欢与賸求。美誉既多须有患，清欢虽賸且无忧。</p>
+<p>”（纔同才，賸同剩），于是不管什么鸡汤，总是容易求得，毕竟一大堆人哭着闹着、引诱加强制的，给你灌个不停点；倒是“清欢”，一杯茶的诱惑永远大不了，因为他没有引诱你，也没有强制你。清欢就成了个心境问题和发现问题。苏轼豪放不，肯定不，要不难得矫情如此的寻“清欢”。唯一可以笃定的，该是滚来滚去的，滚的自己倒是悟了。茶有沫，春笋香，吧唧吧唧小白菜，倒成就了自己对自己的品味。</p>
+<p>中国人含蓄的紧，文人总是铺垫铺陈的到位。绝句名言，总要在诗词的后边几句寻，总要在文章末尾升华。但真你扔了前边，只看看绝妙，总还是少点什么。或许，人生也如此，清欢得不得求尚在其次，能品味清欢，总要铺陈自己之前痛苦的滚来滚去。真到自己能随意的滚来滚去，能随时停下的都是高手，得道且得法。</p>
+<p>光怪陆离之后，你还能欣赏和发现，晨雾艳阳，晨曦晚霞，能感知绿的些微变化，野菜苦涩里的甘甜和爽利。还能在最容易滚动的时候，如磐石般的静止，一杯茶，数数自己的呼吸，感受一丝微风里的花香，微雨里的泥土味。听得到，水在流，云在走。人间有味是清欢？人间有一种味道叫清欢？</p>
+<p>人间最好的味道是清欢？人间总要学着品味清欢？还是，人间最终总需要寻得清欢？左岸记：想起东坡的另一首诗来：“梨花淡白柳深青，柳絮飞时花满城。惆怅东南一枝雪，人生看得几清明！</p>
+<p>”人生总是要这样，本是沉浮，却得时时开解，哪怕是再难的生活，也要有一份闲心，因为“凡人多熟一分世故，即多一分机智。多一分机智，即少却一分高雅。”人怎么能过得那么索然无味呢？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

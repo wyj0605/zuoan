@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你好，之华！你好，旧时光！</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你好，之华！你好，旧时光！</h1>
+            <div class="date">2026-02-09 11:07:06</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜 在这个寒冷冬日的午后，我坐在暖烘烘的房间里，看完了这部温暖影片。这是一个短小简单的故事，线条明朗清晰，偶尔有些小误会也美丽的让人掉泪。不过是年少时代的记忆，却因为感情纯粹而显得珍贵可爱。由信件串联，传情达意，纵是缓慢悠远，却不免让人心生期盼，见字如面的亲切感，如今我们亦是找不到了。尹川喜欢袁之南，便将一封一封精心写作的信件转给喜欢他的袁之南的妹妹袁之华，嘱托她交给她的姐姐。</p>
+<p>而袁之华便偷偷阅读每一封信，竟未让姐姐知道，被尹川发现后厉声责怪，便以自己的名义回信给他，之华希望她和尹川能成为好朋友，她战战兢兢的递出那封信，小心翼翼的等待尹川的答复，可尹川并不答应，之华的眼泪夺眶而出。之华并不知道，姐姐也是喜欢尹川的，并且两个人在大学的时候已是情侣，为了纪念那段难忘的日子，尹川还特意写了《之南》这本书。尽管之南和尹川最终并未走到一起，之华也有了新的家庭，但尹川却装饰了姐妹两人最年轻时候对未来无限可期的梦。整部影片的音乐和色彩都舒缓优美，沉浸其中容易忘了时间。岩井俊二讲故事的能力实在高明，平淡中总有令人感念难忘的地方。</p>
+<p>不免让人想起曾经的旧时光。就像前几天，无意间翻看旧手机，在微信里发现很多曾经的朋友，翻开以前经常聊天的那个对话框，从头至尾，一天竟也没有翻完。从听过的歌看过的书到电影，从担心吃什么到互相调侃嘲笑，从对当下境遇的判断，到未来的规划，我们竟然说过这么许许多多、无关痛痒又极关生活的话，现在看来，还是很有意思。可观望当下，如今却失联于茫茫人海，被时间摧毁的什么都不剩下。后来，我无意评判友谊，也懒于交朋友，因为在我心里固执的坚守，这个词不能与利益交葛，一旦牵涉，总会变样。</p>
+<p>不论何时，如果可以称得上朋友，总该是心里万分认可敬重这个人的，无关乎他的职务和权利，或者他的利用价值。就像爱情，人人都有自私之心，但爱首先就得学着超越这个自私，过分苛责要求别人，高高在上期盼别人的付出而享受这种优越感，实在有些可耻。如果不能平等看待爱自己的人，架着爱的名义利用爱意，或者是满足自己的虚荣心，实在不该是成熟的男女应该做的事情，至少不能引以为骄傲。说的有些远，不知怎么我总是想起这些问题。我是想简单一点的，像以前一样，喜欢谁就表现出来，讨厌谁就不跟他说话，躲得远远的。</p>
+<p>可是好像不能这么简单，后来的事情都不能直接坦率的表达，大概正因为不能像从前，才特别怀念从前吧。不是怀念某一个人，只是怀念那种坦率真实的生活感受。我实在恨自己，嘴巴太笨，不懂表达，在最喜欢的主任退休之际，只会说论点，主任对我真的很好，很照顾，却无任何论据支撑。主任也听的瞪大眼睛，我只好鼓起勇气，举起酒杯，倒得满满的，怀着敬意和感激之情，走到主任面前，祝他退休快乐！等回到座位，突然有点小高兴，我还是我，跟以前一样真诚，并没有改变什么。</p>
+<p>又有点灰心，已经是新的环境新的人，可我还是旧习惯。但这部影片，又让我觉得，旧没有什么不好，我们总是要学着成长，接受新的人和事，但正是这些往日的旧的东西，堆积成了你如今的样子。岁月这把杀猪刀，在你脸上割过的时候，确是刀刀见血，令人难过。但在你心上划过的时候，确是一刀一刀，疼过痛过之后长出更坚韧的外壳，把你的初心完好包裹，小心珍藏。就像之南在毕业典礼所说，我也不确定未来是什么样子，但也正因为我们不知道它的样子，我们便有可能成为我们想象中的任何样子，如果没有成为，我们便要记得，回到这个最初的地方，找些动力，继续前行。</p>
+<p>无论未来变成什么样子，我们都共同拥有一个温暖的过去，一个曾经无比努力无比坦荡的自己，即使岁月刀刀相逼，我们仍旧能够从旧时光里找回勇敢的自己。虽然无法活成被你看见的样子，但是也会活成自由灿烂的样子。——致之华</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

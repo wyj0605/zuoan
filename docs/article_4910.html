@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>“看见”和“善良”——另外一种格局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>“看见”和“善良”——另外一种格局</h1>
+            <div class="date">2026-02-09 11:07:32</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德鲁伊 冬天是个守规矩的季节，原以为今冬的雪要爽约了，突然就洋洋洒洒下起来了。雪下的无声，却很执著，即到早起送孩子，白茫茫大地。这个世界是讲究规矩和距离的，我们对任何突然的热情和出乎意料都本能的抗拒。这雪下的太热情奔放，真让人见到了，初始的兴奋劲还没怎么品，就担忧起如何开车上路。拂去车上厚厚的积雪。</p>
+<p>雪未停，在大灯的照耀下，闪着光，密密的飞舞过。路上车少的可怜，都小心翼翼的。那些对自己技术很满意、水平很一般的司机们，在道路上玩着漂移、滑轮、原地掉头，可以想象那些惊恐和无助的表情。慢悠悠、耐心的蹭到学校附近了，突然儿子说：“老爸，是不是没有公交车了？”“不知道啊，怎么了。</p>
+<p>”“我们学校很多学生在路边走哦。”倒是，恐是大雪天，公交没法走，私家车又没几个人敢开。一路上，穿着校服的孩子们，被风雪肆虐着，滑稽而坚定。“老爸，咱拉一个吧，都是我们的同学。”，儿子摇下车窗，对路边一个和爸爸一起披荆斩棘的同学招手。</p>
+<p>“同学，来，拉你一段。”“谢谢哥哥！”上来的是个初一的孩子，孩子和自己的父亲招了招手，让父亲往回走了。路上闲搭了几句话，也就到了。“谢谢哥哥，谢谢叔叔。</p>
+<p>”现在的孩子真有礼貌。*** 回去的路，倒简单了，一是孩子送到了，二是自己也开适应了。风雪已然，斜风乱雪。快上大路的时候，路上一个男人抱着孩子在走，孩子大约四五岁的样子。后边应该是爱人吧，落下几步。</p>
+<p>因为风的问题，男人扶着孩子的帽子，斜低着头，深浅不一的脚步。突然想，这再摔一跤，怕麻烦了！停车，摇窗，“你们去哪啊？！”“地铁站。</p>
+<p>”，我不知道他疑惑不。“我顺路，上车……”三个穿的武装到牙齿的人挤上来，车内有点挤促。“大哥谢谢啊，孩子今天在医院预约看眼睛，要不这天气也不出来了。”能感觉到男人的感谢和不好意思。“没事，顺路，我也是刚送完孩子。</p>
+<p>”也就三站地，又收获了一堆的“谢谢”。忽然觉得，虽然冷，感觉还不错，也可能是开车紧张的暖和起来了。*** 秀了一把车技，爬了一个高架桥。离家只有几公里了。刚下桥，远远看到一个男子牵着一个孩子，正和一个出租车聊。</p>
+<p>他弯着腰，头都快塞到车窗里了，左手依然牵着孩子的手，别扭的姿势。虽然出租已经是拼车了，估计是路不顺，还没等他的头撤出来，车已经启动了。孩子很乖的样子，安静的站着，男人有点焦虑，抬着头东张西望，失望和渴望并存。“去哪儿啊？”习惯了似的。</p>
+<p>“大哥，西光小学。”顺路，“上车”。把孩子先整上车，一直不停的要求孩子叫伯伯。孩子戴着口罩，声音含糊的紧。“本来说今天不去上学了，孩子还死活不愿意，咱们小时候这天，家长要说不去了，不得高兴死？</p>
+<p>”“把孩子衣服解开，车里热。”，小时候的事情谁还记得啊，就是搭个腔吧。孩子蛮可爱的，安静的坐着，当爹的一路唠叨。倒地儿了，虽然绕了一小段，反正也不远。男人下车前，细致的给孩子系好衣服，戴好口罩和帽子。</p>
+<p>连声谢谢着下了车，扔了根烟在后座上。*** 其实我一直担心儿子的善良，社会总是扮着无情冷酷的模样，给善良一次次的重锤，一刀刀的捅……总觉得以他的善良，自己是快乐了，也很可能最终变得被伤害。但及至遇到这些零碎的事情，倒是想起两个词，“看见”、“善良”。雪天的交通混乱，开车的开着，走路的走着，想来一个方向上，该是能同路的。都艰难的时候，都想不起对方是谁。</p>
+<p>我相信开车的没谁很庆幸自己坐在车里，因为太难开了；我相信走路的不会骂或羡慕开车的，因为注意脚下的路已然很辛苦。想想，跟这个世界的现状多么的类似。然后，谁需要“看见”，谁又能“看见”？这是一个合作和分享的时代，合作的基础是“看见”，分享的基础是“信任”，骨子里都是“善良”。在你接受了世界的变化，受虐般的被社会驱赶，却因为那些社交软件和网络变得更偏激，只喜欢自己喜欢的。</p>
+<p>那你在时代面前，怕也是一个弃儿。格局被大家喊了好多年，除了谋局的能力，格物致知的方法。如何看到“局”，如何坚持“格”，怕又是一个“看见”，一个“善良”了。学习如何“看见”，懂得自己什么可以“分享”、“合作”，多一些善意，在自己不被伤害的基础上，学会善待。想来这样，格局也会好一些吧。</p>
+<p>*** 雪一直在下……这个冬天有点冬天的模样了，但你未必喜欢。左岸记： 在文章《你的善良，必须要有锋芒和底线》的评论中，有几个提问，是我之前对善良理解： 钟子豪： 同意作者的观点，善良应该是有原则的，应该给品行好的人，而不是所有人，这样才能激励更多人去行善。做人最基本的一点是自尊自爱，论语也强调过。关键是怎么识人，每个人都有自己发展和探索的过程，这才构成了丰富多彩的世界。回复： 给值得的人，虽然和菜头写过一篇文章，说认为“穷而有理，弱都活该”是不对的，但这不是一回事，因为善良可贵，又有多少能力可以滥用。</p>
+<p>钟子豪： 那什么样的人值得你付出善良？回复： 不会辜负你付出的人。钟子豪： 善良又是什么？回复： 平等心。钟子豪： 我很看好你的原则性，同时我有些疑问，你会不会对陌生人给予善良？</p>
+<p>什么是值得付出的人？什么是善良？是不是拒绝了陌生人？回复： 对陌生人，先有基本的礼貌，举手之劳自然也会帮助。值得付出的人当然和自己建立比较信任的人，如果付出却被伤害，那么及时止损。</p>
+<p>至于付出是不是要有相应的回报，我的想法是不要让对方觉得我的付出是理所当然的就好。然后是“不愤不启，不悱不发”。钟子豪： 那你提到的“善良”可以理解为广义的爱了。今天看到老德的这篇文章，更坚守了心中的这份“信念”，每个人都是一个孤岛，连结彼此是信任，是相互发现，如果没有了一份“善良”，那么人类是无法进步的。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

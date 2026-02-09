@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>街如T台美人来</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>街如T台美人来</h1>
+            <div class="date">2026-02-09 10:51:20</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>街如T台美人来 欧行之一文/稻田 经过女儿一番纸上谈兵和电话沟通，一家三口便登上了荷航的飞机，辗转20多个钟头，在波兰旧都克拉科夫机场落地。机场不大，样貌也不如国内的气派，飞机滑行时，看到停机坪有绿色的军用飞机排放，说明了机场的档次不高，还令我瞬间联想到前东欧时期的冷战烟云。也许不是热门旅游地的缘故，别说中国人，连亚洲人也鲜见，随着稀疏的乘客在传送带前等行李，不想等了一个多小时，传送带像我们一样疲惫，缓缓的滑动，行李零零落落的走走停停，似乎也带着情绪。“波兰看来还是落后”，拖着行李等行前联系好的汽车，也一直等到要崩溃。这时一位高帅的小伙举着纸牌走来，与女儿叽呱几句，面无表情的拖着行李走向一辆簇新的奔弛商务车，一路小伙无言，伴着音乐在绿茵相夹的车道穿行，小伙长得帅，窗外景色好，旅途的疲累也消去一些。</p>
+<p>克拉科夫古城的街道保存的很好，一派古旧厚重感，街道很干净，也很清静，间有轨道公交轰隆驶过，瞬间消逝，更显得时间的遥远。据说古城在二战时几小时就被德军占领，没有交战，所以得以完好保存。一觉醒来，精神好了许多，便急切地东张西望起来，渐渐的感觉到要发生什么，后来才知道，这里古旧的街道除了见证历史的作用，还作了以供美人纷纷来的舞台。美人是徐缓和悄然出场的。古城的居民和游人都睡得迟，街道少有行人，店铺也都静静的关着，我在笔直的古街像要寻找什么似的慢走着，忽然眼前一亮，一位金发美女从古街的拐角亮出身段，疾步走过，她似乎没有睡觉，一直这样走着，因为从妆容、发型和富有弹力的步伐看，怎么都与松弛的睡眠联系不到一块。</p>
+<p>街巷的早晨走过一位美女，实在不值一奇，但在古老厚重建筑的背景中，美女如流云般穿梭，如模特队表演一般，就不得不让人惊诧和注目了。这一计划之外的收获是在游人渐多之后，美人实在太多，竟让我决定新增一个旅游内容——拍美女。拍美女是个艰难的活，刚举起手机，便被惊得花容失色的女儿喝止，“不能这样！”不能这样，说明可以那样，于是就装着被古迹深深吸引的样子，作出拍摄状，等美女进入镜框，才按下按钮，接着作出寻找其他古迹美景的神态，虽然有做贼之虚，终盖不住收得美人的窃喜。迎面拍照是最好的，但总有危机发生的惶恐，可计划要践行，便结合着拍背影和侧影，于是出现了这样的有趣画面，目标出现，迎面相遇，擦肩刚过，转身咔嚓；低头装着看手机，手腕悄转，收美入册，抬头若无其事地走向别处。</p>
+<p>拍多了，便有了许多的发现。美女大都一律冷峻，并非是模特的专属，特别是单个行走的美女，大都面无表情，目光直视前方，作出旁若无人状，步伐坚挺，步履疾快，步距长阔，上身直立，身体随步伐如浪里行船起浮，伴长发飘飞。我知道，美女如此，是在彰显青春美丽之傲和引人目光的故意和自信。以往不明白摄影师为什么总将美女放置到荒漠、古堡背景里拍照，这回才知，原来是为收取人和背景的反差，突出人物的美丽，但我要说，克拉科夫的美女反倒为千年古城增添了活力，美女，古城，故去的历史，鲜活的现实，和谐融汇，相得益彰。中东欧的美女本身同时也成为一项珍贵的旅游资源，怪不得盛产美女的乌克兰要将限制美女“出口”纳入国策呢。</p>
+<p>美女，真是上天赐给人类的财富。美女并非青春的专属，这是我到欧洲旅行的另一个更大的发现。“我更感叹老年妇女的精致和优雅，你看那发型，还有神态！”老伴的感叹让我的目光在朝日和夕阳间穿梭，于是有了更多的感叹和思考。欧洲老年妇女的形象进入我的相框和相册，其震撼力远超那些年轻的女子，其原因在于雅致背后传达的密集的信息。</p>
+<p>行走在古堡、古街间，以及坐仰于公园木椅和绿地上的老年妇女，穿着和发式极为讲究，特别是行走时挺直的腰板，坐仰时悠闲或者慵懒的神态，无不向人们转达着她们无忧的生活，无争的心境，以及夕阳的艳丽、活力和自信。我在想，在她们身上和心里，好像“女人如花”的命运是在根枝消弭倒地时才终结的。我突然想到我的已故去的母亲，以及我熟悉的老人。说到精致和优雅，想起两个有意思的细节，欧洲的青春美女大都有戴墨镜的喜好，似乎这是美女的标配，遮阳看来还在其次，显酷才是要旨，这标配同样在老年妇女身上体现，绝不因年龄而“谦让”；再就是吸烟，让我意外的时，所到的几个国家，女性普遍吸烟，老年人也相同。在经济文化发达至今的欧洲，“吸烟有害”的观念为何没有确立呢？</p>
+<p>在维也纳多瑙河畔的一个公园浴场，看到几个穿游装的老年妇女，用大大的浴巾擦干身体，满足地围坐在酒吧的木桌前，一杯金黄的啤酒，一块夹肉的面包，一支袅袅的香烟，微笑地交谈；在旅游小镇哈尔斯塔特，茜茜公主住过的酒店大厅，专辟出一处吸烟区，而吸烟区与禁烟区不仅紧挨着，且没有遮挡，这样的安排意义何在？在可能的情况下，尽力兼顾群体和个体的需要，并给予个体心意和个性自由张扬的空间，这是我所能给出的唯一解释。美丽，并不因年龄而避让，个性，拥有广阔释放的空间，生活，在精致的追求中铺展，这人生应有的理想。街如T台美人来，祝生活走向美丽！作者：稻田主张用接地气的语言和形式，与大家分享“真事、真情、真感悟”。</p>
+<p>作品：《此为异客总多情》《执手束河》《魂念北屋》《故乡拾碎》《南去的列车——鹰厦铁路首行纪》《何处是乡愁》等。左岸注：很想看到作者拍的照片，可惜作者没有提供。以下照片来自网络，也许只有自己真的去走过才能体会那种融入当地风情的心灵感悟。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

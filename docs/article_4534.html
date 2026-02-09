@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间的真相</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>时间的真相</h1>
+            <div class="date">2026-02-09 11:07:01</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德叔 “你的梦想是什么？”，这是导师鸡血必备问句。“你近期都做什么梦啊？”，这是德叔经常问年轻人的。近期的梦境能传递出人近期的状态。</p>
+<p>这个符合现代心理学的认知，“日有所思、夜有所梦”，也算是另外的一种解读。周公解梦，只解那些梦中不常见的事物场景，常见的、反复出现的多半是和日常生活有关。我发现，不管是学生还是刚入社会的年轻人。我问到这个问题的时候，最常见的梦境就两个，考试和恋爱。抛开青春萌动的恋爱纠缠，考试这东西成了心理阴影了。</p>
+<p>而考试，最常见的梦境不是自己不会，多半倒是，开考时间要到了，找不到考场或是丢了准考证；再就是，明明自己会，就是时间不够，还没这么答题，铃声已经响了。其实细想，无非是两个问题，要么是时间计划的不得当，要么是时间不够。如果时间计划得当，时间足够，我们梦里的考试都会是完美的结果。不至于深夜里被噩梦惊醒，心慌意乱、大口呼吸、难以平复。可能我们接受了太多的考试，或是把考试成绩当做了人生的结果。</p>
+<p>于是，我们的人生像极了一场场的考试，我们也把我们的磨难坎坷、幸福快乐都当做考试的过程和结果。但为什么在梦里，我们恐惧的却是时间呢？或许，我们的潜意识告诉我们：时间的有效利用，会让我们在人生的一场场考试里获取成功。而我们绝大多数的失败，都是时间计划出了问题。你的阅读书目里，一定有《人类简史》、《时间简史》，看完要么是觉得不知所以，要么就慨叹人类发展比想象的快的多，时间对于我们众人来讲很公平。</p>
+<p>其实这样的感觉，放在我们的人生经历里也一样。我们惊诧于这个社会发展的速度，甚至有种被裹挟的身不由己。另一方面，我们同样认同每个人的时间是一样的，我们的不成功多数是因为时间不够，“来不及”的挫败感。当我们不得不承认，我们普罗大众的时间多少是一样的时候，我们却变得更加沮丧。因为我们似乎总能看到那些比我们成功的人，我们总是觉得别人开了挂，他们似乎有无穷的时间和极高的效率，要么是在某一个方面异常突出、或是拥有广博的成就，连生活似乎都更丰盛和多彩。</p>
+<p>难道成功者的时间就比loser或是新人更多？他们与时间恶魔达成了协议？还是我们缺少对时间的认知？只简单的因为，我们缺乏对时间的敬畏和理解？既然把人生当做了一场考试，那我们先从如何渡过一场考试开始吧。</p>
+<p>我们且不论我们学习复习的如何，身体精神状态如何，这场考试是避免不了的。科目不能选，难度也不能选（全凭出题人的好恶），考试开始了。有人上来就急匆匆的做题，有人磨磨蹭蹭的写名字，有人通览的试卷估计了难度，有人关注别人都在干嘛，有人卷子没发就准备好了笔和文具，有人拿了卷子才开始翻箱倒柜……做题的方式也不一样，有人按部就班顺序做题，有人先做自己擅长的，有人难题忽略而过，有人纠缠在一题上屡屡验算，有人严格按照时间分配做不同类型的题，有人人脑子短路走神，有人因为文具不合适鼓捣半天，有人因为觉得简单答到飞起，有人因为一道难题就影响整个答题一直情绪不稳……临近结束了，还有二十分钟，监考老师也提醒了。真正的混乱开始了，有人开始放弃了（反正我也不会），有人看着别人希望偷瞄点答案，有人开始加速、奋笔疾书，有人看看遗留的题目难度（觉得没戏就开始检查之前的），有人过于专注压根没有注意到老师的提醒，有人开始情绪低落手忙脚乱……交卷时间到了，有人偷瞄别人答案不管对错，有人急急忙忙的填名字，有人还在拼命验算，有人听天由命，有人还在检查（不过是看那些写的不清楚或单位没注明的）……一场考试结束了，除了那些天之骄子早早交了卷子，在众人注视下施施然离开，当然也不排除那些彻底放弃考试，捱过时间就交卷的同学。大家的时间状态都差不多，成绩出来了，排除日常学习能力和题型差异，成绩却差的很多。</p>
+<p>同样的时间里，到底发生了什么？是什么造成我们最终的结果差强人意？我们永远希望自己是“考试型”选手，总能在各类考试里，获得比日常更好的成绩，但我们面对人生的考试，却总是觉得大失所望、连基本的能力都没发挥出来。我们怨天尤人，我们苛责老师，但是对于我们最平等、最公正的时间却彻底忽略了。如何管理我们的时间，让时间的相对论应验到我们的身上，让时间成为我们成功的理由、快乐的理由，那让我们开始一场时间管理的学习吧。</p>
+<p>左岸记： 时间，是一切事实的真相。有一次有僧人问崇慧禅师：“达摩祖师尚未来中国时，中国有没有佛法。”崇慧说：“尚未来时的事暂且不论，如今的事怎么做？”僧人不解，又问：“我实在不领会，请大师指点。”崇慧禅师说：“万古长空，一朝风月。</p>
+<p>”</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

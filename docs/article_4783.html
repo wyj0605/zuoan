@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你拼了命地活成他想要的样子</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你拼了命地活成他想要的样子</h1>
+            <div class="date">2026-02-09 11:07:23</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>有人说，喜欢一个人，就是要活成他的样子，才证明足够爱他，才能够抓牢他。我说，你就是你，不值得为了爱一个人改变原本的自己。1 哒哒上个月刚和男友分手，基本处于与世隔绝的状态，不过失恋这件事情，谁安慰都没有用，唯有时间是这个世界上最好的解毒良药。哒哒是我大学最好的朋友，她身材一般相貌一般，但学习能力很强，尤其是社团组织能力一流。两年的社团生活，她凭着自己的努力做得有声有色，风生水起，一跃到了社长的位置。</p>
+<p>哒哒是社团里公认的拼命三娘，写策划到凌晨的是她，第二天清早拿起录音笔就冲到新闻现场的也是她。得亏她不瘦，不然我真心疼她哪天就累死在前线。这么优秀又拼命的姑娘，得找个多疼她的人来照顾她，才不会让我担心啊。所幸那个人出现了。男生名叫阿远，是哒哒在一次活动现场的采访对象，隔壁理工大篮球队队长，人长得高高壮壮的，不是健美肌肉男，但刚刚好到女生喜欢的程度。</p>
+<p>一见钟情来得恰是时候，短短几分钟的采访，哒哒的幽默和应变能力让阿远叹服，而阿远的礼貌和笑容也让她顿生好感，两人火速进入到恋爱阶段。2 虽说已经脱单，可哒哒的意识还没完成从拼命单身狗到恋爱小少女的身份转变，每个新闻现场，依然有她忙碌的身影，每个凌晨她依然在台灯下奋笔疾书。阿远找不到哒哒的时候甚至很多次把电话打到我这里，抱怨哒哒怎么这么忙，忙得跟他吃顿饭的时间都没有。后来，我再接到阿远电话的时候，他想分手。阿远苦笑着说，不好意思啊，一开始答应一直照顾她的，可现在我发现她可能用不着我的照顾。</p>
+<p>后来他俩进行了一番长谈，从那之后哒哒像变了一个人一样。慢慢的，社团活动交由副团长来打理，自己退居幕后，以便腾出更多的时间来陪阿远。阿远是个忠实的体育爱好者，每晚都要围着田径场跑上10圈，哒哒体型略胖，跑个三圈就累得够呛。即便如此，她还是会硬着头皮陪他锻炼。在那个英雄联盟风靡校园的年代，只要阿远想去网吧撸上一把，哒哒二话不说，就陪他一起去了。</p>
+<p>即使她对游戏完全不感冒，即使非常讨厌网吧此起彼伏的谩骂声，为了阿远，她说服自己慢慢融入环境，学会放技能，学会加血，学会默默配合阿远打辅助。哒哒因为长期熬夜，脸上长了不少雀斑。她知道阿远有点介意自己的雀斑，于是熬夜的次数越来越少，用掉的护肤面膜越来越多。从前那个出门只需三分钟，洗个脸就走的人，开始关注微博各大美妆达人，购买各种化妆品，研究各种服饰的搭配。从前那个一双板鞋走天下不修边幅的粗糙女汉子，为了阿远摇身一变，成了妆容精致穿衣讲究的窈窕女子。</p>
+<p>我问过她，现在的你都感觉不像你了，这样活着累吗？她说累呀，但是没办法，阿远喜欢就好。和阿远的恋爱确实让她有了脱胎换骨的变化，这样也好，有个能分散她注意力的人，她就不会那么拼命工作了。3 就在我暗暗为她高兴之际，他们就分手了。好像是阿远喜欢上了他们学院一个学妹，他说这段天天和她黏在一起的日子，让他发现，哒哒并不是他喜欢的类型。</p>
+<p>阿远说：“哒哒你很优秀，但是我想我要的不是这种感觉，我不想耽误你了我们分开吧。”一张优秀卡从天而降，宣告两人的恋情结束，哒哒被这张卡砸得措手不及。在宿舍哭了好几天，我陪着她买醉，听她说着自己为阿远做过的种种，除了抱着她，我真恨自己没有冲出去狂扁一顿阿远的霸气。后来听说阿远过得并不幸福，费了好多心思追学妹，最后才发现人家不过把他当备胎，只有在无聊时才会答应赴他的约，带上宿舍所有姐妹一起来胡吃海喝，敢情把阿远当成个长期饭票。欣慰的是哒哒并没有一厥不振，即使一个人，还是喜欢习惯到田径场跑上几圈。</p>
+<p>从刚开始的三圈都吃力到现在的八圈毫不费劲，从最初的体型微胖到现在的凹凸有致。那些曾经为了讨好阿远做的事，即使没有了他，也已经成为一种习惯。曾经讨厌网吧游戏技能为零的她，现在即使一个人也会没事开黑几局。即使没人约会的日子，她桌上的化妆品也越来越多。我知道那是因为曾经阿远最爱她化妆的样子。</p>
+<p>她说：“我可能是偶像剧里的女二，做了那么多，依旧得不到任何回报。”直到现在他们分开一年了，哒哒还是会经常想起阿远。哒哒说，我不恨他，爱谁是他的自由，而且如果不是他，我现在还是那个风风火火毫无形象的小胖子。但是偶尔还是觉得失落，她改变了这么多，就是想在他面前证明自己，可是他却不见了。我说，爱情就像龙卷风，来的时候惊天动地，走的时候措手不及。</p>
+<p>你为了喜欢的他，拼了命地活成他想要的样子，拼到改变了自己原本的模样，你大义凛然地说着我不要全世界，只要你在我身旁陪我对镜贴花黄。殊不知，好不容易活成他的样子，回头才发现他早已不在，仅留下你在原地徘徊。摘自：城南邮局《谈一场被宠到死的恋爱》 左岸记： 换一种方式生活其实是一次尝试，一次重新认识自己的过程。我们说活成自己喜欢的样子并不是自己想怎样就怎样，而是我还可以怎么样。因为一个人的出现，自己愿意做出一些改变，这其实是一种契机，这会让自己原来不知道的，一直不敢做的，因此有的改变的勇气。</p>
+<p>只是改变从来就是应该是牺牲，牺牲自己成全对方就是将自己置于无足轻重的地位，这也就失去了和对方相互欣赏爱慕的必要条件。认识一个人是为了让自己变得更加美好。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

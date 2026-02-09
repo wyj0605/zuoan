@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时光荏苒，愿你如初</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>时光荏苒，愿你如初</h1>
+            <div class="date">2026-02-09 11:07:17</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/莫筱言 在落叶飘零的季节，世界似乎变得凄清了许多。让自己淹没在人潮，才发现原来生命亦如此的渺小，一个转身，一个回眸，看到的都是不同的风景。在时间从指尖划过之际，连梦想也凋零了，看远方落日的余晖，一天又这样过去了，而我依旧迷茫得只剩堕落。曾经出现在我世界里的爱情，早就化为灰烬，随风飘散，此刻，前所未有的宁静，倒也让我多一丝遐想。人生真的就是一场戏，而我也不过是这戏里的主角，当故事结束时，生命也就到了终点。</p>
+<p>青春，真的就是梦一场，笑一场，痛一场，哭一场，也就结束了，我不知道现在自己究竟属于哪个阶段，但是不得不承认，岁月确实让人沧桑了许多。当一颗心有时间沉淀，当一段情缘终将了却，当一个故事即将落幕，是否会有不同的感悟？人生真的是在行走中收获，经历了，懂得了，也就看淡了。人，越长大越孤单，越孤单就越怀念，我们总是在抱怨社会的不公平，生活的不如意，却总是忽略身边最近的幸福。当你每天对着镜子，看着镜中平凡的自己，你总在抱怨上帝为何不把你造成美女（帅哥）；当你每天为生活忙忙碌碌，但却还在为房租、水费、电费发愁时，你总在抱怨自己为何不是富二代；当你奔波在灯红酒绿的大城市，看着车水马龙的世界，你又在抱怨自己为何如此渺小……这些所谓的抱怨，皆来自于内心的不知足。</p>
+<p>放空心灵，闭目静思，你又是否懂得自己到底在追求什么？难道就甘愿做个随波逐流的泡沫？答案是否定的。每个人都想变得与众不同，但就是因为自己的不思进取，才让自己最后变成白日做梦。人要懂得知足常乐，快乐方能大过忧伤，但偶尔也要逼一逼自己，才能激发掩藏的潜力。</p>
+<p>不忘初衷，不失本心，焉能成就自我。路人，过了又忘了，朋友，聚了又散了，恋人，爱了又走了。生命有时如此搞笑，不变的一直在变，只是看得多了，也就淡了。成长的代价，就是带走更多的快乐，再经历一次次的蜕变，最后破茧重生，当再次睁眼，也就该懂得什么叫责任。尽管我们总是在找寻失去的童真，但却捕捉不到原来的一丝痕迹。</p>
+<p>对于人生，它会给你后悔的时间，却不会给你挽回的机会。生命一直向前，而正在路上的朋友们，你又怎能停止不前。左岸记： 给自己定些一定要完成的计划，然后按时起床，一件一件地认认真真地去完成，那么每一天就会有虚度感，相反的你会发现日子过得充实而有意义。会散去的爱不是爱，人生如果是一场场戏，那么就演好每一场戏，努力去做就真的会发现自己比想象的要出色得多。当能力撑不起野心时，所有的路都是弯路。</p>
+<p>开挂的人生是从找到兴趣开始的，一个人倘若不能从生活中寻找并发现兴趣，生活的意义就丢掉了大半。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

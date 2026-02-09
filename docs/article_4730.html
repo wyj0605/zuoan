@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>要如何打败我的忧虑？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>要如何打败我的忧虑？</h1>
+            <div class="date">2026-02-09 11:07:18</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/世木 26年来，我第一次出现了忧虑的情绪，并且这种情绪持续的时间还很长，我不知道接下来的路该怎么走，社会一步一步把我从梦想打回现实。让我忧虑的点，大概是我看《药神》之后，看到最后全场都在吸鼻子，我旁边的女孩，假睫毛都哭掉了，豆瓣的评分也高达了9.7。这是一部写实的片子，可能大家都不认为是在看电影，我们在别人的故事里激动或流泪，因为我们在里面看到了自己。《药神》里面看到的，是中国社会里挣扎的一个个我们自己。世界上可能真的只有一种病，那就是穷病。</p>
+<p>类似《药神》这样的现象级话题，大多数人期待的是什么？思考的又是什么？最近，我接二连三的听到身边朋友所在的公司破产、倒闭、还有老板直接跑路的，最后时间浪费了，希望破灭了，最可气的是还没拿到工资。有入职那天才拿到营业执照的公司，也有成立近5年的有稳定客源的科技公司，也有乙方广告传媒公司。可见，今年的经济真的很不乐观，下班回家，看着新闻联播，展示着我们的城市是一片祥和，经济蓬勃，老百姓安居乐业，人间处处有温情，但真的是这样吗？</p>
+<p>我想说说现在重庆毕业3-5年的大学生，按照平均每个月拿到手6000元， 一天的固定开支早餐5元+中午15元+晚餐10元=30元，一个月就是1800元，交通费10元，一个月300元，水、电、气、物业费，话费，宽带费1000元/月，如果是租房还需要交房租，买房需要还房贷，按照重庆现在的房价2000元/月来计算，每月的固定支出就是5100元，剩下900元。这个数字可以说相当好看呢。当然，如果你没有房贷，也不用交租金，我只能说我很羡慕你。然后隔三差五，三五好友小聚一番，火锅串串毛血旺，逛逛街，买点打折衣服，渴了路边买一杯网红奶茶，女孩儿买点便宜化妆品，如果你想用香奈儿、兰蔻、纪梵希、DIOR估计需要借助你的男朋友或者信用卡，再不济还有蚂蚁花呗。男孩子抽个烟，中华、玉溪到大前门，90后的消费习惯，我估计900元应该是不够的，并且这只是你一个人的开支，孝敬父母、你的男女朋友送礼物、过节小侄子的一声姑姑，同事朋友结婚、二婚、头胎、二胎的份子钱，一个月算800元。</p>
+<p>那有大部分人每月都是负债的。如果工资高一点的8000-10000元，那你每月能剩下一两千，存起来，存够一年有2万。这个算法，是在你不生任何病，不出任何问题，不出意外的情况下，不多用一块钱，每天保证你的早餐是在5块钱，那么你一年下来能有2万块钱。存够10年，20万，那个时候我估计这笔“巨款”已经不能支付重庆一套房的首付了。接下来再说说重庆的企业，因为现在的不堪重负，偶尔我也会去招聘网上看看有没有新的工作，重点是苦点没关系，工资到位就行。</p>
+<p>这点我要跟现在的老板道个歉。前几天我去到一家做投资的，他们的实体是做农业，然后附带做房地产和旅游，我去应聘的职位是中层岗位，那个岗位的薪资要求是8千-1万，我填的8千，然后面试的人员是一个人事经理和一个从政府单位退休的一个教授，面试过程真的相当不愉快，这个是指我单方面的不愉快。问：做过前期定位、项目研究、产品定位、营销策划、品牌包装、销售吗？我：都做过，还做得很不错（并且一一的举例来证明了）。问，之前做过农业吗？</p>
+<p>我：做过，前期定位，营销思路、产品包装及销售等等（举例说明了）。问：会PS、PPT、WORD、EXCEL、H5吗？我：会，都是平常工作中经常用到的。问：能适应出差吗？常驻外地的那种。</p>
+<p>我：可以的，现在打拼为主。问：我们会经常加班，并且没有加班费，也不能调休。我：可以接受，做一份事业，没有付出就没有回报。问：你各方面都很优秀，我们很满意，但是你的薪资要求有点高。我：那您觉得多少合适呢？</p>
+<p>答：4000。我：贵公司招聘的是经理岗位，贵公司给经理的岗位薪资是4000？答：我们确实招聘的是经理，你的条件也都符合，但是薪资我们给不了。如果可以，那今天就可以办理入职，你的岗位还是经理。我：我考虑一下......作为现在的企业招聘人才，希望这个人，是金刚、是大力神、是哆啦A梦，然后工资希望是越少越好，不要钱的最好。</p>
+<p>周围的朋友也表示，他们遇到的公司，是要求你无休止的加班，然后各种霸王条款，比如调休不能调一天，只能调上午或者下午；加班必须得到领导的同意，如果你加班了，但是领导没签字，就不能算是加班，还要指责你浪费了公司的水电。草他大爷，不加班我来干啥，这里是魔法城堡还是黄金屋吗？当然这是我遇到的个别企业，也有很多惜才的企业，只是我没有遇到。前几天，网上传了一张图： 我看到的不是年轻人的矫情和不愿意受委屈，我看到的是中年人有多么的不容易，他们没有脾气没有尊严吗？不，他们是不能没有这一份工作。</p>
+<p>如果他失业，可能会面临全家都没有饭吃。我心中一阵心酸，想着自己千万不能混成这样，也想着这个社会能善待我们一点。现实社会这么的不平衡，收入与支出严重失调，在这个物欲发展迅速的年代，大家都在追求快，快到忘了自己要做什么，想要做什么，大家都在追求着速度，看着甲方爸爸弹出来的头像，知道下一秒就要交稿，看着上级的眼神，明白自己的工作量还需要增加，看着地铁站忙忙碌碌的上班族，左手拿着豆浆鸡蛋，右手拿着手机，不停的在划拉着，似乎想从中划拉出一笔巨款或者一份高薪稳定的工作。我们心心念念想要实现的设计精品付诸东流，国家费劲心思拍摄的《大国工匠》纪录片，丝毫也没有起到作用。我觉得现在是时候该慢下来了，慢下来思考自己未来的路，慢下来去实现在你手中经过的那些作品。</p>
+<p>多些底蕴与温度。我相信现在的90后，大多数身上都背负着债，有的债主是支付宝，有的债主是父母，有的债主是银行，也有的债主是高利贷......都说90后已经到了晚婚晚育的阶段了，不是不想婚 不想育，而是婚不起，更育不起。单身率越来越高，养活自己，都要拼尽最后一丝力气，哪有力气再来养活另一半。大家都在说现在的低头族，人群覆盖越来越大，将这一切归咎于手机，或者不懂事的我们的身上，殊不知，这也是大家在麻醉自己，逃避着现实给我们的种种压力，去往另一个能给身心带来一丝愉悦的4G时代。我没有在倡导这件事，确实低头族酿下了不少的祸。</p>
+<p>只是想表达自己心中那一点愤慨。我开始忧虑，忧虑我今后应该怎么办，忧虑怎样保证不丢工作的情况下生孩子，还不被单位排挤，忧虑哪一天这个社会的矛盾和泡沫会爆发，可能没有这一天的到来。我渐渐的开始理解那些精神病人，理解那些因为抑郁而自杀的人，理解因为1毛钱跟你说一车好话的小贩，理解我的父母一直穿一双看到脚趾头的袜子都不愿意去买一双，理解生活在社会底层的我们......在理解的同时，我要更加的充实自己，让自己可以强大到能抵御这些可预见性的忧虑。左岸记： 生活从来就没有容易过，对生活的忧虑一方面是对现实客观认识后的心理反应，而过度的忧虑是细思极恐的心灵压抑。对生活、对未来不能盲目乐观，但只有看到希望，并相信自己，人才会勇敢地走下去。</p>
+<p>世木看到的生活成本算法似乎没有问题，但这个算法是把所有的项目都固定下来，一个人不可能5年、10年都不会变的，成长不是不变，而是一定会变，也一定要变的。这也是世木后面说的要不断地充实自己，而生活是充满着种种机会和可能的。当你有了能力和信心，那么忧虑就会化为了动力。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

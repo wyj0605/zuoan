@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我身边的单身姑娘们，她们一点不着急</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我身边的单身姑娘们，她们一点不着急</h1>
+            <div class="date">2026-02-09 11:07:23</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/Abby 写在前面：城市压力、身份焦虑，现代都市的年轻人要焦虑的事一直不少。除了工资、除了前程，奔三的姑娘们还没有伴侣，似乎又是一起恐慌事件。（一） “你知道吗，上周我‘被’相亲了。”自大学时代就和我保持好友关系的H，在毕业三年后的聚会上悄悄对我说：“现在都还没对象，爸妈挺急，安排了好几次相亲。他们一位朋友的儿子也还没谈恋爱，上周我被爸妈以做客为由带去他们家，实则是偷偷张罗我和那男生的事，过后我才知道。</p>
+<p>”“结果如何？”我问。“没成。马上就碰到自己喜欢的概率实在太小啦。”“那你爸妈岂不更急了？</p>
+<p>”她两手一摊，哈哈一笑：“你知道我的，虽然我并不反对相亲，我也知道爸妈着急，但没感觉就是没感觉。我从来不会去迎合，我更不会为了恋爱而去恋爱。”H是个高挑知性的姑娘，长得也好看。认识她七年，我深深知道她的理性和独立。这种独立不是指刻意与外界作对，而是忠于自己的内心，不喜欢的事绝不去做，不喜欢的人绝不强求。</p>
+<p>2018年2月份，H已经满 28岁了，恋爱史空白，却不急不躁，一直专心于自己的生活。女儿不急，父母更急，可面对这样淡定的女儿，他们的催促也左右不了她的步伐。像H一样未恋未婚的同龄姑娘，我身边还有好几个。W的恋爱经历也是白纸一张。工作后经人介绍，她认识了一位澳洲海归，第一印象不错。</p>
+<p>两人第一次约会看电影，男生的手如同返璞归真的兽，慢慢大胆了起来。W很紧张，但最后还是鼓起勇气直截了当推开他：“请你停手，我不喜欢这样。”W对我说：“分开后我就没有再联系他了，他在碰我前问都不问我，真让我心里不舒服。”还有姑娘D。她父母朋友的儿子在城中心昂贵地段有车有房，工作单位响亮，横看竖看都是枚优质男。</p>
+<p>两人都有相互了解的意愿，于是双方父母备了一餐饭局来撮合两个年轻人。“你的第一次接触很顺利吧？”我问。我以为她会笑靥如花，实际上她沉默片刻。“我不知他如何看我，我倒是把他否了。</p>
+<p>”她看我睁大眼睛，笑道：“也许你会觉得我反应太过。上了饭桌后，我发现他很妈宝男，不管他爸妈说什么，就算是不太对的话，他一直在哗啦啦点头。”“你之前明明说他很优质啊。”“优质的是条件嘛，不可能因为条件优质我就一个劲儿凑上去。我只是不喜欢对父母唯唯诺诺的孩子。</p>
+<p>”原来我身边的这些单身姑娘们，远比我想象得还不着急。有的姑娘注重判断男生的房子车子票子等客观条件，有的姑娘注重判断眼缘性格尊重等主观感受。我身边的朋友们就是这类姑娘。每次，她们都不会丢掉心中那个有真实想法的自己。（二） 知乎上有这么个问题：你担心自己永远单身下去吗？</p>
+<p>答者众多，几乎都是肯定的回答：担心啊！担心这样下去不再被爱，也不会爱人；担心就这么丧失了维系一段关系的能力。只有一条回答是这么说的：不担心，我很享受和珍惜现在单身的时光。有书要看，有工作要做，有东西要学，有朋友要相处，没时间担心。必须承认，单身之于每个人，经历不同，感受不同，见解不同，没必要谁瞧不起谁，更无所谓对错。</p>
+<p>但是，我们也清晰感受到，想脱单的焦虑确确实实存在。很多时候，这份焦虑感是被社会环境加重的。自古以来，我们的社会对于适龄婚嫁的观念很牢固，而所谓的“适龄”不过是按照社会宏量需求和生物性人为调整，现代社会也只是将结婚年龄推迟了而已，社会主流规则依然是：是个人，就得结婚生子。背负着传宗接代的生物使命，一个男孩老来未娶，一个女孩老来未嫁，够家族恐慌了。但人的理念是慢慢进步的，社会发展到今天，人的自我意识较以往更加突出，越来越多受过高等教育的年轻人不再一味顺从家庭的生育要求，而是更加看重自我想法，看重伴侣的灵魂契合度，看重生育权利自主。</p>
+<p>加之经济独立，专注实现个人价值是越来越多年轻人的选择，谈恋爱和结婚对他们来讲开始成为次等重要的事，但是，这与传统婚恋文化不符。每逢春节回家时分，一大批单身朋友们就心怀恐惧。逼婚的最猛烈源头是各家父母，还有七大姑八大姨的各方好奇欲。问完房子车子票子，还要问情感状况，接着唠叨一句“你是不是要求太高了？”真是让人苦笑的糟心事。</p>
+<p>一位朋友是富二代，低调沉稳上进，却一直找不到心仪的姑娘。父母一年365天有366天都在逼迫他快点恋爱结婚。多次沟通未果，最后他的母亲甚至放狠话：“你再不结婚，我们就断绝关系吧！”这让他痛苦不已：对着父母根本无法将心意说明白，但自己又怎么可能跟不喜欢的姑娘结婚过日子？我说：“说不明白，那就别说了吧。</p>
+<p>保持沉默，过自己的生活。”这是存在于很多家庭里的常见事，甚至有更严重的情况，但常见不代表正常。在我们的传统家庭文化里，亲疏关系胜过是非判断，谈是非和讲道理在很多情况下是被排斥的，所以，反抗逼婚总是这么难。有年轻人服从了这血缘关系的威胁，放弃自己的判断和感受结了婚，然后说服自己“算了吧，感情可以在日常生活中慢慢培养”。于是，结婚了，父母的心愿圆了，表面的关系和平了，你还想着也许可以让伴侣改改某些你看不顺眼的习惯。</p>
+<p>但把思想装进别人的脑袋这么难的事，几乎已经决定了长期同不喜欢的行为、不喜欢的性格过日子才是大概率结果。然后才想起来，这可是我自己的婚姻，自己的生活啊，我当初为什么要妥协？逼婚的不良后果，到头来还是得自己吞下。所以，有句话一直都有人说：没有该结婚的年龄，只有该结婚的感情。正是在这种大环境下，我很佩服那几位朋友的不着急，她们次次都顶住家里人的催问，安心地过自己的生活。</p>
+<p>周末与她们聊天，或是在图书馆，或是在话剧院，或是在筹划年假的旅行。她们，对自己的单身状态是接纳的、真诚的，不会因外界干扰而欺骗自己。看到这里，我知道你可能会说：“可是，我是真的想谈恋爱、想结婚啊！”当然，找到人生的另一半是多美好的事！那几位姑娘有着自己充实的单身生活，并不代表她们排斥认识新伴侣，排斥走进一段关系中。</p>
+<p>只是在尝试的过程中，她们清楚地知道什么是不想要的，什么是不会接受的，没有因为着急而泛滥自己的感情，更没有因为着急而无视自己的真实想法。着急没有用——这句话老套但会让人清醒。不管是单身还是正处于一段关系里面，真诚二字是心脏，真诚对待自己，真诚对待别人：遇到喜欢的人就去真诚地表现出来；还没遇到就真诚地做自己；如果被喜欢的人拒绝了，真诚接受，不妄自菲薄固步自封；如果和喜欢的人牵手了，那么，也真诚地开展下去吧，这才是最负责任的态度。人生那么长那么丰富，何必在对抗单身这件事上欺骗了自己呢？告诉自己：不要急，做好自己该做的，剩下的交给丘比特吧。</p>
+<p>左岸记： 没有什么道路可以通往真诚，真诚本身就是道路。真诚待人方可赢得别人的信任，真诚待己才能表里如一不纠结。尤其是在婚恋上，太多的勉强结果都不幸福，太多的技巧掩盖了莫名的动机。假装迎合或者勉强自己其实是自欺欺人。与其说这是为了别人，还不如说是逃避自己的责任。</p>
+<p>做个真的我，不容易！周围人会阻止你，你脆弱的真我会阻止自己，成长过程中的伤痛会阻止你，但这是人生唯一的道路。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

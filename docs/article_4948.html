@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>“寻梦环游记”不都是美梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>“寻梦环游记”不都是美梦</h1>
+            <div class="date">2026-02-09 11:07:36</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/沉石 最近皮克斯与迪士尼合作的电影“寻梦环游记”因为温暖人心的故事，积极的价值观输出而在朋友圈刷屏，电影口碑评分一路上扬。确实“寻梦环游记”是一部优秀的电影。设计巧妙的情节，人物形象的制作，场景的设定，以及内在向上的价值观都是国内动漫作品所无法比拟的。但就电影中的许多设定、场景而言，仍然体现出了社会不平等的价值体系。应当引起我们反思。</p>
+<p>当然这并非针对编剧或者制作公司，而是整个人类社会的共性存在。前两天在网上看到有人评论这部电影是同性恋和“丁克”人士的噩梦，因为电影中人们去世变成亡灵后，必须需要有亲人供奉才能回到人间“探亲”，如果人间没有人再记住死去的亡灵，则亡灵们将面临终极死亡。都说人类的死亡分三个阶段。第一阶段是医学上宣告死亡；第二阶段是下葬后人们的生活中没有了亡者生活的痕迹；第三阶段是活着的人中再也没有关于亡者的记忆。电影中这样的设定对于现实生活中那些孤寡老人，或者年幼的孤儿是何其的残忍。</p>
+<p>他们无一列外会迅速面临终极死亡。电影中亡灵的世界如人间一般，有灯红酒绿的“富人区”，有无人牵挂等待终极死亡的“平民窟”。当主人公米格的曾曾祖父埃克托带着他去寻找吉他进入“平民窟”时可以看出那些无人牵挂的亡灵生活的艰苦。当躺在酒瓶中的酒鬼带着最后一丝属于自己人间的记忆在埃克托的歌声中消失时心中不免庆幸这也是一种解脱。这些无依无靠的亡灵们有什么错，思念的贫乏并没有阻止他们精神上的富足，他们本性善良，乐于助人，性格开朗，只因他们先天的劣势所以他们必须在亡灵的世界里等待着终极死亡的煎熬。</p>
+<p>形成鲜明对比的则是灯光闪烁的“富人区”。电影中在人间最受人敬仰的歌星德拉库斯住在亡灵城最高最闪耀的灯塔里，他举办的酒会都需要有邀请函，能够被邀请的非富即贵。最终歌星德拉库斯的丑恶本质与他所拥有的奢华生活形成鲜明对比。他的死法更是一种深深的嘲讽。虽说这些结局都大快人心，但这种富即是高人一等的观念却已深深扎根于人们心中。</p>
+<p>前段时间，网上报出某女星的女儿看到别人家的孩子穿着简陋朴素，便问是不是从农村来的。这遭到了很多网友的批评，认为很不礼貌。首先穿着朴素不是一件坏事，而是一种生活的态度；其次农村也不应该是一种略带贬义的形容，农村也是有着自身优势的美好地方；再次大部分网友中已经将等级观念深深固化于自己的心里，否则也不会认为某女星的女儿这句话有失礼节。如果将上述对话换成“你穿这么少，是不是从海南来的”，这样我相信都不会引起人们的强烈反感。最后小孩的价值观和世界观都是后天影响的，所以简陋朴素等词与农村深深相连也是后天的作用结果，只不过小孩直白的说出来，而作为大人的我们却碍于某种原因而深藏心底。</p>
+<p>这便是无形的鄙视链，存在广大的人民群众中。正如影片中无人供奉的亡灵便要低人一等，孤苦贫困地走向终极死亡一样。电影中灯红酒绿的“富人区”与破败暗淡的“贫民窟”等等设定也许是为了情节发展的需要，但这作为一步动画来说多少也对于孩童的价值观有着潜移默化的影响。最近电视上一直在播放艾滋病孤儿的宣传片。国母彭丽媛作为艾滋病防治亲善大使，一直致力于对于艾滋病患者的帮助，减少人们对于艾滋病的恐惧与歧视。</p>
+<p>望着电视上一张张稚嫩的面孔，他们生来患有疾病，大部分都已经成为孤儿，还要承受着社会各种人的歧视偏见。这公平吗，他们有错吗，他们能够坚强乐观地活着就值得我们尊敬和赞美。人性的善恶尽在一念之间。我们应时常问问自己是否做到问心无愧，而不是充满自我优越感。社会中还存在很多这样的弱势群体，他们拥有积极向上的心，拥有纯洁质朴的灵魂，却拥有着与之不相匹配的境遇，只因他们先天的劣势我们就从所谓的价值观上将他们打入低等的一类，那这些将使我们的社会比我们想象中更加丑陋，我们便是丑陋的根源。</p>
+<p>很遗憾“寻梦环游记”中不是每一个平民窟中的亡灵都有埃克托这样的运气和机会。怀念是一种情感的延续，并不止形式上的固化。关怀并不是一种等级之间天生自我优越感的体现，观念上的平等才能做到行动上的平等，只希望这样的等级观念能够在现实生活中慢慢弱化，真正做到美好和谐。“寻梦环游记”给我们带来温暖美好，但我们也要清醒地正视现实面临的问题，这样才能不沉睡于美梦而去创造美梦。左岸记： 为什么去寻梦，是想给现世再一次的机会。</p>
+<p>生活中人与人之间因为成见或者认知限制往往产生很多的误解和无法突破的壁垒，如果只是为反抗而反抗，为坚持而坚持，结局往往两败俱伤。这时需要一种转机，米格进入亡灵的世界就是一种契机，我们可以把这个经历当成一场梦境，通过梦境寻找真相，去消除矛盾，去化解误会。历尽千辛，当梦醒时分，你不再是那个执拗的自己，你的手中已经拿到了开启心门的钥匙，心智成熟。米格因此化解了几代人对埃克托的误解，解除了家人对音乐的魔咒。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

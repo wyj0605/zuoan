@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>破框和跨界：一个外国大牛离职后的活法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>破框和跨界：一个外国大牛离职后的活法</h1>
+            <div class="date">2026-02-09 11:07:06</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/漏报君 前几天收到一个很特别的电邮，标题只有一个单词：Departure（重新启程）。邮件是对全公司同仁群发的，我以为是什么通知邮件。点进去一看，才知道这是我们公司一个叫Gary的员工的离职信。一般会向全公司群发的离职信来头都不小，尤其值得一提是这封离职信的标题没有用传统的farewell（告别）之类的词汇，而是用了departure（重新启程）。果不其然，Gary原本是我们之前收购的一家公司的创始人。</p>
+<p>两年前，Gary公司被我们收购后，他就一直担任公司重组后的部门负责人。在邮件里，Gary首先肯定了他的公司被我们收购后取得了更大的成功。之后，为了让不熟悉他的同事更了解他的经历，他在邮件里，简单地把他二十几年的职业生涯陈述了一番。1996年，Gary在Sun公司开启了自己的职业生涯，两年里，先后在网景公司，微软任职，负责Java的代码安全。2000年，他发布了软件安全扫描工具ITS4，这是业内首个对代码安全扫描工具。</p>
+<p>2001年，他写了《安全软件开发（Building Secure Software）》一书并出版，这是全球第一本讲述软件安全开发的书籍。2004年，授权基于DARPA的Cigital技术给KPCB公司（美国最大的风险基金公司）。2005年，发布关于软件安全的Silver Bullet（银弹）。2009年，和两个合伙人Samme, Brian创立了BSIMM，这是业内首个对公司软件开发进行安全评估的工具。2016年，把公司卖给了我们公司。</p>
+<p>随后，他感谢了陪伴他的整个职业生涯中的同仁，没有他们的努力，他不可能有今天的成就。可以说，Gary从把公司卖给我们公司的那时候起，他就已经财务自由了，赚的钱够他花好几辈子的。如果换作是我，我的想法肯定是功成身退，好不快活。可是，大牛就是不一样，他还把自己后面的计划公开了。Gary要继续给一些前沿IT公司做技术咨询和董事会成员。</p>
+<p>继续收集数据，完善他的评估工具和并会做一些科学研究。他还要尝试将机器学习、人工智能应用在软件安全领域，看能出来一些什么样的火花。到这里，可以说对Gary的一些主要成就也好，将来的计划也好，我们都有了大概的了解。可是最后，Gary并没有像传统意义上的离职员工一样做各种感谢或者煽情。这个大牛而是打了个广告，表示他会继续更新他的个人网站：http://garymcgraw.com。</p>
+<p>对于这样一个大牛人物，个人网站会做成什么样。好奇心驱使我打开了他提到的网站。打开才发现，Gary简直是大神！他的网站分成三大版块：技术、生活、音乐。每一块都可圈可点。</p>
+<p>且看下面： 1. 技术上 Gary是计算机科学和认知科学的双博士学位 ，他的导师是道格拉斯·霍夫斯塔特，如果你这个名字陌生的话，那么道格拉斯的惊世之作《哥德尔 埃舍尔 巴赫——集异璧之大成》，你可能听过。名师出高徒，Gary自然也不在话下，他开创了软件安全这个行业 ，并且写了12本书。2.生活上 Gary简直活得像神仙！他住在谢尔多河畔上于1760年建造的农舍中，业余的他痴迷小说，艺术，烹饪。并且有25年的园艺经验，养了N多动物。</p>
+<p>3.音乐上 Gary三岁就开始学小提琴，在卡耐基音乐厅有过两次演出。同时，他也会演奏曼陀铃，吉他和钢琴。他在两个乐队里创作并演出 。已经录了11张唱片。现在Gary给我的印象已经从一个大牛同事升华到了大神。</p>
+<p>而且，是位玩什么都非常出彩的大神。从Gary的经历，让我想到了“人生不设限”这个说法。Gary至始至终就没有停留在别人的框定里。且看Gary是怎么打破我对他的几次框定的。刚开始看到离职信，我认为他无非就是一个即将离开的职场失意的公司中高层；后来看到他的履历，才知道这是一个大牛，开创了业界好几项第一。</p>
+<p>再看到他的网站，他又打破了我对他的职业框定，人家不只是大牛，而是技术，生活，艺术通吃的大神。在三公子的人生记录仪中，我看到三公子用“破框”来表示打破人生的固有路线，尝试生命的各种可能。现在大神Gary则用他自己的生活给我展示了一个破框的人生，即使在公司被收购后，这样一个难得的功成身退的机会，他还是选择继续破框，继续尝试新的可能。职业的瓶颈，我们每个人都会遇到。如何突破瓶颈，我觉得Gary给出了最好的答卷。</p>
+<p>可以说，Gary一开始就没有把自己框定在技术领域还是艺术领域，也没有受传统的职场观念的束缚。他没有让自己成为传统意义上的技术极客，也没有把自己停留在音乐演奏家这些身份。在Gary的身上，你不知道该给他贴什么样的标签，也无法给他任何框定，因为他随时都会跨出你给他的框定或者标签。如果用一个词形容Gary的人生，我想“跨界”这个词是最好不过的了。也许在Gary的眼里，科学、艺术、生活根本就不存在界线。</p>
+<p>现在再来想想，职业瓶颈是怎么造成的呢？如果你是工程师，脑子里只有工程师的活，那自然会有瓶颈；如果你是会计，眼里只有财务，那固然会有瓶颈；如果你是老师，不去留意互联网给教育带来的变革，那固然会有瓶颈。···由此来讲，瓶颈之所以存在，是不是因为我们被固有的观念束缚了呢？答案不言而喻。比如，工程师只干工程师的活，会计只做会计的事，是老师就好好教书就好了。</p>
+<p>要想“破框”，突破瓶颈，不妨勇敢尝试“跨界”。如果单Gary一个外国人的事例还不足以说明的话，不妨看看我身边的例子。机械工程师如午歌，没有停留在传统观念里的工程师标签里，而是执笔写作，找到了自己的第二人生。底层公务员如三公子，没有遵循漫漫的官场升迁的老路，而是自学理财，打开了前所未有的人生局面。历史老师如梦归秦淮，用一本手账，一手漂亮的书法，著书立作，快哉快哉。</p>
+<p>“人生不设限”，这个道理没有几个人不知道。可是如果放到现实生活中，我们看到却是一个个瓶颈和限制。想要人生破框，突破限制，不妨像Gary一样，像午歌、三公子、梦归秦淮那样，勇敢尝试跨界。跨出固有的圈子，工作范畴。不要被固有的观念所限制，多去拓展人生的可能性。</p>
+<p>如此，我想任何瓶颈、标签、框定都会迎刃而解。以上。左岸记： 大牛之所以是大牛，总有他们的过人之处，而我自认为资质一般，想来也只能靠反复琢磨的“慢功夫”，才有可能做得出那么一点点成就。行远自迩，登高自卑，看到那些天资远胜于我们的人仍在通宵达旦，我们又怎敢做一蹴而就的美梦？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>
