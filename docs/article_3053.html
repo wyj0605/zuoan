@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活在北京</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>生活在北京</h1>
+            <div class="date">2026-02-11 14:15:06</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/王登科开往成都的飞机穿过北京厚厚的雾霾破云而出的瞬间，我终于能静下来回想之前北漂的大半个月的日子，关于这段岁月的记忆难以忘怀，历久弥新。2014年新年刚过，我踏上了去北京的列车，下火车的时候，是晚上，北京正下着雪。南方的孩子很少见到雪，空气冰冷而干涩。在这之后的20多个日夜里，我都偏居于这座巨大城市的一隅。我很幸运，遇到一家靠谱而大胆的公司，我每天乘坐地铁来到中关村某大楼十五层的公司，在属于我的那个格子里面坐下来，然后埋头工作，窗外是北京理工大学和中关村大街，这条街一路延伸，它的两旁坐落着这个国家最值钱的公司和最有名的大学，那里面装着这个国家最有钱和最聪明的人，而我和他们如此之近，我想这大概是无数人来北京打拼的原因之一——在这里，机会和污染一样多，并且，你总能找到志同道合的人。</p>
+<p>每天下班回住处的路上，我会在凛冽的寒风中盘算着每天的支出和预算，我安装了记账软件，仔细记录每一笔支出，细到一瓶矿泉水或者一包纸巾。不过我还是到北京几天身上带的钱就花光了，然后我给团队leader发邮件，问能否预支一部分工资，十分钟后1k到账，我把这1k划分到每一天的预算，包括乘坐地铁，每天吃饭和购买生活必需品诸如可乐什么的里面。这样的精打细算并没有让我感觉到穷，而是让我感觉到一种悲天悯人，生活对任何人都并非易事。北京的房价贵的离谱，我幸运的住着一套价值一千万的『豪宅』，其实那是公司未融资之前的办公场所，在北京三到四环左右的一个小区里面，面积约为一百一十平，几乎无任何装修，没错，这样的一套公寓就要一千万。每次躺在这一千万的房子的折叠小床上，想到我睡的这个房间就值几百万，我就感受到一阵来自这个世界的深深的恶意。</p>
+<p>米价方贵，居亦不易。公司所在的大楼负二层有一个食堂，办张卡就可以在那里吃饭，不过味道实在不敢恭维，不仅如此，一小勺荤菜就要12元更让我无力吐槽。所以我每天中午几乎只吃炒饭加包子或者面食，不得不说，北京的很多包子都是不错的，至少在肉馅的含量上。某天公司为所有员工发放了呼吸面罩，这是一个很奇葩的福利，我想除北京之外的任何城市都不会有这种福利，在北京的这段日子里，几乎每天的雾霾都很严重，少数几天遇到晴朗清澈的天空，我只觉得这个世界都好了。北京的地铁很便宜，故宫的门票也很便宜，胡同里会有下棋的大爷，两边围着小屁孩和路过的好奇者，驴肉火烧的小店到处都是，走过都能闻到香味，听老人们操着京片子聊天也很有趣。</p>
+<p>我觉得这座城市本身是友好的，但是太过膨胀的人口已经超过了它的极限，到处都是匆匆的行人和招聘的广告。来的和走的，像水一样冲刷着这座城市本来的风韵和文化，使其变得淡之又淡。我走在大街上，看着喧闹的人群和商店，想象着我大学已经毕业，想象着我要在这里年复一年的生存下去，我立即感受到一股厚重的压力，这种压力不让人痛苦，只让人觉得乏力。我在学校生活半年不会想家，我在桂林北海游山玩水不会想家，而我在北京工作，却无比想家。在学校或者去旅行，你是知道它的时间的，你感受到自由和新奇，而在离家千里之外的陌生城市工作，你会忍不住想象也许你会在工作的地方扎根，那是真正意义上的离家，你不会再随时都能看到父母，也许你的房间都会被用来堆放杂物，你不知道你到底属于哪里了，这真可怕。</p>
+<p>所以每次我想到我才大二，还有几年的时光来学习，还有学校食堂四块五的荤素套餐，还可以在家有老妈做饭，我就感觉到一种劫后余生悲天悯人的幸福感。生活在北京，感慨万千。原文地址：http://www.wdk.pw/333.html左岸记：北京，一座充满无数个解的城市，道之所在，虽千万人吾往矣。年少意气风发，能这样去经历、去思考、去求学，值得赞许。人生三件要事——读书，挣钱，玩乐。</p>
+<p>不读书不知天下；不挣钱不知世人；不玩不知人生之乐。开卷有益，无可厚非。挣钱入世，社会什么样工作了最清楚。读书是理论认知的捷径，挣钱是实践认知的捷径，玩是自我认知的捷径。在未能真正悟道之前，就多读书，多挣钱，多玩乐吧。</p>
+<p>下面是留几手分享的两个故事：我琢磨着现实世界里是肯定没有人过着十全十美的日子，可我见过两位非常让我佩服的朋友，别管人日子过得怎么样，就是那种心态，就让人羡慕。1、哥大学一个同学，家庭条件可以说非常一般，毕业后一起混北京。平时大伙外面吃喝玩乐的时候，他很少参与，一年四季的一套国产运动服（估计就是属于你们天天嘲笑的品牌），就靠着死工资不吭不响的5年攒了60万，是我们哥们里最早一个买房的，现在日子过得虽然谈不上多好，但至少是小康水平。他的事就说明了：如果不如意，就停止玩乐、抱怨，实打实的去计划，去执行，向着目标前进，最算得不到最好的回报，结果也差不到哪去。2、哥另一个朋友，一个不靠谱青年，在银行做销售，月薪1万左右，30岁在北京这应该不算出色，可是他也不愁，天天洗桑拿，扎金花，自己吃饱全家不饿，也不买房子，拿30多万买了辆小SUV。</p>
+<p>业余生活就是各种吃喝玩乐，一有假期就自驾游，开着小车，带着妹子，开到新疆石河子吃烤肉，开到西藏去雅鲁藏布江洗涤裤衩，甭提多潇洒了。有哥们问他为啥不买房。他说，我买房干啥？我买了房，能给姑娘说，来，我有房，上我家，咱们打炮吧？多俗气。</p>
+<p>我搞个小车，给妹子说，兜风去，随约随走，就一潇洒。那以后咋办？以后爱咋咋办，天无绝人之路，先活好当下再说。他的事例告诉了我：如果觉得活很累，干脆就啥也别想，放开了玩，想吃啥吃啥，想干啥干啥，咋活不是一辈子，前提是你确实想得开。以上这两种肯定不能算十全十美，但至少人家也自己满意，舒心。</p>
+<p>最怕的就一种人，是天天窝在电脑前，一边玩乐一边抱怨，赖这个赖那个，“我跟别人比不了，人家都是官二代，富二代，我爹不给力”、“不是我不行，是社会太不公了”、“祖国还没统一呢，我没心情考四级……balabalaba”。对现状不满，又无力去尝试改变，内心的期望和现实的落差太大，懒懒散散，又总是对自己期望过高，定一大堆乱七八糟的计划，却从来不执行。大部分不如意的人，也基本是这种情况吧。原文链接：http://www.zreading.cn/archives/4278.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无数个的我，都是我</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>无数个的我，都是我</h1>
+            <div class="date">2026-02-11 14:00:27</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/雨萌许是太久没有对自己进行审视的原因，突然觉得对自己的印象十分模糊，转眼间我已成年了，就像一则段子说的那样“我还没反应过来嘞，咋个就长大了呢，我好懵”。搜索脑海中林林总总的记忆，沿向远方……我，出生在一个小镇上，这里可以说是山青水秀，生活在这里的人都很纯朴，纯朴归纯朴，但遇到与自己利益相冲突的事还是会据理力争的。在这个地方生活，久而久之，都会有些许感情来。记得五岁那年，爸爸要离开家赶往广东工作，听奶奶说一去可能是好几年不回来了，当时我还怎么当回事，直到爸爸真的要离开的那天早上，我舍不得的感情谁都能看出来。我一路追到车站，一路“梨花带雨”的哭着，总之，就是不想分开，抱着爸爸不肯松手了。</p>
+<p>爸爸无奈，去旁边的商店买了一大盒五颜六色的圆形泡泡糖，听奶奶说我顿时不哭，还好声好气的跟爸爸商量，下次去的时候一定要带上我，想想也觉得好笑，看来我吃货的名号石锤了。天然吃货一枚是我特征之一，还有个事，初中老师让我们给自己写评价，我的其中一个词是好吃懒做，老师说要客观真实，我就照做了，之所以写这个词，大概是因为外婆总说我爱吃，不做事，听着听着就习惯了。小孩子的世界真的很奇妙，只记得当时无拘无束，喜欢开怀大笑，即能调皮捣蛋，也能“乖巧懂事”，常常能因为一个好笑的事哈哈大笑好久，然而看着旁边的人一脸茫然时，更是欢笑的厉害，做什么事都天真无邪。会偷偷从家里拿糖果之类的零食跟同伴分享；会在外面玩泥土或者是过家家，还玩的有模有样，最后因为衣服全弄脏而被大人痛打一顿，打完哭过之后又笑嘻嘻；总会趁大人不知觉的时候搞些恶作剧，比如在一个角落转弯处等到有人经过时，就大叫一声，看到对方被吓到的反应，顿时捧腹大笑，还觉得很有成就感；反正这些事我都干过，现在一边回想，还一边心里乐。不过现在和以前大不相同了，成年人要有责任与担当，不能随心所欲啦，现在以及将来要面对的东西有很多，未知还等着自己，自己的人生则需自己把握。</p>
+<p>现在的我仍然有小时候的影子，也爱吃，也爱笑，也爱胡思乱想，但却比以前懂事，比以前更拘束。大概是从我和妈妈分开那时起，我就是一个独特，我后来享受的是老一辈的“母爱”，而不是亲生妈妈的爱，但我同样生活的很快乐很满足，许是我知道有些东西不能奢求太多，我就真的很容易心满意足，一切都看得很开。记得初三临近中考，外婆病重去世，当时在学校寝室听到这个消息，我痛哭了一场。向班主任请假后，回家参加外婆葬礼，这时好像很坦然，仿佛世间与我无关，不悲不喜。回到学校后，同学们知道我亲人过世，看到我回来还有说有笑，便问道，你外婆都过世了，你怎么还笑得出来，我没有回答。</p>
+<p>现在同样特立独行，但也会掩盖锋芒，人是个复杂的动物，我无法对自己进行完全解剖。左岸记：一个我，所在的世界，就是无数个平常心，无数个我，风情万种，与世无争。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

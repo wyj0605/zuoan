@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即便身在生活，仍要做理想的卧底</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>即便身在生活，仍要做理想的卧底</h1>
+            <div class="date">2026-02-11 14:00:51</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜唱着“自己的歌”的朴树，在我心里一直是属于夏天的。《那些花儿》刚出的时候，我还在读初中，估计是审美感没养成，居然喜欢《自从有了你》更甚于它。后来想，那时候还是阅历不够，就像置身于唐诗宋词这些经典之中，依然被《狼的诱惑》感动得稀里哗啦不能自拔，没有办法，年少浅显、知识淡薄严重制约了欣赏水平。而朴树，是需要静下心来好好听的。那个忧郁清朗的白衣少年的心事，岂是你囫囵听过就能懂得？</p>
+<p>毕竟，他做音乐的时候，用尽力气，花光心思，认真得可怕。为了一个音纠结几个月，因拒绝假唱差点不上春晚舞台，唱《送别》唱得泣不成声，四十多岁还能写出《清白之年》这种歌……还有，在演唱会上说自己唱得烂，不好意思要再唱一次的人，除了朴树，我再没听过其他谁了。我喜欢朴树的时候，是在去往大学的火车上。那是我十八年来第一次离开家乡去一个陌生的地方读书，却没有因为得到自由而有一丝高兴，反而充满忐忑。火车缓缓启动时，我坐在车里，看见站台上的好朋友在夕阳里边挥手边抹泪，直到穿着黑色裙子的她变成一个小黑点，我才回头坐定，心塞异常。</p>
+<p>那个时候，才明白渐行渐远是一种必然。漫长的旅程插上耳机时刚好是那首《那些花儿》，“他们都老了吧，他们在哪里呀？我们就这样各自奔天涯……”朴树唱歌没有声嘶力竭，却依然撼动人心。在这之后，他的歌陪伴了我们班所有同学整个大学时代，毕业视频配乐就是《那些花儿》。就音乐来说，在技能与情感两者中取舍时，后者会更得人心。</p>
+<p>也因此，很少有人会纠结朴树那一般般的唱功。朴树最出众的特质大概就是他的少年感，站在台上抱着吉他素朴的他，因为缺少烟火气而平添许多少年感。从1996年签约麦田，1999年出第一张专辑到2019年，二十年的时间，朴树出了三张专辑，一共二十多首歌，确实挺少的，但没有哪一首不好。有人评价，朴树的歌唱尽生命与自由，是许多人得不到又无比渴望的人生，认真听来涤荡心灵。朴树这个人，纯粹质朴，简单干净，虽然总被这个世界缴械，又天真地想负隅顽抗，真是令人欢喜。</p>
+<p>人如其歌，大概也因此，无论朴树从娱乐圈消失多久，回来时总是会被大家捧在掌心里爱。一直都相信，无论多复杂的人都很难抗拒纯粹简单的魔力。因为你知道不用与他斗智斗勇、猜来猜去，使出十八般武艺维持人际交往关系，在他面前，你甚至不好意思挪用普世套路。朴树便是这样。他的坦率与真实，不会因为镜头而改变。</p>
+<p>《跨界歌王》的时候，他是帮唱嘉宾，和王珞丹一起唱《清白之年》，那算是他从公众视野消失十年后的第一次回归。他挂着吉他出现时，全场掌声雷鸣，唱完之后，观众都在喊朴树的名字。主持人问他为什么来参加这个节目，他笑着说：“缺钱了，需要这份工作。”这种耿直弄得大家啼笑皆非。主持人想救场，又问他：“为什么选择这首歌？</p>
+<p>有什么特殊意义吗？”他呆了半天，木木地笑着说：“就是我的经纪人想把它作为主打歌推出去。”满场尴尬，但他却一脸天真。还记得有一次高晓松在《奇葩大会》里谈到，当年自己落魄的时候，向朴树借钱，朴树没问原因爽快地回了两个字：账号。没过多久，朴树淡出娱乐圈，给高晓松发短信，还是两个字：还钱，这种不绕弯子的朋友，真是又单纯又可爱。</p>
+<p>朴树不怕缺钱不怕老，倒害怕失去勇气。鲁豫采访他时，他摸着自己的狗小象说：“小象不爱表达，容易焦虑，不自信，跟我很像。”鲁豫问他：“怕老吗？”他说：“我不怕变老，我只是怕失去勇气。”想起许多人，二十多岁的年纪，就害怕自己不能安稳度日。</p>
+<p>到四十岁时，脑袋里多半塞满愤懑与抱怨，很少会在意勇气这件事情了。我想也许他在意的勇气就是他之所以还有少年感的一个原因。正是这样的勇气，让他沉寂许久，再次回归创作的《平凡之路》在微博上仅用了7个小时便打破了汪峰2013年创下的百万试听记录。也正是这样的勇气，让他毫不犹豫接下侯孝贤导演的《聂隐娘》配乐，只因为他欣赏侯孝贤的工作态度，即便他确实缺钱还是拒绝了商演，接了这个明知不会有丰厚报酬的工作。但你能说他没有赚钱的能力吗？</p>
+<p>他不过是不忘初心，有自己的底线而已。莫失莫忘那些生如夏花的年岁，后来即便身在生活，仍想做理想的卧底。这大概就是少年感的魅力。知乎上这样评价朴树的歌：那些安静地坐在办公室里的人们，那些在厨房为三岁的女儿调辅食的人们，那些在陌生的机场等着延误航班的人们，那些悄悄走到阳台偷偷点起一根烟的人们，会在副歌响起的刹那回到自己人生中最无畏的年华。他们停下了手边的事情，望着窗外的阳光或者雨滴。</p>
+<p>想起一个人的温柔和背叛，想起一个梦想的升起和破碎，想起至今自己最万众瞩目的那一刻。等到一切尘埃落定之后，希望你再听朴树的时候，会有会心一笑的瞬间。我不过是想说，亲爱的，等遍所有绿灯，还是要自己疯一下要紧。左岸记：朴树说：“即使全世界都变得丧心病狂，全世界都去抢银行，我也不会像他们一样，一如既往。”无论歌迷、媒体人、圈内人，几乎所有人都爱他，甚至心疼他，因为他有种干净的特质。</p>
+<p>他低调、内敛，却又纯真、诚恳，有自己坚持的个性，却从不让人觉得讨厌，反而更喜欢。朴树对音乐和他的为人一样有坚持、有态度，有着敬畏与严肃，他说：“音乐比我的生命还重要！”而这样一个美丽善良而又有才华的大孩子，怎叫我们不喜欢呢？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

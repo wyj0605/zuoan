@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浪迹天之涯海之角</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>浪迹天之涯海之角</h1>
+            <div class="date">2026-02-11 14:00:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/行吟者孤身一人，怀着一颗孤独的心，行走在苍茫的小路上，就这样一天一天地走下去，一直走到天的尽头，那是水天相接的地方，再也没有路了。就像马致远说的“夕阳西下，断肠人在天涯”一样。梦里，我曾有过这样的经历。为了享受这份孤独，恰有机会在参加一个企业文化论坛之后去领略海南岛风情，走进了三亚这片海湾，用心灵去触摸天涯，触摸海角。站在那几块光秃秃的大石头下向南望去，茫茫的大海上，有几只海鸥正无声地飞翔，我的心，就像这浩瀚无垠的大海一样，显得无限落寞和空旷。</p>
+<p>这就是三亚，中国最南边的城市、古时的崖州，一个在内陆人看来十分遥远和荒蛮的海岛，古代人要坐着马车，乘着海船，长行多少天才能到达的地方。可是，今天，坐在飞机上喝着咖啡，低头在舷窗上看着云海，无论从祖国的那个方向，几个小时就能飞到这里。是现代化的科学技术，缩短了人与天涯的距离。有人说，“天涯”和“海角”这两组字是苏东坡被贬到海南岛时写上去的，但我查遍了古籍才证实，“天涯”两个字，乃是清代雍正年间崖州知州程哲所书，而“海角”两个字，则不知出自何人之手了。不过由此想到，古代的海南岛，是一个十分偏远荒凉的所在，因此，帝王们常常把那些他不喜欢的官员或罪臣贬到这里。</p>
+<p>有文献记载的，除了苏东坡之外，还有唐宋时期的李德裕、李纲、赵鼎、胡铨、李光五位名臣被贬到海南。这五位名臣可都是有老百姓口碑的，而且死后又都被封为“公”的，因此，在海口，还留下了一座“五公祠”，让这些先哲们的一缕忠魂留在海南。另外，还有许多不知名的内地官员，也曾被贬到这里来陪伴先贤的幽魂和品尝偏远，品尝孤独。我想，正是这些被贬的文人，才能写下“天涯”和“海角”如此苍凉的字句，而正是这几个苍凉的字，才浸透了他们苍凉悲怆的心情，才引起了旅人孤寂的共鸣。如果再认真翻检一下史书，我们还会发现，这些被贬的古人，几乎都遭遇过朝廷中十分残酷的尔夷我诈的党争和迫害。</p>
+<p>在封建专制、忠奸不分的时代，恐怕只有“天涯”，只有“海角”才能远离政治的旋涡，给那些心灵受伤的人一点精神的喘息。说不上是出于对古代贤人的怀念还是别的什么，在天涯海角那几块大石头周围，我转了一圈又一圈。四周游人熙熙攘攘，都是陌生的面孔，只有古人留下的字与我相知： 有时候遇到不顺，真的想逃到一处谁也不认识我的地方； &lt;br&gt;陷入世事不能自拔时，天涯也许是你解脱的港湾； &lt;br&gt;厌倦了市井的丑陋，孤独就是一种最奢侈的享受。当我坐在沙滩上，看那海面上飞翔的海鸥，就羡慕起可以自由飞翔的小鸟，可以到它想去的任何地方。回头再端详那些大石头，只见它们光秃秃的，没有了一点凌角，是经多了海水的潮起潮落，看多了昼夜的斗转星移，见多了人间的悲欢离合，尝多了世上的苦辣酸甜吧。</p>
+<p>踟躇在斜阳下，望着那些光滑的非几何形状的大石头，感觉它们好像是有人故意摆在那里的一样。突然，游人们有些骚动，张目望去，是一对新人出现了。只见那新娘子穿着红色的结婚礼服，新郎穿着西装，手挽着手地，走向“天涯”，走向“海角”。摄影师跟着他们，把新人们的笑脸留下来，保存在光蝶中，定格在相册里。新人的亲朋好友们，则向让路的游人们撒着糖果，换来的是不相识的游人拍手对新人的祝福。</p>
+<p>人们告诉我，每年，都会有无数对新人从远方赶到三亚，在这片海滩上，在这几块大石头下举行一次别样的新婚仪式，作为人生的永久纪念。它象征着，天涯海角，海枯石烂心不变。细问一下当地人才知道，原来，这出自一则美丽的传说： 人们说，“天涯”、“海角”两块大石本是一对痴情男女所变。传说，古时内地有一男一女，自小青梅竹马，相亲相爱，长大后立下盟誓：生不能结为夫妻，死后即使变成石头也要并肩相立。谁知双方父母不许他们结成良缘，另择婚配。</p>
+<p>两人无奈，携手私奔，一直逃到海边。这时，追赶的家丁跟踪而至。面对浩瀚无垠波涛汹涌的南海，年轻恋人无处可逃，只好紧紧拥抱，双双投海。一帮家丁横冲过来分开了他们，此时风雨大作电闪雷鸣，两人立刻变成一对大石头，那些家丁也变成了他们中间的小石头。后人为纪念他们，就在两块大石头上刻下了“天涯”和“海角”四个字。</p>
+<p>再后来，男女相恋就常以“天涯海角永远相随”来表明自己的心迹了。如今，当我回到家中，回忆起天涯之旅，那些长着宽大叶片的椰子树、棕榈树和芭蕉树，以及蓝天大海常常会淡忘下去，而那几块光秃秃的大石头却始终在我心中挥之不去。它们就像一个抽象的符号，抽象得只剩下一缕幽魂。可这幽魂却是震撼人心的。左岸记：思之深，行之远！</p>
+<p>天涯海角有人生尽头之意，在有情人的心中，就有“愿得一人心，白首不相离”的祝愿。要是再加上天涯海角是古代官吏流放之地的寓意，就更说明了人之一生总是要经历种种坎坷风雨，需要有情人携手相知，同舟共济。作者：马庸，(网名:行吟者、瑙玛、白头翁) 自号：华城居士，土家族人。工作40年，八小时之外，三五之夜，清灯一盏，埋首书城，弄墨填格，只问耕耘，然几载风、数载雨，也小有收获：撰写创作各类体裁文章4000余篇约800万字，陆续在国家、省、市级报刊发表文章1800篇（次），出版120万字《蓝色记忆》专著一部，原创诗歌200篇收入《当代诗人词家作品汇编》一书。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

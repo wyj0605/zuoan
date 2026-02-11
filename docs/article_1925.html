@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>认识人的5个方法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>认识人的5个方法</h1>
+            <div class="date">2026-02-11 14:00:14</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/豆蔻rainy在认识人的道路上，总有很长的路要走。以下是最近一些心得：1.相信你的第一印象感性认识虽然是认识的最低阶层，没有深入到事物的本质，但感性认识之中也蕴含着理性判断。相信你的第一直觉，人与人的气场之间总有微妙的化学反应，许多时候第一印象就是最准确的。除非对方做出了出乎你意料之外的举动，该举动足以让你改变判断，否则，别轻易改变看法。这样做，看似有些武断，但却有一定道理。</p>
+<p>科学研究表明，第一印象往往难以改变。这是因为人依靠第一印象的判断往往是最简单有效的。重点不在于简单，而在于有效。人的经验随着阅历的增加而丰富，第一判断力也相应变得更准确。2.重视人们对成长环境的反应人们总会不自觉地靠近成长环境相似的人，总以为自己和对方有更多共同的特征。</p>
+<p>非也，环境虽然可以影响人，但人却可以发挥主观能动性适当降低环境对自身的影响，意志力超强的人甚至可以主动挑选环境，有意识地接近或远离特定环境。出生于相似环境的人追求着相似的目标，看似表现相同，但内在目的很可能千差万别，日常行为规范也可能正相反。这是因为，人们对环境的适应性不同造成的。这启发我们，在与人交往过程中，除了要看对方的客观环境，还要看主体对于环境的反应。环境可以作为评价指标，更重要的还是人们对于环境的态度与反思，行为与方法。</p>
+<p>3.分析你的调查结果伟人有语，"没有调查就没有发言权"。我们对调查这一方法的重视程度应该拔高到一个相当高的地位。许多时候，我们明明已经观察到对方的一些奇怪现象，为何照样视而不见? 明明已经听到周围人对他的评价，为何照样充耳不闻? 这说明，除了调查，我们更应该重视对调查结果的综合分析。噪音会干扰判断，静下心来，整理一下思路，我们会得到正确答案。4.善用界限正如同外貌理论中的一白遮百丑，人与人之间的界限感就像一层神秘的面纱，遮住人的本来世界。</p>
+<p>注重界限感，不仅可以避免不必要的危险与麻烦，更是对周围环境的小心试探。人们通过界限感由浅入深地呈现自己，也通过界限感识别那些控制欲超强，喜欢侵犯他人个人领地的无心法师。5.言语与行为听其言，观其行。从某种程度上来说，言语，本身就是一种行为。当我们把言语也算作行为的范畴，那么从行为的对比上，可以发现人物的习惯与性格。</p>
+<p>例如，不管三七二十一，口中就激情澎湃的人，大概率同时也是三分钟热度的人。有些人因为能力超强成为焦点人物，有些人只是因为爱慕虚荣主动站在聚光灯下。区别就在于，能人通过正能量来传递光辉，假货则通过散布负面消息哗众取宠。总结: 心稳的人，大多静水深流。人物性格往往存在于细节中，隐藏在习惯里。</p>
+<p>重视对小事的观察，对结果的分析。人生幸福和社交关系有着千丝万缕的联系。在选择同伴、伙伴、室友时，慎重一些，莫着急，莫着急。左岸记：认识一个人，当以开放心态和动态的评价相结合。开放的心态是为了避免我们只以自己的眼光去看待一个人，避免以自己的好恶，自己的偏见误会人；动态评价是因为我们不可能一下就完全认识一个人，而且随着时间和环境的变化，人往往会做出前后矛盾，让你人设崩塌的事来；还有的人城府极深、八面玲珑，你哪里能一下子就说你真的就看清他了？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

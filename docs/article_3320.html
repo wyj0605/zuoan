@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2019，我们会不会变得不一样</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>2019，我们会不会变得不一样</h1>
+            <div class="date">2026-02-11 14:16:03</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜 2019年1月1日，万里无云的晴日，总会给人以希望，大家都在朋友圈说往事清零，诸事顺利，希望如此。但又不仅仅如此，希望我们会变得不一样，在生活被动改变之前，主动改变生活状态。回想过去说过的新年愿望，各种各样，缤纷多彩。希望中考顺利，高考顺利，研究生过关，希望越来越美，越来越瘦，具体而微的着眼点，让愿望变得颇为功利，感恩这些愿望总有实现的一些，尽管有的是永远实现不了了。后来，在经历过一些离别之后，愿望也变得朴实，希望我喜欢的人平安顺意，每一年每一个节日的愿望不过如此。</p>
+<p>可好像忘了，应该给自己许一个愿望，希望我会变得不一样。保持初心固然是好，但不意味着在变换的环境中固执坚守被撕碎的旧习惯。希望我们会变得不一样，比过去勇敢、努力、相信自己，坦诚待人。就在2018年的最后一天，一位同学还在电话里焦急的期盼会出现一个人，帮助她结束单身的生活。不过，她的理由却让人哭笑不得，不想孤独终老，所以需要一个孩子帮她完整人生，不想谈恋爱，只要快速进入婚姻。</p>
+<p>尽管她说的头头是道，但却很难让人认同，不论什么时候，我们总该抱着对生活负责任的态度。岁月的确催人老，皱纹是代价，但成熟是回馈，我们在成长的过程中，总会变得越来越了解自己，了解生活，知道一拍即合本就是幻想，又何必执着?需要别人来完整生命，那我们自己也该有能力和情分来完整别人的生命，这是互相帮助的结果。即使孤独终老可怕，但轻如尘的生命，也许当下掂量起来，沉甸甸的压制生长，不过最终回首，亦不过是轻飘飘的，三毛不是说过?谁不是孤独的生，孤独的死呢?有谁能逃过与生俱来的孤独?就在上个星期六，我还被人说，唯唯诺诺，一点都不大方。尽管我并不认同这样的评价，但不得不承认，我好像并不是一个干脆利索的人，遇到所有的事情，都会尽力往后躲避。就好像朋友说的，我有一个坚硬的透明保护壳，看起来很好相处，但却很难被人了解，她说的是心门无法完全敞开。</p>
+<p>我起初是抵死不认的，觉得自己完全拥有与年龄相符的各方面的生活智慧，直到工作之后，真的跟人交往，才发现，这方面的知识和经验，少的可怜。语言表达能力的滞后让我在许多场合与情景中，尴尬且丧失信心，不晓得说些什么，怎么开始，如何结束，极度不安。生活里，我希望遇到完全互补的人，至少他的表达能力没有问题，可是又害怕遇到伶牙俐齿的人，如果他一旦过分伶俐，我便更加无所适从。想起原来在大学读过的课程，有一位和善可爱，善于演讲的男老师，总是喜欢在课堂上训练学生们的胆量，要求我们站在讲台前，发表演讲，那时候从第一个人上台，我就开始紧张，直到自己糊里糊涂说完下台，也不知道自己说过些什么。毫无例外，我每次打好的演讲草稿在站到台上之后，不论之前背的多么滚瓜烂熟，都会迅速忘记。</p>
+<p>那个学期没有想象中那么慢，竟然很快过去，我甚至觉得应该再多上几堂这样的课程，虽然于我来说，懊恼多过愉快，但不论怎样，这样被人逼着在众目睽睽之下改变自己的时刻，以后再是难以遇见的了。那时候我心里认定，自己是不能当记者的，因为表达能力的欠缺。可我也不明白自己，为何觉得老师会比较适合我，以至于有跨专业考教育学研究生的想法，并且一本一本啃完专业书，一节一节听完北师大的所有名师课程，然后进入教育科学学院，遇到博学且时髦的导师，和许多很有想法有意思的同学。那个时候，我对未来非常迷茫，去大学只够辅导员的职业要求，去中学又害怕如山重的课程任务和放肆无畏的孩子们，我一直在想是继续还是放弃，可生活里突如其来的变故完全让人无措，我连应对和调整状态接受的能力都没有，遑论其他建设生活的理想。后来，我还是做了记者，唯一意外的是，没有想象中那么可怕的不能适应，相反因为这个职业，让我遇见许许多多的人，不同的生存状态，很多以为过不下去的生活，都还在尽力维持着。</p>
+<p>我见过裹着绿头巾的老太太，和患有神经病的儿子住在半塌陷的房子里半辈子，当移民搬迁安置给了她一套新房子之后，她不无担忧又满怀感激。看到许多住在大山深处的留守儿童，小小年纪便学会一切生活技能，家庭破碎依然求知若渴，总记得那个小姑娘说自己是石缝里的草，想要顽强生长。放假之前，还去采访过一位善良妈妈，收养脑瘫弃婴十几年，把孩子养的白白胖胖，采访全程，她都乐观开怀，笑靥如花。遇见独自居住的留守老人，热心于村里的公益事业，在自家隔壁办起图书室，想尽办法从各地募捐各类书籍，尽管书上落满灰尘，老人依旧目光虔诚。见过博学且亲切的男神级偶像，记得他很真诚的告诉过我，不论何时，总该有自己的坚持和原则，需要有不被外界左右和干扰的决心。</p>
+<p>还有双手残疾却依然坚持靠自己的脱贫代表，说起乡亲们便热泪盈眶的中国好人……曾经我以为，我们其实生活在同一个纬度的世界里，其实不然，每个人都有他们的世界，不被外人理解的价值体系。有很多时候，我都觉得，每一次采访，就是在上一堂生动的生活课程，撑不下去的时候，便会感激有这样的机会去认识一些我不曾见过的人，看看他们是怎么熬过生活里的苦，还能满怀感恩之情，期盼未来的日子。2019年的第一天，当我想起曾经遇到的这些人，和自己曾经走过的路，突然觉得安心，这样一路战战兢兢又勇敢坚强的走来，虽然还没有过上想要的生活，但沿途风景总归没有错过。想来，我是该有自己的坚持，但又不能过和过去完全一样的生活，不论多么恐惧改变，总是要去改变。变得无畏且坚韧，拥有足以抵抗所有旧习惯的勇气，活的丰盛，即便不能多彩，也有足够的耐心和能力接受平淡。</p>
+<p>左岸记： 感谢“奶茶”带给我们的新年力量，一路风雨一路歌，真的很不容易，非常棒。我也想把这份力量和祝福分享给“南南有北” ，愿她在新的一年事事顺意。2018再见再也不见 文/南南有北 2018年的最后一天好像是特别的一天也好像只是其中再平常不过的一天，感谢这个法定假让我能安静下来回忆一下我这倒霉的一年。就在前天驾照科三考砸了，我开始变得平静，因为我知道在练车的这段日子我有些心急，很想年前一举拿下这个证。后面我送给自己一句话，欲速则不达。</p>
+<p>往前推这一年我都觉得这是一个不堪的一年。年初二月二十二日从老家回到上班所在地的家，吃过午饭坐在沙发上无聊，突然摸到脖子左侧有一个不明凸起的地方，不痒不痛。当时心里很恐慌，担心自己得了什么大病，我立马告诉了老公，下午我们就去了医院检查，还好在医生一再不厌其烦的确认下，得知这不是什么大问题，良性甲状腺肿瘤 。很多中年妇女都会得的病。心里的石头稍稍落地。</p>
+<p>第二天去做了一个小手术，因为在检查出甲状腺肿瘤之前，身上的一个外部肉瘤严重发炎，医生告知要手术摘除，于是就在这恐惧和麻木中走进了手术室。手术后我并没有休息几天就开学了，还因为开学后忙于自己的事情没有及时换药还遭到医生的嫌弃（医生规定三天换一次药，而我第六天才有空去换药）。做了三年的辅导班在这个时候因为学校的危房改造项目另开了校门而生意大不如从前，可是怎么办?既然人少了那我就又开始抄起刚过笔试的教师资格证面试吧，我想我不能既挣不到钱又没有别的收获啊。辅导的间隙开始做起了面试备考，因为我只在学校带过英语而且所带班级都取得了不错的成绩，所以我在没有查阅任何资料和听取过来人的意见的情况下就报了英语。真的是印证了那句无知者无畏的话，口语并不是我的强项，可是我还一个劲的练习写教案，结果可想而知。</p>
+<p>时间晃晃悠悠就到了暑假，老公提议他毕业十年想回海南母校看看，这也曾是毕业时的他的恩师提出的一个希望，于是我做完暑期辅导就一家三口飞往海南。因为回来误了机，我对这趟他安排的旅行失望透顶，而且飞到南昌还赶上了一辆晚点257分钟的火车。机场等一天火车站熬一夜终于回到家 。九月初迟迟不来的大姨妈又开始让我焦虑上了，后来的B超单确认了我担忧的结果。因为从海南回来时的误机和火车晚点，我的心情遭到了极点，为此乳腺增生痛也随之而来，我回来之后开始服用活血化瘀的的药。</p>
+<p>一想到这突如其来的孩子和我吃下的药，后面再三思考风险和老公商量决定流掉孩子，九月八日我怀着忐忑的心战战兢兢的走进了手术室做了人工流产。流产后休息了十天我就开始上班去了，这十天很感谢我的姐妹们，帮我做饭，特地从九江赶回来看我，能有这样的朋友真的很难得。九月底孩子爸辞掉了这里的工作，十月十日离开家去了新公司上班，家务和孩子还有我自己的工作全部由我自己的来操持。之前有不理解有埋怨有不同意，可是有什么意义，别人的人生我们怎么能做主，我是一个喜欢成全别人的人，那就这样吧，接着陀螺般的转过每一天！希望这场酝酿了一个冬天从前天晚上开始降下的大雪能覆盖我2018遭受的所有的痛和不快乐，然后待到太阳高照时一起融化成养料浸进我的心田，滋养我往后余生……</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

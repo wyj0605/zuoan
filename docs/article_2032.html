@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们也不过是坚持活下来了</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我们也不过是坚持活下来了</h1>
+            <div class="date">2026-02-11 14:00:26</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德鲁伊前几天和一个玩古董的朋友聊，说起古董。他说，绝大多数的古董谈不上多么厉害，只是坚持着“活下来”了。这个和之前一个行业老大说，异曲同工，不是他有多么强，而是别人死了，他坚持活着。当下，大多数人就活在“我真的想死了算了”和“不香吗”中反反复复、无缝跳转。或许，正如人所说，不是你多么的想死，只是你对你现在这样的方式活着感到绝望；另一方面，或许你也不是感觉“真香”，而是你总还是靠着自己的努力，换了点美食娱乐，也算物有所值。</p>
+<p>今年到处谈论的话题都是“活下去”，在过去，降低些要求，满足感会强烈些，很多人也擅于运用此招。这东西不能算知足常乐，最多属于增加小激励或是设置安慰奖系列。但到了今年，不是降低要求那么简单了，是属于底线管理了，“活着”“活下去”。“坚持活着”，听着就很沉重的样子。越现实，越沉重。</p>
+<p>放眼望去，倒下的一片片，能苟延残喘的，也多半病恹恹的。都属于，不需您动手，我先躺下为敬的主儿。这虽然称不上最危险的时刻，真最危险了，你还可能狗急跳墙，拼死一搏呢。但周遭的气氛，像是腐烂而邪恶的泥沼，氧气越来越少、味道越来越恶心，气还喘不上来了。近些日子和很多阶层的人聊，学了不少，毕竟很多东西，你知道了反而不慌了。</p>
+<p>奇妙的是，虽然大家都哀声一片，但齐刷刷的，没谁轻易放弃。虽然嘴上唱衰，但脾气尚好、情绪稳定，或许中国人的强项就在这，天下太平的时候嘴炮功夫一流、指点针砭，环境真险恶了，倒显得轻松，心境平和，大不了死一回的感觉。现代人的焦虑是原罪型的，不焦虑几乎不可能。未来和现在一样，你会焦虑，比现在差你会焦虑，比现在好你同样焦虑，因为你要看别人是否更好。我曾经开玩笑说，我在组织静心训练营的时候，大家都是安静的，没那么焦虑。</p>
+<p>等我不忙活这种事儿了，大家却几乎一窝蜂的满世界静心冥想。懂得安静的力量，或许是一种进步。因为毕竟我们面对的是以“快”以“抖”为潮流的世界。起名是个学问，这个“抖”字，嘚瑟的抖腿，过电的抖动，也像极了食堂大妈打菜的抖，让你一方面佩服技艺，一方面想笑出声来。至于“快”，魔术无他就是手快，天下武功唯快不破，才艺那是杠杠的，这就是“快”。</p>
+<p>在一个既高速又抖抖索索的时代。过去讲，坚持是一种美德，你现在连一篇公众号的文章都难以坚持看完，追个网剧都是倍速体验。你急于结束，却怯于开始。你可以超前点播，不是因为剧集多么吸引你，只是你急着想看到结局。你却难于开始任何一件新事物，你既怕被时代淘汰，又怕被潮流湮没。</p>
+<p>坚持有时候是可耻的，因为潮流变了；努力有时候是可悲的，毕竟这个世界不是游戏，努力了充钱了，你就铁定成就感十足。安静下来，你才能寻找到与参照物的距离、速度差、加速度差、方向。锚定自我，认知也会逐渐真实而有效。不管是快还是抖，人类已经习惯于剧情翻转，于是事物也在进行中扑朔迷离。偶尔，安静的等待，等“快”的慢下来可以稳当，等“抖”停止下来可以看清。</p>
+<p>安静的时候消耗小一些，活得久一些。既然坚持活着是主题，那安静就尤为重要了。积攒一些能量，沉淀一些想法，锻炼一些记忆，沉好一口气，想来怎么着，挣扎都永远不是人生的主题。我喜欢实事求是的说法，我更喜欢紧跟之后的词儿：“变通求实”。活着是必须的事情时，安静而愉悦的活着，岂不更好？</p>
+<p>你每一次说实在活不下去了，之后又活了这么年，有比那一天更好的日子，也有更差的日子，于是坚持活着，其实也就是好好活着。真希望有那么一天，自己也可以轻描淡写、云淡风轻的说一句：我们也不过是坚持活下来了。左岸记：古董的价值就是时间积累的价值，这个时间之上所承载的知识积累多了就成了文化，因为在这个积累的过程中，很多器物都消失了，“活”下来的就弥足珍贵。当下的主题就是“活着”“活下去”，然后再寻找突破。我们都有怎么渡过难关的经验，首先就是要减少消耗，苦练内功，实事求是，不急不躁。</p>
+<p>知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

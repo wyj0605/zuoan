@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钟小姐，我有句话同哩讲</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>钟小姐，我有句话同哩讲</h1>
+            <div class="date">2026-02-11 14:17:17</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/许三分 阿贤是工人几个里面唯一一个识字的，念得出对联也看得懂商标，有时甚至有人找他写几句话寄回老家。但其实阿贤也是农田里长大的娃，只是父母望子成龙，年幼时占着跟教书先生有些许亲戚关系，在学堂蹭了几年书，还为此取了个“张向贤”的读书名。几年后，家里还是给不起笔墨钱，终于不了了之。一俩年前，一个要好的工友问要不要出去闯闯。阿贤想着外面赚钱快，打了几年工也攒够了路费，就跟着一块来到了上海。</p>
+<p>阿贤在上海是在一家米铺打工。米来了阿贤和伙计一块搬搬抬抬，铺里不忙的时候，就蹲在门口，抽抽烟和工友吹下水，看着街上人来人往。打工的米铺在一条不算热闹的街，但是拐个弯出去不远就是更繁华的大街。不单单有各种高档的商铺高楼，而且还能看到不少外鬼佬。这一切对阿贤来说是何尝新鲜。</p>
+<p>只是不久以后，阿贤的眼光很快就被另一样东西所吸引---------每天路过的钟小姐。钟小姐就住在米铺附近，所以经常来光顾。工作日，她每天都要路过。钟小姐看起来非常年轻，也就二十来岁。一看就知道单身，因为偶尔才买一次米，每次买的呢，又不多，显然是一个人住。</p>
+<p>但是她每次都挑最上等的米，再买点粗粮混着，看样子是很会养生的人。每次进米铺，伙计都招呼她声“钟小姐”。每次听到伙计这样喊时，阿贤都觉得好好听的称呼，阿贤也想有人正正经经得喊自己一声“张先生”。没有的话至少，像在学堂一样，被叫做“向贤”。虽然文化水平并不高，但阿贤却实实在在的想念在学堂的日子。</p>
+<p>想念那个星空下的夜晚，阿贤捧着书在家门前一句一句的念着。秋季的风带着丝丝凉意在齐人高的麦田里掀起阵阵麦浪，在这样的夜空下，阿贤的读书声，跟着秋风，跟着麦香，欢呼着飘向远方。喏，钟小姐又出门了。每天一早，钟小姐都会从小巷出来，路过米铺，穿过这条街去上班。她画着淡淡的妆，烫着时髦的卷发，身穿白衬衫和过膝的裙，脚上的高跟鞋，一路嘎吱嘎吱的响。</p>
+<p>微风吹过鬓发和细软的纱裙，那画面，比方才的朝阳还美。虽然来到上海大都市时髦漂亮的女孩子看了不少，一块做活的伙计也并没有人觉得钟小姐漂亮。但阿贤觉得就是钟小姐不一样。她没有上海摩登姑娘的身上浓浓的香水味，更没有乡下姑娘身上的乡土气，钟小姐是......要一定找个比喻，那得是那股成熟了的麦香味吧。那种让人看到希望感受到喜悦的味道。</p>
+<p>呀，比喻成麦穗，钟小姐会不会不高兴呢。不过，今天钟小姐穿着这黄色纱裙，倒真的很像麦穗，纱裙上印着细细的小黄花，它在阳光下的背影随着步伐轻轻抖动，就像风吹过的麦浪，很是好看。“早晨，钟小姐，又去翻工啊？”“是啊，早晨。”“哩今日候靓啊”“系么，多谢。</p>
+<p>”掐好钟小姐经过的这点功夫，阿贤匆匆地和她打了声招呼。而钟小姐抬头看过来，又向阿贤点点头，说到气色好，钟小姐微微笑了，又踩着不急不慢的脚步走远了。自从得知钟小姐祖籍广东，阿贤几乎每天都要用粤语和钟小姐打声招呼，偶尔钟小姐都会停下来多说上几句话。阿贤很高兴这样的交谈，似乎每一天因为聊上的这么一俩句话，而变得有滋有味。而钟小姐也形容和阿贤讲话“好似同企人倾计”，乐得跟这有趣的老乡叨叨。</p>
+<p>乡下人的生活是围着农田转的，而阿贤的生活是围着钟小姐转的。盼着钟小姐从巷子的那头出现，就好像守田人盼着麦苗拔出麦穗。乡下人是算着季节过日子的，阿贤也不例外。过几天就是立秋了，阿贤数着日子猜想家里应该在忙着收麦了。都好久没有见到家里人了，但是阿贤现在没有时间想这些了。</p>
+<p>前些日子上街遇到个老乡，之前在码头帮工，后来出海做了些买卖赚了点钱，问阿贤要不要跟着一块做。经过一番考虑，阿贤觉得这是个机会，便应下来了。回来辞了工，简单收拾了下行李，后天一清早就可以出发。只是，以后就不能经常见到钟小姐了。阿贤觉得，应该去告别一下，老乡一场，打声招呼也是应该的。</p>
+<p>阿贤清楚钟小姐的住处，不远处那栋不新不旧的房子里的顶楼。阿贤走过去看了一眼，灯亮着，看来钟小姐在家。可是，走到楼下，阿贤又犹豫了起来。明早不就可以看见了吗，这样特地跑过去，会不会不太好，而且，已经是晚上了。阿贤想想还是算了，明早再说，恩，对。</p>
+<p>这样想着他转过身子走回去。呀，不好，米店那边已经辞了工，明早是看不见钟小姐的了，特地跑去路边等她路过，不是更不好。不可不可，要不明天再上门。明天钟小姐要上班的吧，明晚再来。可是明晚过来跟现在有什么区别呢。</p>
+<p>阿贤在楼下犹豫着纠结着，来回不停地走。时间一点又一点地过去。越是拖延，越是不好上门拜访，就越是纠结。终于，阿贤立下横心，硬上头皮上楼。不偏不巧，迎头碰上了刚好出门的钟小姐！</p>
+<p>“阿贤，甘啱嘅。”“钟小姐。”一时间，阿贤的身体仿佛打了个冷颤一般，一瞬间僵硬起来，心像是要跳出来一样，卡在嗓子眼里堵得他一句话都说不出来。只能呆呆得望着，望着她那双正看着自己的眼。她的眼睛真好看，像一片湖，蓝的发黑，还闪着星星，嗷，不，那是一片星空，璀璨的星星闪耀在黑夜里。</p>
+<p>一闪一闪的星星，全都照进阿贤的眼里，投射到那片已经翻滚数千次的麦浪里。“钟小姐，我有句话同哩讲”“在哩嘅名同埋姓氏之间加多个意字” 左岸记： 去憋大招吧，赢得别人尊重就是要让自己有足够的自信站到喜欢的人面前。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

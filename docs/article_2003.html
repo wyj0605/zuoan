@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一切都是最好的安排</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>一切都是最好的安排</h1>
+            <div class="date">2026-02-11 14:00:22</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/无为今天一整天的心情跌宕起伏。这一切源于早上醒来，左岸昨夜加了我的微信，我猜测这有可能是要发表我昨天投稿的那篇文章。然后我就开始期待左岸读书的更新，就像一个没长大的孩子，在等待远行的爸爸给她的礼物。还没等到左岸读书的更新，先等来了左岸的微信，告诉我今天发表了我的文章而且还表扬了我。当时我故作镇定，说了谢谢，多提意见之类的客套话。</p>
+<p>就在我一个人开车去工作的路上，发现文章更新了，不由得开心尖叫了起来。那是一种无法表述的喜悦。我非常热爱读书，就是那种三天不读书，景无出处心无路的人，而且我还喜欢写读后感，可是真正投稿却只有两次，这是第二次，所以能在左岸读书上发表文章是一件令我可以开心很久的事情，毕竟左岸读书是一个一直致力于美好的阅读体验，精选优秀的文章，又非常平和的一个平台。开心的事情要跟真正爱你的人分享，我就想将这件事告诉我的家人，但在分享前我又想起了最近的两件事。第一件事情是一个素未蒙面的人经过领导的推荐找到了我，这位素未蒙面的朋友接手了一个项目却无法独立完成，找到了我领导，领导将我推荐给了他。</p>
+<p>项目的接手给我挣了一年的生活费，这是工作的附属品。真正令我开心的是，这么多年的认真工作没白费，原来领导私底下早就认可了我，这才是令我真正开心的原因。第二件事是项目开始后，我开始联系常合作的朋友互惠共赢，结果竟然是真正的共赢。朋友的项目里也有一个关于我的专业项目，朋友说价格我定，一切由我做主。当这两件事发生的时候，我并没有特别的开心，可能这本就是我熟悉的领域，也大概是我忘了分享。</p>
+<p>当我将这三件事一齐分享给我的家人时，我才感觉开心翻了倍，而且不是一倍，是无数倍。快乐果然是要分享的。下午我去朋友的项目部去看项目做事前准备工作，朋友刚好出去，让我等会儿。我就坐在那儿翻左岸读书，这是我的习惯，碎片的时间用来看些文章。忽然翻到2019年的热文里面有一篇《我们为什么要懂点哲学》，仔细一看，这不正是我第一次投给左岸读书的文章吗？</p>
+<p>那个时候我并不知道投稿后要附上自己的微信号。你能想象我当时的心情吗，是一种百感交集的滋味。因为那个时候忙，并没有天天看左岸读书上的文章，以至于错过了自己的第一次，而且还是热文。我有一个习惯，是过段时间就会翻看自己整理的读后感，重新审视自己的思想，我一直以为左岸觉得我写得不好，所以没有发表我的文章。此后很长的时间我都不敢再去电脑里翻看我投给左岸读书的这篇文章。</p>
+<p>没有想到自己第一次投稿就被肯定，而且竟被自己错过。不知道该高兴还是遗憾？高兴原来我一开始就被认可，遗憾这份高兴延迟了近一年。这样复杂的心情一直延续到我必须写点什么来整理一下情绪，才渐渐平复。我用这样的整理告诉自己，一切安排都是最好的安排。</p>
+<p>因为有了这样的安排才有了今天这样一份奇妙的心情和收获。写在最后，真心感谢左岸读书给了我一个重新认识自己的机会，感谢那么多素不相识的朋友对我的喜爱。我会继续在左岸读书上分享我的读书心得，也希望大家一直都在。左岸记：看到这篇文章，我一样非常激动，心里流淌着源源不断的暖流。每天，我看大家投稿的文章，选文章，然后整理，编辑，配图，发布，这已经成为我日常生活的习惯。</p>
+<p>十几年了，真的感谢你们对左岸的信任，感谢你们给大家分享的许许多多有趣的文章。整理文章时，我偶尔会给作者回邮件，但大多数是只给文章写了记，回复一些读者的留言，然后期待作者能看到自己的文章并和读者有些互动。像无为这样有期待却错过自己文章的，是个意外，但也有了今天邂逅的惊喜，这也是人生的一种神奇吧，对，一切都是最好的安排。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

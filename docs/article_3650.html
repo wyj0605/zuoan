@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>十字路口的艰难抉择</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>十字路口的艰难抉择</h1>
+            <div class="date">2026-02-11 14:17:02</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/洱海扁舟 《闻香识女人》 ，一个很有诱惑力的电影名字，念大学时候便有耳闻，然而一直没能一睹为快。今早没课，早起打开电脑躺床上欣赏，跟随着电影穿越到遥远的美国久远的19世纪后期的一所高中——博德学院。适逢感恩节，家境普通的中学生查理·西门翻看着墙壁上的招工启事，想要利用感恩节的假期赚点零用，而富二代的学生哈瑞等人则看不过校长开着豪车上班，正酝酿着一场恶作剧。查理作为唯一一个去“面试”的人顺利找到了他的感恩节工作——照看一位怪脾气的退役的盲人中校弗兰克，而当天晚上他和同学威利斯偶然看见了哈瑞等人在路灯上布置装了白色油漆的气球将要用于恶作剧的全过程，此时的他还不知道这件事会发展到关乎他的人生前程的地步。第二天恶作剧成功上演，校长一人一车尽被淋得一身白色油漆，众目睽睽之下引得举校哄笑，斯文扫地。</p>
+<p>他勃然大怒之后却又抓不到始作俑者，在得知威利斯和查理是目击者之后询问了二人，然而威利斯本来幸灾乐祸，表示无可奉告，查理认为不能出卖同学便也守口如瓶。校长无计可施，表示要在感恩节之后召开全校大会了结此事，若到时二人还是不供出恶作剧的真相便将他们一并开除。在支开威利斯之后，校长更是诱之以利，告诉查理如若他能告密便能保送哈佛，让他在感恩节假期间好好考虑。对于一个普通高中生来说，这是一个莫大的诱惑，然而单纯的查理犹疑不决，他内心不愿出卖同学换取前程，而威利斯也告诉查理要站在同一战线，不告诉父母，也绝不能出卖朋友，尽管这在他自己却一一没有做到。带着这意外的烦恼，查理去“上班”了，他原以为会在弗兰克家照顾他平静地度过感恩节，然而此时对生活已经失去了希望和勇气的弗兰克却在悄悄酝酿着一场疯狂后的自杀。</p>
+<p>他打电话、订机票，迫使查理和他一块去纽约，调侃空姐、谈性、住豪华酒店、找一流女人，弗兰克的肆意妄为让查理大吃一惊，接着他们还在感恩节当天去了弗兰克哥哥家参加家庭聚会，于弗兰克来说，这是他计划的一部分，是死亡前和家人的道别吧？结果却是不欢而散。谁也受不了这个瞎了眼的坏脾气的退役中校，大概如《变形记》中格里高尔变成大甲虫之后的感觉吧。查理看到了弗兰克的幽默和豪迈，却也看出了他的寂寞和绝望。他时常微笑着，然而也向弗兰克倾吐自己的苦恼，学校的事给他出了一个道德难题，拷问着他的灵魂。</p>
+<p>弗兰克以自己的丰富的人生经验为查理分析，并一一应验，然而查理终归还是下不了决心，弗兰克知道他终将在生活中吃苦，然而内心里也欣赏着这颗不受污染的心。弗兰克总有出其不意的行动：搭讪，与美丽的姑娘舞一曲探戈，飙车，开着法拉利迎来警察的质询……查理则秉持着自己的责任心，或许还有些许的同情和依赖，满满的欣赏和钦佩，不离不弃地陪护着这个盲眼的大叔。疯狂的日子行将结束，弗兰克将枪抵在了头颅，活在无尽的黑暗、寂寞、绝望的日子终于要结束了，生存还是死亡，显然前者对他来说更为艰难，他想要选择一条容易的路。人生的重压之下，成熟机智、饱经风雨的弗兰克也有如此脆弱的一面。然而声泪俱下的查理说服了绝望的弗兰克，让他重拾了生活的勇气。</p>
+<p>他放下了枪，倒上了酒，又开始惦念起女人。选择业已做出，生活又是另外一番模样。而现在轮到查理做选择了，全校大会召开，如法庭般的严肃气氛中，威利斯和查理将面对校长的审问和质询。威利斯在有权势的父亲的陪同下，做出了闪烁其词的招供，而查理则坚持自己的原则，终究没有向校长屈服。尽管他知道他将得到的是什么，或者说，失去的是什么。</p>
+<p>校长怒不可遏，决定给予查理开除处分。而此时，坐在一旁的弗兰克说话了，他比校长更为愤怒地谴责了其赏罚不明的行径，并对查理不受污染的心，正直而勇敢的灵魂给予了高度评价，丑陋的灵魂比之残缺的身体更加可怕，“灵魂是没有义肢的 ”，慷慨激昂的据理力争扭转了局势，改变了委员会的决议，更赢得了在场学生的热烈拥护。年轻的查理救下了绝望的盲眼大叔的生命，而此刻，老练的弗兰克挽回了差点被开除的后辈的前程。一场短暂的相遇，完成了一老一小彼此的救赎。“一片树林里分出两条路，而我选择了人迹更少的一条，从此决定了我一生的道路 ”，在人生的十字路口上，他们都做出了艰难的抉择，勇敢地生，勇敢地坚持原则，哪怕要付出巨大的代价，天寒地冻，路遥马亡。</p>
+<p>左岸记： 人生问题分两种：一种是你必须独立解决的；另一种是需要求助家人，合力解决。你或许解决不了自己的问题，但却是别人的解决方案。别人或许无法应对自己的人生难题，但摆平你的，轻而易举。人，才是世界上最完美的答案。要独立，要自主，但任何时候不可以让自己陷入孤绝。</p>
+<p>当你的麻烦，只涉及一个人时，努力自己解决；当你的麻烦，涉及到不止一个人，尤其是涉及到群体时，已非你个人能够解决。保持与家人联系，让家人做你的后援团队，让父母做你的智囊。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

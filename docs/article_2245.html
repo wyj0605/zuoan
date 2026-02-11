@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>谈高校学生的自我修养</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>谈高校学生的自我修养</h1>
+            <div class="date">2026-02-11 14:00:51</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/ 春晓伴随着朋友圈的端午祝福，还有记忆中老天暴雨雷鸣般的“掌声”，一年一度的高考大戏终于又落下了帷幕。据统计，2019年全国高考报名人数突破千万，这个创近十年纪录的人数从某种程度上体现着国民对教育的重视加深，从侧面上也反映出我国教育的普及，也意味着将有更多的学生在九月进入高校开始新的学习生涯。伴随着全民教育水平的提升，素质的提升也将是一大趋势。那么，对于大部分即将步入高校的莘莘学子而言，大学真的是想象中的那么美好吗？古人常言“学而优则仕”，被误读读偏了，认为古人的学习都是为了科举高中，能够做官，故古人学习的一部分动机是为了做官，能够光宗耀祖。</p>
+<p>后面就有了《儒林外史》中的范进在“中举”精神失常发疯，因为太不敢相信自己了。所以，要是有考生高考发挥超常，也得相信天道酬勤，是自己多年默默努力付出的回报，发挥失常也不必灰心丧气，大不了来年再战。人生是一个长期学习的过程，人的能力有限，我们大可不必受媒体与老师渲染的焦虑所左右，高考并不能决定人的一生。其实呢，“学而优则仕”指的是学习之余如果还有余力或者闲暇，就去做官，搞好学习的本身，才是学习的真正意义，有余力了，才可以进一步考虑出仕。在这个句子前面还有一句话，就是“仕而优则学”，指的是做官政绩好的人，又被选拔出来再培训、再提升。</p>
+<p>所以，学而优才是重点，是学习的核心之所在。同样，在四书之首的《大学》里也提到：大学之道，在明明德，在亲民，在止于至善。虽然以前的大学和现在的大学含义不一样，我觉得也不妨移花过来借用一下，因为接受高等教育就是做学问，做学问了就要坚守人性的善，行善心走善路，每天都能够自我反省，做一个有极高道德修养的人。古人估计做梦都没有想到现代社会的发展会成为今天这个样子，上九天揽月下五洋捉鳖都已成为了现实。不过人都还没有变，现在社会还没有超人，古人的智慧还是经得起考验的。</p>
+<p>所以说，进入大学，其实是人生的一个新的开端。想明白了，是自我革新、自我蜕变的过程。学校也是一个大熔炉，没有人可以在这里高枕无忧，你可以表演的很好，四年过的优哉游哉，但四年后的生活不会陪你演戏，人生不会重来，你走的每一步都算数。因为笔者自幼愚笨，学习能力比较差，从小学到大学，一直在各级别班里的中下游徘徊，只怪前路学霸太多，被甩太远。故无法在此指点江山激扬文字，最多吐吐槽，做到雅俗共赏。</p>
+<p>但作为一名路人甲，享有言论自由，可以畅所欲言，在自己的领地里贴贴大字报。我个人认为，我们从小学到高中的学习都是自带功利性的，这一点需要我们提高认识。当然，这并不是否认刻苦学习不好，或者宣扬读书无用论。就像“学而优则仕”这句话一样，我们从小被教育学习是为了赚好多钱，做上大官，现在回忆起来都是满屏幕赤裸裸的功名利禄。这是一个导向性的问题。</p>
+<p>其实，我们小时候对这些东西也没什么感觉，就像你跟一个小朋友讲，好好学习，以后可以娶上像林志玲这样的不老女神。说实话，林志玲老不老，漂不漂亮还不如来一只鸡腿来的实在。当然，现在的不老女神已经成了中日友好的象征，大家以后爱国也可以娶日本姑娘，加强文化交流。依然记得初三时，中考动员大会的班主任激情澎湃，口沫横飞，给大家灌输：考上重点，一只脚就踏进了大学，当时给我的感觉是，读了重点中学就好像达到了人生巅峰。可是，带着“重点中学的月亮比较圆”的心态进入重点高中读书，发现里面也有好多和我一样的学渣，里面的“黑组织”听说一个也都不会少。</p>
+<p>这印证了一句话：理想丰满现实骨感。到了高三的高考动员大会，班主任还是一样的套路，还是同样的味道，同样的配方：考上大学，人生之路坦荡。当时就是不知道人生能有几个巅峰，我觉得受太多刺激也不好。不过，话又说回来，我要是老师，我也会这么干的，给学生打打鸡血喝喝鸡汤也是有好处的，说不定有一定的效果呢？老师也是要有政绩的，升学率第一，至于后面的事情，谁也管不了，这个“树苗”交给后人去种吧。</p>
+<p>所以说，没有无缘无故的爱，也没有无缘无故的恨，凡事存在即合理，我们需要认识到这一点，这是前提。认识问题是解决问题的第一步，人生的每一个阶段都会遇到问题，问题永远不会消失，需要每一个阶段的你去解决，没有哪一个阶段是一劳永逸的。就像钱钟书笔下的“围城”一样，进去的人想出去，出去的人想进去。当然了，高考考中自己心目中的学校，意味着有一个好的开始，手里有一副好牌。当高中苦读三年，压抑着自己，高考之后可以放飞自我了，突然发现自己读大学得到了解放，离开了家庭，得到了无穷尽的自由，可以做自己想做的事情。</p>
+<p>其实呢，自由并不是代表你可以做任何事情，而是自律下的自由，自由的前提是自律。说起来好深一样，大道理人人都懂，自制力不是每个人都有。很多人只有当失去的时候才会懂得珍惜，追忆那似水年华，比如学习，健康等。来到学校，我们要面对同学，面对老师，就是我们俗称的良师益友。益友主要看是否趣味相投，至于良师则是见仁见智了。</p>
+<p>我在这里主要谈谈与老师之间的关系，前面提到提高修养，那步入课堂的你是如何对待老师的呢？让大家在脑补一下这个场景吧，抬头看看一望到墙的低头族，王者荣耀、吃鸡、追剧贯穿了课堂的始终，就是不知道老师看到此情此景作何感想，还好我不是老师。不过，我也要向昔日的老师道个谦，当时年少无知的我少不更事，做了很多没修养的事情。后来，我分析了一下，一个巴掌拍不响，可能学生觉得课堂上的课程太乏味了，或者学生犯困了。据笔者个人分析，觉得应该是很多学生不知为何而读书了，犹如失去了监管的脱缰野马一样一发不可收拾，导致很多人都处于迷茫的状态之下，如浮萍一样漂浮。</p>
+<p>同样，这里也有一个助推剂，很多前辈鼓吹大学混日子不上课照样风风光光过，“混”俨然成为当代大学生的标配，这样学校里就容易出现“劣币驱逐良币”现象，不好的风气在大家心目中占据主导地位，反而是那些准备继续高中阶段刻苦的同志们小心翼翼，忍受着不合群的非议。还有部分同学出现了“认知失调”现象，之前的我也是这种情况，大家都逃课了，我要是不逃课就感觉说不过去，当自己坚持的与别人认同的不一致时，自己很容易放弃自己所坚持的。言归正传，小编个人认为，进入大学除了提升认识高度之外，还应分清楚人与人之间的关系。首先是你与你的老师之间的关系，老师之所以能够成为你的老师，那至少是这个制度选拔出来的，制度可以说是相对公正，凡事无绝对，你得尊重他向他虚心学习请教。除非你是马克思灵魂附体，打算再搞一次革命推翻这个制度，自己制定规则。</p>
+<p>不过我想，到那时留给你的估计将是铁窗泪。好好珍惜吧，老师也是人不是“保姆”，互相尊重。“人敬我一尺，我敬人一丈”，这是亘古不变的道理。不过，人总是喜欢犯贱，在非常安逸的环境里不懂得知足，不懂得如何尊重老师，尊师重教在小学与大学呈现出强烈的反差，这不得不说是教育的一种退步。面对这种情况，大学老师们想管不敢管不愿管没精力管，由此我深深怀疑部分老师会成为唯心主义者，经常自求多福，无过便是功。</p>
+<p>套用心理学的专用术语，就是面对这群孩子，容易出现了习得性无助。所以，高考季是毕业季也是老师的狂欢季，特别是班主任，终于把这些没人管的孩子送走了，毕业酒会留下的泪水可以检测出这点成分。特别提起那部分想自强的同学，这个群体是我非常钦佩的，我觉得她们是“勇士”。她们经常潜伏在图书馆和自习室里，准备实现人生的突破，考研考取心目中的高校。若是在那些重点高校，估计很多人都可以保送了，谁叫人家出生好呢。</p>
+<p>但是，为什么有些出生不怎么好的人能够坚持学习，耐得住寂寞，实现逆袭呢？这是值得我们深思的。我觉得这体现了她们较高的修养，有目标，至少不危害社会，不闲着哈韩精日，制造负面新闻，人要是忙着就没时间想其他事情。我们的教育老是教育我们要有崇高的理想信念，做社会主义接班人等等，殊不知这些口号灌输太多了，我们知其然而不知其所以然，容易在人们心理产生逆反心理，产生排斥。在好与不好、实现人生价值与享乐主义有何关系，没人回答。</p>
+<p>所以享乐是一件很轻松舒服的事情，人生当及时行乐成了大学生的人生信条。有一碗鸡汤，叫“再不疯狂我们就老了”就成了很多人的行动指南。所以，如何处理好自己与内心的关系？也是学业生涯的一个重要课题。看到别人在炫耀自己的牛逼人生，别人家有皇位继承，你是怎么看的？</p>
+<p>神探狄仁杰帮不了你，只有靠自己，如果自己认定了目标，就应该“咬定青山不放松”，心无旁骛地按照既定目标去做。至于其他的评论，你也管不了那么多。要知道，大部分人都见不得别人比自己好，人性有善的一面也有恶的一面，要是你在邪路上走，那就是很多吃瓜群众自备小板凳观摩了，希望你走的远一点。永远不要低估人性的恶，也永远不要高估人性的善，每个人的内心中都要有一把“秤”。从某种程度上来讲，小编自己也是高考的一个loser，不过我自己还是知道自己几斤几两，干不出什么惊天动地的事情。</p>
+<p>在此先感谢我的母校收留了我，让我不至于流落街头。毕业后的我依稀记得天涯论坛上的一篇文章，叫“寒门难在出贵子”。当然，后来的北大学霸刘媛媛在《超级演说家》中对此进行了反驳。很遗憾，不知是不是自己见识少，我也只看到她反驳了而已。我们从小接受二元论教育与引导：地主都是黄世仁无恶不作，富二代官二代都是纨绔子弟为所欲为......事实上，大部分富二代都很牛逼的，我们天天看到娱乐圈纪检委王思聪经常换女友，殊不知人家的事业也做的风生水起。</p>
+<p>很多人都出生寒门，很多人通过自身努力实现了逆袭，但更多的人在读书无用论的指导下，将会延续父辈的人生轨迹。寒门贵子强调的是阶层固化，那些接受精英教育的人却一直往前走。总会有人随波逐流，而你要做的是如何才能不掉队。有人会说，我也很想努力，但是找不到方向。我也很想学习，但是，图书馆的书太深奥了，完全看不进去啊！</p>
+<p>那该怎么办呢？其实，小编也不知道怎么办？就好像从小到大吃了那么多米饭，怎么才长这么高一样的道理，没人能够用常理解释的清楚，只有自己仔细研究基因学、运动等内外因素去理解。其实，小编认为，看不懂更证明了学海无涯苦作舟这个道理。即便是现在的你不清楚，你可以请教老师啊，线上学习啊，现在社会这么多资源都可以为你所用，前提是你愿意主动地去接受，去认可这个事情。</p>
+<p>读进大脑的书终将会刻画你的一言一行，或者埋下的知识种子终有一天会生根发芽。套用一句广告词：如果你知道去哪里，全世界都会为你让路。挖掘自己的内心，发自内心地去做每一件事情，用爱去对待每一个人，感性生活，理性思考！我觉得这才是一个人应有的修养！纪念那些终已逝去的青春，致敬那些十分平凡的岁月。</p>
+<p>岁月虽已磨去了棱角，生活依然值得热爱，只要走在正确的道路上，你我都是追梦人！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

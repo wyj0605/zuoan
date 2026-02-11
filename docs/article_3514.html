@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的朋友，秋山君</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我的朋友，秋山君</h1>
+            <div class="date">2026-02-11 14:16:37</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/邹近夫 人生很多事情，似乎都经不起推敲，因为没有彩排，所以往往在紧要关头出戏。告别十年前的同学，我哼着许茹芸的《如果云知道 》步入归途，毕业前夕唱歌的景象仿如昨日，“泪水它一旦流尽，只剩决心，放逐自己在黑夜的边境，任由黎明一步一步向我逼近。” 当我在天边的云层堆叠中找到最像苍狗的那一朵时，才不由得想起秋山君把写好的信件塞进信封的样子。这些年以来，我不知道他写了多少信，也不知道他到底收了几封信？但我知道他真实地活在自己的世界里，谁也不恨。</p>
+<p>直到我拆开一只白净的信封，他的样子又浮现在我眼前……1那是大学开学的头一天，校园十字路口总见三五成堆的男生心不在焉地说话。当我踏着夕阳路过时，只见他们忽如一团麻绳，拧在一起，似乎谁都没打算争做引路人，显然他们的狩猎目标是我身后那些初涉世事的女学生。步入修业广场办理入学手续之后，在求学路和一德路交叉的十字路口，我第一次见到秋山君，体态消瘦一副与世无争的样子。他戴着耳机，左手拖着行李，右手在胸前打着节拍，时而哼着小调，时而引吭高歌，似有陶醉的音乐使他分外入迷。当我们一前一后走过纪念馆似的教学楼时，我看见他屏息静气地用崇尚的目光凝视了片刻，这个曾经一直萦绕在我心头的梦。</p>
+<p>后来，绕过寸草湖走进芷兰宿舍，他已经在我对面的床铺坐了下来，免不了觉得惊奇，但他应该是第一次见我，因而礼貌性地点了点头。秋山君的歌唱得并不好听，由于气息不足，常常在高潮部分破了音，余下的几乎用嗓子喊出来。我几次想提醒他：懂得恰当地换气十分重要，因为停顿和留有间隙，不仅可以使得气息持久些，还能使歌唱得均匀、流畅。可是我自知不是这方面的行家，也不了解他为人性格如何？何况刚从一个自我封闭的高中时代走向一个思想行为相当开放的环境里，生怕乱了分寸，贸然指点不但会给人留下轻浮的印象，而且会诱发不必要的纷争。</p>
+<p>成长的过程中，从来不缺少长辈耳传口授的处世经验，谨记“金脚银手慢开言”的古训似乎比市面上空中楼阁似的处世哲学要实用得多，特别是亲身经历过由此带来的困境，更觉得恪守分寸显得很有必要，如是对陌生人自然有了提防心态。这一心理常态，让人很难活出真实的样子。一年过后，我与秋山君依然没有太多的交集，不过我的印象里有一个喜欢站在廊道上，捂住耳朵唱歌的少年。除此之外，他还喜欢写信，尽管通讯科技如此发达，但他经常小心翼翼地把写好的信件规叠整齐，生怕折坏了页角，塞进信封后，极为认真地写上收信人和地址，再贴上一枚小小的邮票，如获至宝似地投进宿舍前的信箱，然而我从未见他拆过信。秋山君也有喜欢的女孩子，几乎全成了我们调侃的对象，尔后一一不知所踪，但是他不恨谁，只是春去秋来，芷兰前的香樟长出绿叶，我才明白秋天并不完全意味着万物凋零。</p>
+<p>他还是喜欢唱歌，但很少伫立在廊道，转而在一楼空旷的大厅里高歌，也许他比较喜欢听到回声的感觉，所以他不在乎众人投去的怪异目光。有时候，他会从一楼唱到六楼，有时候也会从六楼唱到一楼，每当歌声响起，整座安静的大楼一瞬间有了生气，听上去不那么孤寂了，久而久之同学们也就慢慢习惯了。我独自一人时，也会哼唱几句排遣寂寞，发现唱歌果然是救治寂寞的良方。2我想找他谈谈，在离毕业只有半年不到的时日里，可是他更乐意独自向世界谈谈。在我眼中，人生里的每个朋友都是不可多得的，而在他看来，人生里的每个朋友似乎都是多余的。</p>
+<p>也许他多半走不出小圈子的牢笼，认为一开始接触的人、物都是好的，哪怕那些人曾让他一度感到失望，但他还是难敞开心扉去接受另一些人。我始终不明白，一个热爱音乐，喜欢写信的少年，为什么会有厌学的情绪？读书是人生里多么愉快的事情。凡是能攻读大学的想必高中一定吃了不少苦头，所以他的学习能力应该是毋庸置疑的，至于后来为何衰败成这样？大概是圆了大学梦之后，精神驰松，也可能没有下一个目标，迷离傥荡，也许向往过去……总之他对人生的看法就像看尽世间纷扰的老人。</p>
+<p>当栀子花绽放在盛夏，芷兰两旁蜕皮的白杨在午后分外刺眼时，我们已悄无声息地度过了人生里最曼妙的岁月。毕业那天晚上，我说成语接龙，他忽然说唱歌，后来我俩的思维总算碰撞在一起：唱歌接龙。意味着接唱者必须用前一个人唱的最后一个字开头，同学们聚在一块儿唱了很久，有人撕心裂肺，有人手舞足蹈，他则把杨培安的《我相信》唱哭了全班。醉生梦死的那一刻，我仿佛听见他说出了自己的歌星梦，我并不觉得秋山君痴心妄想，也不觉得艺术是什么高不可攀的东西，因为每个人本身就是天赐的一件精美艺术品。从此我们一起纵身跳入为生活奔波的大潮流，还四处打听未来。</p>
+<p>秋山君似乎哪也不肯去，听说他租了个房间，留在学校附近，既没去做明星，也没参加选秀，可是他分明对读书恨得真切，却不知为何流连忘返？我再次想和他谈谈，因为我希望了解一个与世无争的年轻人内心的想法，到底什么原因使他对生活失去了憧憬？然而接踵而至的面试压力使我无暇顾及，我没有索得答案。人生有太多的遗憾，为何总在离别之际才蓦然回首？也许缺了那一份坦露心声的勇气，使得许多原本可以更好的开头，变成了久经难提的往事。</p>
+<p>如今回忆人生初衷，免不了心生一种老骥伏枥的感觉。每每下班后从繁华的街头骑自行车到街尾，喧闹的楼宇只给人一种越来越特殊的陌生感，那些川流不息的路口、街角的水果摊、泛黄的路灯，甚至卖狗皮膏药的小贩，明明是熟悉的画面，但总不在梦里出现，反而那些阔别多年的往事却历历在目。不过，保宁巷口的大爷知道我住在175号，哪怕口罩遮住我整张脸，他也认得我的自行车，大爷总是乐呵呵地对我说，这儿没雾霾，空气老干净了。我每次面红耳赤地隔着口罩回答道，鼻炎。3越是离天空最近的地方越是悬崖峭壁，越是离生活最近的真相越是鸡零狗碎。</p>
+<p>保宁巷住了很多年轻人，有小商小贩，有西装革履的上班族，也有拖儿带女的年轻夫妻，大都是向城市索要梦想的人。巷子呈蛇形状，口子很低，尾巴高高地翘起。我住在最里头，所以每次回去前都要热身一番。岁月无声，但我听到了许多人离去的叹息，也听到了许多人搬来的欢呼，多半是和我当初一样信心满满的少年。门对面的院落里住着一户吵吵闹闹、深夜方休的人家，每当我放好单车掏钥匙的时候，仿佛总有锅碗瓢盆朝我身后砸来，这是司空见惯的事情。</p>
+<p>我可怜过这个女人，也可怜过那个男人。犹记得搬进巷子不久后，这户人家张灯结彩，我看到被五花大绑捉弄的新郎和一张印在虎皮石墙上的倩影，消失在如意门的中间时，隔着两堵墙的距离，似乎都听得到一对新人的山盟海誓。每个人都有权利对生活提出异议，这时往往需要找一个对象发泄，有时是一个人，有时是一个没有生命的物，不过，意图甩开的这些，大都是生命原本的重量。后来我不止一次想了解爱情突变的原因和过程，但始终未见那个男子出言不逊，也未见过他长什么模样，但我见过这个女人，这些年也目睹了她如何从花容月貌的二十多岁姑娘变成了三十岁的女人。长年累月的怨恨使她几乎不余留半点温柔，她的嘴型也因此而变得尖锐，这可能是吵架人的专利，无论她与谁擦肩而过，眼里总带着不可一世的目光，她永不在乎保宁巷人的指点，或许觉得生活是自己的，与他人无关。</p>
+<p>十载春秋一晃而过，同学聚会在即，总算可以暂别人间纷扰。再涉足大学校园，一种物是人非的悲迎面扑来，纪念馆似的教学楼庄严肃立，宿舍门口的信箱还在，蜕皮的白杨在午后依旧刺眼。芷兰边的杜鹃虽已五彩缤纷，但却少了栀子花的青涩，多了海棠的沉稳。我最希望见到的便是秋山君，我真的想和他谈谈，问他过得好吗？问他还喜欢唱歌吗？</p>
+<p>问他收到过回信吗？然而席间始终不见那个爱唱歌又爱写信的人，只有阔别多年的同学还在很矜持地兜售各种名片，虽然每个人的心里都有一层说不漏的悲伤，但总有只言片语听似意味深长。直至最近的趣闻轶事说到了尽头，才纷纷想起所带现金有限，碰巧支付软件又达到限额，最后关头统一为摊销。这么多年过去了，唯一没变的是提防心态，像刚从高中毕业走入大学的那会儿，人前人后生怕乱了分寸。是古训？</p>
+<p>是处世经验？还是那个封闭的时代一直留在心底的阴影？奇迹在拍照留念之时发生了，秋山君踏着夕阳走来，像以前一样哼着歌。很快有人对重见天日的秋山君展开了无中生有的调侃，问他是不是遁入空门？问他是不是去了非洲？</p>
+<p>还问他如何从这世上销声匿迹？但他只是付之一笑，二话不说便把份子钱交了。我看着秋山君，似乎离得很远，我试图走得更近些，忽然凉风吹来，一丝银白的头发刺入我眼中，岁月一刹间幻化成无数光圈，在我跌进深渊时飞速地倒退。我有许多话想和他谈谈，可最后只索要了他的联系方式，而他则询问了我的收信地址。分别之际，夕阳像被染红的蒲公英一样漫天飞舞。</p>
+<p>晚风拂来，夜幕降临，街灯亮起，不舍昼夜的城市受尽了折磨。我从繁华的街头骑自行车到街尾，但愿在今夜，依旧不梦见那些熟悉的画面。岁月不知何时失声成哑巴，我放好单车掏钥匙的时候，并没有听见身后传来争吵，人间纷扰在一夜之间好像统统扯平了。推门时，但见一只白净的信封夹在门中央，既无邮票，也无地址。我猛然回头，仿佛从对面那扇虚掩的如意门后看见了秋山君，一个既爱唱歌也爱写信的少年，一个默默承受生命之重的男子。</p>
+<p>到底是什么让近在咫尺的我们隔得如此遥远？我不敢再妄自猜测了，而是鼓起勇气一探究竟，但人去楼空，只有落叶簌簌作响，像青春碎裂的声音，像岁月流逝的声音，像一个男人喘息的声音。借助门头上悬着的路灯，我拆开信封，简短的两行字霎时间使我震动起来， “有时候觉得这个世界真小，总会遇到最不想见的人； 有时候又觉得这个世界好大，离得这么近却也见不到最想见人。” 我立在巷子的尽头望着出路，一盏黯淡的灯光逐渐亮起，我才明白每个人都有自己需要照亮的地方，哪怕隔得如此之近，也难以照进对方的心里。左岸记： 不是老歌好听，而是我们都有了自己的故事，静静聆听！</p>
+<p>笔者简介： 爱生活，爱音乐，爱写作。生于安详而轻舒的村庄却活在人声鼎沸、环境嘈杂的建筑工地，工程是我的合法妻子，写作则是我的情人。著有长篇小说《白茶花》、《长门》 https://read.douban.com/author/63722106/</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你不是不够努力，你只是不会讲故事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你不是不够努力，你只是不会讲故事</h1>
+            <div class="date">2026-02-11 14:12:42</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>书评《认同感•用故事包装事实的艺术》“我们无法通过智力去影响别人，情感却能做到这一点。”——亚里士多德（1）小时候，我们都爱听故事，哪怕这个故事是“从前有座山，山上有座庙，庙里有个老和尚……”这样的可无限循环下去的无聊到爆的烂梗。由此可见，“爱听故事”就好比男人爱色、女孩爱花一样，都属于人类的天性，植根于脑海，深埋于心智，就算是我们长大了，也不会改变。在工作和生活中，不管是大到职场面试升迁演讲，还是追寻姑娘及人生梦想，抑或是小到教育家中的王子公主，或是去菜市场讨价还价......我们可能都会发现，即便很努力去做一件事，可还是不成功，要不就是离目标值差之甚远。背后的原因，可能会有很多：命，运，风势，人和，技艺……但也可能只有一个，那就是：我们还不太会讲故事而已。</p>
+<p>（2）在新书《认同感•用故事包装事实的艺术》的封面，引用了著名作家丹尼•皮克的一句话：“讲故事将会成为21世纪最应具备的基本技能之一。”也就是说，会不会讲故事，或者故事讲得好不好，将会直接影响到我们的社会竞争力——这一点，估计创业的朋友最有感触了，因为业内早就有这么一句金句：“创业成败，取决于你会不会讲故事”。故事讲得好，才能打动风投给你掏腰包，更能打动顾客为你解行囊。这里给大家简单介绍一下全书的内容，《认同感》是一本来自于美国“故事品牌营销专家”吉姆•西诺雷利的最新作品。主要讲的是如何通过故事这种非常重要的承载方式去塑造品牌，从而让人发掘故事的潜在力量，继而掌握更多的生活艺术，成为一个有内容的人。</p>
+<p>总的来说，对于从事市场营销的朋友而言，这是一个不错的专业教材，能够系统地帮你理解故事在品牌传播中的作用和方法。对于非市场相关行业的人来说，如果有兴趣，也是一本不错的补脑读物，部分内容可能比较深奥（所以才有必要读书评嘛），但由于大部分都是以故事和案例为主，深入浅出，容易理解。不过退一步来说，即便有的朋友并非从事品牌方面的工作，可每一个社会人，对于外界来说，难道不是一个品牌，一张名片么……而只有掌握了讲故事的技能，才能更好地传递你的思想。当然，故事是手段，真正的目的是建立起信任，并在品牌和潜在受众之间“拉帮结派”，形成联盟，从而最终构建起彼此之间发自内心的认同感，正如书里所强调的那样：“故事最重要的目的不是告诉，而是引导我们去思考，所以才是影响与说服的最佳工具。”（3）最近，电影《蝙蝠侠大战超人》正在全球热映。</p>
+<p>如你所知，漫威的这一系列深受世界影迷们的喜爱。可是为啥我们喜欢超级英雄的故事呢？其实这个问题从本质上去看，与其说是超级英雄，倒不如说是漫威公司的品牌，超级英雄们不过是服务于该品牌的原型人物而已。有关这一点，在《认同感》里也有系统地谈到：一个品牌应该如何挖掘出一个有生命力的原型，并通过故事进行包装，从而达到自身的影响力和顾客的认同感（电影的话则是观众的认同感）。另外，书中还提到了这么一个观点，“最好的故事从不教人新东西。</p>
+<p>相反，最好的故事认同读者的想法，使每个读者感觉到他们的想法是聪明的，可信的，还会提醒读者他们是最正确的。”其实在漫威英雄的故事里，也是一样的——看似炫酷屌炸天的大片，但并没有教会我们什么新玩意，而只是传递了那些我们早就知道的普世品质：正直，勇敢，愿意奉献等等。总的来说，  漫威系列之所以长盛不衰，在于它理解了故事的本质，并讲得一手好故事，正如同肯德尔•海文在《故事:惊人力量背后的科学》所说的：“故事是关于主人公战胜困难，实现伟大目标的描述。”（4）作为一家全球知名的创意分享机构，TED大会的形式很简单，就是召开大会，邀请某些精英进行十几分钟的演讲（一般是5-20分钟）。很多被邀请的精英，有可能一辈子藏在实验室里，专研科学，从未讲过课，更别说对着这么一群黑压压的人（上过台的朋友都知道难度有多大），但不管怎么样的宅男腐女科技狂，经过TED的短期培训后，都能够应对自如，并像一个职场老油条一样，呈现出不错的讲演。</p>
+<p>其中的奥秘到底是什么？如你所料，正是“故事”的魅力。在演讲前的培训课程里，TED的重点就是教会他们“如何讲好一个故事”，而不是对着屏幕念早已背熟的PPT。也正是因为有了故事这一载体，不管再高深的理论（什么大爆炸什么薛定谔的猫啊等等），通过10分钟左右的故事作为线索和外套，都能够轻松地呈现。总而言之，故事之所以容易被人接受，并长期记住，很大程度是因为人们更喜欢自己发掘观点，而不是被告知，一如德国哲学家汉娜•阿伦特所强调的：“故事揭示内涵，但从不会指明内涵。</p>
+<p>”当然，在《认同感》里面，也系统地给出了讲故事的方法，比如说阶梯式展开，描述你的敌人，找一个榜样人物等等，有兴趣的朋友可以去亲测。最后，再给大家举个例子，有关故事的作用，大家可以比较一下，看哪个版本的安慰对我的朋友更有帮助。假设我有个朋友，刚做生意失败了，女朋友也跟人跑了，买的股票更是拦腰跌了一半，再加上去医院检查时发现肝肠有问题需要住院动刀。这时候，作为朋友的我，肯定得想办法安慰他吧（要不然他一定自杀去了），办法一是劝他不要太难过，人总有高潮低谷，否极泰来嘛，要对明天有希望，千万别想不开啊。另一个办法是给他讲一个简单的故事，说从前有两头狼，一头叫希望，一头叫绝望，它们都很凶猛，可是因为太久没吃东西，如今饿得连站起来的力气都没了。</p>
+<p>问：如果这两头狼打架，你觉得哪一头会赢呢？答：看你喂的是哪头。附：如何讲好一个故事?《故事工程》的作者拉里布鲁克斯是六部畅销小说的创作者，更是小说写作指导网站Storyfix.com的创办者。其在小说写作指导方面具有极其大的权威，得到众多作家的认同。而他自己在小说写作指导方面有两部重要的作品，本书就是其中之一。</p>
+<p>一个故事，如何去讲，总会有人提出更好的创意。但着手实施时，你是精心策划者还是埋头苦干者决定了你完成作品的数量与质量。天才的作家毕竟是少数，绝妙的灵感也很难复制，但下笔的功夫、完成作品的熟练度、全局观的建立都是技术性的问题，是完全可以培养出来的。所以我们需要有模式和套路。作者深谙此道，用他自己的话讲：每个人都有鼻子、眼睛和嘴巴，但是我们还是能轻而易举的认出他们彼此，其中的缘由在哪？</p>
+<p>如何讲好一个故事五官就是套路与模式，不同之处便是作家自己的风格与特点。所以，我们省力的方法就是摸熟套路，再集中针对个性问题。《故事工程》正是希望能教给我们这样的东西。忘了说了，本书的副标题就叫作“掌握成功写作的六大核心技能”。立意、人物、主题、情节（故事结构）是四项基础技能；场景设置与写作风格则是两项实践技能。</p>
+<p>成功掌握这六大核心技能的精髓，讲好一个故事便轻而易举。看过很多作家谈写作，形而上的说法总是会很多，遑论中国自古以来就有文以载道的说教。较年轻时的蒋方舟谈写作，说她把生活中的人都当做写作素材；刚获得茅盾文学奖的麦家谈写作，说写作就是在阅读，且写作很痛苦；诗人翟永明谈写作，却说她在写作中发泄，感觉酣畅淋漓。每个人都有自己的创作感受，但如果有技术性的方法，再加上我们创造性的思维，岂不妙哉？拉里布鲁克斯轻轻松松以《可爱的骨头》、《达芬奇密码》和《泰坦尼克号重见天日》为例告诉我们：任何一个故事，我们都是从核心技能的四大要素之一获取想法，通常是前三个，即立意、人物或主题；然后，再融入其它三个。</p>
+<p>每一个好故事，我们现在回头去看，都正中作者下怀。美学大师蒋勋蒋先生在其“说红楼”系列里将其中的人物脉络，情节结构如庖丁解牛般展现在我们面前，每一点都能与拉里布鲁克斯的六大核心技能一一对应。这既让我们佩服曹氏的伟大，又让人慨叹蒋先生的功力！从此一例便可知本书的实用性。当然，没有任何一本书能够使作家做到一劳永逸。</p>
+<p>但你想讲好一个故事，本书却是不错的催化剂。原文链接：http://www.zreading.cn/archives/5340.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

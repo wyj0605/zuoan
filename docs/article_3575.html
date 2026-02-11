@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的十年</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我的十年</h1>
+            <div class="date">2026-02-11 14:16:49</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/欣儿 2008年的春天我和高中同学君经过她学姐的介绍来到了佛山这个陌生的城市。当时学姐的爸爸（就是我现在的刘老板）有两个厂，需要两名财务人员。当时我选择了塑料厂，后来看来我还是很有眼光的，这个行业一直做得很不错。我同学君选择的厂是一个不锈钢的加工压延厂，加工利润薄，没有几年就倒闭了。当年的她就嫁给了厂里的四川小伙子，后来去了浙江，我们的联系就越来越少了。</p>
+<p>我是一个不善于变动的人，说得好听是本分，说得不好听是安于现状，不思进取。我上班的地方是一个城中村，公交车还是有的，就是比较少，特别的安静，人称鸟不拉屎，鸡不生蛋的偏僻工业区。现在才明白年轻就是好，08年刚开始总是想着离开，要去寻找更美好的生活。我经常和姐妹们抱怨厂里生活的无聊，单调。和家里打电话说这里太偏僻了，不好玩啊，想回家。</p>
+<p>他们总是安慰我，刚出来社会先好好锻炼一段时间。日子就这样一天天的过着，一晃就几年的时间。到了11年，是可以结婚的年龄了，遇到了生命中的挚爱。我们以很快的速度，别人眼中的闪婚，三个月的时间里我们结了婚，怀上了宝宝。可是在娘家人的眼中是没有一个人看得起我老公的，觉得老公家是在偏僻的山沟沟里，没有钱，没有房子，没有车子。</p>
+<p>我听了很伤心，但我还是坚持自己的选择，我坚信只要人好，好好努力奋斗，一切靠自己，美好生活一定会到来的。11年年底因为我很快就要生宝宝了就从塑料厂辞了职。我想以后不会再回到这个村子，不会回来这里工作了。在老家的日子过得很快，12年11月的一天，原来塑料厂的老板打来电话说现在的财务要回老家气象站工作，问我来不来。说来也巧了，我刚好给宝宝断了奶，准备出去找工作，这不是巧合又是什么呢？</p>
+<p>我又回到了这个熟悉又陌生的村子。陌生的是变化太大了，这里很快盖起了商品房，村子变得越来越漂亮，还有了新的大菜市场。而这个地方又是那么熟悉，河提还是原来的河提，每天吃完饭约上姐妹们在河提边边聊边走，也是浮生惬意。那时我除了结了婚多了个老公和孩子，没有什么多余的财产，只好重新开始奋斗。我们两口子都很努力，老公做保险业务，每天早出晚归，我尽量做些兼职，第一二年，我们把孩子送到老家让公婆帮着带。</p>
+<p>14年11月，在同事的跟风下我们在佛山按揭了一套小三房。日子一天天过，还是在佛山，佛山的每一天都是那么熟悉，过得理所当然，过得很安心。15年最最开心的事情是把宝宝接出来在佛山上了幼儿园，每天都可以看到宝宝，感觉一家人在一起比什么都重要。15年，看着大家伙都买了小车，我们也按揭了一辆10几万的小车。每年都过得很快，但每一年我们都实现了自己的小目标，也是非常的充实。</p>
+<p>16年我们把房子简单的装修了一下，住进了属于自己的房子。17年买了个车位，车位比车金贵，现在车多了，没有地方停实在是太麻烦的事。这样，一年一个目标，慢慢地能感觉自己的日子一天比一天过得更好。现在，2018年了，10年的时间对于我来说是出社会的十年，我还是那么简单，快乐，没有太多的想法，只希望自己能脚踏实地地去完成心中那一个个小小的梦想。今年的目标是二胎，想再生一个健康可爱的宝宝，男宝女宝都好。</p>
+<p>岁月静好，希望自己也能永远都幸福着吧。左岸记： 为什么推这篇文章呢？我觉得大多数幸福的人的生活就是这样的，没有什么高大上，也没有那么多的风花雪月，而就是这样简简单单、快快乐乐地用自己的努力和自己心爱的人一起为更美好的生活脚踏实地地奋斗着。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>规则之下，约束的竟是听话的人？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>规则之下，约束的竟是听话的人？</h1>
+            <div class="date">2026-02-11 14:00:33</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/渔眠小姐无规矩不成方圆，谁都明白这一点，但其实人往往只是希望别人去遵守而已。排队时，看到蛮横插队或因身份特殊而优先的人时，你义愤填膺，大骂其没有素质；反过来，当你有机会享有优先权时，你多数不会拒绝，甚至会沾沾自喜、洋洋得意。我等之辈，以为说不能，就是不能，不成想还可以对个别人能，还可以下次不能，下下次不能。所谓特权是，你必须遵守，我可以不遵守，凌驾于规则之上，由此竟产生了一种优越感。将规则无限缩小到工作制度，按时到岗不得迟到、穿工装、随手关灯、会议中手机静音，听话的人一一照做，不听话的人丝毫不放在心上。</p>
+<p>同一岗位、同一工作，有责任心的人认认真真，没责任心的马马虎虎，每月薪资结算，听话的与不听话的、有责任心的与没责任心的并无二致，可能后者还高一些。所以，规则，最终竟是用来约束听话的人吗？想说，是也不是，你是个遵守规则的人就义无反顾的去遵守，规则终是用来保护人的，越是发达成熟的社会，越注重规则及信用，这一天可以期待。不遵守的人，在这里享有的便利，自有那里去偿还。君不见，闯红灯的、酒驾的人出交通事故的概率大；在办公室混日子的人，被裁的首当其冲，换工作换的走马观花；贪污腐败的人，一边无法自拔的享受着拥有特权和金钱的快乐，一边等待着头上那把剑的坠落……那么，在暂时不那么公平的环境下，守规则的意义是什么呢？</p>
+<p>一位网友的回答让我备受感动，这里一字不落予以引用：“我有次带女儿过一个只有斑马线没有红绿灯的小区路口，一台车辆停下来让我们过马路，我对他挥挥手致谢，对方按了次喇叭回应。女儿很好奇，问这代表什么？我告诉她，爸爸挥手是谢谢对方让我们先行，对方按喇叭是说不用客气。女儿很高兴。她说，爸爸你和那个叔叔都好有礼貌啊。</p>
+<p>这就是我们守规则的意义，我们不但能够受到同样守规则人的尊重，还能为子女树立良好的榜样。我想人生最大的成功莫过于成为孩子的榜样，将家风一代代传下去。” 左岸记：遵循规则，社会才能更稳定，不可预料的风险才会降低，每个人的利益才能得到保证。如果不遵守规则不会受到惩罚而且能够带来利益，那么人们一定不遵守规则。在规则被漠视和践踏的社会里，每个人都是纵容的帮凶，也都会是受害者。</p>
+<p>规则是约束人们行为的，是社会对应行为的抽象。尊重和遵守规则是一种教养、一种风度、一种文化、一个现代人必需的品格。没有这样一种品格，是很难在一个讲诚信、重规则的文明社会中生存的。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

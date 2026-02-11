@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界那么大，还有你自己</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>世界那么大，还有你自己</h1>
+            <div class="date">2026-02-11 14:16:29</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/小于 奇怪，明明已经是寒冬，他站在海边却感觉不到一丝的冷。这是他第一次这么晚来海边，他不知道现在是几点，也记不清自己为什么来这里。他望着眼前已经沉睡了的海，想着就这样跳下去吧，就一切都结束了，只要翻过这个护栏，纵身一跃，冰凉的海水就会没过身体，通过鼻腔和口腔浸入肺里，也许他会难以忍受，他会忍不住挣扎，但那又有什么关系呢？那么几分钟，与漫长的一生相比，又算得了什么呢？跳吧，很快的，一切都结束了。</p>
+<p>他翻过护栏，纵身一跳。他想，其实这样也没什么不好，这个世界那么大，人那么多，不会有人记得他。他没有感觉到耳边的海风，也没有感觉到冰凉的海水，他只感觉到自己在下坠，不停地下坠……“咚”的一声，他的身体重重地砸到了地上，他醒了。只是一场梦啊。他从地上爬了起来，看了一眼床头上的手机，凌晨两点半。</p>
+<p>他环顾着眼前十几平米的房间，他称作家的地方，拥挤狭小，潮味，霉味……一切的一切都那么让人难以忍受。每天人模狗样的去上班，拿着不上不下的工资，还大半都给了房东，领导的训斥，同事的排挤……够了，他真的受够了。他穿上外套走了出去，迎面而来刺骨的寒风提醒他这不是在做梦。他走到了海边，手紧紧地攥着护栏，攥得手上的骨节发白。冷，这是他现在唯一的感觉。</p>
+<p>他来到这个城市，想要找一样东西。他一直告诉自己要往前走，说不准就在前面，实在没有的话就原路返回。最后却发现，前面什么也没有，他也找不到回去的路了，他走的太远了，再也回不去了。他要找什么呢？他也忘了。</p>
+<p>他的手被冻的发麻，但还是紧紧地攥着护栏。他就那样一直站着，像岸边的礁石，看着海的潮起潮落。天快亮了，被夜笼罩的城市开始显现它的轮廓。他还是把手松开了。不甘心呢，他想。</p>
+<p>他活动了一下站了太久而发麻的腿，却因为重心不稳摔倒了。他没有站起来，而是背靠着护栏坐在了地上。他哭了，哭的声嘶力竭。他大声地问这都是为什么，他怎么变成了这样，回应他的只有海浪不断拍打礁石的声音。他从地上站了起来，抬手用袖子擦了擦眼泪，擤了把鼻涕，把衣服搞得黏糊糊的。</p>
+<p>真窝囊啊，他想。他脱下外套，转身扔向了大海，只穿了一件单薄的衬衣。他看着那片海，看着他的外套随着海水的起伏渐渐飘远，好像有什么东西跟着那件衣服飘走了。“别人说你一句，你要顶十句。遇到一点挫折就怀疑人生。</p>
+<p>你凭什么说这个社会不公平？你有什么能力去评判这个世界？你还没醒吗？你不过一个俗人，俗人而已！”他对着海面大声地喊了出来。</p>
+<p>海风很大，他的声音在风里显得那么苍白无力。“俗人也不错呀，至少你努力认真地活着。”他摇摇头，对自己苦笑了一声。天亮了，该走了。他踉踉跄跄地离开了那片海，身上穿着那件单薄的衬衣。</p>
+<p>这个世界那么大，人那么多，没人注意他，除了他自己。左岸记： 青春的迷茫一念之间，放弃未来一点也不好玩，因为没有了可能，眼前的一切就都是灰色暗淡的。就让大海带走所有的哀愁，不为什么，只为自己，那个寻找希望的自己，丢了的目标不可怕，它不是从来就没有离开过你的心吗？不再狂热地做梦，也不随意地活着 “什么是好的生命？好的生命，是有事做、有人爱、有问题可想、有选择的自由。</p>
+<p>如何塑造好的生命?树木花草往高处长，往横向空间长，枝繁叶茂，变成一把打伞，接触更多的空间，长得更高看得更远。人和动物也一样，越高大越强壮，才可以奔跑跳跃，去更远的世界，成就那个从未被人看见与理解却是自己内心所想的生活。” 我希望自己能由内而外自信地活着，认真的活着！像白岩松说的一样，“走在生命的哪一个阶段，都该喜欢那一段的时光完成那一阶段该完成的职责，顺生而行，不沉迷过去，也不狂热的期待着未来。不管正在经历着怎样的挣扎与挑战，或许我们都只有一个选择：虽然痛苦，却依然要快乐，并相信未来。</p>
+<p>”这是我在2014年教师节写下的感恩词中的一部分，时值今日，读来仍热血澎湃。说实在的，再次往回看自己2014年写下的东西，总感觉有那么些“矫情”。我都不知道那些读来面红耳赤的话语，我是怎么一股脑的抒发出来的。可是，我仍然感激当时我可以记录下来，才有了今天的回味。提到2016年，一定不能抛开2015年。</p>
+<p>这是一段离开学校、完全踏入社会的过渡阶段。时值2014年教师节的那份自我回归已有2年。而在这两年的时间里我又是否达到了当时的那份期许？心态又有什么样的变化？实习的一年，忽然发现成长了很多，可惜这种成长并不是来源于专业技术，而是心态的突飞猛进。</p>
+<p>这么多年来，我一直有个梦想，有一个出人头地，甚至一鸣惊人的梦想。这种梦想无关热情，无关爱好，无关自我的了解，只是就这样呆呆的梦想着，极度的渴望着，被重视、被尊重、甚至被羡慕是我由来已久的愿望。就这样，常常午夜梦回，我不知道自己在追求什么、忙碌什么、希冀什么，那种奋斗而不能的力不从心一次次侵袭我，九曲回肠。可能直到现在我依然还会疑惑、迷茫，可是我却不着急了，学会了停顿，学会了放弃，学会了漫无目的的等待。知道自己并非无所不能，并且也让他人知道自己并非无所不能，知道自己一万点的缺陷，也可以认真有理想的活着，一步一步让自己更好。</p>
+<p>珍惜每一个活着的当下，从现实经历的去学习、感悟。学医五年，无关喜欢与否，亦与华房豪车无缘，感谢给了我一份工作、尚可满足马洛斯的最底层需求，感谢让我比医学之外的人能更科学的关注理解健康、让我在适当的时候可以随时拾掇起我需要的医学知识，感谢那些我可以奋力去争取的公平，也感谢那些我可以坦然承担的拒绝，如此而已。去感到满足，去感觉自己的幸运。左岸记： 这是亦舒两年前的毕业小结，因为她没有写最新的感悟，想来是遇到了一样的困境，需要重拾这份勇气，让自己的心灵得到力量。我们的生活本身就是每天都在叠加，每天都在增加，人生阅历，在于我们以乐观的心态面对不断增多的事情与麻烦、困难是我们每个人应有的应对策略，以此增加我们个人对人生思考的维度与宽度；一个人的成长与发展都是从跌跌撞撞之中而来的，困难、挫折的出现既是一种考验也是一种机遇，摆正了心态才能从那些表面上看的坏事里获得好的收获与转机。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

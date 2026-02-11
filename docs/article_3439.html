@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>做管理的这一年</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>做管理的这一年</h1>
+            <div class="date">2026-02-11 14:16:25</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌 转眼在某世界五百强车企担任集成经理兼项目经理已满一年。不能说有翻天覆地的变化，但这一年的成长蜕变，足以让一个为了工作彻夜难眠的小白可以安然入睡，坦然面对第二天的挑战，这是成长磨砺之后赋予人的底气。至于说如何从一名普通的工程师顺利晋升到管理层，只能说是机缘巧合，运气使然。如果非要说有啥努力的成份，那只能说运气也是实力的一部分。优秀的管理者满分10分的话，回看自己这一年的表现综合评分的话，给自己评6.5分吧！</p>
+<p>其它3.5分要在接下的管理生涯中争取，真要有人说我不合格的话，我会安慰自己将是优质的潜力股。自诩是乐于反省和总结的人，万千想法只有深入整理为文之后，才开始安心的进入下一阶段的工作，不然思绪在空中飘荡，无法有效借鉴，也不能有效的指导，不妨聊以此文给大家分享。1. 如何看待从技术到管理的转变？毕业之后就从事技术工作，让我放下技术研发工作投入到管理的岗位，那岂不是让我放下武器，拥抱未知吗，我又没做过管理？这一提议，就像小孩子正在沙滩上聚精会神的堆自己的城堡，突然有人告诉你别堆沙子了，我们去玩点更刺激的。</p>
+<p>心又不舍，但对刺激的游戏又满是好奇，那你会怎么选？无疑这是一个机会，尽管有些忐忑不安，但还是接受了，我知道未来的路只会更加宽广，如果做技术，你会深入的了解一个零部件的开发，如果你做管理，你会深入流程内部，接触到更多信息，从知识存量来讲，那肯定是增值的，只会越来越有价值，自然就不会患得患失的害怕了。如果说人这一辈子一直在解决三种关系，人与物，人与人，人与自然的话，那么更多的从事人与人的工作，作为集成经理，你要接触收集来自不同部门的需求，不断与他们交互，要将工作合理有效的安排给负责技术的同事，担任着信息过滤和传递的重要使命，同时还要将重要信息整理成报告向上级汇报，而技术工作解决的是人与物的关系，确定性要高很多。两者没有高低贵贱之分，只是承担的角色定义，发挥的作用大小不同而已。以前从事技术工作一直在感叹，相比世界一流车企，我们的技术底子太薄，技术处理过于粗犷，在项目进度压力之下，基本都是连滚带爬带条件通过，于是会主动翻译很多英文的资料，试图探索更先进的办法。</p>
+<p>等我从事管理工作，研读相关的管理书籍，比如《西方管理思想史》，《第五项修炼》，《组织行为学》，《管理学》，再看我们自己的管理制度和管理方式，相比西方管理也是弱得不行，哪怕这里是中国首屈一指的汽车品牌。尽管这是当前的现状，属于管理系统的问题，也不是我个人所能改变的。但个人还是觉得我做管理发挥的作用，要比技术本身的作用要大，当然这也符合个人的特质。2. 这一年观念的转变 2.1 人事要分开 个人还是比较重感情，比较看重人际关系。在做事的过程中，总会将人放在第一位。</p>
+<p>优先考虑人的感受，哪怕事情没做成也没有关系，可能这个跟自己的处世原则有关系。可这种方式做事结果怎么样呢？其实不怎么样，太舒服暧昧的做事态度，结果真的不怎么样，尤其是照顾他们的情绪，舍不得安排下去，事情没有做成，被领导狠批几次之后发现，我并没有因为对人好而赢得尊重，反而因为事情没有办成而显示个人的无能。不一定说做事非要有多狠，而是谈感情之前，先要把事情做好。当然也不能为了事情，不择手段，把人都整丢了。</p>
+<p>而是说人和事情要分开。我们的工作就是来搞事情的，发薪水，提供办公资源，我们是来解决问题的，不是来搞关系的。有那时间功夫，我们可以找个饭店好好喝一顿。工作就是工作，事情没有做好，一定要有个交待，这个不管是向上管理，还是下级管理都是同样的道理。我们作为一个团队，会因为共同解决了问题，情谊会更加牢固，绝不会因为简单的吃个饭，一起吹过牛皮就会好到哪里去。</p>
+<p>2.2 组织里最令人生厌的是哪一类人？不能说是低智商的好人，而是假装很努力耗费了大量时间却解决不了问题的人。从我个人来讲是比较忌讳的，你很努力的样子让人看起来，我觉得你态度没有问题，那花费了那么多时间和精力，按正常人的表现都差不多，那为什么你解决不了问题？如果是能力问题，你应该相办法提升自己的能力，即使你能力有限，也没关系，你可以寻求同事的帮助，我们大家一起来解决这个问题。最害怕的是那种陷入情绪的泥淖不知所措，还不上报，别人又不知道，等到问题爆出来时，又是七弯八拐一顿解释，批评你又找不到理由，但问题就是没有解决，便宜让你占尽了，让我们情何以堪？</p>
+<p>2.3 言必信，行必果 在以前的公司并没有养成良好的工作习惯，答应了但又搞不定时，会主动套近乎，免得对方生气，当然这也是情商的一种表现，照顾了客户的情绪，但是没有解决问题。你答应了对方的任务，可能连作业都没有发下去，言行不一，假以时日会像个骗子一样行走江湖。这种为了工作牺牲个人的人品积分，其实也是做事无能的表现。接到任务，及时有效的安排下去，如果偷了这个懒，自己又不能代劳，拖延耽误了事情，那都是自己的责任。总刷脸也不是个事，一定是要及时兑现自己的承诺。</p>
+<p>答应别人的事情，一定要想法做到。如果真的实在是没有办法了，真的做不到，也应及时同步自己的工作进展，让对方心里有底。2.4 不仅只是解决问题，我们还要解决组织未来的走向问题。领导总是千百遍的强调以结果为导向，这个说法一点也没有错，但为了保证结果，自己作为强大资源的一部分，也要参与进去，最次的管理者是不负责任的两手一摊只要结果，不闻不问其过程，也不给指导方向，只是成天施加压力叫唤，这终究不是做事的态度。解决在研发过程出现的各种问题是工作非常重要的一部分，但是作为管理者，作为组织的上层设计者，还要思考着组织发展的未来。</p>
+<p>意识到这点是读《毛泽东选集（第一卷）》有感，毛先生在做人民宣传工作时就意识到，红军如果不拉拢群众，只是为了打胜仗，那跟军阀没有区别，我们政党的目标是夺取国家政权，成为国家的主人，那么就要照顾人民的利益，为人民服务，才能获得他们的支持，壮大自己政党的力量。类似这样的目标就决定了组织的做事方式和行动的方向。作为企业组织，作为部门，有人的地方就有江湖，作为组织的管理者，也应当承当这样的使命，部门的文化，将来的发展方向也是需要考虑的。只是这么一提，我还没跟人讨论过具体的细节，也就不多说了。2.5 管理意识的提升 按项目管理专业角度来讲，包括目标，计划，进度，质量，范围，风险，成本，团队等等要素，实际工作中并不是每天都能管控到，反倒计划性，提得最多的。</p>
+<p>这个事情现在进度怎么样了？什么时候能搞定？提前两天行不行？其实计划本身就是一种承诺和管控的方式，不管事下发任务，还是编制详细的计划，时间周期是首先要考虑的，这跟泰勒的《科学管理原理》如出一辙，按时完成就够了吗？远远不够的，如果按时交付，但是为了应付工作，质量烂得一塌糊涂，需要重新返工再做，耽误了工期，浪费了时间精力，计划和交付物质量是需要重点管控的。</p>
+<p>效率低下，不是不干活，而是没有正确的做事。福特说所有的不幸运都源于管理不善，我承认这是个管理问题。3. 总结 一路走来，一直在成长，不管是技术集成，还是项目管理，我们的目标都是非常明确的，长期且有效的解决问题是本分，不管是产品技术问题，还是组织建设都是工作的本分。如果职场分布是金字塔形，那么越往上走，要求就越高。信息就是权力，虽然你掌控着别人不知道的信息，虽然可以控制别人，但你越往上走，接触到的内部消息就越多，了解的问题就越多，更应当承担起这份责任。</p>
+<p>大家在同一条船上，虽说船翻了大家都有责任，掌舵的人将要负首要责任。未来的职场之路还很漫长，既然每天精力最好的时间都投入到了工作，不如顺势将工作当作修行的道场，修炼自己的品行，提高个人的技能，做一个有价值的人。左岸记： 做事要有“终局思维”，终局思维是通过推断最终的那个结果，按照那个最终出现的结果，往前推，指导自己要怎样做。那如果不能一眼看到终局，怎么办呢，就试着看看延长下去的趋势，利用我们做数学时的辅助延长线来解决。你看到了未来的方向，知道自己想要的是什么，那现在的努力又怎么会迷茫呢？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

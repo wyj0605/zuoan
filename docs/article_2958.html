@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滴水难消，知行合一</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>滴水难消，知行合一</h1>
+            <div class="date">2026-02-11 14:14:45</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/关中人佛祖劝阿难学习佛法曾说过一个词：滴水难消。阿难博闻强记，佛祖说过的话他都记得，以此认为自己学的佛法多，但他的“笨”师兄都开悟了，他却没开悟，佛祖因此劝他千日学慧，不如一日学道，否则便会滴水难消。我的陋习便是滴水难消。一切成功源于积累，同样一切失败也源于积累。今天的结果，源于以往的积累，如果你混得不好，有什么可埋怨的，一切都是昨日及以前的陋习造就的。</p>
+<p>我发现每天清晨醒来，我脑子都有一个概念特别明确，之前的没有记录，但今天的还没有忘：一切源于积累！左岸有一句话：一切成功均源于积累！以前没太在意，但今天自己脑子里有了这句相似的概念，也对这句话有了更深的理解。举例来说，我今日的处境就是以前积累的结果，分毫不差。我对自己的生活不甚满意，缘于攀比心。</p>
+<p>因为周围年轻我十多岁的同事都炒股，换了几套房还有钱换车，而自己却没钱换一辆满意的车子，我想这一切缘于我过去十几年来的生活习惯，我是个不最求上进的人。如果当初稍有上进心，也不会落入今天的困境。那么这种攀比心是对还是错呢？是人都多多少少都会有一些。想让自己进步快就多攀比，想让自己活的不那么辛苦，就淡化它。</p>
+<p>活在当下就正视它，但不为它心动，做好自己。经常放不下一段新闻，一件办公室里发生的有趣的事，感兴趣的群聊记录也是要翻看的，不看这些就会感觉自己是个落伍的人。当地何时又发生一场地震，文章和马伊琍的新闻，马航的消息，最近又有哪个官员被查了...曾几何时，自己已经和这些连在一起，就像是长在我身上的肉，生活中没有这些新闻和八卦的滋养，就像身上掉了一块肉那样不自在，难以自控，意志力稍有松懈就会就范。今天仍有改善的大把机会，每时每刻都是机会，我却白白浪费掉。套句电视推销里常用的词：“亲，以前不知道珍惜时间，不知道如何去做是我的错。</p>
+<p>现在已经知道了还不去行动就是您的错。”我为啥知道了还会去犯错？惯性定律，民间有句俗话：江山易改，本性难移。足可见陋习威力之大。这种坏习惯就像溶于空气的无色无味的毒药，慢慢侵蚀着我的心。</p>
+<p>稍有疏忽就会忘了他的毒性，到最后往往就是饮鸩止渴了。我曾经对它发起过挑战：不做习惯的奴隶。仅限于没有忘记它的日子，今天再一次提起，再一次。心绝对是个只会溜须拍马的小人，当我意志坚定时，它鞍前马后为我效劳，稍有疏忽，它就借机生事，扰乱我的执行力。我决定今后对它绝不手软，用意志力克服外界的诱惑。</p>
+<p>我决定要借助我已掌握的方法来战胜我的坏习惯，是阳明先生的致良知。致既是正，良知就是物性。致良知就是还原物的本性，就是实事求是。知行合一在我这里就是不分家，因为我认为精神是物质的另一种存在形式，就如同电和磁的关系一样分不开。如何致良知，根据我的经验验证了古人所说：良知就是当你的心排除一切干扰定下来得出的那个结论，这个结论可以让你做了任何决定都不后悔胆怯，所以阳明先生说良知犹如大海里航行的舵，有了它在人生的道路上遇到任何惊涛恶浪都能从容应对，有惊无险地走出困境。</p>
+<p>当我思索一件事物时，对该事物的认知是肤浅的，只认识了它的表，不知它的里，要想透彻地了解它，就必须亲自去做，在做事的同事，我对该物的认识和态度会随着做的进度而改变，等到将事情做完的时候，我就彻底了解的该物，这就是我理解的知行合一。应用在冬天早起上：想到应该早起是良知，贪恋被窝是良知的干扰，当真穿衣起床做事时，那感觉远远没有你在被窝里想的那般痛苦。所以，“知”要靠“行”来矫正，知行合一是良知，知而不行是妄知。真正做到知行合一，便得到了良知。佛道两家的圣人也有相似陈述：金刚经说应所无住而生其心，只有将心空出来，才能看到真正属于自己的那颗真心。</p>
+<p>这颗真心投射到当前的事事物物上便可见到事事物物的良知。心不空便不得良知，便会盲人骑瞎马，夜半临深池。老子说致虚极守静笃，无为而无不为。天下圣人其实是一家，都在强调一点：观空。空是什么，空就是心。</p>
+<p>其实人心不存在，我们常说的人心不过是人体对环境的综合感应，就像导线在磁场内运动产生的电流一样普通。心就是你对物的态度，态度从哪里来的？态度来源于你头脑里存在的以往有关此“物”的认知经验和对当前环境的感觉。人像一个精密仪器，可控可改造，可杀也可煮，把人当人看，人是社会里的人。把人当工具看，是BOSS赚钱的工具，挣钱养家的工具；当畜生看，人本来就是畜生，会干活，杀了也能吃肉。</p>
+<p>当然，吃人肉犯法，也是没人性的。当然，这只是我个人对“人”这个生物的认知，对自己的认识。有了这个认知，我不再迷茫，当一个人清醒地认识到自己是什么，应该做些什么的时候，唯一能阻挡他的，只有自己的陋习。我之所以不是马云，因为我没有像马云那样去思考，没有马云的生活习惯。要想知道梨子的味道，应该去吃个梨子。</p>
+<p>将心思用在关注外物上的人活得忙碌而心累，但只关注自己内心而忽视外界环境的人就算身旁潜伏着一只老虎也不会发现，注定要落魄。既要读书，又要关心天下事，常因掌握不好这二者之间的精力分配而沦落成一个俗人。我想能将这二者掌握好的人便成为那少之又少的社会精英。人间最难的事不是知道什么是错，而是知错就改。今天的我和昨天的我有点不一样，因为我做到了知错立改，明天的我和昨天一样，因为又被陋习拉回了知错也不改，拖延的坏习惯。</p>
+<p>原文：http://jianshu.io/p/6f4a0b416a36左岸记：关于知行合一，sly61也总结一些奥义，分享如下：知行其实是一个东西，一件事儿，一个过程。你知道的你就会去做，你不知道的，你想做也不知道如何去做。知与行只是同一过程的两个不同方面，或者说是从两个不同角度描述同一过程。知之真切笃实便是行，行之明觉精察便是知。如知痛，必已自痛了方知痛；知寒，必已自寒了；知饥，必已自饥了：知行如何分得开？</p>
+<p>此便是知行的本体（真相、真理），不曾有私意隔断的。知行一分开就变了，未行的知是闻见之知、意见之知，不是真知、本知，因为落实到你的心意里，你没有体验内化了它，它就不属于你，体验内化本身就是个知行合一。口耳相传的知识并不能体悟本体大道。得道必须靠超越这些闻见之知，由心体发动去悟。身之主宰便是心，心之主宰便是意。</p>
+<p>意之本体便是知，意之所在便是物。意到了就能把所有的问题拉回到当下此。所谓格物就是正心。具体方法就坚持事上练。原文链接：http://www.zreading.cn/archives/4326.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

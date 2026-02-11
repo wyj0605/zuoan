@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>希望有天能做一个“普通人”</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>希望有天能做一个“普通人”</h1>
+            <div class="date">2026-02-11 14:00:52</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/邹近夫像得了阿尔茨海默病的人，一度徘徊于彭罗斯阶梯，日复一日在原地打转，退也不是，进也不是。没有人来帮你破解这隐藏的奥秘，自以为是一步步攀登，怎料没有尽头。倘若成不了气候，那么就会被机制淘汰，甚至灭亡。它是这个时代与生俱来的一种恐慌。也因此，许多人怀揣着一颗出人头地的心，迫切地希望被社会接纳，希望有朝一日，能高翔于九天，清鸣于云中，然后远离是非，退隐江湖。</p>
+<p>如果有一天累了，那么大可以安然地坐在阳台，看河边晒太阳的人悠闲自得，看行色匆匆的人们仆仆风尘。如果有一天醒了，那么可以站成一颗苍松，拂云拭雾，念天地之悠悠，独怆然而涕下。再不济也可卧于一幢老房子的中庭，阳光好不好，不打紧，只要有光如水一般泻满小院，温柔的、漫不经心的光线映照到书桌上、枕头上、椅子上，使人忍不住想读书、睡觉、写字，想在一切事物中留下光和影，留下时间移动的痕迹或声音。可是梦想天使非但不眷顾，不眷顾那些栉风沐雨的人，而且从中阻扰，不止一次在前行的道路上，设下埋伏、圈套、陷进，让人寸步难行。要生活，她偏偏就把薪资和职位放到台阶之上，诱你走入无定向阶梯，永远也无法找到最高点或者最低点，而娱乐的声浪时常在耳畔欢唱奋斗之歌。</p>
+<p>要努力，她就用最原始的方式加重你的包袱，精神上、物理上的，如同荒野里的鬼，不分白天黑夜追着你跑，唆使你翻山越岭，时而刮风，时而下雨，果实好比悬在眼前的流星，抓一个逃一个；要上进，她就用显微镜遮住你的眼，小而难的事模糊不清，大而易的事情遍地皆是。有一天夜里，忽然梦见自己年岁四十，还白了头，骤然惊醒，五花八门的愿景，如同强弓弩手，发出利箭，惊出一身冷汗。遂只想放下梦想，立地做一个普通人。尽管你不曾想过大富大贵，也没想过长戟高门，但普通人不都是要得生活、抓住果实、上进之后才有的资格吗？铩羽而归后依然要生活，生怕被时代甩出轨线，只能被梦想裹挟着，要努力，要上进。</p>
+<p>可结果仍旧会割疼你，劳而无功，你焦虑，庸庸碌碌，你烦心，没钱了，你发愁。重新树立一个目标，像从前一样鼓足勇气，但生活不是考试，这次八十分，下次努力点就能考一百分。失败接踵而至，曙光总是不见，防不胜防的日子里，直到最后才明白，世人千万种，当个普通人最难做。许多人把普通人定义为贫穷、渺小、平凡、甚至弱者，唯独不是一类理想人物。但是如果我告诉你，普通人就是按自己的意愿活着，凡俗也好，高雅也罢，总之不需要在乎别人的评价，只需往生命力注入欢乐、自由即可，你会动心吗？</p>
+<p>事实上，普通人像英文单词“citizen，”释义为与任何集团无利害关系或成员关系的人。一生中他们无外乎累积各式各样的记忆，某种意义上，那些记忆成了最珍贵的财富。聪明的你一定以为普通人的生活，很孤独，但他们却愉快地和曾经的自己保持着联系。因为没有任何滋扰，靠自己的本事吃饭，也没有利益瓜葛，不必去经营错综复杂的人际关系，那个更高的自我足以给人心灵富足。左岸记：对，我们终其一生努力，不过是为了成为一个普通人，一个人认真生活的普通人，一个可以自在从容的普通人。</p>
+<p>普通人就是通过普通人的方法，普通人的努力，将自己的生活过的更好一点，给自己多一点选择的自由和权利，给家人多一点的安心和安全，在平凡的生活里，找出自己生活独特的意义，去发掘一些有趣的事情，让简单的生活过的有滋有味。普通，但快乐。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

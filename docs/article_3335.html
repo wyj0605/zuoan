@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教你一种我喜欢的生活记录法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>教你一种我喜欢的生活记录法</h1>
+            <div class="date">2026-02-11 14:16:06</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文章原创： 学长LEO ，来自：LEO家族 想从忙碌混乱的生活里解脱？想重新掌握生命的节奏？想合理规划生活，却还没有方向？如果你有这样的苦恼，那请一定要看完今天的文章，你将学到合理利用时间、提前安排生活、灵活记录事项的日程规划方法。/ 01 / 提不起干劲,生活乱成一团 2018年已进入倒计时，你曾立下的年度目标，现在情况怎么样了？</p>
+<p>如果都完成了，那么恭喜，你已经成为自己期望的样子；如果一年过去，不仅目标没什么进展，现在还有堆积如山的大小事项搁置在眼前，想必此刻的你会有些泄气。这些“小小失败”一层层地覆盖在你的心上，蒙住了自信，你可能会更难打起精神去拥抱乱成一团的生活。惰性在催眠着我们，在困难和容易之间，我们常常会选择容易做的事，而忽略了那些真正必要去做的事。因为一时懒惰积累下的任务，会慢慢发酵，最终变成堵在我们面前的“懒惰之墙”。你是一个热爱生活的人，深知人生不能只有学习、工作，你有很多的兴趣爱好，比如日本文艺电影、古希腊文学或者独立电子乐，你在网上找到很多相关的作品与资讯；你在咖啡厅使用Shazam识别出的歌曲；你在微信收藏了好多书单和影单，但这些美妙的内容，你只看过寥寥几个…… 你总是乐于收集，却没能好好欣赏它们。</p>
+<p>在这个信息爆炸的时代，我们的“信息库存”日趋庞大，每年都在增加，这也远远超过了我们的承载范围。对于这些“过载信息”，我们应该用心思考、判断、筛选出自己最心动的内容，再加以归纳整理，让这些兴趣发光，用有限的时间优先欣赏那些好的作品。但你可能会说，喜欢的事、重要的事很多，总是会“打架”，时间就是得不到恰当的使用怎么办？答案是，做日程规划。/ 02 / 这样的日程规划 相当于请了一个私人秘书 什么样的日程规划更适合我们？</p>
+<p>To do list： 它很好用，不过通常更适用于工作和学习，关于生活中的回忆与闪光点，比较难被记录下来。因为To do list是充满逻辑和理性的日程规划，它能帮你解决很多问题，却缺少了点滴生活中感性的温度。Schedule book： 这是另一种用来做规划的方式。用过Schedule book（日程簿）的同学会知道，本子里的格子大小是被规定好的，难免空间位置不够用，写着写着就了线。市面上的Schedule book都大同小异，古板的框架与不适用的事项，让人写着写着就放弃了。</p>
+<p>日程安排类APP： 在互联网时代，手机上就有很多功能强大的应用软件，时间管理、日程安排类APP更是层出不穷，五花八门的操作页面，甚至还有“真人发音”。有时候忙起来，记事本上写一些、手机里输入一些，内容零零散散，在处理事情时常出现有漏网之鱼的尴尬境地。其次，手机存在太多分散精力的诱因，看上去好像无所不能的手机，却常让你一事无成。那么问题来了，选择什么样的日程规划才能完美地服务自己呢？今天用这篇详细的原创，和大家分享一种更“有血有肉”的日程规划方式——Bullet Journal （中文可大致翻译为“子弹笔记” ；为保持这种方法的原味感，以下仍称Bullet Journal）。</p>
+<p>这是集To do list、Schedule book、手账日记、心愿清单为一体的日程规划记录方法， 涵盖你生活的全部，不论是工作学习、年度目标，还是生日纪念日、备忘录、阅读书单、旅行攻略等等都可以记录在内。Bullet Journal被称为“子弹笔记”、“BuJo”，由一位纽约设计师Ryder Carroll所创。他的初衷是，为了在数字时代里，向仍然想要用一张纸就能开始做笔记的爱好者，设计一套独特高效的笔记方法。Bullet Journal能够在纸、笔中，用最简单的符号，解决人们的任务整理、日程安排、兴趣目标等问题。并且还能构建出较为完善的检索系统，方便随时快速地查阅已记录的任务。</p>
+<p>如果你是一个喜欢做手账的同学 ，Bullet Journal完全能够满足你的创意发挥——你可以贴上旅行时拍的宝丽来照片或收集到的票根，作为这段旅途中的珍贵记忆；你也可以创建一个灵感专区，把生活中的奇思妙想记录下来；你还可以制定详细的每日计划，清晰事项简洁罗列，更高效处理待办事项。如果你不想制作那么花哨的手账 ，只想简简单单地记录每年、每月、每日的计划，用来督促自己完成目标，Bullet Journal也完全适用于你，因为它就是这么的灵活好用，里面全部内容全由你自己的喜好定制，你只要掌握核心要领，便可以做出专属于自己的日程规划。Bullet Journal就像你的私人秘书，大事小事全帮你搞定。/ 03 / Bullet Journal 一起开始制作吧 ①挑选合适的笔记本和笔 制作Bullet Journal，首先最重要的文具就是笔记本和笔。在选择笔记本时，不建议使用横线或者空白的笔记本。</p>
+<p>横线笔记本有明显的分隔线，让我们在画表格的时候比较不方便，会局限我们灵活、创意地发挥。空白笔记本，我们很容易在写字的时候把字写斜，画表格的时候也常会画得歪歪扭扭，这对于新手来说是一件很有挑战的事情，如果你是手账方面的高手，当然你可以用空白笔记本来尽情发挥。建议大家选择A5尺寸，内页是圆点或方格的笔记本，如果能找到圆点和方格不太明显的本子，那就再好不过了，这些圆点或方格是作为参照点，方便我们画表格和画画的。A5尺寸的笔记本大小适中，非常方便携带外出。在制作Bullet Journal的过程中，最常做的事情就是绘制不同的表格和记录事项，所以准备一把尺子也是必不可少的。</p>
+<p>笔的选择就因人而异了，如果你想制作简单版的Bullet Journal，一支黑色水笔就能搞定。如果你想制作更丰富、更生动的Bullet Journal，你除了准备黑色水笔之外，荧光笔、软毛笔、水彩笔等等也是不错的选择。②Bullet Journal包含哪些内容 Bullet Journal的基本框架： Key 任务符号表 Index 目录 Future Log 未来规划 Monthly Log 每月规划 Daily Log 每日规划 Custom Collections 定制合集 下面就来一一说明，每一个项目的具体内容要怎么制作。Key 任务符号表 Bullet Journal是一套看起来简单，但非常有逻辑系统的记录方法。首先要制作出一套用来标记不同性质任务的符号表，这样Bullet Journal才能发挥它的“子弹”功效，快速“杀掉”每项任务，无形中帮你节约更多时间。</p>
+<p>笔记本第一页就先把Key定下来。每一种符号都代表了一个简单且明确的意义，在查阅时可以帮助你迅速了解任务的具体进展情况。这边建议大家可以用这些符号： 任务与记录符号举例： •：表示任务 ，是可以执行或完成的任务、事件，比如“• 学习新概念英语3第25课”。○：表示约会 ，在某个时间里可能会发生的事件，比如“○ 公司团建聚餐”。-：表示记录 ，记录对某件客观事件产生的主观想法、观点、评论等，比如“- 早上学习英语总是犯困，效率不高，以后可以晚上学习”。</p>
+<p>状态符号举例： X：表示已经完成的任务或事件 ，直接在表示任务的“•”上画“X”，代表这件事已经完成。比如今天完成了“• 学习新概念英语3第25课”，就可以变成，“X 学习新概念英语3第25课”。&amp;gt;：表示此项任务或事件，发生变动，需要延后 。比如“• 今晚去健身”这项任务要延后到明天去做，那么直接在该任务的“•”上画“&amp;gt;”，“&amp;gt; 今晚去健身”表示健身延后了。我们需要再把这项任务安排到未来适合的日程里。</p>
+<p>&amp;lt;：表示此项任务或事件，已经纳入Future Log ，在Future Log那一页可以直接查找到该任务。比如12月的时候收到一张好友的婚礼请柬，明年2月你将参加他们的婚礼，这时你可以记录下“• 明年2月3日参加Kelly的婚礼”，等到明年的Future Log绘制好以后，你把该重要事项记录到Future Log里面，那么原先事项就变为“&amp;lt; 明年2月3日参加Kelly的婚礼”。（后面会具体说明Future Log）删除线：表示此项任务或事件已取消 。更多符号举例： *：表示强调任务或事件的重要性 ，需要优先解决处理。比如“* 下午2点前必须发报告给老板”。</p>
+<p>!：表示灵感 ，可以用于以后的创作点子。比如“！明年是猪年，画一套猪仔形象表情包庆祝新年”。♡：表示生活中美好的记忆 ，从而增加自己的幸福感。比如“♡ 今天和John表白成功，我们开始正式交往了”。</p>
+<p>Index 目录 大家可以灵活地制作目录索引，这也是Bullet Journal最闪光的亮点了。什么是灵活地制作目录索引呢？你可以在笔记本预留的任何地方记录你想记录的事情。比如，20-25页是12月的日程计划，突然你又想记录明年春天去日本旅行的攻略，那么你预估一下会写几页，挑选出空白页，在页脚写好页码，50-56页，是“日本春季旅行攻略”内容，接着你只要在目录上记下不同的项目内容和对应的页码就可以了。这里需要注意的是，大家在制作每个项目内容时，一定要在页脚写下页码 ，这样才能实现目录的快速检索功能。</p>
+<p>2018年12月日程计划 20~25页日本春季旅行攻略 50~56页2018年1月日程计划 30~35页 Future Log 未来规划 Future Log可以计划未来几个月的事项，一般Future Log是做成全年日历的形式，把目前已知的重要任务或事件记录进去 ，比如“3月4日是好友Vivian的生日”就可以提前写进Future Log里面。当然不是每件事情都需要记录在Future Log里面 ，挑选出重要的事件记录进去即可。Future Log也能帮助我们快速地预览，每个月即将发生的“大事件”。Monthly Log 每月规划 关于每月规划，你不用一口气把一整年的每月规划表格提前绘制出来。如果现在是7月最后一个星期，那么你只需要绘制出8月的规划就好了。</p>
+<p>你还可以根据不同的心情给每月规划设定不同的主题 ，比如7月份你经历了很多挫折，心情非常失落，在绘制8月规划的时候，你可以赋予8月“正能量”的主题，写上一些鼓励自己的格言，画上笑脸、太阳、爱心等让人能感受到满满正能量的图案，通过这个主题为自己打气加油。如果9月份你需要努力学习，你可以赋予9月“求生欲”的主题，时刻提醒自己再加把劲，力争快速达到设定的目标。每月规划的内容可以分为两块内容，一个是当月日历，另一个是当月目标。日历用来记录当月重要的任务排期，明确每个时间节点要做什么事情。目标用来记录当月想要达成的事情，无论什么都可以记下来，比如“减重1公斤”，“看完《人类简史》”，“参加某公司面试”，把脑子里面的想法都写下来，最后再具体分配到每日规划中。</p>
+<p>Daily Log 每日规划 做完了每月规划，紧接着就在后面一页开始做第一周的规划吧 ，你只需要提前一周做下一周的规划就好了，每周规划其实就包含了每日规划，所以在这边就并在一起说。在每日规划中，你可以把当天的To do list罗列出来。比如“• 阅读50页《百年孤独》”，如果你当天完成了这一项任务，你可打X，该任务就变成“X 阅读50页《百年孤独》”；如果你当天没达成该任务，你需要延后到明天进行，你就可以改成，“&amp;gt; 阅读50页《百年孤独》”，紧接着你需要在明天的规划中写下这项任务，及时把延后的任务安排到未来合适的时间里。这样你就可以清楚地发现，什么事情你会立马完成，什么事情总被你延后 ，总被延后的事情，你会一直看到它，一直烦着你，不知不觉中每日规划一直提醒你，事情又被你拖延了，你的拖延症有多么可怕，最后你会意识到自己要抓紧解决事情 。每日规划也可以帮助我们回忆生活，让我们知道时间都跑去哪儿了 ，当你记录了一个月，原计划是要读完4本书的，但是最终你只读完了2本，你可以翻看过去的每日规划，你会惊奇地发现，生活总是不按照我们的计划进行，也许当月有2周的时间，你在赶一个新项目；你在准备一个新工作的面试；你在感情里受挫，打不起精神去做事情，种种因素导致你没能最终完成读完4本书的计划。</p>
+<p>这时是最佳的反省时间，你是不是没有合理利用时间？你情绪容易波动，是不是要去读一些心理相关的书籍尽快调整一下？通过这样的回顾总结，你会遇见更好的自己。Custom Collections 定制合集 难道Bullet Journal只能帮你系统管理工作和学习吗？当然不是，它还能让你更关注自己的兴趣爱好、生活习惯等等。</p>
+<p>Custom Collections定制合集，最巧妙地一块进行规划了，在这里你可以根据自己的喜好去定制你想要写的内容。比如你是一个电影爱好者，你可以给自己定制一个年度影单 ，根据每个月不同的节日，来搭配自己想要看的电影，比如2月14日看一部《罗马假日》。你也可以根据四季的变化，观赏不同的影片，比如夏季的时候最适合看《海街日记》。把以前收藏的影单、书单安排到未来的日子里，让那些好作品走进你的人生。Custom Collections还可以用来追踪你的生活习惯 ，你可以定制一份健身计划，同样是画日历的方式，你哪天去健身了，你就在当天画个记号，定期评估一下自己的身体变化，看看自己一个月健身几次，要是去少了，就要多督促自己加把劲，为了更好的身材，要好好加油。</p>
+<p>你还可以定制Expense Tracker消费记录 、Shopping List购物清单 等等。Custom Collections是发挥空间最大的一个部分。/ 04 / Bullet Journal 大神们的惊艳操作 Bullet Journal的创作者Ryder Carroll在TED的演讲 ，他曾经也是生活乱成一团，后来慢慢摸索出Bullet Journal这套管理事件、任务、时间的方法，从而让他受益匪浅。目前Bullet Journal影响了千千万万的人，大家很享受这种灵活规划生活的记录方式。在YouTube、Instagram搜索“Bullet Journal”，你会发现很多大神，在这里推荐一位大神，她叫AmandaRachLee，她不仅把规划做得井井有条，还让整本笔记看上去更有温度、更美好 ，每月她都设计了不同主题的画面，还写下激励自己的格言，相信通过这种热爱，她获得了更多生活的启发；更了解自己的方向；更坚定脚下的路。</p>
+<p>不妨在2019年，你也做一本专属于自己的Bullet Journal，它会让你的心情更加明媚，而你的生活也将变得更加多彩美好。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

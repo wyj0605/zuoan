@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新学期，新展望</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>新学期，新展望</h1>
+            <div class="date">2026-02-11 14:00:16</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌 1.对学生而言，马上就要开学了。由于疫情影响，数次开学失败之后，终于迎来了2020年的下半场，欢天喜地，终于可以与同学相聚，每天可以F2F的交流，但也意味着学习生活正式步入了往常的节奏，规矩加身，是依靠，也是束缚。尽管工作多年，坚守着终身学习的理念，依然保持着学生的赤子之心，不断的通过阅读学习提升自己，也在通过写作不断的总结反思，试图将个人的成长经历分享给大家。自五月底从北京转场来到上海，不更新的日子像极了一个暑假，有点轻松，但又少了点挑战的勇气，没有那些分享的乐趣，不曾记录的日子也容易被遗忘，于是又开始鼓起勇气提笔更新。我知道每一个不曾起舞的日子都是生命的辜负，每个人起舞的姿态各有不同。</p>
+<p>于我而言，精确用语言表达自己的所思，专注于文字输出是日常生活为数不多的创造，也是个人与外界建立联系的一种方式，公开写作也是一种社交，总结整理个人想法的同时，也是在释放信号，寻找有情怀的同路人，或者是降低沟通成本，通过文字表述缩短彼此之间的心理距离。2.“一家烟火”公众号在这个暑假有所搁浅的原因，自我反思有两个原因。前期一直在刻意打造汽车信息安全专业方面的标签，试图从人生感悟类的文章，转型到专业领域，也是未果。自今年4月13日起到7月31日，一直与小伙伴们一起耕耘“汽车信息安全”公众号，尝试着打造汽车信息安全领域的专业品牌，将其作为事业的一部分，但是持续的时间也不过三个半月，每天更新到如今搁浅，可能是用力过猛，亦或是个人的知识储备和技术经验不足以支撑。新学期开始，也将考虑重新开始的创作表达。</p>
+<p>此外就是放不开，这也是日记体写作方式的局限，多少有点矫情。忠实于内心真实的表达，自然会带着个人的情绪和偏见。对于前一份工作的体验一直避而不谈，因为有太多糟心的苟且，心理状态并不是很健康，公开表达需要勇气，同时也会引起不必要的麻烦，索性闭嘴。而最近又新换到上海，工作和生活也在慢慢适应过程中，到如今才尝试拾起表达的勇气，分享个人的所思所想。前者向外求名，被所谓的专业标签身份绑架，而刻意的包装自己，后者因为工作环境氛围不正常，导致自由表达成为一种冒险，不管怎么样，终归是度过了一个无声的暑假，再艰难的日子都将成为过去，面对新的学期，我们自然会有新的期待。</p>
+<p>3.每次纪念都是一种提醒，其实借着学生的名义宣告一段暑假的结束，无非是为个人的工作学习生活寻求一点仪式感，尽管每天都很享受，每天早起看书，或者跑步，工作中积累专业知识，下班之后，买菜做饭，一个人的生活也依然自得其乐，该吃饭时吃饭，该睡觉时睡觉，在自律和克制中享受生活的有条不紊。但这更多的是生活心态，而非基于个人的志向，持续不断的往前进。个人所谓的享受生活，其实就是安心过好一名普通人，该吃饭时吃饭，该睡觉时睡觉，按部就班的走下来，专注当下，不看未来，抹去自我，冠以无我而解脱。写到这里佛家里那消极避世的味道扑面而来，让人自我和解的同时，似乎又阉割了生活的激情，了无生趣。在那些无声享受轻松的日子里，我毫无防备的承认自己就是一名普通人，每天都做些力所能及的事情，耐心有序也不焦虑，但又因为没有朝着有效的方向积累，最终也会无疾而终。</p>
+<p>写到这里，我终于知道自己为什么需要寻求仪式感了。对于现实，我终归是不服的。此前写到，每一个不曾起舞的日子都是对生命的辜负，起舞意味着对平庸生活的对抗，我们不一定每天都要做一些惊天动地的大事情，而是每天做的事情可以朝着伟大迈进，朝着心中向往的方向前进。何为伟大？又何为志向？</p>
+<p>这样玄虚的问题终归会回到自己。尽管读过些西方的书籍，也接受过现代化的教育，但依然向往中国士大夫的修身齐家平国治天下的情怀，不管如何，生而为人，我们终究会回到自己，提升个人的心性，跑步锻炼体魄，培养自己持之以恒的毅力，阅读学习提升个人的心智，通过不断的做事，提升个人解决问题的能力，书中学，事中磨，如此也就区别于普通的以物质占有为己任，以虚名标榜自我。新学期，新展望，依然会从提升个人心性和认知的角度出发，稳步前进。逝去的三个月其实是在“百日筑梦”活动的督促下，完成每周四次10公里的挑战，在新学期也会坚持跑下去，每周跑一到两次10公里，保持良好的作息和体能。每周会打一到两次羽毛球，通过群体运动适当扩大自己的交际圈。</p>
+<p>课余的阅读主要以金融投资为主，最近读完李录的《文明、现代化、价值投资与中国》作为入门，作为社会人，还是有必要关心个人的财务状态，以及工资之外可能的收入方式。为来年的实战做好知识储备。当然在此期间也会保持早起阅读的习惯，通过阅读扩大自己的世界，提升个人的认知。写作，还是要锻炼个人写长文的能力，不仅考验个人文字的耐力，同时也能健全个人思维的完整度。尽管一直在践行《零秒思考》提倡的总结记录方式，但它更重要的是锻炼个人的思维反应能力，情绪缓解能力，但是长文更能考验一个人的知识储备和耐力，让人体会到自由写作的乐趣。</p>
+<p>至于真正对应新学期的内容，开始学习德语了，完全是出于个人对语言的好奇心，语言会塑造一个人思维方式，以及开启看待世界的另外一扇窗户，此前的英语学习已经让我的职业发展加分不少，此次德语是一个小小的尝试，以点亮新的可能性。每个人都有夸大自我的倾向，也就是吹嘘自我的嫌疑，每次公开表达都会存在这个问题，名不符实是我们所忌讳，但是人之为人，不就是在不断在兑现自己吹过的牛逼，许下的承诺吗？当然前提是要对个人的能力边界有清醒的认知。何为伟大？有何为志向？</p>
+<p>我们终归是在不断的提升心性，通过个人的不懈努力，追求智慧和理性，提升认知能力，从而获得新生的力量，成为更好的自己。新学期，新的展望，加油！文昌 2020/8/30于上海 左岸记：每一次新的开始就给我们提供一次新的机遇和挑战，我们更是希望接下来的新学期一切能做得更好，大家一起努力吧！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

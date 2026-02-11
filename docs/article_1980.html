@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人有近忧、难存远虑</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>人有近忧、难存远虑</h1>
+            <div class="date">2026-02-11 14:00:20</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/邹近夫把日落看成一幅历史悠久的画，缱绻云舒便失去了令人遐想的张力，阁楼西畔望断天涯路，微风拂动树梢的叶子。一个梦，悄悄回归故里。宛如涟漪的旧忆，时隐时现，恰似一江春水，勾起了我对往事的一些深思。俗话说，人无远虑、必有近忧，一直以来都意在提醒人们做长远打算，事实上却有逃避现实的嫌疑。因为目标放在远处，虽然可以让人豁然开朗，但似乎并不能具体指导眼下的行为决策，反倒有点好高骛远的味道。</p>
+<p>毕竟眼前的事都没法处理妥当，眼前的人还杵在你前头，哪里还有心思侈谈未来呢？前不久，得知公司那个精神小伙离职的消息，我十分震惊。还记得去年，那是黄花风铃木开花的季节，新的平台和领导语重心长的勉励使他青涩的稚嫩的脸庞多了几分刚毅。公司规定朝九晚五，但他每天七点上班，晚上十点才回宿舍。按道理，他的工作应该相当出色才是，可偏偏弄得跟时运不济一样，到头来什么结果都没有？</p>
+<p>这个结果除了工作业绩之外，还包括他的生活、恋爱。这一年里，如果有智者提醒他，当前的困局是为了未来哪一个目标打下基础，抑或是他自己坚持腾出空闲的时间来思索明天，那么他平淡的结局也许会截然相反。纵观历史，凡是终成大事者的法宝，无外乎执意坚决。唐朝宰相魏征于《谏太宗十思疏》写下，“善始者实繁，克终者盖寡。” 概括了千百年来君王、乃至寻常百姓，可能骄奢忘本的品性。</p>
+<p>好在唐太宗自我约束能力实在非凡，不仅继承了唐高宗的尊祖崇道的国策，还励精图治，从谏如流，最后一步步使隋末动荡之局稳定下来。然而在这过程中，若非魏征提醒他慎终如始，想必他也不能给后来的开元盛世奠定坚固的基础。再看满清时期，怨声载道，闭关锁国，封了海禁，结果没有赶上世界工业革命的浪潮。只因清政府举国忙着镇压百姓，根本无力去想百年之后的事，哪怕勉强有了洋务运动，但也难以承受甲午中日战争的大失败。反观春秋时代越王勾践，因为时间充分，以至于关押在地牢，卧薪尝胆，最终成为春秋最后一个霸主。</p>
+<p>的确，凡事到了结尾就如同给一个临终的人善后一样，处理不好便死有余辜，所以细品人间的红白喜事，操持者大都深谙这个道理。搞工作、艺术、科技也是如此，开头难，收尾难上难。所以成天被忙碌围困的我，认为逻辑上应该是，人有近忧、难存远虑，而且这个远虑，一方面来自忙里偷闲，一方面来自高人指点，而且是由近到远，由浅至深，由低到高的一个线性过程。看那寺庙，一般建在偏山野岭，不单单是因为需要远离尘嚣的缘故。你去看他们为了生计，化缘也好，挑柴担水也罢，总是路途迢迢，每天都很忙碌，只有这样，和尚才没法设想明天以及更远的事情，才能做到清心寡欲。</p>
+<p>偶然发现岁月偷走的时光，不由得想起从前的种种打算。儿时特别想拆掉老家右边的猪栅栏，然后在大梧桐树底下砌一个石头圆桌，那样的话，我就可以在敞亮的地方写字，应该不会有太多的蚊子，也不用每到夏天的傍晚，便被祖母拿来灭蚊的滚滚浓烟熏得喘不过气。后来看到邻家都在大兴土木，砌了三层高楼，于是也想建一栋房子，只要不是俄罗斯方块里的正方形，其他的都不错，墙面贴上白面瓷砖，窗户统统用蓝光玻璃。如今，虽然不用再为此事发愁，但仔细一想，细品那一点甘甜，又免不了为那时的奇思妙想而感到敬畏。看样子，冲破束缚并不是一件容易的事。</p>
+<p>诗人拜伦说，“忙碌，就没有时间流泪了。”我想大概是身前处境，既要尽力对外抵抗凶悍的对手，又要备受应对内部无休止的掣肘而煎熬，始终被近在咫尺的忧愁，围得水泄不通，而不是不敢期待未来。设若不是从前无忧无虑，不是因为有两个稍微大一点的姐姐，替我遮风挡雨，让我晚了些才与生活兵刃交接，那我亦不可描绘未来生活的蓝图。左岸记：路虽弥，不行不至；事虽小，不做不成。道阻且长，行则将至；行而不辍，未来可期。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

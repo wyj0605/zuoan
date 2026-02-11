@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你给生活机会，它才会赠予你风景</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你给生活机会，它才会赠予你风景</h1>
+            <div class="date">2026-02-11 14:15:01</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/十里红妆你为什么来北京？决定来北京的最初，很多人问过我类似的问题。那时我想了很多种答案来面对不同人的提问，也选择了对某些人以沉默来回应。随着时间的流逝，我逐渐熟悉在这个城市生活的节奏与步伐之后，偶尔也会在夜深人静的时候问自己：你为什么来北京？昨天，当夕阳的余晖笼罩着整个城市时，我拖着疲惫的身子在厨房里忙碌，为自己准备晚餐，一个人的晚餐，标准的三菜一汤。</p>
+<p>合租的室友在旁边洗衣服。各自忙着手里活儿的同时，我们间或的交谈几句。不痛不痒的聊谈，有一搭没一搭的你来我往。她问了一句：“你为什么会来北京？”我把很久以前准备的那套说词翻出来：“北京机会多。</p>
+<p>选择也多。”回答之后没有得到回应，我转身一看，室友早已离开。我微微一笑，专注手下的活儿。脑子里想着今天的红辣椒炒肉拍成图片发到朋友圈，应该不会再被认为是番茄炒鸡蛋吧！很多时候，人们提出一个问题，期待你的回应来答疑解惑指点迷津，但更多时候，他们提出一个问题，仅仅只是为了完成一个自我追问自我思虑的过程。</p>
+<p>比如那位室友。在这个城市里，每天都有人带着希望和憧憬兴奋而来，也有人满怀无奈和伤感黯然离去，更多的人依然在这个城市里奋斗与坚守，或是麻木不仁，或是按部就班，亦或是打了鸡血一般的激情满怀。无论在行为选择的背后掩藏的是什么样的心理状态，总归他们在这个城市的角落里演绎着自己悲欢离合的人生故事。我相信，只要还在这个城市生活，不管是你，是我，还是她，不时，总会被人突然问一句：“哎，你为什么来北京？”届时，你会怎么回答？</p>
+<p>是如同那位合租的室友，在某一个波澜不惊的傍晚，企图对一个萍水相逢的人寻求答案，抑或是突然意兴阑珊的自我询问思量。也许，会如同曾经的我一般在午夜梦回之时迷茫前方路途。不管处于哪一种状态，我坚定的相信，总有一天总会找到答案。就如同今天的我，独自一个人在这个城市生活九个月之后，找到了属于自己的答案：为了不失去对生活的热情。在过去的九个月里，也幻想过倘若不曾来到北京，我的生活将如何继续？</p>
+<p>也许做着那份外表光鲜而实则无趣的国企工作，几年后无疑就是嫁为人妇，相夫教子在那个我长大的小城里并了此残生。最初，也觉得这样的结局没什么不好，至少很安全。安全的诱人，诱人的难以抗拒。就像是严冬寒雪里周末早上的热被窝，真想一直在里面舒舒服服的沉沦下去。但是，被窝睡久了，就会觉得太无趣，时而想找本书来阅读，时而又想听首歌来欣赏，时而又觉得看部电影也不错，总之最后，你一定会离开那被窝，最终你当然会回归被窝的，但也许那是又一个夜晚的来临。</p>
+<p>做不喜欢的工作，嫁不喜欢的人，偏安一居甘做井底之蛙，我的一生难道就这样下去？那时的境况，寥寥数语足以可以概括一生： “十年寒窗，学满毕业，偶有因缘，得入政企。工作勤恳，然天资平庸，不善长衣舞袖，终泯然于众人。韶华之年父母之命媒妁之言嫁为人妇，期年又迫于流言蜚语及双亲期盼身为人母，五十年锅碗瓢盆家长里短纷争不断，六十载心系子女百般算计千番教导肝肠寸断。年四十，丧考妣，再见无期；年五十，沦孤巢，多病缠身；年六十，儿女成家皆离左右；年七十，失侣无伴独来独往；后期年，此身亦殁，一生无功亦无过。</p>
+<p>”生活固然是不完美甚至是平庸的。我也并非想要活得如何光鲜亮丽。当然，它也未必一世安稳甚至风波不断，但我想至少不能因为畏缩而抱憾终身。追求安全及确定性是出自一种自身本能的反应。它对我们的吸引力如同地心吸引力一样无处不在。</p>
+<p>而我们的精彩恰好也在于地心引力的充斥其间。建成摩天大楼对峙苍穹，创造飞机与云比肩，发射脱离太阳系去更远的世界探索的旅行者号空间探测器……我们所有的发展，都是在抗拒，抗拒那些难以抗拒的东西。抗拒安全的诱惑，抗拒舒适的堕落，抗拒自我的本能。如果说追求安全是我们的天性，那么抗拒本能也同样是我们的天性。它们这对矛盾体无时无刻不在我们的内心里对抗，此消彼长。</p>
+<p>我们已然习惯于生活在安全地带，被老师、父母、师长以及书本的汤勺喂大，习惯了去询问他们：“请告诉我，那高原、深山及大地的背后是什么？”总是满足于他人的描绘，活在别人的言论中，而不再享有抗拒本能的权利。长久以往，我们不再新鲜，心中没有什么东西是原创的、清新的和明澈的。渐渐的，失去了对生活的热情。遵循自己的想法，抗拒本能的安全，在尴尬的年龄放弃一切来到北京从头开始，给自己一个机会，给生活一个机会，是目前为止我做过的最勇敢的事情。</p>
+<p>“如果最后我终将迫于生活的各种原因嫁于不爱的男子，那么可否让我在可以选择的时候一直安静的做自己喜欢的事情。”最初的勇气只是来源于这样的一种想法。觉得不做挣扎的人生太过于可怕，然由于对另一种人生的无法预见，让我胆怯，不敢选择。而当这条路终于被我走出来的时候，才发现很多事情根本没有想象中的那么艰难。蔡康永有段话可以很好的诠释：“ 15 岁觉得游泳难，放弃游泳，到 18 岁遇到一个你喜欢的人约你去游泳，你只好说“我不会”。</p>
+<p>18岁觉得英文难，放弃英文， 28岁出现了一个很棒但要会英文的工作，你只好说“我不会。”人生的前期，如果越嫌麻烦，越懒得学，后来就越可能错过让你动心的人和事，错过风景。”不给自己设限，试一试又何妨呢？高山，若总不去攀登，那就永远只能是高山，终生仰望，若征服过，便成为你脚下的一方尘土。很多时候，生活就是这样，你给它机会，它才会给你风景。</p>
+<p>诸多的朋友之中，有一位 A姑娘，虽说不上特别的漂亮，但五官非常和谐，丢在人群堆里也是抢眼的很。家里经济条件也十分优渥，称为富二代也不嫌过分。周围的很多人认为这样的她，只要一直负责扮演公主的角色就足够，可是，很多时候却觉得她过的比任何人都更加的努力。凭借自己的能力考上国内一流的高校，在校期间参加了不少项目，都是些让人觉得又苦又累也不讨好的项目，她不仅做的很认真，还保持所有科目成绩无人能敌的高度。我曾问过她：“何必这么辛苦，你所拥有的，已经足以让其他人奋斗一生也未必能赶超。</p>
+<p>”当时她回答我：“只是为了证明自己。即使不是某某的女儿，难道我就没有可以立足这个社会生活的能力了吗？她经常只身一人出国旅游，有次回来后告诉我，她决定要考取英国一所全球著名的学府进修博士课程。我知道那份工作，她曾经非常看中，为了获得领导和同事的认可，她付出了很多的努力和艰辛。问她是否考虑清楚，她说：“世界太大了，我需要给自己机会，不断的去攀越，去发现，去尝试。</p>
+<p>我愿意死在前行的路上，而不是死守着一成不变的现在。”当她拿着高到变态的GRE 和托福成绩，附上录取通知书放在我前面的时候，我的人生轨迹也因为她而悄然的发生了转变。我们是同一天离开故乡的城市，她出国，而我来北京。时常，我们会遇到一种生活状态：对生活失去热情，对什么都得过且过，没有追求，觉得空虚无聊且肤浅。这一切可能只是由于我们习惯于安逸的生活，沉溺于周末早上的热被窝，被我们本能力的地心引力所束缚。</p>
+<p>我们要做的就是去尝试一些新的选择，去走一条看不见结局的路，去不断的学着给生活机会。如果不曾在早晨毅然爬出温暖的被窝出去散步，你就没法体验到清晨第一缕阳光投射到人间的美丽。如果不曾在闲暇时出去旅行，你就不会欣赏到小河里流淌的溪水，树林间习习的薰风。人生苦短，请去探索！一朵可爱的云彩、衬着蓝天的高山、春日里的一片绿叶、壮丽婉转的山谷、绚灿夺目的夕阳、或是一张动人的脸庞，一个温馨的片断。</p>
+<p>宫崎骏在他的电影里说：“我始终相信，在这个世界上，一定有另一个自己，在做着我不敢做的事，在过着我想过的生活。”其实，我们每个人就是另一个自己，只要我们愿意，就没有我们不敢做的事，就能过我们想过的生活。请给生活机会，这样它才能赠予你风景！左岸记：想起两年前，红妆的买房梦，想起她去年的那些小确幸，再到现在她对梦想的勇敢追寻，在感叹人生的沧桑变化之余，更是看到了她的成长。以独特的个性生存于世，是怎么也不会屈从于违背自己心愿的人或事，无论生活在哪里，你都要有勇气追寻自己想要的东西和对的人。</p>
+<p>永远相信，山的那边住着神仙。原文链接：http://www.zreading.cn/archives/4877.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

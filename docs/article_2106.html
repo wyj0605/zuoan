@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如果不做现在的职业</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>如果不做现在的职业</h1>
+            <div class="date">2026-02-11 14:00:34</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/花千树那天在一个老师的微博里看到一个很有意思的问题，如果不做现在的职业，你最想做的是什么？留言多种多样，当房东、富二代、开一家奶茶店、开一家书店、瑜伽老师、种田、民宿老板、歌手、花匠、建筑师、还有吃饭睡觉打豆豆等等。1.每天忙着带娃、看书、找工作，似乎已经好久没考虑过这个问题了，如若说恋爱像一幅悠闲肆意的水墨画，则生活更像一卷浓墨重彩的水彩画。至今唯一清晰深刻的回忆是小学时候的作文，大概天南地北的孩子都写过同一篇题目叫《我的理想》。同样的课题，不同的阶段，那时认认真真的写下宏大的愿望，怀揣的是长大的欣喜向往；此时半认真半戏谑的说出自己想做的职业，是慰藉，是提醒，也是淡淡的无奈。</p>
+<p>就像11年的时候大家都在扯着嗓子唱的《老男孩》：“当初的愿望实现了么 / 事到如今只好祭奠吗 / 任岁月风干理想 / 再也找不回真的我”。那种沧桑深沉的嗓音至今还记得。或许我们从未遗忘过那些愿望，只是时间教会了我们隐藏。或许我们一直在兜兜转转，只是在未确定之前先学会了伪装。我又怎会不知我的热爱？</p>
+<p>又怎会将它彻底遗忘。只是生活之重，经历之限，让这些都显的太过矫情，毕竟我们都是活在当下，活在烟火气息的人间。2.前一段时间找工作被不止一次的问职业规划，还是3到5年，无非是根据职位描述说一说。我们从小就接受各种考试，非常明白正确答案长什么模样，都不知道会收到哪个公司的offer，谁又会知道三五年之内怎么规划，现实面前规划大概会一文不名。而且发现人很难突破以前的职业，几乎就是毕业的第一份工作很大程度上决定了你以后的职业发展道路。</p>
+<p>企业招人，大多都是招同行业有经验的。想要跳出去又得从最基础的工作开始做，这就导致薪资无法和工作年限匹配，求职者又很难接受，最后大约还是在原来的圈子里找一份薪水和发展还算不错的公司，我们的愿望只能继续在时光里苟延残喘。可我们想做的事大抵是生命里的一束光，是生活里的一杯酒。让我们在低沉的时候不会放弃，在繁琐的日子里依然能够心生欣喜。现实是每天拼了命的挤地铁，努力勤勉的工作，愿望可能就是可以悠然的开一家书店，每天可以在洒满阳光的午后喝茶看书；现实是需要各种操心的一地鸡毛，愿望可能就是海子说过的面朝大海，喂马劈柴。</p>
+<p>我们终究是靠希望活着。至此，想起一个残酷的问题。记得在哪里看过一个测试，说如果有一天，这个世界只剩下你和一件东西，你会选择那样陪你？是金钱？是爱人抑或一只枯笔一本书？</p>
+<p>选择之所以多样，只因为选择都是有条件的，而选择从来都不是纯粹的。我们并不能随心所欲，就像我们当下的种种选择永远不能脱离目前的各种状况，如家庭、如各种贷款。而诗和远方的田野大抵只有生活的百分之几。3.如果不做现在的职业，如若是理想，我大概想到各地走走看看。中国也好，国外也罢。</p>
+<p>自然风光也好，人文景观也罢。那时读着余秋雨的文化苦旅，读着莫高窟、都江堰、阳关雪，尤其是莫高窟，只觉得血脉贲张。“看莫高窟，不是看死了一千年的标本，而是看活了一千年的生命。一千年而始终活着，血脉畅通、呼吸匀停，这是一种何等壮阔的生命！一代又一代艺术家前呼后拥向我们走来，每个艺术家又牵连着喧闹的背景，在这里举行着横跨千年的游行。</p>
+<p>”艺术本来就该是有灵魂，有生命的。还记得从四川一路走到稻城的时候，有雪山，有经幡，有牛羊，还有飘荡在空旷草原上悠远的钟声，澄澈有力。生命的气息和自然的脉搏，久违的宁静和无边的辽阔。任何表达都不为过，任何一种生长都值得被尊重。醉过方知酒浓，爱过才知情重。</p>
+<p>曾几何时无边厌烦的上课竟成了一种奢侈的回忆。如若还可以边想边心无旁骛的去读书，非排行非热门，只要喜欢就去涉猎。几重山水几多路人，原来最为怀念的还是那时青葱。或寄情山水，或寄情写字。人活着，总归有点寄托。</p>
+<p>漂泊的人世间，总需要一处柔软之地来安放孤独的灵魂，总需要一方理想之土来让紧绷的神情放纵。如此说来，总有一份理想在别处。左岸记：大家可以接龙，说说你现在的工作，也说说如果不做现在这个工作，你最想做什么？再问问自己，为什么没有去做自己最想做的工作？一个原则是，现在的工作你也做得很努力，还做得很不错。</p>
+<p>作者：花千树，一边在世界里流浪，一边在深夜里独写悲喜。爱繁花也爱星辰，孤独与爱同在，悲凉与温情并生。微信公众号：孤独与爱同在。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

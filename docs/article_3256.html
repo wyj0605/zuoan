@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>囧遇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>囧遇</h1>
+            <div class="date">2026-02-11 14:15:51</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>囧遇 文/ 稻田赵凡终于结束了在北京的进修，头脑里和本子里装着一大堆“专家说”，顶着严寒，到热得要脱衣服的商厦里买了许多的衣服,要送给家人，然后兴冲冲踏上归途。他挤上了一辆满是乘客的汽车，刚在靠车头的过道像俘虏一样要蹲下，便有一个黑脸的男人从人缝里向他伸出手臂，“包放在后面”，赵凡以为是车上的工作人员，也以为“包放在后面”是乘车的规矩，便将旅行包递给了黑脸人。汽车在土路上摇晃着，不知过了多长时间，也不知为什么自己就到了站，恍惚着起身随乘客下车，忽然想起自己的包来，但包和黑脸人已经没了踪影，他心里立刻恐慌起来。“到汽车站去问”，他首先想到这一点。下车的地方应该是车站，但没有看到任何的车辆，抬头巡去，建筑上也没有“汽车站”或“长途、运输”等任何相关的字眼，见到几个穿工作服的年轻人围坐在一张桌子前聊天，便走过去问，他们投来的迷茫眼神让他陷入彻底的恐慌。</p>
+<p>走到街上，他才发现，这不是他要去的熟悉的城市。这是一个像县城的地方，店铺，行人，以及声音都给人以嘈杂感，他感觉到耳膜被一种东西压着，本能地要找安静的地方。他拐进了一家饭店，想找一个包间好打电话，向家里报告“变故”。但包间里都是客人，酒菜混合的腻味向他扑拥过来，他向一个老板模样的人询问，老板忙得满脸冒油，随口说道，“看看后面”，他终于走进一间空着的包间，哆嗦着按手机的按键，但怎么都按不准号码，这时发现包间里还有母女二人，那母亲像是自己常去的发廊的老板娘，客气的说，“到其他地方去问问“，一边哄着吵闹的孩子吃饭。他急着按手机，按键变得很小，跳着捉摸不定的蓝光，无论怎么都按不住……胸口像赛马场，刚被凌乱的马蹄踏过，他觉着自己喘不过气，便推开紧闭的窗户。</p>
+<p>一阵清凉的空气吹来，他睁开眼睛，看到屋顶熟悉的吊灯，才发现，自己刚才是做了一场梦。他仰面躺在床上，思维却像纷沓的马蹄，无法停歇了。上初中时候，他去上公厕，去的时候下雨，起身的时候停雨，第二天才想起雨伞落在了厕所，以最快的速度跑去，伞已无踪，便在草丛里捡起一块断砖，在划迹斑驳的墙壁上写下，“丢失红伞一把，请捡到的还我”，还落了款，却没有写失物送还的地址。等了几天没有下文，只好作罢。“失物启示”在墙壁上留了很长一段时间，每次去都照面，后来厕所被拆了。</p>
+<p>一天也是下雨，在拥挤的菜市场里，他刚骑上车子，车轮刚刚转动，便缓缓地碰到了一位缓缓倒下的老人。他至今还记得当时的情形，车把被一个胖胖的老人抓着，四只眼睛相互注视，两个身体一高一低，做倾斜状，像舞蹈中的恋人。老人的女儿走过来，一脸惊恐。提着水果上门道歉，才知道老人已80高龄，他现在想来还哆嗦。在那个本科录取还是按个计数的年代，他培养的学生登门道谢——门开，学生在门口递上一袋水果，“进来，进来！</p>
+<p>”他欢喜而儒雅地说，期待一次关于师生情谊的愉快交谈，“不了，还要去别的地方”，学生转身匆匆下楼，学生的同学在楼下等着。他看着茶几上困在网袋里的水果，好几分钟无语。办公室的电话发出惊人的铃响，“你好，我公司新推出……”,“不需要，谢谢”。这样的电话很多，他立刻将话机盖上。电话又惊人地响起，拿起电话，“你为什么不听我说完？</p>
+<p>你要尊重人！”“我……”他选择将话机再盖上。端坐着，长长地喘了几口气。以后的一段时间，每到周末，他的手机都会收到一条相同的短信：“走过一些路，才知道辛苦。登过一些山，才知道艰难……”,开始他以为是诗，待看了下面，气从中来，又不知何去——“我相信我的辛苦守得云开见明月，我还是会祝福您天天开心——一个期待您回信的夏天。</p>
+<p>”如同遭了梦魇，赵凡开始害怕听到电话铃响。春花秋月何时了，囧事知多少,囧，似乎是人生的失意的伴侣，“谁都遭遇过，却又躲不开”，赵凡忧天悯人的习性又起来了，思维便荡开去，想起天下人的遭遇来：责任在心，登门劝说闹离的夫妻和好，闹离的夫妻却硝烟早散，还秀起恩爱；卖了房子，房子涨价；买了股票，股市大跌；熬到晋级，刚刚超龄；见到梦中情人，面容憔悴得如同生人；还有热情如火地向同事打招呼，换来一张死寂的脸；偏偏住在马路东面，孙子就进不了公办园……赵凡的思维像牵着无数的风筝，满天空的乱舞，突然眼前叠进一个黑脸的男人，提着他的包拐过墙角，他猛的一惊，才意识到只顾耽想，差点忘了上班的事情。连忙从床上跳起，穿衣，套鞋，一只脚忘记穿袜子；洗脸，刷牙，牙膏偏偏掉进盥盆里。狼狈地夺门而出，向车站奔去。赵凡是我多年的朋友，得意和失意的事总爱跟我说，而且还眉飞色舞的，上面的故事就是他喝酒时向我描述的。</p>
+<p>至于故事的结局，例如有没有迟到，有没有扣工资，他没有跟我说。三周后的一个晚上，手机里收到他发来的一条微信，是一首经他篡改的打油诗：小城囧事多，充满苦和乐。若是你到小城来，收获特别多。看似一幅画，也像一首歌，人生遭遇真善美，这里已包括。谈的谈，说的说，小城囧事真是多，请你的朋友一起来，一起来说说。</p>
+<p>一段时间没联系，看来他又遭遇了囧事。这回不知是什么原因，只听说他刚参加了一次大学同学聚会。左岸记：人生一世，草木一秋。无数的生活琐事、情感纠葛，构成了笑泪横飞、有血有肉、鲜活动人的生活。生活虽然一地鸡毛，但仍要欢歌高进。</p>
+<p>成长之路虽有玫瑰，有荆棘，但什么都不能阻挡坚强的心。一地鸡毛的人生避无可避，但我们可以将这一地的鸡毛扎成一个漂亮的鸡毛掸子。想起老德介绍的《精要主义》，还是做做减法吧。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

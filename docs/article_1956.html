@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你以为的认知问题，其实是情绪性格</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你以为的认知问题，其实是情绪性格</h1>
+            <div class="date">2026-02-11 14:00:17</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德鲁伊&lt;br&gt;高考又移到了7月，这突然让自己有了关注热情，自己那时候也是七月。努力一定会有好结果的事情，这辈子遇到的绝少，高考算一个。这几日的股市也很nice，第一天疯涨就一批人清仓，然后留下的和跑路的，互相鄙夷互相嫌弃。今年属于习惯性危机年，好消息不多，于是，毫无悬念的焦虑和恐慌。习惯性危机，也让机遇少了很多，真遇到了，失掉了，还只能说不后悔，或者找一切可能的理由去验证不值得后悔，这样的人基本都中年了。</p>
+<p>认知问题泛而笼统，但通常，我们预设的情况是，如果信息完备，心态中立持平，我们又有较好的分析处理信息的能力，我们必然能有较好的选择和行动。于是乎，我们努力学习培养认知能力，但最终的结果却是，学会了如何寻找到足够的理由，来解释自己的失败。毫无疑问，不后悔和不能说后悔，是现代人的必修课。但拿认知模式说事，大而化之的去回答一切问题，怎么看也于事无补，于己无益。这个类似用户偏好设计，你一次次拿认知模式的理由来解脱自己，你也就越来越习惯将问题归罪于认知模式。</p>
+<p>世界的股市，今年是天下大同，所谓的市场永远臣服于权力意志。危机时恐慌无比，牛市来了却瞎折腾，什么东西都拿不住，不管是钱还是股票。有了股票，烫手，没了股票有了钱，看着别扭。亏了骂市场流氓，赚了那是自己英明，赚了后发现留着本可以赚更多。然后，就开始埋怨自己的认知模式。</p>
+<p>信息社会，公平搜索、搜索公平，大家能获取的信息差不多。股票练多了，所有的内幕消息，都会直觉的自行打个问号。数据分析也是工具多多，但面对分析结果，却仁智互现。真让你自己分析时，你却也懒得相信自己。科学，再加上科学的数据信息分析工具，你最终的选择却甚不科学。</p>
+<p>这让人很挠头，你都不知道该怨谁，最后就只好去怨认知。但再来一次怎么样，认知该提升了吧，恰恰相反，没能吃一堑长一智，而是吃一堑再吃一堑。没涨智，尽吃堑了，韭菜也是这么想的，韭菜都是这么想的。多半这时候你会开始相信玄学，只要你笃定的事情没有变成笃定，人么，搞搞玄学也还是很有必要的。世界上什么都缺，就是不缺神仙，万物有灵，万物成神，这已经超出认知了。</p>
+<p>在你实在迷糊自己人生的时候，放弃认知，寻佛问道也挺好，起码心静静心。满世界冥想静心，会成为一个大的潮流，也充满商机。这是时代给你焦虑的同时，给你的机会和解决的办法。蓦然回首，这辈子的问题压根不是认知问题啊，是性格啊，是情绪啊。这是一件悲哀的事情，我喜欢“为体为用”的剖析，认知模式如果没成为“本体”，真到了用，其实连工具都算不上，只成了性格情绪的表现手段，出问题时可以推卸的借口。</p>
+<p>其实我们都明白，我们绝大多数人不会承认，自己是情绪驱动论和性格决定论的忠实信众。因为我们总是摆出一副无比理性的嘴脸，但每一次信誓旦旦的理性，稍微盘点一下，不是情绪作祟，就是性格决定，或者兼而有之。一直想写本关于情绪的书，但最终放下的原因很简单。你处于情绪里，但你不认为你处于情绪中，这绕口令让你很无语。性格问题也差球不多，因为绝大多数时间，性格是你的借口，而不是你努力去改变或关注的事。</p>
+<p>自知永远比知他更难，于是类似凡事三思、先搁置延后解决等等，并没让你有什么收获。甚至类似延迟满足感的招式，运用好的人，深有心得，奉为圭臬。不会用的，门都摸不到，还骂骂咧咧。所以，这世上遇到的事情多了，总还是要学会先抛开所谓的认知问题。输赢暂且不论，先论论情绪性格。</p>
+<p>遇事，先试着从情绪里脱出来，从性格外审视。换个情绪，你解决的方法是一样的吗？如果不一样，会怎样？至于性格，不自知再正常不过，只要不拿性格说事，其实旁观一下，中立持平一下，还是很容易的。纯属建议，每一次归罪认知模式的时候，些微的提醒一下自己，有没有可能是情绪，有没有可能是性格。</p>
+<p>左岸记：情绪和认知之间的关系，打个比方，一个本身对下雨没什么特别情绪的孩子，某次下雨，摔了一跤，浑身又湿又脏，回家还被父母责备了，他就会产生不好的情绪体验，这种体验可能就沉入了形成他潜意识标准的经验里，对他来说，可能就形成了下雨=不开心这种模式。尽管这件事他以后忘记了，但这种模式留了下来，每到下雨就不开心，会觉得自己就是不喜欢下雨。跟下雨相关的行为也是消极的。这就是，行为—情绪—认知—情绪—行为，这个循环。反之，如果那次下雨，他体验到了快乐，那一切又都不一样了。</p>
+<p>当然了，随着认知的提升，比如这个孩子知道了自己的这种情绪根源，有了这层认知，并有意识地去克服，经过一时间，那么他应该就能控制这个被动的情绪了，开始去欣赏雨天美丽的风景。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

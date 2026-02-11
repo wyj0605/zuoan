@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大学究竟应教给学生什么？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>大学究竟应教给学生什么？</h1>
+            <div class="date">2026-02-11 14:00:18</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/廖超国提出这样一个似乎不是问题的问题，是不是让人有些谔然？自人类有大学的历史以来，不管是1088年意大利建立的博洛尼亚第一所正规大学，还是1809年洪堡创办的标志现代意义的柏林大学，抑或1898年中国近代第一所国立综合大学京师大学堂的成立，近千年的办学历史，难道这个问题还不明确吗？其实不然，听听目前社会对当下大学教育的一些诟病，看看现在大学毕业生就业的尴尬之状况，想想著名的“钱学森之问”，问问这个问题便觉得是个问题，还是一个有必要值得思考的问题。特别是新时代的当下，这个问题的意义就更不寻常。从大学自身的目的看，传统大学无疑是一个传授知识的场所，而新型大学则应是思想、思维、方法、能力的训练营。</p>
+<p>著名教育家竺可桢说：大学的目的不在于使学生得到面包，而在于学会自己做面包。给“鱼”还是授“渔”是传统教育和现代教育的分水岭。随着信息革命的进步，知识爆炸的时代的到来，更是如此。当下知识和信息相互渗透，边缘越来越模糊，呈几何级数增长，更新变化的速率加快，特别是移动互联网以及人工智能时代的推进，知识存储方式发生了深刻的变化，别说大学几年的教育，即使穷其一生，也难完全穷尽浩瀚的知识海洋，而发展的趋势是传授知识速度赶不上知识增长的速度，离开大学几年，所学的知识终因陈旧而淘汰。而方法却是解决问题的利器，故方法比知识重要，能力比分数重要。</p>
+<p>只有让学生手中有“枪”而且掌握了“枪法”，“干粮”则便随处可寻。所以，教方法比给知识更重要。从大学培养人才的使命看，传统大学重专业技能培养，而新型大学则应重综合素质的提升。综合素质的关键在“德”，人才的第一条标准也是“德”。香港动乱的教训，就是失误在教育引导，失误在立德树人上。</p>
+<p>所以大学应着力培养具有“四心”的新时代建设者和接班人，即忠心，牢记爱国使命，具有崇高德行的人；雄心，振兴祖国，具有才学出众的人；真心，坚持真理，具有高尚情怀的人；实心，知行合一，具有坚强担当的人。“四心”建设者和接班人重点在以德为先，德才兼备。新的历史条件下，教育的根本问题在于培养什么人，怎样培养人，为谁培养人，检验高校一切工作的根本标准是立德树人的成效，落实立德树人的根本任务必须将价值塑造、知识传授和能力培养三位一体，做到育人与育才统一，悟道与授术结合，立德与提能共进。围绕这样的办学目的和使命，大学教育应着力实现“四个转变”和“五大提升”。教育理念要实现由“知识本位”向“素质本位”转变；教学内容要实现由“专业教育”为主向“思维方法”为主转变；培养方法要实现由“教育为主”向“学习为主”转变；评价模式要实现“课程合格”向“能力提高”转变。</p>
+<p>从而实现积极的人生态度大提升、批判性创新思维大提升、有效的学习方法的大提升、多元的人际能力大提升、良好的生活习惯的大提升。笔者以为“五大提升”便是当下大学最应教给学生的东西。1.拥有勇于积极进取的人生态度。勇于进取的积极人生态度于一个人的一生是最重要的。积极的人生态度可以决定我们人生的方向，有利于我们人生价值的实现，促进我们人生目的达成，曾有人说过，态度决定一切。</p>
+<p>于人生而言，确实如此，有什么样的态度便会有什么样的人生。拥有积极进取的态度便会有积极进取的人生，消极颓废的态度只能是消极颓废的人生。大学时期，正处于一个人世界观、人生观、价值观“三观”形成的关键时期，正确的引导就显得更为重要。年青时代建立的人生态度，会决定和影响人的一辈子。积极的人生态度包括人生须认真、人生当务实、人生应乐观、人生要进取。</p>
+<p>具有了这样的人生态度会让我们走出一条闪光的人生之路来。2.炼就敢于质疑批判的创新思维。质疑是思考的起点，是培养批判性思维的重要基础。而批判性思维又是创造性思维之母。人生最高的成就在于创造。</p>
+<p>所以，大学学习要掌握的核心本领，就是敢于质疑的批判性创造思维。批判性思维是敢于质疑的创造性思维，是在主动思维中对已知或结论等进行积极辩析判断，并能有根据做出肯定接受或否定质疑的断定，在评判中形成新的判断或结论。炼就敢于质疑的批判性思维，不仅是学习的重要方法，更是提升创造性能力的途径。哈佛大学艺术与科学院已故的前任院长杰里米·诺尔斯（jeremy Knowles)曾描述过他所认为的高等教育最重要的目标，就是确保毕业生能够辩别“有人在胡说八道”。探索真理需要质疑批判的创造性思维，成就人生更需要质疑批判的创新性思维。</p>
+<p>3.掌握勤于思考有效的学习方法。目标和思路明确之后，一切皆方法。世界上无论多么复杂的问题，其解决的办法无非两条，明确的方案和有效的方法。从这一角度看，方法即能力，方法即水平。学习也是如此，要想有所成就必须终生学习。</p>
+<p>大学学习，最核心的是学会学习，建立适合于自己的学习方法。有了适合自己的学习方法就能使学习的效率和效果大幅度提升，适合自己的学习方法是在长期的学习过程中摸索总结提炼出来的。在一定程度上甚至可以说大学最重要的职责就是引导学生成为自己终生学习的教师，大学教育的根本在于让学生养成终生学习的习惯，并建立适合于自己的学习方法。我时常和学生交流，大学期间要完成最基本的“五个一工程”，第一、要顺利拿到毕业证和学位证；第二、要通过四六级英语考试，过外语关；第三、在校期间，除完成课程学习外，四年间最少要集中读完100本中外经典名著，每年25本；第四、培养自己学习的兴趣和爱好，养成终生学习的习惯，探索总结出适合自己学习的独特的有效方法；第五、建立适合自身特点并能坚持的健身方式和习惯。完成了这“五个一工程”才算真正毕业。</p>
+<p>4.打造善于沟通多元的人际能力。人是社会的人，人的世界其本质在于交际、交流、沟通和协调。现代社会一定是一个协作社会，一个人只能做事，一帮人才能做事业。人的交流沟通能力的高低，不仅表现着一个人的综合素质和能力，更决定着一个最终以成多大的事，能走多远。著名成功学家卡耐基曾断言：“一个人事业的成功15%靠他的专业知识和自身努力，85%取决于他良好的人际关系。</p>
+<p>”不会交流，不懂沟通，于现代社会中几乎寸步难行，而掌握了人际交往的技巧，就会有通畅的人缘，在通往成功的路上，就会左右逢源，如鱼得水。大学时期，青年时代，思维活跃，渴望交往，正是学习人际交往的好时机，学校若着力打造学生善于沟通的人际交流能力，让其真正掌握与各种人打交道的本领，会让其受益终生。打造学生多元的人际能力应成为大学教育的重要内容。5.培养严于自律良好的行为习惯。拿破仑·希尔说：“播下一个行为，你将收获一种习惯；播下一种习惯，你将收获一种性格；播下一种性格，你将收获一种命运”。</p>
+<p>人是习惯动物，也是习惯产物。一定程度上，习惯决定着一个人的命运和前程。习惯在于养成，靠的是自律。唯有自律才可以养成好习惯，而且自律本身也是一种好习惯。若自律能成为一种习惯，一种生活方式的话，一个人的人格、智慧和才能就会变得更加完善，出类拔萃。</p>
+<p>著名画家齐白石老先生曾说，“养成好习惯，必有好人生”人生的成功其实也很简单，明确了目标，紧盯目标，不停地重复做，养成习惯，坚持而已。教育学家叶圣陶说的更直接，“教育就是培养习惯”。良好的行为习惯，包括学习习惯、生活习惯以及走出校园踏上社会后的工作习惯。在校期间，着力培养学生良好的行为习惯，养成诸如，早睡早起不熬夜，按时吃饭讲营养，管理时间重效率，经常锻炼保健康，坚持学习勤阅读，安排事情会计划，遇事镇定善决策等一些好习惯，那是学生一辈子的财富。大学教育不同于中学教育，对具有了初步学习能力的大学生而言，更重要的世界观的确立，方向的指引，思维的深化、方法的提炼、能力的提升、习惯的养成。</p>
+<p>这些人生基本问题的确立，远比单纯的知识灌输更有意义。如果把人比作一棵树的话，那么大学则是苗埔。苗埔的意义就是要提供肥沃的土壤，精心照料，让树苗长得根正苗壮，枝干挺拔，为成为参天大树打下坚实的基础。因为只有苗优树才会壮。左岸记：与其说大学应该教什么，不如说在大学该学什么。</p>
+<p>教是传授，是要求；学是主动，是自觉。所以，无论大学教什么，怎么教，这些对于一个学生来说都是可以主动去做的。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>说“你好”的时候再见</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>说“你好”的时候再见</h1>
+            <div class="date">2026-02-11 14:00:54</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德鲁伊我总会遇到一些莫名其妙的人，我经常用“可爱”去形容他们，比如说金宝儿。金宝儿叫我“德哥”，这很无赖，因为别人都叫我德叔，她大大咧咧的说她就是喜欢叫我“德哥”，喜欢受着不喜欢也要受着。金宝儿一直希望我能逗逼一些，她说她刚从蠢萌蠢萌的少年变成蠢萌蠢萌的成年，需要逗逼让她缓缓。我说德叔是幽默，你自己成为逗逼就能缓缓了。金宝儿说，德哥说了算。</p>
+<p>01金宝儿是做影视造型的，我说就是个易容化妆的，她说你不懂我懒得理你。我经常在朋友圈埋汰她，还是那种需要绕一个弯才知道埋汰的话，她每次都反应的正确，我说她很配合，她说当着面会啐我。金宝儿小酌后喜欢语音聊天，我不方便，只好转文字看。于是她需要操着较标准的普通话，我说你不忘本就好，因为她是北方女孩子在上海。金宝儿是个待人很真诚的人，善良且有点仗义，偶尔会没脑子的仗义。</p>
+<p>穿衣戴帽混搭的厉害，饰品丁铃当啷的，不昂贵却顺眼。有人身上有亮点，有些人出来就光彩照人，有些人你觉得舒服、像你读书时候的灯光，金宝儿是第三种人。我想写故事的时候爱找她，我编不了故事，我只写真实的故事。金宝儿见得多，故事也就多，她最大的好处是讲故事就是讲故事，不太幻想和篡改，这给我了篡改的机会。她说了很多故事给我，但我总是更喜欢她自己的故事，比如重庆男人云飞的故事。</p>
+<p>02金宝儿刚离婚的时候，自己租了小公寓，醉生梦死的。逢场子就是最后那个离开的，眼睛雪亮，走路摇晃，但能送走每一个人。金宝儿不想回那个公寓，她总是睡不着、睡不好。云飞是朋友，也是玩影视的，干干净净的男人，不阳光、不阴暗，“高级灰”男人。云飞提议让金宝儿住他那，他合租的刚好退了。</p>
+<p>云飞告诉金宝儿，他会做醒酒的鱼汤，适合金宝儿。住的也是石库门，会让金宝儿觉得自己还活着，不会错以为自己其实已经死了。验证完鱼汤可以醒酒后，金宝儿搬去了。金宝儿东西多，但扔的快，搬一次家都会送一批扔一批。到云飞那，曾经的三个箱子变成一个大箱子，一个空箱子。</p>
+<p>石库门闹中取静，金宝儿很喜欢。03金宝儿喜欢装饰品，她会把装饰品挂到她认为合适的地方，或是喝多了挂到匪夷所思的地儿。云飞很无奈，最终的结果是，给金宝儿腾了一面墙，贴了软木，云飞觉得忍不了的，都动手整到软木墙上。金宝儿和云飞的工作时间有时差，能交集的就是金宝儿睡不着、云飞回来早。一般都会再整几支啤酒，热点鱼汤，聊会儿天。</p>
+<p>那时候金宝儿很恣意，卸下担子和绝不回头望的人，显得蹦蹦跳跳、无事生非。偶尔喝多了回来，云飞忙不迭的把冰箱的啤酒拿走，他俩还为此争执，最后都是一碗鱼汤了事。金宝儿喝多了，斜着眼骂云飞不男人，云飞就笑，我是不是男人你来试试？金宝儿手忙脚乱的找能砸云飞的东西，云飞施施然的走开。金宝儿喝多了喜欢蜷在沙发里睡，云飞不负责盖毯子，但会准备一杯水在旁边。</p>
+<p>云飞因着金宝儿在家也需要穿着停当，也不易。04也就半年多光景，云飞突然给金宝儿说要回重庆，说是回去散散心。房租已经预交了一年，让金宝儿继续住。金宝儿想，又一个逃离魔都的人，自己还撑着真不容易。云飞却几乎什么都没带，走了。</p>
+<p>走了个把月，云飞在微信里轻描淡写的说，自己得了躁郁症，才回重庆的，现在自己租了房子，静修中。金宝儿以为是抑郁，想着是压力大了，修养一下也好，开玩笑说，最热的天气去重庆，看妹子吃火锅。有一天，金宝儿和一个朋友聊，说起躁郁症，朋友说你离那人远点，容易自残和伤人，情绪可怕的。当晚，金宝儿就拖着箱子去了重庆，到了重庆电话给云飞，来接我、我到了。05金宝儿制定了三个月的计划，吃喝一个月，出去玩一个月，锻炼身心一个月。</p>
+<p>金宝儿强制云飞带她去吃好吃的，喝好喝的，一个月为期不能重样，目标是两个人总体重增加10公斤，以周为单位排空测量。吃了喝了，大夏天坐商场门口看妹子，漂亮的过来，金宝儿吹口哨，重庆女孩都对她微笑。云飞倒是恨不得离她远远的，金宝儿就大笑，冰激凌配啤酒，接着造。他们去了藏地，住了帐篷，骑了马，挨了宰。住在臭烘烘的帐篷里，骂着刁民，冻得瑟瑟的，彼此翻看拍的照片，凑着取暖却绝不拥抱。</p>
+<p>骑马的时候，金宝儿走得慢，云飞是扬鞭飞驰，一会儿没了影。突然金宝儿觉得害怕，草原没有尽头啊。金宝儿急了，骑着马去追，云飞在一个山坡下躺着，睁着眼，看着天。见了金宝儿，指着天空说，那朵云好漂亮好白。金宝儿看了看，也说，好漂亮好白。</p>
+<p>回到重庆的时候，他们脏兮兮的，眼睛明亮，害怕声音和光电。身心锻炼最简单，读书读书读书，健身健身健身。读书读到大脑死机，健身练到四肢无主。金宝儿觉得读了自己一辈子的书，一开始想着读和体重一般的书，最后读摞起来够身高的书，云飞很吃亏，金宝儿有沾了便宜的快感。体重减了，脑子空了，紧实的肉体，耗空的灵魂，云飞貌似正常了，金宝儿回了上海。</p>
+<p>金宝儿还想，躁郁症按时吃药，这样折腾还是不错的。06云飞回上海了，那时候金宝儿已经换了住处，原先的石库门退掉了。云飞赚钱的能力有，换了不错的地方住。又到冬天了，上海的冬天，金宝儿需要黄酒，正裹紧衣服泡在小馆子里，啜着小酒，听着咿呀咿呀的藏经。朋友电话说，云飞失恋了，在家里闹，疯得吓人，压不住了。</p>
+<p>出门，冬雨，灯光昏黄，冷冰冰。云飞在家里像笼子里的狼，快速的走，突然的停。握紧着拳头，青筋爆出来，眼睛斜着看，杀气。金宝儿来不及脱衣服，踢了鞋，冲到云飞面前，直勾勾的盯他。他眼神躲闪了，泄气了。</p>
+<p>金宝儿拽了他的手腕，把他推到沙发上。拿了冰水，拿了药让他吃。云飞看了看，拿起杯子，接了药，一口气把水喝了。然后盯着手心的药，手开始颤了，然后突然弹起来，冲到窗户前，打开窗户，把药扔了出去。金宝儿第一时间吓懵了，以为云飞要跳楼，冲过去抱他，云飞扔药的胳膊回弹回来，打到金宝儿的头上，真的疼。</p>
+<p>云飞笑了，说，你干嘛。我干嘛？我怕你想不开。金宝儿也有点软了。我不会的，你放心吧，我就是觉得女人怎么能那样。</p>
+<p>你给我说说呗，说完咱俩去喝酒。窗子随风进雨，冷。我对她那么好，她怎么都看不上，我努力了，却离她越来越远。她不停的作，不停的折磨我，是不是女人都这样，谁对她好她折腾谁，谁看不上她，她还上赶着舔？……云飞，你是好男人，记住你是好男人就好了……我好有什么用，我好有什么用，你说我好有什么用？</p>
+<p>！云飞两手掐住了金宝儿的肩膀，晃得金宝儿头晕，披头散发。金宝儿透过发丝，云飞的眼睛亮的吓人却不知道看着什么，青筋爆起来。你弄疼我了，金宝两手奋力隔开云飞的双手，忽一下站起来。云飞抬起头，金宝儿俯视着他，听得到彼此的粗重的呼吸。</p>
+<p>一秒、两秒、三秒……云飞开始像鼓气，一点点的绷紧，一点点的涨起来。云飞扬手的一刹那，金宝儿心有灵犀的胳膊使劲挡过去，让云飞重新倒在沙发上。金宝儿转身就冲出了门，把门狠狠的甩上。07冬雨的上海，没穿鞋，袜子瞬间湿透了。金宝儿快速的走，感觉不到硌脚，那种冰冷，让人很清醒、开始发抖，又过不了几秒就让人麻木。</p>
+<p>金宝儿走回去的，她清晰记得走了两个多小时，异常平静、稳稳当当。金宝儿第一次觉得，这个城市的夜晚这么静，冬雨绵细。第二天，金宝儿让朋友去云飞那取了鞋，那是自己喜欢的鞋，不能丢。朋友送鞋来的时候，朋友想说些什么，金宝儿说，闭嘴。08金宝儿给我讲这个故事，是因为云飞在两年后的今天，给她发了短信，说了对不起。</p>
+<p>云飞是那么的真诚，很长的短信。金宝儿知道自己在等着这个短信，甚至第一句话看到就知道后边会说什么，她知道为什么等待，因为这个等待是为了说一声“再见”。左岸记：“莫愁前路无知己，西出阳关无故人”，对像我这种在情感上喜欢直来直云去的人来说，宝儿和云飞的故事，看了是很难受的。是有一种情感叫只可意会不可言传吗？是他们之间可以做朋友，可以像哥们，就是走进彼此的心吗？</p>
+<p>对情感非常认真的人来说，需要点石成金的火候吧。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

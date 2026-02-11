@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>尚好的青春，满血复活</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>尚好的青春，满血复活</h1>
+            <div class="date">2026-02-11 14:00:26</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜春天来了，春风由硬而软，吹落嫩芽落山川。周日去单位的时候，路两旁梧桐枝头浅紫色的花儿在暖阳中悄然绽放。想起尚雯婕在《与梦平行》中说过的愿望，“我希望拥有一个小小的院落，种两棵树在院子，一棵能长满树满树的果实，一棵能落满院满院的落叶。”那时候的尚雯婕，刚刚从都市白领成为超女冠军，一夜之间成了明星，但又不像明星。在舞台上唱歌，她不会又蹦又跳，甚至没有多余的动作，仅仅只是唱歌。</p>
+<p>上节目，她不会卖惨煽情，偶尔显得也不那么落落大方，会躲在椅子后面捂着脸，不好意思看自己参加海选时的邋遢样儿。对待粉丝，不会说一大通言不由衷煽情的话，只是浅浅笑着说声“谢谢。”倒是看见自己的法语老师，眼睛会发光，高兴得往后缩，又悄悄转过身偷笑，忘了还有镜头在拍她。后来很多人回看2006年夏天的那场比赛，会又一次感慨，尚雯婕的夺冠之路太难了。杭州、成都、广州，换了三个赛区才有了进全国总决赛的资格，又在各种PK中险些被淘汰，摇摇晃晃地进了前十、前八。</p>
+<p>每次站在PK台上，别人都一通感人发言“有多么热爱这个舞台……”话没说完就稀里哗啦哭到歌都唱不了。只有她，什么也不说，安静地站在舞台上，唱着自己的歌。后来，一路开挂式的晋级，她也没有忘乎所以到手舞足蹈，连汪涵都纳闷，不晓得23岁的小女生何以这样宠辱不惊？可就是从来不标榜淡定的她，淡定地夺取了那年的冠军。被鲜花与掌声包围时，她依然浅浅的笑。</p>
+<p>也许，人们对于她的喜欢，不仅仅因为她的歌曲，还有复旦大学法语系的专业出身和卓尔不群的翻译能力。从大学才开始接触法语的她，竟然能在毕业时成长为同声传译、首席翻译。就连法文老师都感叹，尚雯婕有超高语言天分。后来蔡康永说，尚雯婕的天分不止语言，还有对音乐的领悟能力。五线谱都不懂的她，硬是通过一遍遍的苦练勤练，赢了音乐专业出身的谭维维。</p>
+<p>可能很多人提起超女都觉得low，有什么好喜欢？不就是一群做着明星梦不知深浅的普通女孩子吗？留爆炸头、穿破洞裤、唱非主流歌的人，有什么值得被推崇？至少，我干妈曾经是这样认为的。可她后来竟然四处找人借手机，要投票给尚雯婕。</p>
+<p>她说，这孩子太有毅力，干什么事情都能咬牙坚持。其实，我知道，还是因为尚雯婕学习好，好到让很多人羡慕了，可其实除了天分之外，她也很努力。她在书里写，为了学好英语，把《老友记》里的台词倒背如流；为了念好法语，每天听法语广播、练习法文发音。在一次法文采访中，弹幕里多的是：“尚雯婕的法语甩主持人几十条街”这样的评论。记得我的室友，在小课桌的四角都贴上尚雯婕的贴画，我们笑她“这人看起来还不如你好看嘞。</p>
+<p>”她立马起身回击：“好看多短暂。愈挫愈勇这种事情，在年轻人身上并不多见。”尽管有许多人质疑这不过是一种娱乐噱头，但对于见证过尚雯婕青春的人来说，却真的有人从中受益。就像我的室友，曾经逃课去参加尚雯婕的签书会，她在书的扉页签上“好好学习”向来懒散且英语不好的室友，竟然每日早起练习，最后熟背新概念全册，一口气考过四、六级，还通过了雅思考试，现在是一名英语翻译。要知道这不是一件容易的事情，毕竟，我们不是英语专业。</p>
+<p>后来，我也跟着她去了一次尚雯婕歌友会，好不容易挤到前面握了握手，就忙着拍照片，忘记了好好看看真人。翻照片时，发现她已经不留洗剪吹的夸张发型，齐肩长发，白衬衫黑裤子，还是像高档写字楼里的女白领，不够漂亮，但很舒服，像张嘉佳说的，如山间清风、古城暖阳。“青春之书里，我们同在一行字之间。努力提升自己，就有尚好的青春。”室友说，这个世界需要对抗的东西太多了，出身平凡、资质普通的人被逼得喘不过气来，可每次想起尚雯婕，还是愿意相信，一个人靠正常的努力、靠聪明和正确的选择，也可以过上喜欢的生活。</p>
+<p>尽管后来的尚雯婕，在成为歌星的路上经历了各种非议，甚至有一段很长的时间，人们不再关注她的努力，转而攻击起她的妆容和衣品，以为她会像所有红极一时的超女一样，瞬间沉没于娱乐圈之谷底。可她一袭红裙，重回歌手舞台，还唱起了自己的原创，终究完成了从素人到明星的蜕变。不知道这样的变化是好还是不好？也许，无所谓好或者不好，就像她写的“人一长大就会变成深色，本来我们都是白得透明的瓷娃娃……”如今，城市没有草长莺飞的传说，偶尔想起，那些曾经无处安放，满得快要溢出生命的东西，给予我们多么美好而奢侈的方式，修饰人生的平凡和落寞。就像尚雯婕比赛最后唱的那首歌“但愿你会记得，永远记得，我们曾经拥有闪亮的日子。</p>
+<p>”那是我们哭过、笑过、失落后又满血复活的尚好的青春啊…… 左岸记：有的人守着自己的孤独，眺望着别人看不到的远方。正如周国平在《风中的纸屑》中写的那样，“我天性不宜交际。在多数场合，我不是觉得对方乏味，就是害怕对方觉得我乏味。可是我不愿忍受对方的乏味，也不愿费劲使自己显得有趣，那都太累了。我独处时最轻松，因为我不觉得自己乏味。</p>
+<p>即使乏味，也自己承受，不累及他人，无需感到不安。”不是不合群，而是她有更重要的事要做。喜欢孤独的人，永远会理性自在地孤独下去。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岁月神偷</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>岁月神偷</h1>
+            <div class="date">2026-02-11 14:16:40</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜 她们，是这些年，我收到过的最好的礼物。后来我们都迷失在自己的生活里，和猴子一样，走一段丢一个，到头来手里只剩最珍贵的一个。跟猴子不同的是，我的记忆力更好，想起这些曾经捧在手里的甘甜玉米时，就能捡起碎片的回忆，看到没心没肺又闪闪发光的我们。岁月是个小偷，把她们悄悄拿走，让我们消失在彼此的生命里。在这个骄阳似火、树叶都没有精神、知了也懒得唱歌的午后，我认真写下她们每一个人，希望互不打扰的时光里我们互相安好。</p>
+<p>蕾蕾：同一片蓝天，同一个梦想 我们一起做过最上进的事，大概就是一个早上写完了所有的暑假作业，这其中包含语文老师布置的八篇作文。写完作文合上本子后，好像甩去身上的一个大包袱，暑假一下子就变得异常精彩缤纷。其实，那个暑假跟往年的任何一个暑假一样，热得不能好好说话，我们也只是在太阳落下的傍晚，一起在院子里吃了雪糕、玩了跳皮筋而已。关于小学的记忆里， 蕾蕾的身影无论如何也不能抹去。我呆呆笨笨，磨磨唧唧，她聪明伶俐，健步如飞。</p>
+<p>我们的家，门对着门，我们，手牵着手，心连着心，吵架和好，和好又生气，却一直混在一起。互相打击又互相讨好，互相显摆又互相安慰，互相较劲又互相鼓励，一起坐在教室外长长的走廊上，看被夕阳染的红透了的天空，畅想着未来会干什么样的工作，她说要当科学家，我也说要当科学家。然后她哈哈一笑，说一句，你能换个梦想不？科学家我都当了，要不你当个天文学家。我勉强点头，也行，过一会儿又反悔，不行，我还是要当个科学家，科学家多有文化啊。</p>
+<p>她撇撇嘴，就知道学我。我有些生气，转个身走进教室，心里想着，反正我不管，我就要当科学家。我们为这个梦想，较了一阵子劲儿，后来，因为我过于糊涂的珠算被放学留下补习，蕾蕾一脸同情，算了，你别当科学家了。科学家不会珠算多丢人啊。我尴尬了好一阵子，想起数学老师一脸无奈的样子，也就听了她的劝，放弃了这个争了很久的梦想，改选了天文学家。</p>
+<p>后来，剧情无惊无险，我们什么家都没有成为，有了各自的生活轨道，过上了人世间最普通平凡，忐忑不安，患得患失、挣扎又不甘的生活。慢慢：第一次请我吃麻辣烫的人 我们是初三的时候被分在一个班的，邻桌坐着，慢慢瘦瘦小小，白白的，眼睛滴溜滴溜转的时候整个人看起来特别灵动，每天早上见我第一句话都会问，哎，你今天早上吃的啥？如果我说我还没吃，她就会拿出一包方便面塞给我，嘿嘿一笑。晚上下自习后，我会请她吃街边的炸饼，夹上炸花干，或者是其他的青菜。那时候，看着老板从油锅里捞出那些滴着油的菜，在学校一天的烦恼和疲惫都被一扫而空。</p>
+<p>年轻的时候，胃也是年轻的，可以坦然接受各种油腻和甜掉牙的滋味，当然还有离不开的辛辣。对于财力有限的我们来说，没有什么比牛板筋更好的零食了。上英语课的时候，把牛板筋偷偷藏在课桌里，趁老师不注意的时候，狠劲撕出来一块儿，趴在桌子上低着头拼命嚼，直到老师拍桌子，抬头，抬头，看黑板，认真听，才不得不抬头，脸都僵了，嘴巴也不能动。我比慢慢胆小，就真的不敢咽下去，直到老师走到后排，才取出塑料袋把刚刚没吃掉的吐出来。她不但吃的干干净净，还把那个沾满辣椒油的包装袋撕开，翻过来，抹的我一英语书都是，还一脸得意的笑。</p>
+<p>离开学校后，她去工作了，有一次她去找我，穿着白色的长羽绒服，高筒皮靴，兴奋地告诉我：“哎，我那天吃麻辣烫了，就北十字那个，好吃很好吃，走，我请你吃去。”我想，挣钱真好。就跟她一起去了，我们拿了好多菜，吃了整整一个下午。说过什么话，都忘记了，但她一直神采奕奕的讲着说着，给我看了她新买的小灵通，向我描述了一个与父母讲给我的完全不同的社会。而我，毫无理由，没有怀疑，信了她眼中的美丽新世界，比学校精彩一万倍。</p>
+<p>后来，我发现，好像慢慢说的也不对，世界远比想象中精彩，不过，人始终还是年轻时候鲜活。安妈：要时刻保持自信 我问安妈，安安好不好？乖吗？安妈就发来安安的照片，然后告诉我，她很好，很乖。我看安安，什么都是小小的，小小的眼睛，小小的鼻子，小小的嘴巴，小小的手，小小的脚，小小的人儿，就明白了李咏说的那个贴心小棉袄，比喻真是恰当啊。</p>
+<p>我又问安妈，结婚好不？安妈说，一般般。我说，那我老了怎么办？安妈说，神经病，时间饶过谁？大家都在变老。</p>
+<p>安妈一向冷酷，说话毫不留情。不过，今天她又加了一句，要时刻保持自信。安妈大概就是那种诤友吧，不温和、不迎合，不感性，讨厌腻歪，一点都不像学文科的人。安妈有次直接告诉我，喂，以后不要在朋友圈里发那些乱七八糟、不痛不痒的话了吧，看得人鸡皮疙瘩掉一地。我辩解，说那些状态都是有感而发，安妈就狠狠戳我脑门一下，为赋新词强说愁，看把你矫情死。</p>
+<p>可是，就是这样的安妈，竟然会在新还珠格格播出的时候，眼里闪着光的告诉我，啊，其实我发现新还珠格格比老还珠格格好看呢。反正我就喜欢看新的。我被这颠覆三观的话震惊的半天没说话。有的人就是，看起来跟你没有一点相似的地方，但却很投契。安妈和我就是这样的“一点不配”的朋友。</p>
+<p>安妈瘦我胖，安妈白我黑，安妈脾气火爆我没啥脾气，安妈认真我马虎，安妈干净我邋遢，安妈精致我粗糙，安妈守时我磨蹭，安妈爱穿裙子我离了牛仔裤就不能活，我问安妈最多的一句话是，你说，我咋办啊？她回的最多的就是，咋办咋办，做好你自己，其他的事情凉拌呗。安妈告诉我最多的话就是，要自信，相信自己。不过，她时常是这样说的，你能不能不要老是垂头丧气的样子啊？你能不能积极一点？</p>
+<p>哎呀，我不管了，爱咋咋。后来，她每次都管了。我数学题不会，做了两三页的演算还是没算出来，灰心丧气，安妈拿过题本讲给我听；我花光了零花钱，安妈就把自己攒下的钱塞给我去买米线，偶尔也会带上两个包子给我，分开了班级，安妈一下课就过来找我，两人一起站在楼道上有一搭没一搭的聊八卦。安妈问我，历史老师上节课讲的是什么啊？我皱了皱眉，想下，告诉她，讲的可有意思了，是慈禧太后和某人的绯闻哦。</p>
+<p>安妈一脸期待，兴冲冲跑回教室。一下课，就跑来问我，没讲啊，给我们讲的就是课本的内容，怎么这样啊？区别对待。哈哈哈哈，我笑的上气不接下气，安妈狠狠捶我一下，又抽啥疯呢？但她始终没想过，我会骗她，而且在没有求证别人的情况下，盲目地信了我一个人。</p>
+<p>安妈结婚的时候，给我打电话，让我不要迟到。可我还是不争气的迟到了，安妈在电话里面催我，快嘛，快嘛，大家都在等你一个人。我想，怎么可能。我急匆匆跑进去，看见礼堂已经坐满了人，安妈拉我坐下，你怎么每次都这么慢啊。然后司仪问，这下人都到齐了，可以开始了吗？</p>
+<p>安妈点头，可以开始了。我坐在第一桌中间的位置，看着安妈和安爸，真心希望他们能够幸福，享尽世间美好。安妈结婚后，去了别的城市工作生活，我们一年甚至是几年才能见上一次面，可她见到我，始终都是一副恨铁不成钢的样子，每次都要训几句话，你能不能不要再问我，咋办咋办啊？能不能有点自信？有的疾言厉色实实在在源于真心，比如安妈。</p>
+<p>此时，抬眼望去，街灯一片辉煌，我想起三毛的句子，记得当时年纪小，你爱谈天我爱笑，有一回并肩坐在桃树下，风在林梢鸟在叫，我们不知怎样睡着了，梦里花落知多少。梦里花落知多少。左岸记： 益者三友，友直，友谅，友多闻。在我们成长的岁月里，如果能有和我们一起心怀梦想的朋友，有和我们一起吃吃喝喝的朋友，有永远都在鼓励我们的朋友，那么我们的岁月是就是丰厚的，我们从岁月里偷得了最珍贵的时光。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

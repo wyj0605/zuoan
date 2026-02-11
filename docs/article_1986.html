@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>听景，看景，边听边看，又听又看</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>听景，看景，边听边看，又听又看</h1>
+            <div class="date">2026-02-11 14:00:20</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/读博在四方老家有俗语：看景不如听景。那意思是言语描述的景致总要比实际看到的要好、要美、要入人心。其实细看这句话，这里面体现了语言的叙事魅力，也透露了信息取舍的关键。毕竟别人在给你转述他眼中之景致的时候，已经过滤掉很多他认为无关紧要、无伤大雅，甚至无关主题的旁枝末节内容。这个信息过滤过程，如果举个例子来说，跟用手机镜头来框取景物的效果是类似的。</p>
+<p>镜头外往往是摩肩擦踵、举袖如云的人流，不得不把他们压制在镜头的最下面一条线以下，才能把关键的景物，比如楼阁、佛塔、塑像或者云天等特地摘取出来。也因为听景时关注了景物本身的关键特点，所以真正到实际看景的时候，特别是整个景物对象连带周边各种附属都涌入观者眼球的时候，主要景物是会被切切实实地干扰的，而这些干扰因素还可能占据了信息接受的很大一部分带宽。从这个维度上说，看景不如听景。要是再加上公众设施不到位、上个厕所排半天、挡在半路走不动等等偶发又必然的因素，那观景体验会直线下滑，也更落实了听景的优势。然而这句俗语针对的还是常规景观，可以脑补新闻频道对节假日重点旅游景点的报道画面。</p>
+<p>但对于非常规观景，比如航拍，比如山水实景，那看景还是比听景精彩。这几年国内的纪录片中，也有大量画面出自航拍，更别说2017年燃爆网络的《航拍中国（第一季）》，当然顺势在2019年也见到了推出的第二季。观众如我，在感慨老家河北再一次没有上榜之外，整体上感觉本季作品略有点跑偏，尽管拍摄视角比前一季极大丰富，但很多画面不再是传统意义上的俯瞰式航拍，内容偏多又有点分散，豆瓣评分从9.2下滑到8.4也就可以理解了。记得里面有一集，用一个长镜头拍苏州园林昆曲实景表演，时机衔接做得完美妥当，但严格意义上这只算是超低空的“航拍”，机位比日常拍摄还要低，已经不是俯视图，而是让正、侧面视图在唱主角，尽管显示方式和主题扩展上的创新值得一再肯定。更早之前印象深刻的纪录片，就是已故台湾导演齐柏林的《看见台湾》。</p>
+<p>这是一部90分钟的电影，创造了票房纪录。在这部作品里面，齐导用镜头全方位展示了宝岛台湾极致的风光地貌和特殊的人文景观。同时作为不可忽略的现实一环，片中也对出现的生态破坏和环境污染等集中加以展现，解说词一改前半部分的自豪，而充满了禁不住的担忧。大约这也是较早一部从航拍角度来展现某一省区的作品。齐导还上了《一席》节目，在大陆能看到电影之前，做了一个二十多分钟的介绍，像一篇导演散记，温文尔雅的导演侃侃而谈，听或者观都很享受。</p>
+<p>特别推荐主题配乐《家园》，是宏大的自然礼赞，也是深沉的生命乡韵，更是自豪的故里情音。非常可惜，齐导演在拍第二部时因飞机失事而过早地陨落了，《看见台湾II》成为绝唱。至于更早的还有《鸟瞰台湾》等作品，自己没有看，不好说什么。且不说这些专业的商业化作品，就拿普通人的生活来说，我自己经常从在线地图网站上，一遍遍地放大搜索故乡，通过卫星图来看自己老家的山坡、村落、街道、田地，甚至也用等高线来看孤山寨、西山寨和尖子脑的海拔。从天上往下看，会让人有一种很别致的感觉，因为我们从来就没有从这个垂直往下的角度看过，常日里走在街巷之中或者坡道之上，就算是有三维立体的概念，也建立不起这么准确的全局形象。</p>
+<p>哪怕到不了这个垂直程度，回想自己初中放学回来时从南坡水渠桥看、前年大年初一跟母亲一起爬山从西边药材地看，甚至去年国庆借助哲哲小兄弟拍得照片从西寨顶上往东看，在几十米到几百米的海拔上看到老家，感觉也是不一样的，房屋舍如积木，水泥路如银带，树木也变成了小摆件。这就是不同站位带来的视野变化，虽然属于地理，但迁移到人生又有何不能呢？那次周六晚的西海夜游其实体验不够好。一是人过多，二是时间短，三是有点热。但重点也不在看具体景，而是老友重聚的开心。</p>
+<p>慢走过，绕了圈，看到路边水下的鱼、灯光照影的荷、金黄琉璃的楼亭以及坡上参差的树。前年十一刚开园的时候，人比较少，半路停下来可以细细地看水底的植物和鱼苗，也能看到西海东侧中间的鸟岛上的绿头鸭，偶尔几只绕过柳树梢头，向岛边水域急速敛翅而下，划出一波涟漪。周五晚回家路上，过二环桥时看到郭守敬纪念馆北侧的景观灯色，也通过东侧山坡低矮处，看到了南岸的几座琉璃瓦建筑，金色光芒把建筑的样子也勾勒在水面上，不由得心再向往之。终于第二天成行之后，眼中的光影依旧美丽，而周边的人流也不让街市。当我停下来想拍照的时候，总担心过往的人会碰到胳膊，然后手机就掉水里了。</p>
+<p>匆匆忙忙中仅拍到一张自认为尚可的照片，那是南岸一串建筑的灯火倒影，有夜色打底，这些装饰灯照耀的肆无忌惮。景物是不动的，而人是流动的。它们就在那里，我们要走向前去，边听边看，又听又看。左岸记：夏天的飞鸟，飞到我空前唱歌，又飞去了。——泰戈尔</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

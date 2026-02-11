@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>骨子里的信仰</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>骨子里的信仰</h1>
+            <div class="date">2026-02-11 14:00:33</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/邹近夫芒种之后迎来连绵的雨季，当你站在武水畔放眼望去，青草越发绿得逼人了。出于南岭新项目落地的原因，我和团队前去羊城踩盘。一路上各部门都在用自己的专业术语开着玩笑，除了证明自己经验丰富以外，还或多或少地透露出所在行业带来的归宿感。我一直在想那片绿得发光的草地，也许它们原本就属于那儿，而我才是一个过客。怀着这样的心态开启一段秘境之旅，我听到了设计表达出的精彩分析，也听到了工程口的惊人论断，更听到了投资对地理位置的优劣分析、营销对装饰装潢的独到欣赏。</p>
+<p>可是我们却像窃取了果实的贼，悄悄地把一个个项目的优缺点记入备忘录。因为市场机制在人们心中的烙印，所以从来没有人想过把这些问题清单反馈给毫不知情的对方，告诉他如何继续发扬优点保持竞争力，摈弃哪些缺点。诸如此类的现象，其他行业应该也不少。一方面是因为师出无名，别人凭什么为了你的一面之词而加以改革，另一方面，不在其位、不谋其政，何苦去自寻烦恼。归根究底，这和人类与生俱来的天性也有着某种关联，因为自私，因为知恩图报的例子几乎绝迹，所以少有人情愿看到别人因为听取你的意见而走向成功的。</p>
+<p>其实，这和读书时，不告诉其他同学好的学习方法一样，没有本质上的区别。我所熟知的一个建筑团队，一直以铁军精神著称，可是我敢肯定他们的骨子里亦没有所谓的铁军信仰，何以见得？也许日常工作中，他们可以一丝不苟地严抓安全生产、把握工程质量，但这最多只是在他们自己管辖的范围内，恪守职责。有趣的是，换了别处亦可作为出师无名，只能敢想而不敢做。比如一个从业几十年工程管理人员，以品质和安全作为信仰，但他不能到别人的项目上去宣扬，因为这压根儿就不关你的事，而且你也清楚别人不会接受，所以哪怕你看到了他人项目上的问题存在，也不会上前指点一二。</p>
+<p>如此，则不能称之为信仰浸透到骨子里，至于平凡大众更是难寻。好在很多人都有信仰，只是一不自知，二不自见。哪怕意识觉醒后拥抱了信仰，但却未必深入骨髓。信仰不止代表一个人的行动方向，还是精神世界里的一面旗帜，一如礼义廉耻，一如修身齐家治国平天下。看过不远千里潜入金三角为遇难同胞讨回公道的缉毒警察，也看过誓死保卫华侨撤离的中国海军，更看过独自带领身陷屠杀中的同胞和难民展开生死逃亡的退役军人、走进伸手不见五指的黑暗环境对抗致命浓烟侵袭的救火英雄…这些荧幕上的情景让我对家国精神的信仰有了深刻的认识。</p>
+<p>平凡生活中，自然也不乏警察舍生忘死追捕凶手、军人义无反顾营救溺水生命、消防员一命换一命的大无畏、医生当仁不让救治生命垂危之人的故事。对于这种不图回报、以拯救天下苍生为己任的英雄战士，他们心中不仅拥有至高无上的职业归属精神，还拥有牢不可破的伟大信仰。因而无论走到哪里，只要正义受到威胁、生命濒临死亡，他们都会不自觉地付诸行动。好比一个在北方任职的警察，到了南方看到违法乱纪之事，必然会出手伸张正义。苏东坡《晁错论》中所言：“古之立大事者，不惟有超世之才，亦必有坚韧不拔之志。</p>
+<p>”仔细一想，信仰也并非遍地都是，仿佛一种稀缺资源，而警察、军人、消防官兵为何有骨子里的信仰，而普通人难有。这个除了跟意志有关外，还跟环境息息相关。你看他们那么多军事化训练以及意志磨砺，一入社会实践自然而然就有了职业的荣誉感以及使命感，这两种感觉合为一体便铸造了骨子里的信仰，普通人几乎没有经历过军事化管理，也很难深刻理解国破家亡的悲哀，更没有像军人一样亲眼目睹了流血牺牲，所以少有骨子里的信仰。我并非存心对现实世界做出锋利的解剖和说明，而是因为缺乏坚定信仰的时代里，人们拿什么抵挡突如其来的焦虑和伤痛。左岸记：信仰有盲目和科学之分，盲目的信仰是对虚幻的世界、不切实际的观念、荒谬的理论等的迷信和狂热崇拜；科学的信仰则来自人们对自然和人类社会发展规律的正确认识。</p>
+<p>信仰的力量十分强大，盲目的信仰会带来无穷的破坏，科学的信仰将推动人类文明的不断进步。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

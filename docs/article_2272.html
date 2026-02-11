@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我所理解的幸福和痛苦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我所理解的幸福和痛苦</h1>
+            <div class="date">2026-02-11 14:00:54</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/Sanding痛苦是幸福的源动力，这句话其实是很难理解的。如果没有在生活中不停地实践和反思，是永远无法体会这个道理的。上学的时候，我感觉自己还是很明智的，懂得要在社会中生存就一定要学一些基础知识。大二时， 跟着室友听新概念直播课程，最终坚持听完，觉得辛苦的付出很值得，因为现在作为一名程序员， 需要用到英语地方很多，无论是读英语书籍还是看国外网站或者博客都没有什么压力。考研的经历也收获了很多。</p>
+<p>在备考期间反思了很多问题，比如这个世界存在对与错吗，反思自己的学习方法、思考方式。后来发现自己一直都用错了力，结果没考不上研究生。在备考的那几个月里，是非常辛苦的。每天天不见亮就起床，跟两个要好的同学一起在路灯下读英语。那段时间很辛苦，但英语水平提高了很多，也收获了珍贵的友谊。</p>
+<p>到了考试，我和一起读书的好同学去别的大学参加考试。这个过程很累，考到最后一门课，自己感觉都快没有心力做下去了。考完试，坐公交车回学校途中，我在人生中第一次体会到什么是幸福感， 那个感觉无法用语言进行描述，就是幸福到自己偷偷流下眼泪来。那个时候已经无所谓考上还是考不上，因为我树立了终生学习的意识，深刻体会到时间的珍贵，也感觉到人生来就是要先吃苦的，因为吃了苦，抗住了压力挺过来后会体会到那种由心底涌出的幸福感，这种幸福感是人世间最美的东西了。在平时生活和工作中，虽然有时还是会恐惧一些东西，但因为有了心理准备，有了抗压力，终究都是会抗过来的，那是一种柳暗花明的眼前一亮，焦虑和烦恼也跟着烟消云散了。</p>
+<p>没考上，这真的没有关系。因为我得到另外的收获。痛苦过后的幸福感，时间的珍贵性，别人好的思考方式，等等这些来自考研过程的感悟。我把它们记录在自己的笔记本上，装在自己的心里。这些东西并不是说一定会给我带来成就或者财富，而是它们让我能够在在这个偌大的世界中走的比原来更好一点。</p>
+<p>带着这样的心态，我走到社会中，对坚持有了更深的体会，也更喜欢学习了。如果可以重来一次大学生活，我想我会变得特别优秀，我会更加努力，从那个时候开始就特别努力读书。但读书是从来不会晚的，在工作中学习，往往更能学以致用。对于一个什么都不懂的刚毕业的人，在北京这样的偌大的城市是真的不太好走的，体会过无助感，体会过失眠的夜晚，体会过生活的焦虑，体会过找工作的艰辛，看见别人能上班，都会 心生羡慕。那个时候多希望生活也能对我温柔一点。</p>
+<p>但正是这样的经历，让我明白了只有自己有能力，有足够的信念，我才能在这个快节奏的社会里走的更加从容。很多东西，很多道理，很多理论不是不重要，不是没有意义而是经历得不够多，实践得不够多，反思得不够多，而无法体会道理中的深层含义。能够抗住多大压力就能够体会多深的幸福感，也能驾驭多大的财富。一个真正优秀的人，除了有天赋的，都是用泪和汗水换来的。如果自己真心想成为一个优秀的人，那么是必须主动去承担更大的压力，去经历得更多的。</p>
+<p>痛苦后的幸福，前提是要抗住压力。这样会收获很多感悟。佛学讲的看破名利，涅槃。道家讲顺其自然，天人合一是很有道理的。这些东西一定要辨证看待，看破名利不是不去努力追求，而是用一种更加从容的方式去追求。</p>
+<p>顺其自然不是不去把控，而是明白无论自己掌握的多么精深，变数永远存在，让自己的那颗心和外界的一切事物讲和。认识自己，接纳自己的缺点，让自己跟环境融为一体，当有一天真的体会到这些的时候，那一定是痛苦后的体会，那一定是幸福感。这些东西可不是读读书写写字就能够明白的，一定是实践出来的，最后自己感悟到的。季老说，何必苦苦去追求涅槃呢，人死后就是涅槃呀。这些高深的学问是需要用一辈子去感悟的。</p>
+<p>这个过程中体会了痛苦，焦虑和无助，抗住了压力，那一定是可以体会到幸福感的。如果没有达到预期效果，也没有关系的。就像我没有考上研究生，但是收获的却是对世界的理解。这个理解就是财富，就是幸福感。所以我理解的幸福感是这样的，它一定是自己经历过很多，流了很多泪，躺过血后的顿悟， 这样才体会到其中的意味。</p>
+<p>就像《荒岛余生》中，故事主人公曾经活在一个分秒都需要把控世界中，在荒岛的 5 年，他重新思考了他的人生，他体会到：And I know what I have to do now.I gotta keep breathing. Because tomorrow the sun will rise. Who knows what the tide could bring?我想他的痛苦经历给他换来的幸福感是：让他可以在今后的路可以走的更加从容。穿掘着灵魂的深处，使人受了精神底苦刑而得到创伤，又即从这得伤和养伤和愈合中，得到苦的涤除，而上了苏生的路。——鲁迅</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

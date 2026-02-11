@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花入眼时少即多</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>花入眼时少即多</h1>
+            <div class="date">2026-02-11 14:00:14</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/读博在四方看全盛开时候的樱花或者碧桃，会有一种压迫感，逼得人没法再去细看朵花。多是真的多了，千朵万朵压枝低的多，已然来不及辨别哪一朵开得更好更美。贴着枝干一线铺陈的花儿朵朵们，其实在绽放伊始也不同步，只是花期较长。于是今日开、昨日开和前日开的花，全部堆积在一起。人们的眼睛哪里还有力气去看出来花瓣的精细，只能稀里糊涂地表示，花开得真好啊。</p>
+<p>想起小时候吃菜米咸饭，会想着倒点香油。有时候不小心倒多了，大人们看到又不好批评，就说，香油香油，点滴才香，倒多了就不香了。这边自己的脸红还没褪去，便使劲闻了闻，貌似真不如倒得少的时候香。这是一个度的问题，增量在合理范围内时，才会实现点睛或者升华的效能，要不然手机拍照攻略里面会建议微拍一朵呢？园区里几大棵丁香，花朵长细而密集，叶子被逼成了配角，然而唱主角的也不是花朵，是那股别致的浓香。</p>
+<p>怎么形容那种浓郁呢？就是香到你想躲到上风口，离得远那么一点，借助扩散效应，让香味稀释稀释。能说不好吗？不能，但能逼着人跑远。现代诗的名篇里《雨巷》中有结着丁香一般愁怨的姑娘的意象，可见那姑娘的愁真是浓得化不开，叠加上巷子上方长条天空密集跌落的雨丝和遮挡视野看不远看不清的雾气，那该怎么说？</p>
+<p>宋词里说，那简直是“一川烟草，满城风絮，梅子黄时雨”。全时空的覆盖，全时空的流溢，然后无处可遁。小区南门外的马路北侧多栽植碧桃，做陪衬的是高大长青的柏树，往常的日子里，碧桃们藏在柏树间，一点都不突出，但这个时节啊，柏树周身有了嫩绿的新叶，碧桃黑褐色的枝条挑着朱红的花瓣，紫褐色的桃叶还没喧宾夺主，青绿、朱红、黑褐，好像带着节奏出现在眼里，舒服。碧桃，树干偏黑，花朵鲜红，花型偏大，再加上叶子生得晚，所以黑红搭配，再衬上早发的绿柳做背景，若观看时处于夕阳斜光里，整体感觉是鲜亮的，更是多彩的。当某一朵的位置刚刚好，可以让一缕阳光打透，红色花瓣里沾上金色光晕，让人拍完一张，忍不住再拍一张。</p>
+<p>要是这一溜全栽成碧桃，气势上看似壮观了，只是视觉上反而落了下风。少即是多，巧妙的少，有时候能见到真挚的多，见微知著莫过于此 。一枝独放也是春，它是春天到来的使者，它对春天的感知最敏锐。若把宣告春天到来的进程作为一件事，颇有“其始也必简，其将毕也巨大”之感。真正到了化身亿万的花朵都开到春满园时，反而人们对春天的欣喜没那么热烈了。</p>
+<p>而往往这个时候，就到了杨柳絮成熟要飞的阶段。满城飞絮时，它们肆无忌惮，往鼻子、眼睛、嘴里钻。让人莫名地烦躁，莫名地慨叹，口罩更得好好戴着，慢慢等待它们飞尽之时。想起《红楼梦》大观园里宝钗的咏絮词。一句“东风凭借力，送我上青云"，把局限在四角天空里的闺阁女儿的人生之叹，表达得格局颇大。</p>
+<p>也是暮春的世界，姐姐妹妹们的绿云鬟鬓，一阵风吹来后沾满了杨柳絮，顿觉得画面不甚美。今年飞絮起得不晚，偶尔一两朵从窗花外飘过时，不觉已是春深。谷雨时节的降雨降温，好好地压制住了柳絮飞的态势。冷空气再度袭来，频繁的五级以上风吹，杨柳絮也不能飘了，只能被强势卷走。一时天气再度变好，气温回升，花已无多，絮也零落，翠叶自是满眼。</p>
+<p>左岸记：花入眼帘中，慧眼观风景，事了随风散，宽心乐无穷。这样写，景中有情，情中有意，让人回味无穷。这或许就是天人合一的感觉了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

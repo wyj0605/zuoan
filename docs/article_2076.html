@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>压抑是个紧箍咒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>压抑是个紧箍咒</h1>
+            <div class="date">2026-02-11 14:00:32</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/张小曦压抑是如何形成的？如果一个人，他的倾诉无人聆听，他的做法无人去理解，他犯下的错会带来铺天盖地的责备，哪怕只是别人给他增加的“罪名”。这样的生活对他来说，是危机四伏的，这不是对生命的威胁，而是精神世界的摧毁，他特别容易陷入沮丧和不安的境地，他孤立无援，渴求善意，达至某个极端，便形成了讨好型人格，忽视自尊、自我和自爱，于是，便为三者折磨。在孤立无援的处境中遭遇不公，也能忍受。而且，忍受过一次之后，无论遭受多少次，都会顺理成章地接受，越成长越叛逆。</p>
+<p>其实叛逆只是表象，装装样子，发泄而已，骨子里还是懦弱的，内心一向顺来从之。我总是给自己这样一个假设，如果第一次遭受不公平时，身边有人支援，我能当即反驳，我将来又是怎样一番模样？有些人渐渐习惯静默与隐忍，他们向往公正，祈求宗教的安慰与救赎，对艺术的陶醉与痴迷，寻求哲学的解释，追溯自我的源起。佛说人生八大苦：“生老病死，怨憎会，爱别离，求不得，五蕴炽盛。”压抑即是后两者的结合，难以纾解的欲求，求而不得的爱，深受困扰，无法解脱，以至于用一生来治愈。</p>
+<p>身体的解药满大街的药店都有，心灵的解药却无处可寻。但身体出了毛病，身体会自然免疫，心灵有了残缺，心灵也会自然治愈，需要时间，需要契机。无论如何，我们都要相信，时间会给出答案。人群中，压力是无处不在的，别人的目光和眼神，都会给你造成一点点的压力。我们长期都生活在集体之中，害怕被人瞧不起，害怕被人孤立，我们需要同伴，我们谨小慎微，举止、语言，甚至思想都趋于一致，守着某种陈规陋习。</p>
+<p>只是“向来如此，便是对的么？”大多数的人能很好地融入集体，却总有些人会选择特立独行。后者究竟是怎么想的呢？也许是习惯了孤独，习惯了无人问津，习惯了他人的冷嘲热讽，习惯了遭人嫌弃，习惯了被人辱骂，所以对别人也不甚在意，他们往往更注重自己的内心世界。说到特立独行，我想到自己曾做过一个梦，在初中的校园里，我赤裸全身地出现在众目睽睽之下，那个时刻，我体验到无比伦比的爽感。</p>
+<p>梦醒之后，顿觉一股子寒毛，唯恐自己真的做了这荒唐事。记忆里有一首歌，beyond唱的《海阔天空》，歌词里有一句“原谅我一生不羁放纵爱自由。”越是热爱自由，越是压抑。严重的压抑会带来深沉的痛苦和绝望，还有极致敏感的身心。我阅览过很多伟大人物的句子。</p>
+<p>身处阴沟但仍仰望星空。我凝视深渊，深渊也凝视我。吾爱深眠黄土，唯余向隅而泣。前一个我是做得到的，后两者境界太高，很难做到的。压抑是源自生命对自由、理解和爱的渴望，对欲求的满足。</p>
+<p>我们努力奋斗，争取别人的目光和赞美，收获他们的鲜花和掌声，但无论怎么努力都没办法得到的时候，怎么办？一次次的求而不得只会增添烦恼。有时候，我们可以试着降低自己的标准，把自己摆得低些，沐浴在温暖的阳光下，呼吸一口新鲜空气，感受这样一份简单的幸福。世上还有甚多良方，可以转移注意力，释放自己。蹦迪、运动、逛街、玩游戏，吃美食甚至劳作，都有助于排解，这都是外在的，身体处于运律之中。</p>
+<p>内敛些的方式，仅仅是一首歌，一本书，就足以释放心智。境界更高些的是冥想，灵魂出窍，四处游离，进入虚无之境。压抑就是孙悟空脑袋上的紧箍咒，唐僧一念咒，他便痛苦不已，本事再大也无能为力。悟空，悟空，一切皆空，一切归于虚无啊。我曾经问过一位大神，自己有很多苦恼和纠结，该怎么办？</p>
+<p>他回了我三个字，去睡觉。当时我哭笑不得，以为他会写长篇大论来劝我怎么怎么样，哪知他回答得如此简洁。多年之后再细品，他说的很有道理。左岸记：释放压抑三境：&lt;br&gt; 我要有多坚强，才能在别人提起你的时候一笑而过。&lt;br&gt; 经历越多就越不想说话，环境的不同，想说的话别人未必能懂，也就慢慢学会了自己默默承受。</p>
+<p>&lt;br&gt; 不要在一件别扭的事上纠缠太久。纠缠久了，你会烦，会痛，会厌，会累，会神伤，会心碎。实际上，到最后，你不是跟事过不去，而是跟自己过不去。无论多别扭，你都要学会抽身而退。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

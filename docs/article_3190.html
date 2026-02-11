@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画仙图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>画仙图</h1>
+            <div class="date">2026-02-11 14:15:39</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>&lt;p id="filepos1597317" class="calibre_"&gt;&lt;span class="calibre1"&gt;&lt;span class="bold"&gt;画仙图 &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;文/徐缓归&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;古有十大名画，画仙图名列其首。&lt;/p&gt;&lt;p class="calibre_"&gt;相传此画乃画仙莫悔封笔之作，因此得名画仙图。&lt;/p&gt;&lt;p class="calibre_"&gt;这画仙图里的绿水青山、鸟木虫鱼自是不必多说，最为传神的是山脚溪边画着的一位仕女，传言此女乃画仙以自身血肉注之而成，其色千年不褪，故此女虽无灵韵却仍有夺人心魄之力。&lt;/p&gt;&lt;p class="calibre_"&gt;某日，此画被一潦倒青年于祖屋中得之。&lt;/p&gt;&lt;p class="calibre_"&gt;青年虽不学无术，然其出生于书画世家，亦知此画绝非凡物，遂日夜参拜，求保功名。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;画中女子见青年如此虔诚，不禁渐生凡心。&lt;/p&gt;&lt;p class="calibre_"&gt;一日画中女子破画而出，帮青年作山水图数许。&lt;/p&gt;&lt;p class="calibre_"&gt;青年凭画一时名动京城，世人皆言其画颇有百年前画仙风骨。&lt;/p&gt;&lt;p class="calibre_"&gt;青年与姑娘两情相悦，不久结为连理。&lt;/p&gt;&lt;p class="calibre_"&gt;女子粘人，关怀无微不至。</p>
+<p>然青年恨其身无灵韵，如同行尸走肉，日久生厌，烦心透顶，但又恐功名尽去不敢言语。&lt;/p&gt;&lt;p class="calibre_"&gt;数年之后，青年靠着画中女子所作之画在国画大赛中一举夺魁，被封为画圣。&lt;/p&gt;&lt;p class="calibre_"&gt;真可谓“春风得意马蹄疾，一日看遍长安花”，青年正是意气风发，竟惹得相国千金也心生爱慕。&lt;/p&gt;&lt;p class="calibre_"&gt;恰巧这相国千金也是个倾国倾城的可人儿，一双明眸秋波暗送，青年被迷神魂颠倒，得哪里还有拒绝之理。&lt;/p&gt;&lt;p class="calibre_"&gt;洞房花烛夜，青年在门外缓缓展开画卷，却发现画中只剩绿水青山、草木虫鱼，画中女子早已不知去处。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;青年愣愕，许久，又将画卷卷起，轻叹，莫要怪我。&lt;/p&gt;&lt;p class="calibre_"&gt;一日，皇上听说相国女婿乃是当今画圣，欲一睹其才。&lt;/p&gt;&lt;p class="calibre_"&gt;青年自画中女子离去，早已是功力尽失，只能百般推脱。&lt;/p&gt;&lt;p class="calibre_"&gt;皇帝以为青年推脱只是谦逊，便亲自下旨招其进宫。&lt;/p&gt;&lt;p class="calibre_"&gt;青年自知推辞不过，只好硬着头皮进宫画画，画的一塌糊涂。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;皇上震怒，以为青年欺负他看不懂画。&lt;/p&gt;&lt;p class="calibre_"&gt;本来这欺君之罪乃是死罪，不过顾及相国脸面，便免去死罪关入大牢。&lt;/p&gt;&lt;p class="calibre_"&gt;相国大人为官数年，深知人情世故，第二日便宣布与青年断绝一切关系，他不再是相国府的女婿。&lt;/p&gt;&lt;p class="calibre_"&gt;青年在狱中受尽煎熬，名利两空，情人不认，友人割席。&lt;/p&gt;&lt;p class="calibre_"&gt;垂垂欲死，唯有相国千金念及昔日情分，打点相救。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;数十年后，恰逢大赦。&lt;/p&gt;&lt;p class="calibre_"&gt;走出大牢，路过相国府，一瞥之中，恰与相国千金目光相遇。&lt;/p&gt;&lt;p class="calibre_"&gt;相国千金叹息，这些年你老了不少。&lt;/p&gt;&lt;p class="calibre_"&gt;青年回道，韶华白首，不过转瞬，只可惜辜负小姐大好年华，小姐大恩此生难还，下辈子还你吧。&lt;/p&gt;&lt;p class="calibre_"&gt;说罢，青年仰天大笑，笑中带泪，泪中带笑。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;相国千金望着青年离去的背影，泪眼朦胧。&lt;/p&gt;&lt;p class="calibre_"&gt;他走出京城，走到山河日落，走到斗转星移。&lt;/p&gt;&lt;p class="calibre_"&gt;终于他在一处破旧的古宅前停下，这里是他的祖宅。&lt;/p&gt;&lt;p class="calibre_"&gt;缓缓地，他打开一方木盒，里面装的正是那副画仙图。&lt;/p&gt;&lt;p class="calibre_"&gt;原来青年当日自知负心，便将这画仙图偷偷藏回了祖宅，一切又回到了原点。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;青年痴痴地看着画仙图，喃喃说道，当年我嫌你身无灵韵，今日我便以我之灵注你血肉，既是报答你的恩情，也算是赎了我的罪过。&lt;/p&gt;&lt;p class="calibre_"&gt;说罢，青年引剑自刎，血溅三尺，血渗入画中，染红了一溪清水。&lt;/p&gt;&lt;p class="calibre_"&gt;说来也怪，那早已消失的画中女子竟又缓缓浮现，只是可清晰见得，那画中女子脸上竟多了几缕泪痕，灵神缓动，宛如真人。&lt;/p&gt;&lt;p class="calibre_"&gt;窗外一阵清风吹过，那画仙图轻抖几下，竟自顾自的烧了起来，化成一把飞灰随风而去。&lt;/p&gt;&lt;p class="calibre_"&gt;从此，世间再无画仙图，只是空传了一个名头。</p>
+<p>&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;&lt;p class="calibre_"&gt;大叔，那就是说这世上根本没有画仙图咯？&lt;/p&gt;&lt;p class="calibre_"&gt;嗯，可以这么说。&lt;/p&gt;&lt;p class="calibre_"&gt;那多没劲，再给我讲个别的故事呗。&lt;/p&gt;&lt;p class="calibre_"&gt;好好好，那就再给你讲个当朝画圣娶渔家女的故事吧。&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;&lt;p class="calibre_"&gt;坊间传言，当朝画圣天生异相，自出生时脖子处便有一条长余数寸的小蛇胎记，别人都说这是星宿转世。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;再说那渔家女，虽说生在农家，却是个十足的大美人，泪光点点，娇喘微微，就像那画里走出来似的……&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_52"&gt;作者：徐缓归 微博@徐缓归&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_52"&gt;做温柔的人，写温柔的事，我活在我的故事里，陌上花开徐缓归。&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;&lt;span class="calibre_7"&gt;《国风·邶风·日月》有云：&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_7"&gt;日居月诸，照临下土。乃如之人兮，逝不古处？胡能有定？宁不我顾。</p>
+<p>&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_7"&gt;日居月诸，下土是冒。乃如之人兮，逝不相好。胡能有定？宁不我报。&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_7"&gt;日居月诸，出自东方。</p>
+<p>乃如之人兮，德音无良。胡能有定？俾也可忘。&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_7"&gt;日居月诸，东方自出。父兮母兮，畜我不卒。</p>
+<p>胡能有定？报我不述。&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:0pt"&gt; &lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

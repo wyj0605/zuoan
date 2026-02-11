@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特别远，非常近</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>特别远，非常近</h1>
+            <div class="date">2026-02-11 14:16:56</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德鲁伊 关于秃顶这件事，我的解决方案是光头，朋友们开玩笑说，以油腻中年标配之一的“秃顶”论，我大约三十多就“油腻”的有形有款了。或许是遗传的原因，我是对秃顶这事一点都不焦虑，甚至开玩笑说：是因为我一直在奔跑，跑赢了时光，也就把头发甩在了脑后。其实斟酌起来岁月无情、岁数见长，倒不是掰着指头算岁数。我一直觉得验证一个人老了，无非是自己已经停止成长，或是基本拿着三观说事，接受不了什么新的思维和状态。虽有些矫情，但想想生活里基本如此。</p>
+<p>这样的“老”，与年岁倒是关系不大。延及自身，能让我警觉时光的，该是丁丁的成长吧。如今，他个子已经超越我了。依稀记得，夏天的时候我搭着他的肩膀，顺手而舒服。他那时有点抗拒，我就说，也就这个夏天搭着还顺手，过几天，估计需要够着够着才行。</p>
+<p>他才老实点了，安心让我搭着。我一直没有忘记与孩子随时的拥抱，这对孩子和自己都好。拥抱是不需要理由的，这一点未必每个人都明白。小时候是“抱亲”，紧紧的抱着，还要亲一两口。大些了，“亲”免了，抱倒是可以更用力些。</p>
+<p>起码，让自己、让孩子觉得，爱这个东西，随时随地，不需要太多的理由和借口。假期里，窝在家里泡电影，有部片子叫《特别响，非常近》，是911后，一个孩子，因为父亲的死亡，近乎抑郁和自闭，追寻自以为父亲留下的密码线索，最终找到自我走出阴影的故事。片子里，孩子自我的折磨和无人谅解的凄凉，让人唏嘘。到结尾处，妈妈告诉他，一路有很多的人在默默的、刻意却假装一无所知的帮助着他，完成了一路的追寻和自我的救赎。被感动了，那种认真的、清晰的感动。</p>
+<p>我一直说，当你把孩子当做孩子，你的教育基本失败了一半。片中孩子无法理解父亲的离去，他只好构建属于自己的逻辑，去解释这一切。无常即有常，或许连成年人都无法通透，却让孩子去承担。丁丁约摸十岁的时候，有那么一段时间，焦虑和忧伤，他的理由很简单，与父母、爷爷奶奶、姥姥，这些至亲的人，不能做到随时随地的在一起，总觉得和这个呆多了，和别的就呆的少了。现在想来，该是我的奶奶去世时，因为急促的原因吧，仍旧把丁丁当做一个孩子，没有认真的去解释亲人离去这个事情。</p>
+<p>于是他忽然觉得，昨天还在一起的亲人，一觉醒来，就再也无从见到。幸好那时候，我还算冷静，朋友般的和他聊了几次。告诉他：爱这件事，他不是被动的接受者、享受者，他同样是一个、也必须成为一个去主动爱的男孩。没有亲人会离开，但亲人的存在，也是让他能成长和能去爱。就像每一次“抱亲”，你不用管明天是否还能，而是现在你是否选择去做。</p>
+<p>也不知是因为我们的交流，还是因为别的什么原因，后边似乎什么事情也没发生。这个春节，丁丁在团聚的场合了，显示了一个有教养孩子应该的样子。我知道教养或许不会给他带来利益，但起码能保有自我的尊严和尽量少受伤害。说起这个初春还算有意义的事情，该是终于和丁丁交流了一下关于男孩女孩的事情。因为我的被教育经历里，没谁认真的和自己探讨这些事情，我的开口也是犹豫再三。</p>
+<p>“丁丁。”“爸爸。”“今年你已经十四岁了，这个假期知道为什么让你和姐姐呆了好几天么？”（我哥哥的孩子，只比他大几个月）。“不知道啊…”“让你和同年纪的女孩子多聊聊，看她们都是什么样的、都在想什么？</p>
+<p>”“哦，我老姐可好了…”“这个世界上，除了男人就是女人。”“我知道呀，其他的也有，我不会打交道吧…”“你是个男孩子了，你会遇到喜欢的女孩，也会遇到喜欢你的女孩。”“那又怎么样呢？”“只想告诉你，如果遇到喜欢的或是被喜欢，总应该会让你更好地成长和更加地努力才是，如果不是，记得给我说，我会一直在这里等着你。”“我知道，我不明白的时候会找你的。</p>
+<p>”我喜欢这样的平等、没有嫌隙，轻松、淡淡的，轻轻的、却无比清晰的……有些人或事情，或许就是这样，特别远、非常近！左岸记： 我们相距很远，但我们的心很近，这是距离也阻挡不了我们的感情，天涯咫尺；无论你走到哪里，无论你多大，你和我都是一样的，这是因为我永远相信你，把你当独立的个体来看待；而当你需要我的时候，我都在，这是因为我永远都爱着你，我会用心倾听你的心声，愿能做你的心灵的一个支柱。老德的这篇文章对我有非常多的启示，因为我和小治的关系也是如此的亲密，他于我又永远都是个未知。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

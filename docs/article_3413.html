@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>以水为师</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>以水为师</h1>
+            <div class="date">2026-02-11 14:16:21</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/陶然 有人曾做过这样一个实验，  若让一个人只饮水不吃食物，  他可以存活7到10天，  但是，如果不让他喝水，  他连3天也活不了！由此可见，水对我们身体的重要性，  当然，  这只是物象的水，  而意象的水能教给我们更多，  以水为师，大有裨益。古人以水喻道。老子曰“上善若水”，  又说“水善利万物而不争”，  意思就是说，  水滋润万物，有利于它们，却不争求，是最大的善，  故而也有了“水德”。“水德”是君子处事出世的精神追求，  孔子也有说“智者乐水，仁者乐山，智者静，仁者动”。</p>
+<p>水的灵动和变化，  澄澈和自我完善，  让人从中获取智慧。以水为师，  可以完善自我，洗涤心灵，  让自己更纯粹，更有力量。师从于水，  我们可以学习水的变化，柔顺，坚韧、谦逊和自我完善。水的“柔”并不是柔弱，而是柔而韧，  “滴水穿石”恰是此理。最大的不变是变。</p>
+<p>灵动的水无时无刻都在变，  学习水的“变”，可以让自己更有适应性。不管是在工作、生活上，还是在学习上，都应该学习水的变化，  尝试着改变自己以适应不同的环境，  顺境中的适应自无需多论，  在逆境中如何增强适应能力呢？这就要学习水的向下和谦逊，  努力做到不以物喜不以物悲。一如苏轼，  屡遭贬谪，打压，依然豁达乐观，  在连天气也给自己的不幸增添烦扰的时候，  犹如缓流的溪水在奔波中遇到的阻石，  碰发出银铃般悦耳的低吟：  竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。</p>
+<p>正是这师从于水，  精神的澄澈和灵动，  谦谦君子的谦逊和巧变，  无论环境多么繁复，  多么险恶，  任由其变，  不变的是积极向上生活的态度和适应变化的自得和恬淡。师从于水，  还要学习水的自我完善。水有时候会浑浊，  有时候也会被污染，  可能无心，也可能被动，  但是经历一段时间的沉淀和累积，终会澄明。经历时间岁月的洗礼和磨砺，  像水学习，  似儒家我日三省吾身，  通过内省、复盘与沉淀，  不断完善，提升自我，  终究会收获时间的玫瑰带来的芬芳和美妙。滴水汇聚成河成海，非一日一时之功，  学习水的自我完善和进步，也不能操之过急，  “欲速则不达”，  只要日有所思，日有所省，终究日有所获，  可能变化最初很微妙，  但是如水滋润万物一样，  潜移默化中，  内心涤杂去物，  收获的是更好的自我。</p>
+<p>水善利万物而不争，  在我们为人处世上，  要多付出，少求回报，  甚至不应该要回报。但问耕耘莫问收获，  不能因为有付出没有奖赏和鼓励就消极、有情绪，  要相信只要付出就会有收获，  只是自己欢喜也是收获，  带有目的的善，是有原罪的，也不纯粹。学习水的善万物，  需要我们以更加低的姿态和但求美丽的初心，  去为去行，以此内化于心，  外化于行的则是我们的耕耘和付出。处世为人，  应该摒弃歧视，  对待万物均应以道的准绳判断，  持公允之心，  行公平之事，  这样我们收获的是他人由衷的尊敬，  不是因为权力，也不是因为金钱。水可载舟亦可覆舟，  师从于水，  择其善者而从之，  其不善者而改之，  水适宜则是久旱逢甘霖，春雨贵如油，  过之则是洪水灾害，对人类造成极大的损害。</p>
+<p>不管是物象的水，  还是意象的水，  它对我们都很重要，  师从于水，  学习水的谦逊、柔韧、适应多变和善利万物，  多一些付出，  多一些关爱，  相信我们的社会会越来越好，  愿我们共享繁荣和幸福！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

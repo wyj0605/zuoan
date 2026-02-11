@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欺山不欺水，欺假不欺诚</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>欺山不欺水，欺假不欺诚</h1>
+            <div class="date">2026-02-11 14:00:20</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德鲁伊&lt;br&gt;据说，人类进化树上，聚集了很多种群，人类要么是竞争战胜了其他种群，要么是融合了其他种群。有意思的是，我们不要脸的把我们这一支称之为“智人”，好像我们比其他种群的更强大，单一个体能力更强。但貌似，人类能发展到今天，是因为足够柔弱，足够安静。柔弱了，开始合作、开始利用工具、开始组织家庭、开始刀耕火种；安静了，有足够多的时间去计划，去记载，去发明。于是，弱鸡的种类，反而最终进化成了人，睥睨了众生。</p>
+<p>于是，大智慧的老子让人柔些、静些。但是人类么，总是自以为能得不行，总是走着 “我应该可以吧？我能行！我还是不行。”的死循环。</p>
+<p>人类也就在这样的死循环里慢慢进步着。至于小到个人，大到国家，也无非是走着“征服、合作、融合、分崩离析”的路子。据说现代的社会，是互联网巨头们掠夺地盘，杀死对手，抢夺流量；而生活里，却需要大家合作或共享，来抵御危机。参照着人的历史，合作共享才能在危机时安然度过。道理都懂，手脚不听使唤也是无奈。</p>
+<p>任何大灾大难之后，一定会出现一批“智者”，这让人很头疼和无奈，我也包括在内。前几日和人闲聊，聊到很多孩子玩水溺毙的事儿。有个老哥施施然总结说：俗话说，欺山不欺水嘛。这话听着蛮新鲜，过去都是“近怕鬼，远怕水。”，说的是不明白水情少招惹，这个“欺山不欺水”又是什么意思呢？</p>
+<p>“这是我们那里的老话儿，意思是山的危险你见得到，水是变化的，看着很平静很柔弱，其实很危险。你再自以为是，小心小命儿难保。”还有没？一般俗话都是排着队列出来的，这个我懂。“有啊，欺山不欺水，欺富不欺善，欺鬼不欺仙，欺假不欺诚。</p>
+<p>”还真是一套一套的。其实老话俗话，乍听都有点懵逼，真思索一下，通常也都能想得明白，觉得高妙。欺山不欺水就不说了。山你都敢移，水却只能疏导。道理都懂，但生活里，欺软怕硬的居多，以为拉出一副混不吝，一副要死要活的嘴脸，就能吓唬住人。</p>
+<p>但多半，声色俱厉之后的，多半是外厉内荏。见了山躲，见了水蹚的，通常最终都被淹死了。反倒是那些，勇于攀登的，成了人上之人。欺富不欺善。光脚的不怕穿鞋的，自然结果就是穿鞋的怕光脚的。</p>
+<p>比你富的人，不管是哪种，金钱也好、知识也好、见地也好，被你欺负了，多半不会直接回嘴咬你，这个成本划不来，不如漠视或无视你。但善良就不同了，绝大多数的善良，都是一种选择，可以选择善良或选择不善良。以为别人善良，就欺负别人，别人不善良起来，或许你更惨。欺鬼不欺仙。俗话说：听说过、没见过的，除了长征就是鬼了。</p>
+<p>所以近怕鬼，其实是心里有鬼。心里没鬼的时候其实鬼这玩意儿，也不是甚可怕，欺负也就欺负了。但真到遇到散仙，人家有求了你打不过人家；人家没求了，你也伤不到别人。特别是那些对时间、效率、效能、修行在意的，第一不要请，第二不要欺。欺假不欺诚。</p>
+<p>合作也好，契约也好，其实就是个诚信。但是不诚信，似乎在现代社会成本不高，反倒是虚情假意比较流行。但真论起理来，宁可欺负那些虚情假意的，因为虚情假意的通常心虚，好攻破，容易先撤。诚实待人的，认死理儿。真到了两败俱伤，诚信的人会为了诚信或者自己诚信的荣誉，和你战斗到底的。</p>
+<p>近期爱读的书，都是老书，论语毛选什么的。爱学的话，都是各类俗语，觉得一针见血。这种既接地气儿，又充满哲理的事儿，可以常搞常新。今天学的，俗语是：“日晕三更雨，月晕午时风。”《毛选》是《事情正在起变化》，至于论语，那可就厉害了，“举直错诸枉，则民服；举枉错诸直，则民不服。</p>
+<p>” 左岸记：古人诚不欺我，理解透了，新瓶装旧酒，别有一番滋味在心头。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

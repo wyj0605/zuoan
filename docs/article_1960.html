@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你能接受真实么</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你能接受真实么</h1>
+            <div class="date">2026-02-11 14:00:17</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/白玄很久没有体验到一口气读完一本书的痛快淋漓了，何其有幸，《沉默的病人》让我复验了。亚历克斯·麦克利兹绝对是技术型的写手，技术堪称出神入化，所以简单的故事写的特别精彩。构思巧妙，节奏流畅，开篇霸气，反转精彩。开篇写到：&lt;br&gt; 杀死自己丈夫的时候，艾丽西亚· 贝伦森三十三岁。&lt;br&gt; 当时他们已经结婚七年。</p>
+<p>反转：&lt;br&gt; 这就是真相。我没有杀死加布里耶尔。是他杀死了我。&lt;br&gt; 我只是扣动了扳机。这是一本即使剧透也不会影响阅读体验的书。</p>
+<p>就像斗地主中的明牌，作者就这么霸气。“她往丈夫脸上连开五枪，从此不再说一个字。”一支枪应该有六发子弹，为什么如此疯狂却只有五枪呢？那一颗子弹哪里去了？这个答案只能自己书中找了。</p>
+<p>从开篇到反转，中间的动机分解用了26万字，所以这不是一部悬疑惊悚小说，而是一部心理学著作。悬疑只是它的面具。其目的是引发三思：关于原生家庭，关于婚姻，关于自我。女主角深受原生家庭之害。在同一场车祸中，她妈妈去世，她幸存。</p>
+<p>但她父亲却说“为什么不是艾丽西亚替她去死？”最诛心的往往是轻描淡写的脱口而出，不经意的。因此她觉得“爸爸杀死了我。”心被砍上了裂缝是事实。但是接下来是抱着剑舔着血的迷醉呢？</p>
+<p>还是自我成长？这裂缝或许只有两个功能，让光照进来或从这里长出翅膀。如果光不能照进来温暖你，那就自己飞向温暖的光。对于原生家庭或说童年，最近影视乃至文学作品全是呼喊其影响之大近乎一生。真的如此严重么？</p>
+<p>我觉得，不至于。问题不能全赖环境。外部条件是既存事实，怎么看待与应对环境才是成长的关键。对自己负起责任，它不香么？对于婚姻。</p>
+<p>有两个关于出轨的残忍拷问。第一，假如被出轨了，你有勇气知道真相么？还是宁愿不知道。其实不知道倒不失为一种幸福，不知道就是没有，没有就可以一直幸福下去。第二，如果你知道了，你会怎么做？</p>
+<p>如书中的两种选择：A同归于尽，至死方休。B佯装不知，继续苟活。还是书外的第三种选择：转身离开。在开枪前的所有时间里，艾丽西亚一直以为自己遇到的是爱情。“从我们相识的那天起，他就是我的全部世界。</p>
+<p>无论他做了什么，无论发生了什么事，我都会爱他——不管他怎么惹我生气——不管他怎么邋遢或不卫生，不管他如何轻率，如何自私，我都会一如既往的爱他。直到死亡将我们分离。”结果一语成谶，真的是“死亡”将他们分离的，而且是她亲自邀请的死亡。但我觉得艾丽西亚自认为的爱情，并非爱情。是一种畸形的感情依附，是飞蛾扑火的倾覆。</p>
+<p>这阵式其实挺吓人的，因为对方可能根本不是火，只是一个烟头，所以扑灭对方的同时也呛死了自己。但有一点是对的，那就是不能考验人性。暗黑与道德同笼，而暗黑的那部分更容易被唤醒，能休眠已经够好了，何况去特意拨弄呢。艾丽西亚的丈夫在你死还是我活的单项选择里，选择了“我不想死”。艾丽西亚觉得自己又被杀死了一次，所以淡然的扣动了扳机，五连发。</p>
+<p>作为男主角，心理治疗师西奥的婚姻，也遭遇了出轨。但他坚定地选择了佯装不知。在知道真相之前，他也以为自己遇到的是爱情。“唤醒我的是凯西——是她邀请我走进了生活。我用双手紧紧抓住了她。</p>
+<p>我记得自己当时就在想，原来如此，这就是爱情。我意识到这毫无疑问就是爱情。”“她就是为我量身打造的”这是西奥的感觉。所以即使被绿了，西奥依然选择继续下去，只要你也在，我也在，心在不在又有什么关系呢。对此，作者早就言明了“真的是一见钟情——呃，反正是情欲呗。</p>
+<p>”这两桩婚姻的交集是，艾丽西亚的丈夫和西奥的妻子就是那对情人。爱情是什么样子呢？也许是鲁西以为的“真正的爱情是非常平静的，没那么轰轰烈烈。”爱情什么都不需要，不用相见，什么都不用说，我心里有过你——就已足够。心里有就是真的有，我为的是我的心，这就是了。</p>
+<p>爱情不是生活的全部，不是还有大自然么，不是还有艺术么，不是还有自我么。对于自我。你之所以不幸福，不是环境带给你的不幸，不是他人带给你的伤害，只不过是你缺乏重新选择生活方式的勇气。妄图指望他人拯救自己，这种想法太天真了。父母不是你的救赎，配偶不是你的救赎，甚至爱情也不是你的救赎，最后能救自己的，只有自己。</p>
+<p>你是你自己的英雄。所以，还有C选择，那就是，转身离开，关键看你有没有底气。把受害的意识清空，你就是一个完整的自己。你本身就是完整的。对自己负起责任来。</p>
+<p>我愿意接受真实，那可能丑陋，可能不堪，可能龌龊，但那都是它本来的样子，接受世界如其所是。世界上只有一种英雄主义，那就是看透它的真相之后依然热爱它。All is well。左岸记：白玄说得对，人生从来就不会是个死局，除非你把自己做死，或者选择欺骗自己。当你勇敢地选择面对真相，哪怕真相让人失望害怕恐惧，你就始终握着自己的命运。</p>
+<p>没有遥远的救世主，只有你自己。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

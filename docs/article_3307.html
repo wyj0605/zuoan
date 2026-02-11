@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>所有美好的感情，都应被温柔对待</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>所有美好的感情，都应被温柔对待</h1>
+            <div class="date">2026-02-11 14:16:01</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/谢慧敏 李安2005年执导的《断背山》，可以再回味几十年。同性恋的社会话题，没有成为过去。影片的结局令人潸然泪下，从明媚灿烂开始，到萧瑟凄凉结束。孤独的恩尼斯守着两件衬衫，温情而忧伤，这两件衬衫，是他和杰克几十年前在断背山相爱时的衣物，一件罩在另一件外面，就像一个人环住另一个人。除了回忆，这是仅供恩尼斯凭吊感情的物件。</p>
+<p>杰克和恩尼斯，一个死亡，一个抱憾终身。故事的过程很简单。两个萍水相逢的男孩，为了谋生，到一座大山里牧羊，朝夕相处产生了爱情。然而这份感情不被世俗所认同，出了断背山，他们就各奔前程，成家立业。几年以后感情再次续接，便如地火喷发，他们热烈又痛苦地相爱着，这份感情扑灭不了可也不知所终，最后焚烧了他们。</p>
+<p>悲剧的原因是什么？我曾埋怨过恩尼斯：你是男人，你可以更男人一些，为什么不听从内心召唤？为什么不像杰克一样积极勇敢？你是自食其果。然而细想一下，这不应是个人该承担的责任。</p>
+<p>即便恩尼斯“若为爱情故，一切皆可抛”抛家弃女，奋不顾身，和杰克远走高飞，双栖双宿。命运也不会就此改写，生活不会就此幸福。世上没有桃花源，断背山也不是，断背山够与世隔绝了，食物都要用马匹驮运几天，就在这样的地方，他们的恋情也有被发现的时候。世俗织就的严网，罩在地理上，也罩在人心里。没有大环境支持的感情只能以悲剧告终。</p>
+<p>上个世纪60年代的美国，汽车和马匹并存，电话和写信同在，牛仔和嬉皮士共处，可以在星空下的汽车上激情四溢，但是不能容忍同性之间越雷池半步。同性恋是过街老鼠，是天花病毒，被歧视被惩罚甚至被扑杀。断背山的爱情，只能以悲剧告终。影片《断背山》的使命是为同性恋鼓与呼。在本世纪初，同性恋合法化拉开帏幕，荷兰率先举起大旗，在2001年承认同性婚姻。</p>
+<p>2005年，《断背山》适时进入人们视线。之后，欧美各国一路应和，至目前，世界各国已有近30个国家承认同性婚姻。最直接说明该片的影响的是，美国在2015年承认同性婚姻时提到了《断背山》，《断背山》有效地洗涤了人们对同性恋的敌意和偏见。就我个人而言，我对同性恋既无恶感，也无好感。但是经过此片，我自然地接受了它，《断背山》感动着我。</p>
+<p>我喜欢它的环境，断背山雄壮、辽阔、宁静，这是杰克和恩尼斯感情的萌发地。杰克和恩尼斯的感情不是产生在酒吧、舞厅、监狱之类的杂乱迷幻之地，而是成长在一方美丽宁静的大山里，这里山水纯粹，生命纯粹，进入断背山的杰克和恩尼斯同样纯粹。所以，当杰克和恩尼斯激情迸发时，并没有让人感到龌龊下流，这份感情的滋长，如同草木的生长一样自然，这份感情的质地，如同流淌的涧泉一样清澈。让人好感的还有杰克和恩尼斯的形象，谁说同性恋就是变态者？俩人都高大帅气，尽管性情很不同，杰克天真热情，恩尼斯内敛寡言，但都是身着牛仔衣、头戴牛仔帽驰骋在马背上的汉子。</p>
+<p>他们在社会和家庭中承担着男人的角色，恩尼斯为妻女打拼生活勤劳坚韧，任劳任怨。杰克是理想主义者，他在斗牛时不屈不挠的雄姿吸引了当地最美的女人。面对富翁丈人的颐指气使，他表现硬气：“这是我的家，你滚出去！”杰克和恩尼斯是男人，自视男人，也视对方为男人，表达爱意的动作和神情也非常阳刚，没有所谓的一方是男人、一方是女人的性别错位。让人感动的是，岁月在流逝，形容在改变，而感情如磬石。</p>
+<p>从最初到最后，几十年的岁月，他们感情始终如一。走出断背山，便意味着关系的终结，俩人默契地不留下联系方式，这是对彼此的尊重。然而，在分道扬镳时，当拐进一个角落，面无表情的恩尼斯突然手锤墙壁，狂烈的动作泄露了内心的波澜。一骑绝尘的杰克表面风平浪静，但在后面，我们发现，他偷偷地拿走了俩人的衬衫，并保存了二十年。在之后的交往中，杰克和恩尼斯相互依恋，杰克是主动的一方，强烈希望同恩尼斯生活一起，然而面对着恩尼斯的顾虑和退缩，杰克选择克制，选择离去。</p>
+<p>俩人表现方式不同是性格使然，感情不分上下。正面的形像、正常的行为和完善的人格是《断背山》所要表达的。它告诉人们这些都没有背离社会主流价值的要求，仅仅因为性别的偏离，遭遇便不同，这很不公平。影片的结尾很残酷，杰克被人打死了。现实对同性恋同样不宽容，美洲欧洲如出一辙。</p>
+<p>19世纪英国作家王尔德因为跟男孩波西闹出性丑闻，被波西父亲告上法庭，在这方面，名声赫赫、风流倜傥的王尔德没有胜算的可能，马上由一介社会名流沦为阶下囚，最后落得身败名裂、中年早世的下场。英国作家毛姆也是同性恋，一生有两个笃定的男伴侣，为了不步王尔德的后尘，精明的毛姆让这两个男伴均以秘书身份存在。为了掩盖同性恋的事实，毛姆还结了婚，同一个自己不喜欢的女人结为夫妇，为此，他付出了高昂的代价。同性恋是一个普遍存在的现像。其影子在古今中外、正史野史、戏剧小说里随处可见。</p>
+<p>“龙阳之恋”“断袖之癖”说的是皇帝的同性恋，汉哀帝怕惊醒睡梦中的男宠董贤，不惜割下衣袖，敢说这不是爱情？《红楼梦》中的同性恋很多，贾琏、薛蟠都是。薛蟠遭遇最惨的一幕是他想引搭形貌英俊的柳湘莲，不料被武艺高强的柳湘莲反教训一番。就是钟天地灵秀于一体的贾宝玉也是同性恋者，贾宝玉见到秦钟那一刻的灵魂出窍，并不比见到林姑娘时来得轻，他们在学堂里出双入对的暧昧关系，让金荣他们看在眼里。《金瓶梅》的西门庆更是此中高手，既在外面寻花问柳，也不放过自己的跟随小厮，对此潘金莲见怪不怪。</p>
+<p>现代科学证明，不管在生理上，还是在心理上，同性恋都非病化，是正常人，这已无争议。同性恋占总人数的3%—5%，在学校里，每四十名学生中就有一人是同性恋。这个群体从比例上看并不高，但在绝对数量不容忽视，全世界有近2亿人，我国有近5千万人，对于这一庞大人群的正常生活的诉求，社会没有资格肆意剥夺。进入新世纪后，社会越来越宽容，体现之一就是冰岛女总理公开携女配偶来华国事访问，人们反应平静。同性婚姻合法化在欧美已成趋势，这一观念传到了亚洲，台湾成为其中之一。</p>
+<p>但是，并不能说明同性恋在现在社会的处境就很美好，思想的固执有时远超出人们的想像。不消说世界上的大部分国家地区没有接受，就是在已宣布的国家里，它还是非主流，同性恋合法化之路任重而道远。左岸记： 社会环境对美和文明的需要会越来越进步，这个进步包括从心理上接受原来不可思议但事实存在的感情。两个互为同性恋的人在一起是幸福的，一个同一个不是在一起是不幸的。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

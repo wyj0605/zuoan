@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>犬与人，最长情的陪伴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>犬与人，最长情的陪伴</h1>
+            <div class="date">2026-02-11 14:16:39</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/艾比 （一）朋友家的宠物狗要喜当妈了。平日里就吃好喝好的狗狗，这下更是营养加倍：上好的钙片、上好的羊奶、上好的苹果。我笑叹：这年头，我作为一个人都舍不得给自己这么好的待遇啊！这只狗妈妈是哈士奇，名叫嘟嘟，爱称为“嘟宝宝”，流淌着哈士奇的“二货”血液：跟任何人都自来熟、外出不栓绳子就会跑得无影无踪、见到吃的就丢了自尊，啊还有，擅长拆门——朋友家已经有两扇卧室门被她拆出了无法直视的大洞。当然，还有“二”带来的欢乐。</p>
+<p>嘟嘟就是朋友的女儿，让她爱恨交加的女儿：爱是无微不至地照顾，是上班后让她独自在家的担心和愧疚；恨是在她太过调皮的时候拉都拉不住，是难免的劳累；但爱的正无穷永远大于恨的负无穷。朋友说：“我简直就在预演带孩子。”我住的地方，楼下的阿姨有一只牧羊犬，每早七八点会带它出门散步。我下楼时，如果恰逢他们正要出门，阿姨会蹲下抱住爱犬，说：“别叫哈，这是姐姐。”唤孩子一般。</p>
+<p>对于钢筋丛林里的人们来说，爱犬就是孩子。与傲娇的猫相比，犬与人类的渊源长远深厚，性格也更近人情。它们就像你的孩子、妻子、父母，与你互相陪伴，甚至比人的陪伴更加专注和忠心。朋友说：“每次下班回家开门，灯还没来得及开呢，就见它从某个角落里扑过来扒到我身上，汪汪叫着，那个开心劲儿！一天的疲惫都不是事儿了。</p>
+<p>”（二）2015年的中秋，我在乡下认识了一只通体长着黄毛的母狗，是隔壁人养的，中华田园犬，大家习惯叫它们“土狗”。我认识她的时候她已不年轻了，身后总是跟着自己的孩子。一天之中，村民们习惯将屋门一直敞开，村里的狗有时会逛进熟悉的人家的屋里，等着人们开餐时在桌旁也捡点东西吃，这黄狗也如此，我就是在喂她的过程中，喜欢上了她。与城里的宠物狗很不同的是，村里的狗若没有主人允许，是绝不会擅自把嘴凑上饭桌的，它们只会吃你主动丢在地上的食物。中华田园犬的使命是看家，闲暇之余就在村子里遛遛，太阳好的时候静静趴在家门前晒晒，也不会追赶田地里的鸡群，因为它们知道自己的角色和责任所在。</p>
+<p>嘟嘟每次被朋友带回乡下老家，都会追杀鸡群，咬死鸡几只。中华田园犬不是宠物，从来没有“被宠”的命，甚至逢年过节还会成为下锅肉。每次午饭晚饭前几分钟，阿黄（我给这只黄狗起的毫无特色的名字）会端坐在我旁边，等着投喂食物。很快我发现她有个本领：我不用把食物放在地上，而是轻轻抛出去，她可以稳稳接住，百发百中。这让我大感有趣，几乎将自己碗中一半多的肉都抛给了她。</p>
+<p>很快，阿黄会毫不排斥地主动将脑袋轻轻枕在我膝盖上，这友谊的升温速度让我万分惊喜。有时，我爱跟她玩对视，好奇能从她的眼睛里看到什么。阿黄的眼神一直都非常温顺纯粹，亮晶晶的，一动不动的回看我，仿佛就要溢出话语来。当犬信任人类时，应该都是如此模样吧。我感到，我和阿黄几乎没有任何障碍地就建立了某种感情。</p>
+<p>那段在乡下玩乐的日子里，只要碰到在散步的她，她总会停下脚步让我上前抚摸。阿黄真是让我好想带回家。2018年的春节，我再次回到了那个小村庄，第一时间就是找阿黄，却久久不见她的身影。寒冷的冬夜大家围坐烤火，听隔壁阿黄的主人说，她已经死去了。我轻轻“啊”了一声，然后不知说啥好——只是死去了一只狗，村里人再习惯不过，可我在刹那竟然酸了鼻子。</p>
+<p>现在，守在主人家门口的正是阿黄当年的儿子，那只两年前总是跟在妈妈身后的小狗。两年多的时间，小狗长得飞快，转眼就来到壮年阶段；他长得真好看，像极了日本柴犬，简直让我一见倾心！四肢匀称健壮，浑身结实无赘肉，散发着他们那个年纪最好的英气。原来阿黄生了一个那么漂亮的儿子，我当年还觉得他貌不惊人。不过，很快我就发现，这个儿子的性格跟他妈妈迥然不同。</p>
+<p>他只在我喂他时才允许我抚摸他，也不愿意接住我轻抛出去的食物；他趴在主人家门前，我走过去想跟他玩，他会马上起身盯着我，我一步步前进他就一步步后退，我加快步伐他就干脆转身跑开了，把我看作完完全全的陌生人。我的第一反应是：阿黄的儿子是不是有什么“童年阴影”？又或者他遗传了爸爸的性格？这个春节，我只有在吃饭时才能摸摸他，其余时间是不可能得到他允许的。他对除了主人以外的其他人怀有警惕，这显得他对主人的忠诚更加突出。</p>
+<p>每当他的男主人或女主人走出家门时，本来趴着的他会马上站起，不近不远地跟在后头，对两旁田地里的鸡群瞅都不瞅一眼，恰如一个忠心耿耿的保镖。这场景真是让我看得目不转睛。在某一刻，我忽然明白了：这才是犬的基因里蕴含的本领和认知。他们的祖先自存在于这个地球上起，是狼，是兽，只会紧紧跟随自己认定的事物，被人类驯化后也是如此。所以，阿黄的孩子又何必要去迎合我这个陌生人呢！</p>
+<p>他们不是宠物，不供玩乐，不在乎自己可不可爱，却兼任了陪伴和看家这些最长情的活。（三）犬在很多方面的天性优势被强大的人类发掘、训练和加强，并在很多领域为人所用。电影《一条狗的使命》以犬的视角讲述自己的轮回转世，以及与不同的主人之间的深情故事。我希望现实中，起码大部分时间里，人类和犬能够彼此真心。不过有一个事实是避免不了的：你可以说真心的一方永远是狗，而人类，不一定。</p>
+<p>BBC纪录片《纯种狗的悲哀》，深度调查和剖析了现英国部分人群对犬类做的摧残：为了追求人为定制的犬种标准，从英国育犬协会到赛犬大会再到谱系培育者，都在用畸形的培育方法去得到血统更加纯正的纯种狗。其中，近亲繁殖是常用手段。作为人类，我们难以想象外祖父和孙女之间的交配行为，但这种在人类社会无比扭曲的事情却被频繁用于犬类。由这种手段培育出的纯种狗，逐渐产生了各种令人心痛的遗传病，比如查理士王犬，乖巧可爱，是英国最受喜爱的犬种之一，却饱受脊髓空洞症的折磨。它们的头颅无法容下大脑，就像你把脚硬塞入小尺码的鞋子一样，这会使它们感到挑筋断骨般的剧痛，哪怕是项圈的轻轻触碰，也会让它痛得满地打滚。</p>
+<p>还有很多其他犬种面临的疾病，让人不忍列举。但是，这些可怜的纯种狗的痛苦，还不是最糟心的。最糟心的是，这些已经频频出现的危险信号，却被人们视而不见。这些人一心追求所谓更好更有优势的外观，追求更高贵纯正的血统，对纷纷质疑不予考虑，更别提反省，继续让犬类进行近亲繁殖。如今，因为人类强加的畸形繁殖手段，犬类的原始面貌在短短一百年间产生了巨变：毛更长、腿更短、脊骨更突、尾巴更卷……诸如此类，都导致了这些纯种狗很多生理上的病变。</p>
+<p>而在英国的纯种狗大赛上，以上性状越突出的狗，越能成为观众赞美的对象，甚至能获得大赛冠军。没错，面临着生命威胁的狗，因为被培育出了迎合人类的外观，竟然可以受到大赛的嘉奖肯定。这真正是人类所做出的诸多荒谬行为之一了。那些忍受遗传病折磨的纯种狗，或抽搐或打滚或呜咽，却无法抗议无法抱怨，从出生到长大到死亡都默默承受，让主人心如刀绞；他们带给了主人很多快乐，却在谱系培育者手下注定了未来的痛。人类自以为凌驾于万物之上，总是将“有能力”改造世界误认为“有权利”改造世界。</p>
+<p>可是，到底谁给的权利呢？看着村里自由活泼的“土狗”，我感到安心——那挺拔的体格、健壮的躯干和四肢，真是犬类最棒的姿态了，是它们自祖先那里继承下来的最健康的样子，是大自然赋予它们这个物种最真实的样子。（四）如果要谈论有哪些跨物种间的情感，人类和犬类绝对是我最先想到的对象，所以我忍不住写下以上文字。地球上的生命起源可以追溯到40亿年前，最初只有单细胞生物通过简单的分裂来繁殖，现在科学家们估算地球上的物种数有300万到1亿种，其中人类已经识别出来的只有175万种。这时间跨度何其漫漫，人类的登场时间和区区寿命一道闪电就可带过，以后被其他什么物种代替也不是没有可能的。</p>
+<p>能在这极其短暂的生存史上，结识犬类并友好相处，甚至某种程度上相互产生情感慰藉，是多么奇妙的事。意识和语言将人类与其他物种区分开来，但本质上万物平等，地球并非人类独有。友好对待其他物种，特别是我们的朋友（当然，若要深究，所谓“人类的朋友”之定义也是由人类主观而定的）。毕竟，能力越大，责任越大，不是吗？左岸记： 看过《忠犬八公的故事》和《导盲犬小Q》，大概无不被深深感动的吧？</p>
+<p>人类总是认为自己是猫猫狗狗的主人，却不知道它们在日常给了人们多少不离不弃的陪伴和寄托。那么如果无法善待它们，至少不要“玩弄”它们吧，尤其是那种刻意制造的纯种狗、纯种猫，那真的就是在它们的身体里埋下痛不欲生的定时炸弹，让它们承受巨大的痛苦。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

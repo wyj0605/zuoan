@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心有猛虎，细嗅蔷薇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>心有猛虎，细嗅蔷薇</h1>
+            <div class="date">2026-02-11 14:16:25</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/榆木榆木 前段时间是七夕，各大公众号都遍布着关于这个主题的内容，朋友圈里嘛，年年岁岁皆相似。有情人发的是鲜花，美食，烛光晚餐，结婚证，单身狗们发的是自嘲段子，或是一些歌，睹物思人之类的。浪漫的，温馨的，搞笑的，苦涩的都有。不知道是从什么时候开始，会有些害怕每一个节日的到来。每当这个时候，我总是一个人过，起初并没有觉得什么，因为身边还是有很多一样单身的朋友，后来与同龄人走的轨道偏差渐远，倒越来越害怕。</p>
+<p>大概是更明显的感觉到孤独的存在吧。整个世界好像已经因节日而开始变得活跃或有点色彩，而我倒是感受不到什么与往常不同的地方，更别说喜悦。元旦，情人节，儿童节，端午节，中秋节，国庆节，生日，春节，大多数时候我都是独自的过着。这样也没有不好，毕竟无形中促成了一种强大的独处能力。我自是不害怕一个人做什么，依旧是乐观的，只是有时候想想觉得有些失落和难过。</p>
+<p>作为一个正常的人，她看起来安安静静很好，谁知道内心一直起伏不定呢？我也是贪心的，需要爱和被爱。心里住着一个小怪兽，有时候它不乖，出来作妖折磨人，坑的人在晚上焦虑失眠熬夜，在梦里哭泣悲伤。没有爱生活总是会落寞的，缺乏存在感毕竟不是常人能容忍的，但这些并不阻碍我去感受美好。感受不到爱和美好的时候，那一定是还没有做到足够正确有意义的事情。</p>
+<p>曾经在三毛的某篇文章里看到部分关于《圣经》的内容，很喜欢就抄写了下来：“我若能说万人的方言，并天使的话语，却没有爱，我就成了鸣的锣，响的钹一般。我若有先知讲道之能，也明白各样的奥秘，各样的知识，而且有全备的信念，叫我能够移山，却没有爱，我就不算的什么。我若将所有的赈济穷人，又舍身叫人焚烧，却没有爱，仍然与我无益。爱是恒久忍耐，又有恩慈；爱是不嫉妒；爱是不自夸，不张狂；不作害羞的事，不求自己的益处，不轻易发怒，不计算人的恶，不喜欢不义，只喜欢真理；凡事包容，凡事相信，凡事盼望，凡事忍耐。爱是永不止息。</p>
+<p>”这是目前在我有限的知识里认为的对爱最好的诠释。这爱是广泛的，从大方面来说，慈悲为怀，爱世界爱家国爱万物；从小范围来说，亲情友情爱情都连接着爱，它可以细细铺开。认真感受，生活中的每一件事情上都会渗透着爱，它可以是美好的象征。今天朋友Lucy发了一张画，配上简单的一个英文词“Strawberry”。我一猜就知道是她家那三岁小孩画的，她说孩子他爸都不相信，以为是她本人画的。</p>
+<p>听得出来她是很快乐的，因为爱，而我觉得小孩也是快乐的，当她们开始拿起彩笔的时候，脑袋里才不会去想“诶，会不会画的很差，画的不像不好，不令人喜欢”，她们只是凭借自己的兴趣喜好直接就画上了。与此同时想起小王子里有个片段是飞行员说起小时候的事情，他画了一条蟒蛇吞大象，他画的时候是专注的兴奋的，他给很多人看，但人们都猜不到他的画，被外界干扰否定后就放弃了自己喜欢的东西，放弃成为画家的梦想，这倒有些遗憾和无奈。大人们的世界被过多的东西填充迷惑，逐渐丢失了澄明纯真的心，因而快乐也就没有那么简单。我喜欢写东西，它使人平静。有时候会尝试写不大算诗的东西给朋友看，她们说生活被写的很美好。</p>
+<p>这样听起来我会高兴。也有人说你是一个奇怪的人，写的什么想说什么我怎么看不懂。我并不气馁，也不在意，它令我在无数个焦躁不安的时候能逐渐平息下来就够了，一边写一边思考一边梳理，于我它是正确的事情。而孤独不安又是什么，它在开始写的时候就慢慢的躲起来了。在夏天的晚上   我喜欢沿着昏黄的路灯懒散的走着   把自己裹在朦胧的夜里   窥探视野范围内的一切 不下雨的时候露台上都有人跳广场舞   叶麻店附近的小巷里摆满了各种小吃   人们随意的站着等着煎饼、肉串.......   面包店里摆着诱人的甜点   水果铺的颜色很明亮多彩好看   宠物店的小可爱们耷拉着脑袋往外看   理发厅换了装修后很通透   里面走出了一个短发姑娘   看起来很清爽   锅神的麻辣烫前总是坐满了人   马路边常有人拿着宣传单拦着问   “健身吗，学游泳吗” 谁不是在为生活而努力前行啊   微微笑说“谢谢，不用吧” 车子穿插在拥挤的人群里焦急的摁喇叭   找不到路走就停下来绕一条道   我也不赶时间没必要快走   无须为了一个闪烁的绿灯犹豫 偶尔会突然想起他来   蹦出有一日我们一起去看海的情景   有时也会想起爷爷奶奶   听他们讲过去的故事   给他们看我的意中人   这时吹来秋天才会有的风   哗啦哗啦头发乱了   噗嗤噗嗤笑己愚昧   这一路走到家   走到遥远的梦里   他都不存在呀 情诗说   日为朝月为暮朝朝暮暮只为卿   既见君子云胡不喜   有美一人清扬婉兮   余生道远缓缓归 曾经听到这样的会当真脸红欢喜   后来明白誓言再美终究会有变故   满心的欢喜认真最后是一句对不起   于是有了注孤生一族   如我如你如他如万物   骄傲美好又落寞 我们都小心翼翼的试探张望   不愿意再多点耐心去走近彼此   成为对方心间那朵独一无二的玫瑰花   尽管这是事实啊   但还是要期待会有信徒在赶来的路上   和你相遇</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

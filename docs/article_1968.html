@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任性与牛逼</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>任性与牛逼</h1>
+            <div class="date">2026-02-11 14:00:19</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>01朋友说感觉自己最近整天都在瞎忙。我问，为什么说自己是在瞎忙。朋友回答说，什么时候才不叫瞎忙？想干什么就干什么的时候。我说，“想干什么就干什么”可以分为两种：任性与牛逼。</p>
+<p>牛逼的人有资本，任性的人不顾一切。02那样的人算得上牛逼呢？看过《最强大脑》里“鬼才之眼”水哥王昱珩的人，会惊叹他的观察力。在观察力方面他就是牛人。他可以很狂地说，“我今天站在这里，就是来秒杀你们的。</p>
+<p>”因为他能以1秒四杯的速度从520杯同质同源同量的水中，准确找出了先前被随机选中的那杯，甚至看出了这杯水从被选中、拿起观察再到放回原位，摆放的角度旋转了15度。他总是语出惊人。北大教授魏坤琳将他称为《最强大脑》中的唯一天才，可他却不以为然：“我就是个普通人。我来这里，只是为了证明你们都不是最强大脑。”他恃才傲物，任性难管，却充满自信。</p>
+<p>当他在“扇面之谜”和“唇唇欲动”中放弃观察时间而直接完败对手时。“局座”张召忠在节目里忍不住问他：你这年轻人，怎么这么狂？他一如既往，冷漠又不失礼貌：您习惯就好。王昱珩出名后，许多崇拜者向他讨教秘诀，而他却说：“我没有什么秘诀，就是用心去观察。这里的心是指童心，带着热爱去看。</p>
+<p>我不是最强大脑，可能是我比较有闲功夫，能安静下来看一些东西。”“我和谁都不争，和谁争我都不屑。我热爱自然，其次是艺术，我用生命之火烤着双手，火萎了，我也该走了。”这又是他对生活最好的解读。求而不得，往往不求而得。</p>
+<p>世上只有一种真正的成功，那就是以自己喜欢的方式度过一生。03我们看牛逼的人，看才华横溢的人，看真正有钱的人，他们身上又总带着一股任性劲。那任性的人是不是也很牛呢？那是不一定的。只会任性的人其实是他的生活系统中的某个环节出了问题，或者是从小被宠溺坏了，或者是因为自己无知。</p>
+<p>被宠坏的人的任性是有人在买单，无知的任性却是连自己怎么死了都不知道。《水浒传》中的阎婆惜就是因为她的无知任性而被宋江杀死的。关于阎婆惜的出身，书中这样写道：“（阎婆惜的父亲）平昔是个好唱的人，自小教得他那女儿婆惜，也会唱诸般耍令……三口儿因来山东投奔一个官人不着，流落在此郓城县。不想这里的人，不喜风流宴乐，因此不能过活。”听上去，这个阎公是个非典型老爸，人家都对女儿严防死守，他却教得女儿会诸般耍令，要么是他自己喜好风月，要么就是他原本就打算让女儿吃这碗饭，不管怎样，阎婆惜不是一个幽闺里的小家碧玉。</p>
+<p>屋漏偏逢连夜雨，投亲不着，阎公又生了病，很快死掉，无钱发葬。有个王婆帮阎家母女找到“及时雨”宋江，宋江爱做慈善，随手替她们买了一具棺材，又给了十两银子。那阎婆看宋江出手阔绰，为人侠义，便要把女儿许配给他。宋江经不起撺掇，也就答应了下来。“就在县西巷内讨了一所楼房，置办些家火什物，安顿了阎婆惜娘儿两个在那里居住。</p>
+<p>没半月之间，打扮得阎婆惜满头珠翠，遍体绫罗……”宋江对这个花容月貌的阎婆惜似乎挺有心，实则不然。他“及时雨”的名头不是白叫的，舍得花钱是出了名的，对阎婆惜是这样，对李逵也是这样，并不是钱花在哪里，心就在哪里。书中明说：“宋江是个好汉，只爱学枪使棒，于女色上不十分紧要。”阎婆惜于他，充其量就是个宠物，给钱可以，再多就没有了。看看宋江把扈三娘嫁给矮脚虎王英，从侧面也反映出他对于感情的生疏与粗暴。</p>
+<p>然后，张三就出现了。张三这个名字妙，妙在他不需要是谁，对于寂寞的阎婆惜来说，任他张三李四，只要有个差不多，都能填补情感空白。何况，宋江的这个小同事张三乃是小鲜肉一枚，生得眉清目秀，齿白唇红，与阎婆惜眉来眼去之间，把情意传达得丝丝入扣。阎婆惜心有所属，对宋江也渐渐冷淡了。宋江也没多说什么，只是暗自决定不再去阎婆惜那里。</p>
+<p>阎婆惜倒乐得轻松，但她妈阎婆视宋江为摇钱树，死拉硬拽地将宋江拽回家，打酒买肉，要宋江和阎婆惜共进晚餐然后同床共枕。那气氛真是尴尬，两人各怀怨气地吃了，躺下，辗转到四更天，无眠的宋江和阎婆惜拌起嘴来。宋江大怒而去，却将一个招文袋忘在床头。阎婆惜起身解衣睡觉时，发现了招文袋，更发现招文袋里有一条金子和一封书信。那信，来自于梁山，写信人是晁盖，他正因劫了生辰纲而被官府通缉。</p>
+<p>阎婆惜大喜，笑道：“好呀！我只道‘吊桶落在井里’，原来也有‘井落在吊桶里’。”那意思是，宋江这下可犯在她手里了。她这么说，是有点忘恩负义。宋江不算对不起她，对不起她的是生活。</p>
+<p>但是，生活是抽象的，具体的是宋江，她只知道，这个人不爱她，她也不爱这个人，她却还得属于他。年幼无知又任性如阎婆惜，很容易就将对于生活的怨恨，迁怒到宋江身上。她逼着去而复返的他，立即就得拿出一百两金子来。这是贪婪，也是借此出一口恶气。她对生活的所知太有限，不知道看似温懦的宋江，底子是狠的，把他逼急了，他也能杀人。</p>
+<p>无知任性的人往往不计后果。04那一个人在什么时候才可以任性呢？在他能为自己的行为完全负责，在他的能力可以担得起他的任性，在他拥有足够任性的资本。无端的任性是自寻死路，理智的任性却是有那么一点点酷。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

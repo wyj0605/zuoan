@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幸好岁月已流逝-2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>幸好岁月已流逝-2</h1>
+            <div class="date">2026-02-11 14:17:13</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德鲁伊（朗读： 微微 ） 前几日和朋友聊天，大致说到70后的沉稳厚重，对生活的感悟和相对的自得其乐，自然而然聊起80后的不堪。浮躁和焦虑像是80后的标签，活得像条狗，可惜只学会了乱叫；活得没有今天、没有未来、没有过去的，但从来停不下脚步……这个世界就是这样，要么就在朋友圈里、公众号里活在舒适区，要么但凡有不同，就有人喷你。在座的80后，鄙夷的看着我们，“你们就是老了，便宜占尽了，有了房子、有了车，没了未来，在这瞎逼逼。”“那你们有未来么？”“我们没有未来，但有房贷、车贷，有苟且有远方啊。</p>
+<p>”突然感觉，幸好岁月已流失了。虽然梦想没有实现，但起码不太用经历现实的残酷了。80后是接受命运并受虐上瘾，70后该是认同宿命、开始拥有信仰。我们确信，如果猪可以飞，我敢打赌它们的翅膀绝对很好吃；而如果猫咪有翅膀，它们仍然会一动不动地窝在那里。尝试与命运搏斗，到被命运驱赶，及至接受命运的安排，然后矫情的说与这个世界和好如初，遇到真正的自己、与自己和解。</p>
+<p>大约的路数，就是20、30、40、50的年龄区别。细想，一切温情脉脉的感悟背后一定有冷冰冰的现实在张牙舞爪。遇到未知的自己，其实是经历了磨难，把壳子打碎，露出原来的自己；与这个世界和解，不是博弈无果就是战败投降；和自己和平相处，都是不胜其烦、精疲力竭；看山还是山，山在那没变，是你变来变去。你会因为别人买车你买车了，因为别人买房你买房了，因为别人旅游你旅游了，然后的然后，却不会因为别人快乐你快乐了。这一两年，我总是爱说爱问：“你敢不敢享受自己”。</p>
+<p>多少，也是因为不管你是和命运搏斗、被驱赶、接受、和解，其实你比谁都明白，命运是个结果罢了。“你…敢不敢…享受自己…”！你 人生就是定义自己的过程，不停的贴着标签，然后标签就成了自己。一切行为和标签有关，于己无关。标签越多，你的人格越扭曲。</p>
+<p>你每一次找自己都需要一层层的、一个个的撕除标签，很痛很脏、无数的伤口。找张白纸，试着写下自己的标签，然后一项项的划掉，剩下的是什么样的自己？不是让你赤裸裸如婴儿，只是让你明白，那些标签去除了，你一样可以是一个站着的人，怕就怕标签没了，人也没了，壳子般的人没有自我。敢不敢 我们变得胆怯了，我们打着明天需要做什么的借口，在今天缩手缩脚。我们从来没有勇敢过，因为我们要么逆来顺受，要么心存侥幸。</p>
+<p>我们接受命运的安排，乐此不疲，但每一次的接受，都感觉自己是被迫的。其实你每一次选择看似容易的路，其结果一定是充满被社会欺骗的感觉，被压迫和虐待的无奈。“敢”是个决定，也是一种选择，同样是一个开始，更是行动。你敢于选择的，才是你能承担的；你敢于看到自己的渴望，剩下的就是如何借助渴望力完成梦想。享受自己 “你不能去学坏，但可以不太乖。</p>
+<p>”我们界定了我们能享受什么，在现在我们应该做什么，于是我们循规蹈矩、怨言四起。但凡我们比较渴望和现实，觉得有一点差距，我们都不敢轻易放松自己。小小的享受，我们充满罪恶感。超出我们任何承受力的事物，我们都敬而远之。我们经常会觉得，因为今天多吃了，明天长胖了，而忘了健康是运动来的；我们因为今天奢侈一下，不是担心明天没有饭吃，而是觉得自己不该去纵容自己。</p>
+<p>没有记得住的小幸福，哪有享受自己的乐趣？你敢不敢享受自己？你是为了活下去还是快乐的活？你追赶这个社会，急匆匆的、踉踉跄跄、兵荒马乱。最后想想，你觉得是追赶社会的脚步，其实社会的脚步是让你驱赶的变快了。</p>
+<p>这个和你小时候玩追影子差不多。你能享受的才是属于你自己的，不管是时间还是事物，还是感情，还是情绪。你享受不了记忆，那是老年人的勾当；你享受不到未来，未来是未来的模样；大致，你能享受的充其量，是现在的这一刻，你面对的，和你想面对的，你想做也能做的。我有个朋友，超级喜欢花花草草，在城市的居所里，养了很多的花花草草。偶尔会给我发照片，漂亮的花，漂亮的绿色。</p>
+<p>曾经介绍她去一些园艺市场，她会买买买，鲜花、种子、绿植。她说心情不好和心情最好的时候，她都会侍弄她的这些花草。她说，没事和花交流，花会长的很好，彼此心情都会变好。我说，人也一样。我开玩笑说，她真会享受自己；她说，她的梦想是有花园的房子，房子可以小，花园必须大。</p>
+<p>左岸记： 岁月如歌，在于你怎么去欣赏和创作。每个时代都赋予那一代人特别的印记，你要做的就是想办法活出自己的样子，别人有的你也可以有，也可以不要，但自己想要的就一定要努力去争取，这样才不会在自己人生的岁月长河里随波逐流。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

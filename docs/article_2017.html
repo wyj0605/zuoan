@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我想说的话 ——关于郭沫若</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我想说的话 ——关于郭沫若</h1>
+            <div class="date">2026-02-11 14:00:24</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/朱峰磊&lt;br&gt;1941年11月间，周恩来为庆祝郭沫若五十寿辰，写就《我要说的话》一文。在这篇声情并茂，文高意远的纪念文章中，这位后来震铄古今的“一代完人”“人民总理”这样评说他眼中的郭沫若：“有人说学术家与革命行动家不能兼而为之，其实这在中国也是过时代的话，郭先生就是兼而为之的人。他不但在革命高潮时挺身而出，站在革命行列的前头，他还懂得在革命退潮时怎样保存活力，埋头研究，补充自己，也就是为革命作了新的贡献，准备了新的力量。他的海外十年，充分证明了这一真理。十年内，他的译著之富，人所难及。</p>
+<p>他精研古代社会，甲骨文字，殷周青铜器铭文，两周金文以及古代铭刻等等，用科学的方法，发现了古代的许多真实。这是一种新的努力，也是革命的努力。”说实话，那个年代的大知识分子，大多留学外国。在叛逆躁动懵懂的青春期就饱经西方世界开放思潮深入骨髓的感知和影响，这些影响不止是言论的，心灵的，更包括肉体的。在海外求学和生活的日子里，他们同其他本国学生和他国留学生一样少年早慧、欲望勃发、不受拘束，旷达不羁，既不矫饰本真，也无心术世故，更不压抑自苦。</p>
+<p>他们坦坦荡荡，不遮不掩，敢爱敢恨，敢怒敢言。即便在后来脱胎换骨式的沐浴先进思想的熏陶和洗礼，也多少都会留存着浪漫恣意和情感丰盈的基因。他们都会经历正常人皆有的人生各个阶段的情感生理发展过程，都有着由“中化”转变到“西化”进而“中西融合”的复杂心理渐进路程。其他诸家，囊在其中。于郭沫若而言，又岂能例外？</p>
+<p>考察和评价历史人物，应该看他是否主动的更新意识形态，顺应历史潮流，站在先进阶级的发展方向和政治立场，为推动历史进程发挥重要作用。对郭沫若的评说，更应该要像对任何历史人物的评价一样，坚持“知人论世”的原则，不能脱离历史人物所处的一定的社会环境和历史条件臧否褒贬，应着重揭示其历史性的文艺学术成就与贡献。而不是仅凭断章取义，孤证难立的只言片语，一味去挖空心思的追寻和挖掘他的婚姻个人隐私和阴暗面，以此来无端武断的指责和愤怒，进而无厘头的诋毁和谩骂！“渣男”“伪君子”“负心汉”“撩妹高手”“天才加流氓”诸如此类，凡此种种，难道我们真的可以将它堂而皇之，顺理成章的用在郭沫若身上吗？郭沫若自20世纪20年代开始，一直是革命文艺活动的倡导者、组织者和践行者，作为当时著名的左翼作家的执牛耳者和代表人物，他的创作思想及实践与中国20世纪走向民主化，革命化，现代化的脚步相互辉映。</p>
+<p>他的自传体小说，抒情散文，新诗歌和历史剧作品，表现出强烈而鲜明的现代意识和新时代文化特征，极为难能可贵的是，他将生活在底层的广大苦难民众和受压迫群体塑造为正义力量的化身和威武不屈的灵魂。将现实主义与浪漫主义二者的精神交合在一起，赋予其文艺作品，最伟大而深沉的时代强音和阶级本色。为一代又一代的文艺创作者和人民大众所喜闻乐见，拍案称奇。登高一呼，一呼百应的文坛号召力以及在文学门类诸领域的斐然成就，使他无可争议的成为中国现代新文学三大奠基人（鲁迅，茅盾，郭沫若）之一。在同旧势力开展文化论战的同时，他不仅直接投入到革命文艺事业，还有意识地从事对历史科学的重新认知和探索。</p>
+<p>他把甲骨文研究与古代社会的研究结合起来。发前人所未发，究前人所未究，达前人所未达。从甲骨文卜辞拓片中寻找出古代社会政治制度、社会生活的影子和印迹。开创了甲骨学研究的新境界。位列“雪观彦鼎，甲骨四堂”之一。</p>
+<p>他是中国历史学界和考古学界运用马克思主义唯物史观全面系统地研究古代社会，考察中古文明的第一人。郭沫若少年习书，从其兄郭开文学得执笔法。于二王，《书谱》，鲁公，东坡、山谷及南宫诸晋唐宋名家多有涉猎。旅日十年，他沉潜于古史研究和考据，对古文字情有独钟。在对上古文明造型符号的赏析和玩味中，他有意无意间将这种古拙通灵的金石气息自觉的融合到日常书写和书法创作里，以其擅长的行草书风展现于世人，便有了后来书坛称之为“郭体”的端倪。</p>
+<p>在经历岁月蹉跎和时光淬炼后，“郭体”磨砺精进，臻于至善。以至于后来“郭体”遍布名胜古迹，大江南北，墨宝题刻，难计其数。一时风光鼎盛，蔚为大观！郭沫若的书法根植传统，功力深厚，点画之间变化多端，纸墨相发尽在掌握。他遵循“回锋转向，逆入平出”的书写意念，将其浪漫性情和学养修为挥洒于点画起伏，提按使转的书法意境，寻求“意”的通脱和“韵”的和谐，气势开张，笔走龙蛇，刚柔相济，形神兼备，完美的形成了具有独特韵味和精妙意趣的笔墨氤氲。</p>
+<p>郭沫若书法以其凝重磅礴，别开风貌成为20世纪“文人”书家的典范。《女神》《屈原》《棠棣之花》《甲申三百年祭》和《中国古代社会研究》是伴随我走过三十余年的文史经典。在我这一介书生意气十足的无知稚子心目中，郭沫若先生那多姿多彩的文学学术生涯以及他创作的逾千万字的文学艺术作品（译著，书法）和马克思主义历史学（考古学、古文字学）论著，是中华文化矿藏中五彩夺目的奇珍瑰宝！学贯中西，博古通今的郭沫若不愧为中国的“亚里士多德”！不愧为中国近代以来百科全书式的伟大作家和卓越学者！</p>
+<p>“烟波浩渺的历史不会消散而去，滚滚向前的时代也不会凭空而来”。那些曾经或正在立于精神海岸和学术潮头乘风破浪，竞领风骚的人，任沧桑变迁，时光荏苒，将永存于天地之间，扬精神的旗，矗功德的碑！戊戌秋日朱峰磊谨识 左岸记：在网上，郭沫若是个很有争议的人，对他在现代文学和考古方面的研究大多数持肯定态度，茅盾评：郭沫若新诗第一人；周扬评：中国的歌德；闻一多评：:郭沫若的诗才叫新诗，不光写作上，精神上更是二十世纪新的精神；老舍评：他是狮子，扑什么都尽全力，他做什么都做的很好。写作，作诗，学医，翻译西洋文学名著，考古……但对他的很多选择和对婚姻的评价却存在巨大争议和反对，所以鲁迅骂他是“才子加流氓”。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

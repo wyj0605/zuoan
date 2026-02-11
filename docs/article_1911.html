@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人生要攀登“两座山”</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>人生要攀登“两座山”</h1>
+            <div class="date">2026-02-11 14:00:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>“越过山丘，虽然已白了头。喋喋不休，时不我予的哀愁。还未如愿见着不朽，就把自己先搞丢。”《山丘》是著名音乐人李宗盛2013年发表的歌曲，也是第25届流行音乐“最佳年度歌曲”和“最佳作词”的获奖作品，这首歌的旋律与歌词令许多人产生共鸣，感慨落泪。我们常常会感叹人生时光飞逝，纠结于如何才能更有意义地度过一生，在《纽约时报》专栏作家戴维·布鲁克斯看来，越过山丘之后，无奈、落泪为时尚早，更重要的是攀登人生的“第二座山”。</p>
+<p>01的确，对于大多数人来说，走出校园，开始自己的职业生涯，建立身份，离开父母，组建家庭，努力在世界上留下印记，就是我们人生的目标，这也是我们要攀登的第一座山。攀登第一座山的人们，花了很多时间思考声誉管理。他们总是在打分：我怎样才能达到标准呢？我的排名是第几位？正如心理学家詹姆斯·霍利斯所言，在这一阶段，我们倾向于这样的观点：世界说我是什么，我就是什么。</p>
+<p>有些人登上了第一座山的顶峰，尝到了成功的滋味，发现这并不令人满意。“就只是这些吗？”他们满腹狐疑。他们觉得，前方还有漫漫长路要走。有些人，则因为某些失败而从山上摔了下来。</p>
+<p>他们的事业、家庭，或者声誉发生了变化。突然之间，生活看起来并不像是在成功之山上稳步攀登。然而，在这个世界上，总有一种人，这个世界告诉我们要做一个好的消费者，但他们却投身于道德事业。这个世界希望我们攀登阶梯，追求成功，但他们却为别人而活。他们已经瞥见了比个人幸福更大的福祉，决意为真正值得追求的东西而奋斗。</p>
+<p>02如果说第一座山是关于构建自我和定义自我的，那么第二座山则是关于摆脱自我和舍弃自我的。如果说第一座山是关于获取的，那么第二座山则是关于奉献的。如果第一座山是精英式的——独自攀登，那第二座山则是平等主义的——置身于有需要的人之间，并与他们手携手同行。在第一座山上，你往往雄心勃勃，高瞻远瞩，鹤立鸡群。到第二座山上时，你已倾向于互助、亲密和无私。</p>
+<p>第一座山上的人通常是开朗、有趣的，并对这个世界保持兴趣。他们通常有令人印象深刻的职位，可以带你去各种各样令人惊叹的豪华餐厅。第二座山上的人并不反感世俗之乐，但他们在追求道德快乐的过程中已经超越了这些快乐，他们的生活已向某种终极之善靠拢。他们的生活常常令人精疲力竭，因为他们把自身奉献给了人们，他们的日常充斥着他人的要求和诉求。但他们正过着更宏大的生活，激活了内心深处的渴望，并承担了更广泛的责任。</p>
+<p>03在戴维·布鲁克斯看来，如何判断你是处在第一座山还是第二座山的关键是，你的终极诉求何在？是外在之物，还是自身名利？现实生活中致力于攀登第二座山的人并不少见。相信不少人都记得，今年年初，新冠疫情刚刚爆发，一位83岁的拾荒大爷主动到社区捐出一万元善款。当工作人员要登记信息询问老人的姓名时，他并不愿意透露，并说道：“国家有困难，我就出一份力，我对得起我自己的心，不要写我名字，也不要报道我！</p>
+<p>”工作人员再三追问，老人激动地说：“不要写名字，要写名字应该写，一名知恩者。”这样的例子还有很多，2010年“感动中国”人物郭明义，先后资助了180多名特困学生。16年时间里，郭明义捐出了一半以上的工资，他捐给特困学生和贫困家庭的金额超过了12万元。20年里，郭明义无偿献血总计6万毫升，相当于自身总血量的10倍。54本鲜红的献血证，是这一壮举最无言的见证。</p>
+<p>“感动中国”这样评价他：“他总看别人，还需要什么；他总问自己，还能多做些什么。他舍出的每一枚硬币，每一滴血都滚烫火热。他越平凡，越发不凡，越简单，越彰显简单的伟大。”演员古天乐入行25年，拍了上千部作品，获奖无数，塑造的角色已经成为许多人心目中的经典。然而，甚少为人所知的是，古天乐已经默默捐建了123所希望小学，上千口水窖。</p>
+<p>导演尔冬升说：“古仔这些年赚的钱，全部变成了学校，挥洒在公益事业中。”也许是因为年少时曾因一时冲动而误入高墙，也许是目睹了汶川地震的伤痛，经历过人生低谷的古天乐选择投入更多的精力去播种希望，培育梦想。他曾说过：“每多建一所学校，就可能会少建一座监狱。”04戴维·布鲁克斯认为，资本主义、精英政治和现代社会科学，已经将自私正常化；让人们觉得人类唯一真实的动机就是自私自利——对金钱、地位和权力的渴望。他们悄无声息地传播着这样的信息：给予、关怀和爱，只是社会蛋糕之上的锦上添花。</p>
+<p>个人理性过于强调关于个体的部分，但很少强调链接心灵的部分。在需要感情的时候，我们过于理性；在需要道义的时候，我们过于功利；在需要关注公众的时候，我们过于关注个人。所以，我们每个人乃至整个社会，都应该寻找属于自己的第二座山。太多人的追求都太低了，且削足适履。我们把时间花在了追求那些微不足道的赞许和职业成就上。</p>
+<p>我们如今的生活方式，就如同我们所有人都争先恐后地靠近日光灯，而如果换一种方式生活，我们每个人都可以沐浴在真正的阳光下。布鲁克斯认为，最高层次的快乐，是道德快乐。你的生活越有责任感，你的稳定状态、你的心境和闪耀他人的心情就会越快乐。05本杰明·哈代是一名作家，他在《公司》杂志中讲述了自己收养三名儿童的决定。“在承担个人责任之前，我有点儿自满，我缺乏紧迫感，我没有前进的动力，”他写道，“安逸的生活，并不是通往成长和幸福的道路。</p>
+<p>相反，安逸的生活，才是你在生活中陷入困境和迷茫的原因。”接受这些孩子，意味着更多地了解挫折、焦虑和疲惫，但也意味着感受欢欣、甜蜜，特别是关爱……当一个人的愿望得到满足时，幸福就会出现。当欲望转向他人时，一个人可能会遇到永久的道德快乐。伊曼努尔·康德曾说：“有两样东西，越是经常而持久地对它们进行反复思考，它们就越是使心灵充满常新而日益增长的惊叹和敬畏：我头顶上的星空和我心中的道德法则。”如果说第一座山讲的是个人自由，那么第二座山讲的就是责任和承诺。</p>
+<p>第一座山讲的是自我成长，第二座山讲的是忘记自我。第一座山的山顶是当下的幸福，第二座山的山顶则是发自内心的长久的喜悦。幸福来自成就，快乐来自赠人玫瑰。活在快乐之中，就是活在惊奇、感激和希望之中，第二座山上的人们已然改变。（部分内容整理自戴维·布鲁克斯《第二座山》）</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

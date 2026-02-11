@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视而不见的鼻子</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>视而不见的鼻子</h1>
+            <div class="date">2026-02-11 14:14:38</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌放眼望去，目光所及除了现实的世界，其实还有自己的鼻子，只是我们习惯了它的存在而视而不见。不由得想起周星驰的经典台词：“曾经有一段真诚的爱情放在我们面前，我没有珍惜，等我失去的时候才后悔莫及，人世间最痛苦的事情莫过于此……”提及此并不是提醒我们要去珍惜鼻子的存在，人活着没有鼻子固然痛苦，但也大可不必为此提心吊胆，担心哪天早上醒来鼻子会没了，更不必单独为了鼻子特意买个保险。毕竟这个世界不是神话世界，不会像八戒一样一不小心就变回了猪脸。难道我们一直看得到自己的鼻子，只是大脑因其长期存在而选择的忽略吗？为什么忽略的不是自己目光所及的其它部位呢？</p>
+<p>秉着科学求实的精神，细查到了果壳里的回答：“两只眼睛同时看见一个物体时，就会出现立体视觉。但是只有在正前方一定区域内的物体才能够被两只眼睛同时看见，在此区域外的视野（也就是余光）是没有立体感的”，也就是鼻子在两眼的余光区，无法形成立体视觉，我们永远只能用余光瞟到鼻子，也就是存在得不够明显吧，自然无法引起大脑的足够重视。问题表象背后往往是各种成因综合的结果，为什么考古学家里女士特别少呢？仔细探查发现，原来考古学家在野外工作中，找不到厕所女士不太方便，貌似复杂的问题背后也可能是简单的原因。一直坚信着这个世界的神奇，环环相扣，组成一个系统，由此引导我们看待问题时要从不同的角度考虑，这样的思维方式才不会拘泥自己的一亩三分地而固步自封。</p>
+<p>世事洞察皆学问，人情练达即文章——这是曹雪芹在《红楼梦》第五回里提到的。由此体悟的曹雪芹硬是将《红楼梦》写成了一部封建社会的百科全书，它涉及到：文学艺术、诗词歌赋、园林建筑、纺织刺绣、中医药膳、烹饪美食、戏曲说唱、民情民俗、佛学道教……难怪有人调侃余秋雨没有写过小说。《红楼梦》作为中国古典小说的最高峰，是因其作为一个系统完美的被打造出来，成为一件富有生命的完美艺术品。看待世界的角度应该是全面而又系统的，自然打造一个虚构的世界更离不开这种系统的眼光和格局。宋代禅宗大师青原行思提出参禅的三重境界：“看山是山，看水是水；看山不是山，看水不是水；看山还是山，看说还是山”。</p>
+<p>其实人的成长也是这么一个参禅的过程。看待问题也应当是这样一个过程，认识——怀疑——确定，当然“面对它、接受它、处理它、放下它”这个解释适合人放下自己的情绪，理性面对事物，看待解决问题的方式还得回到那个看山不是山，看水不水的过程。同样的问题，总会仁者见仁，智者见智，这也是观点系统的一部分。初识世界的时候，纯洁无瑕没有经历过现实的锤炼，容易形成简单粗暴的思维方式，总是以为世界是我们想象中的那么简单。总是坚信“只要……就一定能……”的句式,打了鸡血似的励志让人忘记了思考，只是盲目的往前冲而缺乏接地气的反思，到头来撞得头破血流而一无所获。</p>
+<p>尤其是自己无法深层次热爱的时候，习惯于这样看似勤奋却又无济于事的努力，那也是一种华丽讨巧的逃避。因为到头又会用谋事在人，成事在天安慰自己，感叹天意不公。作为人类六十多亿人口中一个，没有我世界照样运转，那种渺小感让人对大千世界心生敬畏，也会因为如果没有我，世界对我来说也没有意义来说，还有一些坚持走下去的必要。努力满足自己的好奇和求知，试着在理解中找到与世界的同在感，从容而又优雅的走下去。当然世界一直都很神奇，我们应该尽可能的去理解，而不是横加指责或者随意的赞美敷衍。</p>
+<p>书于 北京 五月左岸记：很多人看东西是漫无目的的，所以通常不会注意。事后想起来，只有个模糊的印象。在我脑子里有无数的钩子。这些钩子，是我感兴趣的东西，有的是现时需要的，有些是一直有兴趣了解的，人的注意力有限，不可能对眼前的所有信息都抓取过来，所以需要有甄别有取舍。我脑子里的这些钩子，在看到应该钩取的内容时，自然会加以注意。</p>
+<p>当我看到任何我感兴趣的东西，我会立刻记录下来。然后我会对碎片化的知识进行整理，而整理不是目的，运用才是。——萧秋水思考一些被平常生活忽略的小事吧：1.如果牙医是在靠病人的蛀牙赚钱，那我为何要相信全球牙医第一推荐品牌的产品呢？2.如果月亮的光是来自于太阳的光，那为何它无法杀死吸血鬼？3.如果灰姑娘的鞋是完美合脚的，那为何在跑步的时候会掉在地上？</p>
+<p>4.如果有人天生耳聋，那当他在心中自言自语的时候用的是哪种语言？5.史上最有名的刺客不也就是史上最失败的刺客？6.同义词，它有没有同义词？7.意义，这个词有什么意义？8.如果下一句话是假的，那上一句话就是真的？</p>
+<p>9.如果凡事都有可能，那有没有可能有些事是不可能的？10.没有事是绝对的，但是这句话不已经是绝对的了吗？原文链接：http://www.zreading.cn/archives/4386.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>与春同行</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>与春同行</h1>
+            <div class="date">2026-02-11 14:14:48</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/兰儿行在路上，整个视野迷蒙蒙的一片，天空罩上了薄薄的一层白纱，潮湿而柔和的飘浮。平日里耸入云端的高大建筑，轻纱隐去了一半的宏伟，温柔的地打量着脚下行走的车辆。初春的雨身段极细极细的，徐徐而来，整条街都极静极静的，倾听它悄然的脚步。袭来的早春还微带着寒意，没有急于脱去人们厚厚的夹衣，但从人们步履在路上，在春的节奏里明快而轻松的脚步声中，明显感到人们摆脱着厚重的冬带来的束缚。路旁的灌木，被淅沥沥的雨水刷洗出春的本色，草坪被濡湿了，嫩黄黄的，翠绿绿的，素素的，干净着 ……春的纱裙，它特有清新，华丽是多余的修饰，湿漉漉的香草味自然天成，它用直觉捕捉着人们内心的情感，一脉一息，她的气韵，极致的美，与人们融为一体。</p>
+<p>春用仙露之声，细无声的润进人的心间，让人们因新年初始充满了希冀。春这一挥毫淋漓，呼之欲出一副中国山水，雾气微张，把整个天地，整个繁华裹入笔锋，淡墨轻描，从容写意。在靠天吃饭的偏僻乡下，春雨永远都是庄稼人幸福的微笑。虽然粗茶淡饭，岁月艰难，然而春雨的降临，那张张被风雨磨砺得沟壑分明的脸洋就会溢着灿烂，“看呐，这雨下的多好呀，田里的苗儿遇一阵雨，就窜高一截！”，麦子是乡下人的命，雨水是麦子的命。</p>
+<p>单纯的乡下生活，庄家人幸福和惦记都是清晰可见。春行走在他们的梦里，他们常常会看到婆娑的蒙蒙的春雨，青青的禾苗尽情的吮吸这雨滴，原本是青的，现在更油油的清亮了。每年的春对庄稼人而言都是一种不可重遇的力量与惊喜。相同的景物，不同的人，对春的独特的韵律的感知是完全不一样的。春季的雨大多是蒙蒙的，细细的串成一条条的线，像女子闺房的珠帘。</p>
+<p>雨滴到芭蕉沥沥声，犹如美人掀开珠帘时玉珠相撞。这样的心境，很符合文人诗人闲情赏阅的雅趣。春雨深谙韵律，雨落芭蕉，时密时疏，如纤手抚琴，温柔如女子。有时则是兴起的，春雷初始，金石丝竹，黄钟大吕来一番，胜是枭雄，境界绝妙，各具韵味。“夜来风雨声，花落知多少”，这惜怜温婉的晓春长叹，是多么令人沉醉的千古绝唱。</p>
+<p>春之韵，是润一笺笔墨的情怀，是诗人与红尘的盈盈相握。人世阡陌，岔路万千，不同的人，相同的岁月，都有着不同的心境。我亲爱的朋友，万物方逝方生，四季更替，让我们俯下身，屏息聆听，春的盎然，春的执着与春的欢喜。无论我们过往经历了怎样严冬酷寒，遭遇了怎样苦痛的阴霾，无论我们身处在朴实的乡下，还是欲望的都市，经过春雨洗涤的纷扰尘世，等待着我们是一副纤尘不染的风景。让我们与春同行，用时光年轮赋予的智慧，美丽着生命中的行程……插图：兰儿左岸记：兰儿的散文清丽而脱俗，春之意，于笔端之下盎然自得。</p>
+<p>今天惊蛰，《月令七十二候集解》：“二月节，万物出乎震，震为雷，故曰惊蛰。是蛰虫惊而出走矣。”惊蛰为三候：“一候桃始华；二候仓庚（黄鹂）鸣；三候鹰化为鸠。”即是进入仲春，桃花红、梨花白，黄莺鸣叫、燕飞来的时节。天气转暖，雨水渐多，春耕农作，惊醒了蛰伏在泥土中冬眠的各种动物，正是一年之计在于春。</p>
+<p>原文链接：http://www.zreading.cn/archives/4250.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

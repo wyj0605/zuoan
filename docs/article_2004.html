@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隔离的日子，潜心修行</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>隔离的日子，潜心修行</h1>
+            <div class="date">2026-02-11 14:00:22</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/文昌还有不到1个小时，就要解封了，想想还是有些小激动。从1月22日春节回家，4月13日出门返京，再到今天酒店隔离14天结束，前后将近100天的隔离闭关时间。不长也不短，但足以构成一条细细的分界线，左面还有青春期的晦涩，右面多了些淡定和成熟，时间没有亏待我，自然我也没有辜负它。所谓疫情期间的隔离，为了防止感染病毒，对于肉身进行隔离，而思想精神相对是自由的，更像是一种社会思想实验，禁足三个月，期间给你适当的补给，让你活下去。抛开素日纷繁复杂物欲，只剩下自己，考验你独处的能力，与家人紧密相处，考验平日建立的感情基础，是否相看两不厌，享受各自的存在。</p>
+<p>物质生活依然很重要，但精神世界是否有余粮也得到了考验。于我而言，自然是享受这么一段曼妙的时光。自大学之后，在家的时光很少，此时回到家里，与父母家人深度相处，唤醒了太多儿时的记忆，小时候才有的味道和场景，慢慢也得到了重温。在单纯的农村环境下，在父母的世界里，没有所谓思维成长和探索世界之类的雄心和好奇心，只是随着太阳东升西落时光的流淌，体会着生活的日常。做一顿好吃的，打牌赢了点小钱，雨后出了太阳，见到了久违的亲戚，约着朋友到镇上买点家用，农作物卖了个好价钱，那心情都会好得不得了。</p>
+<p>生活里没有那么多道道和压力，似乎也过得也很快乐。既然能力有限，那就脚踏实地做点力所能及的事情。天气好，有空闲了就到田间地头走一走，看看自家田里的小麦长势如何，大雨是否压坏了小麦的腰身，看看油菜是否开花，到龙虾田看看撒的饲料是否吃了，或者到笼子里收点鳝鱼、泥鳅和小鱼作为菜品。实在不能出门，那就到菜园子里拨弄下，拔拔草，砍砍老树枝，摘摘蔬菜。紧密的与大自然生活在一起，享受着自然之道的恩赐，人自然而然的平静下来。</p>
+<p>居家隔离的日子，很少下楼加入左邻右舍的闲谈之中，总觉得在儿时浪费了太多的时间闲谈八卦，只是关在楼上享受个人的自由，安心的看书学习，以往没有时间读的好书，无暇顾及的好电影都在此期间得到了光顾，甚至远程办公也会乐在其中，因为这是你与外界交流为数不多的借口，偶尔早起还是会跑步，跑在田野里，享受奔跑的自由。在家的时光，再次深刻的体会到自然之道。亲眼见着油菜花开，花儿在风中摇曳，一场大雨，花儿在雨中摇曳，慢慢的花儿谢了，结出了果实。每一步都顺应自然之道，努力的生长，春天来了，该长苗长苗，该开花开花，大雨来了，也差不多是时候了，花儿也就谢了。它们从来也不着急，总是在适合的时候做适合的事情，每一步都努力的做好，至于结果是自然的事情，至于天气不好，结果不好，那也是自然的事情。</p>
+<p>很多次思绪焦灼的时候，即使在夜深了，也会独自走到田间地头，享受那份黑夜的平静，听听沟渠流水的声音，感受下春风拂过的温暖，再看看那些在黑夜中休憩花儿草儿，虫儿还在鸣叫，青蛙也不曾停歇声响。站在他们中间，你自然会感受到自然的世界一直在正常运转，世间万物都在自己的轨道，默默的前行。个人的焦躁呢？大多是妄念欲求，对于未知不确定的恐惧，心有过分的期待而不得的痛苦，再看看那些自然生物的平静和精进，个人的思绪自然会显得多余。这是自然赐予的力量，不管是佛家讲的心，还是道家的道，儒家的秩序，那都是在顺应天命，都是回到事情本身，回到自己本来的样子，自然不会有错位的痛苦了。</p>
+<p>真正有力量感的事物。还是润物细无声的日常，简单的饭菜，朴素整洁的衣物，经久耐用的器物，稳定有序的生活节奏，惦念但不纠缠的关系，日复一日简单的坚持，这是构建我们生活的基础，生活真正的伟大之处就在这里，不骄不躁，不卑不亢，只是以非常自然状态，默默精进，这也就是平常心，痛苦不是做事的代价，投入付出才是。在家里，还能与家人相处，与自然相对而视，但到了酒店隔离呢？那天到达北京之后，坐在安排的大巴车里，看着北京这座城市，突然变得陌生起来，城市给了我们便利，让我们更加靠近现代文明，也创造了很多我们不需要的东西，那是经济需要，却不是生命需要。不拘泥于物质的羁绊，倒也换来了自由之身，可以接受简单的物质生活，自然也就有时间和精力，做那些真正重要的事情。</p>
+<p>入驻的酒店单独开了后门，穿着防护服的工作人员，严丝合缝看不清脸，只是机械的安排着送到房间，就再也没有看见过人，每天会有人准点送餐到门口，然后他们依次摆放好之后，逐一的敲门提醒用餐，有序却机械，日常的热闹和温情，在疫情的影响下，显得有些多余，倒不是对他人的面孔有什么好奇，只是区别于日常的热闹。酒店隔离的日子真的在面对自我。酒店在顶楼上，看不到马路上喧哗的车辆，只有屋顶，至纯的环境里，倒也少了太多的干扰。偶尔会坐在沙发上，看着窗外的天空，偶尔有云朵在飘，有夕阳下落，有阴天的冷涩，有狂风大作，窗外的绿植一直在飘摇。有空的时候安心的看书写作，每天坚持分享一本书，累了会躺着眯会，醒来继续学习，晚上也会开开电视，不管放什么，有点动静，补充点生活的温度。</p>
+<p>真正的回到了自己，也就不会东张西望，左顾右盼，做好自己该做的时间，享受属于自己的时光，与自己和平相处，痛苦和烦恼自然不会轻易的袭来。不知不觉，近一百天的时光就这么结束了，比想象中的来得快。乐在其中，没有太多人世的烦恼和忧愁，在自然世界里，体会自然之道，在书本里，享受思想的丰腴和自由，在日常的生活里，体会内心的平和，我想着不仅是在对抗病毒，也是在沉淀成长自己。出去之后的世界更精彩，那也是日常的一部分。顺着自然之道，这也是对自己衷心的告诫，脚踏实地做点力所能及的事情，做好自己，也愿意帮助他人。</p>
+<p>左岸记：在至暗岁月里，最考验的是我们的生活态度，是重塑内心信念，要审视余生之路，等艰难的时刻过尽，我们才能拥有更深沉与更健康的自我。灾难之时，也是修行之日。不要堕落、不要邪淫；不要在无序中无爱，在无聊中无德。承担起自己该有的责任，在心中升起一团火，让更多人借光走出黑暗。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

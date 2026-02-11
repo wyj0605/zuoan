@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>习惯、改变与潜意识</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>习惯、改变与潜意识</h1>
+            <div class="date">2026-02-11 14:00:49</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/阿正时常为自己不尽人意的表现找的一个借口就是“我习惯了”。习惯了并不合适的说话方式，习惯了并不完美的运动姿势，习惯了并不合理的待人接物。相信大家也都有各自的习惯，习惯了并不健康的晚睡晚起，习惯了并不健康的吃饭节奏，习惯了并不合理的消费方式。这些习惯我们明明知道不好，也曾试图去改变，但是事与愿违，大多数都徒劳无功，改变一个习惯的确还是蛮难的。习惯控制了我们绝大部分的行为和思维，试想我们每天有多少时间是完全按照理智来处理我们的日常事务的。</p>
+<p>如果我们每天的事务都要大脑去按照完全理智的、正确的方式来去处理，那么大脑就实在太累了。其实大脑很聪明，他将重复的、简单的思维模式在经历过一个阶段不断的重复之后，这些信息就会固化在大脑里，不再需要重复思考，而是拿来就用，就这样形成了我们的习惯。大脑的这种行为模式和与生俱来保留在脊髓里的条件反射一样，比如当小虫快要飞进你的眼睛里时，你根本就不需要思考，就会迅速的把眼睛闭上阻挡小虫，这个时候大脑甚至都没反应过来。习惯同样也是，当我们日常的行为或思维方式不断的在大脑里重复一定次数之后，大脑里也会有同样的条件反射，就是所谓的习惯。比如开车，我们刚拿下驾照时，我们对路面的情况感觉很难把握，对车辆的操控也是很陌生，乃至挂档还需要看一下档位。</p>
+<p>路面情况的复杂和车辆操控的陌生让人对驾驶望而生畏，感觉这可能是一件永远都无法达成的一个目标。但是开车一两个月后，那种很困难的感觉很快就烟消云散了，处理路面情况开始娴熟，操作车辆也得心应手。再久而久之，无论多么复杂的路况、多远的车程，你都毫无感觉的完成了，甚至你自己都不知道自己是怎么开到终点的。开车这项不是人类与生俱来的技能在不断的重复之下已经转换为大脑固定的行为模式，当你开始驾驶时，这种模式就已经启动，只需要占用大脑的很少的一部分精力就能完成驾驶，和刚开始的手忙脚乱、操作失误、路况判断失误、突发情况导致的身心疲惫、难度极大形成了鲜明的对比，原因就在于不断的重复会导致到大脑养成习惯，习惯会让我们处理事务的效率会更高、成本更低。当然，习惯通过重复一旦养成，改变它也需要同样的方式，足够的重复，足够的时间。</p>
+<p>比如开车两只手抓方向盘是正确的，但是当你习惯了一只手抓方向盘时，你平时稍不注意就会继续保持原有的习惯一只手把控方向盘。要想去改变，只能是不断的重复。经历了大概三个月的时间，现在开始习惯了双手抓方向盘了。归根结底，养成习惯和改变习惯都需要不断的重复，不断得给大脑输送正确的信息，通过不断的重复让大脑知道这些是我们想要的，这样大脑就会转化为固定模式，其实就是我们一直说的潜意识（有关大脑研究的书是这么说的）。其实潜意识就是我们的行为和思维不知不觉的在大脑里不断的重复造就的一个系统，这个系统就像是一套大数据系统，记录着我们所有的行为和方式，根据我们一直以来的性格、动作、语言表达、行为习惯提取出来的一套原则供我们的大脑快速的、低成本的应对日常事务。</p>
+<p>这个系统指导着我们每天的吃饭、睡觉、表达、思维方式、情绪、工作、阅读、联想。只有遇到重大事务时大脑才会高功率运行进行分析处理，日常的这些基本行为都由这套系统来指导应对。其实潜意识就是你不断的向它输出什么，经历过一个阶段它就会反馈给你什么。有种说法就是“你想要成为什么样的人，当下就要做对应的事”。事情做多了，外部成果是一方面，另一方面就是不断的重复让你的潜意识接受了你成为那样的人，并继续指导你继续成为这样的人，而且不再像刚开始一样需要特别的思考和约束，而是已成为习惯。</p>
+<p>最后总结一下1. 习惯的确难以改变，因为养成习惯其实是有意或者无意的经历过很长的周期才养成，所以改变也需要同样的时间和成本。2. 习惯是可以改变的，比如开车这项不是与生俱来的技能我们都能养成习惯，那么吃饭、睡觉、表达、情绪控制也同样可以改变3. 潜意识是我们日常生活中不断的重复造就的一套系统，这套系统指导着我们的一切，表现为习惯。其实这套系统比我们自己更了解自己。4. 潜意识既然是不断的重复造就的，那么我们不断的向它输送什么，他就会让你成为什么样的人。每天向他重复他人是非、市井谣言它就会让你成为一个八卦的小市民；每天用行动和思维不断的向他重复你的期待，你就会成为你期待的样子。</p>
+<p>习惯是可以改变的，改变需要不断的向你的潜意识重复你想要的到底是什么。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

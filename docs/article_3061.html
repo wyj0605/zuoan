@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清明不还乡&清明呓语</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>清明不还乡&清明呓语</h1>
+            <div class="date">2026-02-11 14:15:08</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>《清明不还乡，留校也断肠》文/小逸清明好像一定是要下雨的，因为“清明时节家家雨”，“清明时节雨纷纷”，而我记得的清明节则无一不是好的天气，总是晴朗气清，也有惠风。终于明白那些读古诗的人都有点唯心主义，某一年的清明下雨，正好被一个或两个诗人写在诗里，好似往后千年的清明就因为一两句诗的功力就变了乾坤，蒙了雨色。南京的春天很短，而今年连绵的雨又延长了这个冬季，将近清明才云散雨消，陡然回暖，衣服都来不及减。南京正是以清明为其春之起点的，于是清明对于南京便更为珍重。清明节应该做什么，传统的做法是回老家祭祖、扫墓，或有祭扫烈士陵园的，我也曾有过两次祭烈的经历，一次是小学时，一次是高中时，全年级甚至全校浩浩荡荡地向烈士陵园迈进，奄然不可小视了这阵势。</p>
+<p>老师每每又要求回来写感想，——不单是清明扫墓，所有的外出活动都要写什么观后感之类的，我们总体会到天下永没有免费的观游，必有观后感作为代价。——其实有心的同学，不必老师的吩咐自己会写得有情有趣，无心的同学，就算老师再叮咛，也就应付一份官样文字。小学时还有上坟，爷爷带着全家人去村子里的慈陵园上坟，前后陆续几乎全村人都会到的，热热闹闹的景象。外来上学后，便很少在清明节回家。清明放三天，原是要我们重视、回味传统佳节，弘扬民族文化，可是清明节渐成了公共节假日，比周末要长一天，上班的人，上学的人，都要趁机休息、游玩，缓一缓劳累的神经与肢体，若实在还有空闲，去坟头走走也是好的。</p>
+<p>其实对于大学生这种有闲阶级，清明又何止放三天，只要胆子大，天天都是假。而清明似乎不能等同于周末一般看待，得有所区别，自习士们也自不能再在书斋中枯坐，dotaers也自不能再在宿舍里gank，转眼窗台，三月春花渐次醒，迢迢年华谁老去，清明大好天，岂能负之。青春，青春，莫不是要青年珍惜春天之意。清明最好的去处，是回家，或叫还乡。在人们的印象中，家乡好像总在乡村，有田野，更容易见着田园风色。</p>
+<p>清明还乡，更有追忆童年之感，借此回避一下城市之繁复与成年之束缚，重拾早年的无忧无虑，有一次机会去更贴近自然，更贴近纯真。王老师在周日晚的课上说：“有些同学已经回家了吧。”在路上也有同学讲：“你明天才回家啊，我今天就走的了。”而我，不回家。大学以来，已是第五个清明不回家了，早在两年前的清明之日，我就与同学笑说“清明不还乡，留校也断肠啊”。</p>
+<p>以前在江浦校区，那处的校园本就很美，依山伴水，得天独厚，如今在市区，也临近一潭湖水、几处园林。景虽美，却非家。我一直在思索一个叫做“家”的东西，有人说男孩子应四海为家，随遇而安……家到底是更偏重于实物，还是更偏重于精神，家是故乡，还是童年，家是一间屋子一盏灯，还是一声呼唤一份寄存。更有少年直称“有童佳倩的地方，就是我刘易阳的家”，而他最后不还是因了自己的固执毁弃了信誓旦旦的“家”嘛。之前也因为不懂得海藻对于海萍的姐妹深情，时而自轻，时而又自傲，所以我不得不承认文章是一个不懂爱情的少年小男人。</p>
+<p>也曾有好多同学在同学录上的地址一栏留言道“老婆在的地方，就是我的家”，也从没人写“父母在的地方”，我时而疑惑，家到底是来自于爱情，还是来自于亲情，抑或如梁山好汉一般来自于友情。家是居住，还是流离，家是出走，还是归来，有人说家就是自己的狗窝，我羡慕他小安即福的温意，有人说家之在那遥远的云端，我也同样佩服他勇往拼搏的豪情。但，有一点好像不曾错，心安处即是家，家总要安。“家”字有“屋下有豚”，“安”字“屋下有女”，家是回归了食色之人之大欲么。家之思，终不得解，教人肠断。</p>
+<p>而“清明”二字，总引好生我观摩，却甚清晰，仿佛二字本身就透着“山清水秀，日月光华”。清明很独特，它不单是节日，还是节气，它不像别的传统节日有固有的日期，它得按节气表的推算，总在公历的4月4日左近。清明节为中国的七大传统节日之一，其余六个是春节、元宵、端午、七夕、中秋、重阳，各有立意，但也有相似者，如春节和中秋都有团圆之意；另外我觉得七夕与重阳应有区别，七夕给爱情，重阳给同性之友情。想来重阳与春节之间相隔好长，没有一个节日，在冬至左右找定一个吧。不管怎么说，传统节日都是要挽回的。</p>
+<p>清明不还乡，留校也断肠。断肠人又岂止在天涯，时间与空间的错失者，皆肝肠尽裂。知我者，谓我心忧，不知我者，谓我打打酱油。左岸记：不同的节日赋予我们不一样的心情，也许外面没有雨，只是人们的心中会有湿漉漉的感觉，因着某种祭奠。也因为这几天的走过，心情总会不一样。</p>
+<p>就在我整理这篇文章的时候，恰收到卫斯理发来的文章——《清明呓语》，怎一个巧字了得。《清明呓语》文/卫斯理前些日子，终于回去了，记得上次拜山是〇六年，至今恍然又过了那么多年，时过境迁，多少又有些物是人非的惘然。春风依然那么温柔妩媚，拂过脸颊，令人眷恋，就像流逝的年岁，是如此的让人缅怀。临近中午，一大家人待本家亲戚几乎到齐，拿出祭祀品，在出门前朝天行过祭礼，于是就出发了。在以前农村没有铺上水泥硬道的时候，一场春雨过后山路是泥泞崎岖的，而今水泥路也有好几年，只是走起来似乎也还是像从前那样，脚下沾满泥巴，一脚深一脚浅地跟在大人身后屁颠走着，然而长大后毕竟是和小时候不一样的。</p>
+<p>最先到了距离最短的坟冢，因着清明，有许多人也选在今天拜山，还好是个晴天。走进自家所拜的那堆坟冢，是连座的，墓碑上只有青砖，不见碑文，我问大哥，里面的是谁？大哥说应该是我们的曾祖父，由于年代久远，名字已不可考据，大概是爷爷的父亲或爷爷的那一辈吧！我问族谱现在是否可查，大哥摇摇了头，说并不清楚。我似乎对面前的这座坟冢很陌生，就像是看着形状奇特的堆头，然而我又很清楚，这是我的祖上，我身上流淌着他们的血液，尽管墓碑上是无名的，但我是有着他们的基因的，是他们的后代子孙。</p>
+<p>他们的生前也许是与我们无关，但我们的确是与他们有关，我们是血缘关系，纵然想跳进时空，其实也就仅此而已。但我一想到这是我的祖上，于是立马就严肃起来，行上祭礼，然后就烧上香纸宝烛，丝毫不敢懈怠。待大家收拾完毕，放过鞭炮就算礼闭了。带着他们是谁？我们到底来自哪里的疑问，我又惆怅起来，当鞭炮燃放的隆烟盖过我的视线，我想，风知道答案。</p>
+<p>圣愚千载知谁是，满眼蓬蒿共一丘。据说蒋介石晚年读到这句诗，对反攻大陆计划便释怀了。这又让我想起某网友说的那句话:小时候恨蒋介石，长大后越来越恨蒋介石。关于蒋委员长，一直是我们大陆最为熟悉的陌生人。其实许多人许多事总归会如眼前的纸钱那样灰飞烟灭，你能够抓住的也就是你手中的那些。</p>
+<p>鞭炮响完之后，我们便前往另一堆坟冢，这堆坟冢是我们最为熟悉也是我们最为缅怀的。在这堆坟冢里面，我的爷爷奶奶及他们的兄弟，还有两个大伯，他们的英灵都在此处归根，在几座坟冢当中，其中有一座是比较显眼的，那是去年新添的，本家的一位大伯在去年逝世了，死前强调丧事简单处理，虽是如此，但相比其他几座墓冢，依然可以从中看出是一座刚起不久的墓冢，就像他的音容笑貌，在渐渐地淡忘当中，我们依然轻易会记起他。在众多刻在坟冢碑上的名字，大多我是很陌生，只是听着二叔说，这个是谁，我们应对他们如何称呼。在大家抵达后，各自便动手除草，将去年插在墓冢面前的木香和火烛烧完所剩的脚料拔出，然后将土盘松一些，方便等会上香。我们给面前的每座坟冢都压上墓纸，墓纸是要滴过鸡血的，那只被杀的公鸡此时就盛在托盘里面，托盘里头则还有猪肉腐竹菜刀等祭祀品，外加一瓶白酒和三个酒杯。</p>
+<p>由于是一大家子人，各自也就分开去烧纸钱烧香烧火烛。这天山上的风很大，刚湮灭的纸灰风一过就满天飘飞，而呼呼燃烧的火烛，蜡滴霹雳霹雳的垂滴着，待风又停下些，火烛和木香也已几乎烧去了一半，然后在坟冢面前插稳。待纸钱烧完，于是开始作辑行礼，说些祈愿纳福的话语，然后斟酒再行礼，斟过三回之后，套数也就算做完了，接着就是燃放鞭炮了。这天的山这天的风这眼前的景况，这让我想起了这首厚重的古诗。南北山头多墓田，清明祭扫各纷然。</p>
+<p>纸灰飞作白蝴蝶，血泪染成红杜鹃。日暮狐狸眠冢上，夜归儿女笑灯前，人生有酒须当醉，一滴何曾到九泉。其实无论此生如何，最终归处都不是在相框或名字被排成铅字或刻在墓碑或埋在土里，而是如眼前烛火，烧完即止，余烟让风吹到哪里就哪里，活着死去，也不过是一场不是梦的梦。从前当以为人心不古，世风日下，抱着敌对的姿态彷徨入世，有意识或无意识的树立着假想敌，风吹草动就草木皆兵，杯弓蛇影唯恐避之不及，为不受到所谓的伤害，愚昧的把自己粉碎。直到有一天突然很悲伤，发现自己竟然不见了，如孤魂找不回真身般悲哀，那刻我曾是如此地痛恨和恐惧，阳光灿烂地洒落在我的脸庞，光芒格外耀眼，而我竟有种抱头痛哭的冲动……在黑夜过后，那一缕阳光最终照进了我的心田，照亮我的心堂，就像这天晴朗的天气，无比的明媚。</p>
+<p>这个世界没人可以真正伤害你，能够给你致命的一击除了阎王就是你自己。真、善、美、爱就在手中，我的亲朋好友，路过的陌生人，此刻我要为你们送上我最真的祝福，感谢我们一起走在路上。我想，人生苦短，及时行乐是很有必要的，愤世嫉俗和拒绝俗世本身就是值得批判的，它意味着一种可悲的无知和虚伪的高尚。正所谓“世事洞明皆学问，人情练达即文章。”当你面对着坟冢，此时你会发现生活是那么真实具体。</p>
+<p>需求和追求需要区别，但两者共存，可以齐头并进。对于成长所带来的责任，任重而道远，每一步都是奇妙的体验，纵然有时难受，也要享受，热爱每一天。今年，无论如何我会找个时间出去旅行，并不是逃避什么或厌倦什么，而是为了我要走上旅途。也许是北京也许是西安也许是西藏也许是……</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

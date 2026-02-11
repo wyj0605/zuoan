@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>读小说会让我们变得更好吗？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>读小说会让我们变得更好吗？</h1>
+            <div class="date">2026-02-11 14:00:35</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>亚里士多德曾说，有两种情绪在我们观看悲剧时占了上风：（对角色的）同情和（对自己的）恐惧。小说角色将我们深深地吸引到故事中去。我们甚至不一定能注意到，自己会代入角色的处境，我们会将他们的应对和自己在过去的、乃至未来可能事件中的反应相比较。看小说的好处不是一下子就能显示出来的，但常常看小说的人，还是会有很多好处的，比如说练好文笔，下笔有神；看的时间长了，里面的思想慢慢会变成你自己的，会有种潜移默化的影响。有时候书里写的会让你有种“这个想法、这个事情我也想过。</p>
+<p>”这样的感觉，仿佛隔着几十年上百年的时间，你在跟那个写书的人在书中握了握手。看小说里人物的人生轨迹，去体味不一样的人生失意及欢喜，在某种情景场合下他们的选择和为人处世这是最有用处，你看的不是小说，看的是你自己。罗伯特麦基在《故事》里面说得挺清楚了：人类对故事的胃口是不可餍足的。设想在地球上的普通一日，有多少故事在以各种形式传送着：翻阅的散文书页、表演的戏剧、放映的电影、源源不断的电视喜剧和正剧、二十四小时的报刊和广播新闻、孩子们的睡前故事、酒吧内的自吹自擂、网上的闲聊。故事不仅是人类最多产的艺术形式，而且在和人类的一切活动——工作、玩乐、吃饭、锻炼——争夺着人们每一刻醒着的时间。</p>
+<p>我们讲述和倾听故事的时间可以和睡觉时间相提并论——即使在睡着以后我们还会做梦。为什么？我们人生的如此之多的时间为什么会在故事中度过？因为，正如评论家肯尼思?伯克所言，故事是人生的设备。世人对电影、小说、戏剧和电视的消费是如此地如饥似渴，如此地不可餍足，故事艺术已经成为人性的首要灵感源泉，因为故事在不断地设法整治人生的混乱，挖掘人生的真谛。</p>
+<p>我们对故事的嗜好反映了人类对捕捉人生模式的深层的需求，这不仅仅是一种纯粹的知识实践，而且是一种非常个人化的、非常情感化的体验。用剧作家让?昂努伊尔的话说：“小说赋予人生以形式。”在生活中，如果你在街上看到一具死尸，你马上会感到一股肾上腺素的冲击：“我的上帝，他死了！”也许你会在恐惧中驾车离开。在以后冷静的时刻，你也许会反思这个陌生人死亡的意义，反思你自己必死的命运，反思在死亡阴影之下的生命。</p>
+<p>这种冥想也许会改变你的内心世界，所以当你下次面对死亡时，你将会有一种全新的、或许更富同情心的反应。或者反其道而行，你也许会在你年轻的时候深刻但不明智地思考爱情，抱着一种理想主义的看法，这一看法使你在一种刻骨铭心而又万分痛苦的恋情之中受挫。这也许会使你的心肠变硬，造就出一个愤世嫉俗者，在以后的岁月里你会发现仍然被年轻人视为甜美的东西是那样地苦涩。一切艺术的源泉都是人类心灵对以下各个方面的最原始的、先于语言的需求：通过美与和谐来解决压抑和冲突，通过使用创造力来复活被日常事务搞得死气沉沉的生活，通过我们对真理的本能感知来寻求与现实的关联。就像音乐和舞蹈、绘画和雕塑、诗和乐曲一样，故事是审美情感的最初的、最后的和永恒的体验——思想和感情的相遇。</p>
+<p>本质上，故事表达的是生活为什么和怎么改变。一个会讲故事的人会着力刻画这些反对的负面的因素，主角是如何奋力拼搏，如何应对匮乏的资源，做出困难的抉择，最终发现了真相。所有伟大的讲故事好手从人类历史之初就一直讲述着人类在主观愿望和残酷现实之间的根本冲突。好故事应当包含普遍的人类真相和人类经验。然而它们又必须备用全新的、独一无二的方式讲出来，让观众感到他们进入了一个从未涉足的特殊世界，但在这个世界里，他们又发现了自己。</p>
+<p>他们和这个新世界中的自己惺惺相惜，通过这种不可能在真实生活实现的，代替全人类贪婪地在故事里活着。这就是我所认为的激动人心的故事。通过阅读，人们有那么多方式和别人产生共情，你也许无法由此证明，阅读虚构作品的人比主要阅读非虚构作品或根本不阅读的人有更高的社交技巧。但阅读小说至少有三项的优势。首先，我们得以窥见角色的内心世界，而这点在新闻中不太能做到，其次，我们更愿意相信角色的话语真实性，主动放弃质疑。</p>
+<p>最后，小说让我们得以做到在我们自己的生命中很难做到的一件事，就是连续许多年观察一个角色的人生。阅读虚构作品或许确实能让人们举止更佳。我们要摒弃过去的成见（想当然地以为爱读的人因觉得与真人打交道太困难而不善社交），不再把他们看作只会埋头读书的害羞书虫了。实际上，这些书虫可能比其他人更善于理解人类。左岸记：小说为我们提供了一个个案例，让人置身局中，体会各种不同的人生。</p>
+<p>好的小说，不管多么离奇荒诞，都是源自生活的，而且能够超越时空，让不同时代、不同国度的读者形成共鸣。其实，人物传记看似更真实，但人的记忆都是有偏差的，尤其是自传，未必客观准确。小说是虚构的，但正因为有了虚构的幌子，作家才能尽情地把真实的故事讲给你听。ps：推荐10本严肃小说石黑一雄，《长日留痕》大卫·米切尔，《云图》马丁·阿米斯，《时间箭》保罗·乔尔达诺，《质数的孤独》唐·德里罗，《地下世界》伊塔洛·卡尔维诺，《如果在冬夜，一个旅人》薩爾曼•魯西迪，《午夜之子》玛格丽特·阿特伍德 《盲刺客》加缪，《局外人》《鼠疫》也欢迎大家能推荐自己喜欢的小说。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你看，有这么多快乐的事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你看，有这么多快乐的事</h1>
+            <div class="date">2026-02-11 14:00:51</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文&amp;amp;图/唐唐你快乐吗？对于这个问题，不知道有多少人的回答是肯定的，总之，我的不是。（这样公开直白地承认，莫名费了很大的勇气。）不快乐，当然是有着各种各样的烦恼，在烦恼一时无法消除时，总要尝试要去寻找快乐的。然后，我问了自己一个从没问过的问题，“什么事情让我感觉到快乐？</p>
+<p>”从过往的经验中筛选，以下是没有经过思考就想到的。【早起看书让我快乐】不是被梦想，而是被定成6点-7点的闹钟叫醒，吃个自己做的早餐，窝进懒人椅里。把书翻到书签所在页，再次沉浸到书里的奇思妙想，真知灼见，喜怒哀乐等。这样开始的早晨，有种踏实的快乐。【练毛笔字让我快乐】铺开毛毡，看心情选择论语或三字经或心经，倒上墨汁，将毛笔浸润，从手抖写到心稳，将灰调写成墨色。</p>
+<p>写完一节后，回头一看，从某个字的一撇一捺间，总能看出那个片刻的状态，是匆忙收笔，还是熟用技巧，或是自由发挥。字帖上没有标点，但每次写完都感觉画上了一个让自己很安心的句号。【看一部好电影让我快乐】忙碌一天后的夜晚，把自己洗漱干净，房间里只留弱光小夜灯，打开电脑找一部电影或纪录片全屏播放，还是窝进懒人椅里，一个简单的专属影院空间就成了。在《假如爱有天意》里品味唯美忧伤的爱情，惊叹于《十二怒汉》的强大叙事技巧，重温《千与千寻》时收获关于人生的新思考，跟随《波希米亚狂想曲》追寻音乐世界的激情和梦想等等。一部电影，几分享受或失望，一点思考，很满足。</p>
+<p>【写东西让我快乐】每次写东西时，身体所在的大概一平米空间里好像筑起了一个透明罩，两耳不闻罩外事，整个世界仿佛只有自己和面前的电脑，不管是灵感汹涌还是思考卡壳，都全身心地沉浸在其中。然后在光标跳动的地方，打出一个一个字，又总是在写完之后才发现，原来刚才我完全拥有过那样美妙的世界和时刻。【摄影让我快乐】突然有了某个场景构思，被刚吃完的橘子皮和新买的高跟鞋刺激出了灵感，不管桌上有什么，疯狂地把多余的东西随意扔到床上或地上，到处找道具，然后发现拿黑色衣服或纯色行李箱当背景不错，为了找个完美的角度，跳上桌子，或者趴到窗边，然后心满意足地按下快门。沉醉在成品里时，瞄了一眼周边，才意识到房间已经被自己弄得一片狼藉，但是，真心觉得超！级！</p>
+<p>值！得！【亲近大自然让我快乐】在森林里扒开层层松树叶，发现破土而出的小笋尖；在邻居家的荒地里，看成片狗尾巴草随风摇曳；在河流边上，看水里的鱼游来游去；在草丛里找到一棵含羞草，被激起了玩心；在路边偶遇一朵小野花，被它向阳生长的姿态吸引住……还总喜欢抬头看天，天空好像是最奇妙的自然。不管是在远方的家乡还是此刻身处的都市，我好像很容易就能从大自然里得到最朴实的滋养。【跑步让我快乐】为什么要去跑步？</p>
+<p>没有特别想过这个问题，当然会希望通过跑步实现减肥以及让身体健康，但其实，就是想跑。热身状态下，渐渐让身体苏醒，适应后找到最熟悉的步调稳步前行，感觉身体到达疲累临界点时，尝试关注在呼吸上慢慢调整，发现原来可以挑战更久一点，跑完后，筋骨肌肉好似重新生长了一遍。在清晨或夜晚，阳光下或阴天里，春风抚或冬风吹，跑步/奔跑，是一种活着的快乐。【和爸妈通电话让我快乐】不能经常陪伴在父母身边，但可以在电话里，和爸爸聊聊他想要尝试的小创业，帮他在网上找找资料出出主意，和妈妈聊聊生活里芝麻大的小事，或是一起八卦一下某个熟人家里的事，远程教她使用某个手机功能，然后再习惯性地互相给一些爱的叮嘱和唠叨。每次和爸妈打电话的内容构成基本都差不多，但那份简单的快乐从未减少。</p>
+<p>【和朋友见面聊天让我快乐】我现在告诉自己，和朋友之间不要停留在朋友圈，同城的朋友，尽量见面、聊天，异地的朋友，也尽量主动打电话或聊天。也许是想在这个以活动在虚拟网络世界为主的时代里，找一点真切实在能触摸的东西。找个安静的地方，约上朋友，吃个饭，一起聊聊天，发发呆，发现这个朋友在吃火锅时总能调出类似的口味，原来那个朋友在聊到某个话题时两眼会放光，听另一个朋友说艰难经历时忍不住用手轻抚安慰，也忘不了朋友听我blablabla时托腮认真倾听的样子。这样的朋友相处方式，我很喜欢和享受。除此之外，挑战新鲜事物让我快乐；学习到新知识新技能让我快乐；去陌生的地方旅行让我快乐；认识新朋友会让我快乐；把家里打扫干净整洁让我快乐；安静地做一道菜或熬一瓶果酱让我快乐；听雨观雨让我快乐；………………………………原来，有这么多可以让我快乐的事。</p>
+<p>当然，最初对于这些事到底是让我开心还是快乐，内心是存有困惑的，特意去找了语义学上的各自定义。它们不是短暂的愉悦快感，而是可持续叠加的滋养和满足感，确认过眼神，是快乐。列出让自己快乐的事项清单之后，为什么“不快乐”变得更加清晰了。不快乐，当然首先源于面临着一些一时无法解决的实际烦恼，然后，我又选择了并不能带来快乐的方式去消解。而那种不能带来快乐的方式之一便是看各种综艺视频，其实只是一种粗暴的逃离，按下了烦恼的暂停键，既没有找到解决烦恼的办法，也没有增加解决烦恼的力量。</p>
+<p>而快乐清单里的事，在有烦恼时可以增加解决烦恼的力量，在没有那么多烦恼的时可以输出涓涓细流般的平静滋养。现实地说，生活里的烦恼好像总会接踵而至，快乐和烦恼大概不是严格意义上此消彼长的关系，但很显然快乐能够稀释烦恼在生活中的影响。那么，理性科学地解决带来烦恼的具体事件的同时，拼命快乐吧。想起了前几天看的陈文茜写的《愉悦哲学》，有几句话让我尤其印象深刻，“我离人类平均寿命还剩17年半，我得加快自己的快乐存折，不枉此生。” “没有谁是生命高手，快乐，是一辈子的学习。</p>
+<p>”快乐没有唯一的清单或公式，愿我们都找到自己的，就好。左岸记：快乐是一种心理满足，这种满足来自对自身能力的肯定，是那种无论遇到什么都拥有的自信和安全感。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

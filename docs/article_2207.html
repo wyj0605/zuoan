@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>这些年过去了，我还信什么？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>这些年过去了，我还信什么？</h1>
+            <div class="date">2026-02-11 14:00:47</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/沈万九不知不觉，已经活过一些年头了。按世俗的说法，青春已经跑至尾声，正不可救药地奔向身材变形和庸俗功利的中年。如今这江湖，别说是90后，00后都已经长袖善舞了。我们这批80后的老战士（或者说是老司机吧），摸打滚爬了好一阵子了，刀光剑影下来，有些人已经冒了尖，成了面子；枪林弹雨之后，有些人已经缴了械，丢了初心，惬意地开启了平凡之路。记得，《罗辑思维》曾有一期节目说过，80后是苦逼的一代：一方面在企业里，要为70后干活，争夺话事权、点菜权甚至酗酒权。</p>
+<p>另一方面，90后及时地赶上了移动互联网时代，很多人已经创业成功，化身老板，80后的上班族又得为这帮人卖命。但这些都不是理由，正所谓“物随心转，境由心造”，中国人还是要有中国梦的嘛。作家堆里，我们不还有韩寒，张嘉佳等一干80后撑大旗吗？运动员中，我们不也出过刘翔，姚明，外加一个刚刚回归NBA的易建联么？话说回来，这些年过去了，“回首向来萧瑟处”，不算太浮沉，但也算在挣扎中成长至今；“也无风雨也无晴”，谈不上有多大成就，却也是小有所成到心安理得了。</p>
+<p>总的来说，我已经不信很多东西了，比如说新闻，一件事情，不同角度的解读，就会有不一样的涵义；或是人性，虽然人人皆有恻隐之心，但人性里的恶，有时要远甚于猛兽；抑或是朋友，朋友跟便利店里的商品一样，都是具备有效期的，而共同利益就是其最大的防腐剂。所幸的是，我还信一些东西，比如乘飞机，比如避孕套，比如当年分开时某个姑娘为我留下的一滴眼泪，比如以下这七点：１. 我还信金钱 金钱到底是不是万恶之源？很多人给出的答案都是肯定的，因为它能使得鬼推磨，也能让人干不想干不愿干甚至不敢干的很多事，比如说球场上的黑哨，商场里的暗箱。记得英国还有一句俗语：Money is the root of all evils，正是源自于《提摩太》的第六章第十节。即便金钱是如此地臭名昭著，但正如电影《华尔街》所说，金钱的精神好着呢，从来就不睡觉。</p>
+<p>另外，它还不说谎，不矫情，不文艺，所以非常可靠。而且退一步来说，“金钱乃万恶之源”的观点，本来就不一定站得住脚跟。这些年来，我曾赶过时髦地创过业，遇到过一些非常棘手以至单纯用人力几乎无法解决的问题，但其实，只要钱一到位，立马应声搞定。２.我还信执念很多人可能会有这样的误区，有心栽树树不成，无心插柳柳成荫。但其实这只是从心理层面夸大了某次事件的偶然性，跟中彩票一样。</p>
+<p>这么多年过去了，我还信努力，信执念，信一个人可以通过自己的坚持，去获得想要的东西，所谓“念念不忘，必有回响”。凡事皆有因果，不努力肯定没有结果，努力了短期可能没有回报，但长期一定会有收获。“10000小时理论”和“吸引力法则”，都是最好的实践法则。运气总是偏爱于用心行动的人，别再扯什么“懂了很多道理，还是过不好这一生”，说这话的人，从来就没真正地把哪怕一个道理读懂，完全是为了反鸡汤而标新立异。3. 我还信远方王家卫在《东邪西毒》里曾说过：“每个人都会经历这个阶段，看见一座山，就想知道山后面是什么。</p>
+<p>我很想告诉他，可能翻过去山后面，你会发觉，原来没有什么特别。”但其实，即便山的那边，恰好什么都没有，但你内心的高山，已经完全不一样了。哪怕是同样的山，在你心中，也会看到不一样的风景。正如《牧羊少年奇幻之旅》的那个少年，爬山涉水这么远，去到了那么远的远方，才发现远方并没有什么，真正的财富，其实就在当年的出发处。可是，你不去远方你知道吗？</p>
+<p>记得高晓松的《晓说》开场白是这样的：“世界不是苟且，世界是远方。行万里路，才能回到内心深处。未来不是岁数，未来是礼物，读万卷书，才看得清浩月繁星。”确实，去到更远的远方，只为了回到更深的内心。所以不管是行万里路的远方，还是读万卷书的远方，我依旧相信它的力量。</p>
+<p>4. 我还信姑娘张无忌的母亲说过，不要相信姑娘，特别是美丽的姑娘。但我还信姑娘，信姑娘的多变，信姑娘的多情，更信姑娘的多愁善感和儿女情长。当然，考虑到我是一位如假包换的直男，这里的姑娘不只是姑娘本身，更是爱情的代称。美好的爱，“盈盈一水间，脉脉不得语”；神奇的爱，爱能够像林俊杰的歌那样“冻结那时间，冻结初遇那一天”，也能像电影《星际穿越》里所说的那样穿越几光年的空间；救赎的爱，著名的日本作家和老医生渡边淳一曾说过，当癌症患者在深夜开始发作时，我注意到当时唯一能够拯救病人的就是爱。5. 我还信阴阳《易经》有云：“太极生两仪，两仪生四象。</p>
+<p>”这里的两极，就是阴阳了。须知道，世间万物，逃不开阴阳二字。所谓的阴阳，即是天地，南北，男女，昼夜，冬夏……孔子亦有云，一阴一阳为之道。最开始的一念亦是最后的一念。佛曰，出家如初，成佛有余。</p>
+<p>另一方面，阴阳还表现在了相生性和互化性，所谓大智若愚，大巧若拙，大音希声，大象无形，“祸兮福之所依，福兮祸之所伏”，想明白了这点，对于人世间的幸福或不幸，自然会更加豁达，正如王小波所云：似水流年才是生活的一切，其他都是片刻的欢愉和不幸。6. 我还信无常“诸行无常”是佛教的三法印之一，意思是一切世间法，无时不在生住异灭中，过去有的，现在有了变异；现在有的，将来终归幻灭。总而言之，不管是小到生命：上一秒动如脱兔，下一秒魂归西处。每个人随时都可能遭遇病患，车祸，城管，割喉手，夺命巴士……还是大到世界：上一刻歌舞升平，下一刻天翻地覆。没有人知道，意外跟明天谁先来到，外星人，病毒，地震，海啸……“无常”才是这个世界最“有常”的规律，亦是人生里最应该相信的真理。</p>
+<p>《金刚经》曾说：“一切有为法，如梦幻泡影，如露亦如电，应作如是观。”每个人的生活里，都交织着无常，失去是人生的必然，所以我们得到的任何东西，都是上天的恩赐，近乎于窃，故禅语有曰，得未曾有，心净踊跃。7. 我还信四季正所谓“人无千日好，花无百日红”，春有海棠夏有睡莲秋有菊花东有雪梅，每一朵花都有着自己的季节，也有自己的长短周期，花开花败。人亦如此，每一个人有着自己的花季雨季青年壮年。不同的季节，就应该有不一样的生活重心，该做加法的时候，当真金戈铁马，奋力追求，偶尔贪嗔痴；该做减法的时候，自当鸣兵收金，休养生息，适当戒定律。</p>
+<p>当然，四季是一个循环，生命也是一个循环，这个世界就是在不断地循环中，生长，阵痛，明媚，老化……然后重新进入一个新的循环。如上所述，便是我这些年挣扎着过去了，内心还始终相信的东西。正所谓“华灯一城梦，明月百年心”，人总是在信与不信中，找到自己的方向，也总是于信与不信的转变中，重新参透红尘。但愿所有的朋友，情窦初开的恋人，即将奔向远方的旅人……都能够找到自己内心的信仰。左岸记：这些年过去了，我还信知识最能改变一个人的命运。</p>
+<p>这里的知识不只是指书本上的知识，而是泛指能提高人的技能、认知以及智慧的知识。命运从来就是注定的，但想改变就必须有能力，而能力又是必须通过努力学习来获取的。那么这些年过去了，你还信什么？大家就在留言下进行接龙吧。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

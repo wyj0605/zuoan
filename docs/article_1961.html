@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三十而观</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>三十而观</h1>
+            <div class="date">2026-02-11 14:00:17</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/张翼&lt;br&gt;子曰：吾十有五而志于学，三十而立。孔子说他十五岁的时候，立志作学问，经过十五年，依据他丰富的经验，以及人生的磨炼，到了三十岁而“立”。立就是不动，做人做事处世的道理不变了，确定了，这个人生非走这个路子不可。摘南怀瑾先生的《论语别裁》。看到这段，拍桌自言道：这不就是三观形成吗？</p>
+<p>一个人的世界观，将会影响他的价值观，而价值观又会体现在他的人生观上。在迈入三十的这日子里，写写三十而观，是种记录也是个总结。观世界在初中的时候学过一篇课文叫《在山的那边》，巧的是我的家乡也是一个群山环绕的小山村。而山的那边是什么？这也许是我有记忆以来认真思考的第一个问题？</p>
+<p>当思维不能跳出我们日常生活范围时，就难免的会成为那些坐井观天的人儿，而我们大部分人都被深深的陷在这口井里，不能自拔。我常用两个维度来看我们的世界，一种是从时间的角度来看。另一种是从空间的维度来看。从时间的角度看，无外乎就是过往、今天和未来。而我认为这三种形态可以转化成哲学上的经典三问，我是谁？</p>
+<p>从哪里来？要到哪里去？接下来我就用我浅薄的经验来试着看看这个世界，go。首先说我们从何而来，现代生命学告诉我们雌雄交配，精子和卵子相结合而诞生生命。前人把这种行为呢，称做做爱，细细琢磨我打心眼里的佩服这样的命名，它告诉我们，从某种意义上讲我们每个人是因爱而来。</p>
+<p>这样的答案，若剔除逻辑里的纠结外，对于我来说满意得简直令人涕泗横流，于是我信了。那又得问了千年之前万年之外有我们的存在吗？我们是凭空而来然后凭空消失的还是什么？我认为不是的。我们每个人都不是单独的个体，而仅是世界内的一种物质转移。</p>
+<p>曾经的我们也许一部分是猪，一部分是树，一部分是土。我们一直都在，我们就是世界，我们是自然的本身，灵魂如电，肉体如灯。当回答了我是谁后，我认为去往何方这个问题就迎刃而解了。关于生死，人生不过聚和散，此刻的文字是聚，明天腐朽是散。散不是消亡，散是重组，所以从这点讲，我们从不生也不灭，我们一直都在。</p>
+<p>用心地享受人生这段美好时光，尽情的思考与生活。这是我目前寻到的小小机灵。再从空间上看，每过一段时间我就会把自己拉到月亮上，用月球的第三只眼来看待自已现有的生活。无垠的黑幕下，蔚蓝的星球上，在那群山夹缝中，有一座斑斓的城，城里熙熙攘攘，而有个小小的人儿，每天在那几条路上游游荡荡着，他有他的欢喜，他有他的忧愁，而这形形色色的种种让我这个观察者即觉可笑又觉可爱。可笑之处在于他所在乎的是那么的微不足道，可爱之处在于他对生活的认真和努力让人动容和心疼。</p>
+<p>嗯，我认为在世界观里我们常犯的错误，就是将自己和这个世界对立起来。总在寻找我和这个世界的关系，但其实我们是这个世界的一部分，也就是说我们每个人，每一刻组成了这个世界。脱离了任何人和物，它都不叫着世界。依此而推，所以我认为这世界上的所有恶，皆有我因，世间里所有善，皆有我功。只有这样，我们对恶才有了像自身一样的理解和批判，对善才有了发自内心的喜悦与拥抱。</p>
+<p>最后我想说，这个世界很大，你相信什么它就是什么样的，因为~你信！观价值假如你有两个选择，一是马云亲手给你煮一碗小面，二是他给你一百万。你是会选择这碗面还是会选那笔钱？也许我们所有人都会选择那笔钱，而不选择这碗面。因为这碗面对我们来说太过寻常了，可一个真正爱马云的人却会选择要那碗面，同时这个人对于马云来说也远不止这笔钱。</p>
+<p>所以爱有价值也没价值，有时它抵不过一碗面，有时候它却抵上了一个人的所有，包含生命。高中时曾写过一篇随笔，主要写在恐龙时代，有一群恐龙到寻处找金色的石子儿然后把它储存到山洞里，千万年后人们找到了这个山洞又把它做成金条放到了金库里。所以我一直认为我们每个人都是大自然自己的搬运工，所有的财富都是对物质的搬运，铁打的财富，流水的假主人。财富有两种财富，一种是精神财富，一个种是物质财富。先说，精神财富。</p>
+<p>有一天，走在大路上看到了一幅海报，上面印着张继的横渠四句 “为天地立心，为生民立命，为往圣继绝学，为万世开太平。”见到这段文字的第一句就心生跪拜感，人们常说盘古开天，阳清为天，阴浊为地，盘古在其中，化为了人事间的种种。可事实是在神话里和现实里这天地都是无心啊，所以我们走一世，就是为这天地立心，嗯，不错不错不得了。陈道明曾说与钱钟书谈话两小时后，感觉自己在文化面前，狗屁不是，此刻我也是。我们的传统文化，特别是经典文化是被严重低估的财富。</p>
+<p>稍看点经典版的书籍就会发现，现代流行的很多文化语录都不过是在经典里摘抄出来的皮毛。比如牛根生的用人名言：有德有才,破格重用;有德无才,培养使用;有才无德,限制录用;无徳无才,坚决不用。就出自《资治通鉴》的:“是故才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之小人。”仪式感，生活为什么要有仪式感。外国的上帝，中国的佛祖，有人说我们自己创造了一个人来统治自己。</p>
+<p>想来确实如此，所以只有苦笑，其实无论是婚礼和葬礼还是习俗和旧规我们都可以适当的遵循点，这些仪式就像生活的一个小节，让平滑的生活多了一些记忆的点柱。再说，物质财富。现在大多数的财富依旧是信息差的财富。关于财富，石油大王洛克菲勒有一段豪语说:“如果把我身上的衣服全部都剥光,一个子儿都不剩,然后把我扔到大沙漠去，这时只要一支商队经过，那我又会成为亿万富翁。“所以财富从来不缺少机会，只是思维。</p>
+<p>另外，这是一个多诱惑的时代，我们不要去考验人性，我们都知道有好人和坏人，可我们不知道这世间的好人和坏人往往都是同一个人。天堂和地狱真的在一念之间，我们应当做财富的主人，而非奴隶。说到此处我想再提下慈善，慈善并不是对别人的施舍，而是对自我的成就。所以我认为一个真正的慈善家会不觉得自己高尚，慈善也许真的只是一种需求。如若一生平淡不可富贵，再谈谈这时的财富。</p>
+<p>在看《朱元璋》时，朱升对朱元璋一句话影响甚大：高筑墙，广积粮，缓称王。我把它套到现实里，发现居然也恰如其分。首先我们必须依靠自身的学习能力，建立起核心的竞争优势这就是高筑墙；接着就是对于财富的管理，我们得避免铺张浪费，在机会与陷阱横流的时代里，对原始资金，经验，人脉的积累不失为一种厚积薄的过程，这就是广积粮；最后一个人的成功有他自身的努力和时代的机遇。去除老天第一，我第二的想法，保持谦逊，少树敌多交友，不要太急，这就是缓称王。当然如若再不济，作为一个勤俭村出来的人，我想用曾国藩家书里的一段话来结束此段：家勤则兴，人勤则健，能勤能俭，永不贫贱。</p>
+<p>最后想顺带一句：有的人会继承父母的财富，而有的人终会继承人类的财富，祝福他们！观人生我曾想寻找这世间最悲惨的人生是什么模样，开始我认为是挖煤的人，第一危险，第二黑天、黑地、黑人，可当有天，有位大叔给我聊起他曾挖煤时的乐事，笑得前俯后仰的我发现这不算是。接着又看《活着》里的富贵我想，如自己在乎的人一个个地离开，直到剩下孤零的自己，这生活定算是悲惨了吧?可再回想诗里不是有 “而今识尽愁滋味，欲说还休。欲说还休，却道天凉好个秋”吗？这种还能道出的愁也还算不上悲惨吧，最后看历史看到易子相食的描绘，看得浑身打颤时，我认为那算是悲惨了，可似乎又太遥远不曾及也不敢想。</p>
+<p>再后来有人告诉我肥猪和鸡栏里的鸡算是最悲惨了，仅是为了生而生。所以最后这问竟一直无解。再后来，勉强找了个答案就淡定了，这世间也许有千万种悲惨活法，可喜的是每个人最多只会尝试其中一种方式。青春和成长富兰克林有句名言：有的人25岁就死了，只是到75岁才埋葬。那人生应当怎么过，我最喜欢的《青春》里有写道：青春不是年华而是心境。</p>
+<p>于是，在某天我将自己的一生分成了5份，每20年算一生，这样算来我便会拥有了5个少年，5个青春，当然也会有5次死亡。年龄这才不会成为我的绊脚石，而且也有了前世今生，挺好的。而今天的我正值壮年。愿这5个人生都有不一样的精彩。关于成长，分享点吧，此刻想到的是刘邦和朱元璋。</p>
+<p>这俩是历史上少有的白手起家而一路登天的人。但你知道刘邦与萧何、周勃、曹参、夏侯婴等是同乡，朱元璋与徐达、汤和、李善长也是同乡，现实里还有阿里巴巴的十八罗汉。私企里的三亲六戚，这时候你会羡慕这些牛人为什么会早早的就打了堆。我的理解是他们里的所有人都应互称为同学，他们的团队就是一所大学，这所大学一直在教育培训着这帮人。牛人并不一开始就是牛人，只是社会和经历在教育着一部分人。</p>
+<p>工作与生活什么算是好工作？实习的时候，遇到一位管电梯的师傅，在外人看来，这是份凉爽悠闲而没有压力的工作但他依然抱怨连篇，因为他觉得在这里工作空间狭小，没有自由，无聊透顶。那时突然明白没有一个职业是轻松，即使你看上去的那些举重若轻，也只有当事人自己才知道在煎熬着什么。再有工作与生活能分开吗？其实工作里最大的付出不是体力，智力，而是时间。</p>
+<p>工作有报酬，但生命没有。我们应该认识到工作与生活里的时间是一样的，没有孰重孰轻。工作和生活也许有界限，但工作不应是受罪，生活也不只是享受。每一刻都值得我们去珍惜，无愧于生命即罢。忠诚与责任什么是忠诚，以前写过君君臣臣，父父子子的理解文章，早已不记得当初怎么写的了。</p>
+<p>可后来深入理解才明白，这两个叠字是不一样的，第一个字应当是名词，第二个字当为动词。如果这样理解，忠诚就好解释了，这不就是我们现代企业里常提的岗位职责吗？君要行君道，臣要守臣职，父要尽父责，子要行子规。我们身在什么岗位，就要履行什么样的职责。忠不是说忠于谁，忠诚不是对权力的强调，而是我忠于这个职位，这份职责。</p>
+<p>德不配位，在任何时候对任何人都是一种灾难。爱情与家庭什么是爱情？爱人是唯一的吗？相爱后遇见更好的怎么办？在时间的长河里两个陌生的人没有早一点也没有晚一点相遇了。</p>
+<p>然后我仪式性地道声早安，你礼貌性地回声晚安，我认为这就是我理解的爱情。月亮并不是这个世上最亮的星星，但它对地球来说是唯一的，最好的，最亮的；弱水三千,只取一瓢，这一瓢才是最妙的。所以世间哪来的前世注定，只是走着走着我们身边那个人就变成了唯一，由爱情到了亲情最后变成了死情。家是共同的壳，无论爱情与家庭都是需要耐心地呵护。当付出和回报产生了你来我往的交流时，这条长河才算有了前行不止的动力。</p>
+<p>最后，胡乱记录点吧！最近又陷入了有和无的死胡同里，让人头疼欲裂。于是由逻辑转向人文。我惊喜的发现，人们对于美有着与生俱来的辨别力和需求力。如果一个人只需要一种能力，我想那就是发现美的能力了，因为如果没有这点能力那一生得多无趣呀。</p>
+<p>后记行文到此，对于三十总算有了点交待。一路走来，有位童鞋给了个评语，称灵魂高贵。也许没有人能够想象出我看见这条评语时的惊讶与欢喜。嗯，你想，第一，呀！我有灵魂，第二，哇！</p>
+<p>那灵魂还能和高贵沾边，这可有多难得？当然还有点自知之明的我，立马清醒了过来，这是有多么的名不符实，可它并不影响这成为我一生的激励。对于未来，我并不知还会发生什么，改变什么，也不敢祈求灵魂的高贵了。但后来的翼是哪般模样，此时此刻的我心里是有数儿的，那一定是个有魂儿的人。左岸记：作者在三十岁能有这样的感悟和表达，可算是达观了，相信细细看下来，我们一样会思考到很多很多。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

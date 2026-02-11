@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邪魅篇，人为什么要工作？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>邪魅篇，人为什么要工作？</h1>
+            <div class="date">2026-02-11 14:00:56</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/王一凡(邪魅篇都是看心情更新，不定时用元知识来解释现实世界：认识社会，把握自己)市面上一般有两种风格的答案，A.“为了面包→生计→满足基本需求→欲望”，B.“发挥人的价值→发挥创造力→寻找幸福感→活着的意义”。本来我把这类问题归为『无解，且无意义』的问题和答案，类似的问题还有“人为什么要读书，读书有什么用”，答案几乎可以随意说，搞的整个江湖(社科)像是卖狗皮膏药的地方，各路神仙鬼怪乌烟瘴气的。本来我压根不打算再花心思在上面。但，2018年起，当我试着每周把自己的思绪写成文字，30多周过去后，不知不觉间我似乎有能力回答这种有『邪魅之风』的问题我引入了一个概念『物理极限』，接下来就是王一凡时刻： 1.宏观社会学→职业分工有市场饱和的极限我把“人”这个词精确定义为“每一个人→全人类→地球人75亿人口”。当我不再小家子气的把视野仅仅放在个人身上的时候，视野瞬间都被打开了。</p>
+<p>很快我就从『宏观』的职业分工(社会结构)里提取数据(我只关心/只有中国的数据)：2015年的中国&lt;br&gt; 年末全国就业人员77451W&lt;br&gt; 普通小学专任教师数569W&lt;br&gt; 注册护士数324W&lt;br&gt; 公路运输业就业人员数(老司机们)387W&lt;br&gt; 公安机关立案的拐卖妇女儿童刑事案件0.9W起&lt;br&gt; …&lt;br&gt; 全国农民工总量27747W——2015年的中国1911年之前绝大部分中国人的终身追求是，好好种田：别饿死，老婆孩子热炕头。1994年之后绝大部分中国人的终身追求是，获取财富：以钱换取你想要的生活方式。农民、工人、销售、政客、商人、老师、医生、军人。总体来说，农民和工人还是基数最大的两个职业，保守估计过亿。好了，该引入物理极限：任何一个行业所提供的职业从业人员的数量都是有极限。</p>
+<p>中国13亿人口里，小学六个年级的在校生9692.18万人，专任教师569W。在这里我们的注意力在教师这个岗位数量是由学生数量决定的，学生就这么多，老师数量就会相对固定。所以老师的从业人数数量是有物理极限，总数量会轻微的变化，但总归会相对稳定在某个范围。可以把这现象叫做『市场饱和』，教师行业的市场饱和。近30年来随着出生人口的下降，我们很容易看到很多小学都合并了...所以肯定有很多校长被挤出校长行业了。</p>
+<p>各行各业都是如此，都是有极限的。这种市场饱和的极限，直接决定了一个事实：从宏观角度来说，你(7.7亿中国就业人口)所从事的工作，其实不是由你个人意志决定的，而是依赖于整个社会的大环境(时代)。至此，只完成了对『工作内容』端的考察，并没有回答人为什么要工作，但以上内容直接对B回答的权威性造成了冲击。元知识BNO：种田和获取财富(赚钱)→不是社会去适应人，而是人适应社会&lt;br&gt; 元知识BVZ：社会有很多无法跨越的物理极限→No way&lt;br&gt; 元知识UAR：社会分工→现实世界的总工作量→人为什么要工作？&lt;br&gt; 元知识UGT：社会结构→精英数量是既定的→职业选择→电影院位子 2.是穷！</p>
+<p>是穷！穷！“激励我坚持忍受这份工作的，不是我的『梦想』，是穷！是穷！穷！</p>
+<p>”在宏观社会学的职业分工框架之下，我本应该“考察18岁、22岁那些开始进入社会参加工作的人，考察新增就业人口是如何流入中国1308个行业、如何把那些行业所需要的岗位填满的”。但我无法掌握较为完全的信息，我不知道各城市人才交流市场和互联网求职网站的相关就业数据，对此，我还没形成一个较为完善的认知。(但我预估，内驱力基本靠的是『教育分流』，即文凭)虽然我不知道就业分流的情况，但懒人自有懒人的活法，我添加了一个生命时间的维度。高中时期的笔记(2011年之前)：假若一个人活了72岁，他这一生是这样度过的：睡觉20年，吃饭6年，生病3年，工作14年，读书3年，体育锻炼、看戏、看电视、看电影8年，饶舌4年，打电话1年，等人3年，旅行5年，打扮5年——这只是个平均数——《人生宝鉴》当年，这段话非常冲击我的认知。现在再完善一下：假若一个人活到72岁，最少9-16年的时间在接受教育，33+年的时间在工作。</p>
+<p>在我认识的所有人里，几乎都这样。换句话说，如此庞大的人群，他们选择把自己的时间都花在工作上，而不是像抖音里经常爆出来的“#vlog 我辞职啦，我要去旅行啦，我去追寻我的人生啦”，也不像媒体里经常所说的“逃离北上广，悠然南山下”。这种传媒里所浮现的认知，和现实世界里的事实的差距实在是太大了。如此庞大的人群的选择，作为一种社会事实，肯定是有某种非常强劲的驱动力，这只看不见的手到底是什么？真相肯定是极其简单且众所周知的。</p>
+<p>其实我相信，答案就是A，工作，更多是因为需要赚钱(现代社会里)。这个答案众所周知，但一直以来都不足以让我信服，直到我发现一个物理极限的维度。把A再完善一点点，就让我确信了。接下来就是邪魅时刻： 3.邪魅时刻：『我们被吃饭和抚育后代所需要的钱给绑定了』这个元知识还未写，我的思绪还不够清晰，我也没找到更贴切的词汇(元)来形容它。大致意思是这样的：抚育后代。</p>
+<p>我没有做过统计，但给我的感觉是，同一年出生的人里，越早进入社会的人，结婚年龄和有小孩的年龄也越早。我大部分小学同学的孩子都已经上小学了，我大学毕业的时候高中同学的孩子都可以打酱油了。结婚生子这种社会『文化』对我们施加的影响非常巨大，参加工作后很容易被催婚，即便你自己不急，你父母不急，还有叔叔婶婶呢(社会压力)。最重要的是，看到别人都交卷了，而自己还是空白的，多多少少会有点慌。然而，抚育后代会带来支出，这是必须的开支。</p>
+<p>吃饭问题。A答案“为了面包→生计→满足基本需求→欲望”。对我这种来大城市工作的人来说，工资大多用来付房租和吃穿费用。请注意细节，『基本生活需要的开支』。家庭收入中用来购买食物、支付房租等基本生活所需要的开支，这个『基本需要』就是推动庞大数量人群去工作的推动力，这就是那看不见的强有力的手。</p>
+<p>对存款为负、靠着信用卡周转的人来说，不上班两个月，就要吃土了。喏，这就是那个无法改变的物理极限：吃饭这是刚需，抚育后代所需的支出是刚需，这所需要的钱是有一定数目的。这种『基本的』、『必要的』开支压力，迫使人类必须去工作。而前面提到，各行各业所需要的工作职位数量是有极限的，这就造成了人类史上最浩浩汤汤的工程：职业大分流。又因为求职时候的市场竞争原因，『工资标准是由群众底线决定的(元知识KYA)』，然后，我们此生就进入了“一只不知疲倦地奔跑的小仓鼠”局面。</p>
+<p>所以，人为什么要工作？答案就是A，我只不过剔除了错综复杂的欲望支出，特别强调最为核心的『我们无力改变的事实』：基本开支的压力，迫使我们必须去赚钱。换句话说，我们被吃饭和抚育后代所需要的钱给绑定了，所以我们(7.7亿人)要工作。那个驱动7.7亿人去工作的物理力。4.关于这个模型这个强势而无法反抗的力，把所有人都卷入了社会机器(经济秩序)。</p>
+<p>想当宅男？想老死不相往来？那是不可能滴！请留意一下我回答这个问题的风格，从头到尾我都没加入『个人动机』的维度，我不在意你到底是为了理想，还是为了生存而参加工作，我也没有聊那些“幸福→意义→世间痛苦→寂寞人生→无所事事的孤魂→发挥人的价值”这种无法被精确定义、无法被量化的词汇。我只留意那些和人类意志无关的『社会事实→物理极限』，这些东西，几乎不是以个人的力量就能改变的。</p>
+<p>我今天之所以耗费大量时间叙述这个大循环，是因为这个模型的周边可以炸开很多知识点。今年基本围绕『商品和服务』这个环节，把经济学→企业实体的基本内容撸一遍。另外，物理极限这个概念，会反复体现在日后的文字里，虽然看起来只有0.01公分的距离，但我确信，他能让我接近我想要的真理。至于这个江湖的风气，哪里是芝兰之室，哪里是鲍鱼之肆，我压根不关心结尾：表面上看，7.7亿人是被刚需所挟持了，但真实的现实世界永远是超乎我想象的精彩。在社会机器的框架之下，人们是拥有相对的『选择生活的能力』。</p>
+<p>结婚组建家庭→选择生活方式→选择休闲娱乐方式……每一个生命的细节里，能因我们个人意志而改变的东西，实在是太多了。哈哈哈哈，而绝大部分人的意志都深深的受到家庭、学校、同辈群体，特别是大众传媒的影响(信息、知识)。此致 @2019.03.11 22:29:03 左岸记：我读过的对“什么是经济学”最妙的解答是“经济学就是把‘有限资源’做‘最适当的安排’，以得到‘最好的效果’。经济学为什么发生？因为资源‘稀少’，不单物质‘稀少’，时间也‘稀少’，——而‘稀少’又是为什么？</p>
+<p>因为，相对于‘欲望’，一切就显得‘稀少’了……”这句话可以用来补充人为什么要工作。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>
