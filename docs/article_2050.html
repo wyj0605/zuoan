@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为生命留白，应时进退</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>为生命留白，应时进退</h1>
+            <div class="date">2026-02-11 14:00:27</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/白头翁&lt;br&gt;人生之书人生是一本读不完的书，总是峰回路转，百味繁生；人生是一部演不尽的戏，总是角色变幻，光怪陆离。每个人都在自己的生命中扮演着重要的角色，在人生这个多姿多彩的大舞台上，许许多多的人都曾留下属于自己的美好瞬间。那一刻，生命的意义得到了最好的诠释。曾有一位诗人这样写道，假如生命是一首歌，就要谱写快乐；假如生命是一条河，就要奔腾雀跃；假如生命是一团火，就要燃烧洒脱。诗人说得真好，他说出了生命的本质意义。</p>
+<p>在如今这个纷杂繁芜的世界，有那么多的人都在奔波忙碌着，或者是在追逐着什么，其实，我们应试着沉淀自己心中那颗浮躁的心，为自己的生命留下一点空白，让真善美在那空白处留下印记，绽放光彩！生命仍在悄无声息地流逝着，一点一点，那样轻盈，那样安静，在这些流光溢彩的日子里，生命被铸上了妖冶的印记，此时此刻，生命的空白，或许就是一种“非淡泊无以明志，非宁静无以致远”的淡泊心境，或许还是一种“采菊东篱下，悠然见南山”的闲情雅志。有时候，生命需要隐匿，心灵需要蛰居，在这隐匿与蛰居之中，渐渐地在生命的空白处抹上斑斓的色彩，让生命充满真正的意义！为生命留下一点空白，在这空白处，生活应多一份诗意与精彩。古希腊大哲学家柏拉图曾说过，“如果你有两块面包，请拿一块去换取水仙花”，慢慢地品味这句话才发现，我们的生命应诗意地栖息在人生这块土地上，真的很感谢这位伟大的哲者，他为我的心里留下了一隅空白，在我心烦意乱的时候，让我学会了冷静地思考，在我无聊空虚时，带领我走进文学的殿堂，在文学这块心灵栖息地上，我用那些有时泛着忧伤凄美的文字，点缀着如火的青春，在人生中最充满激情的岁月里，那些才华横溢的诗人作家们，用他们成为永恒的经典熏陶着我，那些璀璨的文学让我的生命诗意地栖居着。</p>
+<p>这一刻，一切都显得那样地雍容与美好。为自己的生命留下一点空白，哪怕只是一点点，都像似绵绵秋雨一样，足以滋润我那颗焦躁的心灵。人生之“进退”“进”字构造颇有玄机，在甲骨文中，进（進）上面是“隹”，形似小鸟，下面是“止”（趾），即鸟足，鸟足只能前进不能后退，像离弦之箭。简化字是“走之旁”背着“井”，就是说，“进”意味着背井离乡，意味着离开原点。所以进是积极的也是疼痛的，是独立也是切割。</p>
+<p>进有时是被动的。正如鱼儿上溯求生，停在水中则陷于淤泥。进化成为生存必须，物竞天择，适者生存，置身事外，就容易被历史的洪流抛掷于岸，成为标本，悬于壁，藏于阁。“退”则与奔跑背道而驰。后退，有时并不是妥协，也不是放弃，而是蓄势待发；一味追逐难免会迷了方向、离了初衷。</p>
+<p>退而结网是智慧，比临渊羡鱼或赤膊捕捞更有价值。结网之思，胜过无数在河流中搏击的莽夫。退一步的境界是豁达的。隐退江湖的人多是看透了名利纷争，不愿再为俗世名利欲望苦苦搏杀，而是潜入市井，安享退之乐。进有时是一种贪婪，受到无限膨胀的欲望的驱使，拼命追逐不属于自己的东西。</p>
+<p>此时，适可而止，急流勇退，看似舍弃，实则是保全人格和操守。进可以让你飞得高，也足以让你飞得累。退有时是一种智慧。如若处于以卵击石的困境中，进则玉石俱焚，退则得以委屈保全，就应当学会后退。刘邦在项羽面前俯首帖耳，为的是以退保身，以退赢得时间，强大自己；勾践在棚屋里卧薪尝胆，为的是以退赢得羽翼丰满的时间。</p>
+<p>留得青山在，休养生息，卧薪尝胆……均是古人关于适时“后退”的谆谆教诲。进，并不是追求十全十美，更不是放纵欲望，而是用积极的心态、踏实的努力来面对生活；退，并不是故步自封，更不是抱残守缺，而是接受生活的不完美，珍惜已经拥有的阳光和甜蜜，在现有的时空点燃火把，制造浪漫的舞蹈。进是青春的节奏，如日中天；退是成熟的锦囊，淡定从容。进退应时的中庸之道，是最难把握的，也最可贵。进有度，退有则。</p>
+<p>进退之间，就是滚滚红尘，进退之间，就是人生百味。左岸记：将满未满，人生恰好，花未开全月未。&lt;br&gt;满易招损，水满则溢，太多太过都不好。而小满，将满未满，一切恰到好处。这时，天地间的阳光一点一点充足，但不至于灼热，亮得睁不开眼，是小小又满足的时光。</p>
+<p>雨水也逐渐多起来，但也还没到瓢泼大雨，乃至于水势凶猛的时候，是刚刚好的雨水丰盈。所以，小满之后，没有大满，而是芒种，为人间的播种做最好的准备。&lt;br&gt;[作者自述] 本名: 马庸，笔(网) 名: 三峡行吟者、马诗途、白头翁。自号：华城居士。系古都佷阳土家山寨人。</p>
+<p>善结交文人雅士、八方宾朋，虽无学富五车，却爱附庸风雅。偶有拙文见诸小报杂刊，并有文学作品获奖。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

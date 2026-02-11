@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>没事多看书，人穷多挣钱</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>没事多看书，人穷多挣钱</h1>
+            <div class="date">2026-02-11 14:00:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/丁忆坤01周末在家带孩子，抽空也能翻几页书，读的书不需要太集中注意力，也不用动脑筋，我把戴尔.卡耐基的《人性的弱点》读完了。这本书买回很久了，我一直认为这种畅销书可读可不读，当时也是凑单买的，偶尔翻个几十页，这个周末一口气读完了，居然让我有了意外的收获。网络上有一句很流行的话，“懂了很多的道理，依然过不好这一生。”这个问题太简单了，知道不等于做到，老子在《道德经》里早就讲了，“上士闻道，勤而行之，中士闻道，若存若亡，下士闻道，大笑之。”大多数的人终归是中下等人的智慧。</p>
+<p>《人性的弱点》这本书的优点在于它写得通俗易懂，书中有很多名人和普通人的例子，让书看起来很接地气；偶尔又有很多大思想家说过的名言警句，看起来很有说服力。很多观点简单易行，并不高高在上，看完这本书，读者马上就能实践。总体而言，书中的许多道理并不新鲜，只是在生活中，人们不能坚持下去。周末看完这本书，我马上实践了的有这几条。第一：主动承认错误。</p>
+<p>工作上出现了一个小小的失误，没有为自己辩解，马上承认错误并道歉，最后领导很多想说的话都没说出口了，交流时特别和谐。毕竟也不是故意的，下属既然认识到错误了，自然没必要把气氛搞得太严肃。我心情愉悦，领导也觉得这人懂事。第二：夫妻相处过程中不要总是唠唠叨叨，也不要试图去改变另外一个人。我大部分时间都做得很好，偶尔也会有失控抱怨的时候。</p>
+<p>现在想通了，如果一句话说了没用，就不要再说了，你永远都不可能改变另一个人。终日抱怨唠叨，无非是把自己变成一个怨妇，让对方心生厌恶。有很多为家庭付出一切的妻子最后被扫地出门，她不一定犯了多大的错，丈夫也不一定多坏，她只不过输在嘴巴上。第三：把注意力集中在今日、当下做的事情上去，不去想过去，也不去想未来。人到中年，总觉得诸事不顺，既有对过往的遗憾，更有对未来的焦虑。</p>
+<p>看完这本书，我只想过好此刻，做好手中的事情。第四：不再与人争辩。不管是现实生活中还是在网上都不值得。本书的作者更多的是谈现实生活，他一定想不到如今的人们要花多少时间在网上和人争论。02周日吃完晚饭，孩子在画画，我从书架上拿了一本书——《商君书》，看了几篇文章，第一篇是《更法》，是春秋时秦孝公和几个朝臣关于该不该变法的讨论，结局大家都知道，秦孝公采用了商鞅的许多改革措施，极大助力了秦国的崛起，为一百多年后秦始皇荡平六国奠定了基础。</p>
+<p>文中有太多的真知灼见，比如“愚者暗于成事，知者见于未萌。民不可与虑始，而可与乐成。”“拘礼之人不足与言事，制法之人不足与论变。”但我个人收获最大的反而是这句话，“穷巷多怪，曲学多辩。”我非常喜欢后半句，放在我们现在，不就是每个人都局限在自己的专业和经验里面，却习惯以自己有限的认知去判断无限的问题，随便一个议题都想和人争一下，辨一下。</p>
+<p>对这一点我太有经验了。微信兴起后，每个人都加入了各种群，其中最普遍的无疑是同学群，校友群。同学们，学长学弟都是各行各业的精英人士，高学历又有社会地位，自然也很有自信。偏偏我们这个专业的人又对各种重大的社会议题，国家大事有着天然的兴趣，但立场又泾渭分明的分为了几派。在这其中，中美两国的政治体制一直是争议的焦点，群里大部分人是中间派，承认中美两国体制各自都有优缺点，中国这四十多年取得了极大的成就，未来两国将继续保持竞争和合作的势头。</p>
+<p>作为一个理性的人，你的家人、房产、事业都在国内，自然要和国家共进退，如果早已购置了海外房产，家人也移居海外当然可以有别的选择。时代变了，用道德来约束人，不如用利益来捆绑人。但群里有人对美式民主无限向往，他们还是坚持其过去是、将来也继续是人类灯塔，避而不谈其在疫情中暴露出来的问题。与此对立的就有人坚持美式民主有其内在缺陷，今年的疫情就证明了这一点，美国在走下坡路，而中国形势大好。所以群里有人天天发美国的正面新闻和中国的负面新闻，相应的也有人发美国的负面新闻和中国的正面新闻。</p>
+<p>不否认，我曾经也加入过战局，但总体发言比较平和，现在回想起来觉得自己还是太无聊了。人到中年，谁也无法说服谁，对立的观点只会激发你更强的斗志，这时候不是对与错的问题了，而是维护自己的尊严，捍卫自己的判断能力。你说我的判断错了？我是律所主任、部委官员、企业老总，我怎么可能会错？本来价值观的问题，很多时候没有对错，只有不同，但在一个同学、校友群里，有太多熟人，谁也不想落下风，争论就永无结束的那一天了。</p>
+<p>只要是对方抛出来的话题，我一定要反击。你质疑朝鲜战争，我就要肯定它；你觉得美国要走下坡路了，我一定要证明美国还是无可争议的灯塔。用卡耐基的话说就是，不要和人争辩，即使赢了你也得不到什么，只会让输了的那一方更坚持自己的观点。群里的争论到最后都是意气之争，很少有让人耳目一新的观点和论证过程，无非是转发各种文章继续维护自己很久以前的观点。站在一个旁观者的角度，要承认每个人都有自己的认知局限，我很感谢那几个孜孜不倦为我们持续更新各路消息的同学。</p>
+<p>从政治、经济到文化、历史，金融，主流和小道消息都有，他们奉献了时间，分享了观点。如果不站队，能从每个人的发言里都找到有价值的信息。但在一个信息爆炸的时代，守着朋友圈和微信群里的消息不是明智的选择，要找到适合自己的更有针对性，更有价值的信息来源，微信群大概率只是无聊时打发时间的选择。偶尔看看可以，花很多时间去争论就没有必要了。03除此之外对小区业主群里也有了新的认识，每个人都有自己的立场和利益，彼此间谁也不能说服谁。</p>
+<p>而我一不小心参与了小区业委会的竞选，有机会见识人性百态。对无端质疑我的人，一开始我忍不住要为自己争辩，现在不想这么做了，我静下心来想了一下，这件事最坏的结局是什么？第一，不能进业委会，第二，让某些邻居对我有了误解。这是我完全可以接受的结果。我的初衷就是多做点事情，多认识一些人，服务大家同时提升自己。</p>
+<p>不进业委会我也有很多别的选择，毕竟现在做公益的选择越来越多了，我完全可以把眼光放远一点。对误解我的人也不必放在心上。因为我们本来就不认识，陌生人在背后评价你，又能对你产生多大的影响？业主群里的消息有时间就看看，绝不会再多说什么了。在这件事情上，我运用的就是《人性的弱点》里的方法，冷静分析最糟糕的结局是什么，如果你能接受，那就坦然面对，而不是逃避或者为其纠结。</p>
+<p>再看看自己还能做些什么改变。面对我们生活中的很多问题，都可以运用这个方法，正视，接受，改变，而不是逃避，抱怨，纠结、拖延。本来各种事情让我心情有点不好，看看书整个人平静下来了，书籍确实是人类最好的朋友，我要不改初衷，继续多看书写文。至于标题的后半句，人穷多挣钱，这点不用多解释了吧。左岸记：今天又学到新知识了，“穷巷多怪，曲学多辨”，谚语，意思是小巷里常出怪事，学识短浅的人常常卖弄聪明。</p>
+<p>为什么呢？因为空间越狭窄，资源有限，矛盾就多；学识不够，又固执己见，自然要和人争论不休。其实，人如果走出去开阔了眼界，或者多读书增进了学识，把精力放在正事上，那么哪里还有时间理会那么牛鬼蛇神，哪里会自以为是。人，知道越多，懂得越多，其实是越平和、越宽厚。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

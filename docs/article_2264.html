@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>舌尖上的故乡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>舌尖上的故乡</h1>
+            <div class="date">2026-02-11 14:00:53</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/鹦鹉夜阳不知道在哪里看过这种说法，爱吃豆腐的人，有德，是吃中国的那种豆腐，不是吃女人豆腐的吃豆腐。原因就是，因为爱吃豆腐的人，他能克服贫困，安于质朴，他坚韧，所以有德。这是，我第一次对美食文化产生了兴趣。第二次，就是看了大家耳熟能详的“舌尖上的中国”。让人感兴趣的不仅仅是这部纪录片，而是他的导演陈晓卿。</p>
+<p>对他的好奇，我也百度百科了一下，给他的定义是导演，制片人。其实我觉得他更像是一位智者，一位人文学家。很清楚的记得，他说过：一切不下饭的菜都是耍流氓。这句话就很能体现：中国最重要的饮食习惯，主食。这其实是和中国每隔一段时间发生全国性的饥荒有很大关系，它已经深深的写进了我们的DNA里，它可能就是我们过去行走，我们过去生活的印记。</p>
+<p>而食物呈现了舌尖上的印记，舌尖上的中国和陈晓卿给我们呈现了一个舌尖上的故乡。什么是故乡，故乡就是自己曾经生活过的地方，开心过的地方，甚至悲伤过的地方。允许自己吐槽，但绝对不允许别人说他一句不好的地方。回得去的叫家乡，回不去的叫故乡。张爱玲的上海，汪曾祺的高邮，梁实秋的北京，还有作者小编的合德镇。</p>
+<p>我们都能看得出我们文章里写，与其说是怀念故乡的食物，不如在说怀念自己的成长。但城市超速发展，我们从城市外观已经很难区分北京，上海，广州，长得都是一个样子，高楼大厦。而关于故乡情景的记忆远没有味道的记忆那么的浓烈。我的家乡是美丽的黄海之滨——射阳县，一个小县城，他没有贵州那边小山区县城的偏远贫穷，也没有魔都上海附近县城的繁华喧闹，在我看来就是一个普普通通的县城，他有着自己的方言，有着自己的街道，有着自己的人文景色，安安静静的在变化着、发展着。和朋友经常在一起调侃，我们家根本没什么好玩的地方，但每当在外地，别人问起我们家乡的时候，总会侃侃而谈：我们是丹顶鹤的故乡，也是“四不像”麋鹿的家，在我们这里能吃到很多海鲜，息心寺一到佛教节日总是佛声朗朗，射阳的大米一点也不亚于东北黑土地里的粮食。</p>
+<p>镇上的鸡蛋饼更是对于这种曾经在家念书，后来又远赴他乡的我们来说，看见它就跟看见亲人一样亲切。而对于我，关于舌尖上的故乡的记忆，就是爷爷下的方便面，里面加上一个也只有老爷子能煎出来的煎蛋；奶奶炒的各种肉丝，虽然盐糖会放很多，但每当自己在外地吃到类似的味道总会感叹，就是这味道。这些都是深深印刻在我脑海里、舌尖上，伴随着我二十几年光阴岁月的味道。有一天，故乡会飞速发展，会焕然一新，虽然他已经不再是我们记忆中的那个小镇，小镇上也没有了当年的小镇姑娘。但是，无论何时回到镇上，回到家中，总能找到隐藏在你记忆中的那个味道，我们心里的那个小镇，他一直都在。</p>
+<p>左岸记：很亲切的一篇文章，读着踏实，也回味无穷，那留在舌尖上的记忆终生难忘。有什么比饿了吃一碗分量十足的汤面来得实在呢？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

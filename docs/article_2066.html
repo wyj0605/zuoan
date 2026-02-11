@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贫穷的和愤怒的</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>贫穷的和愤怒的</h1>
+            <div class="date">2026-02-11 14:00:31</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/北水本月，韩国电影《寄生虫》因获得了第92届奥斯卡金像奖的最佳影片、最佳导演等一众奖项而声名大噪。韩国总统文在寅近日又携夫人金正淑在青瓦台设宴款待了《寄生虫》剧组，庆贺韩国电影此番在国际上取得的斐然成绩。一部电影既能获如此殊荣，那么从大概率上讲，其应是部好看的电影，部分影评人甚至认为该片影射了韩国、美国、日本的政治地位与处境。是不是有关政治，不敢妄下定论，本文仅从影片最集中的冲突，贫与富的差距上略谈些影片的观感。导演奉俊昊在接受采访时说：“虽然生活在一个国家和城市，但富人和穷人可能都没机会相遇。</p>
+<p>”电影里却恰恰相反，导演戏剧性的制造了一场穷人和富人精妙绝伦的相遇，再将穷与富的冲突推向高潮。先来看看穷人的一方，男主角基泽（宋康昊饰）一家均为无业游民，一次偶然的机会，高考落榜四次的儿子基宇得到了给富豪人家女儿当家教的机会。在顺畅的完成了履历造假而轻松获得富人的信任后，又借机把妹妹基婷包装成海归艺术家介绍给富人的小儿子做艺术指导老师。接着，又如法炮制，设局让老爸基泽取代了原来司机的位置，老妈忠淑亦成为了富人家的帮佣。穷人行骗的整个过程诙谐轻松好像丝毫不费吹灰之力，让观众不禁为富人的智商捏一把汗，十分好奇下来的剧情该如何走向。</p>
+<p>再来看看富人的一方，同样是一家四口，与穷人猥琐狡黠的气场相反，朴社长和太太一家是出场就拥有姣好容貌与优雅气质的富人标配，对家中的司机和帮佣也彬彬有礼，无论发生什么都从容不迫。无疑，这样的一家人自然被基泽一家羡慕着，而让羡慕转成嫉妒和恨意则起于导演安排的那场雨夜冲突。本想趁着主人外出露营而暂时霸占豪宅的基泽一家与前任帮佣互相撞破了各自的秘密而起了冲突，恰逢主人突然返家，事情变的一发不可收拾。最终，酿成了生日会上的恶性杀人事件，故事以悲剧收场。影片结尾，基泽愤怒的拿起刀，杀了朴社长，而压垮他的最后一根稻草便是社长对“穷人气味”的嫌弃，这种气味是地下室的气味，地铁上班族的气味，也是穷人的气味，总之，是所有“基泽们”特有的气味。</p>
+<p>基泽的耻辱感最终燃起了心中愤怒的火焰，让他抛下了重伤的女儿，逃离了所有责任，杀人后潜回地下室过起了真正寄生虫的生活。而无名的愤怒始终也只是冲动，事后基泽在地下室哭着说“朴社长，对不起”，也许连他自己也不明白当时的举动究竟是为何。那么故事中的富人，究竟错在哪里。片中朴社长和太太谈论基泽的气味是在夫妻间私密的场合，也没有使用侮辱性的措辞。从另一个角度说，如果真的嫌弃司机身上的味道，随便找个理由辞退掉就好，何必这么麻烦。</p>
+<p>反观前任帮佣水蜜桃过敏，富人一家也是选择主动与水蜜桃绝缘。在最后的杀人场合，在对真相毫不知情的情况下，作为父亲，朴社长首先选择救自己儿子也在情理之中，又何来的十恶不赦。而问题也许正出在这里，如果贫穷是一种犯罪，富人却没有这种原罪，任穷人千挑万选也找不出错，那么便更可恶，因为穷人的嫉妒和恨意更加没有出口。有人说影片的部分细节暴露出富人的伪善，比如对于新的家教老师，朴太太少给了一些薪水却说增加了；朴社长在测试司机时说着放心，却端了一杯咖啡看车开的是否平稳。那么问题来了，这种小聪明是否是专属于富人的特质，还是因为是富人，所以不能有丁点的缺点。</p>
+<p>如此对比穷人的行骗，富人的小小伪善又是否就那么不可原谅。影片在展现穷和富的问题上，艺术手法十足，大雨那夜，基泽一家狼狈从豪宅出逃，一路都在下台阶，而进豪宅却要上台阶。穷人家里只有把手机高高举起才有信号，而富人的地下室却信号满满。这就好像是在说，穷人究其一生，努力的天花板也到不了富人的脚底板。基泽一家在谈论富人的生活时，说了一句经典台词：“有钱人家的小孩连衣服都没有褶皱，钱就是熨斗，把一切都烫平了。</p>
+<p>”然而事实真的如此吗？影片中只展示了富人所拥有的，却没有展示其付出的；只展示了穷人所失去的，却没有表现出其努力的。现实中，没有人能够只靠运气就获得成功，即使这一代能够坐享其成，也离不开父祖辈的努力。也许人们忘了，钱纵使可以烫平一切，也是建立在自然界优胜劣汰法则之上的。当然，贫富差距过大始终是一个社会问题，对于已经固化的社会来讲，贫富之间的上升通道也似乎被完全掐断。</p>
+<p>影片中穷人一家的女儿基婷漂亮有气质，在富人面前丝毫不露怯，就像哥哥基宇对她说的，“你和这个豪宅很搭，不像我们”。而就是这样一个几乎是全家唯一有希望摆脱贫困的女孩，却在故事结局成了全家唯一死去的人。导演似乎是在隐晦的告诉我们，赤贫与大富，根本没办法转换。艺术源于现实，影片中的冲突也夸张的极端化，而现实生活中，大部分人不会一贫如洗，也不会富的流油，对于普通人来说，重要的是如何看待贫与富的差距，如何经营自己的生活。故事中的基泽因为贫穷觉得耻辱，因为耻辱而愤怒，因为愤怒而杀人，又因为杀人而愧疚，这些链条中断掉任何一个都不会发生最后的惨剧，男主也不会成为真正的寄生虫。</p>
+<p>因此，决定自己命运的，从来都不是别人如何看待我们，而是我们如何看待自己。抛去影片的设定，给这个故事换一个温情的结局：基宇和妹妹基婷靠着用自己劳动换来的丰厚薪水，完成了兄妹两的学业梦想，日子在一天一天变好，对年轻人前途的憧憬也给全家人带去了希望。在这个假想的结局中，仍然有贫穷，却没有贪婪和欲望，没有愤怒和恨意。当没有人再充当寄生虫的角色，阳光总会照进现实。贫穷本不是犯罪，原罪永远是心底的恶念及轻易动摇的心智。</p>
+<p>无论身处哪个阶层，都应该脚踏实地的生活，努力过的人生不管结局如何，都不会徒留遗憾。而短暂的人生更不能因为贫穷而愤怒，因为只有尊重金钱，才能得到金钱。最后，愿这个世界善待所有勤劳善良的人。左岸记：这部电影里表现的有钱人实际上是没有什么错的，夫妻恩爱，儿女喜人，没有出轨，没有冷暴力，没有虐待儿童，对司机、佣人也大方不抠门，可以说他们算是善良单纯，而如果你却忍不住生出恨意，恨他们凭什么可以那么有钱，恨他们自然拥有的优越感，那么这种心理大概就是潜藏在你心中的寄生心理吧。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不三不四的春天</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>不三不四的春天</h1>
+            <div class="date">2026-02-11 14:15:07</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>三月的主题在我是奔波，西安、深圳、杭州、广州。月初离开长安时，春寒料峭，深圳纯属温突突的快捷无感，杭州烟雨三月矫情凄迷、夜雨敲窗，广州温润着木棉燃情。及至回到西安，蓦然一树树的杏花如云，柳绿烟笼，春天似乎在三月将尽时来了。北方的春天是喧闹和拥挤的，稍不注意乱花迷人眼，总是被次第的花开惊喜着，不似江南岭南的温润和缓步前行。于是，奔波里只是被春天裹挟着，不知道自己属于哪里的春天，也无谓去关注和感知，只是大约不管在哪里，都该是春天的意思了。</p>
+<p>过去的人们还踏青寻春，激发些万物生发的诗句，矫情些怀春萌动的小心思。现如今，羽绒服和丝袜对视，互觉傻*的时候，春天在纷乱的季节里，总是有点不三不四。城市教会人们的永远是忙碌，好好活下去应该是比只是活着更急迫，于是总是被结果惊喜着或打击着，连春天都是蓦然展现的。夜是怎么黑下来的？天是怎么明了的？</p>
+<p>花是怎么开的？叶子是怎么绿的？……与我何干？知道春天来了就好，大不了买身春装应景一下；知道目标没有达到就好，大不了继续幻想成功或是继续折腾自己呗。成功的人，成功的过程总会被描述的必然而果敢，坎坷都是为机遇准备的，伤疤都是勋章；失败的人，总是给结果找无穷偶然的理由，当初我怎么想的，现实有点偏颇而已，现在的失败总是偶然。</p>
+<p>成功是必然的，失败是偶然的，这个因果，谁是因谁是果呢？似乎成功是偶然的，失败才是必然的吧。没有因果的过活着，春天来不来，花开不开，生活总是要继续的。要活着就要在欺骗自己的自虐里，妆点一些被社会被他人迫害的小情节，这样的人生才似肥皂剧，要不又能如何？前些天，一个学生问我生活工作应该是什么样的？</p>
+<p>我说我在广州吃早餐，旁边是个卖五谷杂粮的铺面，各类的袋子开着口，便于顾客们自己选择和看品质。老板坐在初春的阳光里打瞌睡，一只不知名的鸟儿站在打开的各类袋子上跳跃，尝试着各类五谷，偶尔喜欢吃的，急匆匆的啄上几口。菜市场忙碌而喧嚣，鸟儿时不时歪头注意有没有危险。喧嚣的市场，安静的老板，自顾自的鸟儿，匆匆熙攘的人流。那更好的工作生活呢？</p>
+<p>我说，前些天带孩子在公园，见到卖那种五彩棉花糖的。新做出的一个棉花糖，拿着往架子上插。架子上已经有了几种颜色，于是他在那里调整颜色顺序，犹犹豫豫的比较着。起初，先是按照不同颜色归类，后边似乎觉得有点单调，就尝试着花插着，五彩缤纷的，试了几次，似乎很满意。见我注意他，他有点尴尬的笑着说：这样的好看。</p>
+<p>那什么是成功呢？师父从不讲修行，“修行的人不修行”，这话禅机有点大。前些天，师父被主持骂了，因为他养花花草草，他的花花草草养的也真的好。为什么养的好？因为我照顾他们，却从不要求他们什么。</p>
+<p>在他们要开花的时候就开了，在他们还没决定开花的时候，我就耐心等着。春天有春天的花，秋天有秋天的果。我不为开了的花喜悦，我为我知道他怎么开的喜悦；我不为不开而悲伤，但我会为知道他为什么不开而悲伤。所以，他们很好。这么简单？</p>
+<p>这简单？总希望被惊喜打到的人，总是收获打击；总把竞争当做目标，渴望复制别人的成功，结果一定是不三不四、不伦不类；不打点自己的生活，不尊重自己的努力，没有在生活里学会喜悦，注定感受惨淡。真到了以为自己能改变什么，能折腾什么的时候，反而需要耐心、学会等待。这个世界为你准备属于你的，这个世界需要你关注你自己的；这个世界教会你别以为世界是为你准备的，这个世界需要你学会关注不属于你的。简单到极致，也就复杂到极致。</p>
+<p>三月将尽，四月即来。在你只知道春天来了，瞬间欣喜。虽然比那些还懵懵懂懂不知道春天是什么的人强点，但依旧是个不三不四的季节里的不三不四的人吧。左岸记：生活中的我们总会向往一种新的生活理念，那就是过简单的生活。一如海子在诗里提到的简单宁静的生活：从明天起，做一个幸福的人。</p>
+<p>喂马，劈柴，周游世界。从明天起，关心粮食和蔬菜。我有一所房子，面朝大海，春暖花开。简单的生活，是宁静的，是幸福的，是轻松的。对于繁忙而复杂的人，尤其是那经纶世务者来说，对简单的生活应该更是渴望的吧！</p>
+<p>然而，把简单的生活过起来真的那么简单吗？这需要一个怎样复杂的转化过程呢？原文链接：http://www.zreading.cn/archives/4273.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

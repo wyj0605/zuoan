@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我和RSS那点事儿</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我和RSS那点事儿</h1>
+            <div class="date">2026-02-11 14:15:48</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>&lt;p id="filepos2163780" class="calibre_"&gt;&lt;span class="calibre1"&gt;&lt;span class="bold"&gt;我和RSS那点事儿 &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;文/子轼&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;早在Google Reader还活着的时候，我就已径开始用RSS聚合了。从青葱少年成长为闷骚大叔，这么多年的使用已经让我对其产生了依赖，成为了重度RSS用户。当年的Google Reader总让我觉得各种好，曾经的我因为Google Reader的关闭伤心难过了好久，一度坚信RSS会在不久后不复存在。现在看来，当时我真的是很少很天真。&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="italic"&gt;在当今这样一个信息爆炸的时代，我们需要信息的过滤。</p>
+<p>&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;曾几何时，我和我的小伙伴们还是捧着《读者》《青年文摘》《vista看天下》《中国国家地理》这些杂志读的津津有味。而如今呢，网络资讯如同自助大餐，只要你愿意永远都读不完，但与此同时，很多争先恐后挤进眼球的东西着实不怎么有营养。微博信息太过碎片化，好东西容易被淹没在时间流中；微信本质上是聊天工具，把阅读和聊天混合到一起容易互相干扰；而许多新闻客户端，大都只是一家之言，内容的可定制性并不是很强，时而出现的“贴心”小广告不免影响阅读体验。&lt;/p&gt;&lt;p class="calibre_"&gt;如果想在浮躁年代回归优雅的阅读，或许 RSS 会是你一直等待的邂逅。&lt;/p&gt;&lt;p class="calibre_"&gt;RSS 的全称是 Really Simple Syndication。</p>
+<p>它可以说是注重浏览各式内容网友的福音。注册 RSS 服务，在其中添加你喜欢的订阅源，诸如新闻、博客之类的网站，甚至微博和微信公众号，都可由RSS自动收集这些网站的文章更新然后在网页或者应用中方便地阅读。&lt;/p&gt;&lt;p class="calibre_"&gt;RSS 的优点有很多，其中最重要的三个是：&lt;/p&gt;&lt;p class="calibre_"&gt;那么我是如何使用RSS的呢？嗯哼，且听下回分解？？</p>
+<p>？！！！……呃，不对，是且听我细细道来。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;在Google Reader的时代我一直是使用Google Reader的web端浏览订阅的内容。2006年的我还在上初中，没什么眼界更没什么需求，有web端就已经很让我心满意足了。更何况我一直用的是英文版。在那时已经逼格满满了好吗，还有什么不满意的。因为Google Reader帮我收集了许多素材，在当时还没有几个小朋友可以和我比写作文的料的。</p>
+<p>再次小小地骄傲一下。就是那时尝到了RSS的甜头，让我养成了这个近10年的习惯。&lt;/p&gt;&lt;p class="calibre_"&gt;2013年Google Reader无情的关闭后我就转向了&lt;a href="http://www.feedly.com/"&gt;Feedly&lt;/a&gt;，同时也不再满足web端而开始追求更好的阅读体验。Reeder就这样一直伴随着我走到今天。Reeder是一款小而美的老牌RSS阅读app，我在Feedly上的所以RSS订阅都是通过Reeder进行浏览。</p>
+<p>虽然很多人诟病Reeder的后续创新不足，设计一成不变，这些影响不了我对它的热爱。在我看来，一个好的app所需要的不是全面，而是精致。Reeder就是一个专为RSS阅读而生的app。&lt;/p&gt;&lt;p class="calibre_"&gt;当然不止阅读体验这么简单。如何将阅读的信息内化也是我所思考并不懈追求的。</p>
+<p>每当我在Reeder上浏览RSS时，有需要细读或者二次阅读的文章我都会将其保存到instapaper上，instapaper会定期推送到我的kindle。每周我都会整理instapaper里保存的内容，需要收藏的就剪藏到Evernote里，剩下的就存档或者删除。&lt;/p&gt;&lt;p class="calibre_"&gt;简而言之，所有的RSS订阅源都会经过我的三次处理，第一次处理是通过Reeder浏览，第二次是通过instapaper精读，最后的处理是通过Evernote收藏。浏览时获取了每天最新的资讯，不会让自己与世界脱节；精读时进行思考，丰富知识的同时也为自己增加了谈资；收藏时进行总结，分门别类的同时进一步内化。这三个步骤相辅相成，缺一不可。</p>
+<p>正是凭借着多年不懈的积累，我成为了女朋友眼里的百科全书。果真是“书中自有颜如玉”啊。&lt;/p&gt;&lt;p class="calibre_"&gt;近一年来，Feedly越来越不给力，让我萌生了寻找替代品的念头。在互联网时代，优胜劣汰已经成为了常态，既然如此为什么不选择一个真正关心用户体验的app呢？最终我投入了inoreader的怀抱。</p>
+<p>inoreader是一个小众的RSS订阅平台，不仅更新速度快，而且是非常节制的收费。inoreader不仅有着自己的跨平台app，也可以在Reeder上使用。我最看重的是inoreader已经分类整理了各式RSS订阅源，当我想要添加某一类别的订阅源时，我可以直接在inoreader上搜索即可。省时省心不费力。&lt;/p&gt;&lt;p class="calibre_"&gt;说了这么多，当然也需要附上我的RSS订阅源。</p>
+<p>我按订阅源的内容分成了八类，Art &amp;amp; Design，Business &amp;amp; Finance，Deep Reading，Health &amp;amp; Lifestyle，Knowledge，News &amp;amp; Politics，Technology，Thinkers。那么我一个一个来说。&lt;/p&gt;&lt;p class="calibre_"&gt;Arts &amp;amp; Design&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;Business &amp;amp; Finance&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;Deep Reading&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;Health &amp;amp; Lifestyle&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;Knowledge&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;News &amp;amp; Politics&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;Technology&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;Thinker&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;左岸记：&lt;/span&gt;我曾是RSS阅读的重度依赖者，但时代真的不一样了，平台的变革只能尽快地适应新的阅读方式，我越来越习惯在微信上阅读自己喜欢的订阅号文章了。很高兴子轼也建起了自己的个人网站——&lt;a href="http://www.imshucheng.com/"&gt;子轼看书写字的地方&lt;/a&gt;，现在有心自己做个空间写写东西的人真的不多了。&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:0pt"&gt; &lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

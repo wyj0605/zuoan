@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未了是粽情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>未了是粽情</h1>
+            <div class="date">2026-02-11 14:00:19</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/读博在四方端午节一大早，甚至提前到节前一晚，各公众号就推送关于端午的文章了。汪曾祺汪老写的高邮鸭蛋和丰子恺先生写得端午风俗，是属于文学类推荐中的顶流，而更多的推送是关于甜咸争议、历史缘起、纪念目的等方面的图文信息。每一年多少都在重复，可是每一年都还是爱看不厌。关于端午历史缘起的文章多了起来，甚至提到到底纪念谁都不能完全说清楚，就连笃定说的纪念屈原屈夫子，都不能确定是否有本尊。不免一声叹息，要是如此怀疑下去，各个传统节日的存在都没有充分必需的意义附着，那我们文化基因里的碱基对岂不是要面临断开，这将会是怎样的一种认知崩塌呢？</p>
+<p>幸好，还好，像我这样的大多数甚至绝大多数人，不太关心这个溯源到底的问题。端午节，就是千年以来日积月累中形成的节日风俗，普天之下的百姓父老都愿意过、很喜欢过和想隆重过，何必又去执拗地打破沙锅问到底，岂不无由减少了对粽子本身的仔细品味乎？无论南北方差别多么大，总还是留着一个共同点，那就是粽子，或者说粽型米质食物本身。无论粽衣是苇叶、箬叶、笋叶、芭蕉叶，也无论填料是陈米、新米、糯米、粘黄米，或者大枣、小枣、密枣、云豆、豆沙、紫薯，或者咸肉、腊肉、香肠、蛋黄，甚至巧克力，只要能包成粽子专属的两三种形状，那就是我们多少年的舌尖记忆，刻画在骨子里的儿时味道。等到长大后，见识了地域上的诸多差异，但一点都不拒绝南北的多元融合，因为也提供了更多的选择。</p>
+<p>现在已经不说粽子的个大个小了，个太大一次吃不完也尴尬。面对差异最好的办法是搁置争议，然后尝尝每样不同的味道。为什么不多去尝试尝试呢，万一也会喜欢呢？所以，在蜜枣粽和豆沙粽已经节前吃了快十次的基础上，打算郑重地换一换口味，在某东下单的肉粽正在路上，大约节后第二天晚上可以吃到。不免想起去年，给家里买得也是肉粽，后来问爸妈感觉味道如何时，得到极为严肃回复：以后千万一定别再买了，他们不习惯。</p>
+<p>今年北京的端午当日，是风雨连天的样子，下午下，傍晚下，深夜又下，雷声隆隆不断，其间几阵急雨是携带冰雹而来的。心里想着，是不是一场雨也一场热了呢？窗户外传来的雨声似乎掩盖了平素的噪声，眼前还是冒出节前中午黄米红枣粽子来。粽叶的那种绿，可以绿到发蓝，不会是染色了吧。看样子，应该是直接蒸的，一幅干巴巴样子，没有水煮的湿润。</p>
+<p>奔着回味老家粘黄米粽子的味道特意选了它，谁知等剥开，一看之下淡黄发白、米粒松散，一尝之下味道寡淡、多是失望，可怜两三粒小枣，里面硬核差点碜牙。然而，老家的端午有什么可说的吗？好像也没有什么风俗活动。北方小山村缺水，不会有涉水赛事。没有挂过菖蒲，只是见过黄蒿，跟艾蒿同科同属。</p>
+<p>没有喝过雄黄酒，只是看过白蛇传里它的超级功效。至于香囊，还是停留在文字里的物件，是林妹妹赌气想要绞断，却又剪错了的那个饰品。说起艾蒿这东西，也不往门上插，也没有见人在清明采来做青团吃。倒是野地里密匝长成的黄蒿，也有说这就是艾蒿，会被一把把地割下来编火药子。火药子晒干后藏入顶棚里，等伏夏天晚上街边乘凉时点着一根放在上风口，可以熏蚊子。</p>
+<p>不过现在也不多见用，因为蚊子被熏晕的同时，人也被熏得够呛。至于鸭蛋，更是到了二叔在村里水库上搞鸭子养殖时才吃到的。没有觉得它比家常鸡蛋炒起来更好吃在哪里，主要还有一些腥味。直到遇到蛋黄焗南瓜和蟹黄豆腐两道菜，才品尝到鸭蛋腌制后带沙蛋黄的妙处。后来早餐中经常能看到咸鸭蛋，那一颗带皮切四瓣下的白黄截面，取一瓣来配白粥来尝，咸淡平衡滋味长。</p>
+<p>唯一的重头戏，就是包粽子和吃粽子。虽说是因地制宜，以前也得看这地上出产什么。前一年种黍收点粘黄米，晒干各色的豆子，零嘴前抢下来的大枣。存得旧年粽叶，要提前煮一煮，不够的话再到集上买点。时间多赶在麦收后，可去麦秸垛上抽几把秸秆，长短找齐后，洗干净做绳。</p>
+<p>然后，就是淘洗填料、粽子包制和大灶蒸煮了。这些被我说得轻巧，词句之间貌似就箩筐有货。其实，包粽子挺考验个人耐心，没那点不怕麻烦的劲头，包不好也煮不好。怎么看都是费时，费力，还费火的一个过程。现在也好了，馅料换成糯米和蜜枣，秸秆用线绳替代，煮的时候再借助电压力锅威力，更是大幅缩短时间，倚在门口反复问熟了没有的情景再也不会出现。</p>
+<p>开始潮湿的天气里，粽子也不是那么好保存的，煮熟后捡到屉笼里放着。端午前后几天，吃前放凉水里泡泡。再顺延到后面日子，就得吃前煮一煮了。后来终于配备了冰箱，包完也不着急煮熟，冷冻上存些生粽子，可一直放到春节吃，一起做伴的可能还有夏天的嫩玉米粒。等它们差季出现在餐桌上时，也是在外孩子们回家时候。</p>
+<p>未了岂止是端午的粽情，未了的更多是亲情乡情吧。左岸记：我真是学了很久包粽子，到现在依然没能学会，不只粽子，包子水饺之类的我都没能学会。幸好小治妈妈是巧手，粽子每年都是要包的，再忙也不错过，所以一直都很口福。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

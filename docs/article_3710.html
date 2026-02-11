@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>“豆包妈”的忧虑</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>“豆包妈”的忧虑</h1>
+            <div class="date">2026-02-11 14:17:20</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/择言 东北有句俗语叫“一年级的小豆包，一打一蹦高”，我身边一个“豆包妈”经历的事儿让我特别想写点啥，友情提醒，负能量爆棚，虽说这绝对是个特例，但绝非个别现象，不信问问你身边的家长们。距新学期开学已经过去两个月了，眼瞅着身边一位“豆包妈”的忧虑在不断的加深中。刚开学那几天，她忧虑的范围属正常，担心孩子能不能适应新环境、新同学、新老师，担心孩子能不能适应小学的节奏，担心孩子的午饭能不能吃好……反正诸如此类，都是挺常规的忧虑。可是，自从“教师节”过后，一切都变了。我认识的这位“豆包妈”的孩子上的是一所中上等的小学，不算重点，不过摊上了一位“学年组长”的班主任。</p>
+<p>刚开学，班主任还算正常，对孩子各种严格要求啊，当然也包括对家长们的“严格要求”，起初，这位老师给豆包妈的印象就是认真负责，经验丰富。9月10号之后，一切都变了。逢年过节，给老师“意思意思”，这应该是所有家长的共识了，谁也不能幸免，毕竟孩子在人家手里呢，说起来像绑架勒索，可是还真找不到其他合适的形容词。“豆包妈”也一样随大流了，当然，肯定不属于“重金”那伙的，结果，一系列后续的故事就开始了。首先要说一个事，就是微信群真是个伟大的发明，现在的老师与家长完全借助这个平台零缝隙沟通。</p>
+<p>这位老师开始在家长群里表扬孩子了，其实更是变相的表扬家长。以前说的是哪个孩子的字写的好，结果现在写得好的孩子家长才出个“平均数”，那就表扬进步大的，因为家长的面子“大”啊。这是“豆包妈”忧虑的第一件事。咱们再接着唠微信群的事儿。因为是零缝隙零时差沟通，也就意味着，老师发一条信息，家长几乎需要秒回。</p>
+<p>老师通知一件事，所有家长都必须在第一时间回复，如果有哪个家长后知后觉了，轻则让老师觉得耽误事了，重则会引来老师的一顿冷嘲热讽。曾经，群里的一位家长因为工作的关系，不能随时看手机新信息，就在群里说了句麻烦大家别发无用信息把重要通知刷没了，结果引来了老师的“不愿意”。这是“豆包妈”的忧虑的第二件事，无论工作忙不忙，手机不敢离手。如果说前两件事“豆包妈”还能努力跟上节奏的话，那接下来忧虑的第三件事，依她自己的性格，真的是折磨，那就是要文字清新脱俗，洋洋洒洒，最重要的是还要毫无底线的拍老师马屁。在微信群里，无论孩子在学校有任何的表现，所有功劳都是老师的，老师简直神圣伟大到如同上帝、造物主，孩子写字有进步了，老师的功劳；孩子会数数了，老师的功劳；孩子会唱歌了，老师的功劳；孩子会走路了，老师的功劳；孩子会说话了，老师的功劳……有些家长恨不得连孩子会上厕所了都夸成是老师的功劳。</p>
+<p>“豆包妈”是个特别老实本分的人，说话连拐弯抹角都不会，让她跟上这一波节奏，着实痛苦，可是又无可奈何。除了这些，我身边的这位“豆包妈”还要每天负责孩子的预习与作业批改，一天也不敢耽误，因为有的家长已经因为没有时间陪孩子预习功课被老师语言犀利的点名了。其他的忧虑，零零碎碎的，已经不足为虑了。因为我自己还没有孩子，听身边年轻妈妈们唠这些事，发现这个老师是一个比较极端的例子，可是这样的事，绝对不是个例，甚至这种现象是很多家长都会遇到的，只是差在程度上。我们的教育怎么了？</p>
+<p>到底问题是出在制度上？还是出在人上呢？作为一个还没有孩子的人，我只能保持沉默，因为如果我的孩子上了学，我肯定也会随波逐流啊，不然呢？“师德”这东西，在当前的时代，到底代表着什么呢？我身边的“豆包妈”也绝对不是个例，不信，你问问身边的家长。</p>
+<p>如果我有了孩子，除了让他和自己都变得更优秀强大之外，我一时真的想不到其他的办法，万一，我也遇到了这样一位经验丰富的年级组长了呢…… 左岸记： 对老师本能的尊重这是父母希望老师能好好教育自己孩子的潜意识，但如果老师的言行背离了这样的初衷，那么，是一定会问题的，像文中的这位老师，很多的言行已经越界了。父母的容忍，没有人愿意出头，那是因为孩子的家长恐惧权威，缺少法律意识。很多的事也许都只是特例，但对孩子的伤害却是百分百，就像这件的携程亲子园虐待孩子事件，真的是见识了什么是人性暗黑可以恐怖到怎样的程度。有些人真的就是沉默纵容出来的。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

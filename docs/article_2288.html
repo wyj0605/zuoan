@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恬惔为上，胜而不美</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>恬惔为上，胜而不美</h1>
+            <div class="date">2026-02-11 14:00:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/行吟者人生旅途，曲曲折折，走走停停，不与春风别离，不与百花争艳，让花开的声音，伴着恬淡的心绪，温润每一天。将所有人生希望，在晴天白云下舒展，以单纯的写意，将美好镌刻在每一天。留住每一个微笑，留住每一段记忆，都如春色满园，流转生香。生命中，花开也美，花谢也动人，生命是一段体验，不是什么抱怨，生命是用来达生的，人生处处都有美好。落花也可香如故，含苞也有艳人时。</p>
+<p>不同的，只是一种心性，一种选择而已。生命，原本是单纯的，修一颗恬淡的心。可是，人却活得越来越复杂了。很多时候，我们不是作为生命在活，而是作为欲望、名利、机器在活，不是为了本然在活，而是为了财富、权力、攀比在活。这些社会强迫的东西遮蔽了生命的眼睛，而很多人把它们看得比生命更重要，为之前仆后继，结果让生命希望搁浅，让生命负累。</p>
+<p>生命的真实就是平凡的，当今社会，人们多在焦虑般追求貌似时尚成功的东西，如痴如醉，看似美好，结果是生命的疲惫、迷惘又能全部消除吗？懂得珍惜和品味平凡生活的人真的很少。人只有把平凡生活真正过好，人生才是圆满。人生任何美好的享受都有赖于一颗澄明的心，当一颗心在低劣的热闹中变得浑浊之后，它就既没有能力享受安静，也没有能力享受真正的快乐。庄子说：“平易恬淡则忧患不能入，邪气不能袭，故其德全面神不亏”。</p>
+<p>学会恬淡，人生就会澄清、德全。陶铸先生所言“心底无私天地宽”也是这个道理。老子讲：“恬惔为上，胜而不美。”这种“心神恬适”的意境，是心无杂念，凝神安适，云水襟行到水穷处，坐看云起时的宽阔境界。恬淡为上是生命要修的课程。</p>
+<p>只有笑看人生，才可以免去精神上的许多痛苦，拥有一种无拘无束的胸怀，在浮生闲日的生活中，淡看花落云起，无牵无挂，开阔空明，让云水胸襟超然于环境之外，潇洒自在。给自己一个恬淡、宁静的生活氛围，在平淡中寻找快乐，在宁静中制造惬意，这才是平实的生活方式。只有超越名利，才能活得轻松与自在。恬淡既是人生的自悟，也是达生的方式，这份恬淡是“明志”和“致远”，是对生命的安顿，也是对自己灵魂的升华，对生命的坦然。心似白云，意如流水，生命的胜美在静静流淌与坚持。</p>
+<p>“初心”是这个世界的清泉，而恬淡酿就了这份清泉。人们疲惫了，迷惘了，该回首想想自己为什么出发，最开始的目标是什么，真正追求的是什么。庄子所谓“始于玄冥，反于大通”的境界，告诉人们生命不是单纯追求更多、更大、更强，而是贵于自省。“初心”不是“有”，而是“无”。人生需要真正的懂得，生命需要一种真正的达生，学会坚持了，那么成败反而可以放在第二位。</p>
+<p>人生在世要乐观豁达，要行不同的路，看不同的风景，与一朵小草邂逅，或者与一只花不期而遇，皆是缘分。有的时候，拥有也是在失去，开始也是一种结束。往事如烟，多少深深铭记，才会滋生了多少温暖。《庄子·天道》：“夫虚静恬淡，寂寞无为者，天地之平而道德之至也。”恬淡是通达生命，恬淡是唤醒生命的品性与德全，要摒除各种外欲，要心神清宁事事释然，达生的人，不会去努力追求对于生命没有意义的东西;达生的人，不会去努力追求命运无可奈何的事情。</p>
+<p>我们的生活方式变得复杂，离生命在自然界的本来状态越来越远。达生，以简单的享受人生的醇美。我们太需要保持内心宁静。得到的，就好好珍惜；失去的，也没什么好留恋，就如云烟一般。学会看他花开花落，任他云卷云舒，知足常乐，缘起缘落，得失荣辱皆安于心。</p>
+<p>感谢生命里的懂得，聆听岁月里的美好，一路向暖，静候花开。拥一颗简单的心，做个单纯的自己。在人生有情的岁月里，每个人，都可以做真实的自己。依一份快乐的暖，做个幸福的自己。学会不去计较，得与失，不必在意，花开花落，生活本就起起落落。</p>
+<p>学会以最平和的姿态淌过时间的河流，静看今天慢慢沦为过往，曲曲折折，而内心坦然。在平淡的日子，心依暖阳，静候花开。做一个平静的人，你将收获一份成功，将收获对生活的朴实。恬淡对于人生是从容，对于灵魂是清澈，摒弃了浮华与虚荣，天地在平和的心境中更加宽阔、深远。看过岁月交替，赏过花开花落，秋水无声，在灵犀相通的光阴里，让阳光穿透心的彼岸，平易恬淡，静待岁月自由绽放。</p>
+<p>《菜根谭》中讲：“风恬浪静中，见人生之真境；味淡声稀处，识心体之本然。”在风平浪静的环境中，可以显出人生真实的境界；在质朴淡泊的地方，才能够体会心性本来的面貌。懂得“恬淡是真味”，守得住宁静、守得住淡泊、守得住悠闲，能透悟人生而活得恬淡的智者。一个人如果拥有这样一颗纯真的心灵，“养本然之心”，在自己应该做的事情之中尽了全力，人的成就自然而然就会显现出来，人生没有刻意追求而自得，这才是人生的起点。人生风雨不虞事，恬恬淡淡养本然。</p>
+<p>这种人的心绪总像秋水一样澄明，胸怀总像苍穹一般广阔，纵然乌云密布、大雨磅礴，也会见到彩虹总在风雨后。其恬淡是蕴涵着心境的平和，守得住恬淡，才能看淡名利、看淡荣辱；守住恬淡，才能坚定志向、明确方向；守得住恬淡，才能不被贪念侵蚀、不被虚荣蒙蔽。滚滚红尘中，唯有能守得住恬淡者，才会见人心。心灵恬淡的人，即便是面对一草一木，也能感受到自然的美丽；即便是面对着一花一叶，也能体验到无尽的风情，所谓一沙一世界、一叶一菩提。只有心灵恬淡者，才能体会到“行到水穷处，坐看云起时”的深意，笑看人生境遇的变迁；只有心灵恬淡者，才能在“采菊东篱下，悠然见南山”中收获人生的和谐与美丽。</p>
+<p>“天地间真滋味，惟静者能尝得出；天地间真机括，唯淡泊者能看得透。”以一颗恬淡从容之心，看生命之流转，看眼前能看到的诸多变化，心才会恍然洞彻人生的真味。左岸记：人终是要学会对心境的自我调节，这样在失意的时候才不会陷入低沉，在得意的时候不会自满。如此人生才进可攻退可守。[作者简介]马庸，(网名:行吟者、瑙玛、白头翁)自号:华城居士，湖北宜昌市人，中华诗词学会会员，中国金融作家协会会员，中国思想政治工作研究会会员，中国企业文化研究会会员，中国管理科学研究院特约研究员，湖北省社会科学联合会会员。</p>
+<p>闲暇之余,喜书画、爱音乐，多有诗歌、散文等见之于报端和网络，怡然于心。人生况味乃壮世间百态，品尘间百味，感风雨人生。吾生故吾写，吾写故吾生，悠悠弊作，诗话人生。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

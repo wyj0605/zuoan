@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扔吧，你会活得更好</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>扔吧，你会活得更好</h1>
+            <div class="date">2026-02-11 14:16:29</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/谢慧敏 扔东西简单吧？简单! 会吗？相信多数人摇摇头。今天看到一篇文章，说是一对澳大利亚夫妇参加一个半玩笑性质的丢“垃圾”比赛，结果一个月后，他们从房子里清出了900件“生活垃圾”，堆满了整个院子。戏谑的比赛出现了令人惊奇的结果，首先是房子变大了，这相当于人体的清肠运动，当一堆鸡肋般的物件被掏出去后，空间宽敞起来。</p>
+<p>更有意思的是，这对夫妇的心态也随之发生变化，工作之余，该玩的时候玩，想要做的事马上去做，生活变得简单纯粹。扔东西会有那么奇妙？是的。目前我也正在体验这奇特的感觉，逐渐减轻生活中不必要的负荷。几乎每个早上，我都会拎一个袋子下楼，里面装着的或是衣服、或瓶罐、或玩具、或煲汤的锅、或旧窗帘……，形形色色，有时袋子胖鼓鼓的。</p>
+<p>这些物什并不破旧。孩子的玩具车安上电池能冲出老远；琳琅满目的包装盒是我喝喜酒时收集起来，一个个都是艺术品；锅盆很沉手，它们过时的是式样，而非质量；衣服散发着樟脑的气息，有些标签还没有扯掉，它们标志着女人非理性消费的冲动。在把它们塞进袋子之前，我不是没有犹豫。哪一件没有意义？女儿的物件留有儿时的奶香，看着它们就想起孩子胖胖的憨模样；旧家什里凝结着我当时东奔西走的心血，囊中羞涩不得不货比三家；而那些挂着标签的衣服，说不定哪一天真能穿在身上……。</p>
+<p>它们都是有价值的。然而我明白，它们一百年也派不上用场，只要在我家，它们就呆在角落。实际上，它们布满了我房子的角角落落，短则几年，长则十年，很少被关注，就像皇帝后宫的女人们，能被宠幸的没有几个，大多数只能韶华虚度，姿色老去，生命枯萎。那些物品就是宫女们。“放生”是最大的恩赐和最好的出路。</p>
+<p>清理如同“放生”。因此，我有一种仪式感。旧物品干干净净，分类整理，用一个结实的袋子装扎，有时放小区门口，有时送给门卫，有时就放在离垃圾箱不远的空地上。我知道，垃圾筒不会是它们的归宿，它们最后都会进入到不同的人家，扮演着它们该扮演的角色。比如，被装进纸箱的那一堆可爱的小玩具，第一个就会进入一个女人的家里，成为她小孙女手中的爱物。</p>
+<p>有一次我正丢弃一个旧娃娃，楼下那个打扫卫生的外省女人过来要了过去，她说她孙女不满周岁，正喜欢这些毛绒绒的小物件。我还记得，也是一个女人，大清晨早早地等在楼下，因为前一天，我在她家门口对她说，我家里有一个久置不用的旧煤气灶可以送人，这个女人就过来了。她的家在路边，我锻炼时经过。像那女人的“房子”，我见过一批又一批，他们从外乡过来讨生活，在路边支起一个帐篷就是支起一个家，我的那些旧锅旧铲，会成为他们的生活用品。假如它们不幸被丢进了垃圾堆，也没有关系，还会被重新挖出来，因为世上还有一个群体叫“拾荒者”。</p>
+<p>有一次我偶然经过小山包般的垃圾场，看见一群像乞丐的人扑向一辆从远处开来的垃圾车，当生活垃圾卸载时，他们蜂拥在臭不可闻的垃圾堆里寻找生存养料。这个社会有很多个层级。这个社会有很多类人群。这个社会有很多种活法。你眼中的鸡肋，他人的至宝。</p>
+<p>放活了这些物品，房子里的空气流通起来了，光线似乎都变好了，身子也转得轻快了。然后，新伙伴陆陆续续地进驻。添置了书柜，是两张，计划了很久，如今终于有它们落脚的地方。最近迷上了养花，马上动手，花缸逐渐从阳台漫延到书桌、墙角，房子也妩媚起来。我还计划每两个月学一样技艺。</p>
+<p>买了一台酸奶机，很快就会自制酸奶了。又添置了一台烤箱，烤起了红薯，再准备学做面包。以后，还会有咖啡机、豆浆机等不断地进来。当然，我也明白，这些新宠，有一天它们也会沦为清理对像，但这并非坏事。扔，不是一个简单的举动，是一种态度，一种活法。</p>
+<p>左岸记： 断，是不买、不收取不需要的东西；舍，是处理掉堆放在家里没用的东西；离，是舍弃对物质的迷恋，让自己处于宽敞舒适，自由自在的空间。断得放心，是放下我们的执著心，让父母和子女顺着自己的心意去选择决定物品，而不要自己带着爱的名义横加干涉家人的选择。舍得放手，是尝试松开紧握的东西，看看自己的身体反应会不会变得轻松，感受放下错误的欲求和清理烦恼的过程，经过由手及心的思考，迎来通达的境界。离了放生，是我们应该让物品去到它最被需要的地方，这种给予物品自由的行为，就会变成一种积极乐观的动力，赐予了物品二次生命。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

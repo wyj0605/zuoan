@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比较与计较</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>比较与计较</h1>
+            <div class="date">2026-02-11 14:00:50</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/廖超国人大多数精神上的烦恼或痛苦都源自于我们内心深处的一对娈生姊妹：比较和计较。这对双胞胎，温顺的时候，如花朵一般，是我们意识思维中两个最常见的类比事物的方式方法和行为样态。但它变脸时，则又像毒蛇一样，盘踞在我们心里的潘多拉盒中，稍不留意，它们就会冲开盖子，跑出来骚扰纠缠我们，让我们难以安宁，陷入无尽的烦恼和痛苦之中。它们攻击我们的方式通常是，与人比较，人有我无，欲望扩大，总不知足，便嫉火自燃，烦恼叠生。与己计较，得失输嬴，总是难平，便怨天尤人，心气浮荡，痛苦不断。</p>
+<p>先比较，后计较，人就在这对恶魔的驱驶下，迷失真心和本性，让心灵落入烦恼和痛苦的旋涡。而这对恶魔又深植于人性之中，如癌细胞一般，难以根除，也不能彻底清除，它们会伴我们从生到死。我们一生修炼的任务就是，把控好其度，少比较，从容过生活。少计较，豁达度人生。人是一种爱比较的动物，几乎没有办法阻止人们不去比较。</p>
+<p>比较是人类认知世界的重要方法。人的思维越发达则越会运用比较这种思考方式。比较是人最聪明的思维方式，因为没有比较就没有鉴别，比较会让人区分一事物与另一事物的不同；没有比较就难以发现不足和差距；没有比较也不会激发前进的动力。但比较又是人类最愚蠢的行为，因为若运用不当，除了带来烦恼和痛苦，则百害无益。计较也是如此，人们通常经过比较得出结果，对不利于自己的结果进行计较。</p>
+<p>生活中那些爱计较的人大都被人视为格局和气量有限的人，通常也与斤斤计较联系在一起。人在很多时候都错用了比较的方法。因错用“比较”必定带来不该有的“计较”，错用的比较和计较便会成为影响我们心智的恶魔。当我们呱呱落地，来到人世，还在襁褓中时，就会本能的运用触觉，比较谁的疼爱多一些，借以哭声表达自己的计较；上学读书时，又比较谁考得好谁得分高，计较老师是否偏心；踏入社会后，又比较谁的机会好，找到了如意的工作，计较命运的好坏；有了工作，则比较谁拿钱多待遇好进步快，计较老板是否公平；成了家，又比较谁家老婆漂亮贤惠谁的老公英俊能干，计较谁的日子过得比自己好；即使父母去世，还比较兄弟姐妹谁分的财产多，计较遗嘱立得是否公正。人的一生错误地比来比去直到死，除了比来烦恼和痛苦，也没比出真正的赢家。</p>
+<p>死亡让一切变得平等。但人在离世之前，一直会在比较和计较中迷惑自己，做着糊涂的比较和计较。比较付出，计较得失。很多人都没真正明白付出与得到之间的关系。只是像巨婴人一样，简单理解有付出就一定有回报。</p>
+<p>其实，付出和得失之间存在着一向性的关系，只是一种充分条件关系，并非充分必要条件关系。诚然，没有付出，不会有得到，就像种地一样，只有春天耕耘，才会有秋天的收获。但并不是所有的耕耘都一定有收获。付出不一定会有等比例回报。只有成熟的人才真正懂得，人生的很多事不是一一对应的。</p>
+<p>不成熟的人最显著特点就是急功近利，刚刚付出就立刻要求回报。人生得失与太多的因素有关，付出只是其中的一个因素。比较命运，计较好坏。无论你怎么理解命运，都不影响它的存在。而命运真是一个非常复杂的东西。</p>
+<p>年轻时，你不会相信，即使相信，你的理解也会和你老了时的理解不一样。命运可能是你的实力，也可能是你的努力，还可能是一种机遇，更可能是一种运气，总可以感知，但却捉摸不定，会无形的影响你，甚至左右你的人生。每个人的命运就像每个人一样，都是独特的。就像天下没有两片完全一样的树叶一样，没有两个人的命运会完全一样。可我们很多时候，却会不自觉地去与别人比较。</p>
+<p>古老智慧的占卜术从每个生命诞生的时辰和环境不同推断生命未来的吉凶祸福，现代科学的暗物质的研究也从另一侧面掀开了命运之奥迷的门帘。每个人的命运终究是不相同的，也是不好去比较的，至于好坏的计较更无从谈起。命运是自己的，与别人关系不大。比较努力，计较成败。如果就每个人的本心而言，来到这个世界的人，没有一个是抱着糟踏一生而来的。</p>
+<p>也就是说每个人都是想努力过好一生的。没有人最初不曾努力。但为什么真正世俗成功的人并不多呢？除了努力的方法很有讲究外，努力和成功之间的非线性关系也决定了世俗成功不易。努力不一定成功，不努力一定很舒服。</p>
+<p>这种不确定性违背了人类的思维规律，让那些没有心思再玩下去的人转向对成功的降次理解，离远世俗化的成功，用自己的理解重新定界成功的标准。其中有一种观点被很多人推崇，人最需努力的，并不是一定要实现什么目标，而是努力去体验生命。当经历了生活的摔打和洗礼，最终你也会趋同这种观点。生命最高也是最终的意义就是体验生命。还有比这崇高的意义吗？</p>
+<p>显然，从这一角度去看，成败就有了很个人化的理解了，世俗的成败只付谈笑中了。每个生命都是独特的，独特的生命不应有统一的标准来衡量得失成败。本不可比较却硬性比较，这样的比较，毫无意义。和高人比，不如人而自卑；和俗人比，不入流而尴尬；和下人比，不该比而骄满。总之，当别人比自己好时，要么嫉妒，要么自卑；当别人不如自己时，要么傲慢，要么膨胀。</p>
+<p>外在的比较，使我们心躁神浮，难以安宁，从而丢失自我，障蔽心灵原有的氤氲馨香。迷失方向，忘记人生的来处和去路。若真想比较，应自己和自己比，比昨天进步了吗，比过去越来越好吗？和自己比较才有意义。就像金钱不是拿来衡量的而是用来享受的一样，生活是用来经营的不是拿来比较的。</p>
+<p>要记住星云大师在《舍得的艺术》中对我们的告诫：“不比较，不计较”。如果我们一时修不到这么高的境界，至少要做到少比较，少计较。少比较，少计较是通向快乐生活的坦途，也是幸福生活的妙法。要想自己过上幸福的生活就必须学会少比较、少计较。少比较，少计较，就不会有落差的惆怅；少比较，少计较，就不会人庸常的烦恼；少比较，少计较，就不会有攀比的沮丧；少比较，少计较，就不会有得失的缠绕；少比较，少计较，就不会遮掩自我的光芒；少比较，少计较，就不会迷失前进的方向；少比较，少计较，就快乐幸福多烦恼痛苦少。</p>
+<p>烦恼来于比较，痛苦源于计较。开心的逻辑就是少与人作无谓的比较。快乐的奥秘是少与自己一时的得失作无谓的计较。2019年6月2日写于武昌南湖之畔水域天际 左岸记：对于比较，下面是我看到最精彩的评论之一：晓上上方高处立，路人羡我此时身。白云向我头上过，我更羡他云路人！</p>
+<p>往上比的要是精神、品德、学问，这方面的浅深高下。精神的天空是无穷的，鸡群中的鹤虽然卓然独立，但是飞得高的还有鹄，鹄之上还有大鹏，其上更有遨游千仞的翔凤。精神层面，智者会自觉太少，愚者才自觉太多，觉得太少的智慧日增，觉得太多的愚蠢日甚。至于物质、欲望、境遇的层面，最好“往下比”，骑驴者的内心有余裕，就是智慧。不然八珍九鼎，仍不满足于甘饴适口；满身锦绣，仍不满足于光彩耀眼；欲海溺人，将永远惶惶然感到欠缺与不足。</p>
+<p>所以这层面，自觉够的智者，能安分知足，是真正的富有；常觉不足的愚者，日夜营营逐逐，是永远的贫穷。PS：今天又开始一年的高考，祝每位考生考出好成绩！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

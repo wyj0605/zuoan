@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我只爱属于我的你</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我只爱属于我的你</h1>
+            <div class="date">2026-02-11 14:14:37</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>小A在我对面坐着哭，哭得梨花带雨、风云色变，哭得万籁俱寂、神鬼绕路，间杂着一些，“我怎么怎么样，他怎么能怎么怎么样；当初我怎么样，他那时怎么样；现在我这么样，他竟然这么样…”的绕轱辘话。小A哭属于没有品的，人家哭是哭，说是说。她是杂家，哭一下说一下，擤擤鼻涕，哽噎一下下，项目繁多。女人哭，或是哭诉，你最好别插嘴，学会捧哏的哼哈就行。她就是为了哭和说而已，难不成你把她嘴堵上、脑子冰冻？</p>
+<p>哭的行为艺术差不多了，我问她，“如果让你再来一次，你还和他爱吗？”“绝不。”“你确定？”“我…”我知道她会犹豫。总是有人会经不住追问的，跟每个人都喜欢拥有选择权，但真让她选择，她一定不选一样。</p>
+<p>…如果你对爱疲倦了绝望了，问问自己，再来一次你还会爱吗？不爱，那现在的爱已然结束了；还爱，那改变现在就好，不用再来一次吧。秀甜蜜的时候，一定是“我的那个他”“我男朋友”“我老公”。到了咬牙彻齿的时候，一定是“他”“那个狗东西”。言下之意，属于你的时候是好的，或是属于你的都是好的，不属于你的时候就是万恶不赦、狗屁不如。</p>
+<p>爱是焦虑和愉悦的混合体，焦虑是怕失去、怕改变，愉悦是因为共处的幸福感。怕失去是否代表你就占有了呢？爱是占有现在，幻想未来？占有了你就有安全感，于是就有幸福感？你爱的到底是你的他，还是他？</p>
+<p>你爱属于你的他，于是你会因为付出得不到回报，付出得不到你想要的回报，害怕失去这个占有、而不停的验证和紧紧抓住，不停的给他和一切的人说、他是我的我的我的。因为他是你的，所以你需要你想要的他，算不得交易，起码也是一种YY出来的他。或者因为他是属于你的，关键不是他是谁，关键是他是你的？要么你把他修剪成你要的样子，要么烂在你的手里？也或许因为他是属于你的，所以你特别的纵容无下限，然后反而你找不到你自己了？</p>
+<p>还是因为你觉得他是属于你的，所以你就原形毕露、变本加厉？爱成为理由或是借口的时候，不知道是爱的悲哀还是爱的死亡？因为你爱，所以你就可以占有他？就可以验证他、抓紧他、让他做他不可能的他、让你随意的拿着爱说事？爱会产生愉悦，未必产生幸福，幸福来自安全感，那这个需要验证吗？</p>
+<p>最大的戏谑，该是你以为你占有拥有什么，其实已然不拥有或是纯属以为占有吧。你爱了，就需要幸福？就需要安全？那跟爱关系不大了吧。因为彼此独立所以彼此吸引，爱也就因为独立而产生。</p>
+<p>所谓的爱情，无非是想把这份吸引变成愉悦，彼此的独立变成两个人的共同面对世界。而你把爱转成了占有和焦虑，变成了属于你的他和活生生的他之间的落差。这个爱情怎么看起来都有点基因突变。爱情这东西，从你认为他属于你那一刻开始，就已然怪模怪样了；从你开始设计他应该是什么样的时候，也就彻底变异了；面对基因突变面目皆非的爱情，要么你拿着婚姻去整容，要么拿着泪水和恐惧去讨好麻木自己，要么也无非是情老人悲、痛恨爱情、决绝分手。不是他不应该为你做什么，不该改变什么。</p>
+<p>爱情本来就是心甘情愿的改变，总是需要为了两个人的共度时光努力改变和去做很多事情。但你只爱属于你的他时，改不改变不变，爱情已然死了。死了的东西，你还拿着说事，有点诡异和寒气森森吧。…再来一次，你爱不爱？爱情不是一种承诺，不该是心存遗憾的说“我下辈子一定还要和你怎么样”。</p>
+<p>该是，可以安静的说，这辈子在一起的时光，我很庆幸有你，下辈子遇到，我是我，你是你。可以爱，也可以不爱。再来一次，你依旧爱。是因为这次你觉得他改变的不够，共处时有太多的遗憾，过于短暂的时光，没在最好最美的时节相遇？因为你要的没有得到，还是愧疚于他？</p>
+<p>那爱不爱，跟交换利益差不多，也就没必要拿着爱说事。继续你的欲望、恐惧、利益、博弈而已。…小A不哭了，因为我知道她迷茫了。她未必听得懂，我未必说的明白，或许我也压根不明白。如果你不是属于我的，那爱又是什么呢？</p>
+<p>左岸记：爱情的滋味真的说得清吗？如果可以，你给我表达一下榴莲的味道。有些东西本身就很难用语言来表达，但表达不清并不意味着我们应该就此止步，爱情的魅力也正因为如此。下面是《为何爱会伤人》中的一些句子，摘录分享：- 命运＝心理的强迫性重复- 强迫性重复无处不在，就好像是，我们只习惯拥有过的生活，如果现在的生活变得与过去不一样了，我们就得做点什么事情，把现在弄得和过去一个样。- 许多人和她一样，拒绝反省，拒绝改变自己，只是梦想着找到一个“正确先生”或“正确小姐”，但结果都是一样的。</p>
+<p>-在感情中一味付出且对恋人没有丝毫要求，有时还隐含着这样的信息：我既然已经做得这么完美，我是问心无愧了，那么我们的关系中再有什么问题，都不是我的责任，而是你的责任了。- 在爱情中习惯扮演绝对付出者的人，该好好反省一下，自己究竟在追求什么。-我们选择和谁在一起，一定有这样一个意思——我想成为他那样的人，或者更准确的说法是，我想拥有他身上的某些品质。只要两个人用心相处，那么慢慢会明白，没有哪个人真的就是乏味的，每个人都很精彩。- 我们都想做好人，并想用好的方式对待某人。</p>
+<p>如果一个人越重要，我们就越会用自己所懂得的最好的方式对待他。-如果对方不仅给了回报，而且还恰恰用的是自己所渴望的方式，我们就会觉得，这个人真爱自己。否则，我们就会失望，就会觉得对方对自己不够好，并生出想远离这个人的念头。-错误三：出主意。对方一说到“问题”，我们就急着去出主意、提建议，忙着为对方“解决问题”。</p>
+<p>但实际上，对方多数时候只是为了借“问题”宣泄情绪，根本不需要我们的建议。- 要想知道事实，就必须去了解对方的感受，这是最重要的事实。-我们要不断地表达自己的感受，并去感受到对方的感受，某种程度的链接感才会发生，而链接感一旦会发生，一个亲密关系就会变得牢不可破，而那要命的孤独感也会消失大半。- 也许原因是，亲密关系是我们最在乎的，而我们越是在乎，就越是怕承担责任，就越是希望分出个谁对谁错来。- 不管关系多么亲近、多么特殊，当你对另一个人表现出相当强烈的攻击性时，对方在P一时间产生的一样是愤怒。</p>
+<p>-童年受过的苦，长大后我们要再重复一遍。但可惜的是，很多人的重复是一种转移，即建立一种亲密关系，然后把自己心中压抑了很久的痛苦，转移到恋人或配偶身上去。- 真实的自己是怎么形成的？或者说，我现在的个性是如何形成的？是在关系中形成，更具体而言，就是童年时在与父母等重要亲人相处时形成。</p>
+<p>- 你在并且我在。一个人只有在关系中，才能感受到自己的存在。-真爱，需要决心、勇气和真正的责任感。懂得真爱的人，要对对方负责，但同样需要对自己负责。那些一味在恋爱中扮演“永远不会错”的人，其实恰恰是不懂得真爱的人。</p>
+<p>- 有太多人对于唾手可得的幸福毫不在乎，而宁愿舍弃一切去实现自己一个执着已久的想法。- 相爱容易相处难。爱，太多的时候，是一个孤独的游戏。- 人类的创伤基本都可以归为两类：亲近需要没有满足的创伤，疏远需要没有满足的创伤。前一种即被抛弃的创伤，后一种即被吞没的创伤。</p>
+<p>- 女人对爱情的理解导致了男人的痛苦，而男人想逃离这种痛苦时，就会被女人理解成他们不爱自己，于是会陷入更大的痛苦中。- 假若你能明白，一切都是有道理的，你自然遭受的一切，尤其是你自由选择的一切，都是非常有道理的，那么你会在不完美中发现爱与被爱的证明。- 我们对爱都是缺乏信心的，或者说，我们在爱面前都会感到自卑。于是，当我们有爱与被爱的感受时，会半信半疑，这是就渴望别人给一个确认。-我们之所以期待被人给爱一个证明，是因为，我们将自己视为虚弱的，而将别人视为强大的。</p>
+<p>或者说，当我们这样做时，我们都将自己当成了孩子，而将对方当成了父母。- 爱情中最好的境界，是合一，而最低的境界，是貌似合一。原文链接：http://www.zreading.cn/archives/4400.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

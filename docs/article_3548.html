@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>万物皆有理：你很熟悉但未必明白的那些事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>万物皆有理：你很熟悉但未必明白的那些事</h1>
+            <div class="date">2026-02-11 14:16:43</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>今天，介绍一本有趣的书。——《万物皆有理》。人气科普作家、食品营养专家云无心和你聊聊那些你特别在乎却没弄明白的事儿。作者用好玩的故事、真实的案例，告诉你“是什么”与“为什么”。这里分享书中的两节内容： 1.吃了致癌食物，你就会得癌症吗 许多媒体和专家喜欢说“致癌食物”“抗癌食物”，电视上的“养生专家”也经常说“我的养生法能让你百病不生”之类的话，其“ 秘方”更是受到热捧。</p>
+<p>跟这些从哲学与文化中“总结”“开发”出来的“经验”相比，现代科学的结论就令人沮丧得多了。世界卫生组织和联合国粮食及农业组织的联合专家组发布的报告指出：癌症的诱因中，膳食因素占到20%~30% 的比例。美国癌症协会的文献总结则认为：健康的饮食、适当的运动加上合理的体重，能够让癌症的发生率降低1/3。如果你相信“养生专家”画的大饼，那么得到的是一种 “不患癌症”的“美好信念”。如果你相信现代科学，那么可以知道哪些饮食习惯和生活方式可以提高或者降低患癌的概率，而它们能否有益于你，取决于你愿意改变多少。</p>
+<p>有个笑话说，“专家”告诉咨询者：“如果你能够……就可以长命百岁。”而咨询者说：“如果我坚持……长命百岁又有什么意思呢？”如果所有“可能致癌”的东西都不吃的话，能吃的东西就没剩下多少了——矿泉水中都可能含有自然环境中的致癌物和微生物产生的毒素。世界各国的科学家们耗费了无数纳税人和商业投资者的钱，面对癌症还是只能说“导致它出现的因素太多了”——基因、环境、饮食习惯、生活方式……就像有的人随性而为也能长命百岁，而有的人保持健康的生活方式却英年早逝。科学家们可以估算或者统计出某种癌症的发生率，但对个人来说，“癌症风险有多大”是不可预测的。</p>
+<p>因此，我们能做的就是尽量搞清楚各个因素对癌症风险的影响有多大，个人根据改变它需要付出的代价来决定是否改变。在说具体因素对癌症风险的影响之前，我们有必要了解一下“风险”的意思，“增加风险”并不是说你就会患上癌症，而是患癌的“可能性更大了”。比如，儿童时期常吃咸鱼，能让成年之后患鼻咽癌的风险增加十几倍。用具体的数字来说，在一个100 万人口的城市里，如果所有人都不吃咸鱼，那么可能约10 个人患鼻咽癌；如果所有人小时候都经常吃咸鱼，那么最后会有100 多人患鼻咽癌。这就像买彩票，吃咸鱼让中奖名额增加了，但大多数人还是不会中奖，因为本来中奖的可能性就很小，增加十几倍之后可能性还是小。</p>
+<p>换一个例子，人群中肺癌的发生率在1% 左右，每天抽十几支烟将导致患肺癌的风险增加十几倍。重复上面的分析，100 万人都不抽烟的话，肺癌患者有1 万多人；100 万人都抽烟的话，肺癌患者就会增加到十几万人——“中招”的机会就非常大了。这两个例子说明：“致癌风险”的影响取决于增加的风险和本身的发病率。发病率越高的病，风险的增加产生的影响越大。在明确的科学数据之下，我们可以自己决定要“享受人生”还是“减小风险”。</p>
+<p>比如吃咸鱼，100 万人中有10 个左右的人吃不吃咸鱼都会患鼻咽癌，约99.99 万的人吃不吃咸鱼都不会患鼻咽癌，只有那90 个左右的人会因吃咸鱼而“中招”。“万里挑一”的中招比例，你是选择吃还是选择不吃呢？而在抽烟的例子里，你是相信自己会受到上天眷顾（属于即便抽烟也不会“中招”的几十万人），还是选择“人定胜天”（通过不抽烟避免成为那“运气不好”的十几万人中的一个）呢？如果说吃咸鱼和抽烟这两个相当极端的情况还较易选择的话，那么还有很多情况真是让人难以抉择。比如吃肉，目前的科学证据一般认为吃红肉（猪肉、牛肉和羊肉等），尤其是加工过的肉（腊肉、腌肉、火腿肠、香肠等），会让跟消化道有关的癌症风险增加百分之二三十。</p>
+<p>一方面，如果按照1% 的癌症发生率来算（实际应该比1% 要低），100 万人中因为吃肉患癌的会有两三千人。这个影响比起吃咸鱼要大得多，跟抽烟相比则又小得多。另一方面，吃肉对人来说又相当重要，不仅解馋，而且能摄取蛋白质等多种营养。相对来说，在正常的食用量下，防腐剂和烧烤的影响还不如每天吃肉大。如果我们面对科学的现实，“有多大可能患癌症”其实并不掌握在我们手中。</p>
+<p>我们能做的是根据“风险—利益”的平衡，尽可能地把握自己能够掌控的那一部分，比如，吃健康的食品（多吃蔬菜、水果）、保持合理的体重、适度地运动。如果能像美国癌症协会总结的那样降低1/3 的癌症发生率，也算是一个很不错的结果了。当然，更重要的是远离香烟，不抽烟所减少的“致癌风险”比你吃任何“抗癌食物”所能达到的都要多。2.面膜竟成细菌培养皿？你被吓坏了吗 网络上有一个关于面膜的段子流传很广：“今天一女生告诉我，生命科学院院长的一场演讲彻底改变了她。</p>
+<p>院长说：我就不明白你们女生为什么喜欢敷面膜，不知道胶原蛋白大分子不能被皮肤吸收也就算了，那厚厚一层不就是在脸上抹了层培养基吗？还一敷敷半小时，皮肤表面的各种细菌都高兴坏了，等你敷完都四世同堂了。”“胶原蛋白不能被吸收”倒还无所谓，“细菌四世同堂”秒杀大批爱美女性。敷面膜是许多女性的生活必修课，而这个段子瞬间让她们手足无措，这简直堪称“面膜危机”。有没有一位生命科学院院长这么说过已经无从考证。</p>
+<p>虽然这段话并非无中生有，但最吓人的部分并不是事实。首先，细菌固然可以在面膜上生长，但面膜远非细菌生长的最优环境。在商品化的面膜中，一般都会有防腐成分。在面膜的保存过程中细菌难以生长，放到脸上的半小时中也不会那么适合细菌生长。即使是没有添加防腐剂的自制面膜，也不会比一碗粥或者一盘水果在桌子上放半小时更适合细菌生长。</p>
+<p>其次，“细菌四世同堂”固然是个调侃的说法，而且即使细菌分裂了四次，也只是增加了十几倍。细菌数的增减通常以几个数量级来衡量，十几倍真的算不了什么。最后，即使是在最优条件下，即最佳温度、最合适的培养基组成和细菌生长最旺盛的时间段，生长最快的细菌也需要十几分钟才能增殖一倍。即使是没有添加防腐剂的自制面膜，与“最优条件”也相距甚远。因此，细菌在半个小时内不会增加太多。</p>
+<p>此外，细菌无处不在，人体本身也是细菌生长的乐园，一个成年人身上和体内的细菌加起来有几斤重，总数比自身的细胞数还要多。只要不是伤口感染或者摄入致病细菌，细菌的存在本身并没有多么可怕。也就是说，“面膜危机”完全是一场无端制造的恐慌。毫无疑问，化妆品、护肤品和保健品行业都存在大量的虚假宣传。尤其是护肤品，本身并不要求有效才可以销售。</p>
+<p>只要没有明显危害，依靠成功的营销，想象中的功效就可以卖出好价钱。对于那些科学常识可以否定的“功效”，应该加以批驳；对于那些没有科学证据支持的“想象”，也应该指出。但是，为了反对虚假宣传，就通过歪曲科学事实制造耸人听闻的说法，也无益于公众。比如面膜，鼓吹补充胶原蛋白是欺骗，完全可以用科学常识来否定。其他一些活性成分，比如减少黑色素分泌的小分子，是否有效需要科学证据，它们“是否真的有用”基本上取决于消费者是否相信厂家。</p>
+<p>而面膜在敷的那段时间内，在皮肤表面制造了一个相对封闭的环境，这个环境中有充足的水分，还有一些“可能有效”的活性成分，这些水分和所谓的活性成分在这段时间内与皮肤充分接触，对于表皮角质层或者真皮的状态是否有所帮助，用科学常识无法判断，大概也只能靠消费者自己去体验了。但是，只要它不含刺激性、过敏性的成分，也就很难有什么危害——如果浪费钱不算危害的话。因反感商家的忽悠而用 “细菌增加多少”来吓唬公众，也是一种忽悠。是不是很“涨”知识？这是一本很酷的书，一本真材实料的科学酷书。</p>
+<p>正如作者在自序中说的：“不懂得烹饪背后的科学原理，不影响我们做出好吃的菜；不懂得电子和通信的基本原理，不影响我们使用智能手机；不懂得土木工程和建筑的常识，也不影响在房地产行业大获成功。对大多数人来说，科学知识并不是生活的必需品。很多人把科学视作“真理”或者“知识”，其实都不是，它们只是科学的一些“产品”而已。科学从根本上说是探索自然、认识世界的方式。对绝大多数人来说，关键不在于探索自然、认识世界，更不在于这些探索和认识的“产品”，而在于思维方式。</p>
+<p>这种思维方式或许不能帮你赚更多的钱，也不能帮你在尔虞我诈中避免上当受骗，它的价值在于让你对周围的世界看得更加清楚，毕竟觅食与生存早已不需要人类花费太多的精力，洞悉周围的世界也能让人产生愉悦感。”庄子曰：判天地之美，析万物之理。数学的、物理的、化学的、生物的，每一个问号的背后都藏着一番科学道理；一草一木，一饮一啄，点点滴滴中都是知识的光芒。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

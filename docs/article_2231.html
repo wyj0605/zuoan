@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小城姑娘的心事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>小城姑娘的心事</h1>
+            <div class="date">2026-02-11 14:00:50</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜1阴雨连绵的盛夏，张久久站在一眼能望得到头的街道，雨从树叶缝隙间线珠子似得掉下来，她撑着一把蓝色塑料透明伞，从南走到北，又从北走到南，不知道该何去何从？25岁来到这里，她以为很快就能离开，在心里设想过无数次潇洒转身的场景；如今，30岁了，她还在这里，还想着离开，却不敢再有期待。她很想安于现状，可是一想到未来要与这座不会热爱的小城市同甘共苦，生死与共，就有一种三十岁就要死去的感觉，她越来越感到绝望，蒙着被子哭几乎成为常态。她觉得自己和这座熟悉不起来的城市谈了一场蹩脚的恋爱，匆匆忙忙缔结了一场草率的婚姻。她被眼前这种貌合神离但又看似稳定的关系，煎熬的夜夜失眠。</p>
+<p>2张久久喜欢那种匿藏于千千万万的人流之中，跻身于拥挤热闹的地铁一角的生活，看自己的手机，发自己的呆。外面的世界很大，自己的世界很深，两者相得益彰，想起来就觉得舒服。当然，她并不追求上海、北京、广州那种压力巨大，生存空间逼仄的超大城市，但那种基础设施健全，诗与远方并存，房价虽然高但饱含温度的二线城市对她的吸引力是极为致命的。那里几乎有成全她生活梦想的所有设施，差不多的图书馆、差不多的公园、差不多的商场、差不多的咖啡厅、差不多的街边串串、差不多的街头座椅、差不多的各路公交和地铁，令她想想都心甘情愿付出一切去追求。可她，真的愿意付出一切吗？</p>
+<p>并不是，眼前的“稳定”足以撼动她狠心下过的各种决定。“不是谁都有勇气与体制说拜拜的，在这个没人能担保永远的年代，这个‘稳定’现在看起来至少可以担保。”迫于各方压力，张久久不得不被“稳定的体制，体面的工作”牵着鼻子走，但只有她知道，自己是个体制内的流浪者，在这片看似稳定的温水中，漫无目的地游走奔波，不知终点。3其实，她也对抗过，在成家这件事情上，坚持不找和这个城市有瓜葛的人。但是只要是给她介绍的人都是和这个城市密切相关的，因为这一点过于无理的倔强与执着，她错过了很多本来可以过日子的合适人选，却还执迷不悔地在这条不切实际的路上越走越远。</p>
+<p>她说，没关系啊，我愿意来回跑，我愿意忍受距离带来的困扰，总好过在这里和一个合适的人相守到老。不确定的事情，让人感到还有希望，可是确定的事情，连一丝别的期盼都不留给人。大家都觉得纳闷，像她这种不好看也不难看，看起来马马虎虎的人应该不会那么难找对象吧，差不多找一个人不是很正常嘛？只有她知道，现在这种状况，差不多的没几个，差多了的又怎么甘心，完全崩溃与绝望。见过那么多人，当然有她喜欢的，还是那种一眼望过去就感觉被流星砸到，甘心下一刻就为对方粉身碎骨的人。</p>
+<p>可现实往往是落花有意，流水无情，尤其是对于她这种外貌并不出众，性格又异常内向的人来说，这种一见钟情的童话故事发生的几率是零，像木头一样的她又怎么能吸引到别人？她甚至连在微信上发一句问候语都不敢，她恨自己无能，又虔诚地希望对方幸福。对于自己喜欢又得不到的人，她还保有满满的善意和祝福，这一点连她自己都觉得自己伟大。她常常嘲讽自己的阿Q精神还真是无敌！不愿意将就，又不敢争取？</p>
+<p>她觉得自己被婚姻这道题彻底绊倒了，摔得不成样子，还要咧嘴大笑，表示其实我不怕孤独。天知道，她心里怕的要死，又多期待歌里面唱的那个“对的人”及早出现，她觉得自己真的扛不住了，强忍了这么多年，弄到现在，谁一问这样的问题，她的心底就酸涩得像吃了十个生柿子，又酸又涩又苦，眼泪直流。生活怎么这么苦呢？一连几个晚上睡不着觉，每天都是同一天，绝望一天比一天深，生命真是又苦又短啊。雨季是不会再来了？</p>
+<p>可是，我等的人还来不来呢？张久久用两手拨乱凌乱不堪的长发，让它们挡住自己的脸，也挡住看不清楚的无底生活深渊。4每个人都在告诉她，你应该努力啊，你要想着解决问题啊。其实她真的时时刻刻都在想，可总感觉自己力不从心，实在做不到。那么想改变又那么怕改变，那么想拥有又那么怕拥有，张久久觉得自己人格分裂，精神崩溃。</p>
+<p>她完全被悲观情绪左右，陷入泥淖无法抽身，别人看起来还蛮不错的生活，被她过得一塌糊涂。鸡汤文早已不能再温暖她，那些叽叽喳喳、你侬我侬的流行歌她听了就作呕，看见不熟悉的人突然变得友好，心底的汗毛都竖起来了习惯性地防御。世界不再欣赏她的简单，她也就不知从何做起，和世界友好相处。只好把自己装在套子里，对工作，对生活，对婚姻，她彻头彻尾地防御，不敢轻举妄动，也就失去了生命的活力。安于小镇的小城姑娘，才有简单明快的美丽，可现实里，有多少不安的心，是这小镇承载不了的？</p>
+<p>5张久久在听谢春花的《借我》,生猛与莽撞不问明天，说得出口的旦旦誓言，不惧碾压的鲜活？她望着路尽头一闪一闪的路灯，眼泪和着雨水流到她的白T恤上：“没关系，真的努力啊。至少在死去之前不后悔。小城市也阻挡不了我追求进步的决心，多困难，姐都不怕。”她听见自己心里的声音。</p>
+<p>左岸记：这些个心思基本都只是暂时的魔障，迟早是会豁然开朗的。小城姑娘，有理想的追求，但往往并不知道真正属于她的理想是什么，所以才会有那么多矛盾。而当她寻寻觅觅，她会发现那些她想要的其实就在灯火阑珊之处。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

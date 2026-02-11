@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱的七零八落</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>爱的七零八落</h1>
+            <div class="date">2026-02-11 14:14:50</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>梅花开过了，就算是雪落纷纷，大地也不领情，不打算再涂粉装扮了。于是洋洋洒洒也罢，鹅毛妩媚也好，一概落地成水。偶尔树木草地还多情点，薄薄的暧昧着。像不像情人节的玫瑰，每一朵都代表着爱情，却在这一天待遇殊异。垃圾桶里的代表拒绝；抱着的代表温馨，隔夜还抱着的代表温馨加开房；泡在洗澡水里的要么是女汉子，要么就是暧昧和情色。</p>
+<p>有情无情的跟东西代表什么无关，只跟心情有染。爱情这个东西，自从同性都滋滋冒油火花四溅，普罗大众还都见怪不怪，高喊“在一起”的时候，我想非人类灭亡不足以消灭它了。感觉跟病菌的生命力差球不多，不知道什么时候能发明疫苗灭了它。只是不明白，是个节日都往情人节上扯的年代，逢了节日，网络上温情感人的不多，吐槽泄欲的大把，“嫌货才是爱货人”？这个时代，恐婚恨嫁都是小儿科，剩女凤凰男才是王道。</p>
+<p>得不到的是男神女神，得到了也打死不承认和爱情有关。大叔不可控，萝莉不萝莉。放眼望去，满世界走来走去的，都是“恐爱”一族。在酒吧喝杯饮料都能应景装醉；得上一场感冒都感觉全世界都离你而去；失个恋最好明天太阳不要升起，好让你流泪流到过瘾流到死最好。那份代入感和纠结，比爱情这个词汇包涵的含义都丰富的多。</p>
+<p>炸鸡+啤酒是爱情，其他一概不论的时候。你的爱情近鬼神，远人伦。春天来了，倒是太多所谓的爱情怕见光死。有人因为知道见光死，而选择一直在阴暗的角落存活；有多少人因为知道见光死，而选择面对阳光，死了拉倒；有多人想赌一把见光不死，选择上蹿下跳、拼死一搏？宅男宅女们，有本事安排24小时，生活丰富有趣的叫“宅”，那种畏惧世界的、见不得喧嚣的、跟世界不能安然相处的，最多也就是个乌龟精灵附身。</p>
+<p>心在哪，宅在哪，居心和心居，总得和自己和平相处吧。拿着这样的宅，去搏爱的惠顾，其实自己早知道，这样的要不要爱情似乎也不打紧。或者把爱当个物件儿，呼之即来挥之即去，坏了换一个。也可以如万恶的苹果肾机，因为潮流时尚，还没坏也要换个新的。要不咱把爱情当宠物养，猫有猫道，狗有狗路，只要别养个蟒，没事量量你的身体长度就行。</p>
+<p>因为有攻略，有手册，高兴了就宠宠，不高兴再说？这个社会的多元没有体现在温和待人上，都体现在自我分裂上了。自己都千变万化，阴晴不定，还非得要求爱情的对方，学会千般变化，万种柔情。否则一定要拿爱情说事，做不到的一定不是真爱。那这样，天上掉下来的林妹妹，百般心思羸弱身体，只能靠石头里蹦出的悟空哥哥伺候，就那还差着几十般的变化，估计需求观音姐姐化解。</p>
+<p>又或因为他爱我所以我爱他？因为他明天似乎会比今天好，所以今天我决定爱他？因为他能保鲜，所以我决定生产爱情？还是他有肥料，所以我决定种下种子？还是我是藤蔓或是小苗，他是架子或是大树？</p>
+<p>爱情这个东西，你把她想的太圣洁，她就总是给你标注点痦子麻点，反正让你没有完美的可能。总觉得，审视爱情时，每个人都成了处女座、强迫症、洁癖。但你把她想的不纯洁些、物质化些，这样现实了吧。但真开始计较得到失去的时候，你又装扮的跟个天使般的，痛哭流涕。看样子，爱情还是离你远点好。</p>
+<p>反正失去自我的，不管多么轰轰烈烈，怎么看都不像爱情，倒是像了僵尸来袭，蜘蛛涅槃；反而那些两个人打碎血肉，活点生活的水土，建个家庭挡风遮雨，虽然血腥，但似乎还有点爱情的影子。想来，爱简单到只要你自己还存在就好。或是复杂到，有了爱情世界都美好了；再极致些，有了爱情世界关我何事。或是爱情来了，这一天就足够；或是同行过就好；或是这一辈子才足够，下辈子咱换人；或是下辈子再继续。爱情是坚强到可以以死付之，又脆弱到加一点额外的要求都会崩塌的玩意儿。</p>
+<p>虽然一百个不愿意承认，但欲望和物质一定可以打败爱情。但这个跟爱情有没有关系不大，爱情不是武器，最多是个安慰剂。或许人生的幸福本身就是安慰剂，但还是需要追求和体会。爱没有被其他的东西绑架，爱没有被爱绑架。这个爱情虽然七零八落，但将就着还算爱情。</p>
+<p>左岸记：大家努力去寻找吧，找到了，珍惜吧，那种能让自己恒久珍爱的唯一，比起朝三暮四，感觉到的绝对要强很多很多！——今晚喝了十几杯的红酒，但愿这不是醉话？！原文链接：http://www.zreading.cn/archives/4235.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

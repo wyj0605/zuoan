@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如果苦难就是风雨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>如果苦难就是风雨</h1>
+            <div class="date">2026-02-11 14:16:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/霍豪杰 因为近期状态急速下坠，又重新看了《老人与海》与《活出生命的意义》，于荒芜中再次理解苦难，重新审视自己。早上骑车上班，天淅淅沥沥地下起小雨，心中想着什么是苦难，清清凉凉的雨打在脸上，也许这这雨就是生活中的某种苦难吧。因为这雨让我的上班路变得很不方便，路程不仅变得难受，还增加了感冒的风险。但是我又不能让雨停下，我也不能不去上班。如果苦难就是风雨，我会因为这风雨，而放弃生活吗？</p>
+<p>难道我能让苦难停止发生吗？我只能继续前行，我骑到路边树丛下，这能让我少淋一点雨吧。看着身边同样骑行匆忙而过的人，每个人都着急着赶去此行的终点，我们谁也没有办法阻止这场雨。下雨是自然天气的一种，有晴天就有雨天，这无法避免，人生中的苦难也大致如此吧。雨不停地下着，湿透了衣服，也模糊了我的眼镜，让我看不清道路。</p>
+<p>我想苦难大概也是一样吧，让我的身体痛苦，增加前进的负担，无法看清自己的现状。我不得不停到一棵树下，把眼镜擦干，即便我知道它还会再淋湿，虽然这很麻烦，但也庆幸这不是什么狂风暴雨，真遇到暴雨恐怕连打伞也没有用了。如果苦难是雨，那狂风暴雨就是那种常人无法承受的痛苦，但即使来了，我们还不是依然要在这风雨中想办法继续前行？路边的屋檐和天桥下，是很好的避雨处，好多人停在这些地方避雨，等待着雨快点过去。屋檐下也只能是暂时的吧，毕竟每个人都有自己要去的地方。</p>
+<p>也许会有人一直待下去吧，如果人生中有躲避苦难的地方，只要能躲避困难，那就放弃终点吧。熟悉的建筑物，我知道我快要到了，看到身边很多人下车走向办公楼。我想，这人生也是一场场有终点的骑行，我们都要去到那里，然后奔向下一个目标。人应该有两种记录时间的方式，一种是年龄，另一种就是人生之路走到了哪里。人生中会遇到的风雨，是无法避免的，每个年龄都有需要面对的困难，不管是逃避，还是放弃，就像这不停下着的雨一样，你无法避免和阻止。</p>
+<p>你也许可以借居别人的屋檐下，或许躲在家中。家就像是这雨中的厢式面包车，可以躲雨，可以载你去到要去的地方。但是到站了，终究要下车。这雨只是淋在了父母身上，雨可未曾减少。不管怎么说，我到站了，脱掉湿透了的外衣，接杯热水。</p>
+<p>看着窗外的雨，我知道它一定会停，就像是我在风雨中前行，我知道一定会到达。雨会停，苦难也会停的。左岸记： 苦难与幸福是相反的东西，但它们有一个共同之处，就是都直接和灵魂有关，并且都牵涉到对生命意义的评价。如果说幸福是灵魂的巨大愉悦，这愉悦源自对生命的美好意义的强烈感受，那么，苦难之为苦难，正在于它撼动了生命的根基，打击了人对生命意义的信心，因而使灵魂陷入了巨大痛苦。苦难是人格的试金石，面对苦难的态度最能表明一个人是否具有内在的尊严。</p>
+<p>不论遭受怎样的苦难，只要他始终警觉着他拥有采取何种态度的自由，并勉励自己以一种坚忍高贵的态度承受苦难，他就比任何时候都更加有效地提高着自己的人格。所以，苏东坡要说：“莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。”</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

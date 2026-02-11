@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小鬼在家时</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>小鬼在家时</h1>
+            <div class="date">2026-02-11 14:00:25</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/读博在四方（一）小帅的伎俩昨天晚上跟我们小帅微信语音联系上了。本不是打给他的，只是当时他正在独占飞哥的手机，然后我两个就在镜头两边互见了。可他只看了我一眼，就把镜头对着屋顶。我问他，“为啥你妈说你上网课的时候，她就出去了半分钟，你就开始放飞自己，玩游戏看动画片了？”他说，“你听谁说的，完全没有的事”。</p>
+<p>“怎么没有，你把你妈气的都在朋友圈里发广告，说要把你送给别人，结果没有人要，都觉得你太捣蛋”，我笑着强调，忍不住哈哈几声。他有点恼火，“你可不可以别说了，再说就拿棍子打你了，不过也打不着你，你离喃们那么远”。我说：“也行，那咱们说点别哩。你碰上不会做的题，会不会去问你姐姐，她都五年级了”。他说，“我可不问她，我可不敢问她”。</p>
+<p>“为啥？她教不会你吗？”“不为啥！就是不想问呗”。话音未落，忽然就听到他说，“哎呀，伯伯，有别人给喃爸正打电话哩，先不和你说了，先不说了”。</p>
+<p>我说，“你可别哄我”。他说，“真的，哄你做什么昂？挂了，挂啦”。然后就挂了，我也没跟他爸说上话，最后只听到那边的大人们的嘻嘻哈哈笑声，看来不止一次这般操作。这是我们一个聪明淘气又很外向的小朋友，今年他8岁啦。</p>
+<p>（二）小宝的反馈妹妹说她收到了我从淘宝上买的快递，一箱子沃柑。她给我拍照说，果子品相不错，个头不小，关键是真的像我说的很甜。因为我之前跟她讲过，这家的沃柑甜得牙疼，她还嘲笑我，说怎么可能那么夸张。我反复强调皮虽然不好剥开，但糖分真的高，粘手粘手的。突然这时候传来一段三五秒的语音，声音是来自我们家另外一个宝贝小宝。</p>
+<p>宅在家里的一个多月，不用跟小朋友互相比着谁喊得响，所以听起来嗓音没有那么嘶哑了，但是音调还是比较高。就听到他用着很大的劲，可以想象到,他脖子上都挤着青筋，眼睛猛睁着，对着手机话筒喊，“橘子挺甜的啊”。我把手机瞬间拉远又拽近，赶紧回复了一句，“那不是橘子，是叫沃柑”。然后就跟很多很多次的语音聊天一样，没有了下文，没有了回声。因为当事人早一蹦二跳地跑了，顺利完成了妈妈交代的沟通任务。</p>
+<p>再想重现之前他那一次长达四十分钟的无实物表演加解说的情景，大概率是不可能了。当时他从植物大战僵尸的植物种类，一直表演到铠甲勇士、超能战队的正反派对战，一身兼备数角，念白来带动作。听说我这边挂断之后，他还哭了十来分钟，说怎么还没有讲完呢，舅舅就挂掉手机了呢。这是我们一个傲娇又很有想法的小朋友，今年他满6岁啦。（三）小美的表扬按照奶奶这支亲人血缘关系，我们早就建立了自己的一个群。</p>
+<p>只是亲人群、同学群远不如工作群活跃，都避免不了开始时候的初见相聊甚欢，变成了现在的偶尔浪花一现。我把今天晚上做的“面包片+煎鸡蛋+煎番茄”照片放进群里，可能手机打光下颜色鲜艳、品相尚佳，各位兄弟姐妹突然积极捧场、排队点赞。在各种表情、语音中，后来听到一句奶声奶气的表扬，那是我们可爱的小美的点评。她说，“伯伯，你做哩饭，看起来真好吃哩昂”，语音三十秒断了。接下来的一段响起来是，“等你回来，也给喃们做一顿”。</p>
+<p>虽然这一句话在她爸爸的指导下反复发了好几遍，但一词一句的停顿中透着想表达的意愿。这不是我第一次听到这甜度极高的小声音了，上次刚进腊月的时候还邀请我从北京赶回去吃她奶奶做得豆角焖面条。记得那回她在群里说，“喃奶奶，嗯，今黑呀，做豆角焖面呢”，“你们记着，都都来吃吧，做哩可多哩。”别人问她，你们家的那些豆角是从哪里来滴？她学着她奶奶的话，“喃们是夏天，在园里摘哩，后来在冰箱里放着哩，还可好吃哩。</p>
+<p>”这是我们一个喜欢聊天交流的小美女，今年她和她的小哥哥都4岁啦。左岸记：幸运的人一生都被童年治愈，不幸的人一生都在治愈童年。童言趣语，孩子少儿时期的天真浪漫，是最可爱的时候。在跟孩子的交流相处过程中，总能发现孩子的可爱纯真，这些无忌的童言，总能给生活增添许多乐趣和惊喜。把孩子成长中的童言趣语记录下来，如同把一颗颗珍珠串联起来，这也送给孩子们最美的成长礼物！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

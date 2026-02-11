@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>别是一般滋味在心头</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>别是一般滋味在心头</h1>
+            <div class="date">2026-02-11 14:16:30</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/邹近夫 小时候立在青石门柱前，看夜空高得很。听姐姐说，那闪闪发光的星星，是妈妈的眼睛。心里一时有了安慰，便觉得天各一方至多也不过是触摸不到罢了。但并非从真正意义上去理解心头那奇怪的滋味，只是当天夜晚的那个电话，无论多晚我都会等下去，因为从听筒传来的声音，分外温暖而安详。后来的日子里，我总是坐在堂屋前的青石板上，看青蛙左顾右盼地跳下水，全身藏到泥土里，看鸟儿动也不动地立在枝头，眼里映出一片黄昏。</p>
+<p>当青山渐渐退到天边，远处传来狗吠，星空便是唯一一个让我勇敢去面对黑夜和恐惧的理由。多少年后回想起这事，才意识到人生在世，其实一直被孤独测试，甚至猜防。到了青春时代，从离合悲欢中琢磨出一些有关生命的规律来。于是不管是在放学后依依不舍地告别同桌的女孩，抑或毕业后挥别同窗，都能从中隐隐约约察觉到前程万里的可怕之处，只是不能确信这是暂时的还是永久的。有些人不想与你再见，但有些人可能想见也都再难见到。</p>
+<p>不过，我还是会在一个晴天的傍晚，守候黄昏的到来。黄昏，有时令人悲怆万分，有时也令人热泪盈眶，这个字眼包含了人类太多的感情色彩，不知有多少人向她倾诉过心底的悲伤，浓情似水，也不知多少人向她索要过诗和远方，义无反顾。但她始终不紧不慢地来，像洞悉了你所有的心事一样，显得从容自若，最后一刻她又去得十分匆忙，好似一下子将她收了一个傍晚的心事，统统抛洒出来。那一瞬间，整个天空便被色彩绚丽的云霞，装饰得无比温柔而婉转。心事和哀愁，也同云丝般抽丝剥茧，在夜幕降临前消失不见，这大概就是自然界诠释岁月和生命的独特方式，十分惊艳。</p>
+<p>如今，我即将告别两年的同事，也依然希望一个黄昏，便带走我所有的哀愁。仲夏的浈江河畔，乌云低低地压住风采楼的重檐碧瓦，远处的深林官邸不见有春来过，也不知道秋会不会来，但眼前这古老的栈桥在暴风骤雨之下黑到了尽头。今后我还会来吗？那一张张不会再变的境况悄然浮现在眼前，昨日的生活已经毫无悬念，明日的诱惑依然让我无从抗拒。尽管我知道风雨过后，天空一定更加明净，但我还是会在记忆宣告褪色的这一天，固执地将曾经那些过得漫不经心的日子，当作一丝不苟的情致去回味，那些可以想起来的细节会像一个可爱的迷一样，令我享受到时光擦拭干净的画面带来的乐趣，同时也能让我更深刻地体会到光阴一去不复返的悲伤。</p>
+<p>犹记得第一次来到南岭，因为陌生，于是渴望了解周围一切，因为害怕从此销声匿迹，于是迫不及待向城市最高的楼宇走去，试想在迷乱的眼神交流中，冲刷掉心底那层画着孤独的薄薄哀愁。我四处打听百年东街在哪儿？因为只要把陌生的街角放进心里反复提炼，只要对城市的轮廓有了大致印象，便能迅速地适应一个地方，生存之道泄露了应对离乱的天机，但这种招数也会让人迅速地遗忘另一个地方。当我走到五里外的大桥上，细看两边的风景，才发现前后是滔滔江水，左右是望到不尽头的路口，倒映在水里的城市，似乎静得无边，还有渔人码头边，一蓑笠老翁也似在守望着昔日那千帆竞发的江面。夏天的风，荡漾了碧波，也唐突了老翁，印象、轮廓、薄薄的哀愁，全部是易碎的景象。</p>
+<p>周围一切太像告别宝庆前的那个黄昏，桥是一样长的桥，连形状也是，只不过那时有狂风趁势卷起落叶，铺天盖地。当时我怀疑自己落入了时空的陷阱，一下子回到了从前，但阔别重逢的境况依然没法让我看清真相。倘若把每个人的经历拍成一部电影，再看一遍，你还会坚信自己是主角吗？道貌岸然的背后，算计可能是为见利忘义开脱的一种方式罢了，至死不渝的想象到最后才向我坦白，那些孤独的驿站，原本就注定是我余生的风景线。我试图拔开眼花缭乱的迷雾，发现晚霞早已把一切卷进了黄昏里，就这样，我顺利地握别了过去。</p>
+<p>不过我也很快忘记了上次离别是何时？甚至忘记了那些人，但我始终记得送走我的那一地落叶最后飘向了北方。可那些没法装进记忆的时光，当真可以算生命吗？如果可以，那么大棕树也许不会被剥下叶柄，高山榕也不会在身上刻下年轮。从此我便在这儿开始了新的一轮播种，婆娑的疏影是路边香樟的笑容，锈迹斑驳的护栏是刻录岁月的光盘，枯树红墙，青草疯长，拍打巨礁的水浪，歌唱着浮世不变的惆怅。</p>
+<p>后来，我常常来到百年东街，有时也会去丹霞山等待日出和日落。把生命看作一场修行，对的人才能给你心里安慰。你有想过记住我挥手的样子吗？还是孤独，向来是人的本分。每天处在离乱的哀愁之中，习惯了重复忘记，但有没想过，这么大的世界，随便遇到的一个人都可能是别人做梦都想见，却见不到的人。</p>
+<p>明白了同路人可能意味着永不相见时，忽然无比爱恋这条河流、这条栈桥、这座官邸，但愿我坐在百年东街窗前的姿态，永远倒映在清澈的河波里，心是一叶泊岸的舟。一生不忘一件事，一世只记三两人，可能并不是一件容易的事情。我等了一天的黄昏，并未如愿带走我的哀愁，我也无法遗忘这两年的时光。从来没有通用的解惑方式，大杀风景的喧哗，可曾让离人有备无患？倘若把每个人的经历拍成一部电影，当孤独是背景，再看一遍，那么你也许会坚信自己是主角。</p>
+<p>分道扬镳之际，竟然一时找不到告别的话，余生很长吧！所以大可朝着各自的方向奔跑，在这充满阴晴不定的世界里，相遇实在太短。但愿你记住我挥手的模样，在这舟离古渡的傍晚。知音难觅，世道汹涌，只有惺惺相惜的同路人，才会给对方的心灵作以港湾。左岸记： 不必与自己告别，带上自己，游历四方，为自己不断加权，当你的承受是人世万千，那么自己就没有什么不可容下。</p>
+<p>邹近夫简介：豆瓣签约作者。爱生活，爱音乐。生于安详而轻舒的村庄，却活在人声鼎沸、环境嘈杂的建筑工地。工程是我的合法妻子，写作则是我的情人。https://read.douban.com/author/63722106</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

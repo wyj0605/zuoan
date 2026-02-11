@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三个姑娘一场寂寞</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>三个姑娘一场寂寞</h1>
+            <div class="date">2026-02-11 14:15:41</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>&lt;p id="filepos1757409" class="calibre_"&gt;&lt;span class="calibre1"&gt;&lt;span class="bold"&gt;三个姑娘一场寂寞 &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;文／李耍坏&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;其实有些事情从一开始就有所预料。只是不愿意往下想，所以拼命的想要抓紧，想要去改变，无奈越做越错，越错越难过。&lt;/p&gt;&lt;p class="calibre_"&gt;你对我的好感从来都没有到想要依托的感觉，也只是某一刻想过试着去接近，可越是接近越是惊觉，所以只能托辞慢慢了解。你也想过开始，可是我的幼稚，葬送了这份意愿。或许我的臆测过于片面，但不绝于无。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;没见面的时候可能感觉还好，见了面不免有些落差。愿意陪我也是你的一番好心肠，也是在是与不是间徘徊。所以一切才刚刚好。一开始你就觉得我可怕，能够洞穿人心，接触之后从害怕慢慢演变成抵触，直到再也不想理会。你也想尝试着给自己一个新的开始，奈何我却不是那位意中人。</p>
+<p>或许我的疯狂也曾燃起了你对曾经或现在的某种遗忘。&lt;/p&gt;&lt;p class="calibre_"&gt;一切摆在面前的真与假都未曾改变我对你一片痴情的初衷，我很清楚从前到现在我从没有如此深爱过一个人。也不会因为你的决定和不愿意，去抹杀你存在于我心中的那份美好。鼓起勇气吧，努力去追寻你想要爱的人。而我在你的故事里，也就一个为爱痴狂的疯子。</p>
+<p>遗憾的是，让你不开心了。&lt;/p&gt;&lt;p class="calibre_"&gt;我们之间再也回不去从前了，还好有个故事可以回忆。多年以后，这份回忆将是多么的珍贵，关于我和你，关系一个陌生人和另一个陌生人的美好一瞬，如同昙花那般让人眷恋。尽管我是如此讨厌陌生人这个称谓。&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;&lt;p class="calibre_"&gt;自私的说。</p>
+<p>如果早一点你能够多关心和了解我一些，或许我早就对你心动不已了。可你不是这样的人，所以我和你之间总是冷冷清清，热闹不起来。&lt;/p&gt;&lt;p class="calibre_"&gt;如果两个人想要更进一步的发展，就必须多一些的了解。或许我早该看穿你的心思，送上我的无微不至。可是我也不喜欢这样的开始，因为看不到真诚，这种不确定只会将我们的关系越拉越远。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;猜不透的事是最伤人心的事。跟你说这些话我也觉得奇怪，可能是我未娶你未嫁的心里在作祟，也是我这个人太在乎爱情，所以总会犹犹豫豫地放不开，总觉得自己应该追求些什么。&lt;/p&gt;&lt;p class="calibre_"&gt;但生活总是不尽如人意，总想着差强人意的绝地反击，往往却是更糟，或者我应该把你当个朋友，好好的说说话。&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;&lt;p class="calibre_"&gt;此刻我在认真考虑我们之间到底是怎样一种存在关系。朋友这个称呼在我们之间似乎很模糊，也可能是我单方面的想多了。</p>
+<p>以前我会觉得我在你生活中是因为某人而存在，尔后细想来，这种想法太过狭隘了。我至今都无法否认你曾是我喜欢的那一款女生，所以不时的会跟你说些暧昧的话，有些话是无心的，有些话是有意的，无非就是给自己空虚的心灵聊以慰藉。&lt;/p&gt;&lt;p class="calibre_"&gt;可是我们之间又不能以这样一种关系依存下去，因为这样的关系会在某一天说到头就到头了。我不希望这样。我想我们能做一辈子的知心朋友，我把我的故事说给你听，你把你的故事讲给我分享。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;我得为我的这个决定做点什么。有些话有必要说在前面，我会跟你交代，你想听的关于我的所有事，当然或许你并不想知道，可是作为一辈子的朋友，真诚是基础，这便是我的态度。你想说的事我都听，或者安慰，或者分忧。&lt;/p&gt;&lt;p class="calibre_"&gt;我们之间无非就是一层窗户纸，现实中可能不存在，但意念中不可避免。为了不给彼此带来伤害，现在就要将这层窗户纸保护起来。</p>
+<p>就算某天真要捅开，那也将是真情意的流露。不管你在哪里受伤害，请记住还有我的存在。&lt;/p&gt;&lt;p class="calibre_"&gt;如果，如果有一天我们真的都累了；如果，如果有一天我们都被剩下了。只要你还愿意，我便给你一辈子。&lt;/p&gt;&lt;p class="calibre_"&gt;当然这种最坏的结果最好都不要出现，就算最后出现了，等待我们的也将会是幸福的起点。</p>
+<p>我想交你这个知心朋友，这么些年来，第一次我想认真对待我们之间的关系。&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;&lt;p class="calibre_"&gt;这个冬天下雨天真多，这么些年来第一次在一个冬天撑坏一把伞。越来越不喜欢这座南方的沿海城市。这里的天总爱下雨，这里的人总在迷失；这里的海全是眼泪，这里的爱情太过奢靡。浮华是这座城市的金字招牌，而我总在招牌背面徘徊。</p>
+<p>当有一天我走到了金字招牌的正面，只看了一眼，便被那金灿灿的光芒灼伤了双眼，于是我便看不清楚你，看不清楚爱情，看不清楚刀勒儿和人民币。&lt;/p&gt;&lt;p class="calibre_"&gt;如是，诚惶诚恐。‘&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;&lt;span class="calibre_219"&gt;左岸记：&lt;/span&gt;&lt;/span&gt;&lt;span class="calibre_219"&gt;我仿佛在看一封信，一封写给自己的分手信。在一份情感里，如果爱不是平等的，不是彼此都想要的需求，那么总有一方爱得卑微而伤感。沉浸在伤感里，悲伤也成享受。</p>
+<p>能告诉我“三个姑娘”是指什么吗？&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:0pt"&gt; &lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

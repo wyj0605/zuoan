@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤掉的是生活 之 学车的那点事儿</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>过滤掉的是生活 之 学车的那点事儿</h1>
+            <div class="date">2026-02-11 14:14:36</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/万涛学车是件很有趣的事情，整天研究离合、刹车、油门怎么踩当然没意思，有意思的还是人，人是这个世界上最有意思的动物了。报名的故事为了学车，万某人一共报了三次名，第一次是在济南章丘，结果报完名没多久就调回北京了，于是退了；第二次是在东营，结果报完名半年后还不让我考理论，于是又退了；第三次就是这次专程回武汉学车，过程也颇为曲折。原本想着在武汉地头，找个关系打打招呼，学车能学的快一点，于是托人找了驾校的老板，该说的说到了该送的也送到了，本以为万事大吉，等着听安排享受SVIP待遇吧，结果……事后学车跟小伙伴们聊天，聊着聊着越发觉着不对劲，怎么好多人都是走的VIP通道，不用上交警大队学习，直接体检直接考理论，一打听才知道，他们都没找关系，再一打听交的学费居然比我还少，好吧，我被杀熟了。后来的事情就更逗了，驾校迟迟不给安排考理论，说什么外地户口的只能等通知，我一怒之下提出退钱不学了，老板娘一看我来真格了，又是威逼又是利诱，威逼我退钱不能退全款，至少扣掉500块，利诱我再帮着协调协调，看看能不能插队。万某人年少气盛，火气愣是没压住，拿出见过大世面的范儿，甩了几句狠话“我已经退过两次了，能扣多少钱我心里有数，再说我这也是关系介绍进来的，撕破脸也没什么意思”，于是第二天早上八点我就屁颠屁颠去考理论了……这个事情过后，我不得不这么想，老实人的权利在这个神奇的国度是得不到保障的。</p>
+<p>前些天看到国内某个知名的投资人写文章称，“选择创业者更倾向于选坏人，坏人目标明确结果导向突出，为达目的不择手段更容易创业成功，老实人不适合创业”。最近在学习社会学，南京大学翟教授说，中国是家文化，西方是团体文化，中国社会讲究私德，西方社会讲究公德，在中国的私德是先看对象再决定使用什么德，在西方是先看团体组织规章制度，在限制范围内的按规矩办，在范围外爱怎么办怎么办。于是出现了，一个人在家很孝顺在外很无情，发生自己身边的事情很热心，发生在陌生之地很冷漠，创业打江山的时候对员工很好，成功之后高高在上颐指气使等等奇怪的现象，中国人的德好像有时候很有，有时候又很缺。扯远了，公德的事情交给大大，我们还是回到学车的屁事儿上来。擦车的故事学车的人估计十有八九都干过这事，早上去驾校，先擦车再开始练。</p>
+<p>不同的教练处理这事的方法也是不同的，从中多多少能看出些领导力的差别。先说一个很失败的例子：我爸去年学车那会儿，教练点名要求他擦车，最后结果是两人大吵一架，我爸要求换了教练。为什么会是这个结局呢？原来我爸在所有学员里面是年龄最大的，比教练年龄还大，五十多的人，而且还有个大啤酒肚，擦车弯不下腰，教练上来想立威，结果找错了对象，碰到了脾气更火爆的我爸，自然就悲剧了。再说一个大部分教练采用的办法：大部分教练不会说什么，谁来的早谁擦车，也不硬性规定，反正总是要擦的，不擦不准开始练，有点无为而治的意思，谁也不得罪。</p>
+<p>结果是该组的学员越来越晚，都指望别人先去把车擦了自己再去，最终耽误的是大家共同的学车时间。最后说一个比较高明的教练采用的办法：在同一批学员里面，找一个天天都来学车的人指定为班长，班长全权负责处理擦车这个事情，对应的教练指导班长的时候会细致一些，下班收车的时候也偶尔让班长多练一把，于是班长的积极性上来了，个人创造力也激发出来了，他会想办法去找到他的“班长”，自然而然擦车的问题就很圆满的解决了。这个组的学员，关系处理的很融洽，普遍来的早擦车抢着擦，对教练也会来事儿，其乐融融。不禁想起前两天跟京雪聊天时说到的阶级问题，资产阶级想统治好无产阶级，最简单好用的办法就是从无产阶级中挑选出一个统治者。在其他领域，老师与学生、教练与学员、老板与员工、侵略者与殖民等等，管理背后的逻辑是相通的。</p>
+<p>买水的故事这又是一个很现实的故事，不得不说，人与人之间更多的时候是一种价值互换的关系。驾校明确规定，不允许教练收红包收烟，收了就要罚钱，于是大家都很规矩。教练也挣不到什么钱，基本工资1500元/月，提成50元/人（拿到驾照），按这个驾校每个月通过考试人数估算，一个月也就是个4000-5000元的收入。于是，买水的故事发生了……教练偶尔会不经意地点拨一下我们，说什么“当教练也挣不到什么钱，对待每个学员都认真负责手把手教，同样的问题一天要说好多遍，经常把嗓子说干了说哑了，凭良心的还知道递根烟买瓶水啥的，不凭良心的驾照拿下来都没跟教练说过几句话”，又或者说什么“出门在外要学会做人”之类的话。很有意思的是，教练们都有自己的茶杯，从来不喝学员买的水。</p>
+<p>还有更多有意思的小现象也跟着发生了：比如某个学员来晚了，给教练买瓶水，教练立马就安排他插队了；再比如某个学员经常给教练买水，那么你就会很神奇的发现，这个学员好像经常性地比别人多练了一两把；再比如同样的错误，你犯了教练会脾气暴躁地吼你，好像他就是这么个性格似的，转眼间轮到别人却享受到了无比温柔的待遇，顿时你就傻了，教练好像人格分裂一般，王熙凤与林黛玉双模无阻切换，切换触发条件就看你买没买水。万某人在外工作多年，对这种东西也算免疫了，在中国很多原本你该享受的权益就被会不会做人这种东西给磨掉了，比如上学逢年过节给班主任送点礼，不送会显得你不会做人；比如离职的时候不能跟公司算账算的太清楚，这样会显得你不会做人；比如找亲戚朋友帮忙，不论多亲不论关系多铁，若不感恩回馈依旧会显得你不会做人……经历过的种种导致我现阶段对会做人的理解就是“该送的送，该亏的亏，该忍的忍，不要有个性，要融入”，都说“不识庐山真面目，只缘身在此山中”，到如今万某人也不知道自己的做人观到底是对还是不对了。再补充一个小现象吧，有一回万某人发狠，一天给教练买了两瓶红牛（上午一瓶下午一瓶），然后就真的享受了一回SVIP服务，教练手把手扶着车身，一个点一个点地指导我纠正我，那感觉真TM爽！对了，忘了说最关键的了，教练们白天收的水，晚上都退回小卖部变现了……原文：http://www.292la.com/archives/2553左岸记：如果是一个完全不了解外面世界的中国人，或者是一个完全不懂中国的外国人，要了解中国都不会那么容易。但是，林语堂不同，他学贯中西，横跨东西方文化，更重要的是，他的生活中有着深厚而丰富的中西方生活背景，作为一个有着中国西方文化背景的中国人，来观察中国与中国人，自然会有比较客观公正的结论。</p>
+<p>那么中国人的性格在林语堂眼中究竟是怎样的呢？幸运的是，经过这么多年的洗礼，更多开放进取性的心态正不断地融入到现在的中国人性格当中。原文链接：http://www.zreading.cn/archives/4404.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

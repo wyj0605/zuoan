@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好姑娘的自白</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>好姑娘的自白</h1>
+            <div class="date">2026-02-11 14:14:39</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/祭酒青词爸妈刚离婚那会儿， y 的生活没有太大的改变，依旧和奶奶生活在一起，吃奶奶做的饭，跟奶奶一起睡觉，和奶奶吵架，和奶奶聊天……然而，内心的变化只有自己能察觉到。记忆犹新的有两件事。那年爸妈离婚 1 年，y10 岁，长头发，扎两个月牙形的马尾，是个俏丽的小姑娘。她妈从城里带回来 5 对发卡，她妈想把其中一对最特别的留给 y，其余的给 y的表姊妹，可是那一天吃完表姐的庆生酒， y见到表妹头上那对在暗夜里会闪光扑哧翅膀的小蝴蝶的时候，她的眼神明显暗淡了，心里嫉妒又自卑，妈妈还是不愿意把最好的给我啊！那年爸妈离婚 1 年半，y 和姨妈家的表姐到南京，到妈妈那个时候住的地方过暑假。</p>
+<p>她妈给表姐买了一套漂亮裙子， y心里很难受，因为她自己穿的是旧衣服，别扭又很任性的在那里熬着，怎么都不是滋味。她妈觉味出，说：“小气鬼，你是在吃醋吗？”她哼的一声，说：“你答应给我买作文书的！”其实心里还是很在意妈妈对别人好。也不知道怎么的，她对她妈就是一百个一千个有疑虑，总觉得她妈对她不是最好的，说白了就是缺母爱。</p>
+<p>慢慢的她长大了，去了陌生的城市一个人生活，才了解到其实自己朋友这么少啊！除了上班时间，其余都是自己一个人，挺孤独的样子，外边儿人看了简直就是一个小可怜。可是她不觉得，她有自己的世界。有一次公司的女同事都在讨论说牛奶可以美白，可以补充维生素 B ，长溃疡的，每天喝肯定以后不会长…… y心想我可不就是只要换季就长嘛！看来得喝牛奶试试。</p>
+<p>又听到同事说，我们那儿的送奶工可帅了！别人故意打趣，你怎么知道？别人早就送完奶了，那会儿你还没醒呢！同事又说，每月底他都会来收牛奶费啊！大家一阵怪笑！</p>
+<p>y 又想，看来订了牛奶就可以跟她们一起玩儿了！y是孤独的，即使拥有自己的世界，也是一个孤独的世界。她的孤独跟那个松子差不多，就是那个《被人嫌弃的松子的一生》的那个松子。她的心里没有家，没有人会温柔地对她说：“你回来啦。”她没有被人记在心上过，或者说她不知道谁会把她记在心上，所以她都是一个人活，一个人扛。</p>
+<p>一个电灯泡坏了，都要等到周末自己去找型号，自己买回来，自己站在凳子上按好。这个时候她是很想要一个男人在身边的，她虽然没有感受过男人怀抱的温度，但是她至少知道，有个男人在至少可以帮她干体力活！这样毫无归属感的孤独，当她在网路上风生水起的时候愈加明显。深夜独处之时，一人拥被而眠，以婴儿蜷曲在母体的姿态却丝毫不想入睡，她闭着眼睛，摸着胸口，那种孤独像要将她的心推了出来，身体里空落落的。她爬起来，开启昏黄的小夜灯，无心阅读那些她白天爱不释手的书籍，摸摸这本摸摸那本，像是想要寻找一碗可以安抚她的心灵鸡汤，可惜她没有找到她那一碗。</p>
+<p>“还是上会儿网吧。”她心里这么跟自己说。娴熟的触摸到那个开机按钮，等30 秒的时间，她觉得这种静悄悄的夜里等这 30秒真漫长，她想着群里的朋友们都睡了吧，白天看的网站应该还没有更新吧……最后她想起了白天同事们的话，她等着电脑打开，想要找到可以订牛奶的网站，找到的时候她又茫然了，这么多品种要订哪一种好呢？接着她又开始研究牛奶的品种，忙活了大半个夜晚终于选好了，看看手表已经凌晨3点，这时候她满满地期待她的牛奶什么时候到来。紧接着三个月的时间， y 都很有兴致地拎着玻璃瓶装奶晃悠到公司，她是兴奋的，她想用这个小细节告诉她们，看，我也是跟你们一样的哦。</p>
+<p>可是那一次，她还是被人推出去了。公司有一个部门成天在外考察，不是我们想象的喝茶散步谈生意哦，是真的在外考察，一个小区一个小区的考察。他们说人手不够，不如派个代表来体验生活吧，当这个消息传达到y所在的部门的时候，大家都推脱说周末有安排呢，她也好想说自己有安排，可是她没有朋友哪儿来的安排呢？她难道安排自己在家等牛奶吗？多可笑，多幼稚的理由！</p>
+<p>她很想说我有每天喝牛奶，我知道很多牛奶的品种，我还有研究过高钙的很好最好还要脱脂，浓香型的涨价了……我想跟你们做朋友，你们不要推我去……可是这真是太滑稽了，她想想都觉得滑稽，在心里疯狂的自嘲着。可想而知，最后是y 上。而周末天气预报倾盆大雨，大家都知道。她一个人打着伞，昏昏沉沉地走在马路牙子上，路过的车子溅了她一身水，她都无感，她现在的心就跟这天气差不多，比那朵乌云还要沉重，只可惜她哭不出来。哭出来又给谁看呢？</p>
+<p>徒惹买菜的大妈笑话。还是好好的干好活吧，就这么边走边记录边打伞，这伞就只能遮住她的头，全身都湿濡濡的。离到春天还有好长一段时间，雨水冰凉，微风刺骨，南方就是这样的冷到人心里去，扎到骨头疼。回家她就感冒啦！请了三天病假，雨下下停停，她卧床不起，像要溺死在梦里，埋葬在床上！</p>
+<p>好不容易到了第三天傍晚，她熬不住了，扶着灌铅的头，坐起来，哗啦拉开窗帘，天色麻麻黑，雨水洗刷过的树叶却锃亮，闪得人眼睛疼。四季、天气、植物，这自然界的东西谁会在乎你这个如蚍蜉一般的姑娘的伤痛，只有你赋予他们情感，他们才会以这种鲜活的骄傲嘲笑你的无病呻吟！“好姑娘要活的像植物！”这话深深地震撼了她的心，她都有点颤抖了！拿着牛奶箱的钥匙，打开，她看见三瓶牛奶占满了空间，她数了数：“ 1 、2 、 3…… 3 、2 、1，哆来咪，咪来哆。</p>
+<p>”她笑了，牛奶工没有忘记她。她抱着牛奶进了屋子，叉着腿坐在沙发上，开了一瓶，大口的喝着！眼睛瞥见大衣柜镜子里的自己，真漂亮啊，眼睛弯弯的比什么时候都好看，一点病态都没有呢。第二天早上牛奶工打开 503 室牛奶箱的时候，发现奶瓶里插着一朵粉玫瑰，还有一张信笺，上书“谢谢你！拜托了！</p>
+<p>”慢慢的春天来了，小区里早发的桂花都要开了，月色邀人醉，携香浅入帘。左岸记：现代人的生活状态是越来越动物化了，人们每天都拼命地为利益追逐，既想抓住自己的奶酪，又想抢走别人的奶酪。动物界“弱肉强食”的原则，被无限地放到了人类社会中。社会达尔文主义成为许多人信奉的原则。人们在拼抢和争斗之中得到欲望的满足，同时，也受到伤害甚至落入绝望的境地。</p>
+<p>生活越来越繁复，而心情却越来越浮躁；人与人走得越来越近，而心灵却越来越远隔；楼越来越高，人情味却越来越淡薄；电视越来越花哨，能辨别黑白的人却越来越少。像植物那样活着，不是什么时尚，也不是什么小资情调，而是一种看待和处置生活的态度。一株植物，靠吸收阳光、雨水，自然生长。用环保的方式，经营自己的工作、生活，享受最真实最本质的快乐，用简单的生活方式，体会生命本质的喜悦，而不是像动物一样，将快乐寄托在口腹和感观的刺激中。也许我们无法真的活得像植物一样淡然，那么至少要懂得尊重万物的轮回。</p>
+<p>正如《狮子王 1 》中木法沙对辛巴说的话：木法沙：瞧！辛巴。阳光普照之处皆是我们的国土。辛巴：啊！普照之处皆是我们的国土。</p>
+<p>木法沙：一代王朝的兴衰就像这日出和日落。辛巴，总有那么一天。太阳将会随着我的时代的结束而沉落，但会随着你做新国王的而升起。辛巴：所有这一切都是我的吗？木法沙：是的，一切都是你的。</p>
+<p>辛巴：阳光照到的地方都是我的，那背阴的地方呢？木法沙：那地方在我们的领土之外。辛巴，你切记千万不要到那里去。辛巴：可是，作为一个国王你可以做你想做的事呀。木法沙：噢，做一个国王并不意味着什么时候你都可以为所欲为，还有更多重要的事要做。</p>
+<p>辛巴：还有更多重要的事？木法沙：存在于这个世界上的，你眼睛所见到的万物之间都是着一种微妙的平衡关系。作为一个国王，你需要明白这种关系，并且尊重世间万物——无论它们是缓缓爬行的蚂蚁还是跳跃的羚羊。辛巴：可是，爸爸，难道我们不吃羚羊吗？穆法沙：我们吃，辛巴，听我来解释。</p>
+<p>我们死了以后，尸体就会变成青草；羚羊就会来吃青草。我们就是这样互相连接，共同存在于这个巨大的生命轮回之中的。原文链接：http://www.zreading.cn/archives/4375.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

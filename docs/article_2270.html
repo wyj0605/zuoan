@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不复艺术，复人性</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>不复艺术，复人性</h1>
+            <div class="date">2026-02-11 14:00:54</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/邹近夫4月15日晚，巴黎圣母院失火。这个位于塞纳河畔，有着八百多年历史的哥特式建筑，一夜之间化为乌有，这大抵是二十一世纪以来人类文明最大的灾难，没有之一。我回放过当时火光冲天的新闻，一遍遍地看，我也上网搜查过资料，反复证实这不是空穴来风，也不是胡编乱造的谣言，才终于接受了这个事实。有人忙着查究原因，试图揪出元凶，分析造成火灾的危险因素、木质结构的救火困难程度、消防软质水管的高度...这使得消防技术规范强条一一呈现在大众视野，以此给建筑行业、文物保护，敲响警钟。有人忙着宣泄圆明园的气愤之情，说什么“天道好轮回，苍天饶过谁，”甚至希望火势来得更猛烈些。</p>
+<p>家国仇恨、江湖恩怨当真会世代相传吗？又为何圣母院的尖顶被烧断，滚滚浓烟遮天蔽日的画面，映入眼眸时，让那么多人落泪了？克柳切夫斯基说过，“如果丧失对历史的记忆，我们的心灵就会在黑暗中迷失”。但铭记历史不是为了报仇，也不是为了落井下石，是为了珍爱，珍爱现在和平的生活，是为了认识，认识侵略行径而有所警觉，是为了自省自强，清醒地迈向未来。“大惑者，终身不解；大愚者，终身不灵。</p>
+<p>”大是大非面前，纵使一个国家、一个民族有过再大的错误，狐兔之悲，都不应该豆萁相煎。不过，也有人忽然想起乾隆皇冠、雍正紫金梅瓶、七子狩猎图的无辜，盘点世界古文明的损失；有人视此为最佳的投资机会，以公司名义捐赠重修。尽管可以恢复到以前的模样，甚至更好，尽管可以让后世再睹巴黎圣母院昔日的风光，但是文化积淀可以重修吗？修好之后还是以前的巴黎圣母院吗？艺术虽然可以恢复人的感觉，但重修的复古艺术形态与当下的文化建筑有什么区别呢？</p>
+<p>破镜重圆不是，失而复得也不是。如果支离破碎的历史可以毫无痕迹的重新仿制成完好无缺的文明，那么一个时代的荒诞便会重新唱响消亡的旋律。自欺欺人是一种顽固不化的罪恶，掩人耳目也是。我企图把照片和依据保留下来，在有生之年，替善忘者记下刻骨铭心的痛苦。只是这些余痛面前，一想起曾经的未了的心愿便会感到重塑文化的可耻。</p>
+<p>我曾遥想过塞纳河畔的风，扑面而来，清新怡人，稍稍带点淡淡的腥味，足以让人沉浸在浪漫、优雅、惬意的情境里；那儿的女郎，回眸一笑，捕捉到精致、细腻、妙曼的镜头，那儿的美景...如今这一切万劫不复了。“少年听雨歌楼上。壮年听雨客舟中。而今听雨僧庐下。”世事应该如此，时光去了，不必再盼它回来。</p>
+<p>伤痛、悲哀、不幸统统容易被岁月风化的时代里，我们需要一次文化覆没的遭遇。一旦修复，那些叫嚣着善恶因果的人，决不会比面对一片灰烬，更容易幡然醒悟。还会发出笑声吗？还会仰天长啸吗？反而是一堆废墟，能让人怀想起往昔那心灵高尚的敲钟人、热情天真的吉ト赛女郎、道貌岸然的副主教。</p>
+<p>左岸记：历史必需被铭刻，过往的错误永远无法被粉饰，值不值得重建，要看价值几何，如果所有的破坏都要保留，那么地球只会是一片废墟。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>铁树友情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>铁树友情</h1>
+            <div class="date">2026-02-11 14:00:21</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/一小点 “喜光，喜温暖。不耐严寒，生长缓慢，10余年以上的植株可开花，且不易看到开花，固有“千年铁树开花”的说法。这是百度里对植物铁树的一段介绍，要是用一种植物来比喻友情，想必它也甚是贴切，至少在我看来如此。人的这一生其实是一个不断筛选的过程，友情亦是如此。孩提时，我们定义的好朋友是愿意将酸奶和面包与你分享的那个TA；再长大些，就变成了那个经常与你一起上下学做作业，在食堂里互相抢着吃彼此午饭，会将自己暗恋的某个人只告诉你的那个TA，仿佛有一种无形的约定在互相牵绊着什么。</p>
+<p>有一天，当纯粹烂漫的学生时代结束了，回首间才发现，那些“TA”不知在何时何地，消失的连个碎片都不曾剩下,能让你记起TA的，也只有那罐酸奶、那片面包，以及TA喜欢过的那个人。当然，你身边又会多出一些个“TA”，这自然也不会是故事的最后，你还是在不断的筛选着，“滤网”会越来越细密，能掉下去的人也越来越少，直到哪一天，这个滤网无孔无缝，再去看里面剩下的人，十有八九就是你可以用“一辈子”这个有些滑稽的年限词来形容的朋友。F是我认识了10余年的一个朋友，期间有近五年的时间对我而言是空白的。在我看来，很多关系淡了的原因并不是你不联系我、我不联系你的无聊矜持。而是我主动热情地打了电话吐诉衷肠，我怕你会尴尬，可你那头传递给我的信息却是：我很忙，有空再聊。</p>
+<p>那五年间，我不止一次暗下决心，要彻底将F从我的世界中抹掉，以至于日记本里隔三差五就会缅怀一下我们的友谊，然后再给自己一个释怀的理由，想起来也是挺傻的。这或许就是怨念在作祟，热脸贴了冷屁股，好像挺丢身段儿。而现在想来，原来是我忘了给这株“铁树”最重要的阳光，而是自顾自的将我认为珍贵的肥料一直施加给它，可能反而让它枯萎的更快，开花更是遥遥无期。庆幸的是，最终我们都回到了那个开始播种它的城市，并且希望通过共同的努力，让它可以好好生长，开花也好，不开花也罢，即便它是一个不曾开过花的铁树，也不会有人因此否认它是一棵铁树的事实。周末里一个阳光晴好的午后，我们并肩走在街上，人很多很吵，我们仍可以心无旁骛的聊着从前今后。</p>
+<p>她的样貌未改变多少，仍旧那么漂亮的不像话。那双大眼睛像刚认识的时候一样，澄澈透亮，不过学生时代的婴儿肥已褪去不少，取而代之的是稍显棱角的下颌，不尖不圆的恰到好处。她是个挺不爱照相的人，空间里存着唯一一张她的照片，是初中那种带着马赛克质感的自拍。所以我是真的很久没那么仔细的看过她了，那一刻我意识到，我是想念她的，且从未停止过的想念。只是太久见不到的人，都会让人有种逐渐失去的错觉。</p>
+<p>那天我们聊了很多，踱步在熟悉的大街小巷，坐在洒满阳光的操场上，其实具体说了什么我都已经记不大清楚了，内容有些杂乱，可不知道为什么，印象最深的却是戴着耳机一起听了一首那段时间我在单曲循环的歌，歌名叫《Some》，我记得很清楚。她说她很早就给我推荐过这首，我说没有吧，她说肯定有，然后我俩就开始了幼稚的争执，像两个小孩为争一个玩具一样。恍惚间，时光仿佛又倒流到十年前，两人为一道数学题的答案相左而争的面红耳赤，那时候可能真的会因为她的固执己见有些生气，但那一刻，只是觉得她没有跟我见外，五年未见，我不确定她改变了多少，可还有不变的一部分，是留在我们之间的。铁树喜光，生长缓慢，10余年以上的植株才有开花的可能。十余年的时间，听起来真的是让人觉得等待无望，大多时候，它仍是以树的方式呈现在我们眼前。</p>
+<p>可现在，我已不再在意它是否开花，一心只想如何让我的这棵铁树享受到充足的阳光，看着它一点点长大，健康茁壮的成长。看着它一天天变得结实，枝叶繁茂，炎炎夏日能投来一片阴凉给我，风雨交加时能抽出一片枝叶给我。我还要求它什么呢？我不想只为等一次花开而错过了一次又一次的十年。与之相比，我更在乎可以温暖彼此的日子。</p>
+<p>每想起与朋友F那些年间的迂迂回回，就会不经意的感激着什么：她又回来了，还好，她回来了，让我的孤单又少了一分，让我的铁树又长了一寸。左岸记：好朋友，就是那个懂你，却依然喜欢和你一起的人。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

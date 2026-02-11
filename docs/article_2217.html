@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青春里的绿皮车</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>青春里的绿皮车</h1>
+            <div class="date">2026-02-11 14:00:48</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/沉香已经不记得上一次坐绿皮车是什么时候了。如果不是再一次坐上绿皮车，我都忘了那些年与陌生人对面而坐的时光，对面的乘客一站站的上上下下，像是不停更新的电影。镜头一：未知那一年的夏天充满挫败感，在又一次高考失利之后，我的勇气和倔强已被消磨殆尽。不情愿却又不得已举手投降。在希望知道结果却也没有太多期待的日子里，拿到录取通知书的时候，发现学校已经开学。</p>
+<p>于是匆忙买了一张站票赶去报到，没有想过故事就此开始。不记得经历了多少站台，不记得24小时的白天黑夜是怎么度过，不记得当时对未来的生活有没有憧憬。只记得那时十几岁的姑娘带着行李箱在车厢过道孤独的身影。镜头二：偶遇相隔几千里，这也许就是我想要的距离。在没有智能手机的年代里，绿皮车厢里的陪伴变得尤为珍贵。</p>
+<p>临座男生的侧颜有点好看，困到无以复加的时候头碰到对方的肩膀，然后不好意思的赶紧换个角度重新睡去，偶像剧中的桥段并没有在我身上发生。偶尔也会遇到特别健谈的旅伴，在完全陌生的情况下，谈天说地，像是认识了多年的朋友，也许人与人之间真的有磁场。那个在哈尔滨体校上学的山东男孩，在后来还给我打过很多次电话，现在已经不记得名字。那年去哈尔滨的路上，畅聊两个小时的男孩，后来还去过我的学校。镜头三：告别毕业季的时候，我们一个一个的送走远行的人们，与四年的同班好友相约坐一趟车同行最后一段，面对最后一次告别，我们都不知道下次重聚会是什么时候。</p>
+<p>畅想若干年之后的我们，做着自己喜欢的工作，身边有喜欢的人，我们会结婚生子，看着孩子慢慢长大，我们一点点变老，那些年看来很遥远的故事，如今都在按照我们想象的剧本发生吗？一回头，在绿皮火车上相对而坐的两位少年，不知有没有从窗外看到我们今天的样子？列车显示屏幕滚动着当前车速73，相对高铁300+的飞驰，窗外的风景不再那么模糊，树木、房屋、落日余晖，像是慢镜头下的电影，温暖而感性，就连列车里的面孔都变得生动而有趣。回忆请再慢一点，让我看清每一张面孔。镜头请再拉近一点，让我分享你眼中的幸福。</p>
+<p>不慌不忙，终会到达。左岸记：第一次去苏州上大学的时候，也是在绿皮车上站了一天一夜，遇到了一位在福州工作要回湖南老家的大哥哥。因为那是我第一次坐火车，非常忐忑，幸好有他一路的陪伴，他和我说了一路的话，讲了他的故事，鼓励我一定要好好读书。我们留了地址，经常写信，后来他工作变化，我毕了业，就失去联系。那时的车速还很慢，站着也很累，但就是因为有美好的人相伴，那趟旅程也就成了最特别的记忆。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

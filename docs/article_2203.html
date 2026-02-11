@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我没有温柔，唯独勇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我没有温柔，唯独勇</h1>
+            <div class="date">2026-02-11 14:00:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜我写下这个题目的时候，这件事情已经过去9年，这9年里我继续读书，不断考试，找到工作又接二连三调整部门适应，被各种敲打摆正位置，进入生活。偶尔生病，头疼腿疼肚子疼，总之被各种事情裹挟，自卑心不断被唤醒乃至发展壮大至令人窒息，瑟缩不前的平庸面目，让人时生绝望。若不是瘦丸子同学及时提醒，我竟然完全想不起这个事情，这个于我来说，虽然平常但极其勇敢的事情。酷热干旱的夏日，不能喝冰汽水亦不能吃冰激凌不再能随便任性的年纪，拨扫掉那些尘封记忆的灰尘，西安外国语学院对面那条街道便清晰地横亘眼前，每日早晨下午都拥满小摊小贩的街中挤满各色人。我和瘦丸子同学一个慢悠，一个匆忙的穿过街道，从考研班安排的那间布置简陋的小宿舍进入外院那间大阶梯教室。</p>
+<p>总是她急匆匆地跑去占第一排最边上的位置，手里提着菜夹饼或者豆浆，从书包里取出厚厚的政治习题册占住另一个座位。我去时，从后排进去，涌入眼前的永远是一排排乌泱泱的脑袋，我知爱学习的她一定会抢着前面的位置，所以异常淡定。给我们上课的那个老师是个气质胜过样貌的斯文女教师，据介绍说是浙江大学专教政治的资深老师，第一次听介绍只觉得无限钦佩，后来再想，浙大的老师会千里迢迢跑西安来给我们上课吗？还是资深的。哈哈，不论怎样，她教的政治经济学那门课，我真是每日早晨都睡过去了。</p>
+<p>过二三十分钟，瘦丸子都会用笔戳我一下，小声喊：“哎呦，你怎么又睡着了，老师说这是重点。”我瞬间清醒但不过二分钟，头又倒向另外一边，继续睡去，之前还留给她一句话：“没事，我抄你的笔记就好了。”因为是第一排，没有可以趴的桌子，每次睡醒总要活动很久，脖子才会灵活。有那么一两天，我都想回宿舍去躺在床上睡个痛快，甚至后悔自己为什么要花钱报班，在课堂上睡觉受洋罪？也有些时候我狠狠下过决心，下节课坚决不睡觉，但困意来袭时就摧枯拉朽式地轻易摧毁了我脆弱的意志力。</p>
+<p>而坐在我旁边的瘦丸子同学，与我是绝对相反的。我每次迷迷糊糊地醒来时，都能瞥见她在那本厚厚的政治书上画的密密麻麻。她睡得比我早醒的也比我早，走路比我快，尽管我们从小学就在一起读书，但是此时我才真正了解她身上的那股劲儿，时时刻刻都充满生机活力，好像永远不会被生活打败似的。要知道，西安的燥热，坐在没有空调且人挤人的大教室里足以催睡任何人，而她只是打了几个盹而已。如果说我悲观地相信命运，接受任何顺其自然的安排话，她就是那种绝不轻易低头的孩子，甚至总想抓住命运给予的机会来争做自己人生的操盘手。</p>
+<p>我是糊里糊涂的，她永远清楚的知道自己有什么，自己要什么，自己能达到什么。就像考研这件事情，有很长一段时间，我都决定不了自己要考哪个专业，为了实践自己一直以来当教师的梦想，决定跨专业的时候，又很纠结地不知自己能不能啃完那些从来没接触过的知识，虽然买来了一大堆书，还从网上下载了各种课程视频。但总是开头认认真真，轰轰烈烈，不过两天，就要怀疑自己一番，继而逛一圈超市，在操场上走很久乱七八糟想很多，才能继续坐在自习室里看书，周而复始。可我还是日日早起进自修室，心里想趴在桌子上睡的不舒服总会起来的，如果在宿舍里一天就被消耗稀释殆尽了。我已经记不起瘦丸子是什么时候告诉我她决定考研这件事情的，等记起，我们已经坐在西安外院的大教室里了，尽管那个政治班只有一周，但于我来说像是一个月那么久，干燥热烈的七月实在需要大大的空调，可陪伴我们的只有冰棒、冰水和凉皮。</p>
+<p>我们互相鼓励着度过了大学的最后一个暑期，然后就各自去了各自的学校复习考试。现在想来，会对当时的自己有那么一点感激，尤其当我翻开那些被自己画过的知识点，做了又做的习题，还有用了一半的本子，来来回回不知换了多少笔芯的中性笔，偶尔抬手看见自己右手小拇指上因为写字而磨出的小泡泡，都会极有欣慰感。也许，我没有百分之百尽到人事，但不论怎样我还是努力的。与瘦丸子不同的是，我对结果的追求没有特别的执着，尽管我也会有很多焦虑，但一定会选择自己喜欢的学校和专业，对自己的实力倒是没有多少切合实际的考量，只想着即便不行，也不会屈就什么一个我不喜欢的学校。而这一点，让我在以后的工作选择中面临诸多困难，彼时我才明白，与社会需要对接的重要性高于任何个人理想，而理想注定是要破碎的。</p>
+<p>瘦丸子不同，她知她要留在西安，自然而然选了西安的学校，相近的专业，那段时间，我们都在彼此看不到的地方努力着，直到考试前一天。尽管我是个完全没有仪式感的人，但依然清楚地记得那日的天气灰沉沉的，外面极冷，我去找了还在西外读书的安妈一起，陪我看考场，因为已经是中午十二点，我还没有找到住的地方，而安妈的学校离考点非常之远。我们就站在考场外，看了一眼便匆匆去找住处。找到时已经下午，站在宾馆的落地玻璃前，看到天空像灰色锅盖一样盖在整个城市上空，心里说不出的闷结。我不知自己选的这条路，是否能顺利到达，心中充满恐惧与不安。</p>
+<p>也就在那时候，我收到瘦丸子的短信，她问我有没有拿好文具，中性笔还有铅笔，橡皮之类的。她是极其细心且对所有事情需要万分准备的人，而我总是事到临头都不知道怎么办才好的人，向来不会为未来准备些什么，总是莽撞又天真的只身上路，忘东忘西，这次幸而得她提醒，否则不知没有笔我还怎么答题。第二日清晨考试前又偏偏走到厦门大学的考场，差点急哭，才找到我的考场。还好即使觉得英语考的超烂，我还是坚持下来，答完了所有试卷。不管怎么样，这是一个漫长的过程，即便算不上艰辛，但一定有特别难熬的时候，也不知是天性如此，还是一次又一次的考试准备锻炼了我的忍耐力，总之我算得上一个有始有终的人。</p>
+<p>这个态度，除了对待收拾屋子这件事不管用之外，对人生中的其他事情都是管用的。成绩出来的时候，我和瘦丸子都考上了，真是松了一口气。这是一个让我们更愿意相信自己的生命体验。至我想去的地方，遇见许多很好的风景和人，这些都成为了我生命中的养分，即便后来活得很平庸，但每每想起那个些穿梭于校园各个角落，躲在图书馆里啃书本，急急忙忙跑过街边小巷奔向教室的自己，都会感到欣慰，我曾经那么用力的努力学习过，没有轻易低下过头，没有求助过谁，自己硬扛过来多少事情。是啊，我没有温柔，只有那么一点孤勇。</p>
+<p>想到这一点，我就觉得自己不应该轻易放弃，毕竟我从学习中获取的不只有苦楚，更多的是营养，这些才是漫长人生中最可靠坚实的底色。像瘦丸子说的，我们都是三观端正，不顾老命的女孩子。左岸记：在人生的道路上最幸运的是有人与你结伴同行，还有你的努力付出有了收获。感谢帮助过我们的人，感谢自己的很努力很努力。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

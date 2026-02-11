@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>让子弹飞一会儿</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>让子弹飞一会儿</h1>
+            <div class="date">2026-02-11 14:00:25</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德鲁伊 | 图/丁丁《让子弹飞》里，张麻子说：“别急，让子弹飞一会儿。”中国话博大精深，起码“让子弹飞”就有两个解读，一个是允许子弹飞，二是让子弹自己先飞一会儿。倒是张麻子还是心急，别人质疑了一下他，他就解释，“让子弹飞一会儿”。张麻子没人限制他能不能开枪，开了也有耐性等着子弹飞一会儿，看看结果。但是这个世界挺讨厌，谁能开枪，开什么样的枪，子弹什么型号，多数情况下是被限制的，毕竟承平日久，天下熙和。</p>
+<p>到了网络世界，发声容易了，枪的类型也多，子弹和人民币玩家差不多，用之不竭，子弹可以随便飞。但没想到，绝大多数人还是脱不了本性，我的子弹可以飞，你的不行。别人的子弹飞了，我就要突突突的还击，也没耐心等待“让子弹飞一会儿”。对待信息如此，对待人如此，对待自己也如此。据说上帝因为人类太聪明的要建通天之塔，所以让人说不同的语言，于是人类分崩离析。</p>
+<p>现在，怕是因为太有脑袋和太多信息吧。前几天开玩笑说，这次疫情，不怕你坚持你的三观，就怕你三观混乱、随时改变。特别是谣言和真相一起飞的时候，特别是科学与无脑一起飞的时候，特别是尊重与歧视一起飞的时候，特别是阳谋和阴谋一起飞的时候。我们越被宅在家里，我们越依赖外部的信息。任何的信息，我们接收的时候，总是要想，描述的事实是什么，是事实吗？</p>
+<p>信息传递的观点是什么，观点客观吗？信息的立场是什么，这个立场我是否赞同？三问之后，你或许就能得到中立持平的态度了。但这个时代最有意思的是，我们嘴上总是挂着相信科学的口头禅，但在我们真正懂的行业里，我们不站队也不党同伐异，我们只是努力去做。反倒是似是而非的，我们不懂的行业，我们热衷于站队、热衷于嘴炮。</p>
+<p>越不懂，我们越相信阴谋论；越于己无关，我们越容易站队。抛开阴谋论和一眼看穿的伪科学、不科学，或是显而易见就是为了移祸东临、嫁祸他人的东西。在别人允许你的子弹飞时，你是否允许别人的子弹飞，或者你我都有耐心等待，让子弹飞一会儿。这几日流行所谓的，成年人的成熟是不试图改变别人的认知。但自我的认知呢？</p>
+<p>疫情里，戴不戴口罩成了人与人、国与国、民族之间互骂傻逼的勾当，中西医论战没少在朋友圈和群里撕逼。这个时代最戏谑的是，互道傻逼、就此别过才是真正的彼此尊重。照着某个知名日记作者的套路，我会说，前几日和医生朋友聊（真的真的真的是和一个医生聊），如果你真的拒绝中医，不需要在危难时刻选择是否相信。只需要在小病小灾，去医院时，如果医生给你开了中成药、中药，你选择拒绝就好。倒不是只有这样你才能加入论战，而是你骨子里是否坚信你自己的认知。</p>
+<p>或许你越坚定你的认知，你越可以安静等待子弹飞一会儿。有朋友和我探讨《方方日记》，很有要求我站队的意思。我坚持我的观点，如果每篇都是天气哈哈哈，我没意见。但眼见之处，“我的医生朋友”，“我的这个那个朋友”，且不论这些朋友的话是否同意她发，连这些“朋友”的话是否被加工过，都无从考证，还是就是作者自己所想所说？也可能将自己当做一个代言人？</p>
+<p>突然理解了鲁迅先生的伟大，匕首和投枪，刺痛了敌人，刺痛了朋友，目的是希望改变。而如何改变，怎么改变，或许需要更专业的人和每个人的努力。也不会畏惧对面的匕首、投枪、和子弹。我开玩笑说，没人关注的时候，那个日记真的值得一看，在被人关注和扫射非议之人的时候，了了。似乎这个疫情，是越来越琢磨不定了，超出了人类的经验，也热衷于打脸不尊重它的人。</p>
+<p>不过，更坚定的让我明白，毁灭人类的一定是人类本身。毁灭既不来自于信息，也不来自于科学，而是面对信息的态度和面对科学是否尊重。据说，今年春天花粉过敏的少了，估摸着是因为戴了口罩，少了外出。大家皮肤都变好变白了，因为化妆品用的少、太阳晒的少。大家更注意思考了，因为看不到别人的微表情，只听得到声音和只能感知情绪……而我，学会了，如何辨别是否能让子弹飞，也乐于看着子弹飞一会儿，再说。</p>
+<p>左岸记：除了“兵贵神速”，大部分的事情都可以悠着点，心急肯定吃不了热豆腐。慢慢地恋爱，你才会知道彼此是不是适合；慢慢地学习，你才会吃透知识；慢慢地去分辨，你才不会让自己为冲动买单……对，让子弹飞一会儿，你的耐心会让你把一切看得更清楚。PS：惊叹于丁丁的画画天赋！丁丁，何许人也？德叔家小公子。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

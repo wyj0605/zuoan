@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活得像狗一样</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>活得像狗一样</h1>
+            <div class="date">2026-02-11 14:15:13</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>&lt;p id="filepos197421" class="calibre_"&gt;&lt;span class="calibre1"&gt;&lt;span class="bold"&gt;活得像狗一样 &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;文/文昌&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;衣着考究的白领们到了午餐时间，都结伴而行赶往食堂，在路上和同事谈到北京高不可攀的房价时，看到路边狗儿欢快的样子，同事忍不住感叹到：“在这个城市里流浪，活得像狗一样。”我开玩笑回了一句：“拿人和狗比，那简直就是对狗的侮辱。”如果按物种共产主义的说法，狗和人平等才是，要是狗也懂这主义，非得闹翻天不可。&lt;/p&gt;&lt;p class="calibre_"&gt;在我们公司长年驻扎着一群狗儿，最早是盖办公楼的建筑工人养的。后来的自打出生就在这里了，他们估计是一个姓，自小无人领养，在公司里流浪，以公司为家。</p>
+<p>生存繁衍是他们的毕生追求，自然不会有什么身份焦虑，不用担心警犬来查身份证，也不会因户口问题而受到诸多限制，更不用不害怕一觉醒来，发现狗窝涨价了而睡不起。&lt;/p&gt;&lt;p class="calibre_"&gt;公司里的狗除了不是人，不用工作，其它的生活节奏跟人差不多。每天早上他们都很早起来四处溜达，并不是因为天亮了要锻炼身体，而是饿得实在是睡不着。公司晚上不供应晚餐，五点下班后都各回各家了，自然也没有人給他们带吃的，狗儿也就没得吃。这节奏很像那些为了保持身材，生怕热量摄入过多，而忍着不吃晚饭的人。</p>
+<p>可能真管点用，你看在公司里游走的哪有胖狗。&lt;/p&gt;&lt;p class="calibre_"&gt;狗儿们能够长期在这里生存下去，靠的就是人们的那份爱心。尽管不是每个人都会惦记着公司的狗儿，但公司人口基数大，总有人时不时奉献自己的爱心。有的会买些火腿，有的从家里拎点吃剩的骨头过来，中午也有人从食堂带点肉出来给狗吃。人惦记着狗，狗儿们也记着人，虽然帮不上人实在的忙，吃饱了可能也会在梦里为人们祷告，愿狗的列主列宗们保佑那些好人，公司能给他们涨点工资，至少能把那火腿钱给他们涨回来，哪怕给点补助也行。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;一回生二回熟，狗儿在茫茫人海中一眼就能识别出那些帮助过他们的人。早上七点多的时候，人们陆陆续续开始过来上班了。聪明的狗儿在大门口开启人脸识别功能等着。有时精神好，会排成一排守望着大门，有时实在是饿得不行了，会慵懒躺在树底下睁着眼等着那个能给他带吃的人。&lt;/p&gt;&lt;p class="calibre_"&gt;带火腿的好心人比较阔绰，一般都是开车来的，狗儿们自然是记不住车牌号，只能通过灵敏的听觉识别发动机的声音。</p>
+<p>声音对了，瞅准了，车一停，就会成群结对飞快的奔过去，围住好心人。狗儿知道有福利，即使没带，又还没到上班时间，好心人也会带着它们去买火腿。狗儿们有时因为太饿了，实在没有力气跑到车门前讨要火腿，只好守株待兔守在门口，等那些拎着食物的人&lt;/p&gt;&lt;p class="calibre_"&gt;尽管公司的人口口声声说自己忙得跟狗一样，其实狗儿并不忙，肚子问题解决好了，其它时间他们会在柔软的草坪上补补觉，晒晒太阳。看着他们简单满足的样子，突然想到了犬儒主义者狄奥根尼的故事。有一天，亚历山大御驾亲临，前来探望正躺在地上晒太阳的狄奥根尼，问他想要什么恩赐；狄奥根尼回答说：“只要你别挡住我的太阳”，如果有人跟狄奥根尼说他活得跟狗一样，他估计会高兴得跳起来。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;狗儿顺着公司的节奏生活着，为自身的温饱考虑，狗儿们也挺希望公司每天都上班了，那样就不会挨饿了。现在终于明白为啥公司要整个单双轮休了。一方面照顾员工的情绪，一周放双休；另一方面为了照顾减轻狗儿挨饿的痛苦，多上一天，狗儿少受一天罪。这么说来得为这个公司的考虑周全点个赞了。&lt;/p&gt;&lt;p class="calibre_"&gt;每个人都在期盼着法定节假日，可对于狗儿来说，无异于要忍受一场大饥荒，没人喂养，平时也没有储存食物的习惯，只能像一条汉子一样，昂然的接受挑战，忍过来了就是春天，没挨过去就只能到狗的祖宗那里报到了。</p>
+<p>公司的狗儿都是好样的，他们就这样顺利度过了两三个年头。&lt;/p&gt;&lt;p class="calibre_"&gt;公司毕竟是在城市里，狗见到的人比同类多得多，看到人是见怪不怪，但每次见到公司外面有人牵着宠物狗遛弯经过，便会狂吠不止。宠物狗在外面被主人牵着忍着不敢大声发作，这边的狗儿隔着公司的护栏一边跟上步伐，一边破口大骂，骂他们没有活出个狗样，胖得挪不动道，还被人牵着走，简直就是狗中的败类。要是见到被人牵着的大狼狗，那简直如临大敌，叫两句退一步，生怕狼狗闯进来，又不敢出去挑战干一场，看那狗样，作为复杂的人类，我很理解狗这种又恨又怕的纠结心理。&lt;/p&gt;&lt;p class="calibre_"&gt;流浪在异乡，努力的寻求属于自己的归属，辗转反侧不知路在何方。</p>
+<p>看着狗儿通过自己的努力填饱了肚子，然后躺着草坪上晒着太阳，安稳的睡着觉，才发现有时狗的状态要比人好。&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_7"&gt;文昌   北京  微信号：changchang010&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;&lt;span class="calibre_13"&gt;左岸记：&lt;/span&gt;&lt;/span&gt;&lt;span class="calibre_13"&gt;我要活得像猫一样。&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:0pt"&gt; &lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

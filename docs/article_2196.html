@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一棵树摇动另一棵树，一朵云推动另一朵云</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>一棵树摇动另一棵树，一朵云推动另一朵云</h1>
+            <div class="date">2026-02-11 14:00:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/郭敏敏果子：又是一年大暑将至，和两年前你出生时的那个夏天相比，此时的烟台格外清凉。人们常说，有了孩子以后才发现岁月是神偷，是啊，一转眼明天就是你的2岁生日。此时的你，一边快乐的奔跑一边发出杠铃般的笑声。很多在你刚出生那会儿见过你的长辈，最近见到你时都会发出啧啧的赞叹：姝悦这姑娘越长越好看了。请注意，按照你妈妈客观中肯的评价，这并不是因为你真的比满大街的同龄人都好看，而是因为你更小时候的颜值的确不太尽如人意，当然，在这一点上我和你爸爸负有完完全全不可推卸的责任，我俩也常常相互安慰：低开高走，挺好！</p>
+<p>所谓底子越薄，进步空间就越大。2019年的春节，你第一次回湖南外公外婆家过年。穿着舅妈为你准备的唐装，在你亲舅怀里傻乐迎接新年的到来，将天真无邪的香吻作为跨年礼物送给亲爱的泽泽哥哥。看着你俩只需围着洗衣机转圈圈就能持续长时间的开怀大笑，那情境仿佛能融化屋外潇湘大地的阴雨绵绵。哦，对了，在我们为你编的顺口溜里，现阶段你记得最快说得最多的是那句“你拍九我拍九，果果有个好舅舅”。</p>
+<p>我曾将这种莫须有的夸赞传达至你亲舅本人，对方痛快地表示：她大舅她二舅，都是她舅！从你出生开始，每逢特殊时节为你写点东西的习惯，大概与你的外婆曾给我写信有或多或少的联系。我十几岁的时候某年大年初一，清晨醒来发现枕边放着一枚小小的信封，里面有200元压岁钱和一封来自外婆的亲笔信，内容和后来那几封大致相同，大都是希望我平安健康，鼓励我好好读书，热爱生活之类的。你要晓得，你外婆可不是什么知识分子，可能连知道分子都算不上。对于她们那辈人而言，至少我认为外婆的举动其实挺了不起的。</p>
+<p>当年那些压岁钱和信我一直珍藏着，一份简单的生活仪式感，就这样在血脉间悄无声息的流淌、传递。除此之外，如果说你和妈妈的故乡还有什么密切联系的话，大概就是每当你睡前哭闹的时候，我常常会抱着你，一边边轻轻的拍你，一边轻轻的哼着那首《浏阳河》。这一招很奏效，你小小的脑袋趴在我肩膀上，通常都会很快睡去。说到这里，想起你一岁半时曾有个挺逗的睡前习惯：总是要挥舞着小手和家里的冰箱、电视、洗衣机、桌子还有厨房依次说完拜拜，才肯安心上床睡觉。我谨代表如上家电和家具，向你表示感谢。</p>
+<p>最近一年里，你认识了两个汉字：福和喜；记住了第一个一个英文单词，就是常常在画册和餐盘里出现的FISH；认识了新朋友佩琪、乔治和汪汪立功队的狗狗们，在此之前我一直以为《小猪佩奇》片头里那段佩琪的笑声，是为了追求艺术效果而做的夸张处理，现在才知道，原来你咯吱咯吱的笑声和粉红小猪是一模一样的；学会了唱第一首歌《小星星》，盛夏的夜晚，你在我们的怀里，遥指并没有星星的天空，可能在意念的强大支撑中欢快的唱道：一闪一闪亮晶晶，满天都是小星星。英国人常常把两岁的小孩叫做：Terrible2（难搞的2岁），terrible这个词真是既精准又生动，一如现在的你，正经历着人生中第一个“反抗期”,自我意识萌芽，喜欢自己的事情自己做:坚持要自己用筷子吃饭，看到餐盘里精心摆放的食物，会大声说“哇哦”然后分分钟将其毁灭；只是因为在人群中多看了一眼，绘本和画册就被撕得稀碎；一个瞬间的功夫，妥妥地将家里的墙壁画得五花八门；像小仓鼠一样偷吃糖果，等把你嘴里的甜食抠出来之后，竟然发现小拳头里还悄悄握着另一颗.....我们又好气又好笑的同时，也深刻的领悟到：你若静悄悄，必定在做妖。我懂的，terrible2算什么，后面还有horrible3呢！看着你一脸严肃斩钉截铁的对我们说：不要！我和爸爸也在反省自己，如果我们不希望常常遭遇你的“不要”，首先应该提醒自己减少对你说“不可以”的次数；你的好奇心与日俱增，我们珍惜你问出的每一句“这个是什么呢？</p>
+<p>”，尽其所能认认真真的回答你的每一个问题，因为我们懂得，保持好奇心会是你这一生探寻快乐的源动力。这两年来你平安、健康、快乐的成长，为你付出最多时间、牺牲最多精力的人永远是你的爷爷奶奶。祖孙之间最真挚朴素的爱，在你新鲜可口的饭菜里，在你整洁干净的衣物里，在你生病哭闹时的拥抱里。是趴在奶奶肚子上沉沉的睡，是骑在爷爷背上咯吱的笑。我们深知由于工作的关系，能完完全全给予你的时间并没有那么多，所以尽其所能提供高质量全身心的陪伴，对我们而言这就是意义非凡的事情。</p>
+<p>我总是告诫自己要多用实际行动而不是语言去引导你，就像对于写作这件事，妈妈并没有你想象中的那么热爱，但是一想到你将来能读到这公众号里的文字，说不定也会受到启发试着动笔，我就鼓励自己尽量去坚持。读书、跑步，凡此种种，真正值得坚持的事情往往不会太轻松，但必须努力。一棵树摇动另一棵树，一朵云推动另一朵云。李健叔叔有首歌叫《父亲的散文诗》，虽然没有散文，也没有诗，但在这平铺直述的文字里，我们也有许多对你的期待。等到将来某天你能读懂这些话的时候，大概也会明白那首歌歌词的含义，也会热泪盈眶。</p>
+<p>很高兴现在的你似乎挺喜欢李健叔叔的歌，偶尔也会随着他的歌声翩翩起舞，希望你的未来能像他歌词里表达的那样：热爱生活，追求智慧，重情重义，心胸辽阔。我相信，等你长大到可以真的读懂这四个词的年纪时，你会更信任那时的世界，更敬重身边的普通人，更喜欢当下的自己。你是夏，你是爱，你是暖，你是人间的七月天。&lt;br&gt;姝悦，祝你2周岁生日快乐！&lt;br&gt;一直、一直、一直爱着你。</p>
+<p>&lt;br&gt;觉得你很有意思的妈妈 &lt;br&gt;2019.7.20日于烟台家中 &lt;br&gt; 左岸记：小姝悦，左岸叔叔也祝你2周岁生日快乐！有如此温馨和智慧的家人，你的成长一定会健康而快乐的。在以后的每个夏天，我们都会记得有个女孩叫姝悦，她又长大了一岁。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

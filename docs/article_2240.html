@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦醒于无尽夜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>梦醒于无尽夜</h1>
+            <div class="date">2026-02-11 14:00:50</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/落微太阳艳艳的悬在头顶之上，天气很热，蝉鸣不断，空气中溢着焦躁，一呼一吸间就感觉满额头汗津津。其他人都在晒谷子的公共坪上唱着生日歌儿欢欢乐乐的分蛋糕，整整两桌人，有小孩子跑来跑去，也笑也闹，分外喧嚣。来不及思考为什么存在于久远记忆中的大水泥坪会平平整整的裸露在眼前，连通往家里的那条长约一百来米的大路也成了过往的羊肠小道。我准备回去给外公把粥热了。原本亮堂的房间竟昏昏暗暗，明明空气清新，莫名感觉有种枯朽的气息，不是来自于卧病于床的老人，而是从旁的不知是什么东西的身上撒了出来，淡淡散散，似有若无，却又无法忽视。</p>
+<p>他盖了足足三层大被子，母亲与姨妈们照顾得很好，看着就整洁干爽，约摸是怕冷，一层又一层裹得严严实实，只露出了一颗脑袋。瘦得脸上骨头都突了出来，脱了相，眼睛半阖着，说：你给我倒杯水喝喝吧，我嗓子干的口水都吞不下去了。于是我给他兑了杯温水，他不马上喝，非要半倚半坐着，双手珍而重之捧了那杯水放在肚腹的位置，仿佛那是大雪天里的唯一热源，我劝他，你手又抖又没劲儿，赶紧喝了水我把杯子放边上去，不然等下水都洒了，她们难得收拾。然后去热粥，看着微波炉里转了一圈又一圈，听见姨妈惊呼，快步走过去看，果不其然，水洒了一床，深色与浅色交叠着融合着，犹如在进行着某种神秘的仪式。外公如犯了错的孩子一样无措又茫然，他大概仍旧不曾完全认识到自己已经不是那个有力气的健康的老人了，疑惑着如何会被一小杯水挑战了威严。</p>
+<p>也不知怎么的，忽然一股巨大的悲意汹涌而来，狰狞着嘴脸灌入胸腔，猛的泪如雨下，哽到喉咙也失去了吞咽的功能，脸被泪水浸得辣辣的，想说点什么，发不出声音来，只得闷闷的哭。我大概在埋怨外公不听我的话，非要捧着那杯水不肯喝了将其放在桌子上，我想，因此我难过得哭了，为这大家进进出出新增的麻烦，为总以为自己能走能吃的外公。我抑制不下这股子悲意，只得找了个牵强的理由粉饰太平。于是给生生哭醒了，恍然，原来这是一场梦。暗想还好只是梦，可又觉得，又当不只是梦了，某些无法表达的情愫与挂念，它已如入侵的邪风，趁我不经意的时候，便作出了一些关于死生的预测。</p>
+<p>鬓边枕头已湿透，想来梦中无法遏止的浓厚悲伤已然沿着泪水，溢出了梦境，来到了现实中。恍恍惚惚，还没彻底走出这悲伤，母亲突然弹来一个语音电话，吓了我一跳。母亲得知我刚放弃了这份新工作之后，细细交代外公的状况，催我回家，催我回家伴在他身旁。我与母亲诉起了这场梦，哪知情绪越说越不稳定，本已平静下来，竟又控制不住的哽咽，且有愈来愈烈的架势。母亲大概也有些慌，急急劝我不要如此，匆忙挂了电话。</p>
+<p>留我在这昏黄的寂静里嚎啕大哭。大概无人能体会到我心中那点子仿佛尘埃要落定的悲意，亦无人可供我诉之以这悲意，于是一个字一个字的敲着键盘，竭力制造点声响来，于这安静到只有我一个人的呼吸的房间里建设一围假象的墙，使得心脏获得一丁点安宁。回想起近来做过的关于外公的梦，梦中的环境无一不是久远孩童时候的样子，大大的晒谷坪总被太阳照射着，羊肠小道旁竹林疏朗，间或杂草丛生，外公的房间，有时候是现今住着的，有时候却又是以前老旧的模样，饶是如此彰显着年轻的久远场景，外公却始终是那个卧病在床的外公。屋外艳阳高照，屋内昏暗无光。我即使于梦中回到了孩童年纪，外公依旧是现今的外公，不仔细回想并未觉得矛盾，而今细细的回溯，仿佛是造梦者迫我回到现实，再不要做那可笑至极的梦。</p>
+<p>竹林早已填平，晒谷坪亦多年荒芜，我再回不到过去，于健康的外公面前伸着手讨一块钱买零食，于被母亲责罚之时盼他“救”我。而我宁可接受那不可调节不合常理的场景矛盾，继续做着梦，于现实中也于梦中艰难的维系着这细若游丝的血脉羁绊。2019年6月20日凌晨1点，夜已深，人难眠，归心似箭，心绪难平，作此文。左岸记：记忆如飘零的叶子，那些清新那些嫩绿早已埋葬在时间刻度的前段，惟有铺天盖地的想念在时间长河里紧紧纠缠。我们希望让时光停留在原处，却发现很多人早已被洪流悄无声息地卷走了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新的一年，不要立那么多flag</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>新的一年，不要立那么多flag</h1>
+            <div class="date">2026-02-11 14:00:11</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/丁忆坤新的一年人们总喜欢给自己定下新的目标，提醒自己要努力学习，努力工作，挣更多的钱，做更好的人，但我不打算这么做。毕竟过了三十岁，人们应该对自己有了比较清晰的认识，你的能力如何，你的自律性如何？能做到的早就做到了，不能做到的又何必年年拿出来为难自己？先总结一下2020，这一年对很多人来说是不好过的，因为疫情的影响，很多人经历了失业、破产，于是就把希望寄托在下一年，期待它能变得更好。但我要说的是如果它并没有变得更好，而是变得更差了，我们该如何自处？</p>
+<p>没有人能跟你承诺未来一定会变得更好。所以我的新年愿望仅仅是生活不要变得更差，无论是哪一方面。比如我健身多年的唯一目标就是体重变成100斤以下，但是无论是跑步还是瑜伽，我的体重一直稳定在一百零几，好处是自己十几年来体型一直很稳定，生孩子那一年胖了三十多斤，生完后很快就恢复正常，新的一年我也不再为难自己了，每周保持运动，不再纠结那个数字。毕竟我的年龄一直在增加，体型没变化也是一件值得高兴的事情。比如不再期待事业上有什么突破，认清自己普通人的身份，大概率是没有什么暴富的机会，而是小心赚着钱，供着房子，养着孩子，供完一套买下一套，如此循环。</p>
+<p>连现在大家最喜欢的财务自由四个字也不在我的愿望清单里，因为这四个字本身就暗藏玄机，财务自由以什么标准来衡量？我听到的数字一个是一亿，一个是五千万，但人真的不需要这么多钱，太多人一辈子也挣不到一百万，控制你的欲望，财务自由就没那么难。这么想是很丧气吗？可能互联网的发达让人们看到了太多成功人士的人生，他们那么年轻，遇到了那么好的机会，拥有那么多的财富，人们都觉得在这个时代，自己也能成为他们。人是多么可笑的一种动物，别人的失败是他们自己能力不够，轮到自己就是运气不好。</p>
+<p>但别人的成功是他们运气好，自己成功就是能力强。这种双标在生活中无处不在。我们就是不能正视自己，也不能正视现实。我们看到了很多人创业成功，公司上市实现了财务自由，却没想到一家公司成功的背后可能有99家倒闭了，我们的目光聚焦在那几个成功的案例上，对失败的人看都不看一眼，装作他们不存在。我是知道的，创业九死一生。</p>
+<p>因为身边有一个创业的人，他比我见到了更多人的悲欢离合，不是从网上看到而是在现实生活中遇到。有人为了创业把房子抵押了，和老婆离婚了，背负巨债，最后一死了之，把年幼的孩子留给了年迈的父母。这是关于创业的另外一种极端的案例。更多的人没有太成功也没有太失败，他们成为了连续创业者。说实话，我真心觉得中文太博大精深了，“连续创业者”，我该怎么理解这个词？</p>
+<p>通俗一点是不是开一家倒一家然后再开一家？也挺好的，创业者拿着自己的钱或者投资人的钱折腾，努力为社会提供就业岗位，不和广大打工人抢饭碗。他们燃烧了自己，成就了众人。别的领域同理，朋友圈里看起来都是岁月静好，各个都是人生赢家，身材、面容保持良好，事业成功，感情顺遂。其实生活冷暖自知，是岁月静好还是一地鸡毛自己最清楚。</p>
+<p>但真的不要拿着朋友圈里带着滤镜的生活来折磨自己。不要把精力拿来和别人比，做好自己的事情。我不想违心祝福大家越来越好，只希望大家不要变差。年龄增长，但身体没有出现新毛病，老毛病没有变得更严重，这就挺好的；年龄增长，但没有遇到35岁危机被裁掉，一直有工作就挺好；年龄增长，但没有踩到理财、投资、养生、育儿领域的各种坑，没有被收割，而是保有了自己辛辛苦苦挣来的财富就挺好；年龄增长，激情不再，但夫妻之间还有责任感在维系着彼此的感情就挺好的；年龄增长没有遇到合适的人也没关系，至少没有被低质量的恋情或者婚姻消耗生命，努力做一个经济上、精神上更强大、更独立的人也挺好。认识到了生活的诸多残酷真相，还是能有所期待，但这种期待是理性的、务实的，不再那么好高骛远。</p>
+<p>承认自己有很多缺点和不足，但还是不想局限于此，愿意一年又一年、一月又一月、一天又一天，做微小但执着的改变。就我自己而言，我的新年目标很简单，把2020年做好的事情继续做好。1、工作上不出岔子，60-100分随你选择。可以选择在工作上投入更多时间和精力，也可以选择在完成本职工作之外做点自己喜欢的兼职。2、把孩子带好了，底线是平均线以上，顺利通过中考、高考，身心健康。</p>
+<p>现在孩子还小，无法对他做出什么判断，如果资质太平庸就不要逼着他优秀了，如果资质可以，那要求可以高一点。但各种早教、培训班我现在通通回避了，理由是钱包不厚实，做任何决策都要考虑性价比。按照上海家长的消费能力，给孩子多年的培训费能付一套房子的首付了，我留着钱多买套房给他将来出租也挺好。对那些为了孩子一掷千金的家长，我的理解是他们钱多，多花些钱能买来心安。我钱不多，花太多的钱没看到成效，我心不安。</p>
+<p>3、公众号每周写一篇或两篇文章，这是一件我能做到也不会让我有压力的事情，我可以把它做得很好，对阅读量和粉丝数也没有太多要求，单纯做一件自己喜欢且擅长的事情就是一种快乐。4、每周去健身房两三次，保持体重不变就很好。5、由着自己的性子学一些新东西，不论是网上的各种课程还是实践活动，比如年底我买了几十盆花，把花草养好了也不错。书是必看的，但不必强调要看多少本，喜欢的书就多看几遍，保持阅读的习惯，不断提升自己的认知水平。6、积极参加一些高质量的社交活动，对结果不强求，可能交到新朋友，也可能没有，但走出去认识不同的人也是一件冒险又有趣的事情。</p>
+<p>人们容易高估一年的价值，而低估十年的价值，我们总希望生活在一年的时间里能就发生很大的改变。事实上我们需要把时间轴拉得更长，允许自己做个普通人，却还想要有不普通的成就，那就需要花更长的时间，把摘取成功果实的时间放在三年、五年、甚至十年之后。少数有天赋，又很勤奋的人例外。最后用一句被大家用烂的句子总结全文， “世上只有一种英雄主义,就是在认清生活真相之后依然热爱生活。”如果不喜欢这句，看看下面几句话如何：喏，人这一生，既不像想的那么好，也不像想的那么坏。</p>
+<p>〔法〕莫泊桑《一生》人类的一切智慧是包含在这四个字里的：“等待”和“希望”。〔法〕大仲马《基督山伯爵》毕竟，明天又是新的一天了。〔美〕玛格丽特·米切尔《飘》 左岸记：积极废人非常擅长给自己定目标，又在生活中处处都充分体现着“计划赶不上变化”的废柴特性。不做假装积极的人，而是踏踏实实，从自己的实际出发去做自己真真正正能做到做好的事。就像长期主义者会为了定制一个长远的计划做足功课，甚至成为某领域的专家。</p>
+<p>任正非说：“华为就是一只大乌龟，只知爬呀爬，全然没看见路两旁的鲜花，不被各种所谓的风口所左右，只走自己的路。”贝佐斯说：“如果你做一件事，把眼光放到未来三年，和你同台竞技的人很多；但如果你的目光能放到未来七年，那么可以和你竞争的人就很少了。因为很少有公司愿意做那么长远的打算。”王小波说：“人生到最后烟消云散，并不会留下什么，但是在它们消失以前，我们必须让这一切先发生。”马克吐温说：“历史不会重复，但是会押韵。</p>
+<p>”</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

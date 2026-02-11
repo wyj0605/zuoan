@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏日，雨落，蛙鸣</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>夏日，雨落，蛙鸣</h1>
+            <div class="date">2026-02-11 14:00:47</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/读博在四方小区外水渠里的蛙声开始出现的早，四月底五月初的时候就偶尔能听到几声，音小声弱的情况好像还透着点欲说还休，不对，是欲鸣还羞。进入六月份后，青蛙们也不再羞涩、不再彷徨了，就着热气、雨水，也不知道哪一只具体藏在漂满绿色浮萍的河道何处，就那么呱呱地响成一片，还带着特有固定的节奏。不过在聆听的人耳朵里，终于有撇开交通工具轰鸣、广场歌舞喧闹以外的纯天然白噪声了。不过这白噪声喜雨也怕雨，要是碰上下成势的连绵的雨，也会大概率偃旗息鼓，给雨声让出关键频道，因为雨声更是天然白噪声里的王者。某个时候很疑问，这些暮春到仲夏的青蛙是哪里来的？</p>
+<p>后来一分析，估计是去年留下过冬的那一批。到了时间，它们被地气温过劲来、又得到春雷呼唤、春水滋养，终于可以在水犹冷、春犹促的时节，可劲的抒发过去一冬的压抑和对春天的赞美。这两天被暴雨预报诓骗了，就算是蓝色预警的昨天，也就象征性地来了几阵小雨。虽然是小雨，好处就是雨量也足够大到把热气给压了下去，一时停了，还不影响交通。走在路上，天地间的凉气，稍微还带点潮湿的凉气扑遍周身，真是难得体感舒服。</p>
+<p>今天早上起来赶班车，出门一看天空被云被遮挡着，温度一时还没有上来，庆幸晨风荡漾，凉爽感觉还能多享受一会。走在路上，看捯饬空了的人行道和齐整划一的国槐树远远地延展出去，一种秩序和重复之美冲击着眼睛，这可是凉风习习之外的另外一种舒服。一旁的清洁师傅们，早已经开始挥舞着大扫帚，进行槐花的又一天清扫。昨天的花堆还没离去，今日的落花又是一地，唰唰唰的声音，一阵一阵地传过来。等我目光所到处，突然看到一只蹦蹦跳跳的影子。</p>
+<p>嗯，那是一只小青蛙，好小好小的样子，火柴盒那么大？多年不见火柴盒，那就用牛奶小盒的六分之一那么大？它虽然很迷你，却是最为完备的形态，已经完全褪去尾巴，进入了变态发育的最后环节，所以弹跳起来很有力度，我连着蹲下三回都没有捕捉到它的静态，可能是被地表传来的扫地声惊扰到了。灰褐色的皮肤很容易让它在停下来不动的时候跟地面混在一起，若不是它不停地蹦跶，路人很难发现它的踪迹。dav 这只小蛙，估计是人间四月天里鸣叫的去年青蛙们的后代吧。</p>
+<p>蝌蚪们都这么快变青蛙了？心里想。时间也过得太快了，都来不及想起孩子们已经放暑假了，顺道也醒悟过来本年度余额已经不足50%。时间的追赶，已把新一辈的青蛙们塑造出来，它们已经跃跃欲鸣于水的周边。这是我第一次在如此干燥的地方，看到路面上闲逛的小青蛙。</p>
+<p>不知道它从哪里来，也不知道它到哪里去，看蹦跳的方向是从国槐树池到路边渠沟。我蹲下来拍完照片，就转身离去，现在也不像小时候还想助它一臂之力爬上马路牙子了。镜头里的小青蛙眼神里充满了戒备，小肚子吓得一鼓一鼓的，其实鼓也没用，暂时还是一只哑巴蛙。祝它顺利长大、有机会开心鸣叫这个夏天。左岸记：夏夜的田野，月上柳梢，清逸飘渺。</p>
+<p>蛙鸣是夏日的足音，引来了无限的夏日遐思。生命另一形式的表现，即人与自然契合。蛙的生活是简单的，除了生存应没有纷繁尘世中的琐碎。在悠悠的岁月中，和着大地的脉搏，彻夜地歌唱，不知辛劳。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

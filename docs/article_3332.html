@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>真正厉害的人，往往更脚踏实地</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>真正厉害的人，往往更脚踏实地</h1>
+            <div class="date">2026-02-11 14:16:05</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/Windy Liu 01 上周，我见了一个我所在行业里非常厉害的人，她曾经供职于华为，后来离开职场，至今已经有近10年的独立咨询经验。在和她交流的过程中，我发现，很多对我来说很棘手的职场问题，于她而言完全不是问题。因为在她看来，大部分的问题经过抽丝剥茧之后，其实都来自于我们思维上的懒惰和行动上的怠慢。当我们谈到最近行业流行的人工智能的时候，她认为中国市场上很多讲人工智能的人其实吹嘘的成分居多，而她从中并没有获得更清晰的认知。因此，她决定亲自去深入了解和学习人工智能相关的知识。</p>
+<p>她是怎么学的呢？她首先是去看人工智能相关的资料进行学习，后来发现其中涉及到了很多概率统计学的知识，这部分大学学过的知识现在几乎忘得差不多了，哪怕是看懂别人的推演证明过程也非常吃力。当感觉很不顺的时候，她就暂停，把大学的统计学课本拿起来重新学习，等相关统计学知识捡起来了之后，又重新回到人工智能的学习。后来在继续学习的过程中，她又发现其中涉及到很多微积分的知识，这种把事情搞清楚的执拗劲又让她把大学的微积分课本拿了出来，重新补习了一下数学知识，而且她不只是要求自己看明白，还会去做大量的习题进行演练，以确保自己真的吃透了。而在吃饭的现场，更让我震惊的是，她包里还带着微积分的习题集，准备在下午闲暇之时可以练练。</p>
+<p>我们总以为厉害的人天生就聪明，拼的是天赋，可如果你真的见识过一个厉害的人，你往往看到的是脚踏实地的努力，还有跟自己死磕的果敢。反观大部分平庸的人，我们不爱为难自己，总是喜欢选择走那条最容易走的路。当要掌握一项技能的时候，你不是一步一步地去学习实践，而是不停地向周围的人讨要各种学习资料却迟迟不愿行动。当考虑职业发展的时候，你不是主动地去认识自己了解自己，而是直接去问别人你适合做什么样的工作。当要做一次重大决策的时候，你不是去深思自己到底想要什么，而是纠结于那些外在显性的利弊得失。</p>
+<p>其实，自以为聪明的人，永远在寻找捷径，而那些真正厉害的人，他们总是在下硬功夫，愿意一步一个脚印，稳扎稳打。02 不知道从什么时候开始，这个时代不再信奉用心和努力，而是极力地吹捧「选择大于努力」。就像奇葩说有一期辩题——“他真的很努力，是不是一句好话？”单从这个辩题就可以看出，如今社会的氛围，让很多人觉得，如果一件事情需要你用心努力，那就证明你还不够聪明，不够智慧，如果努力了还失败，那就更是不可原谅让人羞耻的事情。努力渐渐成了一个贬义词，而结果呢，我们很多人把大量的时间精力放在繁多的选择上而不去行动和试错，我们想要以成功开始，然后以成功结束，想要中间的过程一笔掠过，所以我们不停地在寻找最好的方法，最快的路径，最优的决策，却从未觉察到，所谓的成功也需要时间的沉淀和积累。</p>
+<p>某个人也许因为某一次不经意的选择，让他平步青云，但那只是一时的运气，而运气并不是我们能够把控的，你总不会希望你的每一次选择都像抛硬币那样随意吧？有人也许会问，难道选择不重要吗？选择当然重要，可是只做选择而不去努力，那你选择正确的概率并不会提升。一个好的人生选择，背后支撑它的常常不是一时青睐过你的好运气，而是你过往的学识，经验，自我认知和能力，它们才是你做出正确选择的重要筹码。而学识，经验，自我认知和能力的积累，真正需要的恰恰是我们的用心努力，而不是各种多快好省的捷径。</p>
+<p>那些真正厉害的人，因为你离他们太远，所以你只看到他们光鲜亮丽，信手拈来的自信和轻松，却从不曾了解过他们独自努力时候的孤独和艰难。就像那位独立咨询人跟我说的那样，每一个厉害的人背后，都有着大量的积累，一如她为了深入了解AI而大量练习微积分习题。大部分不想要脚踏实地用心努力的人，大脑里都潜藏着一种「好逸恶劳」的思维模式 。这种思维模式反映的就是一种凡事都有捷径的心态，所以市场也总是有很多迎合他们的产品广告语，“药到病除”，“一用就灵”，“10天精通写作”，“普通人如何月入十万”等等等等……如果你真的凡事走捷径，就会发现，自己不仅浪费了大量的时间和金钱，而且无法真正静下心来积累。这个世界里能够快速获得的东西，一般来说都是廉价的。</p>
+<p>真正有价值并且稀缺的东西，往往都需要我们去积累，去思考，去感悟。记得在一部纪录片里，采访的是一名很厉害的工匠，他从事雕刻业已经大半辈子。他说雕刻很简单，无非就是雕刻的时候要确定好位置，掌握好雕刻的力度和角度。可是最终到手上的功夫，岂是这句简单的话就能够呈现出来的？他的那一身本事，其实都是在千千万万个日夜的精进中才得以练就的。</p>
+<p>03 之前参加过一个自媒体人的分享会，他说——”如果你向别人要书单，想要快速地阅读很多书，这就说明你想要走捷径，你想要别人给你指明一条路，然后毫不费力地无脑执行就好了。这其实根本是不可能的，真正的洞见，不是说你把书读完了就可以得到，这需要一个过程，这个过程中有思考，有反省，有记录，有表达，很多东西只有在持续地积累到足够之后，才能够产生一种深刻的见解，而这个过程是无法替代的。你可以学习别人的方法，参考别人的书单，但是不要期待能够借此立马获得成功。” 真正厉害的人，从来不走捷径，因为他们知道如果选择了最容易走的路，最终很可能把自己逼到无路可走。我也曾经是走捷径的一员，但是经过这几年的学习和打磨，我深刻地意识到，每条捷径的背后，往往都有一个坑在等着你。</p>
+<p>就像我想要快速阅读，可是书的确是读完了，但我的收获却还不如放慢阅读节奏来得多。而我总觉得有一些朴素的道理，越早知道越好，越早践行越好，因为不管你相不相信，它都穿越古今，一直在那里，让懂它的人获得践行它的价值。虽然生活没有捷径可走，但那些朴素的道理，却可以让我们不走捷径也能实现人生的高效。1. 以最快的方式入门，以最大的耐心行动 这个世界没有快速成功，但是却可以快速入门。就像写毛笔字这件事情，你要写得跟大师一样好，那非常难，但是你可以快速地入门： 知道怎样握笔了解各种笔画的结构如果掌握了这两个知识，你就已经入门了，接下来，你要做的就是大量临摹各种字帖，体会不同笔画的力度和形态，然后不断修正，试验，直到你能够写出好看的毛笔字。</p>
+<p>在行动实践的过程中，就需要你的耐心和专注，当你越专注，你就能够越快地度过那个枯燥的积累过程，因为当你专注的时候，时间也会飞快地流逝。2. 刻意打造「底层能力」 什么是「底层能力」呢？底层能力，说白了，就是在哪里都能够用得上的能力。比如，你的逻辑分析能力，这种能力不仅能够让你在网上买东西的时候甄别真假，也能够让你在工作上发现问题，解决问题。再比如，学习能力，如果你具备很强的学习能力，那你就能够更快更好地掌握新的知识，并且把新知识和旧知识进行整合，归纳和总结，更新自己的知识框架。</p>
+<p>底层能力还包括探索能力，审美能力，概率预测能力等等等等，你完全可以根据你自己的需求去打造你的「底层能力圈」。一旦你有了很强大的底层能力圈，那你在做很多事情的时候，往往都会比别人更高效，也更容易达成你的目标。不要问我这些能力要怎样去打造，既然我们都是不走捷径的人，那就需要自己去摸索，去找相关的资料，了解不同能力的内涵，找到刻意练习的方法，如果你是用心努力的人，你一定可以找到自己的一套行之有效的方法论。而在不断摸索的过程中，你其实就是在锻炼自己的探索能力。3. 靠近那些真正厉害的人 就像前面说到的，如果你没有真正地接触过厉害的人，那你根本就不会知道真实的他们到底是什么样子的，也无法了解他们到底做了什么样的事情才变得如此厉害。</p>
+<p>当你真正地了解过你佩服的人，当你真正地看到过他们如何行动，感受过他们如何思考，听到过他们如何演讲，你才可能在这种耳濡目染的教育中得到提升，获得自我成长的信心和动力。这就像是原子中电子的跃迁，它需要去外界吸收能量，如此才能跳出当前的轨道，摆脱引力的束缚，到达一个能量更高的轨道。而这些我认为极其朴素的道理或者行事原则，与「走捷径」最大的不同，就是它们蕴含着「但行好事，莫问前程」的积极心态，而不是「好逸恶劳」的思维模式。04 一个人在什么时候最想走捷径？往往是在你迷茫，焦虑，找不到出路的时候。</p>
+<p>在如今的社会，想要不焦虑？不存在的。焦虑就是一种常态，我们只能与之握手言和，和谐共处。生活留给我们的选择，其实只有一个，就是把握当下，把能做好的事情做好。除此之外，生活没有给你任何捷径。</p>
+<p>与其在走捷径的路上迷失自己，不如学一学那些真正厉害的人，一步一个脚印，按照自己的节奏完成人生的跃迁。左岸记： 在关乎心智成熟的道路上，任何试图走捷径的行为都会让你在未来付出更大的代价。大多数人不缺乏人生道理的教诲，缺乏的是对那些大道理的坚信，总以为自己在成长中可以走捷径。我和你都不属于特别聪颖的人，幸好！那就让我们慢慢来，这过程需要勇敢，不是和别人争斗，是跟自己的恶劣较量；需要耐心，不是等待成功，是习惯平淡；需要宽容，不是放弃自我，是让自我更有弹性；需要善良，不是用来标榜自己，是借此让自己获得幸福。</p>
+<p>如果这是一桩必须自己完成的事，那么就连你在那里独自苦斗，我也只能在一旁默默看着。——《成长，请带上这封信》</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

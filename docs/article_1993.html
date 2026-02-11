@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>假两难推理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>假两难推理</h1>
+            <div class="date">2026-02-11 14:00:21</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>01世界是五彩缤纷的，但人们的思维往往是非黑即白的。大家通常认为：A与B之中只有一个是对的，另一个是错的。这就是逻辑学中的“两难推理”。非常著名的“半费之讼”就是个很典型两难推理。古希腊有一个名叫欧提勒士的人，他向著名的辩者普罗达哥拉斯学法律。</p>
+<p>两人曾订有合同，其中约定在欧提勒士毕业时付一半学费给普罗达哥拉斯，另一半学费则等欧提勒士毕业后头一次打赢官司时付清。但毕业后，欧提勒士并不执行律师职务，总不打官司。普罗达哥拉斯等得不耐烦了，于是向法庭状告欧提勒士，他提出了以下二难推理：如果欧提勒士这场官司胜诉，那么，按合同的约定，他应付给我另一半学费；如果欧提勒士这场官司败诉，那么按法庭的判决，他也应付给我另一半学费；他这场官司或者胜诉或者败诉，所以，他无论是哪一种情况都应付给我另一半学费。而欧提勒士则针对老师的理论提出一个完全相反的二难推理：如果我这场官司胜诉，那么，按法庭的判决，我不应付给普罗达哥拉斯另一半学费；如果我这场官司败诉，那么，按合同的约定，我也不应付给普罗达哥拉斯另一半学费；我这场官司或者胜诉或者败诉，所以我不应付给他另一半学费。这就是两难的诡辩。</p>
+<p>换到假两难推理讨论的问题，它通常把两个选项（例如，是与非）视为所有可能性。之所以称之为“假”，是因为这些问题往往不止两个选项。只不过是“两难推理”的思维方式局限了我们的视野，让大家误以为只能做非此即彼的选择，从而产生假两难推理的谬误。假两难推理现象可以说无时无处不在，尤其是在辩论当中。大到媒体争鸣，小到两人吵架，都可能落入这种逻辑谬误中。</p>
+<p>近年来互联网上出现了不少围绕地域风俗差异展开的论战。例如，豆腐脑是甜的还是咸的？粽子该放糖还是放肉？西红柿炒蛋放葱花还是放白糖？在这些争论中，人们才发现东西南北风俗的差异有多大。</p>
+<p>北方省份大多吃咸豆腐脑，粽子却吃甜的。在他们看来，这是“正统”生活常识，而吃甜豆腐脑与肉粽子的南方人是“异端”。“正统”与“异端”就构成了一个看似“非此即彼”的假两难推理。02假两难推理的成因两难推理主要出现在日常辩论中。这是一种很有说服力的逻辑思维形式。</p>
+<p>辩论者提出的观点存在两种可能性，而这两种可能性可以引申出让对方进退两难的结论。所以这类逻辑推理被称为“两难推理”。尽管这种推理形式是有效的，但由此得出的结论未必符合事实，也往往存在某种逻辑漏洞。这种逻辑推理最关键的一点是只存在两种可能性供我们选择。人们在日常辩论活动中通常分为支持与反对两方，真正的中立意见一般不会参与辩论。</p>
+<p>所以，辩论双方往往会采用两难推理的思维方式反驳对方。具体做法是，先把对方的观点解释为非此即彼的两种选择，然后再迫使对方陷入“两难”的矛盾。通常而言，两难推理中不成立的结论，总是源自假的已知前提。例如，在豆腐脑大战中，并不只有甜和咸两种选项，也不存在吃咸就不能吃甜之类的硬性规定。也就是说，假设的已知前提本身就有逻辑漏洞，而只要跳出对方设定的“非此即彼”的前提，就能发现其结论并不符合事实逻辑，只不过是在辩论中设置了一个思维陷阱。</p>
+<p>03真两难推理让罪犯无从狡辩美国宾夕法尼亚州某镇发生了一起盗窃杀人案。一位老富豪被杀于自己的别墅中，凶手偷走了他的一幅价值连城的油画。韦伯警官根据判断得出结论：这是一起熟人行凶的案件。老富豪退休多年，平时都不出别墅，几乎不参与任何社会活动，也不和以前的朋友来往。别墅位于人烟稀少的郊外，又不是交通要道。</p>
+<p>老富豪生性多疑，凡事斤斤计较。法医的犯罪现场勘查报告称他是在毫无防备的情况下遇害的。所以，警方推断凶手就是老富豪身边的某个熟人。受害人膝下无子女。与他关系最亲近的人，只有情妇、侄儿以及几个佣人。</p>
+<p>韦伯警官经过数天调查后，把老富豪的侄儿彼得锁定为头号嫌疑人。韦伯的推理并非没有根据。首先，以老富豪的多疑性格，肯定会把那幅失窃的名画保存在秘密地点。凶手在现场留下了翻动箱柜的痕迹，但并没拿走太多财物。由此可知，凶手一开始就以偷画为目标。</p>
+<p>其次，老富豪是一枪毙命，没有补枪，这说明凶手擅长射击。而警方怀疑的所有对象中，只有老富豪的侄儿懂得用枪，而且他曾经在美国海军陆战队某部服役，枪法精湛，平时还携带一把军用手枪。（这里推荐大家看今年的一部推理电影《利刃出鞘》）此外，据佣人透露，老富豪的侄儿喜欢叔叔的情妇艾米丽。因此，也不能排除为情杀人的可能。而且，嫌疑人在案发当天曾与受害人会面。</p>
+<p>种种迹象表明，老富豪的侄儿就是真凶。但警方不能只靠推理给人定罪。因为还有一些现象没能得到合理解释。如果不能排除其他可能性，逻辑推理就不成立。例如在本案中，凶器是一把民用手枪，而老富豪的侄儿使用的是军用手枪。</p>
+<p>在枪支泛滥的美国，人们很容易弄到民用手枪。虽然不能排除他的嫌疑，但也无法排除凶手另有他人的可能性。不能形成“非此即彼”的选择，就不能形成两难推理。此外，老富豪的情妇并不喜欢嫌疑人，两人没有不正当关系，也不具备合伙杀人劫财的可能。而且，嫌疑人为什么只偷那幅名画，而不是趁机卷走更多财产。</p>
+<p>这一点也没得到合理解释。除非有证据能直接排除其他可能，否则警察无法给嫌疑人定罪。老富豪的侄儿也意识到警方证据不足，所以在面对审问时喋喋不休地否认自己的杀人行凶。他还露出身上的伤疤，抗议中央情报局污蔑一位曾经为美利坚合众国战斗多年的退役军人。由于已知前提不能形成“非此即彼”的两个可能性选择，韦伯警官的逻辑推理只是假两难推理，而不是真两难推理。</p>
+<p>所以，嫌疑人只要否认警方假设的前提，就可以跳出两难推理的困境。就在案情陷入僵局之际，韦伯警官查到了新的线索。嫌疑人被叔叔的情妇拒绝后，沉迷于酒精与赌博，欠下一大笔债。在案发之前，放高利贷的人曾经多次找嫌疑人讨债。警方立即逮捕了那伙放高利贷的人，并在搜查中找到了失窃的名画。</p>
+<p>罪犯供认是自己唆使嫌疑人偷那幅名画来抵债的，并且为嫌疑人提供了行凶用的民用枪。于是韦伯警官质问嫌疑人：为什么失窃的名画会出现在你的高利贷债主家？嫌疑人没法回答。因为放高利贷的债主并不知道这幅画放在哪里。他们能得到赃物必定是与凶手有交易。</p>
+<p>而在所有嫌疑对象中，只有老富豪的侄儿与他们有联系，其他人根本没接触过赌场。所以，把名画交给高利贷债主的人就是偷画的罪犯。在一连串证据与两难推理的诘难面前，凶手不得不招供自己行凶的经过。因为在“非此即彼”的两难推理中，只有两个可能性选项，而且这两个选项往往会引出某个逻辑上的漏洞。警方就是根据这个逻辑漏洞，让罪犯无法洗清自己的罪行的。</p>
+<p>不过，运用两难推理时必须注意设定好已知前提。假如存在两种可能性之外的选项，两难推理就变成了假两难推理。假两难推理与事实逻辑不符，很容易被对方反诘得手。04两难推理就是无论条件怎么样，结果都是一样。明天下雨，我不能去玩；明天不下雨，我也不能去玩（可能要干活什么的）。</p>
+<p>（注意：条件合起来包括所有状况；内容要合理。否则是假的两难推理。）两难问题是只给你两个选择，左右为难，各有难处。假两难推理是把有更多选择的问题，剔除一部分选择，变形为两难问题。现在吃饭还是不吃，吃饭又不饿，不吃又会凉，这是两难问题。</p>
+<p>你现在吃一桶饭，还是不吃饭，吃一桶饭又吃不下，不吃又会凉。这就是假两难问题，因为你可以只吃一碗饭。假两难推理是逻辑谬误的一种。它对讨论的问题，提出看来是所有可能的选择或观点(一般是两个)；但其实这些选择并不全面，亦不是所有的可能。假两难推理属分散注意谬误的一种。</p>
+<p>特性是错误使用「或」逻辑运算。要破解，可以证明除了论证中提出的选择外，还有其他的可能。假两难推理，它误导性地表现出一个所谓的两难困境来蒙蔽他人的逻辑谬误，其典型形式：A或B；非A，故B。比如：老婆，你再不煮饭，今晚我们便要挨饿了。这个例子中老公只提供“在家煮不煮饭”的AB选项，其实除了在家煮饭，还可以叫外卖或出去就餐等，那便不会挨饿。</p>
+<p>假两难问题往往建立在惯性冲突的问题上。实际上就是做人不够灵活或者死要面子的问题。比如说，老婆生孩子和领导请吃饭，两边都要你到场，你怎么办？有的人觉得老婆可以将就，但实际上恰恰是领导可以将就，因为对于领导来说，你只是下属中的一个，一起吃饭更多是出于管理需要。而老婆则不同，生孩子，你是唯一的利益相关人员，你不出场意味着你并不重视这件事(行为上)。</p>
+<p>05最后，请大家解答一下下面这个孩子的问题：老爸老是说我性格孤僻，我反问：“你希望我天天出去聚餐吗？” 老爸：“不希望”。我想请问：您怎么理解我爸的这种心理矛盾呢？（我现在大三）</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

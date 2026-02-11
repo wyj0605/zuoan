@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丁丁：礼物</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>丁丁：礼物</h1>
+            <div class="date">2026-02-11 14:16:10</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>一个玲珑的雕花木箱，一张张老旧泛黄的相片，微合双眼，静心倾听一页页吹起的尘封的记忆，感受心中的爱在流淌。——题记 文/丁丁 你是我心中最重要的人，却也是我总厌烦的那个人。我不喜欢你在我上学前逼着我吃早饭，我不喜欢你在我离家前叮嘱我多穿衣服，我还讨厌你在我考试前对我的唠唠叨叨……但我最想听的、却也最厌烦的，是你的那句话“我是为你好”！那年我四岁，只会笨拙地在墙上写写画画，但写的第一个字，是你。那天是你的生日，你已经忙的忘掉了它，但还连数字都不认识的我却记得。</p>
+<p>可能时间模糊了记忆，我只记得，那两字写的很难 ，我不知一横一竖如何布置，一撇一捺怎样勾勒，只是照着儿童读本画着。但我知道，它对我很重要。当我紧紧的攥着那张纸，郑重的递给你，期望着你的甜言蜜语时，你却忙的只说了声“谢谢”，便又继续忙碌。我生气了，我讨厌你，讨厌你对我的礼物不搭不理。一个四岁的孩子在房中跟自己赌气。</p>
+<p>那年我十三，需要办身份证，所有的资料我都要自己找，我拼命的想证明“我已经长大了，不需要你管了”。我来到卧室，费力但假装轻松地拿出木箱，证明着我“长大了”。打开那老旧的木箱，不曾想揭开了一段温暖的回忆。它很显眼，与所有的重要文件摆在一起，与它一同的，还有几张我儿时的照片，他们一起，庄严安静的躺在那里，做着一个不愿被惊扰的梦。那早已泛黄的纸张，盖着一层薄薄的灰尘，用铅笔别扭而幼稚的写着“妈妈”，撞入了我的眼里，冲进了我的心中，那份温暖与爱被塑封在了回忆里。</p>
+<p>我似乎知道了什么，心头一震，轻轻抚掉灰尘，小心翼翼的放回原位，推回木箱，将所有都放回最开始的样子，假装急切地喊着：“妈，在哪儿，找不到啊！”我得到了我最熟悉、最期待的答复，“你看看你，我说你找不到吧，真是麻烦……”我开心地笑了，享受着你对我的唠叨，在那一刹那，我告诉自己“我不再想长大了”。今年，我十五，每天没有了你的叮嘱，你的唠叨。我发现，早晨不吃饭会低血糖，少穿衣服会感冒发烧，考试不认真会成绩下滑……我发现，你对我的每一句话，是曾被我忽视却又如此珍贵的礼物。回到家，迎来的是你的笑容，似拂晓的晨光，温暖着疲累的心。</p>
+<p>我总以为你给我的爱还不够多，但想想那张粗糙的生日卡片，你对我的一次次叮嘱，我意识到我的愚蠢，错过了你给我成长的一个又一个礼物。妈妈，我不想长大，我是一个贪恋你给的礼物而不想长大的孩子！左岸记： 大家认识丁丁吧？对，德叔的儿子，德叔在这儿提到过两三次，相信大家能感觉到这孩子的聪慧。这是他原原本本的文章，这是孩子的语言和他们认识世界的方式，真挚而纯净。</p>
+<p>这篇文章和下面席慕容的《生日卡片》有异曲同工之妙。席慕容：生日卡片 文/席慕容 刚入台北师范艺术科的那一年,我好想家,好想妈妈.虽然,母亲平日并不太和我说话,也不会对我有些什么特别亲密的动作,虽然,我一直以为她并不怎么喜欢我,平日也常会故意惹她生气;可是,一个十四岁的初次离家的孩子,晚上躲在宿舍被窝里流泪的时候,呼唤的仍然是自己的母亲.所以,那年秋天,母亲过生日的时候,我特别花了很多心思做了一张卡片送给她.在卡片上,我写了很多,也花了很多,我说母亲是伞,是豆荚,我们是伞下的孩子,是荚里的豆子,我说我怎么想她,怎么爱她,怎么需要她.卡片送出去了以后,自己也忘了,每次回家仍然会觉得母亲偏心,仍然会和她顶嘴,若她生气.很多年过去了,等到自己有了孩子以后,才算真正明白了母亲的心,才开始由衷地对母亲恭敬起来.十几年来,父亲一直在国外教书,只有放暑假时偶尔回来一两次,母亲就在家里等着妹妹和弟弟读完大学.那一年,终于,弟弟也当完兵又出国读书去了,母亲才决定到德国去探望父亲并且留下来.出国以前,她交给我一个黑色的小手提箱,告诉我,里面装的是整个家族的重要文件,要我妥善保存.黑色的手提箱就一直放在我的阁楼上,从来都没想去碰过,一直到一天,为了找一份旧户籍资料,我才把它打开.我的天!真的是整个家族的资料都在里面了.有外祖父早年那些会议的相片和札记,有祖父母的手记,他们当年用过的哈达,父亲的演讲记录,父母初婚时的合照,朋友们送的字画,所有的纸张都已经泛黄了,却还保有一层庄严和温润的光泽.然后，我就看到我那张大卡片了。用红色的原子笔写的笨拙的字体，还有那些拼拼凑凑的幼稚的画面，一张用普通的图画折成四折的粗糙不堪的卡片，却被母亲仔细地收藏起来了，收在她最珍惜的位子里，和所有庄严的文件摆在一起，收了那么多年！卡片上写着的是我早已忘记了的甜言蜜语，可是，就算是这样的甜言蜜语也不是常有的。忽然发现，这么多年来，我好像也只是画过这样一张卡片。</p>
+<p>长大了以后，常常只会去选一张现成的印刷好了的甚至带点香味的卡片，在异国的街角，匆匆忙忙地签一个名字，匆匆忙忙地寄出，有时候，在母亲收到的时候，她的生日都已经过了好几天了。所以，这也许是母亲要好好地收起这张粗糙的生日卡片的最大理由了吧，因为，这么多年来我也只给了她一张而已。这么多年来，我只会不断地向她要求更多的爱，更多的关怀，不断地向她要求更多的证据，希望从这些证据里，能够证明她是爱我的。而我呢？我不过只是在十四岁那一年，给了她一张甜蜜的卡片而已。</p>
+<p>她却因此而相信了我，并且把他细心地收藏起来，因为，也许这是她从我这里能得到的唯一的证据了。在那一刹那里，我才发现，原来，原来世间所有的母亲都是这样容易受骗和容易满足的啊！在那一刹那里，我不禁流下泪来。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

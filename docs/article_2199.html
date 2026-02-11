@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪婪，才是人类最丑的模样</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>贪婪，才是人类最丑的模样</h1>
+            <div class="date">2026-02-11 14:00:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/傅小洺自古以来，爱美之心，人皆有之。每个人对美的定义有所不同，有些人在意外表，有些人注重内涵。可当“美”与道德相驳时，你还会为了一己私欲，将这份美心安理得的收入囊中吗？1552年，探险家麦哲伦将第一批天堂鸟鸟皮带到欧洲，作为礼物送给西班牙国王时，注定这种稀有鸟类的命运，不会有好结果。爱马仕手袋问世前，身份的首要标志竟是一只死鸟。</p>
+<p>鸟越奇特就越昂贵，越昂贵就越能彰显主人的社会地位。1610年的一幅画像中，年轻的查理一世国王，骄傲的站在一顶以天堂鸟为装饰的帽子旁。1775年，当“赤字夫人”玛丽·安托瓦妮特从丈夫路易十六手中接过一支镶有钻石的白鹭羽毛时，时尚界就此掀起了一场前所未有的“羽毛热”。女人们争先抢购用羽毛装饰的一切物品，小到服饰，大到摆件，无一幸免。一位帽子上装饰着整只大天堂鸟的女士 1886年，一位著名的鸟类学家在午后散步时对羽毛热的程度进行了一次非正式调查。</p>
+<p>纽约市郊的商业区，有500多名女性的帽子是以整张鸟皮作为装饰的。这些鸟不是公园里常见的普通鸟类，而是以稀有为名的天堂鸟、蜂鸟、绿咬鹃、动冠伞鸟、雪鹭及鱼鹰等。除了帽子，它们还被用来制成其他服装的装饰。比如：一张用8000张蜂鸟皮制成的披肩。十九世纪的最后几十年里，法国进口了将近一亿磅的羽毛，伦敦民辛巷的各拍卖行在4年时间，共拍卖了15.5万只天堂鸟。</p>
+<p>一位英国商人在一年之内就售出了200万张鸟皮。到1990年，每年约有2亿只北美鸟类被杀……如果你觉得这些数字离你的生活太过久远，那么我们来聊聊2009年轰动一时的特林博物馆盗窃案。可叹的欲望众所周知，大英博物馆是世界上规模最大、藏品最全的四大博物馆之一，每年慕名而来的游客数不胜数。但你可能不知道，它还有一个鸟类分馆，坐落于伦敦五十多公里之外的特林镇上。二战期间，为了保护标本免受炸弹袭击，研究人员将华莱士和达尔文收集的鸟皮藏在卡车里，秘密运送到英国各地的乡镇上，其中便有这座特林博物馆。</p>
+<p>时间一转，跳跃到1999年11月，特林博物馆就“灭绝时代的鸟类档案”为名召开了一次紧急会议。一夜间，25个国家130名研究人员来到特林。他们肩负保护珍贵鸟皮的重任，自愿加入到打击团伙盗窃的组织中。可惜的是，博物馆在数据资料收集和防盗措施方面仍存在许多漏洞。他们不知道，某些求而不得的标本早已成为窃贼的首要目标。</p>
+<p>华莱士手写标签额荒顶拟鴷标本 那一年埃德文·里斯特11岁，距他犯案还有十年的时间。这个小家伙出生在美国一个普通家庭，与大多数孩子不同，他从小就展现了惊人的音乐天赋，除此之外他还延伸了许多课外兴趣，其中便包括令他痴迷的“飞蝇”。“飞蝇钓”作为一种娱乐消遣，在国外非常受欢迎。起初它只是用来垂钓的一种工具。随着时光流逝，绑制飞蝇者不再满于现状，他们追求更逼真的创作方法。</p>
+<p>连对材料的选取——羽毛，也变得异常苛刻，从野鸡毛改为重金难求的稀有羽毛。尽管这对绑制者来说耗时又耗力，但扔挡不住他们对钞票以及自身成就的渴望。&lt;br&gt; 埃德文13岁时，在飞蝇界初露锋芒。绑制飞蝇的高手对这名少年大加赞赏，认为他是飞蝇界的未来。偶尔，埃德文会从几位前辈那里收到几根羽毛，他如获珍宝的将它们绑制成一件件工艺品，供奉在屋子里。</p>
+<p>飞蝇 任何事物都有变质的一天。一次在飞蝇大赛上，埃德文撞见两名私下交易的成员。对羽毛和金钱的渴望促使这名少年的心态发生了巨变。可怕的欲望2009年，21岁的埃德文于某天拖着行李箱来到特林博物馆门前。那时他还是一名在皇家音乐学院就读的学生。</p>
+<p>一副手套，一柄切割玻璃器，一个空箱子……这个年轻人就这样单枪匹马的闯进博物馆，开始了他的盗窃之旅。那一晚，他一共偷了299张，总价约为上百万美元的鸟皮。回到家后，埃德文像一名供销商一样，开始切割这些珍贵的鸟皮。他为它们拍照，写详情介绍发布到飞蝇网站上。为了将价位提到最高，他不惜拔掉羽毛进行单售…… 埃德温售卖非法羽毛 这些距今150年，具有科研价值的鸟皮，就这样毁于一旦。</p>
+<p>&lt;br&gt; &lt;br&gt; 萧伯纳曾说过“生活中有两个悲剧。一个是你的欲望得不到满足，另一个则是你的欲望得到了满足。”很显然，埃德文把两个条件都占据了。他被利欲熏了心，并在地狱里开始腐烂。可笑的审判2010年，埃德文遭遇逮捕。</p>
+<p>由于案件特殊，他被送到刑事法院听后审判。大家一边为珍贵文化遗产的丢失感到愤怒，一边又在为这名前程似锦的年轻人感到惋惜。法院的判决会直接影响埃德文的一生。这场判决也决定了他能否从皇家音乐学院顺利毕业。为了使案件得以公平公正，法官采纳了律师的意见——为埃德文请一名最具权威的医生做诊断。</p>
+<p>他们请来了剑桥大学自闭症研究中心主任西蒙博士为他进行心理测试。特林博物馆仅剩的赤红山椒鸟 结果表明，埃德文确实患有阿斯伯格综合症。法院最后判予其12个月的监禁，这也意味着，如果在此期间，埃德文不再犯任何罪行，他一晚也不用再监狱里度过。可笑的是，在这之后的两年，阿斯伯格综合症就以多重漏洞，被移除于精神病症的名单。可悲的真相除了在埃德文住所搜到的那些未被卖出的鸟皮，还有一部分未被找回。</p>
+<p>它们可能仍流通在某些飞蝇爱好者的手中，作为货币使用。也可能被某些羽毛爱好家收藏在家中，成为仅供自己欣赏的艺术品。不管哪种，对于人类文化而言都是悲哀的。为了了解事实真相。南加利福尼亚大学高级研究员柯克·华莱士·约翰逊，历时五年游走在羽毛地下世界中。</p>
+<p>他发现真相要比流言更难让人接受。在埃德温公寓里找到的伞鸟皮，可惜遗失了标签 埃德文的老师、朋友对其印象，包括埃德文本人，约翰逊根本没有从任何方面看出这位年轻人的精神状况令人堪忧。他不仅成功的欺骗了所有人，还将他的崇拜者阮隆拖下水，受人唾骂。作为埃德文的好友兼崇拜者。阮隆对埃德文百依百顺。</p>
+<p>他羡慕埃德文绑制飞蝇的技术，渴望有朝一日自己能与其并肩站在飞蝇界的顶端。埃德文搞到脏货时，这个天真的家伙，竟然帮忙隐瞒，他甚至没有问过这批货物从哪来？对方只要有需求，他一定会竭尽全力的帮忙。直到他被约翰逊问的哑口无言，后知后觉的明白自欺欺人的其实是他自己，而他不过是埃德文手中的一颗棋子罢了。THE END虽然失踪的鸟皮及羽毛被陆续送回博物馆，可惜失了标签的鸟早已没有了任何研究价值。</p>
+<p>当年华莱士耗时8年在马来群岛搜集的天堂鸟标本，最终保存下来的寥寥无几。这个距今有150年历史的稀有鸟类遗产，又因为人类的愚蠢再次化为空白。而犯人却因法律的漏洞仍在逃之夭夭。或许应了约翰逊的那句话：太过美丽的鸟，不能只为自身而存在。隐藏在美丽之后的，除了人与自然之间邪恶的关系，还有人类不惜一切代价，想要占有自然之美的无尽欲望…… 左岸记：“贪婪”指贪得无厌，意即对与自己的力量不相称的某一目标过分的欲求。</p>
+<p>贪婪，就是失控的欲望。贪婪没有满足的时候，反而是愈满足，胃口就越大；为了满足自己的私欲，有贪婪心理的人往往会丧失理智，不顾社会道德、法规的约束，疯狂索取；贪婪的人往往会为达到自己的欲望而不择手段又存在着侥幸的心理，最后无一不是伤害别人，毁灭自己。那么，如何不贪婪呢？让自己的能力配得上自己的欲望，这叫力所能及；把自己的欲望关入法律的笼子，这叫随心所欲而不逾矩；享受阶段成果，珍惜拥有，做到适时的知足而常乐。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

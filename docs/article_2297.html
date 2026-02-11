@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>没有一场幸福是容易的</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>没有一场幸福是容易的</h1>
+            <div class="date">2026-02-11 14:00:56</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/花千树一周末，天气晴好。宝贝在家里四处玩耍，从客厅爬到洗手间门口，指挥着我家先生求抱抱让给按热水器，按完又跑到卧室把衣柜里的衣服一件件给扔出来，扔完后开始吃我给她准备的午餐肉酱面，一把把的抓着吃，期间还要指挥你去给她拿东西，在把吃饭现场搞得无比惨烈之后，先生带他转战到楼下广场继续“祸害”，剩下我在家中挨着收拾衣柜，餐桌，厨房，然后拖地，洗衣服，把各种东西各归其位，等待下一次我家姑娘的青睐。各种事终于毕，倒上一杯水，感叹声姑娘啊，你是整天高高兴兴的，爸爸妈妈是再也不那么自在了。从宝贝未出生时便开始换房子，只为有个可以宽敞的地方玩儿，而后各种吃穿用的一应细细准备，随之带来的还有生活成本的直线飙升。此时的明媚背后是多少奔波啊！</p>
+<p>二曾几何时，自己也那么无忧无虑，肆意奔跑。而今才明白不过是有人替你撑起了那一方晴空。向来没有一场幸福是容易的，如果现在你觉得容易只不过因为负重前行的那个人不是你。总要有人去扛起那一路的风雨兼程，总要有人去跋山涉水抵达你们的诗和远方。这个世界是平衡的，有阳光的地方必然就有阴影，有快乐的地方必然就有守护，有时只是先后来到而已。</p>
+<p>小区的广场经常见三四岁的孩子，骑着滑板车疯了似的跑，家长大多带着水壶，带着包，包里装纸巾装玩具，也是满世界的跟着。之前只是觉得带点儿吃的玩的而已，现在才愈发懂得其中的心境。成人的世界大都不容易，除了单位里各种棘手的工作需要处理外，哪个家里不是一地鸡毛，此时此刻还得调动全部精神盯着这个小顽皮，既怕孩子把别人家孩子撞了，也担心别人家孩子撞着自己的孩子。爱是一种传承，谁不曾是阳光下那个追风的少年，谁不曾拥有那种简单至纯的快乐，只不过彼时我们是任性霍霍的小孩，此时我们是孩子周围不变的晴空。三记得看过一个摄影作品，叫做眼中的天使。</p>
+<p>画面上，小女孩隔着橱窗盯着粉色皇冠的天使蛋糕，妈妈的眼神盯着孩子。在小女孩眼中，那个带着粉色皇冠的蛋糕是天使，而在妈妈眼中，小女孩却是自己的天使。我想，承担与被承担大约都是幸福的。小女孩为吃到蛋糕而想办法，妈妈为满足女孩的心愿而去买蛋糕，如果有结局，最后的结局应该是小女孩和家人一起分享这个蛋糕。蛋糕吃完了，但每个人都拥有了自己的幸福。</p>
+<p>而背后是一份稳定的工作以及良好的家教。我们看到了那一瞬的美好，却容易忽略那些细微的一日日的努力。四我们为爱不辞辛苦，大抵因为心甘情愿，大抵因为值得。爱情亦如是，想起一首王菲的歌，叫《我愿意为你》，其中有句歌词是：我愿意为你/被放逐天际/只要你真心拿爱与我回应/什么都愿意什么都愿意/为你。这世间万千阻碍终究抵不过一句我愿意，我可以选择不结婚或者另一个人，但偏偏在最美的年纪也是最一无所有的年纪选择了你，此后余生，日日夜夜，一起迎接每一个黎明共渡每一程山水。</p>
+<p>婚姻里的默契就是你不说我懂你，我不说你都能替我考虑到，哪怕潦倒困顿之际也能体会彼此的不易，并嘻嘻哈哈的一路向前。我们常常容易看到别人的幸福，却对自己眼前的熟视无睹。可又有哪场幸福容易过，觉得别人幸福的无非是没看到别人家里的一地鸡毛，而对自己的幸福熟视无睹的无非是那一地鸡毛遮挡了那些日日夜夜的承担。世事本就无常，聚散不定，能一起走到婚姻的大都不易，争吵过，无眠过，幸福过，无奈过，需要多大的勇气才能戴上婚戒，和眼前这个人共度一生；要经历多少，才能从青涩到成熟，从陌生人到至亲；又要忍让多少，才能日渐磨平那曾会伤人的棱角，变得温厚，学会给人温暖。五我们终究要背上自己的行囊去开始旅行，也将成长起来尽最大的可能去关爱我们的至亲之人。</p>
+<p>没有一场幸福容易过，哪一次恰当其时不是风尘仆仆，哪一天的安稳之下不是极力承担，而我们也终将享受爱并学会爱。左岸记：生活哪有什么岁月静好，只是有人在为你负重前行。以前是有人为我们挡风遮雨，现在我们长大了，也要开始为心爱的人遮风挡雨。作者：花千树，一边在世界里流浪，一边在深夜里独写悲喜。爱繁花也爱星辰，孤独与爱同在，悲凉与温情并生。</p>
+<p>微信公众号：孤独与爱同在。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人生如画，不必从头再来</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>人生如画，不必从头再来</h1>
+            <div class="date">2026-02-11 14:00:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/邹近夫人生很多事情，我们总是希望它再来一次，如果再来一次，也许事情就有了转机，往理想的方向发展了，可是谁都知道，世间根本没有后悔药，所以我们只能期待往事再现，为此可能花了一生的时间，做足了充分的准备，还是见不到相同的境况。一次竞选，奈何世事需要投票，同事安雯因为发挥失常而惨败，几乎没有还手的余地。原以为那一场精彩演讲，足以让评审官大跌眼镜，一举夺得冠军的称号，可事实上他在竞选的前一天与朋友喝得酩酊大醉。后来，他的精神状况一落千丈。曾经那个走路带风的安雯，忽然像个漏了气的皮球，固步自封地守在一个人的精神角落里。</p>
+<p>人生对他而言，像一眼能望到尽头的断桥，来路一览无遗，去路能搭设桥梁的力量，已经消失不见了。机会只有一次，在他的生命里，在他这个年纪，不可能再有第二次。哪怕他重振旗鼓，都难以向当时在场的那些人证明自己。因而他觉得整个世界没有了容身之处，今生没有可恋。来世，只有来世，才可以从头再来。</p>
+<p>忽然想起前些日子在朋友圈晒图的南南——阿拉善的自由旅行。在我印象里，她谈过三次恋爱，但都没有结果。最后一次分手大概在今年春天，她对外宣告的方式很有诗意：“三里清风三里路，步步清风，再无你。”对恋爱失去信心的南南，选择了一个人的旅行，尽管她最终会遇到生命中的那个他，但应该再难比前三次的恋爱更用心。她只希望有一天，可以换一个明净的世界，明净的生命，从头再来。</p>
+<p>很喜欢马尔克斯在百年孤独里写得一句话，“我们累却无从歇止，我们苦却无法回避。”印象里有个好友，因为高中时候，被许多人误认为渣男而与一个女子相恋到现在，他用实际行动向别人证明了自己的钟情。有时候多数人认为，很难打破预言时，世上偏偏就有那么一些人，向世人展示美好依然存在。也许会迟一些，但真的不必从头再来。之前在上市公司遇到一个女子，若蓉。</p>
+<p>她是个非常阳光的女孩子，除非有人提及她过去，要不然她的声音里，永远包含着积极向上的成分。她年少无知时，倾慕一个男子，瓜熟蒂落之际，才发现那个男人已结婚生子。可以想象这种伤痛对一个女孩子来说，是多么的巨大，难以接受。但是她并没有自暴自弃，毕竟事已至此，只有勇敢面对。于是她毅然决然地把孩子生下来，如今小孩已经七岁，而她每天依然像个小女孩子，对工作、生活，乃至社会报以驼铃般的笑声。</p>
+<p>我们明明想过好此生，很多时候却倍感无能为力。这并不是脆弱，而是因为我们太倾向于完美，完美的成长、恋爱、生活。我注意到，许多人在挑选东西的时候，总会问老板还有没有第二件？也许手里拿着的已经接近完美了，但对他而言，那不是崭新的。人生原本就只是一幅画而已，不论你的画得糟糕透顶，还是画得精美绝伦，都是独一无二的，只不过有的人画在纸上，有的人画在布上，而有的人从未提笔。</p>
+<p>左岸记：在人生的画布上如果画错一笔，你是要拼命地抹去，使劲地涂改，还是再添几笔，让那画错的一笔也成为这幅画中的一道风景？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

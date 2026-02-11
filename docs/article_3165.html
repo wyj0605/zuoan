@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蠢货是怎样炼成的</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>蠢货是怎样炼成的</h1>
+            <div class="date">2026-02-11 14:15:34</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>&lt;p id="filepos1364763" class="calibre_"&gt;&lt;span class="calibre1"&gt;&lt;span class="bold"&gt;蠢货是怎样炼成的 &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;文/王建平&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;斯坦福大学的菲利普·津巴多博士做过一个监狱实验，他让一些中产阶段的白人大学生随机担任“罪犯”和“警察”，在大学地下室的模拟监狱内进行角色扮演。仅仅6天，这些学生就发生了行为和心理巨变，原本是大学生志愿者的他们竟然毫无顾忌地做出了虐囚等残忍的事情，实验不得不中止。40年后，菲利普·津巴多博士在一篇文章中写道：“正如斯坦利·米尔格拉姆早年证明的那样，大多数普通的成年人经过&lt;span class="bold"&gt;引导&lt;/span&gt;，都容易盲目地服务非正义的权威。”&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;这句话的核心意思是，在特定情境下，年轻人（我认为并不局限于年轻人）容易被洗脑，一旦陷入被给予的角色之中，就有可能做出那个角色有可能做出的事情，不管它残忍与否。&lt;/span&gt;他在文章中申明，要洗脑，只需经过简单的几个步骤：去个性化、服从权威、自我辩白、合理化与去人性化。</p>
+<p>只要拥有这几个步骤，就可以制造纳粹思维、狭隘民粹主义、军国主义，最重要的是，能够在爱国、正义等名头下毫无顾忌地制造暴力与仇恨。&lt;/p&gt;&lt;p class="calibre_"&gt;诚如大家所看到的，我将其称之为洗脑。但也有人将其称之为教育。基于各种用意，两者表述不同，但实质无异。&lt;/p&gt;&lt;p class="calibre_"&gt;我查了一下“情境”的含义，有这样一句极其晦涩地表达：情境是指在一定时间内各种情况的相对的或结合的境况。</p>
+<p>换言之，它的时间是特定的，在个体周围所发生的各类情况具有强制力和感染力——&lt;span class="bold"&gt;个体必须对这些综合性的境况作出自己的反应&lt;/span&gt;。正是这种反应，足以改变一个人的行为和心理。&lt;/p&gt;&lt;p class="calibre_"&gt;无独有偶，在心理学案例上有一部电影叫作《浪潮》，讲的是一位政治老师为了让学生体会独裁，于是和学生一同开始了独裁模拟实验，结果一发不可收拾，最终以一名学生之死告终。真实事件发生于1967年美国加利福尼亚州的一所中学，主人公叫Ron Jones，据说他在一次采访中反问记者：“去你们当地的学校看看，那里找得到民主吗？”&lt;/p&gt;&lt;p class="calibre_"&gt;这两个案例都极其著名，用不着我在这里饶舌，我亦不想由此引申出人云亦云的感慨，毕竟最近爱国青年们已经给我们上了许多生动的课，彰显了“情境”一词的深刻含义。</p>
+<p>对于所谓“爱国行为”，其实也并非咱们中国传统，因此我反倒不惊异于目前所发生的种种行为，&lt;span class="bold"&gt;因为它们完全符合当前的情境&lt;/span&gt;。我所遗憾的是，对此表示抗议的“非蠢货”们，身上具备了一种看不见摸不着的优越感，&lt;span class="bold"&gt;而这也是完全符合当前情境的（正如狱警之于囚犯的优越感）&lt;/span&gt;！比如有人也喊出了“抵制日货前先抵制蠢货”这类口号，然而怎么抵制呢？口号中却什么也没有讲。所谓口号，无非是一种站队的表态，从这点来看，“非蠢货”们和蠢货本质上也并没有什么不同。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;我们缺少的不是在微博上呼吁理性的人，不是在朋友圈转发口号的人，而是独立思考的人，真正去分析问题的人，像胡适那样较真的人。这大概是我征引这两个案例的目的，毕竟它们无论何时都很接地气。&lt;/p&gt;&lt;p class="calibre_"&gt;培养蠢货是件挺不容易的事儿，虽然有固定的心理程序，但人刚出生时千姿百态，怎样才能让他们按程序办事？菲利普·津巴多博士已经说过了，&lt;span class="bold"&gt;这需要某种情境的引导。&lt;/span&gt;怎么引导呢？</p>
+<p>比如一个孩子上小学，先从统一服装开始，随后在同一间教室，做同样的事，学同样的文章。上课时手放哪儿脚放哪儿，都得有个规定。如若有小孩不符合这些规定，就要惩罚，最大的惩罚不是体罚，而是老师嫌弃他同学排挤他，让他意识到自己孤立无缓，让他意识到他违反了规则。要融入这个圈子，就必须按照既定的规矩来。&lt;/p&gt;&lt;p class="calibre_"&gt;这叫去个性化。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;他们遇见老师就要说“老师好”（要大声，还得鞠躬，姿势不标准还得重来）。对孩子们来说，老师一开始就作为权威缔造者而存在。但这还不够，必须要打造一个组织，组织架构和往常一样，有班长、副班长等，替班主任管理日常事务。这样的组织架构原本没什么问题，但班干部受权威者器重就会产生优越感，自觉不自觉和“普通”学生拉开距离。这种距离是由上至下的领导与服从关系。</p>
+<p>如果有学生不服从班长的安排，班主任很可能就会惩罚他。&lt;/p&gt;&lt;p class="calibre_"&gt;设好了骨架，接下来就要注入血肉。比如古代，孩子们一进学堂就得拜孔子像，这不算很糟糕，毕竟只是拜一拜而已。但接下来就是读四书五经，读君君臣臣父父子子，一遍一遍在孩子心中灌输忠君思想、伦理道德、奴才思维，直到成为固有的烙印。几年后，他们心里俨然建立了某种如同神一般的权威崇拜，有质疑者将被唾弃被淘汰被惩罚。</p>
+<p>书上就是这么教的。&lt;/p&gt;&lt;p class="calibre_"&gt;这叫服从权威。&lt;/p&gt;&lt;p class="calibre_"&gt;我曾在自己的专栏中提到过一件真事。有一天我和孩子吃饭，他突然冒出一句话，我要去杀光日本人！&lt;/p&gt;&lt;p class="calibre_"&gt;我有些惊讶，想想可能是在学校学习了抗日故事，于是解释道：“日本人和中国人一样，有好人有坏人。</p>
+<p>”&lt;/p&gt;&lt;p class="calibre_"&gt;“不，我就要杀光日本人！”孩子坚定地说。&lt;/p&gt;&lt;p class="calibre_"&gt;为了缓解孩子的仇日情绪，我将日漫里学来的日语教了他几句，还给他看了一集《足球小子》。结果第二天，他同学来我家吃饭，听到我儿子秀日语，大眼一瞪说：“好哇，你竟然讲日语，我要去告诉老师！”&lt;/p&gt;&lt;p class="calibre_"&gt;……&lt;/p&gt;&lt;p class="calibre_"&gt;我所要指出的是，所谓情境洗脑，绝非我上面所说的这么单纯。</p>
+<p>它涉及各方面的因素，是学校、家庭、社会等情境的叠加。但我能够断定，即使到今天，咱们中国的孩子几乎都需要经历去个性化和服从权威这两步。所以有时听周蓬云的《中国的孩子》，心中一片冷意。&lt;/p&gt;&lt;p class="calibre_"&gt;听到我如此分析，许多人可能马上会不高兴并且抗议：我们都是从这样的教育环境成长起来的，但我们不是拥有独立的人格和思考能力？再进一步说，你王建平也是这样的环境成长起来的，今天不是在写这样自以为是的文章？</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;其实各位，包括我在内，还能自诩冷静客观，只不过是&lt;span class="bold"&gt;未入情境&lt;/span&gt;罢了。我个人是典型的例子，小学时整天捧着雷锋和赖宁的故事，而到大学就一百八十度大转变，激进地崇拜索尔仁尼琴。一个喜欢阅读和思考的人会在某个阶段陷入执迷，但只要他注重并且持续改善“自我意识”，当蠢货的机率就会低一些。&lt;/p&gt;&lt;p class="calibre_"&gt;但这也只是在情境未走极端的情况下而已。&lt;/p&gt;&lt;p class="calibre_"&gt;咱们中国流行一个动作，叫作表态。</p>
+<p>表态是颇可玩味的。情况越极端，表态就越重要。比如在《皇帝的新装》中那些赞叹皇帝新衣服的大臣们，他们不是在说谎，只在表态——我效忠于皇帝，哪怕这样很蠢，但这就是保全自我的规则（说真话的才是不要命的傻瓜吧？）。让我们这些“非蠢货”们来假设一下，如果有一天，一群人站在我们面前，他们气势汹汹，我们形单影只，他们要我们表态，是和他们一起去砸日本车砸苹果，还是拒绝。</p>
+<p>作为自诩不是蠢货的我们，自然是要拒绝的，但这就有问题，一拒绝，你就是汉奸，就站到了对立面，生命、尊严甚至家人都有可能受到威胁。&lt;span class="bold"&gt;你必须按照他们的逻辑去行事，或甘愿付出代价去反抗他们的逻辑，因为他们在掌控局面。&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;这时，你会怎么做？&lt;/p&gt;&lt;p class="calibre_"&gt;我想了很多遍，都觉得自己恐怕没有勇气拒绝。如果我活在文*革，被迫去揭发好友的事儿说不定我也会半推半就着干。</p>
+<p>这样一想，优越感荡然无存。&lt;/p&gt;&lt;p class="calibre_"&gt;在文*革结束多年后，余杰等人（不知道他现在是否依然如此）曾指责某些知识分子在文*革中趋炎附势甚至为虎作伥，现在竟然还不忏悔。我自己在大学也鹦鹉学舌般写过这类文章，比如批判汪曾琪写样板戏啦，批判胡风的屈服啦，现在想来真是惭愧。没入那个情境，我们就无法去指责别人。从这个角度说，&lt;span class="bold"&gt;逼别人表态大概是这个世界上最卑劣的事情&lt;/span&gt;。</p>
+<p>但即使在“非蠢货”的自以为有独立观点和性格的群体中，逼迫别人表态的事儿也时有发生。在逼迫者的眼中，这世界只有正确与错误两个选项，只有我们和他们这两个阵营，只有团结和背叛这两种方式。这就是洗脑后的暴力逻辑。&lt;/p&gt;&lt;p class="calibre_"&gt;到这一步，洗脑依然没有结束。我们被逼着混迹在队伍中时，还保持着“清醒”的头脑，自以为和他人有所区别，毕竟是生活所迫嘛，&lt;span class="bold"&gt;这不是我的错。</p>
+<p>&lt;/span&gt;这样一想，愧疚感就缓解了很多。&lt;/p&gt;&lt;p class="calibre_"&gt;几年前，我曾经遇见一个激进的知识女青年，以为她于善恶有深刻的认知，于道德有决绝的憎恶，于时代有先进的观点，后来得知她竟然是她所批驳痛斥的群体中的光荣一员。她轻松地说：“我只是利用他们而已。”&lt;/p&gt;&lt;p class="calibre_"&gt;说出这句话时，自我辩解阶段就结束了。&lt;/p&gt;&lt;p class="calibre_"&gt;试着想想看，也许我们没有被逼着站队，但我们在别人面前有没有附和过自己完全不认同的观点？</p>
+<p>有没有跟随着去做完全违背自己意愿的事儿？有没有一边做着违背良心的事儿一边私底下骂娘？&lt;/p&gt;&lt;p class="calibre_"&gt;我做过。&lt;/p&gt;&lt;p class="calibre_"&gt;我们不理解当年红卫兵为什么能够动手打自己的老师，不理解当下这些爱国青年思维为何如此幼稚，我们自认为和他们很有区别，但正如《浪潮》所讲的，我们到他们之间的距离不会超过五天。只需要五天，只需要一个特定的情境，我们就能够成为他们！</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;我们顺着“站队”的例子往下推：你被逼着表态，为了保全自己，你无奈地跟着他们走了。这时，你所跟随的这伙人和另一阵营突然发生了冲突。啊，好一场血战，你在这血战中东躲西藏，结果没用，对方有人发现了你（在他眼里你就是这个阵营的人），为了自保，你奋起反抗，两人几个回合，眼看你要落败甚至要丢了小命，危急之际同伙毅然出手救了你，并冲你高呼了口号。你不知不觉竟然也回应了他，情绪莫名其妙地激动起来。这回不再躲藏了，直接和对方干，大家一起上。</p>
+<p>你突然感觉到了团结的力量，群体的勇气。在你们的英勇奋战下，对方终于落荒而逃，你们高呼着拥抱着，流着泪庆祝自己的胜利。你们的脚下是一片片血迹。&lt;/p&gt;&lt;p class="calibre_"&gt;这个故事也有另外一种说法，你在和别人大战时对方险些丢了小命，冲你求饶，所有同伙都盯着你，鼓励你一榔头敲下去，你是敲还是不敲？敲下去的同时，说不定你成了杀人犯。</p>
+<p>哦，对不起，这里根本没有杀人犯，因为没有人不是。&lt;/p&gt;&lt;p class="calibre_"&gt;不管哪种情形，合理化与去人性化的阶段就这样结束，关于洗脑的所有程序已经全部走完。恭喜你，蠢货诞生了。&lt;/p&gt;&lt;p class="calibre_"&gt;蠢货就是在特定情境下引导的结果。独裁者用的就是这几招，屡试不爽，谁也无法幸免。</p>
+<p>为了达成某种目的，我们洗脑、被洗脑，乐此不疲，麻木不仁，逆来顺受。所有的广告营销、宣传策略，都用最优美最动人最真诚的语言表达一个最基本的意思：请被我洗脑，请变得愚蠢，请掏出你的钱，请闭上你的眼睛和嘴巴。&lt;/p&gt;&lt;p class="calibre_"&gt;这还不是最可怕的。可怕的是某一天，他们也许还会用最激昂最正义最富有磁性的语调冲我们的孩子表达一个最恐怖的意思：请燃起你的仇恨，请拿起你的刀枪，请染上你的鲜血，为了祖国……&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_52"&gt;2016年8月4日于云和 &lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;&lt;span class="calibre_52"&gt;作者简介：&lt;/span&gt;&lt;/span&gt;&lt;span class="calibre_52"&gt;王建平，自由写作者，著有《请珍爱这样的自己》、《想和这个糟糕的世界说点什么》、《众生之死》、《魂儿飞呀》等作品。个人微博：&lt;/span&gt;&lt;a href="http://weibo.com/wasu/"&gt;&lt;span class="calibre_52"&gt;http://weibo.com/wasu/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;&lt;span class="calibre_7"&gt;左岸记：&lt;/span&gt;&lt;/span&gt;&lt;span class="calibre_7"&gt;人的心态决定着自己的行为，驱动心态的因素有很多，当内外共鸣时，人就会顺着心态去做事，甚至做出和自己平时完全不敢相信的事。</p>
+<p>如何逃出你的肖申克？如果我们的情绪系统已经给出了倾向或感到满意了，那么很少有人会继续深入地思考事情的另一面，而开始转向着手行动。这种匆忙的态度和不再思索的惯性往往是堕落和失败的起源。&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:0pt"&gt; &lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

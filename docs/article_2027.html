@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不跟你谈钱的人，不配跟你谈感情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>不跟你谈钱的人，不配跟你谈感情</h1>
+            <div class="date">2026-02-11 14:00:25</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/沈万九1众所周知，在职场上打拼，最痛苦的事情有两件：第一：跟老板谈工资；&lt;br&gt;第二：绞尽脑汁跟老板谈工资，但却没谈成功。完了老板还跟你谈理想，聊情怀，讲感情…..给你画各种大小的饼，看起来无比诱人，可一时片刻又吃不到。为了一劳永逸地解决这个问题，我有个朋友，还真是有胆识，干脆找了个老板做男友。以前男友只是她的老板，每月出粮，不拖不欠，税后还能拿个八九千。现在可好了，工资不发，劳力加长，上班干活之余，晚上回到家，还得处理各种政务，帮老板“批奏折”，或星夜出去喝酒应酬。</p>
+<p>老板说，都是自家公司的，以后做大了，就是老板夫人了。我们都劝他，你这个老板怎么听起来像个江湖骗子啊。可她还是“衣带渐宽终不悔，为伊消得人憔悴”，坚定地认为这是一段纯粹的感情，不是一盘生意，谈钱多伤感情啊。结果后来，剧情峰回路转。老板的老婆找到了公司，大闹一场，指桑骂槐地说朋友是二奶是小三是勾引人家老公的狐狸精。</p>
+<p>我朋友哪见过这种电视剧的套路啊，立马辞职走人，并彻底跟老板断了联系。不过后来剧情再次翻转，这老板其实是未婚的——那个所谓的老板夫人，也不知道是不是他的其他女友，还是从哪里雇来的演技派。其实，不管是职场还是情场，最纯洁的关系都离不开钱。再好的感情，如果有意绕开钱这个话题，都如同飘在空中的蜃楼，随时可能一阵清风过后，便消失不见。2很多人都会有这样的一个观点，说谈钱伤感情。</p>
+<p>一说到钱，就露出一副万分鄙夷的表情，感觉满脸铜臭，世俗难忍。但如果，我们换个角度去看呢？我有个好友，之前花了半年多的时间，看了套不错的婚房，正准备入手，突然有一天，房子就像吃了春药似的直涨了起来。她原本想着问父亲借一些，可父亲不同意，说钱都在你后妈那，别说是10万，1万也拿不出来。她也问了亲哥，可哥哥说现在没有这么急买房，房子很快就会降价的……霹雳吧啦说了一大堆的理由，其实就是不太想借——因为她哥还是单身，不能把责任推到未来的嫂子那了。</p>
+<p>无奈之下，素来不爱求人的她，只能四处找人借钱，以补燃眉之急。而她第一时间想到的求援朋友里，就包括了我。由此可见，朋友之间，但凡不是彼此间有着真感情，或是恰逢家徒四壁的亡命赌徒，谁会第一时间跟你谈钱？所以，钱才是最好的试金石。人生漫漫，谁都有江湖救急的时候，好的感情，怎么可能不谈钱呢？</p>
+<p>莫非这个时候，只能找那种半身不熟的朋友？或是八竿子不联系的老同学？恰恰相反，那些平时称兄道弟，吃喝玩乐样样随行，关系好得恨不得睡一张床的兄弟姐妹，一旦江湖有难，却闪得比超人还快，友谊的小船说翻就翻。试问这样的人，你真怕因为谈钱而伤到彼此间的感情吗？3记得有这么一句话，很有意思，说“现在这个世道啊，不要相信什么一见钟情了，因为你不能一眼看出对方挣多少钱。</p>
+<p>”当然，这只是一个段子。其真正的涵义是，我们在找对象的时候，除了看颜值和量人品外，还需要测一测“钱品”。所谓的钱品，顾名思义就是有关金钱的品味，即一个人对待金钱的态度。至于具体该怎么看，我们可从以下两个方面去考虑：１. 如何谈钱可以好好地跟恋人谈谈，对有钱人是怎么看的：是无比的羡慕嫉妒恨，怪亲爹（或干爹）不给力？&lt;br&gt; 还是带有仇富心态的不屑一顾，嘴上却说“一定有潜规则”？</p>
+<p>&lt;br&gt; 抑或是对“有钱人”个人努力的尊重，并师夷长技以自强？总的来说，一个人对钱的态度，往往暴露了他/她的人品和心胸。此外，跟对方谈谈是怎么看待“钱”的，也能管中窥豹地了解到彼此的家庭条件，从而折射出不同的消费理念。须知道，很多情侣在磨合期分道扬镳，都是因金钱的问题——当然，也不是因为哪一方嫌贫爱富，只是使用“钱”的态度和习惯有着太大的不同而已。总而言之，一个心理健康的人，既不会把钱看得过分重要，“君子爱财，取之有道”；也不会视金钱如粪土，“富与贵，是人之所欲也。</p>
+<p>”２. 如何花钱当然，除了空口谈钱之外，我们更应该看看对方是怎么花钱的，特别是在你身上所花的钱。我有一个师妹，老公年轻时读研究生的钱，都是她赚的。后来在一起成家了，家里的开销还是让她来负责，而他自己上班的钱，却很少用于家里。最可恶的是，她婆婆还拼命让儿子把钱存起来，说媳妇挣得多，光花媳妇的就好了。结果如你所料，朋友的家庭最终破裂了，最近她正向法院提起离婚诉讼。</p>
+<p>她老公和婆婆则死活不同意，截至到本文完稿前，他们还在拼命打官司，争取打完过年。所以说，两个人相处，对方在你身上怎么花钱，就足以看得出其钱品了。当然，这里的“花钱”方式并不是以“数量”来定，而应该以“比例”去考虑。须知道，对一头猫来说，往往嘴上的一条鱼，就是它的一切了。4记得在畅销书《被劫持的私生活》里，有这么一句话：“今天，每一对夫妻都声称为了爱情才结的婚，但是警察可不糊涂：任何一个已婚者非正常死亡，警方自动将其配偶列为第一嫌疑人。</p>
+<p>”作者肉唐僧说这句话的意思，其实是想说明一个观点：一夫一妻这种婚姻制度，最初就是为了经济利益的最大化而设定的。所以，两个人谈钱，才是真正的务实。一谈钱就能伤的感情，也不是什么真感情。如你所知，在微信出现之前，有很多的聊天软件，比如短信，飞信，MSN，甚至他们自家的qq，但微信之所以它能够颠覆其他沟通软件，最主要的一个催化剂就是微信红包。尤其是节假日期间，我们通过这样一种方式，去升华彼此间的感情，传递朋友间的温度，既简单直接，又不会太赤裸裸。</p>
+<p>当然，话说回来，谈钱虽好，而且还是刚需，但千万别跟葛朗台一样，活活地掉进了钱眼里，沦为了拜金主义，事事以钱为准，以金为绳，让好好的一段感情，变成了一盘赤裸裸的生意，那才是真正的伤感情。左岸记：美好的爱情就是一起赚一起花，工作亦如是。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

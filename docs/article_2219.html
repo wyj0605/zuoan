@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小而难的快乐和幸福感</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>小而难的快乐和幸福感</h1>
+            <div class="date">2026-02-11 14:00:49</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/邹近夫听过一首《我曾》，那声音似乎心力交瘁。但我所想到的曾经，却一度引领时尚潮流。人们常说，人靠衣装马靠鞍，所以一身好衣服自然是人生大事，可在上世纪九十年代，农村里衣不遮体的小孩，还是居多。那时候，我虽年小，但会些针线活，发明了拼接裤腿的方法，就是把一条实在穿不了的裤子，裁剪出一截完好的部分，上下拼接出一条新的裤子，至于是否完美无瑕，好像并不太重要，只要穿得合适。一时间，这种方法在村里村外被各家效仿，学校许多同学都身穿这种样式的服装。</p>
+<p>直至后来，我随同母亲去城里拾荒，才发现那里也有人如此穿着。流行了好一阵子。发展到后来，有留短须的，有折边缺角的，缝针的花样应有尽有。如果把这种现象当成一种偶然，姑且说是人们的共同喜好，那么接下来我要说的，是完全相反的衣着样式。当裤子到了破烂不堪的地步，接裤的方法已经不太实用，而我既没有用普通的思维去想着怎么修补，而是将缺口破边的地方，剪得更烂，以此告诉别人，这是我故意为之，并不是因为买不起新裤子。</p>
+<p>记得那时候，我已经跨级念了初中。断断续续的读书方式，就像猴子掰包谷，到头来什么也没有学懂。但当我身穿一条破裤，出现在师生视野里的时候，大都向我投来惊诧的目光，好像根本不相信，我竟然敢穿成这样来上学。羡慕、兴奋、怜悯、潮流的声音，纷纷传到我耳里。没过不久，我的穿着风靡全校。</p>
+<p>这下倒好，许多人家的破衣烂裤，派上了用场。这时，我已经隐约感觉到自己的一些变化影响到了身边的人，尤其是听说了蝴蝶效应之后。也因此，我在春夏交接之际，自由随性的在长衣外，搭上一件其实穿不了的短外套，夏天则把那些衣袖破烂的长袖，改成无袖。到了二十一世纪，这些衣着样式竟都流行起来，其时髦程度在男女老少心里，变成了一种风尚。细细想来，到底是时尚设计师，来自农村，还是设计灵感，原本就来自穷人的生活方式？</p>
+<p>也许他们只要去关注贫穷，便能牢牢把握住时尚风向标。不过诸多迹象，总让我觉得自己就是那个默默无闻，引领时尚潮流的人。遂自以为是亚马逊的那只蝴蝶，在时代翻滚的洪流里，掀起过惊涛骇浪。如今，我喜欢白衣素净的穿着，不要有什么花里胡哨的图案，也不要什么名牌，纯棉的就很适合。这也算是一种时尚吧！</p>
+<p>可是当我一眼望穿生命的后续，才发现这不过是成人的一种标志，大家都有如此相同的喜好。原来，这世上并没有那么多只蝴蝶，也没有那么多连锁反应和混沌迹象。只不过是因为我们高看了自己，自以为不可或缺罢了。归根结底，人是善于寻找幸福感的。如果不是因为这一点，我想很多人都会愁眉苦脸。</p>
+<p>何况在苦难中生存的那部分人，往往会习以为常，不经人点拨，可能并不知道身在苦难之中，从而时常被小而难的幸福感包围。例如《小妇人》中的鲁伊莎，她不仅在艰难中仍不放弃，而且对内涵生活的不断追求，平平常常的日子在她看来意义非常。如今，也许是因为生活条件愈加改善，我常常看到很多人，似乎凌驾于幸福快乐之上，口口声声可怜贫困山区，可怜那些衣不遮体、食不果腹的孩子，可怜教学设施，可怜农村的一切处境，包括将来。这不但扼杀了我长久以来保存完好的幸福感，还让我也开始怜起那个引领时尚的自己。幸福和人生意义，从来都没有个标准。</p>
+<p>一台收音机听天下，一纸油墨香伴入眠，有一天竟然沾染了陌生人的泪水，而慈善者只需扮演好唤醒的角色，殊不知小而难的快乐和幸福感，有时候比最大的同情施舍更有意义。左岸记：所以，有人真的以自己的傲慢去做了他眼中的慈善，而有的人却默默地就建了那么多所学校。真正幸福的人生该是能经过自己的努力能够过上更美好快乐的生活吧。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

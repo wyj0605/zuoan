@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你看到的是招数，还是内功</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你看到的是招数，还是内功</h1>
+            <div class="date">2026-02-11 14:15:03</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/王路鸠摩智上少林寺挑衅，使遍七十二绝技，方丈群僧无不骇然。这时，小和尚虚竹跑过来，只瞅了一眼，就说：“这位大师用的明明是小无相功嘛。”鸠摩智慌了。一般人看到的是招数，厉害的人看到的是内功。有个本科读经济的学生考去地理学院读研究生，一开始根本没有老师愿意带，因为这家伙一点地理学基础都没有，一年之后，这家伙发的paper超过了所有本科地理出身的学生。</p>
+<p>然后就有地理学出身的学生向他取经，打开他的论文一看，根本学不来，因为他论文里那些经济学模型在地理系学生看来“数学程度太高深了”。那家伙暗自笑话他们：这些都是很基础的模型，我会告诉你们我是因为数学太差才从经济系转到地理系来的吗？有个笑话。当年凯恩斯约拉姆齐喝下午茶，想跟他探讨一下经济学问题，凯恩斯说：“你是我见过的最有天赋的经济学家。”拉姆齐说：“得了吧，经济学哪有什么问题好聊，我下午要去维特根斯坦那儿跟他聊聊逻辑哲学呢。</p>
+<p>”陆游说：“汝欲学作诗，功夫在诗外。”你在一个行当里面学到的都是招数，是行业规矩，它保证你有资格进入这个领域。但是，在这个领域你能达到多深的造诣，这是内功，内功的训练，可能往往要超出这个领域之外。所以，少林寺诸高僧抱着七十二绝技的招数啃，一人啃一门绝技，啃到头最多一人身兼十三门绝技，根本无法和番僧鸠摩智相抗衡。要身兼七十二门绝技，那就要用到内功心法，内功心法在哪呢？</p>
+<p>不在武学书里，在佛经里。这就带来一个很严肃的问题。你想走捷径，想从最近的路登上山顶，但当你从山下出发时，根本不知道那条路最短。你看上去最短的那条路可能只是第一段比较短，再往后就非常绕了。钱穆先生是历史学家，奠定他学术地位的两部书是《先秦诸子系年》和《刘向歆父子年谱》。</p>
+<p>他因为这两部书而从中学语文老师变成大学历史教授。别人即使可以批评他历史观，和他意见相左，但这两部书的价值没有人能够否认，因为这里体现出来的是硬功夫，是干货，在同一个领域没有人能做到他那么硬。这两部书是钱穆年轻时的作品，可是，他在将近六十岁时说了这样的话，我读了感到惊心动魄——“吾数十年孤陋穷饿，于古今学术略有所窥，其得力最深者莫如宋明儒。自问薄有一得，莫非宋明儒之所赐。”这乍一看是谦虚得过头了：“我没有什么学问，如果一定要说有的话，也就是在宋明理学方面有点小心得。</p>
+<p>别的成绩都不算啥。”再一想是骄傲得过头了：“我在历史领域的那些成果都不重要，跟我在理学方面的研究相比，根本不值一提。”但凡了解的人都知道，钱穆在近百年来的历史学界，是数一数二的人。说出这话来，那不是骄傲是什么？时间久了，我才慢慢体会到，钱穆先生说这话，是心平气和的，是既不谦虚也不骄傲的，是的论，是金针度人的话，只是一般人察觉不到。</p>
+<p>为什么察觉不到呢，因为一般人只看得见招数，看不见内功。你读罗素谈幸福的书，读叔本华谈智慧的书，你觉得他们谈的太到位了，但你不知道，人家平时思考的是形而上的问题，内功在那里，有了内功，比划一些招数又有何难。你去看范文澜编的古代史，一股马列气息扑面而来，跟钱穆的古代史决然不同。别的领域就算了，比如说经济学，我也是读高鸿业入门的，后来读范里安，完全矫正过来了，中毒不深。但是像历史、文学这些领域，先入为主，中了毒再解毒，是一件相当困难的事情。</p>
+<p>比如文学史方面，袁行霈的《中国文学史》和龚鹏程的《中国文学史》相去太远。袁行霈认为唐诗是中国古代诗歌发展的一座高峰，空前绝后。龚鹏程认为，清末民初才是诗歌空前绝后的高峰。谁对谁错呢？大家都认为是唐朝是高峰，那是因为一般人看的是招数，要看内功，必然是龚鹏程说的对。</p>
+<p>看招数，看到头也就是这个境界——你翻开奥古斯丁的《忏悔录》，看到他问上帝的那些话，然后想到张载的“天地之塞吾其体，天地之帅吾其性”——这不是很类似的想法吗？对，看招数，看到这个地步就到头了。看内功就不一样，你读《伊川击壤集》，邵雍根本没有大段大段用庄子的典故，但你读得仔细，里面分明是庄子的气味。有次我看到某领导撰写的一幅对联，就对旁边人说，这位领导肯定喜欢读《老子》。他惊讶地问我：“你怎么看出来的？</p>
+<p>该领导案头常备的一本书就是《老子》。”我说：“你看这对联里，他和‘道’相对仗的字是‘名’，这是武功家数，熟悉《老子》的人很自然就这么用了。如果他对儒家更熟悉，他更有可能拿‘天’来对仗。”听一个人说话，并不一定能了解他的真实想法，他的真实观点可能不是他想要表达出来的（他不是三体人）。但你如果留意他说话的方式，细心的话，就能抓住他隐藏在话语背后的态度，因为他的表达方式是和思维方式相关的，而思维方式一定会影响到他的真实观点，想隐藏真实观点很容易，但想隐藏思维方式却很难。</p>
+<p>就像一个习武之人，隐藏招数很容易，但隐藏内功就太难了。孔子说：视其所由，观其所以，察其所安，人焉廋哉？所由、所以、所安，这些都是内功。你把招数丢掉，去看内功，这人就没有什么可以隐藏的了。但有一个前提，你的内功要比他高。</p>
+<p>原文地址：http://www.douban.com/note/260671415/左岸记：这是看书的功夫，还真是什么人看到什么，难怪@安迪斯晨风要发这么一番感慨了：“有时候真心理解不了妹子们的思路啊！《鹿鼎记》对中国传统文化的反思看不到，关注点是“韦小宝真人渣”；《宰执天下》里宋代人文典故看不到，关注点是“韩冈娶了四个老婆”；《三体》里的科幻想象看不到，关注点是“感情描写太渣”；《临高启明》的技术细节看不到，关注点是“臭宅男还想玩女仆”……”别说是内功了，招式能看懂已属不易，但话又说回来，看书，有时不就图个乐事吗？原文链接：http://www.zreading.cn/archives/4295.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

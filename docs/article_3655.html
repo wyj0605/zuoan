@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>该怎样开始好好做事？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>该怎样开始好好做事？</h1>
+            <div class="date">2026-02-11 14:17:04</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/苏小乐 如果你也觉得自己不会做事，比如自己立下的计划，从来没有真正的完成过；或者规定时间内完成的任务，总是不能够按时完成；当然也有到了最后截止时间，顶着巨大压力而马马虎虎完成的经历。那么，这份好好做事养成计划，就是为你准备的。好好做事，是一个人综合能力的基本体现。一个人的思维方式，行为方式，习惯都可以从他的做事的态度中来体现。无论是学习，还是生活，我们每天都在处理着各种大大小小的事情。</p>
+<p>只有学会了做事情的方法，才会让自己的生活掌握在自己的手中。做事情的三个基本流程 一件事情，无论大小，基本由以下这三个部分组成：事情的开始，决定要不要做？事情的进行，如何克服可能遇到的各种问题，把决定好的事情坚持下去？事情的重复，万一最后失败了，还有没有勇气再来一遍？这三个部分，渗透在我们工作和学习中的各个方面。</p>
+<p>有的人，在做事情的时候，根本不在乎有没有把握做成，脑子里习惯性地想“不管了，先做了再说”，等做到一半的时候，却发现自己能力不足，不得不放弃，不仅浪费了自己的时间，也影响了别人，这就是在做事情的开始，没有认真思考。而有些人，经过了好好考虑，做的事情在自己的能力范围之内，却总是不能在规定时间内完成，这就是不能够合理的安排自己的时间，没有用正确的态度来克服困难。还有的人，能够正确评估自己的实力，也能够合理的安排时间，可是有的事情还是失败，没有勇气做好重新来一次，这就是在重复这一部分没有做好。所以，想要提高自己做事的能力，一定要从这三方面入手锻炼。首先说说在做一件事情之前，应该如何准备。</p>
+<p>一、客观认识自己，到底是什么阻碍了自己？做一件事情，最难的地方就是开始。大部分人难以开始行动。为什么难以开始呢？一方面是因为自己幻想出太多的压力。</p>
+<p>在还没开始之前，自己把问题想的太复杂了，不敢开始。当然，还有一部分人是因为面对一件事情，不知道该从何处入手。想到自己做了也不会成功，于是索性就直接放弃了。要想让自己有做一件事情的勇气，我只能从两个维度提供建议。你去不去做，会不会行动，就看你自己对自己有什么要求了。</p>
+<p>不能好好做事的原因 在自己还没有完成的把握的情况下，就盲目开始。在生活中，我们经常在没有仔细考虑的情况下，闷起头就干。在“不管了，先做再说”的惯性思维下，盲目动手去做。这种不负责任的决定方式，之后可能会让你付出惨痛的代价。因为任何一件事情只要起了头，中途放弃影响的绝对不只是自己，在你身边和你一起努力的伙伴，也会因为你的退出而打乱所有的计划。</p>
+<p>自己把事情想的太复杂，不敢开始 大部分人很难开始行动，是因为自己幻想出太多的压力。比如，做这件事情要准备A，B，C……光这样子想，哪还有力气开始？对于这种情况，你要清楚地认识到，这只不过是自己吓自己，只要勇敢地踏出第一步，就已经成功了一半了。你需要做的是，关闭想太多的开关，停止去想哪些还没发生的困难，把全部经历投入到当前需要解决的问题上。当你开始做了之后，会发现根本没有想想中困难。</p>
+<p>当压力减轻了之后，做事也会更加有效率，当然更容易成功。遇到干扰就分心，不能坚持 大部分人都很难专心做一件事。比如在开始一项工作之前，总要瞎忙一阵子。花在拖延和挣扎上的时间，可能比专心工作的时间还要多。我以前学习的时候，就经常是这样子一个状态，打开电脑，心里想着：“开始工作了 ”。</p>
+<p>当一切准备好了之后，却又想到：“昨天的一个问题还没有解决，这周末还有个研讨会需要发言，中午还要去寄一份报告给客户……”这些想法让我压力越来越大。于是，我就想，让自己的大脑放松一下吧！接下来，就很自然的打开了微信，微博，看看朋友圈，逛逛微博。虽然心情一下子好了，但是却浪费了一整天，一点工作进度也没有。二、做好准备，让事情顺利展开 俗话说的好：凡事预则立不预则废。</p>
+<p>做任何一件事情之前，都必须做好计划和安排。那么，如何来做好计划呢？分解目标，大目标，小计划，更容易成功 曾经有段时间，我想学习关于证券投资这一块。但是，由于之前一点基础都没有，周围也没有搞投资这一块的朋友。于是这件事情被我拖了一年，错过了一波牛市。</p>
+<p>这时候，我想到了之前看书看到的一种解决办法，只做“工作分解清单”。只做的方式很简单，先把目标写下来，然后，在目标下面写上完成这个目标所需要做的事。不断的细分，知道分到最小的单位位置。我的以“学习投资理财为目标”，列出的“工作清单”如下：  可以用来列“工作清单”的软件：比如MindManager，Xmind等。如果你喜欢用在线工具的话，百度脑图是一个不错的选择。</p>
+<p>事前有准备，通常能够事半功倍 你肯定有过这样子的经历：每天的工作，让你的办公桌乱到不能再乱。每当想要真理桌面的时候，却又告诉自己：“虽然我知道应该把桌面整理干净，但是我现在有更重要的事情要做。等做好了之后，再过来整理好了。”最后的结果是，桌面一年到头的乱。而乱糟糟的桌面，只会让自己做事的心情更加烦躁不安。</p>
+<p>试想一下，当你想做一件事，却无法找到对应的文件和工具，又怎么会有高的效率呢？所以，从现在开始，为你将要做的事情做好准备吧。从把凌乱的桌面整理好开始。坚持下去，你的效率会提高的。时间，是规划出来的 曾经，我也是一个做事没有计划的人，总是拿到什么做什么，完全没有时间感，而且会常常因为外在的干扰而分心。</p>
+<p>但是，因为一次惨痛的教训，让我意识到了这一点。那次经历是这样子的。有一次，我决定利用周末来准备周一要交的作业。早上起床后，觉得时间充足的很，于是先出去找同学打了一上午的球，然后，回来睡一觉，看一场电影。等到傍晚的时候，我开始着急了，因为我发现作业并不是一两个小时能够完成的，于是只得通宵。</p>
+<p>那时，我真后悔自己白白浪费了一天的时间，只想给自己打几个耳光。从那次经历开始，我就开始学着规划自己的工作和生活了。我每个周末晚上给自己先规划好一个星期的工作学习内容，并详细的记录到自己的印象笔记中。这么一来，我就能随心所欲的利用我的工作时间，不被工作追着跑了。做规划的方法 方法介绍：甘特图法关于甘特图的介绍，可以自行百度或者知乎。</p>
+<p>带有甘特图功能的软件有，MindManager,微软的Projector，还有，用Excel也可以用来画甘特图。具体的操作，可以自行知乎。三、遇到困难，理性分析问题，重复尝试 在现实生活中，一次就能把事情做好的情况是少之又少。在做事的过程中，我们更多的是，遇到很多意想不到的挫折。然而，在面对挫折的时候，更多的人想到的是放弃，因为那种挫败该和无力感，让人根本没有勇气在重新来做。</p>
+<p>那遇到这种情况我们该怎么做呢？失败几次无所谓，不放弃就不算输 其实，成功的人和不成功的人最不一样的地方，就是他们永不放弃。大到马云爸爸当初创立阿里巴巴，小到要削好一个苹果，都不是一蹴而就的。所以，记住，任何一件事情，失败是常态。珍惜每一次重来的机会 直到现在学习多年，越来越能感觉到重来的可贵。</p>
+<p>因为随着时间的流逝，自己的成长，试错成本越来越大了。但是，重来，并不是要你一再重复相同的错误，而是在达成目标的过程中，必须不断思考如何从旧的想法中，找出更好的做好，并且积极修正错误。只有这样才能不断进步，做出最完美的表现。接受自己的不完美 我们要接纳自己的不完美。对于犯错，不需要把它看的太重。</p>
+<p>拥抱自己的不完美，才能再接再厉。如果因为挫折而不断的责备自己，批评自己，只会让自己陷入痛苦的深渊，对目标实现没有帮助。所以，就像学习锻炼口才或者学习技能一样，学习好好做事吧！纸上得来终觉浅，觉知此事要躬行。从现在开始，多多练习，才能够把事情做好。</p>
+<p>左岸记： 做事前，我趋向于把事情往坏的方向想，当我觉得这最坏的结果我可以承受时，那么我就可以开始行动了。今天，我在老雾的公众号上看到人性的认知八条体系，这是比之于任何道理更有价值的。知道这八条，你就知道了人性的陷坑之所在。第一条：无论你做什么，只有百分之十的可控因素，百分之九十以上，都是不可控、不确定的。第二条：无论多好的计划，一定会出状况。</p>
+<p>第三条：任何计划都需要足够的弹性，要会随机应变。第四条：你唯一能控制的，就是你选定的目标。第五条：永远别跟那些不买你东西的人斗。第六条，所有人都是卖家，都在推销自己。第七条，言多必失，疏不间亲，要提防你不知道的隐秘利益同盟体。</p>
+<p>第八条：你得确定，对方不会反过来摆你一道。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>带着症状去生活</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>带着症状去生活</h1>
+            <div class="date">2026-02-11 14:16:56</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/风墟 焦虑症有时候会令人手抖出汗，心跳加速。有天我心跳又很快的时候忽然产生了这样一种设想：如果全世界的人都有焦虑症，焦虑时的颤抖和恐惧是每个人都会时常体验到的，那会怎样呢？如果全世界所有的人都会在40岁的时候得癌症，那么到了那个时候，癌症也就不再是“癌症”，它会是一项正常的、被我们所有人理所当然都会接受的客观问题。对于40岁即将得癌症前的准备，得了癌症之后的治疗流程，如何带着癌症继续更好的生活，这些会是社会化的、习惯化的我们每个人都会去接受的一项生活任务——就像女性每个月都要处理生理期的麻烦，盲人在没有光明的情况下自如生活，养孩子那么多事还要生。作为男性我一直觉得，女性每个月都要有一周的时间来大姨妈这真是一件超级麻烦的事情。</p>
+<p>但对于女性来说，这早已是一件她们习惯了并且适应的事，就像我们所有人都不会觉得每天要吃三顿饭才能活下去是一件麻烦的事情。但如果有一种外星人，他们十年吃一顿饭就能活下去，当他们看到地球人竟然每天都要吃三顿饭才能活下去的时候一定会想：我的个乖乖隆咚锵！地球人每天都要吃三顿饭，这也太麻烦了吧！要是我的话肯定觉得累死了！我们总想一劳永逸的解决所有问题，这是第一个认知上的误区。</p>
+<p>我们总认为当下的问题会是糟糕至极无法忍受的，这是第二个认知上的误区。人的适应性和承受能力远远超出我们自身的想象。现在的我们难以想象没有了手机的生活，但是几百年前仅靠信件联络的人们的生活也是丰富多彩的；我们习惯了有温暖的房子和床可以住的生活，所以我们无法想象地球上千千万万睡桥洞睡公园的人是如何存活的；人们遇到问题时通常都只会思考“怎样摆脱这些问题”，但痛苦也正因此越来越多。因为人生的各种各样的问题是永远都解决不完的，所以逃避问题只会带来更多的问题和痛苦。也正因此，心智上的成熟，和心态上的健康，意味着一个人能够学会接受。</p>
+<p>接受生命的无常，接受问题永远是解决不完的，接受这就是人生。所以很多时候心理咨询并不是去消除或者解决一个来访者的痛苦，而是教会来访者：放弃治疗。放弃治疗的意思是：带着症状去生活。事实上我们每个人都是带着各种各样的症状在生活。生活上，心灵上的痛苦一直是正常的人生的一部分。</p>
+<p>问题在于，我们小的时候或多或少的都被灌输了一种对人生认知的假象——认为没有痛苦的人生才意味着幸福，幸福就意味着没有任何烦恼和担忧。这种认知的错觉导致人们不能接纳自己的症状：不能接受焦虑，因此更加焦虑；不能接受抑郁，因此更加绝望；不能接受恐惧，因此更加恐惧。这种“不能接受”导致「症状」之上又在不断产生新的『症状』，不能接受新的『症状』又产生了新的〔症状〕……此刻或许你应该刷新一下对幸福的定义：幸福是接受痛苦的同时对快乐的主动选择。这个定义有两层含义。一是接受痛苦： 接受了痛苦我们才不会再为痛苦而烦恼，而是以一种平静的心态将其视为寻常。</p>
+<p>得了绝症之后有的人彻底放弃每天陷于消沉和绝望之中，也有的人接受绝症存在的事实，继续充分的享受接下来的人生。二是主动选择： 只有主动选择积极和幸福的人才会收获幸福。你选择关注生活中痛苦和消极的那些方面，你就会看到更多的消极；你选择关注积极和快乐，你才能拥有更多的快乐。但很多人习惯的是消极的思维方式，他们意识不到快乐需要来自自己的主动追求，他们也不愿主动去体验和感受快乐，而只希望中大奖、赚大钱、有美女表白等这些会给他快乐刺激的事件自动降临在他的身上。《哈佛幸福课》里提到的一个建议给了我很大的改变：每天记下5件值得感恩的事情。</p>
+<p>你也不妨试一试。或许当你明天早上起来开始寻思“我身边有什么值得感恩的东西呢？”的时候，你会产生一种和我一样的奇妙感觉： 原来只是一个视角的改变，你对整个人生的理解就不一样了。左岸记： 这种些外部压力造成的焦虑，需要对自我有一个正确的认知；而“自我的认知”，是需要有适合自己的心理倾诉对象进行引导，在当前普遍精神食量的需求下，每个人都该有自己可信赖的人，去共迎遇上的事情。例如：婚姻情感，职业问题，性心理问题，亲子关系，人际关系等等，都可以向一个自己值得信赖的人进行倾诉，探讨，互动，给你建议和陪伴！</p>
+<p>任何一个“大咖级人物”在面对一个有挑战的事情，都不可能有完全的把握，有出现些许失误的j可能性，而人类面对不确定的时候是或多或少都会出现焦虑情绪的。大咖之所以成为大咖，不是因为他们不焦虑，而是因为他们能够在焦虑的情况下，像不焦虑一样行动！只有学会去自我「面对-接纳-解决」情绪焦虑，才能平衡好身心，释放压力层！作者风墟，心理咨询师。微信公众号：炼己者 id：fengxuwake</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

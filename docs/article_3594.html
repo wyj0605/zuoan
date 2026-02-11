@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>这里的阳光有主人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>这里的阳光有主人</h1>
+            <div class="date">2026-02-11 14:16:52</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/星愿 这里的阳光有主人。叠嶂的山峦、如画的草原、镜子一样的湖泊、静静的河流、晶莹剔透的雪山、白云似的羊群、淳朴的人皆是阳光的主人，包括我。初识果洛是在上中学的时候，在那之前果洛在印象中就是个地名，那时候村里有个叔叔在果洛上班，村里的人都叫他“果洛阿尕”，从他的口中听说果洛比较荒凉，坐车要走很久，六七月份会飘雪，有大片大片的草原，草原上的羊群如天空中的白云之类的。上了大学之后天天能接触到网络，通过网络我窥见了果洛。在影像文字中了解到果洛是青海省一个藏族自治州，那里有雪山、草原、河流等，还有格桑花一样的卓玛和帅气的扎西。</p>
+<p>在大三第二学期有幸在老师们的组织下去甘南实习。在出发之前对甘南的情况做了很多的了解，了解到甘南也是个藏区，那里有藏传佛教格鲁派六大寺院之一的拉卜楞寺，还有美丽的桑科草原。那次实习经过小麦加临夏，在临夏短暂停留小憩后直奔甘南州夏河县。到了夏河我见到了土语称之为“拉让”的拉卜楞寺，透过拉卜楞寺浓浓的煨桑烟，久燃不灭的酥油灯，轮回不停的转经筒，磕长头不止的信徒，感受到了生生不息的信仰的魅力。拉卜楞寺的神圣和高雅至今都让我记忆犹新。</p>
+<p>结束完拉卜楞寺的行程，在拉卜楞寺的怀抱中睡了美美的一觉。第二天前往夏河县城18公里开外的美丽的桑科草原。桑科草原辽阔无际，远处的羊群犹如蓝天中朵朵白云、为游客准备的藏式帐篷犹如草原上盛开的朵朵鲜花，桑科草原的卓玛扎西为我们唱起了歌、跳起了舞，卓玛阴柔婀娜，扎西雄浑 刚健，真是应了人们常说的“藏族人会说话就能唱歌；会走路就能跳舞”。面对美丽的桑科草原，我心中泛起无限遐想，如果能和自己的爱人卓玛无忧无虑的骑马游走在草原上那该是多么美妙。可是这只是个遐想，我没有可爱的卓玛，也因为囊中羞涩而骑不起马。</p>
+<p>在后来的很长一段时间里，我都以夏河为蓝本，在心里描绘出了一个美丽的果洛。毕业之后一直东奔西走，没能得到一个稳定的工作，直到去年。2017年三月下旬报名参加省考，在我的小城没有合适的岗位所以报到了果洛。我曾经想过，要是不能留在我的小城就去果洛，去和果洛的山峦、草原、湖泊、河流、雪山作伴。经过努力，终于如愿，成功考上了。</p>
+<p>在正式上班之前，很多朋友都祝贺我成功上岸，并对我说现在工作是稳定了，要是能在草原上找个卓玛那真是完美无缺了。“草原的风，草原的雨，草原的羊群；草原的花，草原的水，草原的姑娘；啊卓玛；啊卓玛；草原上的姑娘卓玛拉……”，亚东将这首《草原》唱响于祖国山河。我和很多人一样通过这首歌知道了卓玛，知道卓玛如草原上的格桑花一样美丽。我也曾经想象过找一个格桑花一样美丽的卓玛共度一生，可结果证明我那只是我一厢情愿的想象罢了。终于来到果洛这片土地。</p>
+<p>发现这里有美丽的年保玉则、雄伟的阿尼玛卿雪山、黄河源头姊妹湖之称的扎陵湖和鄂陵湖、神秘的白玉寺拉加寺等。要不是之前两次路上遇到的车祸为心目中的果洛形象减分，要不然就真的跟心中以夏河为蓝本描绘的果洛一个样，现在看来果洛在我心目中的形象稍微逊色于夏河，虽然这样说会招致很多人的口诛笔伐。果洛草原的卓玛还是如格桑花一样美丽。奈何草原的卓玛只爱帅气的扎西。因此心中想象过无数次跟卓玛骑马游走在草原的梦也就重重的摔在了地上。</p>
+<p>除了草原卓玛梦被重重的摔在地之外，果洛却总是带给我好运。昨天早上接到一个电话，是我一个哥哥打来的。哥哥问我找没找对象，说要是没找的话就给我介绍一个，并说那个姑娘人很好很漂亮，最近跟之前的对象分手很伤心，并再三确认我是不是真的没找，说不能伤害人家小姑娘啥的。我说我没有找对象，然后哥哥说那就把那个姑娘介绍给我，随即把她的微信号发给了我。我加了那个姑娘的微信，从“你好”开始聊起。</p>
+<p>我了解到她也是土族人，之前一直在成都上班，跟之前的男友已恋爱四五年，只是今年在订婚的时候闹掰直至分手。听到这些我说了些俏皮话逗她开心，我的文字表达稍微好于口头表达，一些无法在口头上说出来的话也总是能通过文字表达出来，听到我说那些话，她喜笑颜开，发过来了开心的表情，或许这只是屏幕之内的她，或许屏幕外的她正在被痛彻心扉。没办法，有一些伤只能用时间去抚平，但愿她早日走出阴霾。16年跟大学时候谈的对象分手，在那段很长的时间里我也曾踉跄于阴霾之中，之后便再也没找对象，一是工作没着落，二怕再次受伤。如今工作有了着落，还剩下一件人生大事，那就是找对象。</p>
+<p>过年的时候很多次被很多亲朋好友问及对象的事情，家人更是无以复加的直接说明年该结婚了。我知道我马上就到了而立之年，是该成家了。但是，成家哪有那么简单，还得有一个很爱的她呀！但愿明年我不辜负父母所望。美丽的果洛不辜负我所念。</p>
+<p>这温暖的阳光不辜负我所期，怎么可能会辜负呢，我可是阳光的主人呐！左岸记： 祝成功，祝有情人终成眷属，祝每个人都能遇到真正对的人，就像阳光遇到她的主人，彼此找到了心灵之地。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

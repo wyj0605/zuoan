@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花开，半夏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>花开，半夏</h1>
+            <div class="date">2026-02-11 14:00:52</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/喵小姐夏日的天黑得很晚，六七点的时候最清凉，最喜欢在这个时候出去走走。这时的天是红色的，漂亮的火烧云染红了大半个天，余晖洒下的金黄让大地显得温暖宁静。夏日的天空不会是一望无际的湛蓝，没有冬天那么高远，总会有很多云，一团团，一簇簇，云隙里透着蓝，白云姿意游走，聚集又散去，看上，很美。路边那几株老槐树在我很小很小的时候就有了，如今已长得那么苍劲繁茂，老人们在树底下乘凉拉家常。想起在书上看到的一句描写大树的诗：多少年过去了，还在对云表白，腰早已站弯。</p>
+<p>路面上落了些零零散散的紫色小花，对于这种花我有种特别的感情，却只知它白语的名字。样子有点像牵牛，我们小时候最喜欢用一根细绳将它们一朵一朵串起来，挂在脖子上当花环或是缠在用柳叶编成的帽子上。如果没记错，再过两个月，花期结束，这条小路便会被这些落花铺满，想来会有些凄美吧。走到田间，微风习习，稻田里蛙声一片，玉米叶子在风中唰唰响着，那是叶子互相碰在一起的声音，清脆干净。远处的一小片油菜花开得正旺，在风中摇曳着，馥郁的馨香弥漫四周。</p>
+<p>水声潺潺，仔细听甚至可以听出水从石头上流过的声音，从高到低，水声起起伏伏。环顾四周，成片的稻田，玉米地，加上远处的青山，都是让人舒服的绿色。置身田野，一片淡然。沿着小路穿过稻田，来到河边，找块大石头坐着，脱掉鞋袜，将脚伸进河水里，感受水的凉意。对岸的野花开了，乳白的，淡黄的，粉红的在浓绿的丛木中甚是惹人注意。</p>
+<p>风起，河中泛起了水波，向远处晕开，一圈又一圈。还没能好好的感受这份宁静与美丽，天一下子暗下来，抬头才发现火烧云消失了，红色慢慢变成了黑色。时间差不多了，穿起鞋袜，走过木桥，沿着小河一直往前，不一会就上了公路。站在高处，整片田野都在眼里，成片的绿色里夹杂着些许零散的黄色和白色，在风中像浪一样一层层远去，一切都是美好的模样。想起麦田里的守望者。</p>
+<p>这些绿色便是每天面朝黄土背朝天的他们唯一的守望吧，是荒原里的清泉，滋润生命。一个个绿色的音符，如美丽的蝴蝶飞舞着，穿过大地的肌肤，越过寂寞的心田，直抵生命的深处。这个季节，躲在夏日的繁茂里，聆听生长的声音，那么清透。在家的日子，白天陪外婆说说话，帮奶奶做做事，然后看看书，折腾折腾我的小东西，偶尔和妈妈一起去干干农活，傍晚一个人出去走走，日子很淡却很安心。其实在城市里呆久了，会特别想念在家的生活，想念家乡的宁静与温暖，想念这里的人。</p>
+<p>每次回来，第一眼感觉没什么大的变化，四周依旧是山，村子还是一如既往的静谧与落后。只是慢慢的便会发现那些点点滴滴的不同。那个经常见的老人已悄然离开，哪家有小孩呱呱落地，生命总是用它的方式无声无息延续着。通往山上本主庙的路修好了，那谁家透着乔迁新房的喜悦，某家门前的蔷薇开得那么耀眼，老远就能看到。邻居家的小女孩会跳舞了，跟着音乐跳起肖拉者……我家院子里的木瓜树今年竟意外结了果，还不止一个。</p>
+<p>那棵杏树挂满了杏子，李子树因为去年冬天太冷枯死了被爸爸砍去了枝干，今年却又发出了新芽。鸢尾蓝都开了，阳光下特别美。杜鹃含了花苞，燕子窝又多了一个，燕子每年飞来又飞去飞去又飞来，有时会想它们怎能记得归来的路，记得熟悉的门楣。听着它们在梁上呢喃，这是对生活的安宁和静谧作的最好诠释吧……这些细碎的变化，那么轻却总能触碰心底的柔软。在家的自己总喜欢整理那些小东西，说是整理其实就是翻出来然后放回原处，或许只是不想让记忆落了灰。</p>
+<p>小纸条，一封封信，笔记本上写得比比皆是的斑驳心情，很早前折的纸鹤、幸运星、百合花，那些所谓的“诗”现在读来虽有些许幼稚，却让人有些怀念那时的青涩……这些东西都承载了逝去的时光以及背后的故事。关于我，关于我们。夜深了，村子很静。老树盘根独坐，有风从枝间走过，却没有留下脚印。许多故事，都跑进村野，我听得入了迷。</p>
+<p>有些东西需要时间来验证，譬如青春、激情，譬如开在梦里梦外的花红叶绿。安静的入睡吧。一切都将会归寂，别守着自己哭泣，心中有岸，不怕远航。左岸记：懂得欣赏乡村生活的人从来不会把乡下生活和城里生活对立起来，反而是将这两种生活美好地结合在一起，一边热闹着发展着，一边安放着心灵的归处。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

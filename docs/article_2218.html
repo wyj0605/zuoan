@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幸而有人，与你结伴同行</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>幸而有人，与你结伴同行</h1>
+            <div class="date">2026-02-11 14:00:48</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/邹近夫人的一生很短暂吧！一眨眼便不见了童年，尔后断断续续的惦记，惦记那些过而不往的岁月。接踵而至的又是弥足珍贵的青春，可惜尚未完全从念想中分出神来，最后，青春也消失了，来不及追忆往昔，生活却当头一棒。我见过许多未到中年就开始谈论生死的年轻人，甚至个别人还大胆宣称，最多不过一个甲子足矣。至于原因，大都是无法面对那个年迈体衰的自己。</p>
+<p>但如果真有一天，年到古稀，不知道他们会不会嘲笑自己当初好死的壮语。何况不是每个人都可以被上天眷顾，所以得留在世间，看尽人间悲欢。至于怎样死去，常常是人们谈论不休的问题，不过可以肯定的是，不论人们如何想逃避责任，面对多大的困难，想死的冲动多么直接，大都还是选择了生。显然死并非一件易事，生老病死，中间还隔着病，我想他们大多不愿面对病痛而已。倘若买个棺材一万，那么儿女子孙都愿意，因为这个是看得见的开销，其他就不见得了。</p>
+<p>然每个阶段都有相应的可贵之处，少年，中年，包括老年。并不能因为听闻了久病榻前的凄凉，而不能从容地面对老去。好在社会福利一天天见好，虽然不是毫无后顾之忧，但很大程度上减轻了世人的心理负担。一次拓展，偶然听到有人不失客观地解读死亡，说其在真正意义上分作三种，即生物学上的心跳停止，其次就是社会地位的消失，直到世界最后一个记得你的人死去。忽而联想到唐寅的七十词，“人生七十古稀，我年七十为奇。</p>
+<p>前二年幼小，后十年衰老，中间止有五十年，一半又在夜里过了，算来止有二十五年在世，受尽多少奔波烦恼。”尽管记忆可以追溯到三岁，其实前十岁也算不得数。那些都是金色的年华，令人无限憧憬，但绝大部分时光是稀里糊涂地调皮捣蛋，不知人生的意义。唯独算得上人生的那些年，多半是五风十雨，雷电交加，剩下的又要担心这，担心那，只有几个天数，风和日丽。年轻时，总觉得天堂只有一步之遥。</p>
+<p>对于死亡的了解，几乎是建立在打死、捏死、掐死、一巴掌呼死的基础上，心想嘴巴天天挂着，死了这么多次，依然毫发无损，便觉得一切并不那么严重。缘由大抵是因为自己头上有父母，父母头上还有一代人，这样掰指一算，两代人顶在前头，当然不会受到死亡的凝视，不会被死亡算计，不会感受到死亡的可怕之处。不料白驹过隙，十年如一日，只看到一成不变的空空院落和几株枯萎的花，久未向阳的角落，透出的阴冷直逼心房。时间，唯有清晨和日落，没有黑夜，因为年岁已容不得你在黑夜里闭上眼睛。亲人恰是夜空中的影子，时而聚集在一块，时而飘散得了无踪迹。</p>
+<p>到最后，说话，一个人，做饭，一个人，睡觉，也一个人。想来人生在世，活于生死的两极中间，有人结伴同行，实乃不幸中的万幸。左岸记：一个人，哪怕能承受最寂寞的孤独，也不要让自己孤独一生；和需要的人结伴同行，有美好的情感联结，这样的人生才算完整。你可以理解世间万象，也能让人懂得你的所思所想，这就是非常幸运而又幸福的事。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

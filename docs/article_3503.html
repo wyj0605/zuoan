@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当你老了，会是什么样呢？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>当你老了，会是什么样呢？</h1>
+            <div class="date">2026-02-11 14:16:36</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜 高考第二天，天气转凉，淅淅沥沥的雨断断续续下了一整天，因为工作的原因，我们今天起的格外早，要跟着第一班公交车一起上路，拍司机与乘客之间温暖的瞬间。那个年轻女司机今年三十多了，身材瘦高，脸上挂着浅浅的笑，和人问好的时候眼里闪着温和的光。发车前，她仔细检车厢，擦拭窗户，拖地，外面的雨顺着车窗滑落，风吹着路边的树枝四处摇摆，而车厢内却一片平静，干净明亮，像一个装着轮子的小家。“今天孩子生病住院了，我把我老公叫回来照顾孩子，要不我就得请假了。还是尽量不请假好。</p>
+<p>”她对经理说。六点四十，这个流动的小家开始驶出停车场，要从东到西穿行在城市里了。第一个站点离车站不远，车辆缓缓启动，慢慢停下，女司机和第一个乘客打招呼，叮嘱他们小心坐好。第二个站点，女司机刚刚停下，就起身去搀扶趴着栏杆的老太太，脸上挂着笑，亲切地说:“姨，慢一点慢一点，不用着急。”老太太抬头望着她，声音里充满兴奋:“真是好久没见你了，好久不见你啊，每天都坐车，咋老碰不到你。</p>
+<p>”小小的眼睛里满含深情，声音里有一些想念。女司机扶她坐好，又轻轻地拍拍肩膀:“我也是好长时间没见你，姨，你坐好坐好啊。”她转身坐上了驾驶座，车辆又一次缓缓启动，平稳行驶。又一站，车门开启之后，一下子涌上来十几个老年人，他们前前后后互相聊着天，车厢一下子嘈杂起来，前面挤成了一锅粥，女司机站起身，语气温和地告诉大家:“各位叔叔阿姨，咱们不要挤，慢慢走到座位上，你们坐好了我才会启动车子。”老人们找到座位，一个一个坐好，女司机才不紧不慢地启动了车子。</p>
+<p>这时，车厢里热闹起来，“五路公交车这服务态度就是好，不像有些线路，看见老年人比谁都跑的快。”坐在前面的老太太说，她刚刚挤进来的时候手里拎着包，走路摇摇晃晃，女司机把老人搀扶到最前面的座位上坐好。她的话引起了人们对公交司机服务态度的讨论热情。“就是，五路公交这条线路服务态度确实好。有些司机人家看见老年人根本不停，我上次追一个公交车差点跑的乏死，结果都到跟前了，那司机还是把车开走了。</p>
+<p>”坐在我对面的短发老太太有些气愤。“我有次碰见个司机，我刚上来，人家把车门一关，哐，就把车启动了，把我闪美了。”另一位老太太也想起了不愉快的坐车经历。“哎，那你比我好，我就是想在车里闪，司机还不让我上车。”一位老太太一脸无奈，接着叹息:“人老了，人人嫌。</p>
+<p>屋里人嫌，到外面来了，别人更嫌弃。”一句话说完，车厢安静下来。老人们一个一个略有所思，老这件事有时候也算一场不大不小却又极关痛痒的灾难。这时候，女司机坐在驾驶座上说:“年龄大的人，咱们等会不用着急，下车前不用站在车门前面，等我停稳了，你们再下车，咱们不着急。”她的声音和缓，语速缓慢，老人们的皱纹被这一句话熨平，而后舒展。</p>
+<p>她们被拉回这节温暖车厢，继续着刚才的话题。“不是我说呢，五路公交真真正正服务态度好。”一位老太太不住点头。“服务态度不好，不是要砸饭碗。她不好不行啊。</p>
+<p>”坐在老太太对面的年轻人回答道。可他的这一句话，引起了车厢大部分老年人的不满。坐在后排车厢的老太太一个劲儿摆手道:“你说这话不对。那有些司机还不是不给我停车，见了老年人或者残疾人跑的比谁都快。”“对啊，对啊，还是这个司机心好，这个线路这些女司机真正都心好，从来不大喊大叫，不嫌我们有老年证，不投票。</p>
+<p>”“有些老年人，你行动不便就不要出来坐公交，确实麻烦的很，但是司机也不对啊，你既然让人上车了，就不应该着急八荒的关门，猛一下启动车，这不是故意闪人呢么。”“让他们这些人看不起老年人，他自己还不是要老。咱们的今天就是他们的明天，不尊重老年人，自己以后老了也别想别人尊重他。”大家七嘴八舌地讨论着，总体想要表达的一个意思就是，老是无法躲过的劫，不应该被全社会理所当然的歧视。还有，五路车的女司机是真的好。</p>
+<p>小城市，十几站路下来不过二十多分钟，老年人们一个一个下车，司机一站一站叮嘱，不厌其烦，直至最后一站，最后一个乘客下了车，车厢安静下来。“你们的工资是怎么算得?会不会因为不投票受影响?”女司机想都没想就说:“你不能这样想，咱自己也有老的时候啊，不能因为老人老了，就不让他们上车吧。再说，老年人上车不投票这是国家的政策，咱也不能不让他们享受政策吧。至于你说的，工资受影响，那肯定会有影响，但是因为这个，不让老年人上车，我还做不出来。”我觉得自己的问题，的确有些以小人之心度君子之腹了。</p>
+<p>我被女司机明亮透彻的眼睛和朴素真挚的话，说的无比尴尬。这个早晨，天空灰尘，阳光迟迟不肯露面，人们裙子外面套着厚重的西装，棉袜穿在凉鞋里面并不得体，可眼前的女司机却身着浅蓝色短袖，妆容精致，笑颜灿烂。她365天全年无休，两班倒的日子已经习惯，每个月工资3000元，吃得饱穿的暖，但谈不上好也不算坏。我无意把人写成神，也没有那种精力和激情，为人们呈现一个高大上，无求无欲、无私奉献的女司机，不过这辆车和这个女司机的确温暖了我，不期而遇的惊喜和温暖，大概就是如此吧。在这个人人怕老，顽固对抗，死不妥协的抗争中，这个女司机却在学着接受和承认老来无用这件事，她试着进入老年人的世界，理解她们的迟缓和呆滞，唠叨和感恩，老人们得到的是尊重，而她或许也在接受着一堂生动的老年的课程。</p>
+<p>车辆又一次启动，从西向东，正像女司机所说，车外的风景变化不大，车内却是人生百态，从此习得的东西，也能让人生厚重。左岸记： 当你老了，会是什么样呢？你会想象吗？老似乎是还离我们还很遥远的事，想来，人老了，很多事情就由不得自己做主了，尤其是当身体出了状况，思维能力跟着变得迟钝，精力也急剧下降时。除此，还是大有可为吧，努力让自己做个可爱而有趣的老人，也不理所当然地期望别人必须要帮助自己，力所能及，不轻易地将自己放在弱势群体之中，这样，真正需要帮助的人才能得到善待，而且每个人看起来又都那么的有朝气，永远的“年轻”。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

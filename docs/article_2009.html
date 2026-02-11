@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世间最美好的事情，都让你给遇见了</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>世间最美好的事情，都让你给遇见了</h1>
+            <div class="date">2026-02-11 14:00:22</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/邹近夫&lt;br&gt;当你因为一场毫无准备的测试而彻夜不眠，因为一次没有结果的恋爱而痛苦万分，因为扑面而来的工作压力而喘不过气，又或者因为生活的种种负担而寝食难安时，不妨想一下，人们最初学会打猎、采食、制造武器，是为了生存，后来学会做衣服、耕种，也是为了生存，再后来，学会建大坝、砌高楼、造火箭飞机，同样也是为了生存。这些看似不同的生活方式，概括起来，其实不过是因为我们从来不曾放弃生存的权利。所以一场考试、一次恋爱、一份工作又算得了什么呢？如今，效率争先、投入与产出的时代背景之下，虽然依旧是疲于奔命，但不同的是现在的你我卷入了一种前所未有的市场经济热潮，克服甚至消灭了背井离乡的忌惮和依恋，原来的感情基础也随着迅速解体，心里反而更容易触及崩溃的边缘。尤其是我们没有稳定的感情基础作为内心支撑，也没有熟悉的生存环境作为保护伞的当下，许多人就好像是上苍的弃儿，被迫割裂了家庭和故乡的情怀，零零散散地投放到异国他乡，即便是你稳如泰山，但身边的人总是来的来，去的去，心里的创口不断地被缝缝补补，情感融合似乎需要以相同的方式再做积累。</p>
+<p>有时候你竟然忘了自己曾经向一个人，说过同样的故事和同样的话。想到这一点，你开始感到真正的孤独，开始怀疑自己的记忆在慢慢衰退，分不清原因的背后却只是你在试图稳固感情基础，而它恰恰是最难的部分。久而久之，富有的情感方式没有了用武之地，稍不留神，你还可能会剑走偏锋，看向生命的末端，于是只能借助阅读、电影和唱歌，依靠体验、想象和寄托，从感情失衡的世界中走出来，完成生命里一次漫长的心灵修复之旅。如果这时候，你回头看一看，就会发现世上的最美好的事情，都让你给遇见了。三岁那年，药贩子下乡收购龙葵苍耳子，你跟着邻村的伙伴跑遍了山野，全身上下伤痕累累，却只为了那一斤二两的采收，换得九块六。</p>
+<p>少不更事的你尝到了劳动的甜头，但药贩子一去不复返，再也没有收购你后来摘了一个夏秋的草药，不过，你第一次吃到了冰激凌，这世上最冷的美味。六岁的时候，你到了上学的年龄，正是青黄不接之际，但兑换书本的粮食如数奉上，所以你和同龄人一样，开学就领到了新书。后来你亲眼目睹粮站拆除了围墙，还把秤砣偷偷地滚回了家里。看得出来上苍都在眷顾你。又过了几年，到了你十岁的生日，母亲特意从外乡赶回来。</p>
+<p>碰巧这一天你被老师留校罚抄作业，原本计划放学后游泳的事也泡汤了，不止于此，你的弹弓还等着修复，而且电视柜里的游戏机更没来得及收藏，人生里似乎所有的大事在这一天都凑一块儿去了。不过好在你回家之后，看见一个超大的蛋糕，何况时间尚且不晚，你可以把所有杂乱无章的事情都一一整理妥当，虽然最后没有去游泳，但你知道时光不紧不慢，无论生活如何忙碌都有从容不迫的应对方法。十二岁，你穿上一身漂亮的新衣裳随同家人前往闽南，当姐姐从母亲那儿学会了摆地摊之后，你也开始在安海公园里拾荒，不料被芒果砸中了头，那个下午你把麻袋里的瓶瓶罐罐全换成了金黄金黄的芒果。不得不说，这是你学会生存本领后的嘉奖。也是这一年，你头一回看到大海的样子。</p>
+<p>终于，你到了去城市念高中的年纪，从一开始的胆怯到后来的心安，从一开始的茫然到后来的明朗，都归功于一次次考试帮你练就了处变不惊的本领。刚好这一年冬天，你暗恋已久的女孩像冰霜后的暖阳，向你投来潋滟如画的笑容。十八岁，你在读大学之前打了一份暑假工，给自己买了一把吉他。二十岁，你刚好学会了微观经济学、宏观经济学、管理信息系统、会计学、财务管理、市场营销、管理学、土木工程技术等课程。二十二岁，你大学毕业求职找工作，从一个城市到另外一个城市，辗转迁徙，四处奔波，闻过春天花开，也见过秋水长天，踏过碧水蓝天，也看过层林尽染。</p>
+<p>这样美丽的景色，大概还有不少。现在，你的工作和生活可能出现了一些偏差，但这并不应该成为你放弃生存的理由。因为人生中每一个烦恼背后都有你意想不到的美好，所以不要轻易的误以为自己的运气有多么不好，至于是非周旋，爱恨纠缠，不完全是你看到的黑暗面。也许家庭的争吵不过是缺少了一份关心，也许上司的责备不过是因为把你记成了另一个表现很差的员工。其实所有人都在努力从感情失衡的世界中走出来，完成生命里一次漫长的心灵修复之旅。</p>
+<p>人生中得没得到的并不是失去，而失已失去的也绝非永别。万里长城的烽火台上有你未曾听过的塞外悲歌，希腊爱琴海的群岛上也有你尚未看到的海上日落；河西走廊的敦煌莫高窟有你未曾见过的千年壁画，婆罗洲的热带雨林也有你闻所未闻的清晰空气。丝绸古道、不灭的龙门，西方文明的摇篮、雅典卫城……世上多少风景，等着和你相遇。所以，为这走过的路，为这上苍的眷顾，为这一切刚好，值得你我庆幸。左岸记：一个人幼稚时，常常是遇事就抱怨、逢人就诉苦，一点鸡毛蒜皮的小事都能引起巨大的情绪波动。</p>
+<p>等到一个人真的成熟后，却也学会把委屈往心里装，遇到再大的挫折和困难都尽力表现得若无其事。曾有个问题：成年人说过最多的谎话是什么？一个高赞的回答只有简单三个字：我没事。那是因为很多时候，你遇到困难，心里感到很委屈很痛苦时，即便向他人诉说也无济于事。也许在一些小事上，会有人给你提供力所能及的关心、照顾和帮助，但在一些大事上，却需要你自己去做取舍和选择。</p>
+<p>年少时，我们说“有事”，其实大多是没事。成年后，我们的“没事”，其实常常就是有事。一句“我没事”，包含着多少的担当，百炼成钢。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

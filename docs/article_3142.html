@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面包会有的</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>面包会有的</h1>
+            <div class="date">2026-02-11 14:15:29</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>&lt;p id="filepos1086335" class="calibre_"&gt;&lt;span class="calibre1"&gt;&lt;span class="bold"&gt;面包会有的 &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;文/文昌&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;调皮的夏天也闹得差不多了，留着个尾巴舍不得走，但迫于秋天的压力，它的顽皮收敛了不少。天凉好个秋。这些天北京的天气好得不得了，灿烂的阳光，湛蓝的天空，清新的空气，凉爽的风儿，撩拨得路边的柳条搔首弄姿，放下杂念漫步于此，活着也是一种享受。&lt;/p&gt;&lt;p class="calibre_"&gt;1.&lt;/p&gt;&lt;p class="calibre_"&gt;Q:这些天，偷摸着写了些文字，都是些自己的私心杂念，羞于见人。心有魔障，很多事情没有想通弄懂，非要逼着自己写出来是件很痛苦的事情，越是写不好，越是懊恼，陷入情绪的泥淖，思前想后的结果只能是删了又写，写了又删。</p>
+<p>渐渐的开始反思文字的意义，即使写出来了，又有什么用处呢？不能给人以价值，纯属浪费的他人的时间。即使读过的那些书呢？懂得很多道理，可等真正面对现实问题时，却又有些无能为力。情绪有时像麻醉剂，觉察到痛苦的存在，但对现实又无动于衷。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;A:文字的意义？对于我个人而言，不仅仅是倾诉，而是唯一的创造性输出。工作对个人的智力要求不高，按部就班的完成任务就好，甚至都谈不上为公司贡献了什么，每天坐在那里也不过是维持了公司的稳定。而文字创造的价值体现在哪里呢？证明了我自己还活着，给牵挂我的人报个平安。</p>
+<p>自己的心得和困惑也不仅仅是我独自一人的，也是同类人的，也算是我们成长经历的见证。如果有些思想观念能让人有所收获，也算是功德。&lt;/p&gt;&lt;p class="calibre_"&gt;阅读的意义？有人说：“身体和灵魂总有一个要在路上，要么旅行，要么读书。”只能说是文艺青年的矫情。</p>
+<p>不旅行，不读书，难道就过不好这一生？看电影跟高人聊天难道不行？旅行和读书也只扩大未知的一种方式，也没有那么高不可攀，不可或缺。但是旅行和读书确实能让人生活变得美好。阅读的意义在于改变个人对现实世界的看法，但不能指望它能改变现实，唯有不断的行动才能改变。</p>
+<p>当你埋怨通过阅读懂得了不少道理，可回头依然过不好这一生时，不是道理错了，而是你自己没有走好罢了。&lt;/p&gt;&lt;p class="calibre_"&gt;2.&lt;/p&gt;&lt;p class="calibre_"&gt;Q:一直都沉浸在自我的世界，可抬头观望周遭人们的变迁，在世俗生存道路上，自己比别人慢了好多。晚上本想一睡解千愁，可躺在床上翻来覆去始终睡不着，现实的迷茫，对前途的担忧，深深的焦虑让人无法安睡。有时短短的午休都没有被放过，逃离不了心魔的追逐。越是想逃，越是追的紧。</p>
+<p>不断的向日记倾诉，都快成了祥林嫂。心爱的儿子被狼叼走了，痛心不已。对于已成的事实，无力改变。她的世界太小，儿子丢了，除了一遍又一遍的倾诉，她又能做什么呢？&lt;/p&gt;&lt;p class="calibre_"&gt;在“你负责貌美如花，我负责挣钱养家”这样的男权社会里，男生的压力似乎更大一些，像我们这个青黄不接的年纪，不再有学生身份的掩护，混迹于职场最初几年，能力还不足以撑起一片天，可又认清了一些社会现实，能力资源有限的情况之下，就像是困兽。</p>
+<p>大有心比天高，命必纸薄的抱怨。又试图用诗和远方掩饰个人对捡钱和现实的不屑，既然现在这么穷，凭什么可以对金钱不在乎，又有什么资格鄙视别人忙于生计，带着道德优越感说别人太俗？穷酸而不自知才是最大的悲哀。&lt;/p&gt;&lt;p class="calibre_"&gt;A:人无远虑，必有近忧。人生的每个阶段都会有他独自的困惑和忧愁，青黄不接的无力感是正常的，并不是个人的无能，而是在社会现实大背景下，时代变迁太快，使人有心无力。</p>
+<p>焦虑和担忧有时是好事，能够促使自己认清事实，调整努力的方向。但过度的自责，走向祥林嫂的自怨自艾，这就是个人心胸格局的问题，还是想多了，读得少了。&lt;/p&gt;&lt;p class="calibre_"&gt;3.&lt;/p&gt;&lt;p class="calibre_"&gt;挣钱谋生的能力是人立于世的基础，不能轻易的用情怀掩饰现实的不堪。对于谋生，我该做些什么？收入来源现在只有自己微薄的工资，现在吃不饱也饿不死，为了获得更高的薪酬，只能提高知识技能，培养英语能力。</p>
+<p>走走停停朝这个方向前进，不过走得太慢了。解决措施无非在提升中静静等待下一次机会的来临。&lt;/p&gt;&lt;p class="calibre_"&gt;此外发展第二职业，一直想靠写作挣钱。从目前的写作能力和内容质量来看，如果说到达目的地有十万八千里的话，我现在大概只走了四五十公里，停留在简单的兴趣爱好上，远未到达兑现的程度。还需要不断研究写作技巧，储备知识素材，更重要是坚持写下去。</p>
+<p>回头看，要想快速的成长，必须集中精力高强度的刻意训练一段时间才行，在还没有确定写作方向的情况下，我唯一能做的就像是跑步一样，不断的写，写得多了就知道自己的极限在哪里 了。&lt;/p&gt;&lt;p class="calibre_"&gt;告诉亲爱的自己，不要忧伤，也不要难过，面包会有的，奶酪也是可以有的。&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_2"&gt;文昌   北京  微信号：changchang010&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_52"&gt;左岸记：我们所有的努力不是为了让别人觉得自己有多么了不起，而是为了能让自己先看得起自己，也唯有这样才能更快走出眼前所遭遇的困境。&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:0pt"&gt; &lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

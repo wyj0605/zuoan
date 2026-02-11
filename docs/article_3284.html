@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>等待是一种偷懒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>等待是一种偷懒</h1>
+            <div class="date">2026-02-11 14:15:58</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/haojiehuo 昨天和同事聊天，他说他现在一直在找一个点，他需要找到一个他能够让自己变得有劲的点，他不想颓废下去，我才发现，原来，别人也会存在与我一样的问题，我以前就总在等，等谁谁羞辱我了，我就奋勇直追，等时间不得已了，我再去做，等我知道自己喜欢什么的时候，我再去做那个事情，等别人让位与我，等……反正就是自己现在什么都不用干，什么委屈都不用受，什么努力都不用付出，总会有那么一个点，我自己会心甘情愿地做着我现在做不到和不愿做的事情，只不过不是现在。正好我自己最近也想明白这个东西，所以我说他还是懒，还是想要找捷径，但是他觉得是那个点没有到的原因。我们做事情，总是在等，等具备了做事的条件，等发生了什么事情，或者等自己什么时刻能够主动热情地做事情，总之我们就是只要现在不做事情就好了。为什么说懒呢，就是因为自己不自觉地把解决问题的办法，寄托到别人身上，寄托到条件身上，甚至是寄托到那个不知道什么时候才能勇猛无敌的自己身上，我觉得人真的是只要能够偷懒，是什么理由都能够找到。自己现在这个无能弱不禁风的样子，如果什么都不做，以后大概也是如此，甚至还会更糟。</p>
+<p>如果事事都等，自己怎么可能平白无故的变得厉害？其次，如果非要经历一些痛彻心扉的事情，那么为什么一定要经历才改变，现在改变难道不是最好的吗，一定要承受了伤害打击，才往前走吗？当打击伤害来临的时候，自己拥有的资源条件只会更少，那么做事的难度只会更大，在条件允许的情况下不去做，非要在做事很难的情况下再去做，怎么可能？另外就是等环境条件变好再去做事情，好的环境和好的条件，这都是需要门槛和运气的，社会上当然存在好环境，但是自己能够进去吗，够得上那个门槛吗？机会都是给有准备的人，但是一直等机会再准备的人，是看不到机会。</p>
+<p>只有具备了做某事的条件的人，在某些问题出现时，能够顺利地解决并提升，但是一直等问题出现后再去解决，这样的人恐怕都不具备发现问题的能力，在问题出现时，只会让自己变得更被动更差，机会就等于未被解决的问题。机会是留给提前发现问题并准备好解决问题方案的人。我觉得等待的内因，就是不愿意去承受改变带来的痛苦，但是又不得不面对残酷现状给自己带来的痛苦，于是，把期望寄托于外部，等待就成了一个缓解两者痛苦的最佳选择。等待未来某刻的到来，这种期待降低了改变可能带来的痛苦，因为觉得未来的某个时刻，自己就不需要付出那么大的努力。对未来的期待本身，也弱化了糟糕现状的痛苦，因为觉得自己将来必然会变好，所以现在的痛苦也就可以接受了。</p>
+<p>如果说事实真就如此，那人生就太过简单了。我们每个人只要去幻想去期待，就好了。但是这显然不符合真实情况。做人做事还是必须要去承担痛苦，不要总想着别人能帮助自己，不要总是幻想一些不着边的。现在什么都不做，未来必定是什么都做不了。</p>
+<p>如果想要改变，承担改变的代价和痛苦就是改变的开始，也是未来可能变好的开始，不要再一直等下去了。左岸记： 好的等待不能是逃避，不能是什么也不做，而是平时就足够地努力用心积累，有了辛勤的耕耘播种，然后静待花开；要有等待的心是说人在努力之后要有一种耐性，一种坚韧，一份豁达，这样对结果就既有了得之安然，不得泰然的心态了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

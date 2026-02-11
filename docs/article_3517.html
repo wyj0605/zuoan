@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喜欢我的人，大概也许的确是死了</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>喜欢我的人，大概也许的确是死了</h1>
+            <div class="date">2026-02-11 14:16:38</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/驰云 截至写稿之时，安先生已经九天零六个小时没有联系我了。微信上来自他的最后一条信停留在九天前的凌晨，接下来就齐整整地躺着我的七条信息了。当他小半天没有联系我时，我想他大概给朋友灌醉了，因为他告诉我当晚和朋友有个聚会；当他一整天不联系我时，我想他太忙了，之前我们各自忙于工作之时确实有一整天都没联系的；当他整整两天不理我时，我想他可能出了什么事，然而电话未接音讯继无；在他消失的第三天，果不其然，我发现他的朋友圈屏蔽了我；在接下来的六天时间里，仍旧杳无音讯，就这样，我想，安先生不是忙，他大概也许的确是死了。我翻看了我们几个月的聊天记录，然后删除了聊天窗口。两个陌生人，费劲一切力气和时间渐渐地熟悉靠近，尔后又永远地沦为陌生人。</p>
+<p>这种无疾而终的爱恋是最令我生厌的，因为它吸食了我的情感和时间，让我耗费了心力并且逐步失去对婚姻和未来仅有的些许幻想，让我需要花更多的时间复原然后再去赶赴下一场未约之会。我自认不是一个无情或多情或滥情的人，只是在我希望开始一段新旅程的节点上，安先生恰好在那里，并且是一个有潜质成为终身伴侣的人，这让我不禁小心翼翼地去回应他的殷勤，衷心希望这次撒下的一颗种子能开花结果，然而这棵小秧苗竟然也敢毫无意外地枯死在初春三月的时光里！冰冻三尺非一日之寒，安先生绝对不是瞬间想离开我的，他一定在某时某地有过微波细雨的念想，然后慢慢地坚定自身的想法，最后才下定决心从我的世界里完全消失。而在这一系列的过程中，我竟然没能发现一丝端倪，可见我还真不是一个聪明人；而他又能不被我发现，也可见他是一个多细致的人。作为被留下的一方，我们万万不能去责备离开的人。</p>
+<p>如果一个人离开了，是因为他的心想离开，他的心之所以要离开是因为他感到和你在一起无趣了，如果有趣他断然不会走的；正因为他认为能从别人别处获得更加幸福快乐的可能，所以他走了。对此我很抱歉，抱歉我在这段时间里，沉浸在自己的幻想天地中，未能给以他有趣的体验。然而现在细细想想，他既然动了决离的心思，还能若无其事地与我相处，可想他也应该遭受了些许忐忑和忧思的，对此我还是很抱歉让和我在一起的人遭受这种不愉快的经历。既然如此，他为什么不和我明说呢？我想他怕我纠缠不清吧，如果出于善意的揣测，或许他不忍我伤心吧。</p>
+<p>如果真是这样，那我们之间还真是一段超级失败的关系，因为他根本不了解我，而我也没能让他了解我。他怎么可以觉得我是那种大哭大闹要死要活一句句凄声苦泣地责问他“为什么”的女人呢？煮熟的鸭子飞走了我都能心安气定地去洗锅，何况是还在天空飞着的大雁呢？那么，对于安先生的消失，我是否伤心呢？实话说只感觉到强烈的失落，但并没有沁入心扉的难过，也没有流泪。</p>
+<p>在我成年的十余年时光里，我痛哭过两次。一次是在我祖父的丧礼上，被生死之别阴阳之隔击中了心灵；另一次是在第一份工作上，在平日所谓的情谊被利益和金钱屠杀的凶案现场，我肆无忌惮地痛哭了一下午，第二天清早仍旧哭着去上班。于是在此后的日子里，我就几乎可以心平气和地应对生活所有的刁难了。可能由于拒绝接见太多廉价的狂欢，因此普通的悲伤也只能瑟瑟发冷地躲在门口而不敢登门造访。我如今只是反思自问：为什么别人不喜欢我？</p>
+<p>但凡男人都喜欢漂亮和有趣的女人，我只是很不幸地与这两样优点略不沾边。而在与人相处中我缺乏并懒倦于去学习所谓的社交技巧，更不想违背心意装模作样地去附和他人，因为我没有勇气和能力去假装一辈子。以虚假和谎言得来的婚姻，自始至终都是一场阴谋。况且到了我这番年纪，也应该一劳永逸地决定这辈子要爱什么人而不爱什么人。有道是“不改变错的自己，就无法遇上对的人”，然而又如何评定自己就错了呢，改变自己就能遇上所谓对的人吗？</p>
+<p>而通过磨平自身遇上的人又是否真的就对了呢？一个人在不危害他人和公共的前提下，如果一辈子都无法按照本心生活，那首先对生命就是一种误解。曾看过一个网络段子，一个男士为了与女友有共同话题决定去读《小时代》，当他强迫自己读了若干页之后，突然觉得与其做这么一件蠢事还不如干脆换个女朋友。在这里绝非诋毁郭大师的《小时代》大作，只是为了说明每个人的喜好和厌恶不要求都能理解，但都应该得到包容和尊重。如今外界对单身人士的普遍指责都是说他们要求高，可是食不厌精脍不厌细，对同床共枕的伴侣本就是应有所要求的。</p>
+<p>在饥荒年代，如果对食物还讲究鲜度、火候、刀工、摆盘、卖相、营养搭配、用餐环境等那纯属天大的笑话，能不饿死就算万幸了，甚至在生死关头连人肉和观音土都能下肚。远古荒蛮时代的繁衍需求怎能与今天的婚姻关系同日而语呢？抛却繁衍和生存的压力，一个人如果愿意费多点时间去寻找一个能够丰富自己有且仅有几十年生命的伴侣，怎么能是一件备受指责的事情呢？就好比有人愿意耗时费力花钱地去定制一件衣服或者寻找适合自己的穿衣风格，而不是简单地点点屏幕买一大堆风格各异的流行衣服，然后不喜欢又全部退掉，又或者将就着穿几次就拿来压箱底，他日整理衣柜的时候才发现今日的购买笑话。或许爱情和婚姻这等风花雪月的故事更适合用吃饭穿衣的例子来解说，毕竟文艺女青年三毛前辈有言：爱情如果不落到穿衣、吃饭、睡觉、数钱，这些实实在在的生活中去，是不会长久的。</p>
+<p>又毕竟，这世间的所有神仙眷侣，都是柴米夫妻。最后想说，在这没有边界的网络世界里，安先生，如果机缘巧合之下你能读到这篇文章，你就应该知道我是谅解你的，但是请不要认为我丝毫不介怀你的离开，也不要认为我对你不抱一丝埋怨，因为吝啬怯弱如你，尽管不欠我一声“抱歉”，但至少欠我一声“再见”，望你尽早如数归还。左岸记： 选择冷分手，玩失踪零回应，这绝对是心智最不成熟的一种表现，就像金庸《射雕英雄传》里的老顽童对瑛姑一样，没有勇气去面对，就跑了。这种让当事的另一方自己去感觉、恍悟、接受被分手的事实是很残忍的一件事，是很没有礼貌的。分手一定是有理由的，那么请尊重对方，如订婚、结婚一样进行一个仪式，用一个郑重的节点来宣告一段关系的正式结束，一别两宽，各自清欢。</p>
+<p>（原文链接： https://www.douban.com/note/665220348/ ）</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其实并不存在所谓的“不可替代性”</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>其实并不存在所谓的“不可替代性”</h1>
+            <div class="date">2026-02-11 14:00:26</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/江湖人称向前兄所谓的不可替代性，可能是个伪命题刚毕业的时候，总会听到前辈或者同事说，在工作中，要努力提高自己的不可替代性，当时的我也是这么认为的，并暗暗点头。可后来工作过一段时间后我发现，事情并不是他们说的这样。也许短期内确实会存在不可替代性，但是长期的话，企业会极力避免员工出现不可替代性。而员工如果这样，还有可能会增加"危险程度"。地球离了谁都一样转就个人来说，我们追求个人的不可替代性，希望自己有不同于其他人的特色之处，这没有什么不对的地方。</p>
+<p>但是就企业来说，如果一个员工的不可替代性过于大，针对企业来说，反而并不是一件好事。企业要保持长远的发展，就不会把所有的安危系在某一个具体的职工身上，这样的风险太大。企业是以营利为目的的经济组织我们小时候都听说过一句话 地球离了谁都一样转， 套用到这里也是一样的。轮岗的其中一个考虑就是，如果有员工离职走人，公司的业务还可以照常运转，公司还可以招来其他员工继续工作。公司成长到一定程度，就在制度、文化上花费大量的精力，不允许某个人被替代的成本过高，对企业来说，这不是一种健康的方式。</p>
+<p>大公司倾向于通过流程化让员工变成一个个螺丝钉，在这个“流水线“上，一个人走了，另外一个人可以随时上，或者再招聘合适的人。公司会尽量避免员工离职对公司造成的不良影响。正所谓，“铁打的营盘流水的兵”。没有谁是不可以被替代的，有的只是成本不同。有些以核心人物起家的工作室或者公司，也会在业务成熟之后，尽量摆脱只依附于某一个具体人的情况。</p>
+<p>一旦核心人物哪天出了什么问题，整个品牌就毁了，而品牌的建立也不是一朝一夕的事情。伪装成不可替代性的陷阱公司不可避免会有些老旧系统需要维护，技术的变化日新月异。以前端为例，当你还在维护着jQuery之类的旧代码、老系统的时候，看起来，公司就你一个人还会，有了问题总要去麻烦你下。但是，与此同时，你也被套牢了。没有合适的场景，你没有机会学习新技术，即使学了也无用武之地。</p>
+<p>你在这家公司的独特性，在下个公司可能一文不值，甚至是减分项。你需要重新证明自己，而别人却无需这样。也许这件事对公司是非常重要的，但是，长远来看，这件事对你重要吗？如果你的经历过于独特，且不具备可复制性，对未来的企业没有帮助，那就很危险了。或许更应该考虑通用性我们应该具备的是经验和技术的通用性，即使换了家公司，大部分东西还可以用得上，这样会多一些求职机会，在此基础上，再去追求别的能力。</p>
+<p>太小众和冷门的，只有真正找工作的时候可能才会体会到。在我们具备自己独特的能力之前，也许，先应该学会具备通用能力。左岸记：“天不生仲尼，万古如长夜”，这是对特别的人的至高赞扬，但也没说不可替代，也就是说“任何人都可以被替代，却不是任何人都可以去替代别人”。因为“世上虽然没有一个人是不可替代的，但却有不可替代的感情和存在”。一个人，不能空有屠龙之技，倘若世上无龙可屠，那也只剩“苍海一声笑，狼烟孤疆雨”的悲壮了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

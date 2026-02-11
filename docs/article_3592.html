@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按自己的意愿生活，有多难？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>按自己的意愿生活，有多难？</h1>
+            <div class="date">2026-02-11 14:16:52</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/立夏 昨晚大舅发微信给我，其中一句话说，你弟弟就随他了，他从小就是个有自己想法的孩子，你父母现在最担心的是你。我哑然失笑，这句话的意思是不是说，因为我从来都不是个有自己想法的孩子，所以他们才需要为我担心，而我又不按他们的想法去做，他们就更担心。那么，我到现在都坚持没生孩子，还不算有自己的想法？！哈哈，当然不算，在他们眼里，这只能说明我有问题，大大的问题。</p>
+<p>而我每天还自得其乐的享受单身生活，在他们眼里简直就是大言不惭大逆不道还恬不知耻……呃，这几个词可能有些激烈，不过我想他们生起气来的时候还真是这么想的。***** 不知道有多少人仔细想过我为什么要结婚要生孩子,大家都欢天喜地地奔向同一种生活，哪怕鸡飞狗跳抱怨连天，最终还都能一脸虔诚的跟我说，你总要结婚的嘛，你早晚要生孩子的嘛。是啊，我没否认这种生活啊，只不过我在用我自己的方式过生活啊，而我的方式又恰好和大部分人不太一样啊。即便我更虔诚地跟他们叙说我的意见，也几乎没办法跟身边任何一个人聊诗和远方，聊生命和理想。当年一说起毕业两年不靠家里资助买房，别人就说不可能；一说谈着异地恋，别人就说不靠谱；一说离开双方父母在另一个城市生活，就说太难了；一说享受两人世界，就说俩人结婚几年了还能有啥可说的……可是，买房靠父母就心安理得，靠自己为啥就挺不直腰杆；婚前不接受异地，为啥婚后就可以离开家闯荡；扒家靠父母就天经地义，自己搞定生活怎么就很惨；结婚没多久就审美疲劳，怎么就能相安无事的过下去……你们的想法是想法，我们的为什么就是奢望；你们的生活叫生活，我们的为什么就叫折磨？</p>
+<p>Charles先生说，我好像天生就是为了打破那些“不可能”的，不是有一句话说吗，别人所谓的不可能，是因为他们确实不可能做到，他们做不到的事情，自然就说不可能。***** 这种不可能，估计对他们来说就是思维不正常吧。几年前，我也觉得自己不正常，直到我读到连岳老师的文章。应该是大三的时候，对面宿舍的同学拿来一份报纸，上海壹周，我随便翻到了“我爱问连岳”，从此开启了“更不正常”的思维旅程。从南方周末到我爱问连岳的一二三四册，连岳的文字在最犹豫最孤独最煎熬的时候给我支撑，那感觉丝毫不亚于高中时代支撑我努力学习的一段段好文好句。</p>
+<p>连岳说，“无趣的势力太大，个人的沉沦反而有了充足的理由，爱情的样本太烂，我们就都成了蹩脚的演员。”他还说，“爱情是两个强者的风花雪月，不是两个弱者的苦大仇深。”连岳不知道的是，他这句话奠定了我的爱情婚姻观，让我从一个唯唯诺诺犹豫害怕的小女孩，变成一个极度强硬的自我坚定者。Charles先生经常会非常感慨的问我，你说当时我什么都没有，没钱没房子（房子还没交付），你怎么就敢和我结婚的？我说，我也什么都没有啊~我工资比你低，能力比你差，性格比你软弱，还指望不上家里人，我什么都没有，为什么要求你什么都有啊？</p>
+<p>这是我当年真实的想法，确实是因为我一无所有，所以只能赌上自己的爱情，而我要的，就是有人用一份同样真诚的爱情回馈我。至于其他的，如果藏在一副趾高气昂虚伪游戏的面孔后，对我来说仍然一文不值。***** 自从有了Charles先生，我就有了另一条腿，连岳就成了我逃离世俗生活的翅膀。原来我也没觉得自己多坚定，后来发现在人生最重要的决定中，我比许多人都清醒坚定得多。如果有对生活感觉很无望的朋友，或者对许多选择很迷茫的朋友，确切的来说是与身边人格格不入却找不到支撑的朋友，建议可以看看连岳的文章。</p>
+<p>人活着，总要有一些自我坚持吧，否则，我怎么能称之为我呢，至多是我们吧。***** 记得以前看过一篇文章，说年轻的夫妻没有隐私，亲戚朋友恨不得伸出脑袋来密切关注一下他们的生殖情况。当时看的哈哈大笑，没想到自己也走到了这一步，我真的庆幸自己从一开始就没有妥协，没妥协自己的爱情，所以不用妥协自己孩子的人生。这种感受现在还不明显，但是我相信会越来越明显。我觉得人生好像是多米诺骨牌，你不小心推倒了一小块，根本不知道它最终会波及到哪一块，这中间，可能是长长的岁月。</p>
+<p>上学的是老师经常说，学习如逆水行舟，不进则退。可是进入了社会，这句话才真正应验，年轻的时候太过于沉溺于简单愉悦的生活，以后的日子可能会越过越难。我不羡慕去新马泰蜜月旅行的朋友圈，因为知道那不是我当时能过的生活。我只知道要按照自己的意愿过生活，必然要付出很多很多。可是，再难，为了未来都值得。</p>
+<p>毕竟，我的空头账户，只能自己努力往里面存钱。左岸记： 从这样想到这样去做，再自信、勇敢、条清理晰地表达出来，这才是真的坚定了自己要走的路。按自己的意愿生活，不是说说就能实现的，因为生活不是一个人的关系，而是要解决人和社会的关系，如果不能化解这些矛盾，不解决这些困惑，那也只是折腾一阵子就消停了。要想创造自己想要的生活，就是要通过自己的努力，一步步积累起自己的资源和力量，形成自己稳定的价值观，寻找到真正的良师，找到同伴，坚定自己的脚步，丰满自己的羽翼，中流击水,浪遏飞舟。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>“本来”就是个借口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>“本来”就是个借口</h1>
+            <div class="date">2026-02-11 14:00:47</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/德叔1.经常说现代人活得不易，朋友们讨论，用什么词形容最合适，“崩溃”“苦逼”“抑郁”“佛系”“惨不忍睹”“身不由己”“无力感”“不想睡，怕醒来”……我倒是喜欢语出惊人，“最能体现现代人不易的，是每一个人的生活，总是看起来云淡风轻、若无其事，哪怕内心翻江倒海、孤苦无依。”但是，但是，我们不悲伤，却也不快乐。这是要了命的状态，谁都知道，痛苦是不可避免的，但快乐再遥不可及，这样的人生确实让人唏嘘和无感。2.近期给一个学生做感情心理咨询，挺好一姑娘，人见人爱，喜欢她的人很多，但已进入恋爱状态，不是无疾而终就是如夏花般短暂。我一直推崇人际交往的“正反馈”，人与人沟通最大的问题是信息不对称，解决掉自以为是、或是莫名猜测的，就是信息的正反馈。</p>
+<p>让你对面的人知道你的想法和目的，知道什么是你喜欢的、什么是你不喜欢的。所谓的“知向知止”。小姑娘一开始做的不错，别人的关心，总还是能给个笑脸，给到她惊喜了，还是能欣喜和雀跃。但没几天，情势就急转直下。矛盾横生，冷战频繁。</p>
+<p>找我诉苦的时候，我都有点烦，我说：你现在的状态不适合感情。“为什么呢？师傅。”（我强烈怀疑，“为什么”是这个世界最烦人的词汇之一。）“你界定了一个男友应该的样子，在他为你付出的时候，符合你的要求和标准，你觉得理所应当；不符合你的要求和标准，你就冷脸相向。</p>
+<p>对面是一个活生生的人，在你这要把活生生的人塞入一个模子，还要让他觉得理所应当？”“难道不应该这样吗？”“难道应该这样吗？”“我们且不提感恩珍惜，咱就最利己主义、享乐主义。连只猫你撸它，舒服的时候都会让你知道。</p>
+<p>但为什么面对人，你就无动于衷呢？”“有些事情难道不应该是男人该做的吗？”“没错啊，这次应该做的，下次呢？既然想他一如既往坚持做，给个小鱼干奖励一下不应该吗？”人生可撸，鱼干伺候。</p>
+<p>3.“本来”这个词，是人生借口之一吧。“我本来是这么这么计划、这么想的”，然后就没什么事儿一样的继续混沌了。“本来”不是“原来”，我们却经常拿着“本来”去恶意替换“原来”。有个朋友，与人合作，合作了几年，恍然大悟般的发现，合伙人滥用公司资金、公司财务状况将将资债相抵。朋友是做财务出身，我很好奇，我说这是你专业啊，怎么专业变业余了？</p>
+<p>他说，日常那么多事情，再说，合作的基础是信任，“本来我是基于信任才合作的，我也不想看到这些啊。”“你所有的解释里，只有一句话是对的，“你不想看到这些”，然后的结果就是真看不到这些了。”其实人生的很多恍然大悟，就是“本来”原来不是“本来”，所有的“本来”其实是“原来”。现如今，做个数据统计、获取个信息源，真是简单的紧。我经常说，你不愿意看到的，通常在结局都会让你看到。</p>
+<p>人生好听了说，一直在埋彩蛋，难听了说，谁挖的坑最终多半要自己填。人生就是一部完美的美剧，行进间扑朔迷离，真到了结局，每一个蛛丝马迹都昭然若揭。但我们却喜欢一些霸道总裁、玛丽苏，过程中你觉得有点脑子的人都不会那么想，这漏洞也太大了，但结局都是完美无瑕，得偿梦想。我严重怀疑，因为这样的肥皂剧太多、太烂且滥，我们也学会了在人生不如意的时候，不去努力，遮蔽双眼，等着结局的大团圆？这个世界没有“本来”，只有“原来”。</p>
+<p>4.人总是要快乐些的，否则这个人生怎么捱得下去？生活总是不如意的，生活都很如意，你肯定又感觉不如意了。如果你确定人生是不如意或不容易的，如果你还想活着，那你剩余的事情就只有寻找快乐，继续努力。“雨过天青云破处，这般颜色做将来”。快乐或许是人生痛苦带来的风雨，风雨之后，云破之处，还是有些快乐的颜色。</p>
+<p>偷换一下概念，这般的“颜色”去做自己的“将来”。左岸记：人最大的遗憾不是“我不行”，而是“我本可以”。过去做过的多少事情，都是因为没有拼尽全力而草草了事，这遗憾太多全然是因为自己没有努力去做的结果。全力以赴终会有一个答案，即使不能证明“我可以”，那也一定能知道自己“我不可以”。如此，也就不再遗憾了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

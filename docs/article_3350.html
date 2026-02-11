@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猫小姐的情事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>猫小姐的情事</h1>
+            <div class="date">2026-02-11 14:16:09</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/魏文慧 一猫小姐，三十岁，单身。不是白领，不是骨干，更不是什么精英。她在二十五岁之前充满幻想旳年纪是想过要做职场杜拉拉的，但是情商太低，智商也不高，又吃不得苦中苦，于是在三十岁的时候，还在和宿舍二十出头的小姑娘一起逛地摊买廉价，不同的是，小姑娘们穷得心安理得，乐在其中，猫小姐却只能低头感受自卑，像某个故事里三十多岁还在小面馆为了几块牛肉跟别人斤斤计较的女主一样。猫小姐有些着急了，事业不成功，有个温馨的家庭也是好的，她想尽一切可以认识异性的方法。朋友说自己和男朋友是学车的时候认识的，于是猫小姐也跑去驾校学车；有网友发帖子说工科男是难得的好老公，于是猫小姐从各种论坛网站、通讯社交软件搜索工科男。</p>
+<p>身边好事的大叔大婶只要开口，猫小姐就会答应见一见，她想，万一看上了呢，不管怎样这总是希望。无奈这条相亲路，一走就是两年。二s先生是猫小姐从相亲网站认识的，那时候的猫小姐总是出差，于是晚上就窝在旅馆和s先生煲电话粥，每晚都到后半夜。猫小姐觉得很难得，难得遇到这么聊得来的人。猫小姐很兴奋，等不及了，真的想要嫁给他。</p>
+<p>他们聊的太多，聊到婚姻，s先生说女方是不是应该承担装修费，聊到彩礼，s先生说可不可以结婚后再还回来。猫小姐说，呵呵。他说要来看她。那是他们第一次见面，猫小姐去接他。刚见面，s先生说钱包丢了，我到你的地盘，你是不是应该包吃包住。</p>
+<p>猫小姐安排他住旅馆，当天晚上，猫小姐在他身下，没有感受到一丝丝的温存。猫小姐给我打电话，我说钱上看人品，一个跑去见女朋友还要计较是该你付还是我付的人，不值得爱。可是猫小姐还是觉得太投机，不想放弃。s先生总是半夜打电话过来，而猫小姐，总是无论多晚都会接他的电话，电话里的他，从来都是倾诉者，没问过一句关心的话。某次约会后，s先生开着车，拒绝送她回家，而是带她回了自己家，父母都睡了，猫小姐看着那个拥挤潮湿的地方，不明白他到底哪里来的优越感。</p>
+<p>后来，猫小姐也带他回了自己家，可是s先生皱着眉全程都没怎么说话。后来，他打电话说，你家太旧了，结婚的时候朋友们见了掉价，不能从你们家接。自此，猫小姐终于断了要嫁给他的想法。三猫小姐不是软萌得像猫，而是骄傲得像只猫。气场最强大的时候还是在二十五岁之前，因为她一直想做那种很NB的女人，事业成功，谁也不鸟，虽然没做到事业成功，至少气场修炼得挺像那么回事了。</p>
+<p>过了有资本骄傲的年纪以后嘛，没达到想要的髙度，开始自卑了。于是连她自己都开始讨厌自己。其实她在单位一直都是个很有异性缘的女孩子，性格特别好，她身边总是围着一些男同事在滔滔不绝。但或许时间不对，他们始终没有走进猫小姐的生活。四后来猫小姐认识了m先生，对他的外表特别满意，于是一见钟情，简单了解过后，发现除了外表其他的条件都达不到自己的要求。</p>
+<p>他没有学历，住在山沟里，也没有准备婚房，连个像样的工作都没有。可是猫小姐还是想多了解他一些，于是又开始了一场荒谬的故事。猫小姐不想把感情的事搞得太高调，她希望能有一场稳稳的爱情，从相识到相知再到相爱，然后见父母，最后步入婚姻。可是事与愿违，才认识几天，m先生天天到单位门口等猫小姐，她很无奈，不出去害怕m先生直接找上来，可是出去他就会开车把她直接带回家。猫小姐不想这么早就跟他回家，也不想他天天到单位来，于是天天因为这件事跟他吵，可m先生呢，点头应着，依然我行我素，最后妥协的还是猫小姐。</p>
+<p>猫小姐又打电话给我，说不想这样，像被绑架一样，特别无力，感觉掌控不了。我说，没有掌控不了的事，只要你想。她皱着眉，摇摇头。她没说的是，在那些“强制同居”的日子里，她更掌控不了的是他们的性事。还没订亲，她不想怀孕，可是m先生却总是不戴套，她自己买好，m先生戴上再偷偷摘下来。</p>
+<p>然后不出意外地，她怀孕了。不出意外地，他们恋爱同居的事在那个小山沟，在单位，都搞得人尽皆知，猫小姐苦恼不已。知晓怀孕的时候，她彻底崩溃了，她要离开，离开这个小山沟，离开他。她瞒着父母把孩子打掉，换了工作。只得到一身的伤痛，还有，越发暴躁的臭脾气。</p>
+<p>可是，怪谁呢？五猫小姐没有对爱情失望，她见了很多人，却总是不如意，越见越觉得像在垃圾堆里找男友。见的多了，猫小姐就麻木了，见过一次，对方下次再约猫小姐就不想赴会了，因为这些农村大龄男青年思想太奇葩，如果你赴约，他们就认为你同意了，默认了恋爱关系，第三次可能就商量见家长了，而猫小姐接受不了，她觉得我赴你的约只是答应和你交普通朋友，能不能成为男女朋友还需要了解，你看，猫小姐已经和身边整个圈子格格不入了，结果只能是呵呵。猫小姐在农村条件不错，又有学历，长得也标致，她不想降低标准将就一个“差不多”。六这一次，猫小姐经表姐介绍见了w先生，表姐说条件不错。</p>
+<p>她见过之后说，嗯，还不错，就是有点大男子主义。事实证明，猫小姐是对的。鉴于他“条件不错”，有房有车，城市人，猫小姐这次想花点时间谈谈了。见过两次之后，w先生很规矩，聊的也很投机，猫小姐对他印象不错，只是有一点，他没有工作。这次，两人去唱歌，猫小姐希望他对自己做点什么，或者拉起她的手，或者轻轻抱一抱她，算是对她的一种承认吧。</p>
+<p>可期待了很久，w先生始终没有表示，于是猫小姐点了一首老歌，坐在他身边，慢慢把头靠在了他的肩膀上。他转过头，看了看脸颊红红的猫小姐，低头蹭了蹭她，又看向屏幕，说，没想到你品位还不错。然后伸出胳膊搂住了猫小姐的肩。接下来的约会里，他们就谈到床上去了，猫小姐也了解了他家里的一些事，w先生是单亲，父母之间拎不清扯不明，是个问题家庭。而w先生自己呢，又是个公子，没有工作不是暂时的，很可能以后受挫也会赋闲在家。</p>
+<p>猫小姐觉得他不能托付，然后就分手了。七猫小姐不明白为什么她喜欢的总是这种没什么本事还特好面儿、优越感特强的人。她也不是真的贱到看见男人就想和别人上床，只是她不知道怎么建立亲密关系，除了上床。相亲过后如果想发展，只能上床，有了这一步，才了解得比较深入，如果不，就不冷不热地吃过两次饭，然后心照不宣地再也不联系。我不知道她算不算好姑娘，但是我知道她也是一个看见小动物受伤会心疼，买件新衣服会高兴很久的姑娘。</p>
+<p>我说，妞儿，所有的美好都值得等待。左岸记： 如果自己总是遇到同一类让人无语的异性，那么就一定要好好审视自己的心理和审美问题了。猫小姐对自己立下的原则并没有坚守，尤其是越上年纪，越经过了不堪之人，她就更加没有底气了。其实，既然最终过不了自己心理这一关，那么就不要放弃原则，哪怕一辈子一个人，也不怕，那么又怎么会落入那些莫名的人情网呢？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

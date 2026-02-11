@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人人都是负税人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>人人都是负税人</h1>
+            <div class="date">2026-02-11 14:15:06</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/荷叶上次和妹妹闲聊，聊到了纳税人和负税人的问题。以下是维基百科的解释：纳税人（或“纳税义务人”）即有义务交纳税收的人，分为法人和自然人。不同的税种有不同的纳税人；纳税人与课税对象、计税依据和纳税环节有密切的关系。纳税人与税收实际负担人是两个不同的概念，因税种和经济条件的不同，纳税人有时是实际负担人，如个人所得税，有时不是实际负担如增值税。真心觉得教育很失败，竟然有本科生（她的室友）觉得自己没工作，和税收毫无关系。</p>
+<p>虽然不是第一次听到了，还是觉得寒心。不过这次我想不要只是谈现状，找找原因和可能采取的措施显然更有意义。在我们的印象中，纳税人有两大类，一个是法人，一个是自然人。在商品经济里，企业纳的税，最后做成产品进入市场，这些税收就是消费者买单。简而言之就是，每个消费者都是即使不是纳税人，也是负税人。</p>
+<p>感觉没什么弯弯绕绕，挺好理解的。前一次谈这个问题的时候，特地去找了优酷上的一个视频，人人都是纳税人。看完之后你会明白我们的税收有多重。不然国家哪来的那么多钱供养着庞大的公务员系统，以及办奥运，办世博？接下来，找找原因。</p>
+<p>我想菲律宾的孩子，本科生，思维和我们或许会有些不一样。在菲律宾首都马尼拉，市政府收的税标准是12%，也就是每次消费，包括你在屈臣氏买化妆品，在餐厅吃饭，无论是麦当劳还是jollybee，或者是在SM商场大肆采购，你花费的比索中，12%是税收，这个在小票下方，是明明白白写在那里的。买电话卡也不例外。这一类属于直接税，不含在价格里。和我们的有点不一样。</p>
+<p>在美国，这种意识就更明显了。公民教育从小就开始了，自然也包括纳税人和负税人的意识。这些意识的缺失其实导致了很多问题。比如说，政府把钱花在了什么地方，我们普通百姓其实并不关心，是不是真正花在了刀刃上，我们觉得自己管不着（当然这只是第一步，其实我们现状是，想管也没得管）。如果每个人都知道，政府花的钱，是从我们每个人的劳动中，我们的消费中像割草一样割走的，某些人是不是还会像现在一样，视若无睹？</p>
+<p>1）第一种可能：政府是我们养着的，那么政府的行为就该公开化，透明化。政府应该给我们提供便利的服务。政府的行事效率要提高，不行我们就换人。我们和政府的关系就和我们去spa里头消费一样，我出钱，购买服务，服务不好，我就换一家。当然，前提是，我有多种选择。</p>
+<p>2）第二种可能：中国人这么多，这样的事情，总有人去关心的，还有那些愤青嘛、热血青年，他们会去改变。我们一个人的力量多渺小啊，还是做好自己的事情好了。还有房子要买，车子要买，还得养孩子。没那功夫瞎操心。以上是我能想到的两种可能，在大家都具备了纳税人、负税人意识之后。</p>
+<p>后一种典型的是各家自扫门前雪的思维，坐享其成。只不过，人人都想着前人栽树后人乘凉且只想当乘凉的后人的话，种树人在哪里？关于税收，再补充一点，这个之前我意识到过，关于滥发钞票的问题。当时的想法是，发了一堆的钞票，让大家的存款贬值，百姓手里的钱购买力下降，这个也是富了国家穷了人民的一种方法。后来读到秋叶的博客，有这样一段话，说得更明确，而且有数据可以参考：“就算你每个月收入还不错，个人收入所得税你觉得无所谓，政府还可以通过滥发钞票制造通货膨胀，导致你的收入购买力下降，在经济学里，中央政府放任印刷钞票制造通货膨胀也是一种全民征税的手段（假如你不知道中央政府是否在滥印钞票，你只需要经常关注专家讲的M2广义货币量这个信号，M2超过M1越多，就意味着滥印钞票越多，中国近年就没低过20%，最高69%，而美国规定超过5%就是违法宪法）。</p>
+<p>”原文。纳税人负税人意识的缺失有一部分是教育的责任。不单单是学校教育，还包括社会教育。说到教育，我们昨天还聊到了一个博客中谈的11位老教授的联名信的事情。博文中提到的《国家中长期教育改革和发展规划纲要》没什么新的东西。</p>
+<p>有兴趣的可以找来看看，很容易搜到，我看了一下，也没看出什么特别的东西。当然，前提是，我们得区分什么是真正可以落实的措施，什么是空话，套话和口号。不同的教育，产生了思维的差异。上次看外国人制作的他眼中的中国，视频在优酷上可以找到。视频开头提到了国土面积人口这些话题，然后就是，party的执政合法性是在宪法中明确规定的。</p>
+<p>我不知道多少人注意到了这一点，换句话是，多少人觉得这个是很严重的问题。多少人觉得我们生来就是这样的，这就是理所应当的？多少人觉得“打天下坐天下”是合理的？现在越来越觉得，不能独立思考真是件悲哀的事情。我们的眼界，我们的思维，在某种程度上，是被这个国家的教育限制的太多了。</p>
+<p>现在网络发达了，初中刚毕业的表弟也和我说party太腐败了，看看中纪网每天的新闻吧。还是觉得有些欣慰，或许未来真的会越来越好。继续说教育，哈佛大学公开课《公正》里头，本科生在讨论政府征税是不是对个人财产的侵犯，是不是一种偷窃行为？政府向迈克尔乔丹、比尔盖茨这些人征那么重的税合不合理，他们挣那么多的钱是不是就是个人应得的？如果不是，征了税用在什么地方才是合理的？</p>
+<p>妹妹的原话是，人家是世界名校，可是恐怕就是我们中国名校的博士生也不一定能问出这些问题来，这个就是差距。有时候，你看现状，会看到不合理到离谱的现象。比如高考录取，在北京上海那样的地方，教育的资源本来就优厚，学生的潜能得到了最大的挖掘，然而，大部分大学却在政策上给原本就处于占尽了优势的学生以优待。而有的国家却相反，认为正是因为教育资源的不平衡，所以在大学录取时候，用招生比例或是别的手段来干预这种不平衡，比如给少数民族给贫困家庭更多的名额，来弥补他们先天不足的条件。两相比较一下，心更凉了，是不是？</p>
+<p>当年我怎么都不信北京暴雨死亡人数只有37，后来公布由37人直接升至77人的时候是7月26日晚上，我和好友都在感叹，这个时间点选得太好了，几乎隔天就是奥运会开幕（28日凌晨），你说奥运会一来，除了那些死者的家人，谁还会去关注这样的事情呢？举国都在为奥运健儿拿金牌感到骄傲去了。这个国家还有多少小学没有体育场没有运动会啊，拿金牌和我们有关么，兴奋个什么劲儿啊？GDP猛增，大国崛起，想着要输出价值观了。可是内在呢，不说千疮百孔吧，问题有多少是摆在明处的，比如教育公平，比如医疗、司法、腐败等等，又有多少是在暗处的，像下水道一样，洪水没来的时候，我们都意识不到的？</p>
+<p>有时候觉得这个国家好像常常是要把人逼走一样，当然，有人是主动走的。我现在任教的高中，140多个学生，其中18个中国留学生。大家都觉得难以改变现状，所以有钱的有权的，有才的社会精英们，能走的都走了。是的，有的人还没走，又或者回来报效祖国了，但是遇到真正的事情时，或者说他们的权益受到侵犯时，这样人只要想走还是能随时离开。那么剩下的都是些什么人呢？</p>
+<p>也许我是真的很悲观。左岸记：这是篇较敏感的文章，发了，并不代表我完成赞同文章的观点。我只能说现在虽然不是个最好的时代，却也不太坏。好多的问题有待尽快地解决，这些问题连我们都看得出来，中央智库的那些人会不明白吗？除了把问题的根源找出来，还要找到解决问题的办法，加上强大的执行力，这些都需要上下的共同合力。</p>
+<p>独立意识的觉醒是个很好的开始，过于悲观可不是恨铁不成钢，往往会自暴自弃。原文链接：http://www.zreading.cn/archives/4277.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

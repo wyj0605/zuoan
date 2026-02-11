@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好问题永远比答案重要</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>好问题永远比答案重要</h1>
+            <div class="date">2026-02-11 14:15:18</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>&lt;p id="filepos456482" class="calibre_"&gt;&lt;span class="calibre1"&gt;&lt;span class="bold"&gt;好问题永远比答案重要 &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;文/廖超国&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;我们永远有问题，但永远只能有少数人才能提出深刻的问题。提问变得越来越难，答案似乎变得越来越容易。问题一直伴随着人类始终，人类文明的进程本质上是解决人类与自然以及人类与人类之间问题的过程。智力的提升，科技的发达，文明的进步，先进工具的运用，让我们更深刻地感受到了科学本身包含的一个悖论，随着我们对问题的发现和认识以及解决，得出的每个答案都会孕育出新的问题。使用的工具越多，答案也就会越多，相应的问题也会更多。</p>
+<p>因此，凯文﹒凯利说“科学作为一种手段，主要增长了我们的无知，而不是我们的知识。”&lt;/p&gt;&lt;p class="calibre_"&gt;人类的所有学问都是研究和解决问题的。但过去人们往往把追求答案看得比发现问题更重要。其实，随着超级智能时代的到来，发现一个好问题比得出一个答案更有意义。不是有人说吗，“提出正确的问题，等于解决了问题的大半”。</p>
+<p>过去的例子也对此有充分的说明和佐证。就像爱因斯坦小时候问自己“假如和光线一起旅行，你会看到什么？”这个问题开启了相对论、质能方程E=MC&lt;sup class="calibre5"&gt;&lt;small class="calibre6"&gt;&lt;span class="calibre7"&gt;2&lt;/span&gt;&lt;/small&gt;&lt;/sup&gt;以及原子时代。提出一个好问题比找到一个答案更难，更对认识事物有帮助。所以，比答案更重要的是问题。</p>
+<p>&lt;span class="bold"&gt;答案可以错，但问题最好不要错，答案错了可以修正，问题错了一切全错。&lt;/span&gt;同时，我们还看到，平庸的问题只能有平庸的发现，深刻的问题才有伟大的发现。&lt;/p&gt;&lt;p class="calibre_"&gt;发现问题并不比找到答案容易。问题是引领我们学习和思考的灯塔；问题是激励我们研究和实践的向导；问题是我们学习和研究的起点；问题是知识体系的连结点；问题是促进我们思考的引爆点；问题是寻找答案的关键点。无论工作还是生活，发现不了问题才是最大的问题。</p>
+<p>只有找到了问题，我们才有可能循着问题去寻找答案。所以说问题是先导，从这个意义上看，问题导向不失为一种绝好的方法。&lt;/p&gt;&lt;p class="calibre_"&gt;问题比答案更有力量，这里的问题不是普通的问题，而是具有深度的好问题。那么，什么样的问题才是深刻的好问题呢？有人对好问题作了这样的概括。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题，不会只有一个答案，值得深入探究，拥有很多答案，而且答案中又包含新的问题。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题不能被立即回答，会在历史的长河中随时间沉浮，经过几代人的探求，或有阶段性的答案，或一直在探索中，迷一样的存在。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题总是挑战现存的答案。好问题会超越过现有的答案，反推出更深入的回答，得出新的答案。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题出现时，睿智的人一听就特别想回答，但在问题提出之前，不知道自己对此关心。</p>
+<p>好问题给人回答的兴趣。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题与能否得到正确的答案无关。好问题的提出，起先并不关心是否有正确的答案，对着答案找问题是低智能的人玩的游戏 。越是当下没有正确答案的问题，才越深刻、越有意义。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题会创造新的思维领域。</p>
+<p>好问题开启新思路，没有好问题难有新思路，这是事物发展的逻辑。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题是科学、技术、艺术、政治、商业领域中创新的种子。好问题促进创新，没有问题种子，创新会停滞不前。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题会重新构造自己的答案。就像好问题不只一个答案一样，好问题同样会重构自己的答案。</p>
+<p>好问题不同的问法就会得出不同的答案。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题是探索、设想、猜测，是能带来差异的分岐。面对同一问题，仁者见仁，智者见智，说得就包含这层意思。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题处于已知和未知的边缘，既不愚蠢也不显易而见。已知的问题不再是问题，未知的问题实在太多，若过于超前，很多人会不知所云。</p>
+<p>好问题在已知和未知之间，如同碰到合适的人一样，对的时间对的地点，不早不晚正好。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题不能被预测。能被预测的问题都是比较低级的问题，而高级的问题总难被预测。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题是机器将要学会的最后一样东西。计算机的诞生，网络的出现，度娘给我们准备了太多的答案。</p>
+<p>那个会下棋的以5：0大胜欧洲冠军阿法狗，背下了很多棋谱而且会灵活自如的应用，但他致命之处，就是不会提问题。人工智能机器人要攻克的就是会问问题。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题代表着受教育的头脑。好问题不是谁都能提出来的。受教育的程度越高，提出的问题越高深。</p>
+<p>聪明人提出伟大的问题，愚蠢人连问题也提不出。问题面前人的差别一目了然。&lt;/p&gt;&lt;p class="calibre_"&gt;一个好问题能生成许多其他的好问题。这可能是物与类聚的一种翻版。马太效应说的也是这个意思，好问题带来更多的好问题，不好的问题也会带来很多不好的问题。</p>
+<p>&lt;/p&gt;&lt;p class="calibre_"&gt;我们强调发现问题的重要性，并不是说，答案不重要。毕竟解决问题最终还是靠答案。我们说问题重要是从剖析事物这一角度出发的。正确地解决问题的方法是：接触事物→了解事物→深入事物→发现问题→分析原因→找出结症→寻找方法→破解难题→得出答案。科学的认识论就是感性认识、理性认识、获得规律、把控事物、得出结论的不断循环往复递进。</p>
+<p>答案是我们最终追求的结果。&lt;/p&gt;&lt;p class="calibre_"&gt;我们需要一个好问题，同时也需要与之相适应的好答案。这才是我们认识和改造成世界的终极目的。&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_13"&gt;2016年10月6日初稿于荆州古城&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="bold"&gt;&lt;span class="calibre_7"&gt;左岸记：&lt;/span&gt;&lt;/span&gt;&lt;span class="calibre_7"&gt;如果你很努力却发现收获很少，那么问题可能出在努力的方向上，而不是你不够努力。正如，你得到了一个好答案，结果却是严重的错误，那么必须回到问题本身，重新审视。</p>
+<p>&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_7"&gt;生活的问题，看答得精巧可以让人醍醐灌顶，如下：&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre_"&gt;&lt;span class="calibre_7"&gt;而真正难于提出的好问题是关于宇宙客观自然的。&lt;/span&gt;&lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:0pt"&gt; &lt;/p&gt;&lt;p class="calibre2" style="margin:0pt; border:0pt; height:1em"&gt; &lt;/p&gt;</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界那么好，你为何还会焦虑</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>世界那么好，你为何还会焦虑</h1>
+            <div class="date">2026-02-11 14:00:24</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/曾鑫林当放下手机提起笔的时候，仿佛我们又回到了一个比较真实的世界。你有多久没拿起过笔写下些什么了?你有多久没和那个一两年不用见面却还不影响交情的朋友见过面了？你又有多久没去爬山涉水闻闻花香，抚摸大地了？我们习惯于科技的进步，信息的便捷，却忽视了身边的实物。我们给各种手机软件定上使用时间来控制自己对手机的依赖，却忘了最好的办法就是抛开手机。</p>
+<p>科技的发展带来的往往是对人文的冲击和遮罩，上天入地时我们少了对天地的敬畏，书写绘画变成电脑里的字节像素时我们少了对文字和艺术的敬畏。当全部的社交活动被电话和微信代替的时候，看似密切的我们其实正在被一个个看不见的信号所逐渐隔离。我们记住的永远不会是彼此抱着手机熬夜不眠的夜晚，而是你在我身边我们促膝长谈。几千年前在孔子的时代，那时还是三十而立，而到如今我们的年代却变成了三十焦虑。焦虑来自爱情，恋爱的方式变成彼此添加微信聊着一些不疼不痒的话题，翻看着一些猴年马月的朋友圈，以此来判断双方合适与否。</p>
+<p>于是女孩子不回我消息了我们开始焦虑，不到三天就把天聊死了我们开始焦虑，这焦虑蔓延全身终至我们不敢相信爱情的出现与获得爱情的容易，我们不再有一见钟情，不再有这个妹妹我似曾见过一般的感觉，只有套路与段子齐飞，“照骗”与“人设”相衬。科技文明之下的爱情竟是越来越缥缈，越来越捉摸不透。焦虑来自工作，都说电话一响黄金万两，可是舒适静谧的环境之下，只要电话铃声一响，我们就立马全身紧绷如临大敌。更有那屏蔽不尽的微信群聊与翻不完的朋友圈，你知道地球的尽头在哪里，可是你却永远也翻不到朋友圈的尽头，消息提醒的红色小点也最终把我们每个人都培养成了强迫症患者。可是你以为仅仅这样就完了吗？</p>
+<p>你忘了因为支持上网课的功能而被小学生狂刷零分的钉钉和企业微信了吗！你要坚持每天打卡，每天在上面接收公司的通知和安排，你的工作方法与思维方式早已与它们紧紧捆绑。焦虑来自健康手环，手机可以测量心率，计算步数，更能记下我们的睡眠时间和睡眠质量。今天在好友步数排行榜中又下降了几位，昨晚的睡眠质量又是低于80分……，太多的数据引起我们的焦虑和担忧。于是我们低头翻看健身攻略，熬夜刷着养生视频，可是却没发现眼睛越来越干，脊椎越来越僵，我们看着鸡汤文中那标准健美的身材与肉体却养出了自己日渐焦虑的形体。</p>
+<p>我们奋力奔跑，迎风而去，去追逐爱情，追逐事业，追逐健康，最后抓住的却往往只是一具幻像。科技的发展与人文交融的对立之下，何处是终点，何处又是出口？它们能否彼此独立，又完美融合…… 左岸记：焦虑和我们面对生活的态度是息息相关的。我们想要的东西总是太多，而事实往往不如人愿。当人焦虑的时候，行动就是对抗一切最强大的武器。</p>
+<p>人的焦虑是不能怪在科技的进步上的，信息的方便和琳琅满目是因为各色的人的需要而诞生，人要做的是选择适合自己的方式去生活，去工作，去恋爱，去作息……让科技融入生活，成为灵感和创造的基石和载体，物尽其用。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

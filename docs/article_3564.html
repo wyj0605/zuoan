@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>式微式微，胡不归?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>式微式微，胡不归?</h1>
+            <div class="date">2026-02-11 14:16:47</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜 这是你离开后的第二个春节，街头依旧喧嚣，超市依旧热闹，春晚依旧无趣，只是沙发上少一个笑呵呵老说自己不贪心，活到150岁就好，满脸褶皱，嘴角爬满笑纹的小脚老太太。农历二十九的晚上，我提着一兜纸钱去看你，想必另一个星球也和地球上的中国一样热闹红火吧，有超市，智能手机，还有各类各样以前不曾见过的美元，英镑，摇钱树。点燃火柴，小心翼翼地提起超市一角，看见那张画满水果，点心，羽绒服，饮料，零食的大纸张在手里一点点从五颜六色变成黑色灰烬的时候，嘴里小声念叨着，奶奶，你想吃啥就去超市买吧，超市里面都有。蹲在我隔壁的一个人拍我肩膀一下，姑娘，怎么还用买？那超市就是你奶奶的，给她老人家说，尽管去拿。</p>
+<p>我笑笑，对，尽管去拿，别担心，我还给你带了好多钱，多到你用都用不完，至少在下次清明节来之前足够你周游世界一圈。眼前跳动的红橙色火苗，一点一点升腾，我木然的盯着这些晃动的火，想着，原来我们之间，仅仅剩下这一个沟通方式，突然之间觉得人生好短，九十岁也没有想象中那么悠长。记忆中的你是从六十多岁开始的，我们深入交往的时间不过二十多年，你一直都是惦着小脚，不慌不忙的样子。这么一双奇形怪状的脚，小拇指垫在脚背下面，大拇指挤占了其他脚趾的空间，竟然伴着你走过了这么些年。每次看到你的那双穿什么鞋都会觉得累的小脚，都有说不出的复杂感觉，好奇，怀疑甚至还有点佩服，不知道你是用这双小脚怎么走过了那些难关？</p>
+<p>又怎么一步步平稳又安详地走到了时间尽头？以前每次回来，看见你坐在沙发上唠唠叨叨说个不停的时候，觉得老了大概就是这样吧，好像除了说话之外，再也没有什么可以宣泄孤独的方式了，其实连这个方式都是多余的，所有人都装作在听但其实没有一个人听。偶尔你说累了，也会停下来，安安静静地坐着，仔细地看着我，一遍又一遍，把拐杖在地板上怼来怼去，干枯的手伸过来抓着我，偏着头看我笑，一脸认真地问我：这次放假放到什么时候？我本能地往后移动一下，简短的回答：过完年。你轻轻哦一声，再不说话，一直坐到太阳落下去，才慢慢起身，走开，不忘叮嘱我一句：看电脑费眼睛，我回去睡了，你看看就关了吧。</p>
+<p>我从来没听过你的意见，现在才想起你说这话的时候是认真地皱着眉头的。那时候，你那么想念自己的女儿，她们真的来了的时候，又好像你们母女也是坐着，不说什么，你提的唯一要求，耳朵痒了，要让她帮着你掏耳朵。她趴在你的床上，附在你耳边，借着穿透窗户的太阳光，一点一点仔细地帮你剔着耳朵里的脏东西。你脸上露出久违的笑，然后把自己的新衣服，新裤子，甚至是钱塞给女儿，她心满意足地离开，你莞尔一笑，忽而脸上又布满一层失落，嘴里念叨着，下次不知道什么时候她才来？我站在你房间的大镜子面前，看着坐在窗边失落的你，突然心头一紧，眼眶热了，就明白了琼瑶那句“盼来盼去魂也消”不止适用于爱人之间，同样适用于父母与子女之间。</p>
+<p>你老了，被时间追着跑，又好想追上女儿，告诉她们，希望多一些在一起的时间，可是，每次她们离开你的时候，你又欲言又止，嘴里还催促着快走，不要误了车，不要耽搁了给孩子做饭，总之你的眼里，所有人都比你重要。那时候，你已经八十多岁了，去大女儿家住了一阵子，却总是想回家，我在电话里听见你的声音，突然就哭了，想着你在家老抱怨家里的事情多，没人关心你，可是出了门又总是惦记家里，三天两头闹着要打电话，问家里的情况，我又好气又好笑，怎么像个小孩，渴望自由得要命又极担心父母的漠视？我们又去接你，一向晕车的你，坐了两个小时的车，竟然没吐，还笑着打趣，我这命就是金贵，非得坐好车，好车稳了我连车都不晕了。你拉着我的手，以后就在咱这上班，不要跑远了，跑远了我再老一点都去不了你家了。我笑，就我这没出息的样子，能跑去哪。</p>
+<p>我家就是你家，怎么还有去不了的道理？那时候，我忘了，其实我应该跑的快一点，让你看看我家，带你去我家，就会少一点遗憾。我们啊，相差着六十岁，我很想你慢慢走，我快快追，把人生的每一个过程都尽可能的让你参与和体验，可我始终改不了拖延的毛病，怎么都拽不住你的衣角，抓不住你的小脚，我们都没有说到做到，你始终没兑现150的承诺，我始终不想哦哦哦，就这样，糊里糊涂的完成人生任务，我们互相拿对方没办法，又互相虔诚地希望对方无限接近幸福。你带着我给的钱，我带着你的嘱托，在各自生活的那个世界，好好闯荡，然后在梦里集合，说一句，当时只道是寻常，你笑。左岸记： 看奶茶的这篇文章，印象非常熟悉，就翻了奶茶以往的邮件，发现两年前她就给我发过一篇关于奶奶的文章，不知何故，当时我没有把文章分享给大家，现在重读，仿佛时光在倒流，响起《寻梦》中琴声——供奉的遗像是牵引家人回家的通道，驻留的记忆是保持亡灵存续的神力，悠扬的音乐是唤醒思念启封的药引。</p>
+<p>我为你写了首歌，穿越浩瀚的岁月烟尘，捱过冰冷的孤独冬季，横跨漫长的天人之路，在你老去的时候，唱给你听。这瑰丽的灯火万家，摇曳的烛光千盏，不如你梳着麻花辫坐在床头时，眼里闪烁的星光璀璨。生命是什么呢？是活着的时候总觉得走不到尽头   离开的时候才知道一秒都珍贵   想起去年这个时候的你，还笑着说活到150岁就差不多了   听到这话，一屋子人乐的哈哈笑，说你太贪心   90岁都要依靠拐杖，150岁是什么样子呢？又有谁有那个运气看到你150岁的样子   但大家对你活到100岁这件事情，都格外有信心   他们推测，以你吃嘛嘛香的身体状况、乐观豁达的心理状态，十年并不算长   可你总是这样，喜欢不声不响地和大家唱反调   那天拐杖突然支撑不动你了，你扶着门框，一点一点的往下滑   不知所措的你着急地坐在地上大声喊，大家跑过来扶你，可你的双腿使劲打颤，无从着力   眼泪大颗大颗的落在地上，送你去医院，医生说你的身体没有什么大问题，他说人老了都这样   老，真的就是一瞬间的事情，我们和你一样，都没有做好准备   可是，你不得不开始与床为伴的日子   我看着躺在床上一脸难过的你，好像突然之间走到了150岁   为你擦掉眼泪，自己哭了   这个遥不可及的150岁，怎么忽然提前了六十年？</p>
+<p>你和自己告别的过程   一天一天度日如年，每一天你都会问现在几点了？天黑了吗？天怎么还不亮呢？你侧躺着，平躺着，无论怎么做，都是一脸愁云，生死疲劳   无论有多挣扎，多绝望，彻底结束这件事情从来都不简单   我看着你，一点一点的变瘦变小，变得像我在电影里面看到的外星人   害怕你不打招呼就去了另一个星球   回来的第一件事情就是去你房间看看你还在不在   你每次都挥挥手，努力扬起头，我坐在你床边，想起我小时候，系着围裙做饭的你，穿着灰色棉袄送我上学的你，给我买方便面的你，帮我找作业的你，还有偶尔教训我的你   那时候，我以为你的头发一直都会是黑色的，牙齿永远也不会掉，利索的腿脚怎么也不会被时间带走   可转眼之间，你就躺在这里，眼前的是让人可怜的老太太 就这样过了半年，你还是睡着了，静静地躺在那里，接受每一个人的道别，你的150岁提前了   后来，我看见的你都是在梦里，你坐在楼底下晒太阳一脸平静，你和BUSHI说话，用拐杖敲敲它的头；你坐在沙发上缝衣服扣子；你吃了一个韭菜包子一脸嫌弃，看到小燕子哈哈大笑，各种场景里的你都是健康平安的   很安心，知道你在另外一个星球过得很好，只不过，不知道要怎么跟这么好的你告别   这样的雾霾天，被稿子重重包围还逃不过反复重写的糟糕情况，想起你说过的话，总会过去的，都会好起来的。DEAR GRANDMOTHER,I BELIEVE EVERYTING WILL BE OK   终有一天，我们会再见。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

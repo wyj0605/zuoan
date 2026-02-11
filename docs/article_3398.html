@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为什么有的人，一生的运气都不好？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>为什么有的人，一生的运气都不好？</h1>
+            <div class="date">2026-02-11 14:16:17</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>作为一个在学佛的人，对于这个问题的解释往往是：你前生造了太多的孽，因果不虚，报应不爽，“欲知前世因，今世受者是”。但是我个人认为这样的解释是不够究竟的，而且这个解释只是为了把“人类认为是残酷”的现实合理化，因而我并不完全认同。我觉得最根本的原因在于：人对于“公平”存在着幻想，只有当他对自己在承受的一切得到了一种合理的解释时，他才会觉得能够接受。但在最究竟的层面上根本不存在公平，运气不好就是因为你运气不好，没什么别的原因。还有的人说，好和坏都是相对的，看你自己怎么去理解。</p>
+<p>比如同样是半杯水，有的人觉得是我“只剩”半杯水了，所以他会觉得不幸福；有人觉得我“还有”半杯水啊！随意他会觉得幸福；但问题是，不管你自己怎么解释，客观的事实就在那里，好就是好，坏就是坏，不因你个人意志为转移。比如有人拿着机关枪对着你，这就是一件世俗层面上的“坏”事。你不可能说自己宽慰自己“这是好事啊！这是在磨练我的意志力哇哈哈哈哈”，然后你照样会被机关枪突突突突突突突的给打成筛子。</p>
+<p>所以我的意思是，世俗意义上的“好坏”都有其自身的世俗定义，这个不是通过“精神胜利法”自我安慰就能改变的。真正超脱的认识，是看到存在的本质，不对世事附着上好坏的评判。再有，假如我们按照佛教的世界观，退回到世界产生的起点，众生因“无明”而生出种种造作幻想，陷入了永无休止的重复轮回。如果在一开始大家的“无明”都是一样的，那么现在所有众生的命运就应该是一样的；但现在所有众生的命运并不一样，可见在一开始的“无明”阶段，众生今后的命运就是“不公平”的。（当然以上的解释并不严谨，只是做个类比便于理解。</p>
+<p>真正的佛教理论没这么简单。） 我想表达的核心意思是：在最究竟的层面上，本来就无所谓公不公平，无所谓好与坏，我们人类所在纠结的妻财子禄、生活顺不顺利等这些，在宏大的宇宙中无比的渺小，这些根本无所谓，也没有人在乎。好比一群蚂蚁会整天为了它的触角生的好不好看、它今天爬了多远、它抓起了多大的砂砾等这些小事而纠结，但并没有人在乎。在宏大的宇宙中本来就不存在“公平”“不公平”这些概念，因为人类的攀缘心，所以开始试图在混沌的世界中将自己与同类比较，因而产生了我比你强、他比我弱之类的“概念”。这种“对比”的概念产生了，也就开始分好坏、判公正了。</p>
+<p>为什么我说不存在公不公平呢？因为这是人造的概念，就好比在我们面前有一盆水，我们舀起一勺说这是好的，舀起另一勺说这是不好的，再舀起一勺说这是公平的，又舀起另一勺说这是不公平的。但事实上它们的本质都是一样的。当然，我的意思是说它们的“自性”是一样的，不是说他们“完全”是一样的。就好比我们都是人，这个人的“自性”都是一样的，但容貌体态认知等方面也都存在着客观的差别。</p>
+<p>所以我们问：“为什么有的人一生的运气都不好”？这就像在问：为什么有的人天生就不漂亮一样。他天生就不漂亮是因为他父母基因不好。为什么他会投生到这样的家庭中？因为他前世造了恶业。</p>
+<p>为什么他前世造了恶业？因为无明。为什么大家在最初的时候都是“无明”，但现在的境遇却不一样呢？很简单，就是因为宇宙中本来就没有公平这一规则，所以在最初的无明爆发时，众生的命运就像宇宙大爆炸中的微尘一样是随机扩散的。你命不好，就是因为你命不好，没别的原因。</p>
+<p>当然了，我的这个解释非常的不“政治正确”，很多人是接受不了的。但如果你接受不了残酷的现实，你就很难解脱。你越是执着于“公平”这类的人造概念，你就会陷于更深的轮回，“无明”就会越是遮蔽你的心性。在最究竟的层面上，不管你的命运好也罢，坏也罢，这些根本都是无足轻重的小事。你执着于这些、甚至执着于哪个宗教好，佛教的理论对不对，某部经书是不是伪经等这些细枝末节的小事，你就一定是在舍本逐末。</p>
+<p>最究竟的大事只是“解脱”。你“见性”了之后会发现人生中的这些根本都无所谓，没什么对错，没什么好坏。包括宗教修行中的很多规则都是一样的，你不念经，不行善，不禅定一样能解脱。释迦牟尼说：“知我说法，如筏喻者；法尚应舍，何况非法。”所以“有的人一生的运气都不好”这没什么原因，这就是一个客观事实。</p>
+<p>给这个客观事实加上任何个人的情绪、感受、解释等等，你都是在陷入新的造作，在作新的“业”。其实它本来就是这样罢了。左岸记： 从大的宇宙宏观来讲，确实是这样，所以老子会说：“天地不仁，以万物为刍狗”，天地看待万物是一样的，不对谁特别好，也不对谁特别坏，一切随其自然发展。换句话说，不管万物变成什么样子，那是万物自己的行为（包括运气），与天地无关，天还是干天的事，地还是干地的事，一切犹如随风入夜，润物无声。但从人为的观点来说，就不一样了。</p>
+<p>我们说努力的人运气都不会太差，机会总是留给有准备的人的，一个有实力的人难道不是更容易地获得机会的青睐吗？所以，所谓的运气在哪里？不就在每个人自己的手中吗？欢迎关注我的微信公众号：风墟先生 ID：bestself2018 关注后回复“风墟你好”，可以获得9本我精选的高质量电子书。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

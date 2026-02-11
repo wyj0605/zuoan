@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遇见岁月的慈悲</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>遇见岁月的慈悲</h1>
+            <div class="date">2026-02-11 14:00:25</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/邹近夫当青春挥手向我告别之际，我正在琢磨年青和年轻的不同之处，妄图从中划分出更多有别于中年的时光，然却看到身边的朋友忙着为晚年做打算，开始谈论生老病死，我才发现青春永驻只不过是毕业纪念本里一个谎言。在这之前，我总是把人生简单分作四个阶段，童年，少年，中年，还有老年，但从未想过少年仿佛昙花一现，骤然间了无踪影，许多尚未来得及尝试的事情，却不知写在日记本里的哪一页，哪一行。去的终究会去，来的终究也会来。这就像我们失去童年，变成个青春少年一样，尽管会有一些不安，尽管无比怀念占山为王、画地为牢的乐趣，但也对那些孤独的时光心有余悸，何况耳边那么多声音都在规劝我们快快长大。于是还没完全弄清楚童年是怎么一回事，日子已经被贴上了想象力和创造力的双重标签，一个接一个的学习目标不容置喙地组成青春的方程式，解开谜题似乎永远少了虚掷光阴这一步。</p>
+<p>终于到了随心所欲的年纪，站上象牙塔尖跃跃欲试，展开羽翼，却偏有人撕破现实的面目，故意隐藏光鲜亮丽的一面，尽力倾出一片片就业压力和失业恐慌，我们尚未熟练掌握生活技能便匆匆应敌，学习各种工作技巧，编造花样百出的简历，辗转难眠的日子里总是因为“接下来”这三个字而梦见一个被现实弄得面目全非的影子。哪怕青春如此恍惚，最后还是看到你在朋友圈，公布了结婚邀请函，忽然明白你我当初那个孤独终老的约定，就是青春最直接的证明方式，天真，想象，漫无边际。直到遗憾慢慢结成三尺寒冰，青春的魅力才像一朵盛开的雪莲，仿佛让人看见了岁月的慈悲。那时芷兰花开的影子，恣情惬意的闲步，定格在了春天的樱花林边，有如碎石成山，一千年丝毫不动，以至于心醉的滋味一经回想便弥漫在身前。后来人生渡过了湍急的峡谷，也未曾少看花儿的忽开忽谢，总算流入了相对开阔的平原，偶尔的一次机会得以故地重游。</p>
+<p>我与青春蓦然相逢的刹那，才发现自己好像一直忽视了少年活在青春之前。一段岁月和一段岁月之间的差别总是经不起推敲，而诀别青春也许就在昨天。然而在阳光下，那一排排背对着我的身影，依旧太像一片片青葱丁香，连离别的泪水都流溢出一股清新的气息。那时候，我又何尝知道青春易逝呢？人生的各个阶段大致如同音乐歌单，类似专辑列表中的国风、戏曲、情歌等。</p>
+<p>怀念过去也好，努力生活也罢，不同的年代对应不同的幸福主题。忘了是谁跟我说过人生中最重要的三件事，手里茶，枕边书，心上人，但是少年与中年之间不是应该还隔着一段岁月，属于年轻吗？如同少年后头还有个青春一样。于是我认为年轻不只是说说而已，单凭“精力旺盛”四个字就该得到原本属于它的魅力之处。何况这阶段，正当成为医疗、房产、娱乐、汽车最理想的消费群体，理想目标趋向于现实化，少了迷茫，人生中该走的弯路已经走得差不多，大都稳定了下来，也逐渐学习并掌握了判断信息的本领，知道哪些重要，哪些不重要。</p>
+<p>如果非要给年轻加上一个标签，我想它应该是继往开来四个字。尽管愿景迟迟不来，尽管忙在生活的河流中日夜捕捞，但是未来尚且不是一个定数，工作所带来的充实感无可比拟，再说已经到了靠自己本事消费的年纪，知道哪些能买，哪些不能买。当然，年轻时的你我慢慢理解了自古以来最起码的立身之本，情不自禁地向圣贤靠拢。因为抵抗空虚的唯一方式，便是尽量收获精神世界，至于一时孤独，它并不代表什么荒谬和残酷的人生。往后的岁月，总会有那么一个人带着你我重拾童年乐趣，甚至可能几度相逢那段纯真的时光。</p>
+<p>到了中年，宛如汪国真写得那样，“来路一览无余，去路上能搅出的动静也大致不出其右了。”除此之外，还可能少了重塑自己的勇气，但在陌生的环境里，你我大可以保持心态上的平衡，是非成败应该不会再摆出咄咄逼人的架势。平素里，如若见到他人的随机应变，也许会付之一笑！这时我猜“传承”的念头必定冒出来，守护国粹恐怕成了有心无力的挂念，然而与童年、少年、青春蓦然相逢的刹那，或许依然会看见岁月的慈悲。左岸记：这是美好的青春之歌，只有心怀慈悲，才能不负韶华，逆旅行人。</p>
+<p>附：邹近夫豆瓣上文艺小说《我爱了这个夏天》，&lt;br&gt; https://read.douban.com/column/32781269/?icn=from-author-page&lt;br&gt; “岁月不知何时失声成哑巴，人间纷扰在一夜之间好像统统扯平了。倘若没有结果，亦不再轻易爱上一个人，水寒江静，往后谁来过，谁又走了，再无牵连。”</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

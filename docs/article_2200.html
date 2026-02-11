@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>要么认怂，要么改变</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>要么认怂，要么改变</h1>
+            <div class="date">2026-02-11 14:00:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/阿正不知何时，我突然发现自己特别反感别人在我面前抱怨和自怨自艾。什么“哎，啥时候是个头啊”，什么“我也没办法啊”，还有就是说了一大堆造成此种问题的原因，但是关于解决方案只字未提，并且你提的所有的解决方案，他都能找出行不通的理由来，好像生怕您能解决这个他解决不了的问题一样。回忆起来，最早一次感受别人在我面前抱怨的事是在天津。当时大家都在找工作，有一个人因为大学学的就是软件工程，很早就招到工作了，我们这帮没工作的人平时很羡慕的问他工作的情况，他就说不好；等我工作了，我问他工作如何，还是说不好；等到一年以后，我来到北京，再问他，还是说工作不好。那我就问他，为什么不换工作呢。</p>
+<p>然后说了一大堆理由，反正就是不换才是对的。等到最后一次问他，他依然跟我说各种不好“啥时候是个头啊”，那也是我最后一次和他说话，后来就没有后来了，也不知道他现在做什么了，也不知道到头没到头。还有一位同学，总说工作不好，也总在换工作，在我印象里，他基本没有在一家公司呆过两年。问他为啥换工作，要么是工资给的不够，要么就是公司团队各种问题。但是他从来没有观察自己在专业能力方面的缺失，总是把问题放到了外界。</p>
+<p>和他说过很多次，花点时间提高自己的专业能力，然后才能找到合适的环境，才到遇到合适的团队，如果自己都捉襟见肘，如何让别人给你机会呢。也是说了很多次，后来就不说了。最后也改变了我一个观点，就是人是很难改变的，通过沟通建议这种方式去改变一个人真的很难，几乎没有可行性。那些能通过别人的提醒和建议提升自己的人，其实就算你不提醒他，他自己也会慢慢的做到，只是时机、时间的问题而已。当然，生活中有很多我们解决不了的问题，比如政治、经济甚至公司、部门、团队，这里面的确有我们解决不了的问题，如果解决不了，那就解决不了，但是必须是你发自内心的接受了这个现状。</p>
+<p>那些你发现的问题，但是你内心又无法接受的问题，你就要去解决它。比如部门问题、团队问题，如果你觉得有问题，但是问题又不会因为你的存在和行为而发生改变，而你又无法接受现状，那你可以选择离职，这也是解决问题的一种方式。最让人苦恼的就是问题不愿意接受，但是又不去改变，还天天抱怨，这种人最让人受不了。你要么认怂，就是你真的没办法解决，那就接受，而且是发自内心的接受。比如政治制度、世界格局、公司定位或者是朋友性格、身体残缺，无力改变的那只能接受了。</p>
+<p>你要么去改变，无论是家庭、工作、朋友，如果你觉得有问题，那你就想办法去改变达到你的期望，无论是现在行动，还是暂时忍耐，那都是一种方案，一种解决问题的方式，如果你觉得你真的无论如何都解决不了，那就打开内心接受它，那么这个问题也就不是问题了。对于问题，无力改变的那些，那就认怂，就是改变不了，那就接受它；那些想要改变的，并且觉得能改变的，那就一步一步的向前走，慢慢去解决。就像是和一个壮汉打架，怎么打就是打不过，刀、枪、诡计、暗算、陷害各种方案都尝试了就是搞不定，那就认了，的确不是对手。如果说还有希望，比如你可以弄来大炮，他可能搞不定，如果真想干掉他，那就可以试试大炮，尝试一切办法去解决问题，能解决最好，如果不能解决那就认了，没招啊。但是千万不要既没有方案、也没有行动，嘴里却是连绵不绝的抱怨。</p>
+<p>左岸记：在成功励志里，没有认怂，那有时是要把人往绝路上逼的节奏；其实，那些活得好的人，都是有点“怂”的，目标定得实际，保持身心健康，尽量降低各种风险，避免任何不必要的冲突等等；不拿家人冒险，不无原则逞能，不做强烈对抗，更长远地考虑问题，虽然这看上去是有点“怂”，却是很有责任感，是踏踏实实的人。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即便最了然</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>即便最了然</h1>
+            <div class="date">2026-02-11 14:00:16</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/奶茶不太甜亦舒已经不是流行作家了，可亦舒作品中倡导的女性姿态却日益流行。简单来说，很多现在被人说烂了的城市女性生活和恋爱态度比如经济独立、情感理智等，最初是在亦舒小说里以“叛逆”姿态被提出，并逐渐被接受的。这个被称为香港文坛三大奇迹的言情女作家，借用其笔下的300多个故事，细密而长远地影响着我们今天的生活方式。也正因此，电视剧《我的前半生》的改编和罗子君大红大绿的服饰穿搭以及大哭大闹的萎靡姿态，才会惹得远在海外的亦舒以及书迷们集体愤慨。因为亦舒讲的是不骄不矜，勤工好学，倡导的是自爱、沉稳，而后爱人，推崇的是“你可以的，我们都可以的，人就是这般活下来的”体面姿态，而电视剧的罗子君显然与之不是一个人。</p>
+<p>与罗子君的人设相比，尽管大家对袁泉扮演的唐晶不吝赞美，但也有书迷认为，袁泉过分清丽，缺了书中唐晶这个职场女强人的泼辣与专业，也少了现代女性的精明与睿智，失了和人相处的边界感。原著小说中，唐晶绝不会感情用事到参与别人的家庭官司料理中，亦没有时间苦口婆心地进行毫无结果的劝解与安慰。比如，子君刚刚得知丈夫有外遇之时，原著中唐晶就说：“这年头，谁好、谁忠，都没有一面倒的情况了，黑与白之间尚有十几层深浅不同的灰色，人的性格有很多面。”子君离婚，每天抱怨，唐晶果断打住：“每天只准诉苦十分钟，你不能沉湎在痛苦的海洋中，当作一种享受，朋友的耳朵耐力有限，请原谅。”书中的子君和唐晶，并无感情纠葛，并且两人最终均收获外人看似较好的人生，不过亦舒并没有回避某些不甘心，比如唐晶，即便遇到外人眼里近乎完美的莫家谦，可就连结婚也未通知好友，只觉得实在不值得张扬，后来过上相夫教子的生活后，还不免抱怨，明知做人不外如此，也难免会精神痛苦。</p>
+<p>子君尽管后来遇到霍君，也是经历了诸多磨砺，不再苛求生活之后。尽管有书迷认为子君的结局过分理想化，但我们亦不能忘了，子君也是在潜心陶艺学习，有了自己的事业，并不寄望依靠婚姻拯救自己时，才遇到的霍先生。其实，亦舒笔下的女主角因为没有天生自带光环，往往就是普通人的结局，不会太差，也很少能像童话一样好。家底殷实长得好看的女孩子，比如黄玫瑰，即便是任性胡闹，也能在故事的结局从两个人里选一个；而那些善良的平凡女孩，哪怕是拯救了异国王子，也落个《蔷薇泡沫》式童话陪衬。亦舒并不提供琼瑶型的梦幻和安慰，而是一直在传达一种信息：别做梦、别胡闹，了解世界运行的规律，克服它，并承担后果。</p>
+<p>大家有舍有得，各自牺牲，没有意外的爱情，也没有从天而降的钱财。亦舒女主角们的结局，看起来是凑合，其实是“最优解”，或者说，把生活与爱情的非理性因素尽可能排除后的权衡，尽可能做到见好就收。说到这里，想起宣萱饰演的心理专家武俏君，似乎相较于袁泉饰演的唐晶，武俏君更符合亦舒女郎的气质，也许是因为宣萱的高知教育背景，俏君看起来更具精英气质。她和古天乐扮演的徐飞至今仍是影迷们心中的意难平，与徐飞交往时，她主动追求，与徐飞分手时，她亦主动提出。尽管自己纠结难过，但面对徐飞不忍辜负前任的无怨言付出，她主动讲“人生不是只有爱情，还有许多其他的事情。</p>
+<p>”又讲“自己最爱的永远是自己，爱别人远不及爱自己。”你在她身上看到的是理智的清醒与克制，既然自知无可挽回，那就潇洒放下。正如亦舒讲的，“人家叫你走，高高兴兴也是走，怨气冲天也是走，天下无不散之宴席，不如恭敬从命，欣然引退，免得惹人憎厌。”记得以前有位文学老师讲，长久以来，读者对于作家亦舒的评价都显得极端的两极分化。爱好其书者，信奉她推崇的态度，永远姿态得体。</p>
+<p>不喜欢的人，则认为其千篇一律的人物角色设定和过分精致的生活追求，但你们去读亦舒，要思考的是“娜拉何以出走、走后何以谋生”的问题，独立之于女性的第一步，永远是经济独立，生活上依赖别人,又想得到别人的尊重，这是不可能的事。即便最了然，前路多无奈，你也要姿态好看些，你可以的，我们都可以的，人就是这般活下来的。左岸记：看书带着情绪不好，它把你缺失的，想要的嫁接到别人身上，你一糊涂就觉得这故事简直妙极了。独立的魅力，在于冷静的自我剖析，凡在回头认清自己本质的时候还对自己留有余地的，那都不叫自我剖析，独立的人有自己的格局和天地。人们不解释的主要原因是根本不在乎对方的想法，无关重要的人，对无关重要的事有点儿误会，有什么关系，你信也好，不信也好，都于当事人生活毫无影响，何劳解释。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

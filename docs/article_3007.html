@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>纵然世界冰冷，只有一个温暖的除夕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>纵然世界冰冷，只有一个温暖的除夕</h1>
+            <div class="date">2026-02-11 14:14:54</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>文/艾小羊一群朋友在一起，说起春节，记忆里埋得最深的便是吃。儿时春节的吃食，或许没有现在这样丰富，却绝对比现在更讲究，并且因有平日里的粗茶淡饭作比较，而滋生了一种宗教仪式似的隆重。往往在春节前的一周，父母便忙碌起来。对于有些父母工作很忙或感情淡泊的人家，这一周，甚至是一年中，孩子们所能见到，父母在一起时间最长，话题最多，互动最融洽的时间。在商量菜品，分工合作的过程中，分歧总归会有，然而因了春节的气氛，大家便都收捡了平日里所习惯的那“进攻式”的语气，声音里有了枣馍的香，眼神中也多了芝麻花生糖的甜。</p>
+<p>即使平日里最急躁，最怕麻烦的父母，在年夜饭上，也会端出几道做工繁琐的菜：至少提前三天开始制作的水晶肘花，每个步骤皆自己操刀的鱼圆，汤汁由几十种作料熬制而成的爆鱼……年夜饭的餐桌上，孩子们惊喜的眼神是父母终其一生所追求的人生舞台上，最亮的灯；他们咀嚼食物时欢快的吧嗒声，则像极了一场盛大演出后的掌声响起。一切的情与爱，皆幻化为舌头上那一缕香甜麻辣，每个人皆自觉地回避任何不快的话题，无论这一年是忙碌的还是充实的，压抑的还是满足的。快乐是惟一的主题，正如拿出看家本领做一桌美味是父母无需选择的选择。年龄渐长，与父母兄妹一日日疏远，年夜饭的味道似乎也一日比一日淡了。对于离家的游子来说，年夜饭有时倒成了一种沉重的期待，在跨越千山万水去赶一场团圆的年夜饭与自己随便弄几个小菜或去饭馆吃一顿只有形式没有回忆的年夜饭之间选择，我们竟然常常会选择后者。</p>
+<p>对于年夜饭的向往，有时会被“生活不易”的粗石磨损得只剩肉丸落入油锅里吱吱的噪声。平日里，想要吃到的东西都能够轻意到口，对于年夜饭的向往，更多成了一种回忆的惦念。明知再也吃不出儿时的记忆，却忍不住还是想找寻在父母膝下撒娇的那一个晚上。只是，霜花已经染白了他们的头顶，接到儿女告知“过年不回家”的电话时，他们甚至羞涩懦弱得无法说出一句，回来吧，我做了你小时候最爱吃的菜。落寞地放下电话后，他们默默地拿起那张写了年夜饭菜谱的格子信笺，用墨色的笔删减菜名。</p>
+<p>那一条又一条的笔迹，像冷酷的风，吹过往年的岁月，直杀到了眼前。永远不要被父母“无所谓”的说辞迷惑，那是他们对于这个世界已经不再属于他们，不再属于过去那些热闹的团圆夜的妥协。对于年夜饭的期盼，始终是父母一年中所做的最大的一件事。一对在美国留学的情侣，每年除夕夜都会去中国超市买一些传统食材，包一顿饺子。与包饺子这项耗时漫长的活动同时进行的是两人对于在家乡年夜饭的回忆。</p>
+<p>在美国第5年，回忆被嚼了第5遍，依然津津有味。不同的是，这一年，电脑的屏幕上播放着纪录片《舌尖上的中国》。看到排骨藕汤的那一集，女孩哭了。来自湖北的她，吃了二十多年的排骨藕汤，第一次知道，挖藕是那样艰苦的一件事。时光一年一年，像风车上彩色的叶轮，流传的是相同的年华，却是不一样的生活。</p>
+<p>我们所不知道的事，不仅仅是白嫩嫩藕段的前生今世，更是排骨藕汤端上桌之前，煨汤人的喜怒哀乐。岁月在他们身上留下越来越多的痕迹，花白的发，不灵便的腿，坚强而又敏感的心，回忆越来越远，便越嚼越苦。对于后辈，他们是不忍心提哪怕一顶点要求的，包括回家吃顿年夜饭，不仅仅因为他们明白年轻人生活不易，更因为害怕被拒绝后的雪落南山的落寞。“如今的年夜饭不如过往了。”几乎每个人都这样感叹。</p>
+<p>当我们的味蕾被太多味道浓厚的食物刺激得越来越懒惰，年夜饭的滋味，无论如何都无法如儿时那样惊艳。然而，年夜饭的意义不是美食而是记忆。一位选择春节独立上路的人，除夕夜里，忽然想念母亲做的一碗素什锦。走过世界许多国家的他，从来不缺一碗素什锦，并且只要愿意，此时此刻，他便可以吃到。那是出自酒店大厨之手的素什锦，一道为了讨好来自天南地北的每一个味蕾，而极尽修饰，渐趋完美的菜肴。</p>
+<p>放置于除夕夜，那却是一盘挑不出毛病，惟独少了记忆与回味的素什锦。这个时候，他才明白，除夕那顿饭，吃的不是味道，而是感情。留在味蕾深处的，不是某位大厨的技艺，而是亲人淋漓尽致的挂念。每一个游子心里都有一盘什锦。那不是某一年的某一顿饭，而是亲情浓缩于岁月记忆中的盛宴，一点点一滴滴，由味蕾所感受，却由大脑来记忆。</p>
+<p>在某个你以为已经忘记的时刻，它们却忽然一鼓脑儿地涌上舌尖，令人措手不及，令人泪如泉涌。纵然世界冰冷，我们终究还拥有一些可以一同吃年夜饭的人，拥有几个愿意给我们做年夜饭的人。即使再不容易的人生中，也有一些唾手可得的幸福。只是，我们常常因为轻意得到而态度轻漫；因为错觉再也回不到从前，而忽略亲人始终如一的等待。舌尖上的爱，值得你跨越万水千山而来，值得你停下脚步而来，值得你留一段安静的时光，留一个空置的胃，留一张温暖的笑脸，留一句爱的表达——撒娇亦可，赞美也行。</p>
+<p>我们的一生，究竟能与亲人吃多少次年夜饭？那样残忍而冷酷的一个小小、小小的数字，伫立浩淼宇宙尽头，看一眼就会让人想落泪。原文地址：http://www.niubo.cc/article-394-1.html左岸记：愿大家年夜饭吃得开心，这是年的味道，家的味道，温暖的味道。原文链接：http://www.zreading.cn/archives/4210.html</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>
