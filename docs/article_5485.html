@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西出乡关</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>西出乡关</h1>
+            <div class="date">2026-03-04 09:57:21</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>西出乡关西出乡关原创我是左岸我是左岸左岸读书2023年05月30日 17:32福建在小说阅读器中沉浸阅读文/雾淞挂斑筱，风散入孟家19年9月16号早5点，天上飘着雾霭的小雨，我们一家三口来到火车站。以往的日子里，我没去过中国西边，因为印象里西边是贫穷、落后的代名词。如果出游，我会毫不犹豫地考虑大都市、海边那些发达的地方。但这次是当兵，兵之初被安排去青海学技术。青海，一个我只在地图上见过、书中偶尔看到的省份。就那么去了，别过父母担忧的目光，看着一个车厢里兴奋的同龄人，我不知道那时的心绪是如何交织。宛如刚出生的猫咪，步履蹒跚地向往外面宽广的世界，又想着拐一大圈快回到母亲温暖的怀抱。来不及半分犹豫，摇晃的绿皮火车准时出发，留我看着车窗上的映影发呆。两天一夜的硬座是我难以释怀记忆之一，永不熄灯的车厢、摇摇晃晃的车窗，城市在倒退，绿意在消失，理想在沉思。几年后，他会感慨，年少的梦是易碎的，不是因为他不够坚定，而是他太过于天真，对现实形势没有足够清醒的认识。当然，虽然心情有些复杂，但车厢里的人却很活跃。刚一上车，就有一个人大大咧咧地站起来给大家发烟，抽烟的都递上一盒中南海，大概是要干出些名堂来吧。我好奇地望着他，我不抽烟，之前也很是讨厌烟味。走前有些思想觉悟，要去过一个大集体生活，什么呼噜磨牙、汗臭脚臭都是难以避免的事情，要尽快适应才好。第一站停靠在石家庄北站，那时车站还在翻修，只见乌拉拉一伙人去厕所吞云吐雾，场面确实有些震撼到我，不过以后才知道那不过是小场面而已。有人在车站发现了德克士，不出5分钟，全买光了，我在旁边看着他们谈笑风云，心里默默咽口水。我比较乖，表现也较为腼腆，这一批里没我认识的人，我就没和什么人说话，也自然没什么人找我聊天说话。以至于，我们被打散之后，再也没有过联系。后来才知道我和老狗是一个车厢的，他对我有印象，而我丢失了他在此之前的所有记忆，也不是啥坏事，毕竟他那时候高中刚刚毕业，而我不过刚上了一年大学。火车里的饭太咸！米饭又好硬！但没办法，就是饿，我又没带啥子零食，只好硬着头皮一口口吃掉，边吃边喝水。就这样过了一天后，车厢里就安静了，没有人有什么精神去说话了，大家都一脸疲惫。我一直幻想着可以去卧铺上睡觉，结果还是要在硬座上将就。那时在火车上听说去湖南是坐高铁去的，就更心绪难平了。少年呀，这种困难比起后面真的不算什么，只是它在刚开始，比较难忘罢了。那一夜，我彻夜难眠。以后的日子里，我睡过地板，睡过帐篷，也曾找个树稍微对付一下。正是这样的岁月，让我能随时地放松下来。爸妈很佩服我，只要想睡就能睡着。我笑着对他们说，只要心里不装事就行。豁达的心境靠读书是读不出来的，必须要经历些什么。最后一个白天，记不得什么了，只记得黄土高原真是千秋万壑呀，"卧槽"便是当时心情吧。一路西北，一路打碎，一路彷徨，一路新奇，一路成长。左岸记：特别喜欢的文章，画面感极强。绿皮火车，去当兵的人，火车上的插曲，一路的感受和思考，跨越时空的成长变化，让人感到亲切而有力量。“豁达的心境靠读书是读不出来的，必须要经历些什么。”——此谓真言</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我弱我有理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我弱我有理</h1>
+            <div class="date">2026-03-04 09:55:08</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>我弱我有理我弱我有理左岸读书2016年07月11日 06:39在小说阅读器中沉浸阅读生活中有很多“我弱我有理”的例子，让人哭笑不得：1我以前一同事，每次午饭，一样的盒一样的，一定要从我的盒饭里夹几筷子走。她说，她基本上是不吃早饭的，因为家里条件不好，能省就省，所以中午尽量多吃点。某次吃鱼，我没有让给她，她当天特别吃惊，特别生气。2从国外回来，跟朋友聚了一下，一兄弟的女朋友问我有没有买一些免税的东西。我说有，比方DIESEL的香水，现在用的这个，喏。她一边欢快的接过去，一边喷了两下，然后就一直拿在手里，她男朋友有点不好意思，苦笑说“一定很贵吧，多少钱，我给你吧。”我说：“……我用过了。”女孩子拉着他的手，天真的看着我，说：“没关系的。”后来兄弟默不作声的把香水从桌子下面还了回来。姑娘一直噘着嘴，临走前，突然大声说：“可是，我都没有出过国啊！”3老师长的一表人才道貌岸然，特别受女孩子欢迎。师娘说，老师还年轻的时候，有一年，他的一个女学生跟踪他回了家，等他上楼开门时，突然冲上来，跟老师表了白，然后让“已经是老妇女的师娘一星期让出一半的时间让老师跟她谈恋爱”。“他跟你有家庭！有孩子！可是我什么都没有！我只是比你更爱他！”——那个当年已经二十出头的师姐在楼道里撕心裂肺的哭喊着。4她找我借钱，去给刚毕业的儿子买车。“我跟你说，我们家都困难成这样了，我姐夫就是不肯借我十万，我告诉你，他们家光是房子就有两套，他们家是闺女啊，他们还买房？这是什么？这是贪心！你说他一开公司的，十万都拿不出？我们家是儿子，这几年都这样了，他管都不管！他就是一王八蛋，他们全家都是这揍性的！现在人心太坏了！我这话撂这儿，他们家，早！晚！要！倒！霉！”5很多年前，一朋友的书被人在另一个网站全文搬运抄袭。朋友的粉丝呼啦啦追过去要那边删文。对方删文之前更新了一章，感觉是一边呕血一边撒花瓣一边缓缓倒下。大概意思是“你们这些高高在上的大大，知不知道我们这种热爱文学苦苦挣扎的小透明出名之路有多么艰难！”那个极品还跑去贴吧挂大大逼她删文气到她吐血，过一阵又自称是她哥，说她本来刚刚做过心脏搭桥，已经被气的旧病复发死了，要报仇。当年闹的挺火的，不知道你们还有没有印象。6邻居家买了新车，没两天，门里面的皮子就挂了个口子。她妈让她开车给她哥送梯子，她说车放不下，她妈赌气，抗了梯子下去就给她塞到了车里，一关门，挂出来一道子。邻居当场气哭，她妈也傻了眼，喏喏半晌，说：“你看，你这车外面也看不出来伤……至于吗！你天天开车日晒不着雨淋不着的，你哥他可连车都不趁呐！”7一姑娘，每次聚会吃饭基本上是不结账的，就算大伙说好了AA，她也不掏钱。“我这个月工资还没发，实在是没钱了，”她每次都是这么说，一样的台词，一样的抱憾表情：“对不起对不起，要不这样，我不吃，我看你们吃。”大伙每次都说没事没事，一起一起吧。时间长了，就都有点烦她。但是每次聚会她都想方设法打听出地点，赶过来。8一曾经是朋友的姑娘，有一阵，说特别嫉妒我，因为我看上去很强，很自由，很独立。我说，也没那么洒脱，人生其实往往都是无奈。她打断了我，说：“你比我美多了，我得赡养两边的老人，带孩子，上班，而你呢？你想去哪就去哪里……”我当时试图告诉她，自己也很羡慕她的家庭——我的工作也很忙碌辛苦，而能有一盏灯等着你回家，是我的奢望。“但是你不用给任何人负责，你不用承担我这样的重担和痛苦……你这个观点是有问题，你是那种特别依赖家人帮你的类型，我以后不会靠我儿子养的，我生孩子不是做投资，我只是付出，一直付出！你不用装的好像很羡慕我似的，我知道你这样的人，是看不起我这样全心全意为家人付出的傻X的，看你，你多好啊，你家里连老人都没有！”我当时笑着说对哦，从父母双亡这一点我就赢过你咯？9小透明点名骂大大，大大回嘴，丫们必须惊诧，迅速窃喜，也是醉了。奋力画画画干干干唱唱唱写写写，付出比常人百倍的努力成为大大，就要接受被构陷，被传谣，被冷嘲热讽甚至点操全家，而什么都不用干吃着白嫖饭的小透明因为弱小，就有权利拉开脸上的拉链操大大，而大大不能回嘴，不能解释，不能擦屎，否则就是欺负小透明。不知道这规矩是哪儿的江湖，哪个傻逼划出来的道道。10很小的时候，我跟着我的父亲去旅游。公司组织的带家属旅游，一车人，半车熊孩子。车开到一处停下，加油，旁边有一片菜地，里面种着黄瓜。车门一开，小崽子们嗷一声就冲了下去，大人坐在车上笑嘻嘻的看着，看他们跳下去掰人家地里的黄瓜。我的父亲不说话，我就不敢下去，忍了半天问：“爸，我能一起去摘吗？”他说：“不许去，这是偷。”他徒弟笑嘻嘻挤过来跟我使眼色：“没事，小孩掰几个村里人不说的，小孩能干啥，就掰几个，走走，叔叔抱。”父亲把他推开了，让他自己下去抽烟。“我就掰一个……”我小声说。父亲说：“你弱你有理啊？”</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

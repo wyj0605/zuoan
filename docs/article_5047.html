@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极端特大暴雨……</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>极端特大暴雨……</h1>
+            <div class="date">2026-03-04 09:55:50</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>极端特大暴雨……极端特大暴雨……原创我是左岸我是左岸左岸读书2021年07月23日 07:07在小说阅读器中沉浸阅读雨还在下，河南的洪灾让人揪心。人在大灾大难面前，都有深切的无力感。这需要我们主动去关注、关心，尽自己的绵薄之力，哪怕只是为身在灾难中的人们祈福，也是难能可贵的温良。今天，在这里，我想就我最近看到的信息做些梳理。1.什么叫极端特大暴雨？2021年7月16日，德国刚被千年一遇的大暴雨给淹了。灾难最严重的德国科隆地区，24小时降雨量达到了154毫米，最大小时降雨量达到了23毫米，超历史最高记录。中国规定，24小时降雨量达到50毫米即为暴雨，达到100毫米为大暴雨，达到250毫米为特大暴雨。2021年7月20日，中国郑州被特大暴雨袭击了，雨量之大令人目瞪口呆。郑州市的24小时降雨量达到了610.5毫米，最严重的20日16时至17时，一小时降雨量达到了201.9毫米，这个数据成为了迄今为止，人类设立在陆地上气象观测站测出的单小时最大雨量记录。一小时之内降雨量达到201.9毫米是个什么概念呢？相当于一小时之内把150个西湖直接倾倒到郑州市上空。想来，再强的排水系统，也扛不住这种强度的特特特大暴雨。2.排水系统能不能为每个城市建设预防百年甚至千年一遇的特大暴雨排水系统？在很久以前，贫弱的中国在建设城市时，采用的是苏联的建设标准，全国城市都采用了苏联的“地下管网式”排水系统。这种排水系统的优点是省钱，最为经济划算，缺点是流量整体偏小。改革开放后中国慢慢有钱了，2010年之后，我们突然发现，城市的下水道好像不够用，要改造升级。但是改造城市下水道极为困难，因为大部分管道都埋在地下，上面已经盖了建筑物，总不能为了升级下水道把整个城市都给拆了。因此，这些年中国一直在努力地升级城市排水系统，工程很困难，但排水能力一直在稳步提升。不过再提升，也不可能一下子建成抵御百年一遇的特大暴雨甚至千年一遇的大暴雨。而且建造庞大的下水系统，需要核算成本。所以这件事对郑州造成的损失大概是多大，事后应该会做一个统计。如果河南这次洪水对郑州造成的损失很大，远远超过下水系统的造价与维护成本，那当然应该建。因为哪怕你百年一遇，一百年挡住一次，那也是值得的。既然要建，是不是中国所有的城市都要建呢？这都是要好好算账的。3.众志成城郑州暴雨，导致全球最大医院郑大一附院老院区停电，心电监护和备用电池全部耗完。医院许多大型检查设备、诸如核磁、CT等，都安装在一楼或地下室。突如其来的洪水，这些设备有极大可能被淹。所有的ICU都已经断电，所有需要机械通气的呼吸支持已经没有了，全靠医护人工手捏。郑州地铁5号线海滩寺站到沙口路的隧道内，大水涌入地铁线路，列车停驶，众多乘客被困车厢，水位迅速上涨，从小腿，到大腿，再到腰间，直到脖子。但所有受困人员都非常冷静，没有慌乱，而且相互鼓励，听从安排等待救援。当营救人员赶来时，所有人都在喊让晕倒的人先走，大家相互协作，把晕倒的人先救出去。而后男人们主动让开，让女性先走。郑州地面，一片浩瀚汪洋。车辆泡在水中，或是被急流冲走。过马路的人尽可能多的抱成一个圈，不时有人被冲走。许多人不顾生死，在洪水中相互营救。面对危险时没有慌乱，更没有只顾自己，许多男人不顾生死站了出来，无论他们做了多么伟大的事儿，此后或许仍不会有人知道他的名字。这一天，郑州多家宾馆降价，容纳那些被困在暴雨中，无法回家的人们。这一天，许多公共场所及个人，打开门，让陌生人进入。20日社交媒体视频中，有市民拍到83军救援军车在暴雨中疾驰。是日，中部战区3000余人，在10个地域同步救灾，同时，各地救援部队不断集结出发。21日，各互联网大厂均以亿为单位捐款，盒马收容避险，美团开仓赈灾，民间援助源源不断涌向郑州。4.安全事项在突发的洪灾前面：——不要光脚在水中行走。洪水把许多生活垃圾冲上地面，碎玻璃、钉子、刀片以及一些金属物，这些尖锐的东西很容易划伤你的腿和脚，水中的污染物和细菌就会顺着伤口趁虚而入。如果你的鞋子被洪水冲走，哪怕是找只塑料袋裹住脚，也能起到良好的防护作用。——不要靠近电线杆，每根路灯杆内，都有一个电缆头。电缆头可防水溅，但最怕水浸，一旦浸水就容易发生漏电事故。——不要喝自来水，这时候的自来水应该是严重不达标，有条件的话喝瓶装水，或是把自来水烧开再喝。不要用自来水冲洗会直接进嘴的东西，不要吃被水泡过的食物。——出行者请走在路边的台阶上。街道上的地下水井盖，有可能会被大水冲开。还有种情况是为了排水，有些井盖有可能被打开。——出行者看到水面上有漩涡，一定要避开，绕道而行。——穿长袖长裤，穿雨衣出行。这种特殊情况下，尽量不要用雨伞，要腾出你的手，以备应变。——涉水而行的人们，回家一定要清洗身体。把家里备用的药物全找出来，以防洪水带来的疫情。——陷入孤境的女孩子，可以向附近的男士求助。5.心理疏导救援是灾难到来的第一大事。其次，是心理疏导。随着救援工作的不断开展，受灾群众的心理情绪问题，需要关注。对于曾经被困的人来说，脱离险境只是身体安全，内心的恐惧不会因此散去。这种创伤如不及时关注、疏导，就有可能变成长期的精神疾病。灾害心理创伤，是一个亟需重视的领域。它影响深远，波及广泛。妻子会影响丈夫，妈妈会影响儿子。当这样的人，形成一定数量，那就是社会问题。6.重建信心对一座城市而言，最重要的是极端天气后的反思和应对措施的升级。千钧之雨会摧毁秩序，但也会重建规则。那些规则是如此珍贵，因为获得它，我们已经付出惨烈的代价。知道在大自然面前，我们人类是何等的脆弱渺小。所谓带来无限机会的大都市，在大自然的淫威面前，几无还手之力。灾难就是灾难。是锥心之痛，是流不尽的眼泪。我们需要足够、及时的反思。面对灾难，我们需要以内心最柔软的人性，去感知它。切身的体会它，知道雨打行人，不分你我。他人苦，也是我们的苦。我们需要相互信任，信任我们身边的人。一如在暴雨中拼死营救别人的人，没有人知道他们的姓名，只知道他们是义人，是勇士，是在危险之中，把手递给你，让你感受到无尽安全的人。你或许在平和的日子，和他们吵过架，斗过嘴，动过手，骂过娘，但只有危险来临，才知道我们原本就是一体。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

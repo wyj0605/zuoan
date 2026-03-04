@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>春心萌动的你</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>春心萌动的你</h1>
+            <div class="date">2026-03-04 09:55:36</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>春心萌动的你春心萌动的你原创德鲁伊德鲁伊左岸读书2024年03月21日 19:44福建在小说阅读器中沉浸阅读文/德鲁伊春天到了，据说最春天的诗句是“沾衣欲湿杏花雨，吹面不寒杨柳风。”。每天会路过灞河桥，桥头有灞柳。冬天时，枝条垂下硬挺挺的，风大了枝条乱舞，间而有断折了掉下来；冬天将将过去的时候，柳枝开始泛了鹅黄，冬日暖阳里，无风而静谧，远望有点雾雾的、纱纱的；忽一日，柳树舞起来了，曼妙的、缓缓的、羞羞的，绿的有点得意，或许风你是感受不到的，但柳枝告诉你了。至于杏花雨，与其春雨绵密，杏花粉白。倒不如，春和景明，风戏花雨来得欣喜。雁来到雁去的几天，后知后觉的开始去分辨不同鸟儿的鸣叫，然后觉得它们急匆匆的愉悦。梅花一开，搅了太多花儿的清梦，一边嘟嘟囔的醒过来，一边喧闹着绽放。阳光不能太好，要不花儿开的太过耀眼灿烂，挣着、挣着的太累。该有点丝丝的雨吧，如酒让花微醺一下，自顾自美丽，不那么好强的拼命开。雨会让草啊、叶啊，醉的张狂，一眼没看，就会变几个模样。无酒而醉，本是人生的境界。但被春天花醉、雨醉后，人是春心萌动了，心里虫儿痒痒，然后就有点“蠢”。前几日，和人论“知行合一”。自己洋洋洒洒之后，有个朋友问，你周边见到过“知行合一”的人么？我说，开什么玩笑，圣人之境，遥望已经是奢求。错了，你周边很多知行合一的人，比如说你鄙视一个人，为了钱不择手段，矢志不渝，不达目的誓不罢休。甚至可以欺骗亲朋好友、假谎连篇。他们算不算知行合一？我虽然不想承认，但他们确实做到了知行合一。为什么他们能做到，你做不到？为什么？因为你压根不相信！比如你会“随缘”“尽人事由天命”“做到自己应该做的，然后一切等时间给你答案”“财富是努力成功的副产品”“三观之下，才是财富”等等等等。然后的然后，你依旧说你知行合一是你的人生圭臬，笑话不是这么讲的。是不是有点悟了？你是不是，又开始拿着“知行合一”的前提是“致良知”，否则“知行合一”只会佛魔共生当做挡箭牌？你觉得这挡箭牌能挡得住别人，杀得了你心中贼吗？还是承认你对“知行合一”，除了用叶公好龙，好高骛远形容，貌似没什么好词了吧。“尽皆过火，尽是癫狂”本是形容香港电影极致辉煌和即将衰落的时代，这个和佛法形容今天是“末法时代”不谋而合。末法时代，五蕴六识，六根六尘，幻化交错，AIAR，幻中幻境，假中真，真中假。根据社会熵理论，稀缺的就会开始值钱开始获益。那不管是什么样的“知行合一”，总比迷失在自己思想里打圈圈的人强太多。你败给的不是时间，败给的不是运气机遇，你败给的是你不相信你口口声声坚信的东西。你最擅长的是美化梦想，丑化当下，你从努力的开始就给自己找好了失败的理由和借口。命运从来都是你的挡箭牌而不是抗争的目标。你特别擅长给别人的成功寻找偶然或不道德的理由，你绝对是个王者，在你给自己的失败寻找必然的或站在道德制高点的原因之时。“致良知，知行合一”圣人境，凡人孜孜；退一步，先杀个心中贼，末法时代，先破了自己的幻象？有个独属三哥的词汇：“Jugaad”。这词可以完美的帮助我们瞥见印度盛产精英的原因。这词，意味着随机应变，没有条件也要创造条件。左岸记：此身不是长安客，自折青枝过灞桥。春天是浪漫的事，也是好事发生的开始，这大家都是知道的，那你会想想怎么让自己这一年过得好一些吗，自己又要怎样去做到？哪怕是从身边一件小小的好的事情开始，那或许美好的事就会一一实现。附，文心一言的阅读理解，不知和大家理解的出入几何？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

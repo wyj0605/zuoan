@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>让人心动的，从来就不是风景！</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>让人心动的，从来就不是风景！</h1>
+            <div class="date">2026-03-04 09:57:24</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>让人心动的，从来就不是风景！让人心动的，从来就不是风景！原创我是左岸我是左岸左岸读书2021年04月03日 07:00在小说阅读器中沉浸阅读文/公子如月清明时节雨纷纷，每到这个时候，天总是要下雨的，连着几天淅淅沥沥，看不到晴的希望。但今天却是个多云的天气，仿佛知道我要回家似的。高铁行驶在群山中间，云雾缭绕在窗边，倒有点腾云驾雾，像是坐飞机的感觉，这趟车算是值了。车站外面，拉客的司机络绎不绝，一路死皮赖脸地跟着不放。我故作一副高冷的姿态一一拒绝了。高铁站是新建的，班车就临时派的那几辆，等了有一小会，迟迟没来。拉客的司机也都散去了，载上客的已经走远，没载上的去出口拉下一批人。想起去年国庆回家，趁着天气好，我从车站走回了家，看样子今天这天气也还行，那就走？那便走！不到长城非好汉，屈指行程两万。虽然没有如此大的气魄，但我这个人向来喜欢走路，在能力范围内的路程，只会越走越有劲，从不会觉得累。还记得毕业旅行去张家界，我硬是说服他们从山脚走上去，美其名曰这样才能终身难忘。结果，第二天大家都在酒店里躺着度过了。不过，痛并快乐着，各奔东西之后，都嘴硬着说要再走一次。回家是一场无价的旅程，甚至无心欣赏沿路的风景。刚开始沿着马路走，车流来来往往，便只顾着走路，时不时看到路边的土狗，便吹个口哨召唤一声。亲人一点的，还摇着尾巴过来了；胆小一点的，夹着尾巴跑开了；凶狠一点的，竟龇牙咧嘴吠个不停。走到镇上回村里，有两条路，一条马路一条小路。马路好走一点，但是饶一大圈。这几天下雨，小路自然是坑坑洼洼。但我偏要走小路，或许是小时候经常从这里走去上学，有了感情。又或许是走惯了城里的水泥森林，想感受一下泥泞。我以为这一路上就只会有我一个人，但中途遇到一老一少。老人大概是去接孙女的，手里提着个装饭盒的袋子，孙女则是背着一个与她身高不符的书包。在这泥泞的路上，她们倒是苦中作乐起来。“奶奶，你太慢了，你看，我又走在你前面了。”“你慢点，看你的鞋，脏成什么样了，还给我溅一身的泥。”“你骗人，隔这么远我怎么溅的到你。”“怎么溅不到，你站那里别动，我试试看溅不溅的到你。”说话的瞬间，奶奶加快了脚步，女孩则信以为真的站在那里。奶奶一脸严肃的从她旁边走过去，她却还在认真的检察自己身上有没有被溅到泥，确认没有之后，她楞了一下，才发现是上当了，一溜烟追了上去。而我则放慢了步伐，默不作声跟在他们后面，特意保持了一段距离。没多久他们就到了家，这下又只有我一个人了。地高形出没，山静气清优。走到一片无人的山野处，一股清香的空气吹来，连呼吸都变成了一件愉快的事情。这山，这云，这田野，仿佛都是我一个人拥有。旧时王谢堂前燕，飞入寻常百姓家。要不是看到电线杆上的几只黑色的鸟，我竟忘了还有燕子这回事。一处田野里，有三头水牛在啃着新生的嫩草，主人则坐在旁边的田垄上。不知道是偶然还是听到了我的脚步声，远远的就看着我，眼睛里充满着好奇，仿佛看着一个新奇事物。教科书教导我们，世界是物质的，物质是客观存在的，不以人的意志为转移。从科学理论来说，这话固然是真理，但真理往往是严肃而无趣的。自从了解了些唯心主义，才发现并不能因所谓的主观臆断而否定它，这其中自有无穷的趣味。就像此时此刻，我明白了王阳明“心外无物”的妙处，所谓美丽的风景，并不是说风景本身有多好，而是这风景让我们动了心。如果你现在跟我说喜马拉雅的雪是多么让人着迷，我也只会置之一笑。并不是因为它真的不存在，也并不是因为它不美，而是它没让我心动，对我来说，这和不存在有什么区别呢？啊，这泥泞的小路，这朴实的村民，这自由的牲畜，这翠绿的旷野，都极为平常，而为何此刻我却难以平静?因为“仁者心动”啊！就像那句诗一样：为什么我的眼里常含泪水？因为我对这土地爱的深沉！终于到了家，父亲怕是等候多时了，远远的就看他在屋前站着。“怎么才到家，又走路了吧”“嗯”“路这么难走，不打个车”“冷，好久没走路了，多走走”家里的灰狗听到了动静，从屋后跑了出来，对着我吠了几声。“吼，不认识了”，我朝它跺了一下脚。刚开始还害怕地退了几步，认出是我后，摇着尾巴扑了上来。我奋力推开，还是被挠了几个脏脚印。鞋子上面也已经满是泥了，但心情却是一尘不染的。——公子如月，记于清明。左岸记燕子来时新社梨花落后清明春日如许有人在想你</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

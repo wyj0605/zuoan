@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阳春三月，花为你开</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>阳春三月，花为你开</h1>
+            <div class="date">2026-03-04 09:58:37</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>阳春三月，花为你开阳春三月，花为你开原创德鲁伊德鲁伊左岸读书2025年04月03日 15:49福建在小说阅读器中沉浸阅读文/德鲁伊春天基本可以描述为，你认为的花开喧闹、竞相绽放，实际却是花草知时节，自顾自的开。其实每年的花开总是略有不同，大年小年？或就是气候使然。今年腊梅坚持了很久，甚至到了杏花、玉兰、红梅开了。算是赴了哪一年的约呢？你在与不在，花开还是不开？心学谈的很清楚了，我只是知道，开花时花我同喜，本就是个愉悦的事情。至少于我，观花的意义。AI很强大，码字突然就没什么兴趣了。不知道什么时候AI搜索到的内容，大部分也是AI创作的，这个世界会变成什么模样。抵御AI的就剩下务虚和回忆，或许还能坚持一段时光。***关于耻辱与落后教育***这个话题已经火过一阵子了，于我，没什么恍然大悟，而是敬佩于这个国家的坚持。幼时，对于发达国家，总觉得我们需要农产品去换取些东西。天生好吃的我很是愤怒，这个在幼时比百年屈辱让我更愤愤不平。及至到了这几年，贸易战动辄开打，我们针对的农产品、肉禽蛋奶、海鲜、水果成了主流，对了，还有葡萄酒什么的。不知道自己吃的哪一口，是进口货。吃是吃不出来吧，除了牛肉感觉价格是降了。党内有党，党内有派。政治我不懂，但纷争之下，还能坚持某种战略和目标以及初衷，一股劲儿的往前奔和坚持，这个有点意思。民族性、文化性格，值得没事讨论。我在陕西，别的不论，这个环境保护、水资源保护、森林保护，这事情，定的早，坚持的狠，舍弃的多，原则坚持的硬，这是属于中国特有的一些东西吧。***美国的朝式掌声***我对民主制度心存敬畏和审视批判，或许这应该是独立人格应该做的事情。前些年，我的敬畏被理解为怯魅，我的审视批判被理解为思想落后。经常性的被阵营向左的人同时鄙视。特靠谱的国会演讲，朝式掌声，这不属于回旋镖，这纯纯属于人性。制度是规范人性还是被人性所左右，人创造出来的东西，总是一方面左右人类，一方面服务于人类。至于打砸特斯拉什么的，U型锁无处不在，不稀奇也不惊奇。政治正确于外是武器，于内就是枷锁。当发现世界其实大同，在人性上。那内观永远及时和必要。***有时候觉得中国真的很强***电商和物流，让我觉得中国有时候真的很强，几乎无法战胜。基础建设，非议颇多，支持的和反对的，都有理。都有理的时候，选择不去关心是最佳选项。但几块钱的东西，包邮，且物流飞速。加上网络上，只有你想不到，没有买不到的魔幻。让我觉得中国对什么都并非不可战胜，谁都可以被战胜，但路长且阻，不易。担心实体、担心区域经济差，很严重。社会总还是要继续前进，能发展到今天，也能发展到明天。做一个乐观的悲观主义者，世界看起来、呆在这，都还不错。***教育到底是什么***出个题目吧，关于教育的，我觉得值得探讨。教孩子写作文，副业。等学生的时候，边上母女对话，偷听来的。“妈，今天我地理历史，我觉得考的不错。分估计不低。”“地理历史有啥用，数学呢，语文呢？”“我说今天的考试呢，你又扯啥呢？”“你觉得不错的时候多了，哪一次真不错了，你信，我还不信呢。”“我觉得我历史地理学的好，他们都说我厉害。”“他们？那是让你傻高兴呢？咋不说你数学语文英语厉害呢？”“反正我觉得今天考的不错。”“你信不信你自己？反正我不信。我觉得你其实也不信。”总觉得这个孩子的学习、自信算是废了。人们会时不时把有趣的短视频、图片或者可爱的故事分享给所爱的人。这种行为叫Pebbling。意为“丢鹅卵石”。据说有一种企鹅喜欢在伙伴的巢穴中留一块鹅卵石，告诉它，我来过，我很关心你。这既是我的今日份治愈，又或许是我偶尔还坚持码字的动力。左岸记：AI写的文字理性而深奥，用来做进一步的思考是可以的，却总缺少一些生活的灵动和直觉的亲切。每个时代的生活方式都不一样，但对美好的追求永无止境。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

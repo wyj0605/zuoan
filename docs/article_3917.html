@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一名工程师的反思</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>一名工程师的反思</h1>
+            <div class="date">2026-03-04 09:52:01</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>一名工程师的反思一名工程师的反思文昌文昌左岸读书2017年06月29日 08:55在小说阅读器中沉浸阅读《浪潮之巅》里有提到，“一流的工程师能顶得上10个二流的工程师，一流的工程师天生充满了责任感和好奇心，他们大都满怀信心但虚怀若谷，他们直接但不粗鲁，他们不推诿，他们不在乎工作边界，以团队而不是自己的工作任务为目标。”读到这里深以为然，一下子从“术”提升到了“道”的高度。这对于工程师本身提出了更高的要求，工程师也不只是有扎实的技术功底就可以了。扪心自问我不是合格的工程师，此前过于追求精神世界的丰盈，思维方式完全停留在理解，而工程技术也只是谋生的手段，如今工作将我强行拉回了工程师的轨道，反倒让我重新思考，如何成为一名合格的工程师。01“术”在学校教育体系里，成绩好分数高是好学生的指标，至于步入社会之后能够成为怎么样的一个人，那就不是教育所关心的。在现实的工程领域，比拼的不再是分数，而是解决问题的能力，此时完全没有标准答案可以参考，非要有，粗暴的说是某些领导的意见，理念先进点说，也就是站在用户的角度来说，能否满足用户的需求，这是传统教育与现实职场的区别。从“术”的角度来说，衡量一个工程师优劣在于他解决问题的能力。尽管在实际的工作中，并没有那么多高深莫测的技术难题需要攻关，大学期间研习的高等数学，线性代数，复变函数之类的基本派不上用场，工程应用相比科研理论要求低一些，产品毕竟是各种理论执行的末端。但技术作为工程师的基础，对于产品的来龙去脉，研发设计各个阶段也应该了如指掌。技术永远都在变化，即使技术本身没有变，随着你自己的经验提升，你的理解在变，技术其实也是变化的。如果有工程师疲于应付，自以为是的认为理解已经到头了，轻易的自我满足，那离一流的工程师还差很远。在以前公司的理化室，有个刘师傅做了39年的金相试验，临退休时都还在说，每次看到金相图都会有新的认识，对于技术一直都保持着孩子般赤诚，对于这样的老工程师总是心存敬畏。在面对挑战和技术难题，像我这样无知无畏的人来说，自然赞同义无反顾的往前冲，但是对于在行业混迹七八年，技术能力谈不上一流，但又胜过一般人的工程师来说，不知是职业疲惫还是对技术心存敬畏，对于技术难题总是会提出“不可能”，甚至还会以个人经验担保。这让我不由得想起亨利-福特在《my life and work》说一段话：The right kind of experience, the right kind of technical training, ought to enlarge the mind and reduce the number of impossibilities.作为工程技术人员，不就是来解决问题，来打破这些不可能的吗？如果只知道提问题，而不给出具体的解决方案，你的作用在哪里呢？02"道 "技术作为工程师的基础，解决了怎么做的问题，却解决不了为什么，做什么的问题。技术能力扎实的工程就一定是好工程师吗？不一定的，如果只是浑水摸鱼，纵有十八般武艺不愿意施展，那还不如一个二流的工程师呢？他们以个人的资历拿着高额的薪水，但完全没有发挥出作用，这对公司而言也算是一大损失，或许在人力筛选机制不完善的情况下，只能依靠学历，工作年限，职业背景来衡量。由于个人硬件不扎实，自然会钦佩这些底子雄厚的人。但真正相处下来，不过尔尔，甚至都有些失望，经历过职场的打磨，已经褪去了对技术的灵敏度，总是以老油条的心态应付，更别说以团队而不是自己的工作任务为目标。凭借不错的技术功底和阅历混迹各企业，以工资为导向的结果，有点像麦客，哪家麦子熟了，就会拎起镰刀去割麦子，割完拿钱走人便是了。这种职场的颠沛流离之下，可能收入不菲，但想要成就一番事业，拥有归属感却是种奢望。作为精明的利己主义者，眼看着船翻了，也会无动于衷，因为内在的工作边界认为，翻了就翻了吧，反正那不是我的责任。理性来说一点错都没有，但是作为船上的一员，船翻了，你又会好到哪里去了？在这条船上，如果连掌控方向的舵手都一副麦客的姿态，随时拍屁股走人，这样搭建的团队也不过是简单的人员的拼凑。作为其中一名船员，至少我还做不到无动于衷。自以为热爱文字，喜欢阅读人类社科的书籍，偏感性的思维不利于从事工程技术，因为工程技术需要严谨务实的态度，需要清晰的逻辑和分析能力，恰好这些是我所缺乏的，也一度怀疑自己是不是适合这份工作？只是一路走来，我感觉到对这些人文精神的追求，其实对于工程技术也是一种弥补。工程师首先是一个人。不管是人文社科，还是工程技术最终的目的都是要满足某类需求，解决某类问题。我们没有必要削尖了脑袋做成一副工程师的样子。目标是解决问题，而不是演戏一样看起来像工程师，这也就意味着允许工程师是多元化。其实在不断从事这份工程技术过程中，你的思维方式自然而然会转变，而不需要刻意演练，别的工种也大体相似。03情怀久不更文，我在怀疑自己对文字的真诚，很多事情不去做，并非真的时间不够用，而是它还不够重要。那些公开的呐喊其实是虚荣作祟，真正的喜欢从来不是甜言蜜语，而是切实的行动表现，也不必刻意追求作家的名号，既然在写，你就做着作家同样在做的事情。对于工程技术，也并没有那么排斥，每天大量时间花在工作上，偶尔梦里还会播放工作的场景，进步成长过程中的充实让时间飞快，也让我看到人的可塑性。如果非要谈情怀的话，一直希望能够打造个人的生态系统，前期一直在追求精神世界的虚无，差一个现实的连接和依靠，工程技术刚好弥补了这个空缺，让我能够换个角度看这个世界。文昌 宁波  微信号：changchang010分享采铜的见解：从个人的修为、成长上来讲：道和术都是非常重要又非常难的事。其实对于大多数人来讲，从学习、工作的能力来看，离“道”和“术”都有一段距离，都谈不上这些东西，只是在“表”这个层面。“道”对于个人来说，是一种思维能力和思维习惯的修炼，就是要有一种主动的意识，去思考和探索事物的深层的本质，不满足于表象，不满足于道听途说，不满足于流行的概念、术语和观念。这种思维素质难能可贵，但不是高不可攀，要会有意识地自我训练。“术”对于个人来说，是一种具体知识和技能的积累。任何一个专业领域，任何一个专业人士，都是由无数个“细节”构成的，所以细节的积累很重要。当细节积累到一定程度，就有了术，就有能力来驾驭一个领域的专业任务，在这个过程中没有捷径。有道无术的人，可以去做观察家，做评论员，但永远无法成为一个专业人士。有术无道的人，可以作为一个专业人士，可以解决难题，但是无法思考和判断大的方向，需要别人来指路，或者靠山寨模仿。而道术兼备的人，必然牛逼闪闪熠熠生辉。举两个现实的例子：（1）设计PS/AI/FW 等软件，就是“器”；任务分析、可用性测试、卡片分类法等，就是“术”；以用户为中心的思想、各种启发式原则，就是“道”；（2）编程Java、C++、C# 这些编程语言，就是“器”；设计模式等方法，就是“术”；面向对象等思想，就是“道”。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

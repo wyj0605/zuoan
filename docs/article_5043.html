@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>来沪，一年，穿越时间的磨砺</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>来沪，一年，穿越时间的磨砺</h1>
+            <div class="date">2026-03-04 09:55:49</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>来沪，一年，穿越时间的磨砺来沪，一年，穿越时间的磨砺左岸读书2021年05月29日 07:10在小说阅读器中沉浸阅读以下文章来源于一家烟火，作者Vincent Yang一家烟火.随笔，读书笔记文/文昌当下的上海已经进入了夏天，不久，将是漫长的梅雨季节，雨伞也会成为出行必备。就这样经历着四季的轮回，转眼来上海已经满一年了，也不怕你笑话，公开说点私房话。如果当初不离开宁波，不离开北京，现在又该如何？也不过忙乎着吉利的星越L，或者支持国际智能网联技术年会，在宏大靓丽的舞台之下不太流畅的贡献自己的力量。可惜，岁月不能回头，天黑路滑，也不要总是回头看。过去几年一直处于动荡期，求职跳槽换城市，看起来像串自家亲戚式的肆无忌惮，可能还是处于职业发展的探索期，甚至有些无奈，总归人在江湖，身不由己。但凡条件允许，可以沉下心脚踏实地做点事情，谁又会愿意这么走南闯北，不知归处？当然也是在给自己机会，在跌跌撞撞中明确自己的方向。年轻的时候，也要有这么个成长的过程。过去这一年，完成了职场初期的探索，知识阅历积累到了一定阶段，做事从容不少，知道自己要什么，看得清当下的重点，对于未来的规划也日渐清晰，最后只剩下执行了。应了陈嘉映在《走出唯一真理观》提到的“中年以前人有故事，中年以后就是干活，一项一项的干活。”活着就变成了在做事中慢慢的等待，专注学习，认真做事，心无旁骛之后，工作也生出几分乐趣来。接下来还是想从工作，精神修养，身体素质和社交关系四个方面，依次总结，聊聊个人的收获和感触。1. 工作先谈谈工作吧，终于可以从以往人事的纷扰中跳脱出来，以往总会耗费些心力在理解他人的不同，也在毫无道理的接受所谓强权的责难和挑战，总有种不舒适感萦绕在心里，也并不认为那种苦闷会催人奋进，只会影响个人的气质，或许总归是自己不够强大，才会如此介意。最舒适的工作状态莫过于得到他人的认可和信任，可以放手做好自己该做的事情，尽量避免人事的争斗。过去一年工作压力不小，更多来自项目对个人知识结构和应变能力本身的挑战，这也成为了学习的动力，个人的专业知识体系也得到了完善，在全生命周期汽车信息安全的框架下，不断完善各个阶段的关键知识点，逐级下沉或者以某点方向作为标签前进，最后还是得随着行业的发展需求，调整个人的侧重点。此间不断提升自己的专业知识同时，立足行业，也在努力的为汽车信息安全行业服务，过去一年精心运营公众号，微信群，以及专业社区，乃至公开演讲，均取得了丰硕的成果。其中的逻辑还是知识传递，打破知识壁垒，同时提高信息传递效率，促进彼此的沟通，也算是绵薄的贡献吧！我们每天最好的时光基本都在工作，工作也是修行的道场，认真做事，专注提升，日积月累即使无法成为行业大佬，至少个人的品质也会通过不断地做事有所提升。2.人际关系每次换工作都在换城市，结交朋友很多，但大多数由于环境的变迁，深入拓展的也很难，也只是在记忆里保持着仅有的美好。南北文化多少有些不同，尤其是北京和上海对比下来，北方的场景多半是三五好友，一壶老酒，做事对关系的依赖程度更甚，而上海多点西方的独立自由，更适合特立独行或者追求自我的人。在如此背景下，人际关系拓展多少会受到局限，人生地不熟，倒也有更多的时间自由做自己喜欢的事情。久而久之，不主动，也不拒绝，你来我肯定是欢迎的，要走也会不强留。保持各自的独立空间，倒也自在。经过这么一年下来，意识到人际的真相之后反倒自在，实在没有必要刻意讨好别人，别人再如何富有和优秀，那终究是别人的故事。我们总不能陷入，朋友很厉害，所以我自己也很厉害的逻辑，那还是没有回到自己，没有回到事情本身。在组织里人会自动排序，这是千万年来进化结果，免去了很多无谓的牺牲，理解到这里之后，也就不会刻意争抢和比较，每个人能量有高低，所擅长的方向也有很多不同，实在没有必要将心力放在他人身上，做好自己该做的事情直到优秀，平等交往自然也自在。一年下来，人际关系方面的认知收获。在于交往自在，你轻松，别人也轻松，表现正常就好，刻意讨好本质也不过是降低沟通成本，曲意逢迎，那多少有些拧巴，生活的确不易，越是低头认输，只会更加不易吧！3.精神收获说到精神上的收获，多少有些玄虚，不过也切实的在成长。纯粹简单健康的环境会滋养个人，恶劣的环境也会令人强大，但只会产生更多无畏消耗。有点领悟到仓廪实，而知礼节的重要意义，所谓的仓廪不一定是物质的丰盈，而是精神的富足。精神富足的来源有很多，我们可以读书扩大自己的认知边界，运动体会多巴胺释放带来的快感，在不断的尝试和挑战中成就自信，或者主动帮助别人，在与人为善的过程中，体会到个人的价值体现，当然这是健康积极来源。当然积极的做事，与小伙伴一起投身到共同的事业中，哪怕显得很业余，那终归是有愿景和理想驱使的，凡事不要闷头苦干，而是多向优秀的人士请教，尽量的扩大自己的边界，不管是处世，还是做事。过去一年里，每个月都会到山里领略自然风光，享受自然的美好，也未曾间断过阅读和学习，努力让自己思维和认知保持更新的状态，每周都会定期的锻炼身体，让自己不至于因为疾病的困扰而影响情绪。4.身体锻炼文明其精神，野蛮其体魄，两个方向都需要修炼。身体方面，随着年岁的增长，三十岁，当然不如二十多岁年纪生龙活虎，身体机能的反应会变慢，恢复能力也不如以前，如果不经常锻炼，这个过程会更快，当然年轻更多的不是物理年纪，而是心理状态。不管是甩锅给疫情，还是生活环境变迁，运动的强度不如以前，倒不是不可以，是因为没有必要，中间有个尺度问题，跑过五六个公里，精神状态俱佳，身体状态得到更新，尽管速度和距离都不足以匹配马拉松的训练量，但我终究不是专业的运动员，目标是为了强身健体，保持住积极健康的状态就好，这是对我自己的要求，也是安慰。实在没有必要刻意标榜自己，或者已经过了通过跑量和速度来证明自己能力的年纪，因为还有更多有价值的事情值得花费精力，比如阅读和写书。就这个状态，继续跑下去就很好，不在距离长短，而在于可以穿过岁月的习惯。5.现实生活何为现实的生活？靠近大家理解就是娶妻生子，每天柴米油盐酱醋茶的世俗生活，然后在房子车子票子前皱眉，倒不是不渴望家庭的温暖，而实在是没有勇气面对现实的琐碎，一直在逃避，所谓轻松和自由，当然也有生命不可承受之轻。找对象这个事情，是确实不好描述，真的是对方不好吗？到不见得，既然能介绍到我这里，其实大面都差不太多，只是没有勇气，心里没有标准，也说不上来什么是好，所谓的感觉其实都是假象，背后的担心是万一真成了，该怎么办呀？我还没准备好呢。可以在马拉松赛场咬牙坚持到终点，也有足够的勇气应对职场的各种挑战，唯独在应对异性，应对即将来临的群居生活和生活里的鸡零狗碎，我总是把自己给吓死了。写到这里，也算是对自我的彻底清算，既然工作和城市都是可以选择的，自己的生活方式当然也是可以选择的，婚姻生活也是一种选择，可能只是没有勇气面对吧！6. 穿越时间随着年岁和阅历的成长，保持本真的样子就愈发困难，当别人对你有所期待的时候，会不自觉的迎合他人，不断面向公众，人就变得在意，所谓的偶像包袱就会涌上来，或许这就是人性。归来仍是少年，不一定是没有经历，而是经历过丑恶之后，有勇气选择少年般的纯真，有勇气选择，也愿意为之付出代价，穿越时间的磨砺，那才是真正的少年吧！文昌 上海 五月左岸记：文昌的人生越走越宽，越来越温和，而且越来越有底气，这是经验阅历的积累，是人生的修行、工作的修炼，也是文化的自信。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

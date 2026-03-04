@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山城无山，时空穿梭</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>山城无山，时空穿梭</h1>
+            <div class="date">2026-03-04 09:54:31</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>山城无山，时空穿梭山城无山，时空穿梭稻田稻田左岸读书2023年05月22日 20:39福建在小说阅读器中沉浸阅读文/稻田山城，是重庆的特质和惯称，但真正与重庆相见时，却只见人迹不见山。与常规的城市不同，重庆的楼宇给初到者以垂直威压的气势，尤其是阴雨的夜晚，一柱柱悬挂在雾端的大厦泛着迷蒙的霓光，俯瞰着仰视的惊诧者，直到你眩晕而改为平视。但平视也脱不了视觉和心觉的压迫，那些高大的楼宇像密集地从天空抛落，彼此挨挨挤挤地拥立着，远远地看去，楼间的距离似乎伸手可及。重庆的高楼可以用身高体宽来描述，高大密集令人自觉渺小，如那些争先恐后向云空里伸去的高楼一样，人在如林的高楼下走，也有要飞起挣脱束缚的念头，其实楼的形体姿态正是人的精神形态的反映。重庆楼宇形态和结构的奇特更在其上下之间。从二十楼的电梯中走出室外已属奇异，却一脚踏入了一块平整繁华的广场，像电影切入新的画面、更像穿越到新的时空。这种迷惑一时还无法化解，身后是二十层的半空，身前却见自地平面拔起的高楼，二十楼与一楼竟在同一高度，待侧身俯探，只见有幢幢高楼从深幽处升起，有屋顶在自己的脚下。原来重庆的楼宇是垂直建立在不同的台级上面的，它的高度是一种起点不同的高度，像田径赛中的接力跑，相互之间错位起始，如此奇特到魔幻的建筑结构给游人带来了别样的意趣。冷静地梳理一下，重庆的城貌根本上出自其山的母体，是山的结构决定了城的结构，但山与城的关系隐含而复杂，山与城，自然与人，人在其中的表现是主动和彰显的。夹在嘉陵江和长江之间的重庆主城区渝中半岛，形似一条脊背隆起的大鱼，山体的形貌可在一张拍摄于抗战时期的夜景照中得知，点点灯光，如珍珠般缀挂在半岛弧形的躯体上，山的轮廓即便在夜晚也清晰可辨。可以推断，那时候半岛扮演的都还是房屋基础的角色，自身的形貌轮廓依旧，房屋如散落于枝丫间的鸟巢，树冠的形状并没改变，但随着商贸的频繁，人口的聚增，带来的是人迹的漫延，半岛从房屋建筑的依托者，逐步地演变为房屋建筑的“衣架”，直至连衣架的特征也被改变。人迹对半岛山体的覆盖和主宰，便是现代魔幻山城重庆的隆重登台。如今的重庆主城渝中半岛，楼宇的高点已经超过了山体的高点，原来的鱼脊已经被林立的建筑遮盖，两江拥护的渝中半岛已变成一艘桅杆林立的大船，正向东海的方向行驶，可以想见大船上奔走忙碌的船工，可以遥听山水间壮烈震撼的船工号子。但这艘大船已经加入了新的元素，它在改变着自然，也在吸引着目光。山城重庆已经有了3D、赛博朋克、魔幻等网红新称。一索横江，空中巴士滑行，一轨缠山，高楼腹中走车，一桥串联，天地之间盘旋，人心和人力的表现张扬和潇洒，其中以网红景点“洪崖洞”最具有典型意义。这个著名的商业文化建筑像一面错落的高墙立在嘉陵江边，它扎根于陡峭的山崖，却将山崖严严实实挡在了身后，如凌空耸立，亭台楼阁，叠房架屋，错落层递，日出古色古香，日落金光魔幻，使人错感虚实，以为蜃楼幻景，感叹人力震撼之时，早已无意山的存在。人心的顽强和人力的伟大是思之激荡情怀的。由今天已成为建筑艺术的新洪崖洞，我联想到了昨日危悬高崖的旧洪崖洞，那些美其名曰的吊脚楼，实际是用竹木在崖壁上撑起的简陋民居，是贫苦劳工的破烂窟，它们沿着崖壁颤颤巍巍地错落搭建，苦涩挣扎之中更有勇气和顽强，而今洪崖洞的精彩“变脸”，正是这种人类精神的承续、演进和证明。其实因为山城的基因，重庆的“魔幻”是早就出现了的，格兰姆·佩克在《一个美国人看旧中国》中写道：“重庆城处在两江之间，高踞大岩石之上，其位置使人看了目瞪口呆，甚至给那最破烂的房子也带上了一层神奇幻景的外貌”但从前的魔幻是与苦涩和破旧相连的，今天的魔幻则伴着充裕、科技和洒脱。山城无山，只因其隐于人迹，山隐人显，人类的生存欲之强，生命力和创造力之伟大，无论如何都是值得高歌赞颂的。左岸记：行到南山路，停车登高楼，观景台一览，人间美景怡然。三面临江，山路婉转，举目观，灯光重叠，沉醉梦幻里；携月览群山，星光接天灿，月影映城辉。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

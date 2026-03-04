@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有用，无用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>有用，无用</h1>
+            <div class="date">2026-03-04 09:55:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>有用，无用有用，无用左岸读书2016年12月28日 19:34在小说阅读器中沉浸阅读知乎上有一个很好玩的问题：小时候背那么多诗有什么用？背唐诗不能致富、不能赚钱、不能出名，那我们为什么还要背唐诗？但知友“mupeng”写下了这样一段话：“慢慢地，我长大了。春天，看到盛开的桃花，就明白了什么是‘桃之夭夭，灼灼其华’。夏天，跟爸妈去湖里玩，小舟在荷叶中穿过，便知道了什么是‘接天莲叶无穷碧’，什么是‘水光潋滟晴方好’。秋天，凉风乍起，梧叶飘黄，便知道了什么是‘老树呈秋色’，什么是‘苒苒物华休’。冬天，西风凛冽，天空阴沉，行人匆匆奔走，到了家，烤着炉子，外边洋洋洒洒地下起了雪。便知道了什么是‘晚来天欲雪’，什么是‘红泥小火炉’。约会时，知道了什么是‘月上柳梢头’灯会时，知道了什么是‘一夜鱼龙舞’。愁了时，就想起‘伫倚危楼风细细’，乐了时，就想起‘春风得意马蹄疾’。小时候背的那些诗词，像是看不懂的画面，存在心里。一天，遇到了某个风景、某份心情，就忽然明白那首诗、那句词、那幅画。那种感觉，是穿越千年的心意相通，它是如此恰当，以至于无法用其他词语来形容。”小时候那些看似无用的阅读体验，往往决定了我们一辈子的心胸和视野。梁文道先生说：“读一些无用的书，做一些无用的事，花一些无用的时间，都是为了在一切已知之外，保留一个超越自己的机会，人生中一些很了不起的变化，就是来自这种时刻。”我们想要的不仅仅是生存，而是生活。所以做些“无用”之事吧，你的人生旅程将因这些“无用”而美好。1、交一个无用的朋友。2、找一个无用的爱好。3、去一个永远成不了景点的地方旅游。4、收藏一件不能保值的旧东西。5、爱过一个不可能和你在一起的人。6、和爱的人，而不是对自己有用的人结婚。7、设计一件永远不会穿上身的衣服。8、写一部永远不会出版的小说。9、遇到人生困境时，一觉睡到自然醒。10、没有任何好处地帮助一个人。11、像陪孩子一样陪父母看电视。12、与陌生人做一次善意交流。13、和即将分手的恋人，好好看一场电影或做一次爱。14、研究一个无用的课题。15、收藏一种已近失传的传统工艺。16、发明一件申请不了专利的东西。17、与朋友组一个社团。18、新年放烟火时，停下来看一看。19、为自己想一句座右铭。20、学一门无用的外语。蔡康永在博客里讲到台湾。说台湾爸妈最爱问一个问题：这有什么用？“我会弹巴赫了。”“这有什么用？”“我在想太阳为什么会燃烧。”“这有什么用？”“我会辨认熊的脚印了。”“这有什么用？”蔡康永万般庆幸：“我没被我爸问过这个问题。”蔡康永的爸妈，很喜欢做无用之事。“漂不漂亮？”“喜不喜欢？”“好不好吃？”这是他爸妈比较会问到的问题。后来，蔡康永成为名嘴后，在博客里写下了这样一段话：“我的成长，让我相信：人生最重要的东西，其实大都没有什么用：爱情，正义，自由，尊严，知识，文明，这些一再在灰黯时刻拯救我、安慰我的力量，对很多人来讲‘没有用’，我却坚持相信，这些才都是人生的珍宝，才经得起反复的追求。”人生，并不是拿来用的。庄子在《人世间》里讲了一个故事：石木匠带徒弟们去齐国，路过曲辕时看见一棵硕大的栎树，其树阴就可以卧牛数千头。徒弟们蜂拥过去观看，但石木匠却头也不回地走了。徒弟们气喘吁吁追上来说：“师父，自从我拿斧头以来，就没见过如此大树，你怎么看都不看一眼。”石木匠说：“用这棵树做的船会沉，做的家具会腐，做的棺材会烂……毫无用处，看它干嘛。”这晚，大栎树给石木匠投梦说：“你说的那些有用的树，都因为有用而被砍伐了。而我之所以能存活万年，恰恰正是因为我的无用。”庄子想借此寓言说明一理——有用和无用是相对的，是可以相互变化的。他说：“人皆知有用之用，而莫知无用之用。”功利主义的人生就像一把没有刀鞘的的刀子，锋利但是不好看。如果生活这盘菜，用这样的刀来切，便是一种让人难以释怀的悲哀。——泰戈尔整理自：拾遗（微信号：shiyi201633）</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

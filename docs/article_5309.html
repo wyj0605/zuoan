@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>看客的忧伤</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>看客的忧伤</h1>
+            <div class="date">2026-03-04 09:56:41</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>看客的忧伤看客的忧伤原创我是左岸我是左岸左岸读书2022年03月23日 10:11在小说阅读器中沉浸阅读文/德鲁伊过去读鲁迅的小说，有个评论家说：“鲁迅的小说，前期都在写看客。”那时不以为意，但再读《呐喊》，序里“凡是愚弱的国民，即使体格如何健全，如何茁壮，也只能做毫无意义的示众的材料和看客。”就多思了一些，深以为然。网络时代，提供给看客们更多的便利，过去围观个打架车祸的，还要自认是驴子他爸爸，才能挤进人群，就近看热闹。现在，就连俄乌战争，就差直播了，“Tik Tok战争”。不过因为便利，因为身临其境，因为天涯咫尺，看客本来是看热闹的，如今却把自己当做了角色。于是，抖擞上阵、赤膊肉战，只不过都是些文字嘴炮。代入情境，装扮角色，平淡生活里的一抹色彩，其实越来越理解cosplay了。我们面对信息越来越不理智、充满情绪，这与给我们提供信息的人有关，信息茧房永远是自主选择和被迫选择的。用户偏好是一方面、社会限制是另一方面，这次俄乌战争，不知道对大家是什么触动，起码对于我是大跌眼镜，西方对信息的倾向化、限制性、臆测化、谣言化，突然觉得自己能得到更多更全面的信息，真值得庆幸。其实有人会试探的问我，挺俄还是挺乌，我开玩笑说，看客们什么时候开始要求下注了？我既不想做个看客，我也不想成为被围观的斗兽。和平是每一个人应该追求和祈望的，虽然战争是取得和平终极选择的一种，但我们也没必要美化战争。我知道这是一种很受攻击的说法，两军交战，遥遥相望，但偏偏中间站了个你，谁要进攻都要先碾压你，谁往对方头上招呼，你都少不得捱上几下。对谁来讲，这都是立场问题，都是大是大非，容不得你犹豫迟疑、瞻前顾后。之前不明白，所谓的国际新秩序，后边了解一下，大致我们现在认可的秩序，该是建立在二战基础上的。其实大家都明白，谁祖上没富过，谁过去不是霸主，新老国家阵营都要活，咱先建个秩序，大致认可，好让少点纷争。至于后边风云变幻、乾坤挪移、风起云涌、一时豪杰，但面子上，大家还是尽量维持着，烂船三斤钉。只是后边，大家习惯性双标，东方阵营垮塌，全球村兴起，亚非拉、西亚发展，新三年、旧三年、缝缝补补又三年。有一天，大家觉得这个东西真的不舒服了，自然有人站出来挑衅，被教唆也好，被蛊惑也罢，自我膨胀也可能，实力使然也或许。甚至也就是采取点蚕食政策，我今天打这个没事，我明天打那个没事，反正我的利益最大化了就行。前些年，有个愤青朋友说，早晚一些人会被所谓的普世价值祸害，普世价值是他们针对自己的。没到翻脸的时候罢了，真到了他们认为的时候，他们永远是非我族者必是异类，你要么做奴隶要么就是生产资料。我说你这个太愤青，这是个应然实然、是非和立场的问题。我们借鉴有助于我们的，警醒于实然和是非中的立场，就好。战争多数时间里，确实是你死我活的过程，人性的光辉肯定也掩盖不了战争的创伤和战争之恶。只是基于人类个体也好、社会也好，就如反对纳粹一样，反对纳粹起码还证明我们是一个人类，这属不属于人类的底线管理呢？世界的那端在流离失所、在战火蔓延、在死亡和摧毁。世界这端的我们，虽是看客，但一样是看着我们作为某一个民族、某一个国家、某一个人现在的命运和未来的可能。看客也是参与者，这是网络时代赋予我们的责任。也同样太多的人，将自己的生活共情于这场争论里，投射于辩论和辱骂里，被情绪所左右，忘记了自己的生活。当你逼迫别人宣示立场的时候，其实你自己已经心虚了。懦弱者，也同样是在自以为完全安全的情况下才显得无比勇敢。我是一个和平主义者，唯一的不同或许是，我同样坚定的认为，很多的和平是打出来的。P.S.据说，这次抢镜的还有俄罗斯的柴可夫斯基、陀思妥耶夫斯基、一些画作、加加林，这些是人类文化及进步的阶梯，人类文化标志性的甚至是高山仰止的人物及作品，禁止他们的那些人是有文化的人吧，这让我对文明有了深深的悲哀。​左岸记：对于这个世界的悲喜和人间冷暖，大多数人都是看客，以为自己不过在欣赏风景，他们是不痛到自己不知道的。善者，有一丝同情，尚怀着一种淡淡的怜悯；恶者，则是带着一种幸灾乐祸的心理，等着看笑话；麻木者，不痛不痒与己无关，看惯秋月春风。熟不知，人生这场旅行，我们是看客也是风景，怀着看客的心理，便成了另一处风景。别林斯基说：“群众只懂得外部的喜剧性；他们不懂得有一个喜剧性和悲剧性交叉之点，所唤起的不是轻松的，欢快的，而是痛苦的，辛酸的笑声。”知善恶、分美丑，辩是非，人生主客转换，不过刹那瞬间。愿我们成为他人眼中的风景，而不是大煞风景。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

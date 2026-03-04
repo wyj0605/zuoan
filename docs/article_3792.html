@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幸福一点点的来，悲伤快快的走</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>幸福一点点的来，悲伤快快的走</h1>
+            <div class="date">2026-03-03 21:17:30</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>幸福一点点的来，悲伤快快的走幸福一点点的来，悲伤快快的走德鲁伊德鲁伊左岸读书2015年01月28日 18:33在小说阅读器中沉浸阅读朋友的房子装修好了，约着我们去温居。朋友是个奇葩，是个“比逼格更有逼格”的主儿，一套房子哩哩啦啦装修了一年多。倒不是有钱有闲，他自己还真蜗居着，骑着可爱的小电驴子，灰头土脸建筑着未来。我们一致觉得就是个不见尽头的装修，他却屁颠屁颠的意志坚决，抱着必胜的信念。都说想离婚就装修，想短命就买房。因为都经历过，所以很奇怪他靠什么意念，把自己能哄得团团转，长期鸡血满格。想象着，美轮美奂是什么模样。朋友们都客套的问需要什么礼物饰品，也算锦上添花，他却大爷似的说，我请你们温居是温居，咱一件件事情来，看了才知道要送什么吧。我们说，带我们孩子去你那尿一泡，童子尿更喜庆。他说，你们来来来。及至到了家里，却也就那样，像是住了很久的感觉。唯一让人刮目的是，太生活、太方便，你能想到的他想到了，你没有想到的他也想到了，或许装修就该这个样？酒酣菜残的当口，我问他，你是为了减肥还是自己就是自虐狂啊，还是为省钱不省命，拿装修当人生呢？他说，你不懂，幸福这种事情要慢慢一点点来。我快快的装修不难，其实大小还是这个家。搬进来，新奇劲过了，就是无穷的烦恼，这不合适那不方便的。除了新，一点生活都没有，起初的幸福也就是一兴奋劲儿。幸福来的快永远不是什么好事，比如温居你们要送礼吧，你们看了之后，挑选的一定经心，我也可以一件件的收获小惊喜。那我的幸福是不是就多点，一点点来的幸福，我也就没时间不幸福了？在被他上了一课后，还真经心研究了一番。给他中式的书房，配了一张心经、一副油画，前后鼓捣了半个月，他也满意我也小得意，他的幸福感也就分我了一些。幸福一点点来？忽又想起之前有个朋友，家里中邪似的。前前后后半年，不是老爷子摔了腿，就是老妈阿尔茨海默症，哥嫂打架。自己的工作也因为什么资格证，搞得岌岌可危。她却闲情逸致的报了个厨艺班，和培训班商量按课时不按课程表走。狼狈的挤时间去学。过一段时间，就邀着我们去开吃货聚会。前提是告诉我们她又学了什么，需要大家自带食材，她负责辅料、烹饪。叮叮咣咣大厨风范，味道还总是不赖。然后就好奇的问她，家里的事情搁别人，能保证自己还正常生活都不易,你还去学厨艺，还练的不错，你超人啊。别人都是被生活摧残，你倒学会给悲伤添加各类味道了。她说，悲伤这种事情来的总是蛮猛烈的，淡淡的忧伤那都是矫情装出来的。可是你一多半的悲伤都是自己没事纠结悲伤来的，人都是不由自主的在追逐悲伤。悲伤这事还喜欢扎堆，既然扎堆了，你就得让他快快的走。悲伤来的时候，咱就悲伤，但最好不给自己机会，没事还思考自己到底有多悲伤、还能再悲伤点不。最后都搞不清是真的悲伤，还是自己在悲伤里打转转，开始享受悲伤了。我报厨艺，反正我喜欢吃，现在也没钱出去吃，交点学费，骗点你们的食材，皆大欢喜。你们高兴，我也高兴，家里爸妈也高兴，悲伤也就淡点，何乐而不为呢？幸福一点点的来，悲伤快快的走？人生总是希望被幸福砸倒，被绝大的幸福围绕和淹没。窒息感和满满的热流醍醐灌顶，那样的幸福最好是让自己来不及感受和准备。让暴风雨来的更猛烈些吧，我们对待幸福也总是如此幻想。但谁都明白，窒息感是感觉不错，大脑缺氧罢了。幸福来的猛烈，去的也需要快，否则缺氧到变痴呆，自己都先挣脱出来呼哧哧的喘。暴雨倾盆或是满溢的温暖，总也会来得快去得快。兜头浇下，感觉是强烈，可惜有点来不及回味就消失的无影无踪。幸福不是悲伤的反义词，人生的幸福总是和平淡比较着。平平淡淡是福分，未必是幸福。那些所谓说着自己平平淡淡才是真的，要么是没办法幸福，要么是真明白幸福需要一点点来。幸福不能设计，却可以拆分、可以发现、可以创造、可以分享。学会让生活要被点滴的幸福串起来，小幸福就成了大幸福。悲伤来的悄无声息，却坍塌般的无法抵挡。你左右不了悲伤驾临，你也没办法没心没肺的无视悲伤。在悲伤面前假装快乐，有时候比悲伤还令人无所适从。该悲伤的时候不要勉强微笑，因为这个世界不需要你这样面对悲伤，他只会添油加醋给你更多的悲伤。你只需要明白，不要给自己的悲伤加码。你一多半的悲伤，来自于质问为什么我要承受这些悲伤，为什么美好一去不返，为什么是我而不是别人，为什么我越来越悲伤。悲伤本身，已经被你涂抹成自己思想里的悲伤，你把生活也都装扮成悲伤的样子，让快乐都不敢靠近。自虐般的陷入习惯性的悲伤，还埋怨这个世界为什么会这样。同样，人生悲伤不是快乐的反义词。只要你让悲伤快快的走，生活还是生活。悲伤里的你生活如旧，人生也就如旧。悲伤会改变你的生活，但不会颠覆你的生活。悲伤里，不影响你看到一朵花开的美丽，或是尝试一些改变。悲伤着自己的悲伤，只要别因为悲伤而拒绝可以快乐的机会，没事别追逐自己的悲伤就好。人生对自我最大的不堪是，幸福来了，我们却希望最好是天大的幸福，却不愿意去寻找、发现和创造一点点的小的幸福；悲伤来了，我们恐惧之余，却热衷于被悲伤涂改自己的生活，纠缠在悲伤里自虐，生产更多的悲伤。人生总是看着漫长，然后被记忆里的悲伤和幸福左右着当下。当下的自己却渴望着大大的幸福，小小的悲伤。或许人生，只是需要幸福一点点的来，悲伤快快的走。左岸记：幸福与悲伤也许是一对谁也无法拆开的兄弟。人生就像彩色的折合扇，张开时有你想象不到的美丽，折合时也有你无法想象的阴霾。活在人世间，会发现好多事情我们无法改变。回顾我们在生活中经历的风雨波折，会深深地体味到人活在天地之间要有多大的勇气。那些我们无法改变的，让我们勇敢地去承受，将所有的悲伤与不幸从我们的内心驱逐出去，用岁月积淀的勇气坦然面对人世间的一切坎坷与悲欢离愁，然后用一点一点的幸福营造快乐的人生。让我们的长辈因为我们环绕膝下而幸福，让我们的儿女因为我们的细心呵护而幸福，让我们的爱侣因为我们的健康与关爱而幸福，让我们的伙伴因为我们的努力而感到合作的幸福，自己也因此深切地感受到存在的幸福！每日一语：期末来临，大学一直很流行划重点，以至于每次考试前大家都不怎么复习，只等着老师划重点。可是有一年，学校严格规定不能划重点。于是，在最后一次课上，某老师说：“同学们啊，学校规定了不许划重点了。那好吧，大家把书拿出来，我们划一下非重点。”阅读·累积·思考关注：左岸读书，公众号：zreading欢迎点击标题下方的“左岸读书”或微信搜索关注分享你的阅读，点击右上角分享到朋友圈！谢谢！想查看更多文章评论，单击阅读原文，并参与评论吧！阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

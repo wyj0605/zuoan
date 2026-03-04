@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北方风来满眼春</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>北方风来满眼春</h1>
+            <div class="date">2026-03-04 09:53:28</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>北方风来满眼春北方风来满眼春唐庶民唐庶民左岸读书2023年05月16日 22:43福建在小说阅读器中沉浸阅读文/唐庶民白杨、翠柳搭成春天的通道，红砖青石磊起高大的校门。这里是一处美丽的园地，它的正式名字叫天坤赤峰北方职业高中。走进校门，第一个迎迂你是至成大圣先师孔圣人的塑像。高约⼗余米，宽约五六米，大理石像体与天空白云一色，大圣先师正飘然举步，拱手揖让，仿佛刚从泰山之巅款步归来，仿佛正从沂水河畔安然走来，仿佛正从老子山中茅草之所问礼归来，也仿佛正从郯子的白竹之家问乐归来。更仿佛正在清声朗言，吟诵那千古名叹：逝者如斯夫，不舍昼夜！登东山而小鲁，登泰山而小天下！那张慈祥仁爱的面孔是在面对弟子谆谆教诲吧？那和蔼可亲的微笑是在对晚辈循循启发吧？面对着老先生那张宽厚温良的笑脸，我太感动了，仰之弥高，钻之弥坚；瞻之在前，咋⼜忽焉在后？我没有带鸭头，没有带肉干，只有满怀崇敬地跪下双膝，在老师的足下“咚咚”地磕了两个响头。圣像的后面是一片呈“回”字形分布的红色楼群，巍巍然赫赫然矗立在这北国的蓝天白云之下，矗立在这丰厚深沉的大地之上。远方的北山巍巍，四野的碧草欣欣，如此背景之中，这红楼则如汪洋中的一座喷吐燃烧的火焰山岛，烈火正气吞天地，豪情正直干云霄。它如一轮巨型红船，正鸣笛出港，轰轰烈烈的响声震动得千林抖擞，百草沸涌，大海潮生。我想，搭上这红色巨轮，我们会奔向何方？是的，我们会穿过幽深海峡，我们会驰向遥远的大洋，我们会驰向⾦色的海岸，我们将拥抱灿烂的明天。红船啊，你正与高空的天日争辉呢，你正与苍莽的北方山岳比高呢。走近红楼，站在弥漫着海棠般紫气氤氯的紫叶李丛中，仰望高朗大气的一排排窗宇，阳光正灿烂地旖旎，清风正吹拂着绿叶欢歌。头顶上方最近的那间教室，正在学习《论语》的名文《子路、兽皙、冉有、公西华侍坐》。课堂里的声音把我引入遥远的古代，对，我听到了大成至圣先师在与弟子对话呢。先生说，孩子们，不要因为我比你们大几岁，就不敢说话了，敞开你们的心扉，放飞你们的理想，各言尔志，说吧，说吧！多平和的语言，多慈祥的态度？真的是如沐春风呵！听，子路说话啦，他要成为政治家；冉有说话啦，他要成为经济家；公西华说话啦，他要成为外交家；嘿，最高雅最有情致最显人间生气的还是曾皙呀，他描绘了一幅春和景明的和乐世界——暮春时节，春和景明，天高气暖，山青水绿，冠者五六人，童子六七人，到沂水河游泳啊，上求雨台吹风啊！日暮时候，夕阳在山，他们携手并肩，咏唱而归，嘿，歌声吚呀，葛天氏之民欤。转过红楼，穿过紫李，看啊，这校园到处都是树的海洋。阳春四月，桃花飘红，梨树飞雪。长柳垂丝，像一队队一群群的少女，正摇动长长的衣袖，挥动健美的双膊迎接来人：沙沙沙沙，沙沙沙沙，欢迎欢迎，致敬致敬！这是一方圣洁的土地，此时正杂花生树，柳浪闻莺。一矗矗高高红色楼群之外，除了树还是树，所到之处目之所及全是树：垂柳柔条如丝长垂，虬爪杨榆曲婉多姿，碧桃红映天宇。万枝飞花，梨树则一身雪浪，明艳照人。还有呢，紫叶李庄如海棠，凝紫还绿，紫气正东来，绿叶冉冉红。还有元宝枫五角轻飏，一树鹅黄，新鲜欲滴。还有皂角树翠色流光溢彩，丁香树芳馨可人。还有那环立园四周的高高亭亭的万竿白杨，一行行，一排排，横过来，冲过去。宛如列队的仪仗，出岗的哨兵。横看成队侧看成行，远近欣欣向朝阳。它们日日夜夜坚守着脚下的土地，年年岁沐浴着天日。现在，它们正迎着五月的阳光灿烂闪烁，朝气蓬勃。青青的躯干青春洋溢，高扬的枝头新叶生风，风姿翩翩，扬眉吐气。到西边来吧！这红楼西畔风光正好，一派田园气息更浓。百顷麦苗正芊芊葱翠。碧青青又灰蒙蒙的麦苗呀，长势正猛，汩汩的清入潺湲其间。才几天过去，已没人膝啦。真个是，远方正值乱花缤纷迷人眼，这畔又是麦苗青青倍可人。它们追风逐浪，此伏彼起，碧波层层涌动，似在催促着人们，快块来追肥吧，快快来压苗吧，春天正从雪波相连东南大海，正从秦岭水天相连的洞庭湖歌唱着到来，呼啸着来到了北方！嘿，校园的春天到来了。这树这草这花这鸟，一切的一切，都在欢迎着你！柳拂人面啊，花气袭人。远方的客人，请你留下来留下来，这里四季春常在……哦，我来到了北面辽阔的操场，再回过头来看那边高耸入云的红楼，如帆如炬，如岛如舰。如火红的旗帜，又如展翅的红蝴蝶，正轻飏奋飞。看，它又变成了火红的凤凰，在蓬蓬烈火中涅槃了！听，“唧唧，唧唧，我们更生了……”听，“足足，足足，我们更生了……”“地上的红烛亮了百年，天上的启明星照我们向前，求知的航船从这里扬帆……”深婉的歌声中，我走进了天坤赤峰北方职业高中的春天……左岸记：只有对母校无限的热爱，才能写出这般荡气回肠又优美动人的校园游记。无论你在别人眼中多么平凡，在我眼里你永远是风情万种。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

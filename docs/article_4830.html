@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的，兵荒马乱的青春</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我们的，兵荒马乱的青春</h1>
+            <div class="date">2026-03-04 09:55:02</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>我们的，兵荒马乱的青春我们的，兵荒马乱的青春夏小喵夏小喵左岸读书2017年05月01日 01:25在小说阅读器中沉浸阅读小时候真是可笑，不仅成天被长大了上清华还是北大这样的小事困扰，还一度更换过不同的梦想，过段时间觉得之前的想法太过渺小，配不上无与伦比的自己，就换一个自认为更伟大的。那时候长的水灵可爱，被七姑八姨街坊邻居争相宠爱夸赞漂亮，经常在家偷穿妈妈的连衣裙高跟鞋，还有模有样的拿着口红往脸上涂。小学收到过几封小男生的情书，是班上学习不好的“坏孩子”，心里自然是厌恶的，只是还记得那些稚嫩的语言，现在想想，当时他们也只是想多跟你说几句话罢了。高中学校的宁静湖边喂养了几只鹅，看着它们由小变大然后越来越笨重。高三那年，压力也是有的，也可能是压力越大就越什么都不想做。记得每次放两天月假之前，都在小本上满满的记下两天的计划，然而大多数情况都是，背着沉沉的书包回来丢在角落，然后再原封不动的背回去。大学里，跟很多朋友聊起过高中的这些事，很多人也表示他们曾经也都这样，所以人以群分，我们组成了一个班级一个宿舍，甚至成了上下铺。在这个完全陌生的北方城市，这个我所选择的远方，海河两岸的老式复古建筑使这个本就悠久的辖市更加的深沉厚重，世纪钟摆屹立着拨动着指针继续向前，晚风微凉有点咸咸的，初秋里的第一次见面，没有理由不喜欢这里。高中听惯了类似“再坚持最后一段时间，到了大学想怎么玩都没人管了”的这种激励语，我们曾一度厌烦家长老师的督促管教，幻想没有人管的大学是多么的自在无束，但真的过了十八岁生日，过了一段自由随性的日子后，我们却发现，这种没有人管的日子，才过的相对艰难。大多数的人，在大学这种完全靠个人意志自己塑造自己的时候，是迷茫和懒散的。也很多人，就这么一晃就过了春夏秋冬，四年里，只是粉了几个爱豆，长了几斤体重而已。大三的时候，班上已经发生了显而易见的变化，总坐后排玩手游或者睡觉的几个男生，竟然零散的分布到了前排，听着老师讲课，拿笔记着什么。迟到早退旷课的现象也越来越少，专业课老师看着一派欣欣向荣的场景，感动的老泪纵横。大四来的猝不及防，在我们还没有意识到这一年到底会意味着什么的时候，年级辅导员接二连三的召集整个学院的人，开始给我们普及工作，考研，出国等各方面的知识，还有接二连三的优秀学长学姐的经验分享会。老师们时常分享各种招聘信息，强调督促同学们不要错过任何一个机会。好像全体上下都在齐心协力地打着一场不知胜负的仗，兵荒马乱，也激情澎湃，我们都紧锣密鼓，整装待发。大四的课程很少，去上课的同学更少。大家都忙着各自的事情，上课竟然被放到了日程之外。老师也不再像之前节节课都点到，在找工作最重要这一点上，我们心照不宣。晚间去洗漱房的脚步声越来越晚，有时候半夜醒来，还能隐约听到水房洗衣的水流声，和隔壁宿舍的人经常都会感觉好几周没碰面。有一次在学校的小路上，遇见了一位同班同学，突然间竟叫不出他的名字，随便寒暄了几句，想了想，好像我们已经几个月没见过了。班上一半的同学都在考研，很多人大三的暑假也选择留校复习不回家。考研教室，在教学楼的顶楼，早已摆放了各种复习书籍，黑板上也写着大大的考研倒计时，每天早晨去的最早的同学负责更改数字。后面黑板上写着考研改变命运类似的语录，整个教室成了一片没有硝烟的战场。我去过一次，那时候爬山虎绿油油的爬满了对面的墙，微风裹挟着路过的香樟，送来一阵一阵的清爽。教室里的老式电扇咯吱咯吱，嘈杂却又宁静。为了节省时间有的同学把暖水壶带到了桌边，中午不回宿舍休息的同学带了大大小小的抱枕。我跟同学说，这里很有生活的气息嘛，她白了我一眼说，我们是来战斗的好吗。和那年高考一样，年轻又渺小的我们，都在以各自的方式，尽自己的力所能及，去争取虚无缥缈的未来。10月的校招，在学校的室内体育场，我跟好友一同带着精心准备的简历去碰撞可能有的好运。早上9点开始，8点半的时候体育馆外已经堆满了一边吃早餐一边看着简历的形形色色的人。顿时有一种心酸，我们好像是菜市场早市上扎堆等待路人挑选的咸鱼。曾经所有的自大狂妄自以为是，都会在即将毕业即将踏入社会的时候，被碾碎，连渣滓都不剩。宿舍最没心没肺最爱追综艺的姑娘，某天竟一改常态专心致志地刷招聘投简历，然后在无数个寒冬的清晨，顶着伸手不见五指的雾霾去参加面试，一次次被拒绝，又一次次地踏上同样的征程。考研的室友一天比一天早出晚归，我经常去的五层楼的图书馆也天天人满为患。在朋友圈里看到班上最游手好闲的男生，也穿上了笔挺的西装，一本正经的样子。我最终也拗不过家里人的意思，老老实实的参加了公务员考试，当所报考的岗位动辄出现几百人竞争的局面，和考试那天千军万马拥挤在门口等待的时候，突然觉得自己竟是那么的渺小，被卷进人山人海里普通到看不见，像一粒悬浮在灰霾空中的尘埃。后来我懂了，你曾经所瞧不起的东西，也会狠狠的瞧不上你，击碎你所有盲目的自信。平安夜的晚上，4个月来，宿舍第一次聚齐，我们去学校外面的小餐馆点了几个菜，6个女生围着小桌子坐在一起，我们从来没有喝酒的习惯，竟然一拍即合的点了几瓶啤酒，白酒度数太大我们不敢喝，看来特殊时候，喝酒能助兴是真的。那顿饭吃的格外沉重，莫名其妙有种散伙饭的意味。路边堆积的厚厚的雪映衬着这夜也不那么漆黑，我们相拥着往回走，步调不知不觉很统一，一起迈左脚，一起迈右脚，就像四年前，我们从天南海北而来，历经千山万水偏要一起汇聚在这里。谁也不知道，此后，你会在哪里，我会在哪里，还能不能再相聚，但也不能贪恋太多，我们已经有四年的缘分了，从陌生变成了陪伴彼此青春的最熟悉的那个人。我喜欢坐在学校长条木椅上，看着来来往往忙碌的人，春天梧桐树发出嫩芽，阳光透过枝叶斑驳的落上我的头发，秋天天空很蓝，咸咸的海风吹散了金色的树叶盘旋着落下，冬天大雪覆盖了整个长椅，但是缝隙里，还能看到一些嫩绿的野草在挣扎。我也曾和很多人坐在那里，聊过很多故事，聊遇到的有趣的人，一些惊喜和遗憾，还有梦想这件事。不管是我听到过的不切实际的，一些平淡的，还是有些荒谬的，但都是很美的，都是在我们心口盛开的花。有一个朋友，是个恬静的女生，她说以后想种下一片花海，在花海中建一座有落地窗的木头小房，每天在花香中醒来。再开一个花店，养一只小猫，等花儿快凋谢的时候，就拾起做成干花，塞满透明的玻璃瓶，把这些美丽都封存起来。后来，她去了一家外资企业工作，我说那你的梦想呢，她说早晚会实现的，给自己一个许诺，最迟三十岁。有一个学长，整个大学四年都在跑步健身，在他毕业的那个7月，在其他人按部就班的就职工作的时候，他加入了去西藏的自行车车队。我是在一次分享会上知道他的，看到他拍的一些沿途的风景，记录了前后快三个月的艰辛，遇到过朝拜的信徒，也看到了四千多米上巍峨的雪山。他在演讲台上讲述着这一切，也说了当初有很多不支持的声音，和其他人不同的是，他还是去做了，就想做些与众不同的事情，他说着的时候整个人似乎都闪着光芒。同届的有一个胖胖的女生，和她一起去吃过甜点，之后联系不多，是通过发到宿舍的传单才再次得到她的消息。原来她在校外租了房子，课余就研究做糕点，在大三的时候，已经慢慢做成了事业在学校售卖。我们也不知道她经历了哪些坎坷和困扰，我只知道再次看到她时，她脸上甜甜的笑，像奶油蛋糕一样甜蜜。这一路我们想了很多，也经历了很多，从最初的一张白纸，执笔勾勒出了不同的线条。有太多想做却没有来得及做的事情，也有一些无可奈何，在这场兵荒马乱的青春里，没有人能始终胜利。我们彻夜痛苦过，也放声大笑过，失去过也得到过，我们不断地学着承受，学着长大，开始尝到了生活不是理想的滋味。我们曾经迷茫，混乱，叛逆，相信自己，也在怀疑自己，我们想过的平淡和普通，但又想做些与众不同的事情。但唯一不变的是，我们都是有梦想的人，无论贫穷富有，在最安静的夜里，我们都清楚地知道，自己最想去得到什么。我们不要去做别人眼中的好孩子，过别人认为好的生活。我们都疯狂过，追逐过也失败过，无论怎样，愿最终，我们都会活成自己想要的样子。左岸记：生活是认真的。青春真的就像一首歌，天真过，求真过，放松过，紧张过，淡然过，珍重过，舒服过，激昂过……真就的就兵荒马乱，跌宕起伏。作者：夏小喵（以前叫花洛）微信公众号：南部小镇，个人微信：mk13083121一个95后萌妹纸，喜欢喵喵和狗狗，喜欢山喜欢水喜欢旅游和拍照。最喜欢的就是吃，喜欢看各种美食频道，有空了也总喜欢自己琢磨些颜值高又好吃的东西。最大的特点就是话多，我安静的时候也有人误以为我是个淑女，不过可能就是那一秒。曾有朋友说过，我不是在吃，就是在说话，我觉得他好夸张啊我现在是一个即将毕业的大四在校生，充满了对未来的各种期待，我一直憧憬着毕业后能有自己的小房子，要有白色的落地窗帘，自己设计成别致又淡雅清新的风格，阳台种上绿萝爬满墙壁。我要满足自己20年的心愿养一只小猫咪，从它满月开始养起，记录它的成长和我们的生活。我还要学习烤西式的糕点，做奶酪布丁冰淇淋，我喜欢甜食，吃甜食总能让人心情更好。我还要学做披萨，烤羊排牛排鸡翅嘿嘿，我喜欢吃肉肉。当然我不会是个胖胖的姑娘，我还会健身，因为我还有一个梦，想着自己，也能骑行去西藏，那海拔四千米之上的梦。我很喜欢文字，喜欢看杂志美文之类的，我觉得好的文章是能让人心灵宁静的，可能是我爱瞎想爱做梦，总能构造很多不着边际的故事，坐着不动，脑海中都能有一部七八十集的电视剧，我的文字比较零乱，都是一些小心情吧，我不想矫揉造作，都是平铺直叙的记录生活。关于自己，大概说这么多吧，可能你没耐心看完，但我，永远不止描绘的这么多。新建了微信公众号：南部小镇，快来我的小镇玩吧~~阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

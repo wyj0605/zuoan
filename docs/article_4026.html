@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为什么要尽量远离流氓？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>为什么要尽量远离流氓？</h1>
+            <div class="date">2026-03-04 09:52:22</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>为什么要尽量远离流氓？为什么要尽量远离流氓？关山远关山远左岸读书2017年12月25日 06:55在小说阅读器中沉浸阅读这些天一直在思考一个问题：如果牛二很有钱，那会是怎么样?这个“牛二”，不是指“很牛的X二代”，也不是牛栏山二锅头，是《水浒传》中那个著名的无赖，他在大宋首都街头，想讹杨志的家传宝刀，再三挑衅，杨志一忍再忍，这牛二使出泼皮劲来，遂钻入杨志的怀里，一边抢夺，一边撒泼威胁说，你不给刀，就“剁我一刀”。杨志怎么办?当然，牛二是个优秀的心理专家，他算准了杨志不是李逵、鲁智深那般火爆性格，不敢豁出去。他也会察言观色:杨志脸上有块先天胎记，又不是后天刺青，怕啥?他给杨志出了一道选择题:你是要当杀人犯呢，还是要当倒霉蛋呢?他认为很好选择，所以像个撒娇的女人一样扑进杨志怀里，嚷嚷说:你TMD的不是说你这宝刀杀人不见血吗，你TMD有种捅老子一刀啊?杨志是杨家将后代，也算名门之后，大宋军队中级干部，体制内的，不像其他梁山好汉那般任性，但他毕竟还有血性，再说这宝刀是他最后的依靠，怎么能给一个流氓无赖白白讹走?何况，他无奈街头卖刀之前，刚筹了一笔钱去买官，结果高俅收了钱，却不办事，还把他训了一顿，正是一肚子气。兔子逼急了都要咬人，何况他是“青面兽”?面对牛二的胡搅蛮缠，杨志兽性战胜理性，“一时性起，连搠两刀”，牛二倒地而亡，果然刀上不带血。那年头大宋首都流氓无赖很多，《水浒传》颇写了几个。比如，想给鲁智深一个下马威、把他推进粪坑的菜园诸流氓。结果，被鲁智深大师一脚一个踢了进去。流氓总有暴力崇拜，遇到花和尚这样的功夫大师，很是佩服，便拜倒在他的门下，喊起师父来。喝点粪汁，拜个老师，这群流氓的命运，比牛二要好多了。像牛二这样连开封府都拿他没办法的资深流氓，为什么会栽个再也爬不起来的跟头呢?原因一，他找错了对象，他的心理优势是对方“投鼠忌器”，而自己的命，就是这个器，光脚的不怕穿鞋的，一般人都愿意出点钱买平安嘛，偏偏他碰上了即将光脚的杨志；原因二，他把人逼上了绝路，牛二直接上去要挟杨志试试宝刀是否杀人不见血，给自己给别人都不留后路了--这是流氓屡试不爽的最常用招式，一般人总想着退一步算了，但杨志买官未遂，已经一只脚踩到悬崖了，牛二这一把想将他彻底推下去，当然火气上来，选择用宝刀把牛二干掉，而不是一记老拳，把他打晕，自己走掉。当然，牛二悠悠醒来，还是东京城里一条好汉。杨志的命运也改写了。问题来了:如果牛二很有钱，那会是怎么样?是的，牛二是个既精明又敢玩命的流氓，只是层次太低，只能在街头混。如果他很有钱，又加上这般超人的流氓品性，他肯定会混得很好。在东京公安局拥有不少铁哥们，甚至能够经常出入大宋国防部长高俅的豪宅，陪着踢几脚球什么的。更甚至，他还可能会投高太尉所好，投资搞个蹴鞠队什么的，成为京城体育文化名人。有人为他填词，有人为他起舞。他想抢杨志那把宝刀，就简单太多了，会有七十二种办法，他会一边搂着怀里的美女，一边命令手下执行，而不是自己很没廉耻地一头撞进另外一个大汉满是汗臭的怀里。有句话叫作“流氓不可怕，就怕流氓有文化”，其实流氓有钱了，能够掌控更多资源，又耍流氓手段，更可怕。牛二如果有钱了，不会再在街头亲自玩命了，但他仍然是个心计深沉的流氓，他会掐准对方“投鼠忌器”的心理，逼对方做选择题。他会愈发屡屡得逞，因为对方不再是可能爆发出兽性的落魄汉杨志，而是特别爱惜自己的权贵了。有人说，错了错了，牛二如果有钱了，他会把自己洗白，他会去上贵族学校，培养自己的贵族气质，说不定还会去学画画写字填词，成为一个文化人呢。那就再讲个超级富翁的无赖故事吧。北宋统一全国之前，有个割据势力叫荆南，又称南平、北楚，高季兴所建，为五代十国时期的十国之一。荆南都城为荆州，辖荆、归(今湖北秭归)、峡(今湖北宜昌)三州。跟当时后周、北汉、南唐几个国家比，荆南是个小得不能再小的国家了，打仗也不行，没法拓展更多国土，不过话说回来，再小，也毕竟是个国家。荆南的开国之君高季兴，出身贫寒，原来在权贵家里做奴才，但人很聪明，关键是不要人格，拜只比自己大五岁的朱温当干爷爷，一下混得风生水起。后来趁兵荒马乱，就割据了荆南这么一块地方，苦心经营，左右逢源，给儿子高从诲留下了一份不错的家产。高从诲继承了他爸爸的性格，周边国家，城头变幻大王旗，不管谁上台，他立马过去称臣拍马屁，目的非常简单，不是为了搞好关系，而是要求赏赐。虽然五代十国都是些流氓武夫当国，但他们发现比自己更流氓更没品格的“人尽可爹”的高从诲时，还是觉得很奇葩，一边嘲笑他，再给些赏赐。其实高从诲估计在心里暗笑:人格算个啥，一两银子不值，老子给你磕几个头，能够赚一笔，多值啊!再说，又不是老子上门去磕，只不过上表写些谀辞示弱示好而已，让手下动动笔，就能赚笔财货，多值啊!高季兴、高从诲父子拥有同一个外号“高赖子”。当然，那年头都流行给人取外号，梁山108将，个个都有，流氓牛二也有个外号“没毛大虫”。不过，“高赖子”这外号不是来自民间，而是来自周边国家的元首们。“高赖子”之赖皮，不仅仅在于到处磕头要钱，还有更狠的流氓手段:抢!《水浒传》里常有些剪径小贼，在人迹罕至处跳出来，说一通此山是我开，此树是我栽什么的，然后亮刀要钱。“高赖子”就高级多了，他玩的是国家层面的收费站游戏，前方XX公里是荆南收费站，请降速。因为荆南是交通要道，当时南汉、闽、楚等国皆须向梁称臣，每年贡奉均要从荆南借道，在这些国的贡物经过时，身为堂堂一国之君，“高赖子”居然就派兵夺为己有，完全无视国际规矩，连别国大使都抢。牛二与高赖子，都是流氓，不在一个层次，所以手段也不一样。毕竟，街头流氓们生存的恶劣环境中充满着复杂而直接的挑战，越在底层就来的越赤裸，拥有的越少，也就越不怕失去，就越是肯斗狠，越敢拼命，但“无事”，是在哪个阶层都会有的。荆南共存在57年，宋太祖赵匡胤把这个奇葩小国灭了，兵不血刃，荆南末代国主高继冲纳地归降，赖皮如此，早就没了血性。当然，在中国古代最著名的流氓之一吕不韦看来，无论是牛二还是高赖子，都不值一哂。吕不韦虽然是个商人，却真正做到了“驭权贵如刍狗”。人们爱拿“情妇”、“私生子”什么的说事，早在二千年前，吕不韦就把这一套玩得滚瓜烂熟了。他的传奇，也正是源于此。当时战国七雄，关系就是战争与和平，各国王君都把自己的某个儿子作为人质放在对方首都，像这样送去当人质的，肯定是爸爸不疼妈妈不爱的货色。秦国太子安国君有个排行居中的儿子名叫子楚，子楚的母亲叫夏姬，不受宠爱。子楚作为秦国的人质被派到赵国。但吕不韦体现出了一个优秀民营企业家的敏锐眼光，他到赵国首都邯郸去做生意，见到子楚后非常喜欢。他为中国贡献了一个成语“奇货可居”。两人之间有一段著名的对话:吕不韦游说子楚:“我能光大你的门庭。”子楚笑着说:“你姑且先光大自己的门庭，然后再来光大我的门庭吧!”吕不韦说:“你不懂啊，我的门庭要等待你的门庭光大了才能光大。”子楚一听，这奸商不简单啊，就拉他坐在一起深谈。吕不韦说:“秦王已经老了，安国君被立为太子。我私下听说安国君非常宠爱华阳夫人，华阳夫人没有儿子，能够选立太子的只有华阳夫人一个。现在你的兄弟有二十多人，你又排行中间，不受秦王宠幸，长期被留在赵国当人质，即使是秦王死去，安国君继位为王，你也不要指望同你长兄和早晚都在秦王身边的其他兄弟们争太子之位啦。”子楚说:“是这样，但该怎么办呢?”吕不韦说:“你很贫窘，又客居在此，也拿不出什么来献给亲长，结交宾客。我吕不韦虽然不富有，但愿意拿出千金来为你西去秦国游说，侍奉安国君和华阳夫人，让他们立你为太子。”子楚于是叩头拜谢道:“如果实现了您的计划，我愿意分秦国的土地和您共享。”这段对话道出了官商勾结的精髓:结成一个利益共同体，有长远目标，有突破对象，有实施步骤，有分配方案。风险共担，利益共享。吕不韦立刻行动起来，建立一个跨国企业，到秦国用重金和情感打通了华阳夫人，子楚因此跃升为安国君第一继承人，行情看涨，与吕不韦关系更加紧密。但吕不韦偷偷在下一盘更大的棋，这就是人们津津乐道的秦皇嬴政身份话题:吕不韦把自己已经怀孕的情妇送给了子楚，子楚爱得死去活来，后来这个美女生娃前，假借下雪路滑跌了一跤，说是早产。戴了巨大绿帽的子楚很傻很天真地做了爸爸。私生子嬴政茁壮成长，后来一统天下，成了秦始皇--虽然这更多是演义，但吕不韦的风险投资，早已大获丰收，拥有其他富商无法比拟的政治资源，可谓呼风唤雨，无人比肩，权贵们都争着挤上门来巴结，他事实上成了秦国地下组织部长，想提拔谁就提拔谁，想打压谁就打压谁。陆德阳《流氓史》中记载了这么一个故事:一个恶少年乘江轮出行，看中了对门舱中一美貌少妇，入夜，妇人熟睡在床，少年折刀推门而入。妇人以为强盗来了，吓得浑身发抖，问:“你要干什么?”少年说:“睡觉。”妇人正要喊叫，少年已将门锁上了，随即又把二百元银币甩到她面前，说:“和我睡一觉，这两百元钱就给你，明日船一靠岸，各奔东西。如果拒绝反抗，我就先杀了你，然后自杀。”妇人为金钱所诱，又为利刃所逼，不再作声，任凭少年淫乱。这事如果到此为止，倒也罢了，但接下来就尽显流氓本色了:次日早晨，少年忽在自己住的舱中大哭，并对大家说:“我随身带了二百金，靠它活口，昨夜全部失去，只有求死了。”他人问:“你晚上睡觉锁门没有?”少年回答:“没有。”又问:“银子必定被贼偷了。不知道银元上有没有标识?”少年说:“有。银元上都印有某钱庄的印。”于是大家商量好:“为了救人，请各位协助搜查随身的行李。”乘客为了摆脱干系，证明自己的清白，都主动摊开行李接受检查。当来到妇人住房时，她神色慌张，坚决不同意检查。人们强行打开她的箱子，发现了打着印记的二百银元。诸客见了惊诧不已，妇人掩面大哭。这个流氓确实恶毒。但故事一波三折，这时一老叟走出人群说:“我住在此妇邻室，昨晚发生之事，听得一清二楚。”原原本本讲述了一番，又气愤地责怪少年说:“你既诱奸女人，又诬人偷窃，心狠手辣，禽兽不如。”最后，众人商定，二百银元仍归妇人所有，并罚少年另拿二百元交给善会，以示惩罚。且不论这老叟被动听床，能够说清原因，已是难得。这个故事，充分反映了人性，也充分说明了流氓行事的另一个特点:精心设套，以利诱人，而后血口喷人，逼上绝路。不要总误以为流氓只是打打杀杀的粗货，他们心机缜密，出手毒辣，关键是能够抓住人性弱点，一击而中。一般人，还真不是对手。这种流氓，自古至今，多如过河之鲫，给广大人民的幸福生活，造成了极大困扰，拿他们怎么办?很简单，无欲则刚，一开始就要知道:千万不要找流氓合作。今年是抗战胜利70周年，笔者讲一个印象很深的故事:日军轻松占领腾冲后，一位名叫张问德的名士，62岁，临危受命当了腾冲县长，手拄一根藤条拐杖，六渡怒江，八越高黎贡山，把抗日的县政府一直牢牢钉在敌后。日本人头疼死了，加大军事进攻的同时，想诱降张问德，1943年，抗日政府日子很难过，腾冲日军占领军行政首领田岛给张问德写了一封信，借口要就腾冲人民的生活进行“坦诚的商谈”。这无疑是特别特别流氓的手段，张问德没上当，回敬了一封《答田岛书》，不合作，而且揭露对方流氓嘴脸，在信中历数日寇侵入腾冲所犯下的罪行，最后凛然指出:“余拒绝阁下所要求择地会晤以作长谈，而将从事于人类之尊严、生命更为有益之事。痛苦之腾冲人民，将深切明了彼等应如何动作，以解除其自身所遭受之痛苦。故余关切于阁下及其同僚即将到来之悲惨末日命运，特敢要求阁下作缜密之长思。”当时田岛信中，自称大日本，张问德不向流氓示弱，回信中署上“大中华民国腾冲县县长张问德”。坚决不跟流氓合作，就免了日后当“刍狗”的悲剧。这是张问德留给后人的启示。本文选自【精典悅讀周刊】公众平台</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《卡罗尔》</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>《卡罗尔》</h1>
+            <div class="date">2026-03-04 09:51:51</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>《卡罗尔》《卡罗尔》左岸读书2017年02月06日 01:37在小说阅读器中沉浸阅读以下文章来源于纸的声音，作者C纸的声音.嘿，我们好久不见其实看完电影后就一直想看小说，因为一直沉醉于大魔王凯特·布莱切特的盛世美颜之下所以想要一睹原著中卡罗尔的真实风采，但读完之后却发现大魔王的演技虽然精湛但电影所呈现出来的也仅仅是只是原著中的一小部分卡罗尔。书要比电影更加细腻，不论是在人物内心的刻画上还是对环境人物状态的描写上，小说总是比电影更加饱满，可能电影留下的印象过深，所以虽然距离看过电影的时间有点长，但是在看书的过程中画面却依然清晰可见，这大概就是这本小说的魅力所在。小说的作者帕特里夏·海史密斯于1921年生于美国得州沃斯堡，她的第一本小说《列车上的陌生人》于1951年由大导演希区柯克改变为电影后一鸣惊人，在1955年出版的《天才雷利普》更是奠定了其在类型文学中的至高地位。《卡罗尔》是帕特里夏·海史密斯于1952年创作的小说，虽然是被标上了同性文学的标签，但其实在描写上它反而更多的是注重于展现女性如何独立生活，如何抛开世俗的偏见去追求自己爱情的这一面。在当时社会不容忍这种爱情的大环境下，《卡罗尔》的出现仿佛在无形中解救了无数困惑于自己爱情中的女性，真实的还原了爱情的纯粹模样，同样也为这类群体提供了一个认清自我以及在现实中如何了解帮助自己的一种心灵上的渠道。《卡罗尔》在描写上是从特芮丝的角度出发，从这个方面来看，小说中不仅仅是在讲特芮丝与卡罗尔之间的爱情，同时也在讲述着特芮丝的成长历程。从一个19岁懵懂无知的孤单少女到在认识卡罗尔之后心理上的成长与改变，可以说特芮丝是在遇到卡罗尔之后才了解到爱情的模样的。在书中，作者也着重对特芮丝在陷入恋爱后的情感心理表现进行深入的描写，再加上特芮丝本身所带有的浪漫色彩，使得特芮丝这个形象总是充斥着极端毁灭主义。特芮丝内心的敏感与神经质反而让大家忽略了她性格中坚韧的一面。小说中特芮丝的梦想是成为一名舞台场景设计师，而现实她所拥有的工作却是一位商场售卖娃娃的售货员。梦想与现实的对比相当明显，前者代表自由与不受约束，而后者代表孤独与任人摆布。作者利用这种隐喻来表现特芮丝内心的不羁与不安于当下生活的叛逆情感。她想通过自己头脑中所设想的样子来搭建舞台场景，这也就代表着她想通过自己来搭建自己的生活。她不想像她柜台中的娃娃一样过任人摆布的生活。但是这种设计中的生活对于特芮丝来说又过于不现实，总体来说这只是她自己脑海中的想象而已，这种过于主观的想象反而更加的需要依附于现实而存在。所以在她初次见到卡罗尔时内心的欣喜却是更多的被慌乱与恐惧所取代。特芮丝对卡罗尔的爱情可以说是奋不顾身的，但要是没有卡罗尔的出现，特芮丝在对待自己真实爱情情感的方向可能还需要花费很多时间，但是她内心潜在的这种情感却是迟早要爆发的。其实在书中可以看出特芮丝在她的潜意识中对其他女性身上的闪光点是有着迷之感的，同样也能在人群中意识到不同于他人的存在。只是这些形象更多的生活在特芮丝的主观意向中，没能将之带入到生活中来，这也是特芮丝内心脆弱的一面。但在遇到卡罗尔之后，特芮丝由梦境转入现实，也告别了过去的自己，迈出了全新的一步。她将自己的“梦境”全部倾入卡罗尔身上，但现实总是比梦境残酷真实的多，在走出梦境之后，一切仿佛都变了样，她要面对卡罗尔的生活与之前家人之间的纠缠，由最初了甜蜜到之后的愤懑与争吵，她们与其他恋人毫无差异，只是更多的是还要面对外界的压力。由最初的兴奋与爱慕转化为后来的隐忍与接收，特芮丝在这个过程中的成长十七在她内心中留下更多的是一种病态的压抑与自我毁灭。与特芮丝不同，卡罗尔是沉重与冷静的，这也是最吸引特芮丝的一点。不同于电影中大魔王撩妹狂魔的一面，书中更多呈现出的卡罗尔是现实与理性的。所以她能一眼看出特芮丝的梦幻与不现实，相比起特芮丝来说，卡罗尔的内心情感更加细腻，她已经过了可以患得患失的年纪，她可以完美的将所有关系置于平衡的一点，她的成熟不仅仅是来自于生活所带来的的压力，更多的是她真实的认清了自己，她明白什么事情对她来说才是最重要的，所以在最后她因为特芮丝写给她的信输掉了与前夫的官司，但她仍然没有抱怨，平淡的接收了一切，因为她像所有陷入爱情中的人一样了解到爱情至上。同样，她也理智的对待了她与特芮丝之间的感情，给特芮丝同样也给自己一个机会，她把选择权交于特芮丝手中。这对特芮丝来说也同样是残酷的，她必须重新开始认清现实，努力面对现实。之前与卡罗尔的所有如梦般的经历也将特芮丝带入到现实生活中来，正是这种现实使得特芮丝真正了解到卡罗尔，她抛下了自己的卑微与弱小，真正勇敢的去面对这份属于她们之间的爱情。卡罗尔的成长也在一定程度下影响到了特芮丝，她已经不再是在于卡罗尔刚相识时那个慌乱的小女孩，更多的拥有了内心的坚定。书在最后写到：卡罗尔就像她身上的秘密，扩散到整座房子里；也像一道光，只有她才能看得见。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

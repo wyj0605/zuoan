@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今年的植树节</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>今年的植树节</h1>
+            <div class="date">2026-03-04 09:52:43</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>今年的植树节今年的植树节原创我是左岸我是左岸左岸读书2022年03月12日 06:30在小说阅读器中沉浸阅读文/光临今年植树节活动，后勤部门做了很妥帖的安排，地点就选在单位院子里山北坡靠赣江的一侧。上一次植树也安排在这儿，那已经是九年前的事了。当时同事还调侃说，下一次就不晓得什么时候呢，那估计是这事我做得新鲜，会不会持续也很难说。去年回到故地工作，就想着续上这事，但因为疫情的阻隔而作罢。我是山里人，对树有着一种天然的情愫。只是我的这种情愫，完完全全起于幼小的时候对大山的无助，对树日复一日的亲近和那种漠然。别开故土的三十多年里，我也写过一些的文字。不住唠叨的，关乎的大多都是山，山里的事。老家的黄旸山及她勾连的崇山峻岭一直把整个的村里围了个严严实实，几乎没有出去的路。所有的日常与联想，连同孩提的欲望，都脱不开这沟沟壑壑和山上的树。说我们是世袭的盗山贼，一点也不为过。砍柴锯树、挖竹笋摘野果，活着仿佛就是与山为仇。年复一年生生息息，把所有的山阳山阴山顶山麓都捣腾个了冬去春来、七零八落，有些地方甚至连茅草都来不及按时长出。靠山吃山，谁说不是呢！额头上有一道深深的疤，就是那个场景的印记。应该是十三四岁的那个冬季吧，外乡煤矿开着长长的拖拉机来收购井巷木料。跟着哥哥姐姐们扛起先些日子从山上背下来，看上去有些直做柴火烧可惜的树杆争先恐后的往村口赶。就在祖屋的后面处绊了个嘴啃泥，两米多长得有百把斤重的树杠从肩滚过颈，再檫着后脑勺活生生地把脑门在地上辙出一条血糊糊的缝来，足足有五公分长。每每理发的时候，师傅都会好奇地究竟一下这处违章，然后摆弄飘逸的刘海认真地帮我掩遮。理发师并不清楚，我不怪树的，我也不在意疤口外现。就如胎记一般，每个人都有每个人特定的痕迹。前一套房子装修，我在院子里种上好几茬树，其中两棵就是专门从老家托运来的。工地工人很不理解，我泯而未语。这等事，人家咋能领悟。这一回，我又在露台上，辟出长长的一处廊道，准备植上一些能浇好看可触动的新树，哪怕纤细一点都行。树是山精髓，人是情感的依附。走出了大山，走掉了年少，我不会走丢了自己的故旧。单位院落就在山边上，是满眼的葱郁，树也密密匝匝，昨儿同事征求植树建议时候就隐含这方面的意思。我说多多益善吧，养眼吸碳护土还生产负离子，树实为能有尽有之物。要不选些红枫和樱花等等？插花似的植种。就如生活，井井有条中给些错落，一帆风顺上别些周折。又想着那棵月桂，我径直就去。踱着方步，沿路清点起春风刚刚剪裁出的新芽和嫩蕾。矮山早已被雨露温薰得清新别致，整个儿一派洒落的劲头。自己种下的那棵月桂就在路的尽处。见人走近，似乎要俏起来眉头。枝已繁叶正茂，树干也有些粗壮，甚至能撑出一片树荫来。真是好样的。最近反复听一首歌：“为何眼前的你，好像早已刻进心里，前尘往事闭眼如烟翻云覆雨”，“纵然有宿命，不改我心”。不知道作者当初是什么样的意蕴，写的是不是这棵树？但分明就是我和大山的样子。左岸记：十年树木，百年树人。要是有块地方，可以每年种上几棵树，那么十几年后，那个地方一定会成为自己心中成长的地方、怀念的地方。植树最好的时间是十年前，其次是现在。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

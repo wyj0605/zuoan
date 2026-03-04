@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>让幸福来敲门</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>让幸福来敲门</h1>
+            <div class="date">2026-03-04 09:57:24</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>让幸福来敲门让幸福来敲门原创谢慧敏谢慧敏左岸读书2017年09月27日 00:10在小说阅读器中沉浸阅读英国思想家罗素一度绝望：“我几乎要得出结论，幸福在现代世界，已经是不可能的了。”罗素不是一个悲观主义哲学家，几乎可以说是乐观。虽然他在5岁时就恐惧无聊的人生，青年时想要自杀。但是到了晚年，他可以说是又热爱生命了。然而，罗素不认为幸福就唾手可得：幸福是要努力去追求的。人生和幸福，这个重大的哲学命题，不独摆在哲学家们面前，它是爬在每个人心头的小虫子，这虫子经常搅动得人们不得安宁。我上初中的女儿甩着书本叫：我为什么要读书，我为什么要活着。我年届七十的农妇姨妈说：人生是空的。碰触这个问题时，常人都不是常人，都是哲人了。我还认为，对于此问题的见解，哲人不见得就比常人高明。胡适说，人生无意义。我姨妈的说法并不比他逊色。然而，哲人之所以为哲人，他们不像常人，常人理不出头绪时，通常把问题甩到一边，随即又埋头于庸碌的生活，哲人则紧紧揪住它不放，从生命形态、人性善恶、社会学、心理学等方面，锲而不舍地展开追问，因而他们的观点更为系统更为明彻也更为坚定。有意思的是，我最近关注的几位哲人，不管是悲观主义者，还是乐观主义者，不管是积极入世者，还是消极避世者，在这个问题上，无一例外的不乐观：人生无意义，幸福难以企及。幸福是天上眨着眼情的星星，看似亲切实则遥远。然而，追求幸福是每个人的天性，“天下熙熙,皆为利来;天下攘攘,皆为利往”。追名逐利无非都是为了让自己生活得更好。哲人更不因为艰辛就放弃追逐。他们进行探索，就像建筑师或是工匠，搭高楼、造飞船，试图摘下那颗叫“幸福”的星星。在这里，我摘录三位思想家的名言，分别来自叔本华的《人生的智慧》、罗素的《论幸福人生》和胡适的《人生的意义》，供大家参考。叔本华1.生活就像钟摆，在两端之间或激烈或温和地来回摇摆——要么痛苦，要么无聊，反正总有一项是逃不掉的。2.人们用自己的方式来塑造并观察世界，世界由此为不同的人而呈现不同的样子——可能对这个人来说，世界是空洞的乏味流于琐碎的；而对另一个人而言，它却极有可能是丰富有趣充满意义的。3.即使在无限相似的条件下，每个人都只生活在自己的世界里。4.最高级最丰富且最持久的乐趣来源于思想，思想力量的强弱决定了乐趣大小。人生的幸福很大程度取决于我们的个性。5.如果我们真的内心富足，就不会过于期待改变命运。6.对于一个本身就很无趣的人来说，任何消遣，无论是社会聚会、还是看戏出游，都无法驱逐新鲜过后的无聊感。而一个精神世界丰富的人就连在独处时，都能在他自己的思想和想象中自得其乐。7.在满足我们的日常所需之外，财富对人生幸福的影响相当之小，甚至可以说会打扰到幸福——为了守护财产，不可避免地耗费我们许多精力，让我们不得安宁。8.一个人内在拥有的东西是决定他幸福的关键。身外之物对幸福的影响太微弱，大多数无须为生计发愁的人们由于内在贫乏，跟那些生活在底层为生计奔波劳碌的人们一样不觉得幸福。9.事物对于我们而言所具的意义，让我们感到幸福或者不幸，不是由它们的具体面貌决定，而是取决于我们如何看待它们。10.匮乏的环境和贫穷会导致痛苦，而一个人衣食无忧，那么他就会无聊。因此，当下层人们迫于生计而疲于奔命时，换句话说，为摆脱痛苦而挣扎，上层阶级的人们则和无聊展开了一场旷日持久且时常陷入绝望的鏖战。11.内心空虚的人为了寻求刺激，不断用各种无谓的东西充满大脑和心灵，单调又乏味。为了打发时间，他们可谓饥不择食毫不挑剔，追求五花八门的社交、消遣和享乐，结果自然都以痛苦告终。12.精神越丰富，就越不会感觉到无聊，有活力的思想才是永远不会枯竭。13.人，要么孤独，要么庸俗。14.倘若他是一个具有大智慧的人，甚至会选择离群索居。因为一个人自身拥有越多，想从他人身上获取的东西就越少。他人对他而言几乎没有什么意义。这也就是为什么一个具有高度智力的人通常是孤僻的。15.一个人对于他人交往的热衷，和他的智力水平成反比，越是智力平庸且比较粗俗的人，或是喜欢社交——要么孤独，要么庸俗。16.世间最大的幸福莫过于拥有丰富的个性，尤其是拥有良好的智力禀赋——尽管这可能不会带来最光明的前途，但一定是最幸福的命运。17.对于天才来说，不被外界打扰地忙于自己的思想和作品，这样的需求十分迫切。他们乐于独处，闲暇是求之不得的恩赐，其它一切都是多余的，甚至是负担。18.一个没有精神需求的人，智力平平，思想狭隘，这样的就是“庸人”。庸人没有智力的乐趣。庸人的唯一乐趣就是感官的乐趣。19.如果运气好，出身富豪，无须自己打拼，这样的人将不可避免地感到无聊，而为了摆脱无聊，只好依靠各种补救方法，比如打球、看戏、聚会、玩牌、沉迷女色、饮酒、旅行等等。但所有这些不足以保证不无聊，因为没有真正的精神需求，就不可能快乐。20.人们很会就会厌倦不被打扰的闲暇。如果没有虚假的目标来促使其忙碌，这闲暇就会变成负担，只好用各种各样的玩乐消遣或爱好来打发时间，到最后闲暇甚至反倒变成痛苦。21.财富犹如海水，喝得越多越口渴。名望也是这样。22.我们之所以感到焦虑。就是因为我们太在意别人的看法，我们那可怜的自尊心太脆弱太敏感。23.我们的行为并不如我们认为的那样重要，成功或失败归根结底关系不大，再大的痛苦都可以忍受克服。那些似乎使人的幸福一去不复返的困难，随着时间的流逝也会渐渐消失，以至于后来人们都很难回忆当时的困难那么巨大。罗素1.把工作视为美德的信条在现代世界酿成大量危害，通向幸福与繁荣之路在于有计划的缩减工作。2.工作应该被看做是幸福的源泉，还是不幸的源泉，尚是一个不能确定的问题。确实有许多工作是非常单调沉闷的。工作太重也总是令人太痛苦。然而，在我看来，假使工作在数量上不多的话，即使单调的工作对于大多数人来说也比无所事事的要好。3.一个人无须决定什么，工作便可以让他消磨掉一天的好多时间。有许多人，当他们可以随心所欲地安排自己的时间时，自然想不出什么快乐的事值得一做。另外，选择本人是很烦人的。除了特别富于创造性的人以外，很多人都喜欢别人告诉他一天中的每个小时应该做什么，只要这命令不会太令人不快。4.工作首先是作为一种解除烦闷的手段而被人称道。一个人在从事必要的、但不怎么有趣的工作时，也会感到烦闷，但是这种烦闷比他整天无所事事所感到的烦闷而说，就不值得一提。5.除此之外，工作还有一个好处，那就是它使节假日格外充实愉快。6.大多数有报酬的工作和部分无报酬的工作所具有的第二个好处是：它给人获取成功和展露雄心的机会。7.大多数人并不富裕，许多人生性并不随和，或有着不安的情绪，使他们不能忍受宁静而又有节律的枯燥生活。而健康的福气并不是人人都有的，婚姻更不是幸福之源。基于这种种原因，不管是男人还是女人，他们的幸福必须是一种追求，而不是上帝的恩赐。8.巨富和赤贫都不能带来幸福。9.终生并拼命敛财并非真正是每个人的目标。10.个性是极其重要的。11.明智地利用空暇时间是文明与教育的成果。一个人一辈子习惯于长时间劳作，一旦空下来，空会深感厌烦。但一个人如没有充分闲暇，就和许多美好的事物无缘。12.努力工作是奴隶的道德，现代世界已不需要奴隶制度。13.舆论恐惧症，像其他形式的恐惧一样，是压抑性的，并对人的成长造成妨碍。如果这种恐惧感很强烈的话，就很难取得任何伟大成就，并且根本不可能获得那种构成真正的幸福的精神自由。因为幸福的本质在于，我们的生活方式是出于自己心底的冲动，而不是出于偶然性的兴致以及那些偶然成为我们的邻居、甚至于亲友的愿望。14.青春期，对于那些有特殊才华的青年人来说，都是一个不幸的时期。15.除非人们的生活方式以及对世界的看法在总体上被与他们有社会关系的人，尤其是那些与他们共同生活的人所接受，否则就很少有人会生活得幸福。这是现代社会的特色之一。16.愈文明的人，似乎愈不能和一个伴侣有永久的幸福。17.使人不幸福的最主要原因，除了忧虑之外，下一个也许就是忌妒了。忌妒，可以说是人类最普遍、最根深蒂固的一种情感。18.在人性的所有通常特性中，忌妒是一种最不幸的情绪，不仅忌妒者希望希望别人不幸，只要不受惩罚，他就会付诸行动。19.忌妒是与竞争紧紧联系在一起的，我们对自己认为毫无希望达到幸福是不会忌妒的。在那社会等级森严的时代，最下等的阶层是不会忌妒上等阶层的，因为贫富之间的界限是被认为是由上帝指定的。乞丐不会忌妒百万富翁，他们只会忌妒那些比自己更为成功的乞丐。20.幸福的秘在于：使你的兴趣尽量广泛，使你对那些自己感兴趣的人和物尽量友善。21.幸福最普遍、最显著的标志即热情。22.在乐趣方面，爱好读书的人远胜于讨厌书本的人，因为比起欣赏足球赛、读书带来的愉乐机会要多得多。23.缺乏热情的主要原因之一就是感到自己不被人爱，相反，觉得自己被人爱的感觉比任何东西都能提高人的热情。24.成功只能是幸福的构成因素之一，如果不惜以牺牲所有其他一切因素得到它，那么这个代价实在是太昂贵了。25.从情感的内容这一方面来说，那些受过高等教育的人的快乐，与我的花匠体验到的快乐并无不同，教育造成的差异仅仅是快乐的形式不同而已。26.一个人的兴趣越广泛，他拥有的快乐机会就越多，而受命运之神操纵的可能性越小，因为即使失去了某一兴趣，他脸然可以转向另一种。胡适1.生命本没有意义，你要能给它什么意义，它就有什么意义。与其终日空想，不如试着做点有意义的事。2.生命本身不过是一件生物学上的事实，有什么意义可说？生一个人和生一只猫、一条狗有什么区别？人生的意义不在于何以有生，而在于自己怎样生活。3.人生固然不过是一个梦，但一生只有这一场做梦的机会，岂可不努力做一个轰轰烈烈像个样子的梦？岂可糊糊涂涂过这几十年的努力。4.就算它是做梦吧，也要做一个热闹的、轰轰烈烈的好梦，既然辛辛苦苦地上台，就要好好地唱个好戏，唱个像样子的戏，而不是跑龙套。5.富兰克林说：“时间是组成生命的材料。”时间不值钱，生命自然不值钱。我回中国所见的怪现状，最普通的便是“时间不值钱。”中国人吃了饭没有事做，不是打麻雀，便是打“扑克”。有些人走上茶馆，泡了一碗茶，便是一天了。6.现在一般的人饱食终日，无所用心。思想差不多是社会的奢侈品。7.人性是静的，永恒不变的，时代是动的、绵延变化的，这是动和静的关系，这就是变与不变的反应，决定了一切人们的全部人生。8.宇宙没有绝对的真理，人生没有客观的意义，一切的一切，只有像树，不得不被风吹，只是像物件，不得不被阳光照耀。9.有人说：意义有两种来源，一种从积累得来，是愚人取得意义的方法；一种是由直觉得来，是大智取得意义的方法。积累的方法，只有走笨路；用直觉的方法就是走捷径。据我来看，欲求意义唯一的方法，就是走笨路，就是日积月累地去做刻苦的工夫，直觉不过是熟能生巧的结果，所以直觉是积累到最后的境界。10.人生的意味，全靠你自己的工作。你要它圆就圆，方就方，是有意味；因为真理无穷，趣味无穷，进步快活无穷。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周愣子</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>周愣子</h1>
+            <div class="date">2026-03-04 09:53:40</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>周愣子周愣子原创金鱼的水金鱼的水左岸读书2021年02月23日 16:01在小说阅读器中沉浸阅读文/金鱼的水初四那天下午，我听老家的人说，周愣子前两年死了。我很诧异，还以为他早就死了，没想到活了这么久。人们都喊他周愣子，因为他姓周，小名二愣子。也有很多人喊他傻子和呆子。虽然他小名叫做二愣子，但是他小时候并不傻，除了有点憨憨的，其他的和正常人一样。大多数智力发育迟缓的人，都这样，长长也就好了。可是周愣子，却没有长好。也不知道是不是被人傻子、愣子地喊多了，在他十二岁那年，为了救一头掉进河里的羊羔，浑浊的河水从鼻孔呛进脑腔里，发了一烧，真的就变成了傻子。最让人津津乐道的，那个羊羔还是别人家的。从那以后，他就更傻了。原本还算是干净的小孩，变得脏兮兮的。鼻子里也冒出两条鼻涕虫，一进一出的，从不分场合。之前人们不敢当着面喊他傻子，因为他生起气来也会骂脏话，但是现在大家总喜欢当着面喊他，无论是喊他傻子还是愣子，他也总是笑嘻嘻地望过去。他父亲常年在外务工，很少回来，后来就再也不回来了。他母亲是个普通人家，但是非常善良，收成好的时候还接济过村里的流浪汉，听人说还信佛，不知是真是假，因为他母亲骂起人来，也是不饶人的。不过在周愣子真傻之后，他母亲就突然病死了。至于病因，人们都说是气死的，可是村里上了年纪的老人却说，是周愣子的魂把他母亲的魂一块带走了。周愣子还有一个二舅，在邻村。他母亲下葬那天，他二舅把他绑在树上，怕他在下葬的路上捣乱。他就一直在那问路过的人，问能不能把他解下来，他妈睡着了，他要给他妈盖上被子，不然会生病的。过路人都骂他傻子、还笑。有些小孩围着周愣子起哄，小孩的母亲来了，不由分说地径直把小孩拉走，嘴里还教训着要离傻子远点，不然就会被传染上傻病。下葬的事都办完了，丧席也吃完了，天也黑了。周愣子二舅喝的醉醺醺的，回到周愣子家里倒头就睡。第二天醒来，才想起周愣子还在树上绑着。赶去一看，人没了，找了好久，最后在他妈坟上找到的。他二舅不知道，他是怎么从树上下来的，更不知道，他又是怎么摸到他妈坟上的。总之，找到他的时候，他正趴在地上睡觉。坟头已经被推平了，还向下挖了一个大坑，他手上全是泥印子。看样子，他是想把他妈从坟里挖出来。他二舅把他抱回家。他醒来后，就好像忘了他妈死了、下葬了这回事，再也没说过要找他妈，给他妈盖被子，还是笑嘻嘻的。人们都说，傻子就是傻子。还有人说，他二舅在周愣子家里找到了不少钱，因为他二舅给他妈下完葬回去之后，就买了三个猪仔，还把院墙修垒高了。不知道是不是因为这，周愣子孤单一人的时候，他二舅帮衬了他不少。到季节下什么种子，怎么下地，怎么除草，他二舅看着周愣子干。虽然有时候，讲个大概，人就走了，周愣子稀里糊涂的干，但是总算能有一点收成，周愣子也总算能囫囵个肚子，不至于饿死。这些事，其实我都不算清楚，都是三三两两听别人讲的。我印象最深的一次，是我回老家拜年。那时候，我十三岁，周愣子已经傻了三年。才刚一进村，周愣子不知道从哪拐出来的，拦住我们，给我们拜年。他身上一个脏地不成形的红袄，头发像是俩月没洗过了，有横的也有竖的，脸上就只有中间干净，旁边一圈都是黑乎乎的，咧着嘴笑，一边向我们伸出手，一边嘴里还喊道：“新年大吉，红包拿来。”不知道是不是傻子都这样，说话含糊不清，每个字都听不清楚，只有连起来听，才能猜出个大概意思。我们被赶来的亲戚接走，周愣子在后面重复地喊着，跟了一会，就不见了。后来才知道，是一个顽劣的孩子起的主意，让周愣子在村口给人拜年，要来的红包两人平分，并且把周愣子母亲留下的一个石菩萨还给他。看来周愣子并没有要到红包，也或许那孩子食了言，因为我在第二年去的时候，周愣子仍旧在那里给人拜年。但是到了第三年，我就没见他了。问了人才知道，被抓到派出所里去了，因为有扰治安。就在我回老家的前一天，周愣子拦住了一个城里来的时尚小姐，把人家吓得不轻，报了警，接着就被逮走了。在派出所里受了几天教育，出来后不再拦人拜年了。还被洗了脸，剃了头，整个人干净了不少。但是不知道是不是剃头师傅剃习惯了，别人都说周愣子剃了个劳改头，是劳改犯，是坏分子。村里人都开始有意无意的疏远他，就连他二舅在那年也不来帮他下地了。周愣子没了吃的，只有向村里的人家讨一点吃的，讨不到，就只有在别人家门口等别人倒的残渣剩饭。周愣子成了流浪汉，所有人都不意外，就好像傻子就应该是乞丐和流浪汉。听人说，他家的房子也塌了半面，左家借块砖、右家借根梁的，最后一点痕迹也不剩了。这一说，都快十五六年了，现在突然听到周愣子死了的消息，还是不免心中感叹。那亲戚说，是在一个山洞里发现的，全身都臭了，爬满了蛆虫，根本看不清是谁，是在左手里看到了一个石菩萨，才知道是周愣子。本来没人愿意管，村里的一位长者说，毕竟是村里的人，还是把他拉回来埋了吧。最后，把周愣子的尸体用绳拖回来，埋在了离他母亲最近的地方。他母亲的坟那里，已经修成了路，两边盖了工厂和娱乐场所。所以离他母亲最近的、又能埋人的地方，在村最东头的那个废弃沼池的旁边。那亲戚还说，周愣子二舅现在发了财，养猪发的，在那一片，就数他二舅最有钱，这几年都已经把猪卖到外省去了。左岸记：人不该嘲笑不如自己的人，人不该嘲笑那些陷入困境的人，人不该嘲笑不幸的人……如果无法做个伸出援手的人，至少永远不要做个嘲笑者。人变得真正低劣时，除了高兴别人的不幸外，已无其它乐趣可言。——歌德</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

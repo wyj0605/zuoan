@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>什么忙能帮，什么忙不能帮？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>什么忙能帮，什么忙不能帮？</h1>
+            <div class="date">2026-03-04 09:52:40</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>什么忙能帮，什么忙不能帮？什么忙能帮，什么忙不能帮？宋石男宋石男左岸读书2023年01月10日 21:50福建在小说阅读器中沉浸阅读文/宋石男王佩诉苦说：“在一个成熟的商业社会里，如果一项服务能够花钱购买，尽量不要试图从朋友那里免费获得！我曾被一个朋友的朋友叫去，把35公斤的书箱，从五楼扛到一楼。如果雇佣一个民工兄弟做这事，既可以让他有饭吃，也可以让我的老腰免于劳损”，引起了我的强烈共鸣，不过我是从一楼扛到六楼。帮忙扛东西，只是小事件，佩妈还有更悲壮的遭遇。有个朋友的朋友，离开杭州，硬要放五个大箱子在佩妈的出租房里，也不放太久，初步预计是四年。佩妈想了半天，终于鼓起勇气，给那个朋友的朋友去了电话，告知已经帮他找好了物流公司，从杭州到他西安老家，只需要550元。电话里，朋友的朋友相当恼恨与不情愿，说：”干嘛这样？我还会回来的“。I'll be back——这哥们是看阿诺舒华辛力加的电影看多了。I'll fuck * when you are back.——佩妈仍然拒绝了。这哥们最后撂下一句狠话：“不放你那儿就是了，我放同学宿舍去”。噢买糕的，哪位同学这么倒霉啊？我也有大量类似遭遇，我将之称为狗日的帮忙，或帮狗日的忙。曾有人找我义务代写学术论文（当然不是义务我也不会写），当我拒绝的时候他竟然要求我帮他找一个枪手来写。我说你自己上网查啊，枪手网站多得要命，不过小心别走到阿森纳的球迷论坛上去就是。对方居然说，这点忙都不帮，你娃不耿直。还有人找我义务翻译上万字的烂文，我说你去找翻译公司或者外语专业的老师啊，他说，那我不是要给钱吗？此外，更有大量的人找工作、跳槽或更换丈母娘，需要新简历。这帮孙子还非要整个双语简历。结果又找到我了，要我爱妻刘老师“帮帮忙吧”。靠，英文差就别装啊，给你弄个再容光焕发的英文简历，骨子里你还是一郊区果农嘛。郊区果农您也别生气，我知道你们中间也有英文好的，我这就是顺口一说。还有人找我帮忙买假文凭。我说，我是在大学里客座教书，但不做这个生意。他说，你认识的人多，路子广，就给办一个嘛。可我认识的人再多，也没有街上到处贴的小纸条多啊——”代办文凭，网上可查，电话******“。最烦的是，还有很多人找我写机关或企业的内部演讲稿，妈的我又不是宋秘书或者李同志。他们干嘛不去找一本《演讲与口才》的合并本来学习学习？或者上网搜索“励志演说辞大全”？这些孙子全部被我凶狠地拒绝了。奇怪的是，当我拒绝他们时，他们往往露出不敢相信的表情，用幽怨的眼神看着我，“怎么会这样？”似乎要榨出我皮毛下的血来。有个别人还发文章说，都说宋石男讲义气，好说话，原来是这种人！我要多么有涵养才能不跟帖说“麻痹的这种人是哪种人”呐？还好我电脑技术一般，不然肯定还会有人不断来找我修电脑。我有个朋友，以前在四川省社科院，电脑技术不错，我给他起了个外号叫”有求必应“。怎么说？他在省社科院三年里，至少出工了上百人次，为各种同事解决各种电脑故障，有看毛片中毒的，有正一键还原时又强行关机的，还有主板进水烧坏了的……他也不是每次都能修好，还得跟人说，不好意思啊，没修好，给您添麻烦了。后来他终于受不了了，随身揣一张名片，电脑维修公司的名片，一有人找，他就掏出名片，要人打上面的电话。结果在内部遭到广泛的批评，说他修电脑修出名了，就拿架子啦！这日子没法过了，他只好背井离乡去了中国社科院。在那里，他逢人就说自己是电脑菜鸟，鼠标坏了都不会换的那种。我仔细清点了下，真正的好兄弟其实很少向我索求可以花钱买到的服务，这么干的一般都是熟人或者朋友的朋友。这种叫“熟人”的物种似乎唯一的爱好就是把你当传说中的雷锋使用。兄弟不会这样，兄弟会为你着想，替你挨刀。就根本而言，求人帮忙是乡土社会的残余。那时候商业不发达啊，大伙儿互相帮忙，人情其实是一种软性投资——今天你帮我捉住到处乱跑的大公鸡，明天你家的老婆到处乱跑，我也帮你逮回来。但是时代不同了，在大多数服务可以花钱买到的今天，再这么干，就只能说是贪小便宜或者自私。很多人不理解，为什么找我帮忙做写内部演讲稿这样的事情时，我要发飙。他们觉得，我这不是看得起你才找你帮忙吗？而且你做这个很快啊，你半小时就写好了，我要写半天。但是，他们从来不肯想想，时间也是人神圣不可侵犯的私有财产，而且对我来说，是最重要的私产之一。凭什么你就觉得自己的半天时间比我的半小时更珍贵呢？是的，我才华横溢，但凭什么我就要将它借给你呢？盖茨财富横溢，你干嘛不去找他借点钱，把你一直想买的那套河边别墅，至尊享受给拿下呢？哦，你要说，我不认识盖茨啊。那么，凭什么你觉得你仅仅是因为认识我，就可以找我借才华顺便侵占我的时间呢？这种借而且常常是有借无还的。从小到大，我极少去求人帮忙，我不愿意欠情，也不知道怎么开口。这点受我老爸影响很深。所以我不明白，为什么会有那么多人理直气壮地去欠情，然后笑嘻嘻地拍拍帮助他们的人的肩膀：“谢谢啊”，就老死不相往来。《蜗居》里宋思明的一段台词倒是可以部分说明，为什么总有人会理直气壮地欠情。他说：“关系这个东西啊，你就得常动。越动呢就越牵扯不清，越牵扯不清你就烂在锅里。要总是能分得清你我他，生分了。每一次，你都得花时间去摆平，要的就是经常欠。欠多了也就不愁了，他替你办一件是办，办十件还是办啊。等办到最后，他一见到你头就疼，那你就赢了”。扯远了点，回到主题，帮忙社会也好，人情社会也好，都是一种前现代文明的社会状态。现代文明社会，讲究的是契约，是不含糊，是白纸黑字，是权利与义务的清晰界说。如费孝通所言：“契约是指陌生人中所作的约定。在订定契约时，各人有选择的自由，在契约进行中，一方面有信用，一方面有法律。法律需要一个同意的权力去支持。契约的完成是权利义务的清算，须要精密的计算，确当的单位，可靠的媒介。在这里是冷静的考虑，不是感情，于是理性支配着人们的活动——这一切是现代社会的特性，也正是乡土社会所缺的。”有人或要说，契约不是陌生人中所作的约定吗？熟人还搞这些，多不亲热啊。对不起，在契约面前，熟人也是陌生人。这也是费孝通所谓中国乡土社会的“差序格局”与现代社会的“团体格局”之分。团体格局里体现的是个人主义，差序格局中存在的则是自我主义。换言之，团体格局下的契约社会，奉行的是个体之间自由、平等、守信的理性交往，差序格局下的乡土社会，奉行的是以自我为中心，以地缘、血缘、情缘等为基础的关系交往。其实这个问题我也是偶然想清楚的。青少年时代，我常帮人代考英语四级。头两次纯属帮忙，帮着帮着就烦了。有次代考，作文题目是“当你需要拒绝时要学会说不”，嗨呀，一下子灵感就来了，大写有人找我帮忙代考四级，我是如何严词拒绝的。此后我还代考了几次四级，但不再是帮忙，而是交易。这是我人生中一个小污点。不过，比起义务做枪手来，我觉得收费做枪手虽然同样不光彩，但要稍微文明那么一点点。左岸记：这6种事情，轻易不要帮忙：1.别人只是随便问问你的时候，不要帮忙；2.别人如果不是诚心要你帮助，就不要帮忙；3.提的要求很高，做不到的时候不要帮忙；4.给别人借钱的忙，不能帮；5.情感方面的问题，不要帮忙；6.有成本的事情，不要免费帮忙。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

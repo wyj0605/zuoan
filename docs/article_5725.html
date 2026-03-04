@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逻辑推理（2）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>逻辑推理（2）</h1>
+            <div class="date">2026-03-04 09:58:27</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>逻辑推理（2）逻辑推理（2）左岸读书2016年12月23日 18:53在小说阅读器中沉浸阅读某单位重视对年轻工作人员的职业培训。在一次培训计划中，单位负责人决定在赵、钱、孙、李、周、吴六人中挑几名参加培训，参加培训的人选需要满足下列要求：赵、李两人中只挑一人参加；李、孙两人中也只挑一人参加；赵、钱两人中至少挑一人参加；赵、周、吴三人中需有两人参加；对钱和孙的安排要相同；如果周参加，那李也必须参加。根据以上要求，可以肯定不参加培训的人为：A、赵、钱B、周、吴C、孙、李D、李、周某次生物实践课上，教师在多媒体屏幕上给出五种鲜花的图片，并依次编号为①~⑤号，然后要求学生说出其中任意两种花名。小春说：③号是茉莉花，②号是月季花。小华说：④号是水仙花，②号是玉兰花。小秋说：①号是水仙花，⑤号是杜鹃花。小实说：④号是杜鹃花，③号是玉兰花。小夏说：②号是茉莉花，⑤号是月季花。结果是他们每人只对了一半，每种花都有人猜对。根据以上条件下列正确的是：A.①号是水仙花，②号是茉莉花B.②号是玉兰花，③号是杜鹃花C.③号是茉莉花，④号是杜鹃花D.④号是月季花，⑤号是杜鹃花当前，市中心小区车位十分紧张，某天今晚，某小区仅剩甲、乙、丙3个车位。正好只剩3辆车要停进来，车子的品牌分别是吉利、奇瑞和大众，已知：每个车位只能停一辆车，先到先停；若吉利车停在乙车位，则奇瑞车无法停到丙车位；大众车只能停到甲或乙车位；如果甲车位被吉利或奇瑞停占，大众就会找不到车位，三辆车最后刚好把3个车位停满。如果最后吉利车停在丙车位上，则可以得出以下哪项？A. 奇瑞车比大众车先找到车位B. 大众车比奇瑞车先找到车位C. 奇瑞车停在乙车位上D. 大众车停在乙车位上上前答案：1.教练在甲、乙、丙三人背上分别贴了三个数字，三人都能看到对方的数字，但是看不到自己的数字，甲、乙、丙背上的数字分别用A、B、C.代替。甲说B.&gt;C.;乙说A.假如教练说的是假话，则甲、乙、丙数字大小顺序可能是：A.A.&gt;B.&gt;C.B.C.&gt;B.&gt;A.C.B.&gt;C.&gt;A.D.B.&gt;A.&gt;C.答案：A解析：第一步：分析题干的逻辑关系。教练说：最多一人说假话。而教练所说为假，因此可知：不是最多一个人说假话，即至少有两个人说假话。第二步：代入选项验证条件A项：代入可知甲是真的，乙是假的，丙是假的，符合题干条件，正确;B项：代入可知甲是假的，乙是真的，丙是真的，不符合题干条件，排除;C项：代入可知甲是真的，乙是真的，丙是真的，不符合题干条件，排除;D项：代入可知甲是真的，乙是假的，丙是真的，不符合题干条件，排除。2.大学毕业的张、王、李、赵4人应聘到了同一家大型公司，每人负责一项工作，其中一人做行政管理，一人做销售，一人做研发，另一人做安保。已知：①张不做行政管理，也不做安保;②王不做行政管理，也不做研发;③如果张没有做研发，那么赵也没有做行政管理;④李不做行政管理，也不做安保;⑤赵不做研发，也不做安保。由此可以推出：A.张做销售，李做研发B.赵做研发，李做销售C.李做销售，张做研发D.李做研发，赵做安保答案：C解析：据题干给出信息进行推理，根据最大信息法，行政管理和安保出现次数最多。由①②④可知，张、王、李三人均不做行政管理，因此做行政管理的一定是赵，排除B、D选项。由条件③可知：—张做研发→-赵做行政管理，由于赵一定做行政管理，则根据逆否原则可知，张做研发，排除A选项。3.在某公司中，李明帮助了王刚，而王刚帮助了赵贤。李明纳税比赵贤多。由此可以推出：A.王刚纳税比赵贤多B.李明纳税和王刚一样多C.有人帮助了一个纳税比他多的人D.有人帮助了一个纳税比他少的人答案：D解析：第一步：抓住题干主要信息。题干主要介绍了李明、王刚、和赵贤三人之间帮助的关系，以及李明和赵贤之间的纳税关系。第二步：逐一分析选项。A项：题干只说了李明比赵贤纳税多，没有提到王刚的纳税情况，无法与赵贤作比较，排除;B项：王刚的纳税情况题干并没有提到，因此无法得知是否与李明一样多，排除;C项：由题干得知李明比赵贤纳税多，但是并不知道赵贤是否帮助了李明，无法得出，排除;D项：由题干得知赵贤比李明纳税少，而李明帮助了王刚，王刚帮助了赵贤，那么李明可能间接帮助了赵贤，则可能推出D选项。比较四个选项，A、B、C选项根据题干已知信息一定无法推出，但D项存在成立的可能性。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

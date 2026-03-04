@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诗意春分</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>诗意春分</h1>
+            <div class="date">2026-03-04 09:57:28</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>诗意春分诗意春分原创马诗途马诗途左岸读书2024年03月19日 15:16福建在小说阅读器中沉浸阅读春 分 到 了文/马诗途花儿开了，草儿绿了，蝴蝶来了，鸟儿闹了，翻翻日历，原来是春分到了。{草长莺飞 生机盎然CHUN FEN JIE QI}桃红柳绿报春回，春光满园映春晖。早莺争把暖树居，新燕啄泥筑新巢。小河流水解冰冻，欢歌高唱不停息。春天，天清气爽，杨柳青青，草长莺飞，人们踏青、游湖、赏花，不亦说乎。在春光里，感受生活的美好，在春光里，感受时光的美好。CHUN FEN五代·徐铉这样写《春分》：春分雨脚落声微，柳岸斜风带客归。时令北方偏向晚，可知早有绿腰肥。读着古人的诗句，也诱发了我点点诗意：春风送暖花开时，百鸟欢歌舞翩跹。一片芳菲满枝头，万朵芬丽映碧天。春风吹春分到，桃杏花开随风飘。燕衔泥蛙捕蝉，溪流潺潺歌声扬。春分时节，最美的当属田间农家。随处可见的花开，满目都是青青的草色。那袅袅的炊烟、朴实的村民，都让人如沐春风。清·宋琬《春日田家》，曾这样描绘：野田黄雀自为群，山叟相过话旧闻。夜半饭牛呼妇起，明朝种树是春分。这个时节，种五谷农夫忙，一年此季莫视闲。精耕耘细管理，勤浇汗水粮满仓。宋代邵雍以一首【乐春吟】则写出了另一种春意春味：四时唯爱春，春更家春分。有暖温存物，无寒著莫人。好花方蓓蕾，美酒正轻醇。安乐窝中客，如何不半醺。春分时，人们喜爱放风筝，古时风筝称“纸鸢”。各式各样的风筝迎着东风飞起，地上的人们，欢快的跳啊！叫啊！共贺这和煦的春天。还有的闲适自在，淡然享受这春日风光。宋代赵长卿曾吟《春分》更为生动有趣：日月阳阴两均天，玄鸟不辞桃花寒。从来今日竖鸡子，川上良人放纸鸢。{春光漫度 情浓莲藕CHUN FEN JIE QI}春分节日昼夜平分，乍暖还寒尚需保温，早起锻炼注意养身，寒冷退却健康健身。春分养生小提醒，情浓贴心分享你：以脏补肝鸡为先，鸡肝大米熬粥佳。鸭血鲫鱼养肝血，煲汤记得多吃点。滋润补阴是首要，荸荠百合莲藕好。晚睡早起助阳气，增加运动多慢跑。穿衣宽缓且透气，开心不让抑郁扰。食物青绿宜甘甜，糯米大枣保安康。{春风化雨 姹紫嫣红CHUN FEN JIE QI}春风吹过万物苏，带着快乐人间跑。春雷阵阵人不眠，立志奋发情绪高。春雨降下如意水，好运如江涌波涛。春花开放满园春，姹紫嫣红富贵到。春分到来生活好，快乐幸福天天笑。在这美好的春分时节，让我们珍惜这美好的春天，期待着吹一阵春风，让百花盛开；降一场春雨，让万物复苏；耀一分春光，让春意浓浓；谱一曲春歌，让希望发芽；送一份春福，让情谊芬芳。行文至此，赠送朋友们《试吟春分》七绝一首：水秀山青绽百花，桃红柳绿映朝霞。春风化雨随人意，瑞气祥龙入万家。CHUN FEN左岸记：春天的事就是新的开始，无论过往如何，到了春天这里，一切都可以是重新来过，但首先要做好春天的事，不然等到了秋天，只会空留遗憾。【作者简介】 马诗途，湖北宜昌人。作品多见于省内外各大报刊和网络平台。喜欢读书，以笨拙之笔抒写梦之心语，用每一份感动收藏点滴美好。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

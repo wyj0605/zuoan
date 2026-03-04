@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活的火候</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>生活的火候</h1>
+            <div class="date">2026-03-04 09:56:31</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>生活的火候生活的火候原创德鲁伊德鲁伊左岸读书2024年05月09日 17:09福建在小说阅读器中沉浸阅读文/德鲁伊为了生计，奔波在外。好在地方环境不错，吃食又是我欢喜的，除了几场大酒让人不是那么舒爽，余下的都很惬意。有闲，开始跑步。前年阳了后，血压不稳定，不知道算不算后遗症。虽然锻炼、冥想、打坐还在坚持，但没什么改善。那就跑起来，家附近的跑步条件一流，场地跑、户外跑路线大把。但真是跑不动，装备也配了，就是跑不动，还扭了膝盖，将养了几周，把跑步这事也就扔那了。这次在外面，鼓捣个事情。有了闲，就寄了装备过来，重新开始。跑步这个事情，同学里马拉松大满贯，或是三小时多成绩的大把，仰望都能治颈椎病的频次。而我，打小长跑不行，最长跑过1500？到了这个年纪，聊发少年狂，反正成绩不论，咱攒的是距离。从2000开始。NND，坚持下来了，也没崩溃。那，继续？过程不赘述，今个儿，第十次跑，五公里。之前不敢想，之后要坚持。除了自己的意志和坚持之外，想想能跑到如此，大约还是因着换了环境吧。有时候人是被自我潜意识拘囿着的，家里太舒服，家被定义成了休憩，跑步这事有一百个理由不坚持。陌生环境，惰性小了，动力反而大了，此消彼长，目标反而容易达成。想想，阻碍你的，多数情况下，都是你熟悉的环境、熟悉的人、熟悉的情境，而且还是暗戳戳的在潜意识里左右你，无处不在。与其剔除某些人和事，或是提防某些人和事，不如换个环境试试，迭代一下下。住的附近，有个苍蝇馆子，晚餐一般在那解决。生意不错，去晚了很多菜没得，反而让我有机会尝了很多菜品。我一般去的晚，所以得空老板和我会聊几句，递个烟，分享个清茶，轻松。前天吧，点了个毛血旺，有点饿。老板做了份，却在打包。我问，骑手来了没，他说要过几分钟，我说你再做一份呗，这份给我，我有点饿。他说，你的我给你马上做，不急，让媳妇给我碟泡菜和花生米，开了瓶啤酒。我说我不喝，他说他请的。菜上了，我慢慢吃着，看他闲了，谢了他的小菜啤酒，递了烟给他。他点上，给我道歉。不是不先给你，也不是外卖货品和堂食材料不一样。我准备的外卖，思想着路上有个时间，所以有些菜出锅快，有点生口，这样外卖送到客户手里，火候刚刚好。堂食的要马上吃，就不能这么搞。这是个钻研的人，也是有点职业尊严的人吧。让我忽然明白，过去西安的很多小吃，碗是放在热水里温着，约摸着也是滚烫的汤水吃食，不能凉碗盛。味道差异有多大不知道，起码心思到了。至于这个老板追求的火候，倒是进了一层深意。生活的火候，成熟的味道，有时候是难把握的事情。却偏偏，吃食也好，事情也罢，火候成了最影响结果和评价的指标。花未开满，果带酸口，既济在未济之前。事物的火候，总是要费点心思和把握的。这个老板不简单。关于跑步，其实想说的是，我一直认为我普通的不能再普通，我能做到的你大概率会比我做的更好。至于生活的火候，吃好喝好心情好。左岸记：对生活的热爱需要精力的投入，用心生活就是掌握好生活的节奏，控制好时间的火候。要是感觉自己生活有了困顿，不妨试着改变环境，去接触些不一样的人，往往会体验到不一样的多样丰富与美好，说不定，以往解不开的心结一下子就打开了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

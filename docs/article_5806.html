@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>饥饿的力量</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>饥饿的力量</h1>
+            <div class="date">2026-03-04 09:58:44</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>饥饿的力量饥饿的力量原创若水若水左岸读书2023年03月05日 17:36福建在小说阅读器中沉浸阅读文/若水人生大事很多，吃饭绝对排第一，不用怀疑，因为不喝酒可以，顶多是有些人晚上睡不着，但是不吃饭肯定不行，会饿死。走南闯北那么多年，无论是火车上的一碗泡面加鸡蛋，还是路边摊的一碗豆浆加油条，或者星级酒店的五斤重龙虾，先别说吃的有多精致，前提是填饱肚子。前段时间看了一篇文章，其中有一段描述了为什么日本人到现在吃饭，还是一小碟一小碟的上菜，原因只有一个，几千年的饥饿史，让他们没法像物资丰富的神州一样大碗喝酒大块吃肉，就连吃个烧烤，也都是一串一串的上，这很写实。就如同韩国人为什么那么爱吃泡菜一样，不是他们爱吃泡菜，而是物资的匮乏，让他们不得不选择将新鲜的蔬菜制作成泡菜，然后用这些泡菜来度过漫长的冬天。我是七十年代底的人，经历了改革开放，也经历过凭票供应的年代。那时候家里值钱的不是钱，而是全国通用的粮票，关键是也没啥积蓄。我年少时干过不少坏事，偷出家里的粮票去换钱，然后拿着钱去打游戏机，因为这些事情，小时候没少挨打。那时候是很瘦，但绝对不是饿的。唯一印象深刻的，就是冬天的大白菜和夏天的茄子，有那么几年，就是上小学的那几年，家里的蔬菜就这两样，唯有过年的时候，餐桌上才有机会摆上四个以上的菜。但就是白菜和茄子，老妈也会用心烹饪，用勺子将菜汤一勺一勺舀到我碗里，让我就着菜汤吃，希望我能多吃两碗米饭。在母亲眼里，只要健康就好，瘦一点就瘦一点，没病没灾的，就是万幸。小时候被人看面相，告诉我和母亲说，我这个厚嘴唇有福气，能够吃四方，绝对不会挨饿，我差点就信了，直到我去当兵，才真正体会到饥饿的滋味。那时候在新兵连，训练再多苦都不怕，怕的却是轮值打饭。新兵连打饭，和打仗没什么区别，馒头是要靠抢的，我刚到部队那会体重不到一百斤，有时候抢不过别人，但是又不能让战友不够吃，只好让他们吃馒头，我最后打点米饭就点菜汤，但米饭不是每次都有，于是偶尔会挨饿，特别是到了晚上，饿的睡不着是常态，那时候想的最多的不是第二天的训练内容，也不是家乡的女朋友，而是第二天能不能多抢几个馒头，吃饱的同时还要留一个，晚上躺在被窝里偷偷吃。新兵连三个月的磨炼，我变黑了，也变强了，体重从刚到部队的不到一百斤，提升到接近一百三十斤，单双杠，五公里，四百米障碍，都能轻松拿下，班长看到的是训练的结果，我体会到的是饥饿的力量。很多经历，现在回想起来不免唏嘘。我曾经因为急性胰腺炎，大夫叮嘱在恢复期间不能沾油不能吃肉不能吃鸡蛋，每天都是清汤寡水的蔬菜拌汤和稀饭，吃的我两眼发绿。直到两个月后吃到第一口有油水的菜，眼泪差点掉下来。所以我对吃饭这件事，是极其重视的。所以我对店里的菜品，也是一直用心在做的。赚钱是一方面，另一方面，我想让大家能够有更多的机会去尝尝其他地方的特色菜，而不是局限于辣爆羊头，抱歉，我这真的没有羊头，不是我不爱吃美食，而是对于那些点个菜就为了看着的人而悲哀。美食就是用来饱腹的，然后才是用来下酒的，最后才是用来拍照用来撑场面的。你点了菜，又不吃，就摆在那里看着，让路过的人以为菜品味道有问题，我宁愿你少点一些，够吃就好，哪怕就一盘乳瓜一盘花生米，吃不完还能打包回家，就如同昨晚二号桌的张兄，剩了一些乳瓜拿袋子装回家，给儿子吃，真好。没体会过饥饿的力量的人，是无法做到珍惜的。物资再丰富，也有消耗完的一天。勤俭节约是美德，这是很多人的共识。在我看来，这个观点永远都不会改变，吃饭是人生头等大事，这是不容怀疑的。左岸记：我们现在要促进消费，不是指各种铺张浪费，而是让物尽其用，人尽其才，地尽其利，货尽其通。扩大消费，为的是满足老百姓在衣食住行上的正常需求，而不是用浪费行为换来一些商家表面的“红红火火”；消费升级，是旅游休闲、文化娱乐、体育健身等正常消费的不断升级，而不是让过度挥霍、暴殄天物的畸形消费观愈演愈烈。靠奢侈浪费形成的畸形消费是不可持续的，扩大消费的根本依靠是广大人民群众生活水平的普遍提高，是面向大众的理性消费，而不是一小部分的高消费，甚至是浪费行为。消费是正常需要的满足，而浪费则是对产品和资源的过度挥霍。合理的消费可以促进经济社会持续健康发展，而铺张浪费却以损害环境资源和可持续发展为代价。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

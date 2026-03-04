@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>向来如此，便对么？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>向来如此，便对么？</h1>
+            <div class="date">2026-03-04 09:53:39</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>向来如此，便对么？向来如此，便对么？原创凡尘凡尘左岸读书2017年08月29日 01:49在小说阅读器中沉浸阅读01老李是我的高中同学，今天他在朋友圈里晒他参观鲁迅故居的照片，有百草园、三味书屋等耳熟能详的地方，文字描述为“鲁迅先生太伟大了”。底下的评论区中，本是一片赞颂之声。此时，突然有个同学来了一句，鲁迅是弃医从文，然而现在不知道多少人挤破头皮想当医生。我在下面回复了一句，“当医生挺好的，可以救死扶伤；写文章也很棒，两者都值得尊敬。”他回复我说：“当医生是挺好，但是现在有多少人是冲着钱去的？到底是先收钱再救死扶伤还是先救死扶伤再收钱？”评论区顿时炸开了锅，大家纷纷表示医生有多么黑，现在的医患关系有多么恶劣，评论区仿佛变成了故事汇，都想用自己的亲身经历来证明医生的无良。02我观察了一段时间，发现舆论一边倒，于是我坐不住了，干脆把他们拉进一个微信群里，和他们诉说了我的观点：医学专业的分数线不低，学医出了名的累。我相信，医学生大多以此为志，他们做出选择的时候，都是本着救死扶伤的精神，并不单单为了钱。即使为了钱也无可厚非，工作很重要的一个目的就是赚钱。收钱办事的情况，各行各业都有，并不是只存在于医生和患者之间，好多内幕我们还尚未可知，这些陋习并不是一朝一夕形成的，也无法立刻杜绝，这里不再赘述原因。然而大部分医生至少收钱办事，并不是说这样的做法正确，但是相比于他们来说，那些贪得无厌者和收钱不办事者才更应该收到指责。可是指责有用吗？你说了话，就有人能听见吗？这些道理难道大家不懂吗？可悲的不是大家不懂，而是大家懂了还这么做，短期内无法根除这样的现象。为了改变现状，我们要做的还很多。03其他人都陷入了沉默，很久以后才有人回复了我一句，“对啊，各行各业都这样。”换位思考一下，倘使我们处于患者家属的境地，你能保证自己不给医生塞钱吗？我爷爷几个月前生病住院了，父母和我去探望的时候，我妈分别给了医生和护工两个红包，他们也笑逐颜开，向我们承诺一定好好照顾我爷爷。回家的路上，我问他们，一定要给钱吗？不给钱医生就不治疗了吗？他们说，其他人都会给，我们不给的话，怕照顾不均。这就像是给老师塞红包，只要有一个家长这么做了，其他的家长就会纷纷效仿，生怕自己的孩子得不到老师的关怀，甚至还有无良的老师明目张胆地向家长索取红包。这些事情真真切切发生在我们身边，相信大家都有体会。可是，向来如此，便对么？04或许有人会说，这是中国多少年来的传统，这个和酒桌文化一样，不喝酒就谈不成生意，不塞钱就不会积极治疗。改革的难度确实相当大，但这都不是我们放任不管的理由。法不责众的道理是多么的可笑，大家都犯错，就不需要纠错了吗？帮凶和主犯同样可恶。即使做不了英雄，至少不要做帮凶。光提出问题没有用，找到解决问题的措施才是当务之急。05鲁迅先生即使从前不当医生，而从事老师、教练或其他职业，也同样会拿起笔杆子战斗，就像他说的那样：“凡是愚弱的国民，即使体格如何健全，如何茁壮，也只能做毫无意义的示众的材料和看客，病死多少是不必以为不幸的。所以我们的第一要著，是在改变他们的精神，而善于改变精神的是，我那时以为当然要推文艺……”鲁迅先生倡导的，是陈寅格先生口中的“独立之精神，自由之思想”。他希望大众对事物有自己的看法，而不是只会当一个围观的吃瓜群众，在事情来临之际手足无措。“有的人活着，他已经死了；有的人死了，他还活着。”人什么时候会死？是在他断气的时候？还是在他躺入墓碑的那一刻？都不是，是他被人遗忘的时候。对于一具没有了灵魂的躯壳来说，哪里不都是死气沉沉的乱葬岗。06现在的许多人，生活如同行尸走肉般虚度年华。对于收钱办事的行为，表面上大义凛然，私底下依旧不改本性。这和其他人又有什么区别呢？鲁迅先生毅然弃医从文，为的是拯救这个愚昧的民族。希望不久的将来，盛世能如您所愿。07中国人信仰道德和法律，只有这两样东西能够真正扼制陋习的嚣张气焰。随着九年制义务教育的普及和法律制度的健全，有识之士如雨后春笋般一个个冒出了头，但光“有识”还不够，还需要“有志”。光影相生，否极泰来，黎明前的时分最为黑暗。星星之火可以燎原，只要大家都出一份力，我相信，众人的火炬最终会汇聚成我们心中的圣杯。左岸记：我们知道以偏概全不对，我们还知道真理往往掌握在少数人手中，我们也懂得隔行如隔山，我们总是喜欢走捷径……还有很多，当你深入去思考这些问题，那么很多的现象就都能得到解释。举个栗子，比如给医生塞红包，只要你掌握一些法律和医学常识，那么你完全不必塞红包以求心安，而如果你不懂，那么红包就属于你的智商税。但明白了为什么，并不代表那个不合理的现象是理所当然的存在，存在即合理是个谎言，那些不合理的东西之所以存在，只是那还没有被合理的模式替代。社会在进步，暗黑之地必定会越来越少。鲁迅说：“我只愿中国的少年只是向上走，不必理会这冷笑和暗箭。”阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

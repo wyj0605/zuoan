@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱丰丰的来电</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>爱丰丰的来电</h1>
+            <div class="date">2026-03-04 09:56:18</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>爱丰丰的来电爱丰丰的来电原创珠珠珠珠左岸读书2026年02月28日 20:29福建在小说阅读器中沉浸阅读文/珠珠昨天上午，我正在上班。手机突然响了。我随手拿起来看了一眼，然后整个人愣在那里——屏幕上跳动着那三个我赋予你的专属名字：“爱丰丰”。没有半点心理准备，它就那样自己亮了起来。像从前无数个寻常的日子里，你掐着点打来电话，问我“中午吃什么”“晚上想吃什么”“今天累不累”。心跳漏了一拍。随之而来的是汹涌的激动——是你吗？是你回来看我了？是你用这种方式告诉我，你还在？我按下接听键，手在微微发抖。“喂——”电话那头传来的声音。不是你的，却又那么像你。是小治。他在家用你的手机打给我，用和你相似的声音叫了一声：“妈”。那一瞬间，百种滋味在心里翻涌。先是失落。原来不是你。然后是庆幸。还好是小治。最后是一种说不清道不明的、复杂的欣喜——你们的声音那么像，像到我几乎可以闭上眼睛，假装你还在电话那头。像从前一样，问我几点下班，问我想不想吃点好吃的，问我今天辛不辛苦……我还没来得及沉浸在这片刻的恍惚里，小治下一句话就把我那点浪漫幻想击得粉碎：“妈，我手机丢了。”我简直不知道该哭还是该笑。这个孩子，平时都睡到日上三竿才起床。今天也不知道哪根筋搭错了，起得比鸡还早。说是想把自行车带去学校用，出门去维护车子。偏偏平时每次出门都背书包的他，今天破天荒没背，手机往口袋一塞，不知道什么时候就掉了。等回到家发现时再回拨，已经关机了。定位一看，手机从宝美街一路往城外跑，很明显是被人捡走了，而且正离得越来越远。我心想：其实那手机也不值几个钱了，去年就想给他换。这孩子节俭，愣是没舍得。现在好了，老天爷替他做了决定。但我什么都没说。只是告诉他：赶紧带上身份证，自己去营业厅挂失手机卡并补办新卡。他很听话地去了。等我下班回来时，他已经办好了所有手续。然后我直接带他去手机专卖店。店员推荐了一款性价比比较高的，我问小治怎么样。他点点头，没多说话。我知道他在心里算账——两三千块，够他省吃俭用好久的。买完单，他小声嘟囔：“那个手机才用了几年，还能用的……要两千多呢。”我拍拍他的肩膀说：“都用了三四年了，可以换了。钱的事不用担心。”他不再说话。但我感觉得到，他还是心疼的。那点小心思，当妈的怎么会不懂？他和你一样，节俭惯了，舍不得换新的，舍不得对自己好一点。新手机插上卡，挨个检查资金账号。还好，一切正常。不幸中的万幸。走出店门时，阳光正好。我对他说：“吃一堑长一智，以后细心点。”他点点头，把新手机揣进口袋。阳光照在他脸上，那个表情，像极了你：不说话的倔强，和一点点藏不住的懊恼。亲爱的，你知道吗。今天你的号码在我手机上重新亮起来了。虽然带来的是一个小麻烦，接起来的发现对象也不是你，可我还是忍不住在接起的那一刻，满心奢望是你。小治的声音越来越像你了。语气、习惯、甚至跟你一样节俭得有点过头，什么都舍不得换。每次看到他，就像看到年轻时的你。有时候心酸，有时候欣慰，有时候哭笑不得。今天算是哭笑不得的那一种。但你知道吗，当我看着他办好新手机、小心翼翼地把它装进口袋时，我心里其实挺暖的。那个勤俭持家的性子，像你，也像我。但偶尔，也该对自己好一点，对吧？旧的不去，新的不来。你说是不是？晚上回家，我翻看通话记录。“爱丰丰”三个字安静地躺在那里，是今天最亮的那一笔。今天它不是你的来电，却带来了关于你的一切——我们的孩子。他用你的声音，把我的一天填得满满当当。从惊喜到失落，从无语到欣慰，从操心到温暖。就像你还在，用这样的方式，陪着我，陪着他。关注左岸读书.珠珠，陪珠珠一起重温左岸经典：左岸经典回顾：（7）2013年10月份1左岸经典回顾：2013年9月份9左岸经典回顾：（6）2013年9月份8左岸经典回顾：（6）2013年9月份7左岸经典回顾：（6）2013年9月份6</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

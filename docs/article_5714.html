@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迟到的年少时光</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>迟到的年少时光</h1>
+            <div class="date">2026-03-04 09:58:25</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>迟到的年少时光迟到的年少时光原创我是左岸我是左岸左岸读书2023年05月11日 07:01福建在小说阅读器中沉浸阅读文/魏山山淘宝天猫京东零食格子······近几个月以来，我的购物车里多了好多东西。我觉得自己很有必要写点东西，来纪念这有趣的一刻：有一天，我竟然会开始定期给我爸我妈买零食。时光倒流般，一切仿佛轮回原点。是的，就像我说的：我从没想过，有一天，我也会给他们买这样那样的小零食，教他们学这样那样的新产品；我从没想过，有一天，我也会苦口婆心地叮咛：别一次吃太多啊，别耽误了正经吃饭；是的，我从没想过，时间会让身份的转换变得那么悄无声息，又那么 从容安然。这个寒假发生了好多事情，我开始一次次奔波在家和医院之间，体会呵护和陪伴的意义。奶奶住院了，就像个小孩子，有时候无理取闹，有时候异想天开。大冷天会突然想出门，到饭点突然不吃饭。哄着，求着，骗着，恐吓着，使出浑身解数。我给她买新衣服，帮她穿好，她呵呵笑着说淡紫色挺好看；我喂她喝粥，她摇摇头说我不喝粥我要喝牛奶；她说她要出去，我说听话天太冷了你身体还没好呐，她噘噘嘴说好吧我想看电视你得陪我一起看。那些日子里，看着睡在床上的她，我不止一次在想：面前这个曾经给我冬天做棉裤，过年蒸豆包的老人，现在竟然像小孩子一样调皮而脆弱。好像我对她的印象，还一直停留在3岁到7岁这段时间，那些我无理取闹异想天开，而她哄我、求我、骗我、恐吓我的日子。什么时候开始，又或者，是从哪一刻开始，她就突然变老了呢？······我是过年时候发现他和她爱吃零食的，准确地说，是我从发现我妈边玩手机边吃酒鬼花生，我爸边看电视边吃香菇豆干的时候开始的。后来我发现，锅巴、薯片、虾条、饼干，甚至是旺仔牛奶和营养快线，这些我已经不那么喜欢的东西，他们都比我上心多了。每一次逛街前，我妈都会提前跟我商量：宝茁儿啊我们去吃好吃的吧，我想吃酸辣粉、我想吃烤鱿鱼、我想吃土豆泥，我还想吃过桥米线。然后我还发现，在我教会了他们智能手机的各种用法之后，他们会半夜在被窝里偷偷看电视，还看到一两点。有一次被我抓个现行，我爸一脸堆笑，跟我保证下回肯定不看这么晚。这个假期，我妈迷上了花千骨，迷上了琅琊榜，还开始让我给她推荐好看的剧；我爸迷上了打网游、迷上了聊微信，还让我教他智能电视的人机对战怎么打。······我就这样陪着她逛街吃小吃，陪着她网购买买买；陪着他人机大战，陪着他使用长长的自拍杆。我怂恿她申请微博，我说这样有些段子你就不会看不懂了；我教他认识霍建华和胡歌，我说我们这一代的男神颜值起码要是这样的。快开学的时候，我妈突然跟我说，哪天你陪妈去书店买本钢笔字帖呗，我没事儿也想练练；我爸跟我说，闺女啊给爸下个修图软件，群里面我的照片太黑了不好看。我说，好。那感觉，恍如隔世，又恍如昨天。······我之所以想把这些事记录下来，是因为不论零食也好、爽剧也好、游戏也好、明星也好，这都是我年轻时候玩儿的东西，现在我热情退去，却被我妈我爸追捧痴迷，我觉得挺不可思议。后来一想却又释然，他们年轻的时候没有这么多好玩儿的东西啊。他们这么努力，这么疯狂，这么喜出望外，不过是想更多地感受生活的美好，尽量弥补上他们错过的，本该精彩的年少时光。······我突然很想回到爸妈年轻的时候，突然很想自己能早一点认识他们，就在他们和我一样大的时候认识他们。我知道这是异想天开，但是就是有那么一些时候，我会拼命这么想。我好想陪着他们一起，补上他们错过的年少时光。我突然想起《重返20岁》里那句病房外经典的对白。儿子说，你离开了这个家，就别再回来了，去过你自己的生活吧。如果可以重新选择，不要嫁给那个短命的丈夫，生下那个不孝的儿子。那个你为他付出了自己的一生，却要把你送进养老院的儿子。沈梦君说，如果可以再年轻一次，我还会这样活，因为这样才可以做你的妈妈，你才可以做我的儿子。他们，永远都是他们。——这就是为什么，我突然很想做些事，来弥补那些我不在的时候，他们错过的年少时光。这也是为什么，当他们小心翼翼地玩手机，当他们兴高采烈地吃零食，我会一边笑一边感到淡淡的心酸。我妈曾经跟我说，小时候，尤其是你十岁之前，我和你爸工作都挺忙的，每天上班前把你送到奶奶家，晚上下班了再把你接回来。说实话挺累的，但是那时候你就是我们的精神支柱，也是奔忙的动力。真的这不夸张，你爸有一次也跟我说，忙了一天回来看见闺女就什么都好了。我现在想起这段话，突然很有感触。轮回仿佛让一切重回20岁，现在在外面的那个人是我，定期回家和他们团聚的人是我。我开始一点一点教他们认识我的世界，就像是他手牵手教我走路，她手把手教我折纸一样。而且，毫不夸张地说，此时此刻他们也成了我前行的力量。······所以我的购物车里，又多了三斤核桃、三斤豆干、一箱小饼干和几袋麻辣花生。点下付款键的时候我心里一暖。突然很能体会，圣诞节前夜我妈偷偷把礼物放进我门口挂的袜子里时，那种满足感。P.S.我给我妈介绍胡歌和霍建华的时候，我妈不以为然。她说她们那个时代的男神是许文强，是周润发。她还说，你爸年轻时候高大挺拔，冬天还总戴一个白围巾，就像许文强那样的，可精神了。我说，我真想看看啊。后来，我问我爸。他说，我那个时候当兵回来什么也不懂，也没有女孩子追过我。我说，如果当时我在的话，我就追你了。我爸突然特别不好意思地笑了。然后他想了想，说：不用不用，太热情了我害怕。哈哈哈……左岸记：花有重开日，人无再少年。一代人用他们的青春年华换下一代人的成长，然后慢慢老去，而当我们长大，别忘了也为他们带去精彩的生活，你总有很多很多可以为他们做的，他们总是会开心。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

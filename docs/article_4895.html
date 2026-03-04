@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>战胜小人的秘诀</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>战胜小人的秘诀</h1>
+            <div class="date">2026-03-04 09:55:16</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>战胜小人的秘诀战胜小人的秘诀左岸读书2023年01月12日 07:10福建在小说阅读器中沉浸阅读文/鲍鹏山《论语·阳货》 第一则，记载的是阳货和孔子之间的一次交锋：阳货希望孔子出山，帮助自己；但孔子自小讨厌阳货，长大后看到阳货陪臣执国命，更是厌恶他。阳货是有架子的，他不会亲自登门拜见孔子。他也知道，孔子是看不上他的，不会主动投怀送抱。但阳货毕竟是阳货，他是有手段的。他先放出风声，要孔子去见他。但孔子装傻，不去见。阳货苦思冥想，终于想出一条计：他乘孔子不在家，派人送给孔子一只蒸熟的小猪。按孟子的说法，按照古礼，“大夫有赐于士，不得受于其家，则往拜其门。阳货瞰孔子之亡（出门在外）也，而馈孔子蒸豚。”朱熹说：“瞰孔子之亡而归之豚，欲令孔子来拜而见之也。”——他就是用一只蒸熟的小猪来换得孔子的回拜。孔子回到家，看见阳货派人送来的蒸熟的小猪，就明白阳货的意思了。阳货给孔子出了一个两难题：去拜访吧，就等于投靠，阳货可以以此散布舆论，造成孔子和他合作的影响。不去吧，违背周礼，不用说孔子本人不愿违背周礼，阳货也可以借此打击孔子，败坏他的声誉。但这种小难题哪里能难倒孔子？破解之道其实就在眼前：操斧伐柯其则不远——就用阳货的办法：孔子也打听到他不在家，去拜见他。可不巧得很——也可以说是巧得很——孔子在回来的路上遇到了阳货！孔子一看阳货大夫的车马，自然是赶紧转弯避开，而阳货一见孔子的来路，以及对自己避之唯恐不及的样子，也就明白了怎么回事。他很生气，加上此时的他权势炫赫，说话的口气也冲：别躲！过来！我有话对你说！孔子只好转回来，走近阳货。阳货说：“一个人藏起自己的才能而听任国家混乱，可以叫仁吗？”道理很正派，孔子无奈，只好说：“不可。”——“那么，本来喜欢从政却屡次错过机会，可以叫智吗？”说的也对，孔子只好又回答：“不可。”孔子显然不愿和阳货直接冲突，面驳阳货，所以恭恭敬敬顺着他说，但是，他的两个“不可”，很明显是敷衍，是虚与委蛇。阳货当然也能看出来，但孔子态度既然如此恭敬，他也无从发作。末了，阳货说：“日月流逝，时不我待啊！”那潜台词是：孔先生，您已经五十岁的人了！您还有几次机会？我相信，阳货最后这句话深深打动了孔子，触及了孔子内心中蛰伏二十来年的从政之梦。孔子心中的坚冰开始融化：“好吧，我准备出仕了。”这段对话非常精彩，孔子也不是不愿做官，而是不愿到破坏政治秩序的阳货那里做官。所以，不见阳货，是“义”；不得已去拜见阳货，是“礼”；等阳货不在家才去拜，是“权”；路上碰见了也就恭敬相见，不愿意做得太决绝，是“毋必毋固”。阳货每一问，孔子必答，是阳货说的在理，孔子据理答复而不辩解，是谦逊而又不屈服。即便是孔子这样超凡脱俗之人，一生之中也免不了和一些难缠的人纠葛难解。这无须抱怨，我们可以像孔子那样，把生命历程中碰到的形形色色的人，包括小人，都看成是我们的命，看成是我们的磨练。其实，任何一个障碍，换个角度看，也是一个高度，假如你不能高过障碍，甚至比障碍还低，只能与障碍平视，甚至仰视，障碍就是峭壁，挡住你前行之路。但是，假如你高过障碍，可以俯视障碍，就可以在障碍面前抬脚，把它踩在脚下，此时，障碍就变成了台阶，抬举着我们上升。面对阳货的咄咄逼人，孔子的表现是唯唯诺诺而不辩，这不是屈服，而是不愿与之纠缠——孔子终究不会去阳货那里为官，却也无须在此争一高低。战胜小人的秘诀是：不是要斗得过小人，而是要高得过小人。十七岁的孔子，在阳货的讪笑面前不争不辩，转身离去时，他的眼中，阳货就已经成了台阶，何况这三十多年以后。左岸记：曾国藩在《荣枯鉴》中也找到了答案，他评价此书说：“一部《荣枯鉴》，道尽小人之秘技，人生之荣枯。它使小人汗颜，君子惊悚，实乃二千年不二之异书也。”书中教给大家三种主动出击小人，并战胜小人的办法，非常实用！佯惧实忍，外恭内忌，奸人亦惑也。以奸治奸，奸灭自安。小人畏于烈，奸恒施自败也。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

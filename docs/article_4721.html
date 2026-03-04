@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当我们谈论读书时，我们在谈论什么？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>当我们谈论读书时，我们在谈论什么？</h1>
+            <div class="date">2026-03-04 09:54:41</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>当我们谈论读书时，我们在谈论什么？当我们谈论读书时，我们在谈论什么？左岸读书2023年12月10日 10:47福建在小说阅读器中沉浸阅读以下文章来源于梧桐未语，作者吴寄北梧桐未语.吴寄北，语文陈年教书匠一枚文/吴寄北从前，读书人自然是有优越感的。有诗为证：富家不用买良田，书中自有千钟粟。安居不用架高堂，书中自有黄金屋。出门莫恨无人随，书中车马多如簇。娶妻莫恨无良媒，书中自有颜如玉。男儿若遂平生志，六经勤向窗前读。这是那首流传许久的《劝学诗》，还是由一位堂堂皇帝所作。但这只是从前。到了现今，如果还动不动就标榜自己是个读书人，那就……——其实也没什么。毕竟时过境迁，书、读书、读书人这些字眼的含义早已是另一番面目了。从前，也就在一百多年往前，那时候读书人还是很有地位的，至少是很有潜在地位，他读着读着，说不定哪天就像范进一样中举了，翻身了。那时候社会的上升阶梯有这么个公认的法门，是读书考取功名。那时候，书这东西、读书这行为、读书人这号人们，都很叫人肃然起敬。肃然起敬是一回事，这并不能说那时候读书人多么高尚、多么好学，他们也无非是要那“自有的千钟粟、黄金屋、颜如玉”，是奔着富贵，奔着本能的物质享受，奔着走向人生巅峰去的；而对于现今的读书而言，那些“自有的”诱惑都成了遗失的美好了。所以平心而论，还是现今的读书人更高尚些，因为——他们才是思无邪。有时不禁感叹，那时候的读书是一件多么纯粹、多么政治正确的事情，那时候的世界又是一个多么纯粹的世界。很像武侠的世界，在那里，其它事情都没什么要紧，武林中人尽可以心无旁骛地练武，静下心来吐纳、撸起袖子练拳，一切以比武论高下，社会逻辑是多么地清楚明白！如果再想“大者”一些，就添加一些侠义精神的佐料。对应地，那时候的正业是读书，再添一些道义，读得好了，就可以做一个很体面、很快活的人上人了。书，是圣贤书，后来钦定了是四书五经，再加些选本，就是国家高级人事考试教材。读书，是做功课，就是为考试打基础和做准备。读书人，是准备考上后当官的人。反观现今的读书，——算了吧，读书这个词没人解释得清楚。当我们谈论读书时，我们在谈论什么？不不，得加个时间状语：现今。现今，当我们谈论读书时，我们在谈论什么？读书好歹是件好事，差不多是个共识（——也未必）。可当我们谈论读书时，分歧或问题就接踵而至了。甲：什么样的书才是我们所谈论的“书”？乙：为什么要读这样的书？丙：“我们”是哪些人？丁：都自诩“喜欢看书”的人，就是兴趣相近的人吗？戊：又为什么要谈论读书？己：当我们谈论读书时，我们又在怎样地谈论着什么呢？……前面已提过，产生分歧的主要原因是古今的差异。时代不同了，现代社会整个生态模式在多个层面的多样化已经一改传统社会的单一化，导致书与读书这两个概念在古时和今日已完全不同；而今日从昨日来，今日的有些概念和观念并没有与时俱进地改变或更新过来，所以，在有些人的观念里，还是在用昨日的观念简单粗暴地理解今日的人、物、事，比如书、读书、读书人。而在我们国家，这个从古时到今日的转变几乎是一瞬间的事，大家似乎还没晃过神来，古时已经是昨日了，古时也只是昨日。所以，我们的时空错乱感尤为强烈，歧义也尤为严重。首先是书，就不好概括，但肯定（绝大多数）不是四书五经，没了科举，自然没有了功名利禄，读书越来越“务虚”了，当然是无用了。所以读书有用无用论的争论可以到此为止了，时殊事异尔。除了读书求功名之外，读书还常常被片面地等同于其他行为。最常见的，是读书被等同于上学或求学，包括基础教育和高等教育。家长见面问候时，你家小孩在哪里上学，一般也说成你家小孩在哪里念书；介绍相亲时，那个男的去年考上博士了，哦，他还在读书啊。做个家庭作业，翻阅几篇文献，也是说在看书……也无怪，毕竟学习资料的主体是书，但是人们习惯了借代的修辞手法，以读书这一种学习途径来借代学习本身（包括所有的学习途径）。读书一词，随处都有，什么场合都用，所以意义也越来越含糊不清……至于读书人优越感的失落，还须包括读书另一目的其可替代性的越来越强。在以前，读书另一目的是求知识与智慧。那也是因为当时技术落后，知识和智慧的载体太过有限，往往除了书没别的，哪像现在媒体技术的发达，除了传统的广电报刊，新媒体又是突飞猛进，虽然书籍还是占了不小的位置，但无疑地，它已失去了昨日的统治地位。读书的两个作用，一个是没有了，一个是没那么重要了。失落，是自然的；换句话说，是书和读书完成了它的历史使命。但是，有些人要哀叹了，我们怎么办？读书人怎么办？我们的“使命”呢？你没有使命，你要低下头，虚心地全心全意地做一个平凡的安静的阅读爱好者。如此，唯有如此，我们才能够好好地谈论读书，以及好好地谈论更美好的事。左岸记：一说读书，我们大部分人是在讲怎么能让自己放下手机，读几本书，显得雅致一点，与“俗人”们略微有点差别。其实，读书是跟旅游，看电影不同的获取信息的方式，是跟运动一内一外锻炼自我的两个工具。“人人皆可为尧舜”，虽不尽然，但我们至少可以不让这个社会总是纠结在“读不读书”这件事上。不喜欢读书的，可以慢慢读起来，喜欢读书的，也无需标榜什么，就是自己喜欢而已。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

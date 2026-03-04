@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏日水饮情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>夏日水饮情</h1>
+            <div class="date">2026-03-04 09:53:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>夏日水饮情夏日水饮情原创我是左岸我是左岸左岸读书2023年07月01日 19:56福建在小说阅读器中沉浸阅读文/SquMoun我买到了一瓶蜂蜜，大约一斤。蜂蜜略带淡黄色，透光度很好，按照粗浅的理解，也就意味纯度不错。蜂农小哥说，这可是今年正宗的槐花蜜。站在蜂箱前的我们还在犹豫，顺着他抬手指得方向，果然还有好多棵开得正好的洋槐花，来的路上竟然未曾注意，有点“人间四月芳菲尽，山地槐花始盛开”之感。等回家之后，掀开一闻，就是熟悉的洋槐花香气。舀了两勺，放到杯子里，加了快一杯的凉白开，快速地搅匀。旋转中，看到蜂蜜如丝散开，一点点与水融为一体，一杯蜂蜜水就新鲜制成了，要是再加点柠檬就更好了。赶紧喝了一口，又喝了一口，甜味好像找到了很多通路，脑子里会浮现很多画面。某一瞬就回到了很多年前的夏天，那时候去姥娘家住。那时小山村里吃根冰棍比较麻烦，还要等着专门卖冰糕的人来，什么时候来也不知道。但也有折中的办法，那就是泼回蜂蜜水。大舅会用刚打上来的井拔凉水，给大家冲一瓢蜂蜜水喝。水瓢里的蜂蜜是从村里养蜂的人家要来的，大抵也是看到有外甥们来了，直接给舀两大勺的。清凉与甘甜是同时涌来的，其实也不光是味觉，似乎凉气从碗里直接扑到脸上、灌进鼻腔。吧咂吧咂嘴，又说这可真得劲哩。得劲哩，“得”的发音不是de，是三声的dei。似乎只有这拐了点弯的声调，才能完整地表达出一种由内而外的舒服。井拔凉水跟地窨(yìn)子一样，是夏天取凉的重要方式。西瓜会被放到水桶里，然后系到井里放着，等放够了时间，提溜上来切一刀。西瓜应声而开，凉气随之而出，难得。家里的压水机经常会漏完水，但也没有关系，借助半瓢水形成足够的空腔压力，就可以把水从七八米深的井底抽上来。凉凉的井水，一口喝下去，且不说呛不呛着，一时就把热气消掉大半。蜂蜜也不好弄，谁家也不经常准备，倒还有橘子粉。往茶缸子里倒上一股，接点刚压上来的凉丝丝的井水。等待橘子粉全部融化，一杯现冲饮料就诞生了。从东边地里除草回来的老妗子，正坐在我家过道里，用草帽子使劲扇着风，一口气喝了半茶缸说，“孩子，来，再给接上点，这可比吃那些个冰糕得劲多喽”。那时候吃冰糕，得听吆喝声。因为是有人专门骑着自行车去批发，装到泡沫箱里并盖上个小褥子保温，然后再到各村里走街转巷去卖。橘子、红豆、绿豆，这三种居多。当时一毛到两毛一根，好一点的香蕉味雪糕，得三毛。买冰糕看运气，碰上才有得买，碰不上就吃不到。“冰糕自由”都是从电冰箱普及之后的事。先从村里小卖部供销社，再到各家各户，有个过程，现在想着就好像一瞬间发生的。三年级的夏天，姑姑来家小住，我们几个到村里最早个体小卖部买冰糕。到了五年级的夏天，老舅家翻盖房子的时候，领个啤酒瓶换雪糕，大队门口的小卖部就已经用上冰柜了。等到了初中高中那几年，镯姐家就自己买了冰柜，顺带也外卖一些冰糕。等到了大学，几乎家家都有冰箱了，有的家里还不止一个。蜂蜜橘子粉，凉水好搭档，但对我爸来说不是。无论地窨子里多么凉快，其实拿出来的啤酒给人的感觉还是温吞吞的。往往到了这时候，会安排我或者老妹跑去供销社买两根最便宜的冰棍，最好是那种没啥甜味的。一碗大人“饮料”啤酒倒好，再加入根冰棍冰起来。冰棍化开，温度就降下来，很快凉啤酒也成了，比现在直接从冰箱拿出来等着放凉的冰镇款更有“味道”，多多少少还有冰棍的甜味。夏天又到了。戒了好久的可乐，在不知不觉中又跑到了桌上，特能安慰自己是说尝试一款新口味。只是自己的肠胃，已经不能适应凉东西，特别是直接从冰箱里拿出来的饮料、水果、酸奶等等。都需要先放一放，升升温，才敢喝，以保证肚子不闹事。“一降温”到“一升温”的切换中，那头是再也回不去的、不断被美化的旧时光，这头是想喝又怕关键指标各种超标的新当下。左岸记：真是回忆满满，甜蜜十足。小时候是很难吃得到甜的，所以，那一抹特别的甜味就被写到了成长的基因里，成为人生中永远抹不去的味道，而以后吃到再多的甜品，因为太过寻常，也就少了那可遇不可求心情。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>思文解忧杂货铺</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>思文解忧杂货铺</h1>
+            <div class="date">2026-03-04 09:54:50</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>思文解忧杂货铺思文解忧杂货铺锦瑟锦瑟左岸读书2016年12月01日 19:00在小说阅读器中沉浸阅读“原来，这是一个爱情故事！”看完东野圭吾的《解忧杂货店》后，我兀自想着，“看上去从不同人的角度写了几个散乱的故事，然而，浪矢杂货店把这一切串了起来，是故事主线，可是隐隐还有一条线——孤儿院。五个故事里每个主人公都跟这两个地方有关，而真正的主人公隐藏的很深。浪矢把那份爱藏于心底，渐渐对这世界生出关怀，来咨询的每个人他都用心回答。皆月晓子守着这份爱，终身不嫁，慢慢地，她的爱变得博大，传递给孤儿院无家可归的孩子。真爱是杯酒，路人皆闻香。”那些散发淡淡温暖的话——人的心声是绝对不能无视的。那些表达深深懂得的话——他们都是内心破了个洞，重要的东西正从那个破洞逐渐流失。那些带着浓浓关怀的话——如果把来找我咨询的人比喻成迷途的羔羊，通常他们手上都有地图，却没有去看，或是不知道自己目前的位置。但我相信你不属于这两种情况。你的地图是一张白纸，所以即使想决定目的地，也不知道路在哪里……换个角度来看，正因为是一张白纸，才可以随心所欲地描绘地图。一切全在你自己。我衷心祈祷你可以相信自己，无悔地燃烧自己的人生。我们的生活里有多少烦恼无法诉说，就有多么希望现实里有这样一个解忧杂货铺。我们不仅想要一个答案，还想要一颗倾听的心，一个交流的角落。怀着这样的心愿，我和小伙伴们商量开一个群里咨询活动。有人提议说，干脆就叫解忧杂货铺吧。我心里也觉得，没有比这更合适的名字了。继而想到，如何实现咨询者全部说出心声呢？群里那么多双眼睛，岂不是感觉很不安全？翻阅群功能的时候，我发现了匿名聊天的功能。于是就试了下。因为担心没有人回答问题，我私下邀请了几位热心而有阅历的群友：德鲁伊、SLY61、灯火阑珊、疯过……他们都给了我很多建议。于是有了以下公告：思文解忧杂货铺每周三下午至晚间开张！届时群里将开通匿名聊天模式。无论你的烦恼是什么，都欢迎来咨询。尺有所短，寸有所长。他人的烦恼，若能解答，也请尽一份力。——人的心声是绝对不能无视的。——他们都是内心破了个洞，重要的东西正从那个破洞逐渐流失。加上德鲁伊的建议：注：由于匿名聊天不能艾特，请咨询者编辑好问题，最好是一整段。解答烦恼的群友也请用心回复，在回复前加上你要回复的人名。下设栏目一：德爷的板子下设栏目二：SLY以术入道有的小伙伴对书籍选择有困惑，群友的回答挺有建设性：灯火阑珊：《学会提问》这本书怎么样？疯过：比如第一章讲到强势批判思维的建议，强势批判思维即用批判的眼光去审视一切观点、结论、论据，不仅仅是对方的也包括自己的，而更重要的是审视自己的。这点我做的不好，我是文章中提到的弱势批判思维者，也就是更愿意批判对方，而固执的坚守自己的一套，无论有没有道理，道理有几分。书里讲到一个事情，我们通常会拒绝价值观不同的人的理由，和思维过程。什么是价值观呢？不用去精确定义，你可以认为是信念，是套路，是方法，是道，术都可以。这里又牵扯到另一个问题，丢下个人包袱，书里用了这个词，也就是说不能拥有强势批判性思维的一个重要原因，是我坚信我自己的个例。（插一句，这里其实是双刃剑，个人理解）那么我们知道自己的观点经常会出现问题，要去批判它，比较好的方法是什么？交流，开放的交流。这里有点意思，你既要去交流，又要去批判，对吧。那么书里给了第二个大前提，以保持谈话的继续。既要愿意与人交流，也要人愿意与你交流。这是关键的地方。其实这点很不容易做到，因为你要批判对方，还要别人说出他的观点？对不对？我不能说书里给出了全部，但是有些值得想一想：比如，谦恭，要相信自己并非最优秀，也要相信山外有山人外有人，本着我愿意相信你的说法，当然你的说法要能够说服我。事实是，我经常就关掉了这扇大门。嗯，文章很强调沟通的方式，委婉，表达善意，真诚。那么在这个当中，会有一个经常出现的问题，对方的观点，论据，数据无法说服我？书里给了一个很美妙的词，千挑万选。到这个阶段，其实你会明白，通过提问，不过是帮助你深度理解，理解论据的可靠性，理解结论的正确性，然后，交流并不是为了获胜，交流只是让你能够去千挑万选出一个更好的观点。这个千挑万选，当然可以是你和对方观点的交集，或者新生，或者进化出来的第三个观点更重要的是找到说话人的理由和论据，如果你用你的个人经历去解释去理解，其实就陷入了通过价值观寻找同类的陷阱之中。党同伐异是强势批判性思维的大忌。我个人也有这毛病。书上也表达了，价值观不同的人交流，很容易产生人生攻击，然后让交流戛然而止。所以真诚与善意，以及表达真诚与善意，就显得格外重要。还有一些生活方面的实例，比如有人问到异地恋。小伙伴们给出这样的建议：sly61：为什么异地恋都会变心？一个人身在异地，必定寂寞，需要人陪，要聊天、要谈心、要精神交流，交流着交流着就上了床。有了第一次就有第二次，次数多了，就变成男女朋友了。不要去责怪任何一个变心的男友或者女友，即使你们每天通话，也不能排解那些需要拥抱和亲吻的寂寞。不能面对面吃饭谈心滚床单的都是反动派。自远：知根知底的同学，可能还好点要是自己苦苦追求了很长时间，又异地，没必要谈拒绝你几次，最后又答应在一起的，不排除男方或者女方，寻求性价比另有关于教育的问题，小伙伴的问答是这样的：锦瑟：要不要教孩子成年人的道理？sly61:刚才我给小学生讲的睡前故事是反经中的知人篇：说当老大一定要了解手下小弟的内心世界，但人最不容易了解，汉光武帝刘秀很善于察言观人，但还是被庞萌忽悠了，曹操也是用人高手，但也被张逸骗了，这是什么原因呢？一切事物的表面现象可能相似，但实质不一定相同，所以有人看样子很聪明，其实并不聪明，有人傻乎的看上象个好人，其实他比谁都坏。鲁莽的人好勇敢，其实并不是。历史上很多皇帝给人很有智慧很能干的印象，但亡国了，而亡国的大臣感觉都是忠心耿耿的样子，但其实特别没用。田里的坏植物（莠子）小时候长得跟禾苗一样，牛长黄色的花纹很象老虎，白骨象象牙，好看的石头也可能像玉，这都是似而非的事物以假乱真的情况........上面的就是老德不让看的反经上的内容...........【匿名】寂如是不是没有人问了呀？那我请教一个有关教育的问题。我一个朋友离婚，儿子4岁了，朋友发现儿子特别喜欢成年男子。这让她很内疚。可找个替代爸爸又不是短期的事，请问，怎么能补偿儿子对爸爸的需要？朋友总担心孩子会因此有心理缺陷。德鲁伊：单亲家庭的问题总之认真对待解决办法几点：1、给孩子更多的锻炼，指的是类似体育啊、技能啊，这些会让他在群体里找到自信；2、示弱，就是妈妈示弱，让孩子成为主动保护态，就是加速他对自己是男人的认知；单亲的母亲，千万别成为男人。3、寻找替代品，这个可能是舅舅类似的；4、在周边找到和他能一起玩的朋友。【匿名】寂如哦，想到过这个，可她是独女。德叔，第2点很有启发，太谢谢了不过，又发生了这么一件事。群里有一位小伙伴，她的烦恼涉及到中度抑郁症。当天在的所有小伙伴都很关心她，各自从自己的角度给了分析和建议。我们很担心，这诸多的建议，是否会令她更加不知所措？甚至，给了错误的引导怎么办？毕竟这可不是一般的烦恼。虽然这个小伙伴最后表示自己平静下来了，对于她将要做的事情也做好了准备。但是，涉及到心理咨询和疾病，这都需要专业的人员负责的治疗，这样的事情以后再发生，就不一定是这样的结果了，怎么办呢？我想起来，浪矢在川边绿的事件后，深深觉得自己责任重大，于是只得关闭杂货店。我不希望这样的事情发生在思文群，因为解忧杂货铺的初衷是多么美好啊！小伙伴们的热心，连旁观者都感动了，怎么舍得这样一个可以说话的角落有一天被关闭呢？因此我们建议：小伙伴们在给出建议的时候，必须是谨慎思考过的，用心回答的，带着浅浅的淡淡的善意。“有多大修养做多大圣人，有多大能力帮多大人”。因为一旦你做不到的时候，你把浅浅的善意变成浓浓的时候，你就捉襟见肘了。面对能力范围之外的问题，我们可以只是倾听，表示理解，人一旦感到被理解，很多问题都变得不那么困难了。也或者建议他去找真正适合的方法。而咨询者，也需要自己做出判断，哪个答案才是让自己心安的？哪个答案才是让自己成长的？拿不准的话，千万要慎重再慎重。毕竟人生终归是自己的，如人饮水冷暖自知。小伙伴们的建议，就作为一个参考吧。小伙伴们的倾听，就化作内心的感动吧........思文解忧杂货铺，永远的坚持——人的心声是绝对不能无视的。欢迎降落到我们的小角落。群名：左岸读书思文（188145065）左岸记：虽然每个人的人生都必须自己去经历，但是在疑惑和迷茫之中，如果有一盏明灯，有一只温暖而有力量的手的指引，哪怕是一个指南针，我们都会感到安心。谁可以告诉你接下来会发生什么，你的未来命运会怎样？没错，就是那个来自未来的人。他的答复，会让你好像得到了千军万马。其实，那个能给你好好解答的人最是贴近那个来自未来的人，因为同样的问题他真真切切地经历过，他告诉你他的经验，他就是在指引一个方向，告诉你如何走出迷雾。至于接下来的路怎么走，那得靠你自己。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

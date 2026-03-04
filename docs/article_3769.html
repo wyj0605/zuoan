@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法为王，工具为辅，人乃灵魂</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>方法为王，工具为辅，人乃灵魂</h1>
+            <div class="date">2026-03-03 20:41:26</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>方法为王，工具为辅，人乃灵魂方法为王，工具为辅，人乃灵魂EsorEsor左岸读书2014年03月20日 18:28在小说阅读器中沉浸阅读写成文章放到网上与其他人接触沟通后，基本上这篇文章某部份的解释权也已经不在自己手上，读者难免误读，但作者有时候也不一定是有明确不可变的思想，于是在这样反复来往的误读中，有时候新的创意与思考反而会产生。我一直深信这一点。不过，今天我想犯一个作者大忌，回过头来自己解释自己。在各式各样别人附加在我身上的「定义」中，有一种诠释其实和我心中所想南辕北辙，这个解读就是：「你真是一个依靠数字工具的人。」但其实我心中真正的想法是： 「我认为我们不能依靠任何数字、网络工具」，或者说，不是我（们）依靠数字工具，而是「数字工具依靠我（们）」 。是我们赋予这些工具灵魂，让他们成为实用，没有我（们），这些数字工具完全没有意义，但没有这些（某些）工具，我（们）依然可以找到完成事情的方法。一、自己的方法，才靠得住是的，重点是那样一套属于自己的「方法」是否被建立起来，如果说我依靠什么，那么我依靠的应该是 背后那一套自己慢慢磨练出来的 「做事情的流程 」、「面对事物的态度 」和「执行任务的方法 」，而非任何一个特定的工具。方法，是自己的，所以靠得住，只要我还在，只要我还在动脑思考，那么我相信自己的方法永远都是自己最好的依靠。而那些网络、数字工具？对不起，我不能依靠你。就好像餐厅的大厨有一把传世的名刀，让他做菜更利落，但是如果有一天名刀坏掉了，难道这位大厨就从此做不出好菜了吗？当然不是，大厨最重要的是他有自己做菜的哲学、口味的艺术、料理的方法，刀坏了，换把适合的刀，一定还是有好菜可以上桌。二、有了方法，换工具就很简单所以，我们不能奢望数字、网络或任何工具可以帮我们解决问题，真正解决问题的永远是我们的方法，是我们自己。因此像是我个人「爱用」的 Evernote ，我常常建议大家可以尝试把所有数据放入 Evernote 做一个项目统整，这样最有效率（两张图解释Evernote的完全记忆与项目管理笔记方法）。有朋友可能因此解读：「哇！你好依赖 Evernote。」不，其实我依赖的是「把所有数据统整的项目管理方法」。今天换到另外一个可以做数据统整的软件，我还是一样的方法。有了方法，我们要做的就只是「找到适合自己方法」的工具而已。 就像大厨在做菜前总是已经有一套完美的料理计划，所以他们可以轻松挑出好食材并做出好菜，但其实大厨也不是去找出什么隐藏的梦幻食材，很多时候用得也只是我们一般市场看得到的东西，只是大厨知道自己要什么，所以可以挑到和自己的菜单完美搭配的素材。工具就像这些食材，很多时候他们是中性的，好坏其实来自于我们怎么使用它的方法。这个工具对你坏，或许对我好，但要怎么知道对自己好的工具是什么？只有先建立「自己的一套方法」，而一旦有了方法的大厨，难道换个食材就做不出好菜吗？三、建立流程，获得效率，规避风险很多人问说：「 Evernote CEO 说他们要做百年企业，这是不是代表这个笔记服务很值得依靠？」我其实从来不会把这句话当真，我的意思是，或许 Evernote 有那个志向，但一家公司要做百年有那么容易吗？ Evernote 最近的偶像 Nike 都还做不到 50 年呢！我并非是会被这些志愿感动的人，我只是挑一个适合自己方法的工具。所以，我使用任何工具时从来不会觉得「我会永远使用这个工具」， 相对的，我会去思考的是一套可以更长久、不断修正的工作流程 ，然后随时选择当下适合这个流程的工具，并且保留替换的弹性即可。当我说「云端可以帮我长久保存数据」时，我思考的不是依赖某个云端工具「永远」帮我储存某些数据，而是整个云端世界这个新方法、新流程。把工作的数据云端化，可以方便携带，可以在即使小小一台手机上随时使用，并且自己不用做太复杂、太花时间的备份，而可以有一个自动化的流程来帮数据做好储存、整理、使用与救援。这是我的方法，在这个方法上我可以获得最大的工作效率。于是我自己选择像是Evernote、Google相簿、Dropbox 这些「工具」来加入我的流程。如果有一天这些工具不能用了呢？那就换个工具吧！因为在这个云端的流程里，数据反而更容易转移，即使像是 Evernote 都一样有储存完整笔记在本机、可以转 HTML，而且如果有天有更好的笔记服务出现，那这个笔记服务多半会推出「把 Evernote 笔记转入 XXX 」的功能帮我们移转。四、我想介绍的不是工具，而是背后的方法我常常思考的其实是自己方法的精进，而非软件到底怎么用。当然，我必须感谢这些我使用过的、我介绍过的数字、网络工具，因为每个工具背后都有开发者的心血、开发者的想法，开发者想要让这个工具怎么用的「方法与流程」，最后这一点最宝贵！因为当我使用这些数字、网络工具时，我其实就是在跟这些「方法与流程」对话 ，回头来思考、修正、精进、刺激自己原本的方法。于是，当我获得这些工具里包含的那些好方法后，我就可以保留一个弹性：「随时带走这些方法，留下这个工具」，因为我知道，我也认为，我们其实不能依靠任何数字、网络工具，但我们可以依靠一个适合这个最新世界的工作方法。左岸记：工欲善其事，必先利其器。在开始工作之前，先研究一下工具，磨刀不误砍柴工，可能会事半功倍，提升你的生产力。但是任何工具都只能依赖于人们，而不是人们被其所累。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

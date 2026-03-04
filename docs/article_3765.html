@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扫黄</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>扫黄</h1>
+            <div class="date">2026-03-03 20:41:25</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>扫黄扫黄沈万九沈万九左岸读书2014年03月19日 20:24在小说阅读器中沉浸阅读“爸，我在东莞玩被抓了，速汇款5000元到李警官工行卡×××，别打电话报警，也别跟妈说，等我出来先，快！”如果你最敬爱的老爸突然收到这样的短信，你猜他会怎么着？英明神武的“李警官”收到这笔横财的几率又会有多大呢？事实上，这是前段时间才出炉的诈骗手段——“东莞式”诈骗。背景我就不在此赘述了，大家应该都很清楚，不清楚的朋友要不学业缠身，两耳难问窗外事；要不就是断奶不久，少儿不宜，这儿就更不应该普及了。恰逢，本人近日出差至东莞，来到这个所谓的男人天堂。作为一位直男，即便是平日风平浪静时，躺着也是容易中枪，何况是天堂重灾期，所以这几天经常收到总部同事的慰问，说“东莞地震了，没震到你吧”，“大哥，昨天广东新闻里播的那个厚街某酒店中露胸没露脸的不是你吧？！”等等看似关心却饱含戏谑的风凉话。对此，一开始我还会急着撇清关系，生怕我的女上司鄙视和女同事误会，后来解释得闹心了，索性也就认了，说刚刚出来不久，谢谢组织关心！完了之后再在朋友圈里补一张酒店大床房端坐床头背靠镜头的照片。这样一来，慰问的电话顿时少了，耳根也清净了——由此可见，真理还是不辨不明。话聊回来，东莞这种所谓的“地震”，带着一种热辣辣的讽刺，更带着一份后现代所固有的黑色幽默。网上有很多有意思的图片，或者是一幅占满屏幕的幽幽烛光图，或者是一群短裙妹子在街边游行抗议图，图旁还配有“东莞，不哭！”，“东莞，挺住！”之类的标语，殊不知还以为真遭遇到什么天灾人祸911呢，结果一看，发现居然是这码事。对此，唯恐天下不乱的媒体也没闲着，一波接一波地发出追踪报道，说什么20万人工作直接或间接受影响，什么的士哥苦不堪言只因往日小姐打的出手大方今时车前门可罗雀，什么正经的东莞打工妹子找不到男友只能回乡嫁老单身汉......我心想，这城市到底是怎样演变成如今的呢？记得很久以前（前到大概要到上世纪了），东莞给我的印象还算本分，甚至还称得上是传奇。有关传奇一说，得从当年IBM副总裁的一句话开始说起：“中国的莞深公路，要是塞车的话，全世界四分之三的电脑要停产。”如今事过境迁，世上再没IBM的电脑了，世界工厂的声誉也是每况愈下。要说塞车，那还是经常的事儿，不过能够影响最大的可能还是许多技师的业绩，没准还连带影响了某些大学生的伙食费——当然，这里没有任何讽刺的意思，恰恰相反，我觉得她们还是很“伟大”的。世界上，有这么几个国家是合法嫖妓的。日本不用说，只要你交得起重税，别说卖身，开个丽春苑都没人管你。前不久刚看到一则专题，讲到日本最著名的风俗一条街，里面游走着不少的操着你倍感亲切的中国话的同胞们。他们甚至还可能是你的老乡，老乡们的工作就是带你想去任何你想去的风流地，当然收费也是不便宜的——要知道，这不是他们的兼职，而是他们赖以维持生计而且维持十几甚至几十年的上有老下有小中间还有家庭主妇生计的工作。除了日本，还有德国。小时候，我就听说这个世界就德国一个国家认可妓女合法，觉得日耳曼人就是开放，很想见识一下。可这个“很想”一直没有遂愿，后来有机会来到泰国，原本想着看看人妖摸摸大象，结果发现那儿的红灯区给我的想象力上了一堂难忘的课，那像好莱坞一样在群山上靠着海岸印着芭提雅的霓虹灯字体，那棕榈树下披着月色打扮得花枝招展地等待男客的女郎，那似乎永远满员的免费通往红灯区的嘟嘟车，还有那叫做gogo的酒吧里穿着抹布扭动着腰肢的妹子......说完友邦人士，让我们再回来，聊聊咱们最早的一批妓女。那还得追溯到好几千年前，某些原本过得好好的良家妇女，因为男人们打仗失败了，于是便成为俘虏，继而成为了奴隶，任凭人家欢乐。《史记·匈奴列传》中，就有“夏桀蓄女乐、倡优”的记录，可见老祖宗的黄史文化源远流长，一路走来，成就了苏小小，柳师师等众多佳话。如今佳人早已随风而逝，他们的衣钵传人都成了地下党。有关莞式服务，大家即便没有亲自体会过，也多少看过猪跑。有关“猪”跑的电影有很多，比如说前几年的《一路向西》。此外，在韩寒精心策划却只发布了一期的杂志《独唱团》里，有一篇文章叫做《你们去卅城》，是北山写的，也算是莞式服务的入门级课程了。众所周知，比起“绿”带给男人们的危害，“黄”给我们带来的危险要多很多，比如教科书上常说的败坏伦理道德和社会风气，诱导人们沉溺于声色犬马、肉欲享乐之中，更是对家庭婚姻的稳定与社会国家的健康发展直至伟大复兴有着破坏作用。除此之外，黄还可以传播多种疾病，“花柳病”那是大概率事情，更让人觉得恐怖的艾滋病也不是没有的事。然而，即便黄有着罄竹难书的危害，但黄却屡扫不止。粗略算起，光东莞扫黄前后也扫了10个年头了，期间有不下三个回合的大面积作战了，第一批女技师上岗的时候我还在念中学跟死党偷看他老爸的欧美床上动作片进行性启蒙呢，每次扫了都像白兄说的那样春风春又生。有人说，这次准不一样，因为有好几个大“老虎”都下了台，大有连根拔起的趋势。对此，老虎会不会很快换张脸出现，我们不知道，只能拭目以待。不过我可以确定的一点就是，扫黄完了，男人还得抓紧时间解决生理问题，娶老婆生孩子。须知道，男人的生理问题一日不解决，老靠“双手”那可是大问题，不靠双手的就可能把手伸向社会，伸向午夜的街头，甚至大学女生宿舍。据统计，东莞色情业的常客包括从欧洲和非洲过来的淘金者——这一点不难理解，我在泰国芭提雅就经常看到欧洲+泰妹/仔的黄金搭档，另外，就是一些商人，常年离开老婆孩子，身心疲惫，其中又台商港商居多。最后还有一个不可忽视的群体，就是各地的大量青壮年劳动力。不可否认，这三个群体的情欲需求一日不解决，这行饭估计跟大禹治的水一样难搞。正如新东方的俞校长所担心的：“最近大家知道中国出了一件事情叫做东莞事件，这个好坏我们不加评说，但最重要的有一个叫东莞定律，中国经过了中央台的暗访以及政府的检查以后，可以预期的是在2014年或者是2015年东莞这样的市场会更加地兴旺，这是一种可能性。这引发了在很久前经济学家总结的黄宗羲定律，每一次政府想要减轻老百姓税收的改革最终带来的后果是老百姓税负的增加，这确实是事实。”当然，比起这种担心，我更期望这番话带着恨铁成钢的心思，心思的背后藏着满含泪水的期望，期望他们可以做的更好，而不是破罐破摔。其实对于色情业，我没有很多的话语权，既没有参与多少，也没有见证多少，顶多就是前阵子看了一篇南方人才的专题报道，那是国内著名的性学教父潘绥铭教授十几年红灯区的调查，有兴趣的朋友可以去看看，里面的很多事情让我有些出乎意料。如果可以，我建议我们领导人在做英明决策的时候，多看看有关这方面的研究，不要一味地以常规的思维去拍脑袋，结果拍出了意想不到的结果。最后，再想跟大家分享这么一个数据，据统计，色情业经济效益达到了东莞一年GDP的14%，小姐的年均人收入32万......种种的数据表明，色情业的繁荣"娼"盛对经济总量贡献很大。对此，东莞某市书记，说了一句颇让人玩味的话：东莞要是因为扫黄而变萧条了，那这个脸可丢大了。当然，我也不想这样，要真萧条了，不仅丢脸，我们公司的业务不好了，我的饭碗也可能丢了——对此，我的爱人一定会第一个出来反对。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

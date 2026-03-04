@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今天你和朋友“精神互撸”了吗？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>今天你和朋友“精神互撸”了吗？</h1>
+            <div class="date">2026-03-04 09:52:42</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>今天你和朋友“精神互撸”了吗？今天你和朋友“精神互撸”了吗？风墟风墟左岸读书2017年06月28日 08:54在小说阅读器中沉浸阅读上大学那会儿，我经常在晚上和几个舍友出去撸串喝酒。但实际上，我们撸的不是串，是人生；喝的不是酒，是寂寞。咬一口大腰子，痛骂学院教师种种不公，烤两串羊肉，对各种社会现象大肆批评；喝一口酒，我教舍友如何为人处世，再饮一杯，舍友分析马云何以成功；嘬一口香烟，我夸舍友义薄云天，可成一番大业，又点上一支，舍友赞我慧眼如炬，日后必是大材；我们沉浸在一种众人皆醒唯我独醉，遗世而独立的快感之中。在互相吹嘘的氛围里，营造出一种彼此都很有收获、茅塞顿开，明天就能顿悟搞个大新闻的幻觉。虽然第二天醒来还是一屋子的人吆五喝六的打LOL，但因为空虚无聊的大学生活，只有在喝酒撸串时才能够获得这种虚假的良好自我感受，所以我们一直乐此不疲。多年以后我才明白，原来那个时候我虽然和舍友之间并没有实质性的“基情”，但我们却一次次的在烧烤摊边、在夏夜的凉风中、在对旁边露出大白腿的女生的掩饰眼神中，干着“精神互撸”这种基情四射的勾当。什么是「精神互撸」？其实你对此并不陌生，甚至还相当的熟悉。旁友，你听过出租车司机们高谈阔论国际政治吗？兄弟，你见过大谈“互联网思维”的十八线产品经理吗？同学，你看过“高端精英”们在知乎酣畅淋漓的装逼吗？我给“精神互撸”下了这样一个定义：“精神互撸”（Mental Mutual Masturbation）：两个或一群人在一起谈论一些宽泛的概念、和缺乏实质性的内容，从而获得一种优于他人的自我感受，在惺惺相惜、互相吹捧中共同营造一种智力上升的幻想。我们之所以会和别人精神互撸，归根结底其实在于生活的空虚、和「自我认同」的缺乏。所以精神互撸这种情况的存在，在一定程度上和一个人的社会阶层与心智的成熟水平有很大的关系。越是底层又没有自知之明的人，比如广大杀马特、“社会人”等群体，越是喜欢精神互撸。他们热衷于摆场面、讲义气，在「喊麦」的“我弃江山、忘天下”、“败帝王 我斗苍天”的所谓的“霸气侧漏”的歌词中，共同营造出一种“我们这个群体更潮流”“我们社会人最有种”的群体优越感。但实际上是因为，他们无法获得「良好的学历背景」、「体面的工作」、「优渥的生活」、「足够的财富」等这些主流社会上支撑一个人自尊的东西，所以不得不通过抱团的形式，“硬造”出另一种价值观，将他们这个群体所能够拥有的一些特质，打造成一种更为“优越”的标签。要注意，在这里我们不是在宣扬“穷人有罪”这种价值观，而只是在陈述这样一个客观的事实：主流社会的确会以一个人的物质层面的资源拥有度来评判一个人。所以不仅底层的人喜欢精神互撸，一些有钱的、社会上层的，同样也缺乏自知之明的人也会喜欢精神互撸。古有魏晋时期的“清谈”，也就是一帮名士大夫，围绕着“天地生于有、还是生于无？”这一类的“傻逼”问题展开讨论，比的就是看谁说的更让人听不懂；今有打着辩论名义的娱乐节目《奇葩说》，双方辩手使用偷换概念、混淆主题、用情感扰乱事实等手段来“假装双方在辩论同一个问题”；同样，一些小众电影、小众音乐的爱好者，小说、影视剧、明星的死忠粉等等，也有一部分存在着群体内“精神互撸”的成分。参加了工作之后，每一年都特别特别的忙。以前固定的朋友聚会，基本也没有时间再去参加。一方面是没有时间，另一方面也越发觉得，所谓的老朋友、老兄弟聚会，也不过是一场又一场的大型“精神群P”而已。推杯换盏，你来我往，“不喝就是不给我面子”，各种语重心长的相互交代，我是觉得，这样的社交没有丝毫的意义，也只是纯粹的在浪费时间。我能想到当我一年年的不再参加“精神群P聚会”的时候，他们谈到我时会是这样的：一人手执香烟，故作沧桑的抽上一口：唉，风墟这一年年的不来，也太不把咱们当兄弟了。做人啊，最重要的就是你得念旧情，对吧？我跟你讲这……（以下省略500字人生哲理）言罢另一人接茬道：XX哥你说的对，做人，怎么能不念旧情呢？对不对？（做一脸严肃状）一个人他要是连老朋友都忘记了，那这个人，可就真不行了！（拍一下桌子）我觉得吧XXXXX（以下再省略500字人生哲理）我为什么不念旧情了呢？我觉得说得残酷点，是因为我懂得了更积极的生活方式。我不需要通过怀念过去的时光来获得自我认同，我不需要通过在一个群体内精神互撸来获得优越感，我拥有了很多高质量的朋友，我们会就需要的问题快速的沟通、即时的解决，他们不会打着朋友的名义来压榨我，我有专业问题咨询他们会向他们付费，他们与我合作分成清清楚楚。可以预见到，如果当初我没有决绝的做出了一些在他们看来很愚蠢的牺牲，非常贸然的就决定的转行，业余时间持续的看书写作，那么现在我肯定也会在每年聚会的时候，批判着那些不再来的朋友，并讲出一些看似很有哲理的话，获得其他人的认同，再认同其他人的“人生感悟”。我们谁都没有权力批判那些喜欢“精神互撸”的群体，毕竟我们每个人也都需要在疲惫、缺乏认同的某些时刻，找几个朋友谈天说地“来上一发”，以平衡内心的苦闷。但如果你沉迷于这种彼此吹捧、营造出来的“我很好”的幻觉，而不是去面对你自己的生活，为自己的生活负起责任，去进行一些有意义的创造。那么我记得有个词叫做“Loser”。左岸记：优越感是因为没有认识世界，自卑感是因为没有认识自己。一个人被优越感裹挟，也是一种自我迷失的状态，自卑感如是。优越感袭来时，人是飘着的；自卑感侵入，人会沉得很低——其实都是，｢把世界和自己弄丢了｣，找不到原原本本的自己，看不清自己深陷的世界。至关重要的问题是，有什么东西是我发自内心地热爱的？是我孜孜以求的？是我可以持续十几年、二十几年地交手而不腻烦的？是我无论风雨坎坷而紧握在手中不愿舍弃的？这个东西，就是我生命的常量。这个常量越大，说明你的格局越大，那么在此基础上的努力就会成几倍数增长。作者风墟，心理咨询师，个人微信号接收付费咨询：lianjizhe1874欢迎关注我的微信公众号：炼己者   ID：fengxuwake阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>咖啡的黑 牛奶的白（上）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>咖啡的黑 牛奶的白（上）</h1>
+            <div class="date">2026-03-04 09:53:42</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>咖啡的黑 牛奶的白（上）咖啡的黑 牛奶的白（上）原创金带鱼金带鱼左岸读书2017年07月29日 01:01在小说阅读器中沉浸阅读序幕没有拉开，指挥就说再见微笑没有启齿，眼泪就打湿衣衫厮守没有开始，爱人就远走他乡——from 张嘉佳距高考100天起，每天三杯咖啡。早上五点半起床，一杯浓咖啡，浓浓的香沁透了整个黎明。中午一点半午休后，一杯浓咖啡，热气氤氲了教室的玻璃窗。晚上八点晚自习前，一杯浓咖啡，昏黄的灯摇曳着青春的瞳孔。眼底一直有一抹深深的青灰嵌在那里，就如少女偷偷擦了妈妈的眼影一般，疲惫又嚣张。最后冲刺的100天，我干掉了300杯咖啡。彼时，我165cm，90斤，瘦弱而憔悴。高考过后，生活顿时变得慵懒起来，不再早起，不再熬夜，书本也被丢在一边，慢慢的罩上一层灰尘。但喝咖啡这个习惯却一直被我继承着不曾丢掉一分。妈妈说，这是瘾。爸爸妈妈无数次的劝告我：咖啡喝多了对身体不好。我每每听着随声附和，可一转身，却又捧起了咖啡杯子。他们采取了许多行动帮我戒掉咖啡，甚至把家里大包小包的咖啡全部都藏了起来，但最终都以失败告终。咖啡的浓香终是伴随着我度过了一个个晴天和雨天。拖着行李来到了大学，大学的确是一个全新的世界，我渐渐适应，生活平静无波。在这些温柔如水的日子里，我个子长高了，脾性温和了，头发一点点地漫过肩头，垂向腰肢。我依然喝咖啡，每天三杯。刚开始，舍友对我的这个习惯颇为好奇，当她们询问时，我每每总是盯着Maxwell包装精美的盒子浅浅的笑。时间长了，大家便都习惯了那浓浓的涩香，再没有人问。平静就这么继续着，一切安好。我的心仿佛是平静的湖在青春的流动中安静而美好，可是我却忘了，湖是最容易波动的，有时候只是投下一块石头就能在湖心激起千层涟漪。大一下学期的第一节国学课，一个温暖的周三下午。打着哈欠走进教室，教室里已经有了不少同学，几乎没有什么空位置了，只剩下第一排疏疏拉拉坐着几位同学，无奈之下，索性就挑了第一排中间的位置坐下，放下书包，习惯性地拿出杯子和咖啡，就着教室的饮水机浓浓地冲了一杯咖啡。顿时，咖啡的浓香随着分子运动散布到了教室的每个角落。阳光调皮地照着我的半边侧脸，我闭上眼睛惬意地享受着温暖。一阵轻轻的脚步声传来，原本哄闹的教室顿时安静了下来，我睁开眼睛，第一次见到他，我的国学老师。那一瞬间，我听到阳光拍打玻璃，风吹过枝头的声音，低低细细地吟出一首歌。他一身笔挺的西装，鲜明的五官，阳光在他的脸上投下一片阴影，棱角分明。明明是大学老师，却如此年轻。我愣愣的盯着他看，许是离得太近，目光太过热烈，他的眼睛温柔的看过来，“咖啡别喝得太多了，对身体不好”。他低沉的声音在耳边响起，我看到他的眼睛温柔地盛满了漫天星光，我感受到他的气息如四月里郊外的风清新美好，我听到自己心如擂鼓每个细胞都在震颤，却呆愣了半天，终于从喉咙里挤出了个“好”，声音确是沙哑得不像话。他开始上课，已经记不得那时他讲了些什么，只听到他的声音很温柔。我呆呆的看着课本，笔记翻开，良久，写下“陌上人如玉，君子世无双”。阳光斜斜的照进来，恍惚了整个下午。那杯咖啡安静地在桌子的一角，慢慢变凉。下课回到宿舍，舍友叽叽喳喳地讨论着这位年轻帅气的老师，从她们的口中，我得知，他书香世家，英年才俊，才华满腹，今年刚刚在北京大学读完了博士。她们说，他还是单身。心里一股异样的感觉升起，纤细绵长。那天，破天荒地没去冲咖啡，破天荒地拿起了上课时的讲义仔细地看，脑子里却一直浮现着那璀璨的眸子，不禁又想起了那句诗：陌上人如玉，公子世无双。下一个周三，午后，他的课。我第一个来到教室，故意挑选了第一排正中间的位置坐下，也是故意的拿出杯子沏了一大杯咖啡，然后焦急地等待着他的到来。心里惴惴不安，我知道自己在期待社么，紧张的同时又暗自嘲笑自己幼稚。我想让他进来第一眼就看到我，我希望他还记得我，我更希望他能像上次那样关心我，即使这种关心是再正常不过的一句问候。他来的时候教室里人还不多，他走上讲台，我闻见一股好闻的味道。偷偷地拿眼睛瞧他，黑色的衬衣外面是简单的一件灰色大衣，精致的腕表发出好看的色泽，清爽的短发，英俊的脸，我的意中人，如此干净美好。他的目光温和的扫过教室，也扫过我，我感到自己的脸微微发烫，深深地埋下头，咖啡的味道冲进我的鼻翼。一道低低的声音在耳边响起，顿时，世界安静得仿佛只剩下我们两个人。“你今天又喝咖啡了啊，喝的太多对身体不好，以后还是多喝牛奶吧”。明明是温柔极了的声音，可是我的头顶却如炸开一般，麻麻的，心脏跳的太过任性，嘶吼着要脱离我的身体。强压下所有的感觉，怔怔的抬起头，却正好对上他漂亮的眼睛，他站在讲台上，微微俯着身，那美丽的眼睛在微笑，终于，我咧开嘴，对他柔柔一笑。那个下午，我决定，戒掉咖啡，为了他。当我把咖啡杯换成牛奶杯，在阳光下看纯白的液体一点点沁人心脾，舍友吃惊的哇哇大叫，我仍旧是浅浅一笑。现在和以前是有些什么地方不一样了吧。等待是漫长的，思念是蛊。周四、周五、周六、周日、周一、周二，我细数着时光，在阳光下看时间从我的手中漏走，我的心温柔地如十五的月光。悄悄地在笔记上写下：玲珑骰子安红豆，入骨相思知不知。他，知道我的思念么？没有他的课的时候，我就安静地呆在图书馆，在没有他的地方翻他上课时的笔记，看他上课时推荐我们看的书，想象着他曾经看这些书的样子，旁边往往伴着一杯浓浓的牛奶，香气四溢。就这样，每一个平淡的日子里因为有了期待而不那么平淡，每一个夜晚都在对他的沉沉思念里浪漫得一塌糊涂，张嘉佳写过一段话：“我觉得这个世界美好无比。晴时满树花开，雨天一湖涟漪，阳光席卷城市，微风穿越指间，入夜每个电台播放的情歌，沿途每条山路铺开的影子，全部是你不经意写的一字一句，留我年复一年朗读。”我想，他就是我生命里的火，不经意的燃烧就照亮了我的青春，我沿着他的足迹去追寻他，怀抱着他的一言一语去铺就我的整个世界。我成了班级里面最努力也是最优秀的一个学生。他的课，我总是第一个到达教室，坐在第一排的中间，沏一杯热牛奶，打开讲义。别的老师的课亦是如此。其实我只想证明给他看，我是可以如此优秀，次次考试第一不过是为了获得他更多的注意。费尽心思曲曲折折却不过是一番小女生的心意。（未完）阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

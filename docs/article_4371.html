@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史不糊涂</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>历史不糊涂</h1>
+            <div class="date">2026-03-04 09:53:31</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>历史不糊涂历史不糊涂左岸读书2016年09月04日 21:42在小说阅读器中沉浸阅读《历史不糊涂》从唐朝风云人物揭秘中国政治传统定价：49.00书号：ISBN 978-7-5086-6377-7作者： 李拯出版社：中信出版集团出版时间：2016-8一、内容简介：历史有用，当它警示当下的时候；历史有趣，当它让你琢磨不透的时候。李世民一代雄主，竟然摆不平几个争宠的儿子？武则天打败了所有的敌人，最后竟然输给了无形的文化？李隆基前半生英明神武，后半生为何自暴自弃了？而那个叫嚣着“冲天香阵透长安”的黄巢，都打下了长安城，最后还是让手下的朱温当了皇帝。唐朝风云人物，每个人的命运都有峰回路转的曲折，也都充满了让人看不懂的悖论。人生属于他们，但是命运却掌握在历史这位法官手上。历史拿起的法锤就是治乱兴替的循环机制，它逍遥于寰宇之上，对人间的行为了然于心，这些帝王将相们稍有懈怠，它就会以改朝换代的代价来施以惩罚。历史不糊涂，任何人都别想蒙混过关。这就有了一个深沉的叩问：古代中国为什么会陷入治乱兴替的自我循环？这本书将从儒家思想、皇帝权力、官僚政治、既得利益与利益集团等多个角度，绘制成一幅中国政治传统的“认知地图”，再现古代中国制度衰败的真实过程，并揭示“历史周期律”的深层原因。这将是一场有趣有料的头脑风暴，关乎历史，更关乎我们所处的现在与即将抵达的未来。二、编辑推荐：★ 从14个风云人物观一代盛唐的兴起与衰落★ 看古代王侯将相如何玩转深奥莫测的官场厚黑学★ 内封原创精美漫画人物书签，一句话帮你读尽他们的一生★ 著名学者李辉、杨光斌、雷颐联名倾力推荐三、目标读者：官员可以从中读出权力法则、官场权谋，商人和企业家可以从中读出人性的奥秘与管理企业的启示，知识分子可以从中读出历史的温情与哲思。四、作者简介：李拯：一位“80后”思考者，对人类一切门类的文明成果充满好奇。从科学到人文，从华中科技大学到中国人民大学，砥砺思想是不变的初心，致力于把爱智求真的理性与悲天悯人的情怀熔于一炉。熟读多部史书，常读《资治通鉴》，尤爱盛唐风采，钟情于时间流变中不变的哲理，善于运用各种学科知识解析历史。回望唐朝风云人物，是为了揭示中国政治传统，获得思想的力量。时间终将老去，唯有思想不朽。现供职于人民日报社评论部。五、专家推荐：研究政治学的李拯，在对唐代人物的叙述时，自始至终贯穿着难得的冷静思考。他显然是在有意识摆脱传奇的轨道，让更深层次的政治学思考，融入历史研究之中。——著名作家 李辉读《历史不糊涂》给我最大的感受是，作者能把读者很快就带入了千年前的“现场”，和唐代的那些人物一道品味着“此情此景”，共度“此时此刻”。——中国人民大学国家发展与战略研究院副院长 杨光斌这是一部年轻人透视历史人物的力作，锋芒锐利，给人启发。——著名历史学家 雷颐六、目录：推荐序一 历史是镜子，更是追问推荐序二 文明基因是中华民族屹立不倒的根本前 言 时间的力量第一章 李密：“预言自我实现”的魔咒第二章 李世民：寻找合法性的失败第三章长孙无忌：权力与安全感的悖论第四章 徐世勣：“道德理想国”的虚伪表演第五章 武则天：时间进程的“一个断点”第六章 李隆基：绝对权力让皇帝陷入“认知困境”第七章 李林甫：以“信息不对称”制造“愚君政策”第八章 安禄山：既得利益导致制度衰变第九章 郭子仪、李光弼、仆固怀恩：不能预设个人对朝廷的无限责任第十章 李泌：被儒家掩盖的天才“布衣宰相”第十一章 裴度：“养寇自重”导致削藩失败第十二章 宦官群体：权力向皇帝的身边人集中第十三章 李德裕、牛僧孺：朋党车轮碾碎制度的正常运转第十四章 黄巢、朱温：流寇的失败与“身在朝廷反朝廷”的成功结论 一个认识中国传统政治的视角</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

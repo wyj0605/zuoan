@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>限电背后的黑金往事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>限电背后的黑金往事</h1>
+            <div class="date">2026-03-04 09:58:38</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>限电背后的黑金往事限电背后的黑金往事左岸读书2021年10月05日 07:32在小说阅读器中沉浸阅读以下文章来源于摩登中产，作者摩登中产摩登中产.用摩登视角，解读复杂时代。我们正站在周期的起点。一2003年，中国超20省电荒，南方多城商场停电梯，路灯开一半。长沙疯抢蜡烛，西湖一片黑暗，杭州富士康供应商买了5台柴油发电机，勉强度日，向街道哭诉：后悔来这设厂。全国性的电荒在冬夏爆发两轮，专家估算，给国民经济造成的损失超1万亿元。2003年冬天，华北、华东、东北电厂相继告急，多数电厂储煤支撑不了3天，拉闸限电的警报席卷南北。第二年开年，南方多省派专员北上山西，带大捆现金守在煤矿坑口，有煤出井，便一抢而空。后来发展到，不用见煤，购煤款直接压到煤老板手上：“一压就是几十万，一定要你先收下，争得头上青筋直冒，生怕你收了别人的钱。”电荒背后是煤疯，煤疯背后是亢奋的十年，南北灯火熄灭重叠着大宗商品异动，一个经济周期以最粗犷的方式拉开循环。异动开始前，卖煤在山西尚是落魄行当。当地人无路可寻才投身卖煤，给村长送条红塔山便可承包煤矿，一吨煤利润不足50元，买不了一瓶杏花村。煤老板多拖欠工资，各地游走催收回款，大年三十才敢趁夜色返乡。巨变如迅雷般突至。2001年，中国加入WTO，GDP以两位数狂飙，耗能巨大的冶金化工一飞冲天，大同到秦皇岛铁路上，万吨列车呼啸奔驰。2002年，中国取消电煤指导价，煤炭价格连翻数番，不久后，报纸将煤炭称为黑金。一吨煤利润已超500，一座年产30万吨的小煤矿，年利润1.53亿，日入41万元。无数运煤大车拥挤在吕梁的山路，常堵一天一夜，有时还因祸得福，堵车期间煤价也在上涨。黑色烟尘飘飞山西，将一切涂抹成黑色，多年后，贾樟柯说，那烟尘里尽是金钱的味道。山西小城高平，2004年有172座小煤矿。两年间，县城私家车增加了4000多辆，其中奥迪有180多辆。煤老板乘着时代电梯懵懂登场，巨额财富汇聚其身，表象荒唐又逻辑清晰。他们组团买悍马，组团修佛庙，生日酒宴也改吃空运的日本神户牛，理由是“这牛听音乐长大的”。太原成为豪车之都，山西旅行社推出88888出国套餐，煤老板出差山东，买特产登机麻烦，“那就顺便买几辆商务车一起带回去”。财力惊人的他们不知如何彰显财富，吕梁有煤老板，盖了三千多平河景房，为将门前黄河改道，特意修了座大坝。2004年，多名煤老板驾车进京，参加一场德国公司主办的拍卖会。会场设在北京国际俱乐部饭店，走廊灯罩乌黑，黑毯铺地，布置得恍如矿井。煤老板在拍卖场上倾情厮杀，主办方则在窃喜，一件青花小碟起拍不过7万欧，最后成交48万欧元。当然相比文物，煤老板更爱买房。他们山西一路买到海南，亦真亦假的段子中，煤老板海南购房，但配车要贵阳落户，理由是琼B谐音难听，贵A才符身份。买的最多还是北京房子。有煤老板进京，看中住宅楼，告知售楼处：从1楼到41楼阳面，他全买了，现金交易。那些年，潘石屹座上宾最多的就是煤老板。他每个月都会和销售深入山西矿区，宴请老板，称兄道弟。2006年8月8日，SOHO中国称：“近两年山西客户购买SOHO项目金额，已占到SOHO中国总销售额40%。”2007年，有煤老板进京购房，销售推荐望京的房子，他怒目而视：我在山西就望着北京，到北京还望什么京，给我推荐长安街的房子。二2005年，胡润推出能源富豪榜，上榜31位富豪，8位来自山西。首富张新明，在山西贩煤，公开信息寥寥，胡润估算其身价为10亿。张新明办公室平淡回应，“看到了，估算的差不多”。骤然拉开的贫富，让围观的村民眩晕，继而愤怒，那些年，山西村庄和煤矿频发冲突，当地称为“煤流感”。煤流感的终结，多以矿主发钱安抚了事。后期，煤老板组织了护矿队，豪车后备箱里，常装着匕首甚至火枪。黑金总能衍生出黑色的故事。财富的增速快过秩序的建立，时代字句衍生太快，煤老板已找不到自己所在之处。2008年，亢奋曲线到达高点，动力煤每吨价格破千。最疯狂时，每小时煤价都在上涨。随后，金融海啸震撼全球，煤炭价格骤跌，从沿海至内陆，存煤堆积如山。同年，山西襄汾特大溃坝事故发生，规模最大的煤改开启。此后两年，山西煤企从2000多家，急剧减少至130家，年产30万吨以下煤矿全部关停。煤老板慌张谢幕，他们怀揣巨资，淡出公众视野，各有命运。有人东南亚豪赌夜输千万，有人颓废吸毒倾家荡产，还有煤老板沉迷打猎，曾远去非洲，打了四头大象、六只长颈鹿，五只斑马：“别人都打羚羊之类的，我不打，要打就打大的。前半辈子太压抑了，既然来过瘾那就过足。你能懂那种感觉吗？”更多人继续搏杀商海，他们搞种植，做白酒，还有煤老板在北京华清嘉园小区创业，同小区还有美团的王兴和快手的宿华。煤老板的团购项目，很快在千团大战中败北。粗糙的商业逻辑，已追不上时代的精度。2008年后，大批手握重金的煤老板，找到老乡贾樟柯，询问怎么投资电影。很快，他们涌入影视圈，要求女主是女友，主演是大牌，最开心活动是走红毯。有煤老板长春电影节踩错步点，没被摄像拍到，从此一怒“再不拍电影”。宁浩的《黄金大劫案》，新人女星是李兆会的绯闻女友。李少红的新版《红楼梦》，拍摄时，十二金钗要坐陪煤老板的酒局。2010年，导演们在上海电影节集体吐槽煤老板。彭浩翔抱怨称：不能给我3000万，就非得让我弄出个《阿凡达》。然而多年后，他们又开始想念煤老板。编剧王海林说：怀念煤老板，从不干预我们创作，除了要求找女演员外，没有别的要求。2012年，煤炭行业再迎拐点，煤价每吨跌至200元，大量煤企开车到电厂，堵门卖煤。煤炭黄金十年就此作结，粗放的时代转向科技的航道。两年后，山西GDP增速排名，恢复到2000年位置。太原LV店关闭，鄂尔多斯几近空城，2012年，SOHO中国销售任务只完成四成。潘石屹称，煤老板客户已所剩无几。曾经号称亿万富翁能站满广场的陕西神木，商业街破败凋零。那年这里被称小香港，路边烟酒店一年都能赚60万。煤车轰隆碾过时代，最终留下一个粗糙的注脚。三今年9月，前山西首富李兆会重回新闻，上海法院发布悬赏，找到他的人可获奖金2162万。2003年，22岁他执掌家族钢厂时，因熬过电荒而扬名。18年后，他再登头条时，新一轮限电又已开始。最初，限电的消息传自南方的工厂。社交媒体的零散信息中，工厂抱怨断电频繁。9月15日，20省宣布限电，多地企业要求“开三停四”“开二停五”甚至“开一停六”。9月22日，多家上市公司发布公告，生产线临时停产。一天后，东北突然居民限电，国家电网工作人员解释称，因存在电力缺口，整个电网有崩溃风险。长春的商场提前关门，沈阳沈北的红绿灯停止运转。入夜，人们走上街头，穿过公园，公园儿童小火车收车，车上玩具灯，成为唯一的光。在黑龙江小镇，有90后爬上山坡，看山坡对面的小城，小城漆黑一片，如同消失一般。断电的长夜，手机信号只有一格，移动网络时断时续，许多人家中已停水。窗外，零星车辆凭感觉慢速驶过，发电机嗡鸣如城市微弱喘息。电荒再袭后，成因曾屡遭推测。然而大棋论并不存在，最直接原因还是缺煤。今年上半年，国内原煤产量增速，远低于用电增速，此外多重原因导致今年全国煤炭产能不足。东北限电后，9月27日，吉林表示，将派专人到内蒙古，驻扎煤矿，落实合同，同时抓紧推进俄煤、印尼煤、蒙古煤等外采计划。对于省内自产煤企，要求则是“能开尽开，开足马力，释放产能”。限电终会结束，而比限电更强的信号，是全球范围内，大宗商品暴涨，我们或将迎来一个昂贵的冬天。而按照康波理论，大宗商品的异动，总代表新周期的开始。……那辆列车驶出长夜，92派企业家白手登场，煤老板荒唐上车又踉跄离去，随后的互联网精英正在抓紧座椅。窗外，列车驶过荒野，穿过楼群，见过长草摇摆，经过暴雨莽原，挺过金融的飓风，又驶入疫情的迷雾，凄厉的海风正敲打车窗，周期的震动沿铁轨传来。现在，这辆列车开到了今天。左岸记：在大趋势大周期里，我们身在其中，谁也无法独善其身。1.大背景是“碳中和”战略被正式纳入实施阶段；2.电价不能涨，煤炭价格在涨，还占7成煤电厂就只能亏损发电；3.中国的产能扩张，却没有带来利润的高增长，限产，可以提高中国轻工制造产业在国际供应链中的议价权；4.要预防通胀风险，钱在供应端过热，可以拉动生产，但转移到消费端过热，就极容易引发物价上涨，通货膨胀。5.要预防产业过热，中国现在需要扩张的是中高端制造业，不是低端制造业。那么，如果限电是必须，也请限之有序有度，而不是随便拉闸了事。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我有一部时光机，飞到东来飞到西</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我有一部时光机，飞到东来飞到西</h1>
+            <div class="date">2026-03-04 09:55:11</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>我有一部时光机，飞到东来飞到西我有一部时光机，飞到东来飞到西原创符毅符毅左岸读书2017年09月01日 01:14在小说阅读器中沉浸阅读如果有时光机，我会撮合老子、哈耶克和塔勒布三兄弟，来一期时空三人行。《反脆弱》提出与2500年前《道德经》近乎相同的世界观时，我就有了这个想法。老子，出生于公元前571年，是大哥。哈耶克生于1899年，是老二。塔勒布最小。01.老大的老大老子：“人说‘老子天下第一’。”“其实我是偷的师……”“有人解开了宇宙的密码……”“他是伏羲。”上古，极乐国华胥有个姑娘，到一个叫雷泽的地方去游玩，看到一个巨大的脚印，好奇踩了一下，就有了身孕，生下一子，人首蛇身，取名伏羲。伏羲创八卦，八卦是易经的基础。中华文化源于易经，所有人都偷了师。02.三家归易老子：“今天讲三家。”“哪三家。”“有人说，老子是思想家、哈耶克是空想家、塔勒布是冥想家。”“我说的是夏、商、周三家。”“《易经》指夏代的《连山》、商代的《归藏》及周代的《周易》，这三部经书统称为易经。”“《连山》、《归藏》已失传，传世只有《周易》。从本质上来讲，《易经》是阐述未来变化的书。”“就是算命的。”“肤浅。”塔勒布：“易经怎么姓周了。”“周文王坐牢的时候，闲得慌，研究了《易经》，整出不少新玩意。”“老周比大哥行耶。”“每个人都看懂了易经，也都看不懂易经。”哈耶克：“好玄奥。”塔勒布：“故弄玄虚。”老子：“因为每个人站的角度不一样，每个人实际只看懂了易经的一部分。”“你看懂了多少。”“道家是易经的一个别派，易经永远看不完。”老子说：“道生一，一生二，二生三，三生万物。生生化化，无极无穷，又怎么看得完”。03.三人行老子：“昨天有小朋友画了幅图。”塔勒布：“画得太简单了。”老子：“‘大道至简’嘛。”老子：“老二，你在国内比我火。”哈耶克：“大哥，你在国外比我火。”塔勒布：“二哥在国外打大哥的幌子。”塔勒布：“1966年，二哥在东京作《自由主义社会秩序诸原则》的演讲时，有人质疑他的自发秩序理论。他激动地反问：“难道这一切不正是《老子》第57章所说：‘我无为，而民自化，我好静，而民自正’吗？”哈耶克：“你还好意思说，大哥说‘大繁若简，大成若缺’，你就说‘保持简单，拒绝复杂’；大哥说‘绝圣弃智’，你就说‘摈弃理论’；大哥说‘抱朴守拙’，你就说‘保持愚蠢’；大哥说‘为道日损’，你就说‘少即是多’。”老子：“莫争。”“二弟、三弟随我仰首。”“看那浩瀚星海……”04.孔大大“大腕。”“我学生。”“影响比我大。”“猜出没。”“孔大大。”“大大，他很大吗。”老子：“按西周尺度换算，小孔身高1米9。”“小孔年轻时做过几任小官，但他大部分时间从事教育，所收弟子多达三千人。”“这么多人咋住呀。”“就数他房产多，到处是孔庙，孔子学院都开到全世界啦。”“人送雅号，春秋王健林。”主角登场……     (此处应有掌声)“hi, 老老。”“hi, 小孔。”老子：“春秋以来，《诗》《书》《礼》《乐》《易》《春秋》《论语》 不断再版，你早都奔“小康”啰。（小康语自孔子）“科举时代，你整个‘有教无类’，搞得人人必修‘四书五经’，是为了促销吧。”孔子：“还是老老懂我。我定了个小目标，年销1亿册。”老子：“最近混得好吗。”孔子：“不好，没人信俺了。”老子：“听说你连小孩都搞不定。”孔子周游列国，四处讲学。一天，他坐车赶路，发现有个小孩用沙土堆了一座城。这个小孩就是项橐。车被城挡住了，走不了。可这小孩仍在玩着，就象没有看见一样。孔子说“你怎么不知道车来了要让路呢?”项橐这才抬起头来说：“从古至今，只听说车要绕城而过，那有城要避开车的道理？”孔子：“我说不过他，所以拜他为师。”老子：“你是‘不耻下问’，现在人是‘好为人师’。”“你说‘学而优则仕’，本意是学习了还有余力，就去做官。但现在人人都想当官，没人愿意钻研学问。”“还有三十而立，四十而不惑。现在三十还啃老，四十还是巨婴。”老子：“我倡导‘道德’，小孔倡导‘德道’，‘依法治国’，‘以德治国’是国家发展的必由之路，终极目标是‘天下为公’，‘大同社会’。”“虽不能至，然心向往之。”四人列队，神色肃然，眼光深邃，遥望远方，作向往状……“甭演了。”“教你们这么多，我饿了。”吃啥？05．深夜食堂“那不是孟子吗”。“小孟，请客”。孟子：“鱼，我所欲也；熊掌，亦我所欲也”。“吃这么好。”“他弟子多。”“孟子不是吃素的嘛。”孟子：“我啥时说过。”“你说过。”“君子之于禽兽也，见其生，不忍见其死；闻其声，不忍食其肉，是以君子远庖厨也。”“说一套做一套。”“小孟可不是说一套做一套，他是只有机会说，没有机会做。小孟游走列国，宣传仁政，各国君主虽礼待于他，却没有一个采纳他的主张。”“你和那些习惯高高在上的家伙说‘民为贵，社稷次之，君为轻’，他们怎么听得进去。生不逢时呀，不扯这些陈年烂谷子了，吃吧。”“吃……”“小孟，你妈她好吗？”“你们搬了三次家，好久没见了，她现在还织布吗？”06．小庄老子：“出去晃晃。”“走。”“前面有园子。”“漆园。”“屈原在哪。”“你瞎呀。”“看园的有点眼熟。” （庄子曾任漆园吏）庄子唱着《逍遥游》出场。“哇，小虎队的歌都懂。”“小庄会来事，是网红。”“还有网络。”“是天网，没看过天网公司的广告吗，‘天网恢恢，疏而不漏’。”“鱼儿们在水里，多快乐啊！”庄子穿着草鞋，站在水边叹息。“你又不是鱼，怎么知道，鱼是快乐的呢？”“咦？”庄子严肃地反问，“你又不是我，怎么知道我不知道鱼的快乐呢？”“更奇怪了，你又不是我，怎么知道我不知道你不知道鱼的快乐呢？”老子：“知道你行了，老文学青年，东施效颦”、“邯郸学步”、“庖丁解牛”、“天人合一”都你整的，老有才啦。”庄子：“这还差不多。”“话说回来，我还不是学你，有你才有我。”老子：“还是你潇洒，所谓‘游戏人生’不就是从你这开始的。”07．扯些有用的“记录的，你笑啥。”作者哥：“微信上有个叫‘虫子’的问，你们能不能扯些有用的。”“群众有意见了，我说点带劲的。”老子：“我一河南老乡张磊，当年是个学霸，学国际金融的，前些天给人大捐了3亿。”2005年，张磊创立高瓴资本，第一笔投资就是腾讯。一直到现在，还持有腾讯的股份。后面又陆续投资了百度、京东、滴滴、美团等。十二年过后，高瓴资本管理的基金规模从最初的2000万美金发展到现在的300亿美金，已成为亚洲最大的私募股权管理基金之一。“捐款那天是2017年6月23号，恰逢人大80周年校庆，小张在发言时提到我了。”“他说，作为投资人，我常说起我的三个投资哲学，也是在公司里反复强调并实践的。分别是：“守正用奇”、“弱水三千，但取一瓢”、“桃李不言、下自成蹊”。虽然现代金融投资的工具和方法大多源于西方，但如何使用好这些工具，我还是更推崇我们优秀的中国哲学思想和传统民族文化，所以我们要有充分的文化自信。”老子：“二弟三弟，中国新歌声第二季开播，我走啰，时空三人行第二季再来，Bye!”哈耶克：“最后一个问题。”“人心不古，天道安在。”“你信，或者不信，道就在那里，不来不去。你用或者不用，道就在那里，不增不减……”左岸记：用小品的方式把这些思想大师表现得这么可爱，是不是感觉很亲近呢？要是这些人你耳熟能详，那读起来就更有意思了。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不只是一座城的爱恋</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>不只是一座城的爱恋</h1>
+            <div class="date">2026-03-04 09:52:08</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>不只是一座城的爱恋不只是一座城的爱恋稻田稻田左岸读书2023年04月18日 20:08福建在小说阅读器中沉浸阅读文/稻田“自古诗人例到蜀，好将新句贮行囊。”天府成都是诗人的报到地，也是诗情的催生地。仰望成都的悠悠星空，李白、杜甫、白居易、苏轼、陆游……千年而来，群星璀璨，佳句生辉。“九天开出一成都，万户千门入画图。”“青羊宫前锦江路，曾为梅花醉十年。”成都催生了诗歌，诗歌也举荐了成都，让人感到神奇的是，一颗在当代才加入的无名微星竟然也骤然间发出烈光，搅动起万千心潮，吸引了八方目光， 将成都又一次迷人传播，这就是民谣歌手赵雷和他的歌曲《成都》。《成都》只是一首十余行的民谣小诗，近似口语的诗句在歌手赵雷的自弹独吟中，伴着舒缓和伤感的旋律流淌出来，却掀起了持续不断的情感波澜，生发出层出不穷的兴味效应。于是人们独自或合唱着“余路还要走多久，你攥着我的手”，在依依不舍地回眸中，让意念更久地沉浸于过去，在深情的伤感中纾解负重的身心，甚而情不自禁，移动脚步，向远在西南的成都走去，欲到现场去感悟歌曲的意韵，像到圣地朝拜一般。和万千“向歌而行”的人们一样，我也踏上了“朝拜”的路途。在一个彩灯晶莹的春天的夜晚，我来到了歌曲里说的“玉林路”，准确地说是玉林西路。转弯面对路口的一刻，我竟然目光无着，身体微颤，这是情急所致，急于要看到那个令人遐想的“小酒馆”，并想解开《成都》这首歌魅力的奥秘。“你会挽着我的衣袖，我会把手揣进裤兜，走到玉林路的尽头，坐在小酒馆的门口。”这幅画面是歌曲凸显给听众的定格与留白，令人沉浸其中，浮想万千。我边走，边刻意想象着……同伴的指示将我的目光定位，那是一个人影攒动的区域，人们高高低低地举着手机向着同一个目标拍照——“小酒馆”，暖黄的灯箱里，三个黑色的字体映现在临街一间店面的上端。聚集在门前的人群姿态各异，或拍照，或静立，或细语，但似乎都想多停留于此地，显出意犹未尽的神态。店门一侧的窗台下设有一条砖基的木凳，有一中年男子独坐无语。在我的意识里，歌曲中的那对情侣应是坐在门前的台阶上默默仰望夜空的，那样才既显得深情，又显得孤独和慌恐？这里是歌曲的首唱地，可以想象当年那个风尘仆仆的流浪歌手在小酒馆里深情弹唱的样子。推门所见是密密的客人和繁忙的侍者。狭小的空间和呛人的烟雾里，客人们围拢坐着，各自看着手机，或者杯酒相伴，独自发呆，神奇的安静之中有一种莫名的气场包围过来。除了供人侧行的过道，已经没有空间，连四周的屋柱和墙壁都被密密麻麻、层层叠叠的字迹占领，它们是客人情绪的漫延，虽然多数是笼统的祝福或仅仅只是见证到此的签名，但却已经分明让人感觉到了书写者心潮的激涌。离开“小酒馆”后的时间里，再次聆听和审视这首歌的词曲，“大众际遇和情怀”的标签晃然于前，这或许是这首歌巨大魅力的奥秘所在，是小众的赵雷以己为歌，以心写诗，无意中唤醒了大众的记忆、扣动了大众的心门，于是引来了潮水般的呼应。人们在聆听和歌唱中咀嚼人生，回味过往，抚慰伤痛，憧憬后来。民谣不凡，小诗不小，它有太多的人生相似供人们寄托和找寻。那个夜阑灯熄、挽手长街的情侣背影，那个席地而坐、目光悠远或茫然的身姿眼神，不就是自己的曾经，如今想起，是那样遥远和切近。一句“让我感到为难的是挣扎的自由”，又使多少被生计或理想迫使的人们想起了抛离情意的挣扎？赵雷在《成都》中替人们说出了心声。对珍贵过往的怀念是生命的延续和完善，但回忆终究是现实不可找回的追寻，一句“分别总是在九月，回忆是思念的愁”，既带出了难忘的回忆，更精准地揭示了无数情怀之人心灵深处的千般愁绪，开启了人们的无尽浮想。那一缕亲吻额头的绿柳，那一座阴雨温存的小城，还有那山那河，那树那井，那高大或矮小的房屋，那悠长或转弯的街巷，更有远去的心仪或敬爱的面孔与身影，单个的，群体的，有声的，无声的…..太多太多，都纷然而至，又都飘然而去。这是多么深沉的思念，多么悠长的情愁，又带给了回忆者多少生命的感悟和精神的滋养！在为歌曲《成都》感动之余，我又想到歌曲首唱地玉林路小酒馆的所见，那些持续数年，朝拜一般不辞遥远纷集于此的人们，该如何去评价呢？之所以产生这样的问题，是我在现场亲历时，内心瞬间闪过的一阵触痛。这些以青年为主体的热衷者们，竟把在一个狭小空间里静处当作特别选择的要事，只因为这是心爱之歌的诞生地，只因为在这个特殊的空间里可以得到更多的抚慰，或者仅仅是为到此一游，满足好奇？我无法断定，如果是前者，这该是有多重的艰难和多少的缺失在其中，需要到爱歌的原点来汲取支援呢？无论如何，歌曲《成都》都是一首值得特别推崇的歌，它以平民的体验和感悟扣动了大众的心灵之门，给人们以情绪的释放、心灵的抚慰，以及精神的升华和生活的憧憬。《成都》，已经不只是一座城的爱恋。左岸记：平时听歌，觉得好听就收藏了，却甚少去了解这歌背后的故事，看完稻田老师在《成都》里的游历，这歌就不仅仅是一首歌的存在，而是一个老朋友的浅吟低唱，情真意切。初闻不知曲中意，再闻已是曲中人。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

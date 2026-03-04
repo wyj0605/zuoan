@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>油菜花的田园风情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>油菜花的田园风情</h1>
+            <div class="date">2026-03-04 09:56:10</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>油菜花的田园风情油菜花的田园风情原创马诗途马诗途左岸读书2025年03月31日 10:30福建在小说阅读器中沉浸阅读文/马诗途春回大地，万物复苏，又是一年芳草绿，又是一度春花红。“春日迟迟，卉木萋萋，仓庚喈喈，采繁祁祁”。多么静好的春日啊！暖暖远人村，依依墟里烟。狗吠深巷中，鸡鸣桑树颠”。多么宁静的乡村！三月来了，春意盎然，风和日丽，气温回暖，鲜花也开始绽放。又到了一年一度赏花的季节！说到春天的花，油菜花估计是不少人的最佳首选。当我踏入2025湖北春季十大赏花目的地——当阳河溶古镇红日村十万亩连片油菜花田，就仿佛踏入了一个超脱尘世的仙境。沿着笔直的花田绿道前行，清风裹挟着浓郁的花香扑面而来。抬眼望去，天空纯净得没有一丝杂质，宛如一块巨大的蓝色画布，而这十万亩油菜花田则像是大地馈赠给天空的一份厚礼。凝视着被风摇荡、此起彼伏的油菜花海，我仿佛看见“黄色燃料”在流淌，它的黄与田埂上的绿，泾渭分明，相映成趣。我蹲在一株油菜前，只见那花朵细小而密集，一簇一簇的紧凑枝头，一只只嘤嘤嗡嗡的小蜜蜂飞过来飞过去，吸着花蕊，享受着春天的“甜蜜”。油菜花，《本草纲目》上说它又名芸苔、寒菜、胡菜、苔菜、苔芥、青菜、红油菜等，其性“寒热，有主治风游丹肿、乳痈”的功效。“黄萼裳裳绿叶稠，千村欣卜榨新油。爱他生计资民用，不是闲花野草流”。这是古人对油菜花的充分肯定和赞美。诚然，油菜花不像牡丹、芍药那样天生“带着贵族气”，然而它不是“杂草闲花”，从田野到餐桌，它的美丽、它的滋味，深得老百姓的喜欢。我尽情穿行于横七竖八的油菜花田梗中间。远处，几座古朴的农舍错落有致地坐落在花海里，袅袅炊烟从屋顶缓缓升起，为这片充满生机的田野增添了浓浓的人间烟火气。此时此刻，仿佛时间都为之静止，一切都沉浸在这份宁静与美好之中，让人不禁沉醉在这如梦如幻的乡村美景里。走在这片油菜花田的中央，只见矗立着一座造型别致的观景台。我饶有兴致的信步登上观景台，极目远眺，整个十万亩油菜花田的绝美风光尽收眼底。那大片大片的金黄在阳光的照耀下，闪烁着迷人的光彩，仿佛是一片金色的海洋在熠熠生辉。这时夕阳的余晖洒在油菜花田上，整个世界仿佛被染成了一片温暖的金黄。那柔和的光线给这片花海披上了一层金色的薄纱，让原本就美丽的油菜花田变得更加如梦如幻，美得令人窒息。在这个快节奏的社会里，我眼前这十万亩油菜花田宛如一片宁静的世外桃源。在这里，你可以放慢脚步，静下心来，细细品味大自然的美好与馈赠。面对如此美轮美奂的金黄色油菜花，笔者更有几分诗意萦怀，信口占得一首：油菜花开遍地黄/宛如金海映晴阳/我观花海心欢畅/恰似神仙入画堂。正是这片金黄的油菜花海，不仅给人带来了视觉上的震撼与享受，更让人们的心灵得到了一次深度的洗礼。左岸记：在百花争艳的春日里，油菜花是最谦逊的诗人。其实生命无需以孤傲的姿态证明存在，当无数微小个体的光芒相互辉映，平凡便织就了壮阔的史诗。最朴素的绽放，往往酝酿着最磅礴的春天。枯萎的荚果终将裂开，撒落的不仅是种子，更是无数个岁月的轮回。【作者简介】马诗途，自由撰稿人。一位“50”后，坚持用安静的文字，荡漾一池春水的宁静；用人间的烟火，解读不一样的诗情和人生哲理。擅长诗歌、散文、随笔写作，文字风格简约明快，通俗多变。恭谢文朋诗友们持续关注雅读。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

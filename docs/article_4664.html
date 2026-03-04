@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山水桃源里，出入两随心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>山水桃源里，出入两随心</h1>
+            <div class="date">2026-03-04 09:54:31</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>山水桃源里，出入两随心山水桃源里，出入两随心稻田稻田左岸读书2021年06月19日 22:04在小说阅读器中沉浸阅读文/稻田常有旅行经历又兴趣品味见闻的人，总会在某一情景出现的刹那，心生涟漪，甚至热血沸腾。例如在干涸的戈壁行走，忽然看见盎然簇立的绿洲；攀上黄昏的山顶，意外看到如金蛇盘曲扭动的河流；以及雪峰在湖面的婀娜倒影，山野深处孤立民屋的灯光等，无不令我纠结于怀，想要从中感受和发现什么。初春时节湘西一行，无论当时还是过后，那从天而降般静卧于青山翠谷间的苗寨村镇总令我激动和感动，每每在心里复现，总会如湘西山谷间的云雾，激荡起伏，飘摇聚散。打开湘西地图，慢慢地将其放大，你会发现这样一个生动的现象，粗粗细细、弯弯曲曲的河流在山谷里游走，像找寻各自的祖脉一般，并接，吸纳，形成了一张疏疏密密的网，这张网将山水连接了起来，也将人群聚集了起来，于是在山谷的深处，在河流的转弯处，形成了一簇簇大大小小、层层叠叠的村寨城镇，山水也因为人烟的加入而多了灵动。背靠青山，胸怀清流，靠山吃山，依水亲水的同时，还利用山谷间狭小的土地为生活培育必需的作物 —— 有限的土地在精细的耕作之下，显出倍受珍视后的精致，条条块块，肥沃葱茏，与青山碧水和木屋青瓦一道，组成了一幅幅山谷间的水墨丹青，一派生机 、宁静与祥和。湘西的山水有其特别的气质，山高谷深，树翠流清，山水相依，刚柔相济；湘西的人烟有其突出的神态，安静而飘逸，自在而平和。游人到湘西是可以去洗心和寻梦的，事实上，到湘西去旅游的人也多是为此。但有多少游人知道或兴趣眼前的梦幻今生曾有过的悲壮前世呢？苗寨为什么选择山谷？苗人为什么深居群山？在矮寨大桥的苗族风情馆里，我看到了一幅已经发黄的地图，标注着苗族悲壮曲折的迁徙路途。这条由东部平原向西南山区逐步深入的路途延续了数千年，从先祖蚩尤率九黎部落与东进的炎黄部落“逐鹿中原”，战败退出，到南迁江汉，再度崛起，与尧、舜、禹三代连续征战，再次战败而被迫迁入江西、湖南的崇山峻岭 ，直至秦汉以后历朝统治者的不断“进剿”，在历经顽强反抗的悲壮岁月洗礼以后，最终在湘川黔相交的崇山深谷间定居下来。后来的人们在湘西的梦幻山水间感受苗寨村镇的幽静、祥和意境时，是难以发现和想象其来途的刀光剑影与悲情奔徙的。苗人爱惜山水，但选择却是出于命运的逼迫，这真是一件滋味复杂的事情。好在时光具有洗刷悲苦、留存快乐的强大功能和天性，湘西的崇山峻岭也发挥了屏蔽尘世搅扰的作用。千年以往，草木枯荣、云雾聚散之间，给苗族的后代留下了一方秀美的栖息繁衍之地，使他们心安理得又心平气静地生活于其中，感受于其中，也满足于其中。至今我都印象深刻地记得这样一幅画面，在排拔苗寨到吕洞山镇的山间公路上，沿途陆续走来背着竹篓，穿着民族服装的男女，对襟的布衫，青黑的包头，因上坡而微倾的腰身，以及如路边水田般平静的表情，目睹的那一刻，一下子就将我带入到一种悠缓、隔世和沉静的氛围里。这是日常的苗寨、日常的苗民，与宣传或展演里的珠光宝气和色彩缤纷区别开来，但因为日常而真实，因为真实而更有震撼感。这种震撼感延续到不远的集市上，原来，山路上躬身缓行的苗民多是去吕洞山镇赶集市的。吕洞山镇一条狭窄的街市上，穿着苗族服装的身影已经触目皆是，或蹲在地摊前静等买客，或作为买客三五成群，围在某一摊位前交谈。给我印象最为深刻的是一群苗族年长妇女，或许是已经完成了买卖，又或许只是借赶集会友，她们一律戴着青黑或白色的包头，穿着饰有青黑色衣边的圆领布衫，虽已上了年纪，肤色却透着细嫩和皙白，在一间店铺前的水泥台阶上错落地坐着，或笑谈，或静默，或大口地咀嚼着食物，一副旁若无人的轻松和自然。于她们而言，只是在自己的家园，按自己的习惯和情绪展示着音容笑貌和言行举止，一句话，平常的生活而已。而作为外来者的我则在新鲜之余，品味到了一种历经磨难和遗世独立许久后的安然。苗族先辈躲避官兵追杀，翻山越岭来到吕洞山下的历史已经久远到模糊和陌生，苗族首领带领疲惫的部众叩拜吕洞圣山，带领先民伐木筑屋、在云山秀水的吕洞山区安营扎寨，围猎耕耘，繁衍生息的过往已经成为苗歌里的传说，时光带走了沉重，艰辛换来了补偿，嘈杂转向了平静，历史和命运的蜕变，作为一个形象的体现，就是我在今天的吕洞街市看到和感受到的苗族阿婆们的安然和云淡风轻吧？在湘西的苗寨村镇里行走，高山环抱、云水秀丽的环境，总会令我想起“桃源”来。陶渊明描绘的桃源在湘西的常德，其实整个湘西都可看作“桃源”，山林秀美，屋舍俨然，遗世独立，心无尘事，“黄发垂髫，并怡然自乐”，像这样的美景仙境在湘西的群山深谷中不是比比皆是吗？但陶翁笔下的桃源已经是艺术化了的桃源，游人以审美的视角看到的湘西也只是其秀美幽静的一个侧面，其实湘西只是偏居一隅，远离闹市和喧嚣尘杂，并非世外，自然也不能“独立”，值得我们去琢磨的问题倒是湘西自然人文所蕴含的文化启示。许久以来，我一直对居于山野僻地，特别是寒荒之域的现象心存不解。在湘西以外的西南云贵，在闽地西北，在西域戈壁，在黄土高原，以及国境之外的沙漠丛林、极寒雪地等，我们只要稍作留意，都能看到人烟居所。别说像湘西这样的山水秀美之地有其宜居之利，那些付出极致努力也难免艰难为生的地方，依然会像有磁力一般将人们紧紧地吸附在它的地域。这到底是为什么？他们从何处来？他们从何时至？他们又因何而来？这些问题在我心里积存了许久，湘西之行使我有了一个至少可以解释的答案。每一个族群，每一个人都带着“迁徙”的烙印，主动或被动，均为求生而至，均以习惯为常，天长日久，经代延传，已视他乡为故乡，在天人相处和人际交往中形成了集体文化，心理、意识、观念、习俗、规矩等融汇成的文化发挥着它强大的向心和排斥作用，使人们留在文化围筑的“舒适区”里，在一种熟悉的节奏和方式中感受生活的适意，在一种可能艰难却一定简单的环境里“怡然自乐”。对于远离尘嚣、处于熟悉、归于简单和平实的生活应如何看待和对待，遭遇不同，处境有别，观念相异，答案必定各执其说，天壤之别。我无力给出更好的回答，只是希望这种偏处一隅的“山谷人生”不闭塞视听，不束缚腿脚，且有多种道路可供自由地选择。我想，当人生是可以听从心意、自由选择的时候，应该就是最人性、最美好的人生了吧。左岸记：稻田先生视野之广阔，内心之丰盈，见解之睿智，每一段旅程都能令我有所收获，得到与以往不一样的认识。心中的桃源，应该出入自由！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

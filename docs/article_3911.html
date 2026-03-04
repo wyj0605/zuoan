@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一个男人的成长史</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>一个男人的成长史</h1>
+            <div class="date">2026-03-04 09:52:00</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>一个男人的成长史一个男人的成长史原创我是左岸我是左岸左岸读书2019年10月25日 23:33在小说阅读器中沉浸阅读文/洱海扁舟麦克·柯里昂坐在椅子上，皱纹爬满了它的脸庞，他最后望了这个萧索的世界一眼，颤抖地把墨镜戴上，之后突然地从椅子上垂下了手，继而跌落下去，再也没有起来。四围寂静，满目荒凉，只有一只小狗在身旁。一代教父，就这样走完了他辉煌而惨淡的一生。人生有很多种选择，而对麦克来说，成为教父，这是青年时的他从来没有想到的吧？出生在有黑帮背景的柯里昂家族，作为老教父维托·柯里昂的幼子，他却向来与父亲和哥哥们不一样，他单纯、善良，读大学、参军，执意要走一条“正路”，报效国家，实现自己的价值。与哥哥们在一起各言其志，他对家族的生意毫无兴趣，坚定地站在他们的对立面；在姐姐的婚礼上，他一身军装显得尤为突兀；与女友谈心，他表示自己和自己的家族不一样。如果足够幸运，父亲未遭遇刺杀险些丧命，哥哥桑尼未被人设计乱枪打死，那么，他仍然会这样天真地无忧无虑地活下去吧？然而，人生充满了偶然和不确定，家族的巨变终究将他的命运扭转，或者说，拉回了他作为教父之子本该选择的轨道。两声枪响，果敢地将刺杀父亲的毒枭和帮凶警察的脑袋打开了花，为了守护自己的亲人，自己的家族，他，不再是平民，不再是战争英雄，不再是“大学生”，而是即将登场的新一代教父。“当神已无能为力，便只有魔渡众生。”一切为了生意，一切为了利益，身处如此境地，如果说先前的麦克是一只温顺的羊，那么成为新教父的他则是一只狮子，一头猛虎。环顾四周，危机四伏，弱肉强食的丛林法则支配着风云激荡的江湖，要生存下来，他必须强大，甚至，狠辣。“不要让你的敌人知道你的想法”，父亲的教诲言之谆谆，麦克变得沉默而坚毅；“离你的朋友近些，但要离你的敌人更近些，这样你才能了解他”，麦克变得冷静而果敢；“社会上常常有突如其来的侮辱，那是必须忍受的”，麦克变得隐忍而阴郁。很难说这样的麦克是可爱的，但无疑是可敬的，抛却了自己一直所想往的真善美的人生，走上一条你死我活动辄杀人的道路，既要面对内心的谴责，又要面对所爱之人的苛责和不理解，其中的无奈和苦痛，又有谁知？“一个不成熟的男人的标志是为了某种事业英勇地死去，一个成熟的男人的标志是为了某种事业卑微地活着”，作为一个成熟有担当的男人，为了背负守护家族的责任，麦克必须承受住一切。麦克凭借自己的强大的能力在老教父垂垂老矣，柯里昂家族式微的情况下一举杀掉五大家族头目，又在不同的事件中一一棋高一着将对手置之死地，不论是老谋深算的海门·罗斯，还是伪善的大主教和鲁加西。然而，这毕竟是一条血雨腥风路，做出了选择就要承担代价。麦克痛失了西西里岛一见钟情的妻子，又无奈地杀害了与外人勾结意图危害自己和家族的姐夫卡洛和哥哥弗雷多，他得不到任性的姐姐康妮和天真的妻子凯的理解，连儿子安东尼对他也心存芥蒂，只有女儿玛莉真正爱戴和崇拜着他，却也被杀手用子弹洞穿了胸膛。麦克拼尽全力守护的人，却都一一离他而去。人生步履维艰，麦克义无反顾，他做了自己该做的，却还是逃不过命运的悲剧。良善与罪恶，正义与邪恶，合法与非法，人生的天平在不停地摇摆，而在他走上教父之路的那一刻，便注定了如浮士德般把灵魂交给了魔鬼，他付出了沉重的代价，尘埃落定时，结局却依旧如此萧索。然而，如若他没有如此选择，结局也许会更加地让人喟叹吧？麦克·柯里昂，活过，爱过，奋斗过，一个可敬的男人，一个悲剧的英雄。左岸记：一个男人的成长最终都是要通过他心中最重要的人的认可的，这个认可的过程来自他对责任的担当，对诱惑的抗拒和对目标的追求上。引用豆瓣的一段评论吧：看了《邪不压正》，要写评论，不得不提几乎在同一档期的《我不是药神》，不能说《我不是药神》比不上《邪不压正》，只能说《我不是药神》胜在剧情，在艺术性的表现看来无法与《邪不压正》抗衡。姜文借侠隐这个故事框架来讲述一个男孩成长为男人的故事，一个男孩自小背负仇恨，到美国后受尽折磨终成一名战士，但仍然是一个男孩。片中洋人爸爸多次提起你不是战士，内心未成一个男人，谈不上一名战士。后来遇到养父蓝青峰，仇人朱潜龙，交际花唐凤仪，所爱慕的关巧红，一个男人所具备的担负责任、抗拒诱惑、有所追求，一件件事慢慢摆在他面前，他为了追求关巧红，抗拒了交际花唐凤仪的多次诱惑，烧掉鸦片仓库，在日军进入北平之际，杀了仇人朱潜龙、山本，救出奄奄一息的养父蓝青峰，交给了切错梁启超的肾的刘瑞恒院长。养父对他说，我救了你一命，你救了我一命，我不再是你爸爸了，你应该去找自己的儿子，在此刻李天然终于成为了男人，经历这一连串考验后，得到爸爸认证。姜文作为电影操刀手是残酷的，所有不是从男孩成为男人的男人（不是从正规途径成为男人的人）都得去死，那个说我有一万个老婆的根本，还有那个压着唐凤仪释放欲望的朱潜龙，照顾关巧红的影评人潘公公。所以男孩快快长大吧，成为一个男人，请注意通过正规途径。而女人呐，得看清一个男人是不是男人，再通过他去实现自己想实现的大事。如果遇到这样的男人，不要再犹豫，拉着他的手一起造孩子吧！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

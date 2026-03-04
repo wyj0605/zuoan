@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打破窗子的少年</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>打破窗子的少年</h1>
+            <div class="date">2026-03-04 09:55:19</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>打破窗子的少年打破窗子的少年布亦丁布亦丁左岸读书2017年03月24日 07:54在小说阅读器中沉浸阅读一言：只要还有一息尚存，就没有理由绝望。1.拐子哥映在我脑海里的，是一个长长的剪影，看不清脸，只有一个背影和一个酒瓶。拐子哥是我的高三同学，之所以这么说是因为他是高三才转来的。拐子哥一来就在全校引起了轰动，我们这群没见过世面的十几岁少年平时哪见过真正的残疾人？能有这样的机会，自然是不会放过。那时候，一到课间，教室的门口和窗外就挤满了围观的人。年级里的几个混混经常带着小弟来集体围观。青春期过剩的精力总是这样无处释放，只能做些无聊的事情。如果这几个混混能料到后面发生的事，我想他们一定会为此而后悔，可惜没有人能料得到。好奇或者恶意的目光终于还是激怒了拐子哥。拐子哥对着领头的混混说:“你他妈的天天带几个瘪三围着我有意思？”领头的混混啐了口唾沫，说:“嘿，我他妈还就喜欢围着你了！咋的，我长着眼睛你还管起我看啥了？”拐子哥笑笑，向领头的混混招招手，示意他过来。混混对拐子哥此举大为不解，又不好在小弟面前丢了面子，只好硬着向拐子哥走过去。拐子哥突然脸色一变，怒吼一声:“老子让你今天看个清楚！”说完，我只看见一个虚影横扫而下。等我回过神来的时候，那个混混已然跪在了拐子哥面前。混混的小弟见大哥吃了亏，准备一拥而上，其实真打起架来，往往是顾不得江湖道义的。拐子哥扫了他们一眼，斜靠到墙上，缓缓脱下了上衣，竟是一身的腱子肉。拐子哥看着围观的人，冷哼一声，又穿上上衣，走回了教室，全程无一人敢动。拐子哥这一次又轰动了全校，居然一招就秒杀了高三的年纪老大，那一身肌肉更是成为了无聊八卦的最热话题。从那以后，拐子哥真正成了拐子哥，而不是拐子。在我们的方言里，拐子可以是瘸子也可以是龙头老大，现在拐子哥无疑已成了后者。作为一个刚来学校不久的，而且还是残了一条腿的人，居然不到一星期就震慑住了整个高三的混混。在读书的年代，高三意味着什么？那就是整个学校混混的最顶层，成为了高三的拐子，也就可以说是整个学校的龙头老大了。拐子哥无疑成了一个传奇，一个t中不可磨灭的传奇。然而就在我们都以为拐子哥将要成为t中有史以来最强悍大哥的时候，拐子哥居然向老师提出要和成绩最好的同学当同桌，因为他想好好学习。学习？这tm是一个大哥该说的话吗？恨铁不成钢的我，真恨不得冲上去给他两巴掌。当大哥不比苦兮兮的学习好？不过很可惜，可惜我不敢。所以爱学习的拐子哥终于还是坐到了我的旁边。拐子哥对我强悍的文综充满了兴趣，而我也对他一身的霸气极为崇拜。拐子哥成绩很差，差到我用左手写文综都能超他一大截。可是拐子哥很好学，总是不怕羞地问我一些很低级的问题。时间久了，我和拐子哥也成了晚上一起偷偷吃泡面的兄弟。我们的学校安排了很多年纪的混混来查夜，这种不学习的免费劳动力学校是很乐意用的，而混混们也是很乐意的，毕竟可以管一管人。但是他们都不敢管拐子哥，所以我还是很乐意和拐子一起偷吃泡面的，有钱的时候再来上点小酒那更是快意潇洒。这样的时光，在枯燥的高三无疑是赛过活神仙。背靠大哥果然是好乘凉。和拐子哥交流的越深，我越发现拐子哥真的很不像一个混混大哥，难道会有一个大哥不抽烟不打架还整天抱着本53啃？2.我读书的那个变态高中，一个月才有一天假，每个周末才准家长来送一次东西，我称之为探监。可是我却一次都没见过拐子哥的爸妈来，我问拐子哥他爸妈咋没来过。拐子哥抬起深埋在辅导资料里的头，眼神深邃，淡淡地说到:“外地打工呢，别说周末，过年都不一定回来。”我说:“原来你是留守儿童啊，你这腿，你爷爷奶奶真是辛苦。”拐子哥叼起笔，指着自己的腿，笑笑说到:“你说这个？后天的，原来是好的。”啥！我大吃一惊。拐子哥看我吃惊的样子，告诉了我他的故事。原来拐子哥之前是体校的，本来是长我们一年的，可是家里太穷，供不起练体育的钱，拐子哥只能去工地打工赚钱供自己读书，结果工地出事，拐子哥的体育生命彻底被终结了。怪不得拐子哥基础那么差，原来之前是一个体育生。拐子哥拍拍我的肩膀，说:“布亦丁，我是真羡慕你成绩这么好，要是我能有你这成绩，就能考上大学了，就不用再这么穷了。”我不知道说什么，只能笑笑。拐子哥见我笑，说:“你小子是不是不信我？我告诉你，老天是关了我的窗又关了我的门，但是我都扛过来了。我这个人就是只要还有一口气，就不会放弃，给我把窗户关了，我就给它活活砸开。这人吧，就是不能怕，你越怕，这天就越要欺负你。”什么是大哥，什么是英雄？这俨然就是啊！3.时光过隙，白云苍狗。高考就像夏日的雷暴，就那么一下子的，突然就来了。高考完，大家分道扬镳，各奔前程。拐子哥那年没考上二本，我和拐子哥坐在学校的草地上放肆地喝酒。古龙说，酒越喝越暖，我却越喝越凉，我看不见拐子哥的前方在哪里。我问拐子哥，你准备怎么办？拐子哥说，他要暑假去打工，然后继续复读。我喝口酒，说，好。然后，我们继续喝酒，醉倒。醉眼迷离中，我好像看到拐子哥举着酒瓶，踉踉跄跄，向前奔跑，夕阳把他的影子拉的好长好长。后来，我又回到t中。听到一群古惑仔样子的学生正争得脸红:昔年的拐子哥是怎样一拳还是一声吼就让曾经的混混老大跪下的？我笑笑。我没有再问拐子哥的后来，因为不用问，像他那样只要一息尚存就绝不绝望的人，走哪条路会走不通呢？不如就此离去，敬往事一杯酒，敬拐子哥，敬那个不朽的传奇。左岸记：非常棒的故事，不向命运低头的少年，不屈服于坎坷人生的遭遇，怕什么世界不公，没有什么能阻止那颗希望的种子在阳光美好心灵的土地上蓬勃成长。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

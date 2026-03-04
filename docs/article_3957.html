@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不是所有的问题都要被解决</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>不是所有的问题都要被解决</h1>
+            <div class="date">2026-03-04 09:52:09</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>不是所有的问题都要被解决不是所有的问题都要被解决左岸读书2020年09月01日 20:50在小说阅读器中沉浸阅读以下文章来源于炼己者，作者炼己者风墟炼己者.大知闲闲，无为自然。文/风墟完美主义本质上是一种“舍本逐末”的思维。“舍本逐末”的本质，就是「你忘记了为自己的目标服务，而是去为手段服务」。譬如说你想生活的轻松快乐，这是你的目标；你打算年入千万，这是手段。手段原本是为了“目标”而服务的，你赚钱的目的就是为了令自己生活的轻松快乐。然而在你赚钱的过程中，不知不觉的忘记了你的目标，一年赚了一千万，你就想要赚一个亿；赚到了一个亿，你又想赚十个亿。这个时候，你就是处于“舍本逐末”的状态，而不自知了。导致这种舍本逐末状态的原因其实并不复杂，它无非是因为我们的注意力是有限的，会频繁出现在我们大脑中的信息就会被强化，不再出现在我们大脑中的信息就会被忘失，如是而已。但是，我们将“舍本逐末”的逻辑套用到人的心理上，就会发现：那些具有完美主义的倾向，和日常生活中不断被各种各样无足轻重的小事所困扰的人，他们其实并不是“舍本逐末”，而压根就是“无本逐末”。这是什么意思呢？在心理层面的这个“本”，指的就是我们的“自我”，自我的目标，自我的喜好，自我的愿望等等。但是如果一个人的自我没有得到充分的发展，他就会从一开始就没什么目标，也不清楚自己这一生中最重要的事情是哪些。就好比我反复提过好几次的那个比喻：一个人驾船航行在大海上，他没有自己的目的地，只能在海面上随波漂流，早上抓到条鲱鱼就吃鲱鱼，下午船破了就要补船，晚上来了暴风雨就躲在船舱里瑟瑟发抖。在这种情况下，他是生活的一个“被动应付者”，他就要面对无穷无尽的生活中冒出来的、他自己身上冒出来的问题。当一个人需要疲于奔命的去应付生活中所有的问题时，那么毫无疑问所会导致的一个结果，就是这个人会一事无成，而且会不断的陷入到麻烦当中。其实道理也很简单，就好比我当前在写这篇文章，与此同时我的生活中还有许多其他的问题在等着我：公司需要招人，快递需要去取，午饭还没有吃，衣服还没有洗，要准备咨询等等等等。如果我不能将别的这些问题暂时屏蔽掉，专注的坐在电脑前敲下这篇文字，而是不断的被这些乱七八糟的问题给吸引，那么这篇文章我将永远写不完。强大的“自我”和明晰的“目标”，此二者是相互作用的。强大的自我功能会令一个人具备明晰而具体的目标，当这些目标达成后，他就能够心安理得的、心无旁骛的去享受自己的成果。明晰的目标也可以增强一个人自我的功能，令我们得以在向一个目标迈进的过程中，整合自己内在所有的资源，并起到一种“练兵”的效果，使你内在的各个部分得以协调而有效的相互合作。在缺乏一个强大的“自我功能”的情况下，“集中精力去完成一个比较大的目标”，其实这本来就是最好的增强你自我功能的方法。但是很多人却并不能理解这一点，他们认为要先做些别的来增强了自我功能之后，在去处理生活的别的问题。然而这些他们认为能够“增强自我功能”的事情其实都是看似有针对性实则只是鸡毛蒜皮的小事，譬如：低价值感，和别人相处很紧张，习惯性撒谎，被人冷嘲热讽，接到个诈骗电话内心很恐惧等等。（这些都是咱们社群中提到的一些问题）</p>
+<p>基于我们想当然的逻辑，会认为：如果我提升了自己的价值感，那么我整个内在就会有变化了，别的问题都能够从根本性解决了。但问题是：你的低价值感要怎么消除呢？它就是一种主观上的感受，如果你仍旧是停在这里什么都不做，你的生活不发生一些实质性的变化，那么你本人基本也很难产生什么变化。就好比一个人说：我要先克服社交恐惧再出门！于是他在家里呆了三个月，准备好好地让自己克服社交恐惧。但是他在家里呆着的这三个月会发生什么变化吗？根本不可能的。他不可能在外部情境毫无变化的情况下改变自己的内在。走出房门分阶段的练习着和别人进行社交，这本来就是克服社交恐惧的方法。而不是指望自己在那里空想，奇迹就会从天而降。此时我想一定会有人在心底有一个疑问：我知道要出去练习和别人社交，但我就是不敢啊！我呆在家里就是为了让自己做好出去社交的准备。但我们需要明白的是：对同一件事情的不同认知方式，会令你产生不同的感受。当你理解到“走出房门去练习社交，就是克服社交恐惧的方法”这一点时，你的内心的确会有对走出门去的恐惧，但并不会有抗拒；因为这是一种客观的描述，就好比我告诉你如果想钓鱼，你就要去买鱼竿一样，这就是一个非常直接的、目标与行动之间的关系，你没有那么多的内心戏。但如果你不能如实的、客观的去认知它，你就会有很多很多的内心戏，会不断冒出各种各样的想法自我安慰：“凭什么我要出去和别人社交，我一辈子呆在家里一样可以过！”“外面的人太可怕了！我一出去肯定会被嘲笑的！”如实的、客观的去认知事物时，这时候“我”是不太重要的，你不会受到太多的自己内心想法的影响。然而你一旦离开“如实”，“我”就会冒出来，一切都是和“我”有关的：“我”觉得很累，“我”觉得没必要，“我”不想这样做等等。但实际上这个想法和情绪不断会变化的“我”，它一时的感受真的那么重要吗？绝对不是。因为如果“我”的想法和感受最重要，那么我们就不会有后悔了。既然我们每个人都可能会后悔，那就说明一时的自我感受并没有我们想象的那么重要，也没有我们想象的那么高的地位、那么高的价值。如果这样表达还不能让你理解，那么我再进一步阐述：你身边一定有一个蠢货吧？每个人身边一定有一个或多个蠢货，或者这个蠢货也可能就是我们自己，但是，当蠢货做出错误的决策时，他会意识到自己是错误的吗？毫无疑问，他意识不到。我们自己在做出错误决策的时候，也是无法意识到自己的错误的。因此，这就证明了每当我们需要做决策、计划未来、规划行动时，“我”的想法和感受并没有我们想象的那么重要。如果你意识到在这些时刻，自己的感受不重要，那么，你那些不断冒出来的、关乎各种鸡毛蒜皮小事的、无关紧要的想法和感受就能够被你忽略，不会再影响你。每个人都有好奇心，但如果你的好奇心完全的将你的注意力侵占，并令你整日纠结于那些无足轻重的小事的话，那这就完全跑偏了。譬如有个人曾经和我聊天，说他非常希望能够成为一个优秀的人，他打算做一个圣人。但现在有一个令他特别纠结的问题，就是孔子究竟是不是真正的圣人呢？这个问题令他特别苦恼，苦恼了快一个月了，就是因为这个事没整明白，所以迟迟不知道要怎么做。这个案例就是一个典型的“舍本逐末”。他的“本”是期望成为一个优秀的人，那么接下来他要确定的是：他期望成为的这个优秀的人的定义是什么？这个优秀的人有哪些评判标准？确定了他的期望标准之后，直接照着去做就行了。至于他期望成为的这个人是不是圣人，孔子是不是圣人，这些本质上其实是无关紧要的问题，纠结于这些根本没有丝毫的意义。因此不管是设定自己的人生目标，还是进行日常的思考，都要确定什么是本，什么是末，抓住本，不需要过于在意那些细枝末节。二八定律是一条在许多领域都适用的规则：20%的工作，创造了80%的价值；同样的，你生活中也只有20%的事情是真正重要的，却会给你的人生带来80%的影响。所以最后我要强调的是：其实当你能够集中精力去做好那些对你来说真正重要的事情时，那些曾经困扰着你的小问题基本都会附带的被解决了。其实我们如果能够跳出心理学的范畴来看，很多心理上的痛苦，和人的发展阶段、经济水平、受教育程度等等都会有关系。你17、8岁的时候就是要经受失恋的痛苦，这个再怎么受人开导也没用你还是痛苦；当你没钱的时候就是很难自我认同，欺骗自己也没用；你在现实层面没有成就的时候，就是难以获得别人的尊重，你再怎么自我调节又影响不了别人；所以，我们更需要的是先将自己的注意力投注在正常的生活中，并没有太大的必要时时刻刻的去关注自己那些不断变化的想法和感受。同时，当你的心态达成这样一种“逐本舍末”的状态时，你会发现很大一部分曾经困扰你的问题其实都不是问题，你也没必要去为它们纠结。就算那些事情没想明白，没解决，也根本不会对你的人生产生什么重大的影响。正如高晓松所说：“原来我以为四十不惑意思就是说，到了四十岁你就都明白了，什么都懂了。其实到了四十岁的时候，才发现，四十不惑的意思是说，到了年纪你不明白的事，你就不想明白了。”</p>
+<p>其实也并不一定是你不想明白了，而是你意识到，那些事你没必要一定得弄明白。很多问题也不是一定要去解决。一个你喜欢了好久的女孩，娶了她就不会再让你牵肠挂肚的痛苦了；但忘了她也可以让你不再痛苦。其实这篇文章想要强调的观点就是：“忘记也是一种解决办法，不去管令你痛苦的事也是一种解决办法，甚至不解决也是一种“解决”办法。”</p>
+<p>我们来这世上走一遭是为了去体验各种各样的事物，不是为了把一切都做到完美，甚至也不是为了要把什么事情给做“好”；不是为了成为一个解决问题的机器，也不是为了在几十年的历程中不断地和自己斗争。一切都没那么重要，放轻松的去玩好这一程就够了。左岸记：将问题留在那里，不解决，顺应着问题去看看它带来的那些背后的东西，你会收获意想不到的答案。这是一种新的认知。脱离对错的评判体系，才有观察和分析，才有接纳。你可以体验一下脱离“我一定要怎样”的执念。你不是要怎样，而是你可以去看看，为什么会这样。太急于要怎样，每一次都要怎样，你就失去了，弄懂为什么会这样的机会。你的人生，不是为了赢，而是为了遇见真实的你自己。- END -</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

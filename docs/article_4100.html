@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人生是个什么东西？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>人生是个什么东西？</h1>
+            <div class="date">2026-03-04 09:52:35</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>人生是个什么东西？人生是个什么东西？张鸣张鸣左岸读书2021年07月18日 07:30在小说阅读器中沉浸阅读文/张鸣谈人生是个很无聊的事儿，因为古今中外，谈的太多。什么东西一旦到了太多的份上，就滥了。但人之所以为人，人生还真得谈，因为在人生过程中，总有些地方让你感慨万端。佛教认为，人生就是一个字：苦。人生八苦，把所有的不顺心，不如意，都给你概括出来了，但归根结底，苦在人对世界的幻觉和不恰当的期待和执着，所谓“五取蕴”。在自己身上找原因，赖不得别人，也赖不得环境。钱钟书先生告诉我们，人生还是有乐子的，只是，在每个短暂的乐子之后，就是漫长的烦恼和苦闷，以及种种的不如意。但是，人生就是为了追求这短暂的乐子，心甘情愿地忍受着漫长的苦痛。释迦牟尼的说教，跟钱钟书的说法，都有点悲观。但实际上，在这个世界上，除了极少数幸运儿之外，绝大多数人的人生，不如意十有八九，这是没辙的事儿。人生都有所欲求，小到办成一件小事，大到升官发财，娶个漂亮媳妇，不是都会失败，但一般都得被折腾得半死。好些事儿，明明一百里的路，都走了九十九里，就差一步了，就这一步，偏偏出茬子了。让你前功尽弃，只能从头再来，而差往往就差在一件芝麻大的小事上。这样的小事也能出，在此之前，累死你，都想不到。在上大学的时候，我曾经筹备过一台晚会，费了好大的劲儿，把所有的准备工作都做好了，大教室也借好了，会场也布置好了。所有的节目，也都准备好了。然而，临到要开会了，学校突然停电，原因是输电线路突发性故障。真是让人欲哭无泪，毫无办法，所有的努力和心血，都白费了。类似的事，在一个人的人生旅途上，往往会出现很多次。凡是你特别想办成的事儿，特别能让你露脸的事儿，你就得准备着，也许不知哪个环节一个小差池，就全砸了。能成功，是你特别的幸运。无论你把所有的环节都想到了，把所有能想到困难和障碍都想到了，也都设计了应对方案。然而，只要你的命不大好，就是会有那么一两个你完全想不到的事儿，彻底摧垮你。所以，人生走到今天，我有时候特别相信命运这回事。因为我是一个命特别不好的人，属于靠山山倒，靠水水流，出门不是刮风就下雨的人。但凡干成点事儿，我不敢归功于我的才华我的能力，只能念佛。如果佛祖不保佑，那么也许有个什么造物主开恩了。既然这样相信命运，那么，能不能信点什么，或者求高人指点一下？我感觉，这也不行，对我不适用。信什么都白搭，高人到了我这儿，基本上都没戏了。只能硬着头皮自己闯，闯过去，算幸运，闯不过去，就算倒霉。一辈子走到今天，倒霉的事儿多了，也就无所谓了。我相信，无论科技多么的发达，人工智能可以做多少事儿，依然很少有人能完全设计自己的人生。一件事的成败利钝，也不是你精心准备，把条件都凑齐了，就一定可以操控的。再过一万年，人还是得给神秘的世界留下空间，这么多年的科学技术发展，并没有真的压缩了这个空间。这就是为什么那么多杰出的科学家，依然可能是虔诚的教徒的缘故。在我看来，信什么，本质上都一样，反正就是给神秘的，人类不可知的世界留点地方。有了这个地方，当你接二连三碰上倒霉事的时候，兴许就不会跳楼了。左岸记：这个是今天我偶然看到的一篇文章，一看就知道作者有着不同寻常的经历。生就是经历，是经历后所展现出来的生活姿态。于是我就去网上搜索了张鸣的故事，果然，不一样的人生，赋予了他一生的坚韧气质和厚重的文化底蕴。↓↓↓张鸣小时候随着父亲的工作调动到处迁徙，天高地阔，管束又少，自由自在，为所欲为。张鸣是野生的、放养的，小时候蓄着的一股子蛮荒之气，一直留到今天，从骨头缝里“嘶嘶”地往外漏。“文革”前夕，一家人回到农场。刚开始上小学、学文化，文化就“革命”了。张鸣当时九岁，一个孩子，刚开始会看书，就没书可看了。他感到了饥渴，到处找书看，倒是因祸得福，反而看了不少书。两年后的1968年，父母双双被关起来了。张鸣和大他四岁的哥哥两人在家，独自生活，活得很艰难。不仅是两个半大的男孩要管柴米油盐，而且作为“地富反坏右”贱民，会被别的孩子追着打。对于制度性挨打，哥哥的态度是受着、忍着、躲着，可张鸣不，这孩子性子倔，脾气大，想法还老跟别人不一样，天生就离经叛道。张鸣八年级的时候发生了林彪事件。对他个人来说，这是一次奇迹般觉醒的契机，国家形势有所缓和，学校突然开始抓教育了。张鸣平生第一次参加了考试，感觉很新鲜，也很开心。成绩好的人是向往考试的，可惜这也是张鸣求学阶段惟一的一次考试。国家很快又回到了以前的状态，而且在这一松一紧的过程中，有些重要的变化发生了。气氛宽松的时候，张鸣跟着说了些话，这些言论到了气氛紧张时，就成了大问题。1974年，黑龙江农垦建设兵团四师对张鸣的错误言论进行全师通报，这个十七岁的少年被整得很惨，不堪回首的批判和批斗，家里也受到了牵连。知青大规模返城之后，兵团出现了空缺，一个兽医的位置被张鸣填上了。不久，中国迎来了1977年高考。张鸣自然去参加了，但他的政治问题还没解决，不让录取。第二年他再考，分数高出录取线很多，但是在“限制录取”之列。张鸣别无选择地进入黑龙江八一农垦大学，却调剂到了农机专业。大学四年，张鸣成了乖孩子、好学生。张鸣的课上得很辛苦，每天从早到晚八节课，一堂都不落下，晚上写作业、上图书馆，从不惹是生非，成绩一直在年级排名靠前，最后的平均分是89分。就是从那时候起，张鸣开始对历史感兴趣。他每天到图书馆去读《资治通鉴》，一直看到闭馆。后来连图书管理员都被感动了，破例允许他借回宿舍去看。他大学期间读完了全套二十大本的《资治通鉴》。当时他无论如何也没想到，有朝一日历史将成为他终身从事的专业，而且还会“遗传”给他的宝贝女儿。张鸣总结自己，“上学的时候都乖，上班的时候都叛逆”。之所以走到哪里都是刺头，都叛逆，是因为他酷爱自由，也非常在乎尊严。他最不能容忍的事，是被侵犯尊严，被强迫干自己不愿意的事情，以及不人道行为。偏偏他追求的价值――自由和尊严――恰恰是时代最稀缺的，所以大家都觉得他另类。放眼当今世界，有钱人不尊重穷人，上级不尊重下级，只要能支配你，就能随便凌辱你，家长对孩子的爱，也是侵犯和凌辱式的。在工作岗位上，张鸣与同事的相处时有摩擦。他是大学生，同事都是工农兵学员，彼此看不起，价值观也不同。1985年，张鸣考取了人大党史专业的研究生。不是他喜欢的专业，但是当时他在做党史教员，别无选择。从表面上看，从北大荒到北京来读研究生，并没有真正改变张鸣的命运，他放弃了作家梦，正经想当学者了。但当时整个国家的文化环境并不能让张鸣振奋和激动。他的目光再次瞄准了外面的世界，准备考博士。但是单位不准考，这事便搁浅了。张鸣一日日熬着，直到1994年单位领导换届，趁着工作交接的混乱之际，张鸣的报名被批准了，这时候的张鸣，已经年近四十，考试的冲劲远非昔日可比，为了保险，他还是报考的人大。人生终于发生了本质的变化。读博期间张鸣算是正式进了学界，他开始给《读书》写文章。有那么七八年的时间，他每年都在《读书》上发表两三篇文章，考虑到那个年头《读书》杂志在思想、学术和文化界的地位，张鸣的成绩是惊人的。博士毕业后便留校工作了，开始在党史系，2002年并入国际关系学院，成了政治学系。有那么几年，他很安分，自己写文章发表，评教授也很顺利。他照例还是很牛气，述职那天，背着一编织袋的文章进去，往桌上一倒，杂志期刊“哗啦啦”地流得满桌子都是，他很耍酷地一句话没说，倒完就出去了。成果多，没的说，他就上了。当然，据说也是他运气好，捡了个便宜。因为两派人都要晋升自己的人，互相掐上了，反倒让张渔翁得利了。后来，他当了政治学系的主任。系主任到底还是跟院长干上了，后来因为萧延中没评上教授，张鸣为之鸣不平，矛头直指院长。这就是传说中的人大教授“离职风波”。我问：“你想过后果吗？”他说：“是，大不了被开除，当自由撰稿人，生活是一点问题都没有的。”而且，他算着被开除的可能性其实很小。张鸣关注的，不仅是在市场里生存的问题，还有更高的意义。在一个纷繁的时代里，当然会充斥很多声音，但至少，张鸣是其中之一，他没有缺席，没有沉默。这些年来，他用自己的博客和微博，一直不停地“鸣”，批评教育行政化、批评本科教学评估。他说，有发言权的知识分子，要敢于批评，要启发民智，有没有用先不管，这是责任，必须要做的事情。张鸣自称做历史研究的方法上是很传统的。他必然先看材料，看得足够多了，再写，从不观点在先，为观点找材料。他只是不接受学术八股的形式，也不能容忍学术缺思想，没生命关怀。他坚持学术和生活要有交融，不能做死了。这些果然都是很传统的观点。在学问方面，张鸣有他的骄傲。他说自己的学问肯定不如民国的学者，但他对人的透视不输于他们，自己那些大起大落的经历是他们没有的。他以前总觉得自己倒霉，现在发现还是幸运的，毕竟出来了，赶上了时代的市场。当然，最重要的还是他的勤奋。现在学界的很多人不用心做学问了，做出一点成绩后就坐享其成了。张鸣不，他一直很勤奋。他说，现在的世界多没劲呀，大家都那么功利，那么物质，好玩的人越来越少了。他这么叹息时，围棋很寂寞地散落着。我想，这个“鸣”个不停的、找不到棋友的、有盔甲般胳膊肘的人，是可爱的。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

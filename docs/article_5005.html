@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>曲巷通幽石头城</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>曲巷通幽石头城</h1>
+            <div class="date">2026-03-04 09:55:40</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>曲巷通幽石头城曲巷通幽石头城稻田稻田左岸读书2021年01月03日 21:39在小说阅读器中沉浸阅读文/稻田去过东山岛多次，如今却才有心仔细端详它的形貌，这才对“蝶城”的说法有了感性的印象，也才知道了蝶城的灵魂和精彩在这只海中蝴蝶的右翅膀上——铜山古城。它是东山岛的建城发端，也是东山岛故事的发源地，历史、名人、文化等标志一个地方资历和地位的元素大多在这里，若是去东山，到这个东北角的古城慢慢行走和品味一番，也就抓到了东山的精华。严格地说，铜山古城最初是一个海防军寨，可以推测，公元1387年以前，古城的所在只是一处荒石山，亦或是晒网捕鱼的临海渔村。其时明王朝为巩固江山，实施海禁，迫于倭寇骚扰，派江夏侯周德兴到此环海垒墙，构筑工事，兴建铜山古城。古城最初只是屯兵把守之地，驻扎的是清一色的官兵，称为“漳军”，可能是军事管理之需，几年后外调“兴化军”换防，考虑驻军离家思乡，为保军心稳定，开始允许家属随军，于是军营开始有了家园的味道，古城应该就是从此时进入了发育阶段。但虽然出现烟火民生这些城市的元素，家家军属，户户官军的结构，古城最开始依然是军营的性质，形成后来结构完整的古城，应该是一个漫长渐进的过程，而古城的魅力也就在这悠长的时光之中沉淀和显现出来，既给东山岛的历史添加了厚重的色彩，也给后来观光的游人留下了品观的乐趣。和福建沿海的许多海防工事一样，铜山古城的城墙也是用天然的岩石垒砌而成的，灰白的岩石坚硬粗粝，经得起风浪的吹打、岁月的剥蚀，高高地挺立在海浪面前，给人以鲜明的坚固感，特别是看到榕树的虬根像血脉一样在石缝里曲进和凝固，更凸显了石城的冷峻和巍然。石砌的城墙凛然在目，那古城在哪里呢？照理就是城墙护卫里的那些以石头为基墙的建筑了，但这些建筑却让人生出了许多的问号，房屋为什么建在山上？高低错落的房屋几乎没有外墙装饰，清一色的都用泥灰涂抹，显出灰白的一片，是军营一类的军事设施吗？但从屋间的菜地和晾晒的衣物等又分明可以判断是民居。后来换了一个角度，从南门湾向北远眺古城，才确定，这些灰白错落的建筑就是民居，它们共同构成了已经延续了六百余年的铜山古城。远远望去，古城临海而垂，缘山而建，密密麻麻、叠加错落，呈现为立体的城，像一个巨大的雕塑，这是人们不常见过的城市的样子。建筑以灰白为主色调，因为是远观，密密的窗口向着大海，呈现为无数的黑洞，让人联想到枪炮留下的弹孔。我们是从古城的西门进入古城的。所谓西门，也只是一块标志的木牌，木牌上说明此处是当年进出城的城门，是有瓮城的防御关隘，抗战时被日军炸毁。眼前只剩下一条街的路口，作为古城与现代城市建筑的分界。城门已经找不到痕迹，但联想到依然挺立的城墙，仍然可以感受到古城的战火味——铜山古城的历史是长时间弥漫着战火硝烟的。江夏侯周德兴筑墙建城抵御倭寇、郑成功操练水兵击败荷军、施琅率清军出征进驻台湾、东山军民联合抗战，以及国民党东山岛溃退和后来的东山岛战役等，无不与古城密切相连，长达近六百年的时间里，古城几乎没有脱离过战争氛围。如此想来，也就不难理解古城的建筑为什么要挨挨挤挤，都建在山上的原因了。我曾被一条称作“喇叭巷”的窄巷吸引，像登天梯一样沿着巷子上行，在半山的转弯处我与一位当地的老者攀谈，问道为什么古城的房屋要建在山上，老者言城外的土地都让给了农田，居住自然就到了山上，看来他对自己生活之地的历史可能还缺乏了解，以城为盾，居高御敌，据险求安，才是古城建筑选址的初始原因。未想当年因战事所做的选择，却造就了一座风格独特的滨海古城，沿着海面远远地望去，古城竟有些地中海和中东古城的风貌，历史总是会给后世留下意外的惊喜。顶街是古城的主街，像挂在山腰的腰带，连接着山腰上下无数曲曲折折的小巷，也连接着民生烟火之气，相比已经远去的战火之味，这是更为亲切而动人的味道。虽是主街，因为建在山上，又出身于战火，其实也是小巷，可以想象顶街以外的巷子会有多窄，但烟火的气息却十分浓厚。在顶街随意地行走，无意间便有动人的画面跃入眼帘，让你心头一热，例如临街的一间杂货店以长方的窗口对着街道，店门开在了侧面，将自己的位置让给了柜台，方框里坐着一位带黑框眼镜的老者，背景是琳琅满目、五颜六色的物品，像一张老旧却鲜活的照片，一下子把人拉到那个熟悉而遥远的过去，让人恍惚和激动。在以顶街为核心的古城，有许多抓眼球的景点，例如顶街中段的一个只剩半截的牌坊，是朝廷为表彰士子热心教育而建，因为时间久远和人文丰富而被作为景区的重点推介，但我依然认为这间如相框般的杂货店是更为意义重大的，因为它活现了乡愁，有了切近生活的烟火。此外还吸引我注目的是临街的几个拱形的小门，说其小，是因为既窄又矮，要躬着身子才能进入。不知这样的门是否只是作为历史保留，陈旧的木门紧闭，托着一弯石头的拱门，面对热闹的街道静默无声，是当年战时的工事或储仓、或是为防御风沙侵入？总之能给人丰富想象空间的景观就是好的景观，不一定非要高大辉煌。只要留心，便能发现许多动人的画面，街上行走的一些迷你车辆就令我投入了特别的关注，这种像玩具车一样的车辆是适应古城街道狭窄地形而生的，无论动静都会给人以感动。行动时，像甲壳虫一样的车子装着一个高大的成人轻声滑过，充满意趣；静止时，靠着斑驳的街边墙根，又像瞌睡的孩童。彩色的车，古旧的街，将不同的时空粘连起来，真是意味纷繁。同样意味纷繁的感受还发生在顶街左右的曲巷里，那是一种虽未见“禅房花木”，却依然会眼前一亮的感受。顶街的左侧是山上，“喇叭巷”“七曲巷”等都在那里，里面还藏着许多名人的故居，包括大名鼎鼎的关帝庙、文公祠等，但自然的景观同样撼动人心。沿着一条窄巷像登天梯一样向上，不知何时突然出现了转角，引导你转向横行的小巷，此时左右都是房屋，低处的屋顶和院墙顶着你的下巴，沿着屋顶和院墙望去，辽阔的大海与你的眼睛平行，你的身体就像在海里一般，这种神奇的感受，也只有在缘山而建的铜山古城可以遇到。古城已然消去了往昔的战火硝烟、兵戈操演，却也不像一些实际已经商业化的古城，将居民迁出，使商人成为主要的居民。这里的居民依然以“原住”的为主，这从街巷里的行人、随处可见的庙宇和香火便可以看出，因此也更有烟火气息。从山坡上沿着任一条下行的窄巷下来，横过顶街向下，就进入了山下部的屋巷里。这里的建筑依然是挨挨挤挤，错错落落，因为地势趋于平缓，巷道就更是密集和曲折，往往走着走着，迎面就有一墙当道。待走近又发现有或左或右的岔道出现，沿岔道前行，不久又出现与来路相同的情况，而精彩往往就在这些密集的窄巷转角处——这就是占据了许多路口转角处的各种庙宇。庙宇是铜山古城色彩最耀眼的建筑，在灰白斑驳基调的建筑群中，那些金碧辉煌的建筑大多是庙宇，可见古城民间信仰的繁盛，以及城中居民心理精神依求的强烈。我去过许多历史悠久的地方，经验里还没有看过如此密集众多的庙宇，在铜山古城，只要你在其中行走，随时都会与大大小小的庙宇照面。庙宇里都供奉哪些神仙真人，我无能辨识，应该少不了关公、妈祖、开漳圣王、天公、地王之类吧。东山岛是一个遭遇过许多艰辛的地方，数百年兵戈战火，戍岛士兵孤悬海岛，为稳定军心，带兵人建关王祠，从中原引来关公祭拜文化，“以护官兵，官兵赖之”，关公文化从此在古城扎下根基，逐渐成为核心的民间信仰。在铜山古城及东山县，家家供关公，拜关公，“义不负心，终不顾死”，公平守信已升格为政府推崇的文化追求。但关公文化的发端却与古城的由来相同，带着无尽的艰辛与苦涩。古城经历了明朝的抗倭攻守，后又经历了更为艰辛的清朝禁海迁界，为阻断郑成功水师的物资供给，清政府一声令下，强迫东南沿海人民内迁，东山岛顷刻荒芜，古城也荒废了三十余年，直至“复界”返迁后的八十余年，古城居民才以“关永茂”的集体户名被编入政府的户籍，关公崇拜和祭拜有着深刻的历史渊源和精神依据。除社会磨难外，严酷的自然环境也是古城民间信仰繁盛的原因。自古以来，东山岛风沙肆虐，民生艰难。据记载，仅在1949年以前的百年里，风沙就吞没了130个村庄和300余亩耕地，这还不包括出海讨营生的艰辛与危险。如此苦涩艰难，自然就激发了心里和精神上寻求护佑和依靠的需求，所以，那些遍布铜山曲巷和山顶临海的庙宇，一起寄托着古城百姓对生活的良好祈愿，其中也包含着感恩惜福的高尚思想。说到感恩，古城人并非只纪念那些已被神化的神仙和偶像，肆虐东山和古城的风沙是在一位叫谷文昌的县委书记带领下攻克的，这个将生命献给东山的带头人也获得了东山人们的崇敬。谷文昌离世数十年来，每到清明， 古城百姓“先敬谷公，再敬祖宗”，也成为一种地域特征鲜明的民间信仰，确实感人。“吾乡海滨邹鲁，劳夫荡桨，渔妇织网，皆能咏唱歌诗。”铜山人明朝大学士黄道周在京城向同僚这样介绍家乡的文风雅气。但古城厚重的文化积淀历史中，还夹杂着艰苦卓绝的曲折岩层，在今天这宁静祥和的石头古城、窄街曲巷和如弯月般的海湾围堤边行走，有无尽的滋味供人们感受和品味。左岸记：看稻田先生写的游记，总会被其中许许多多的细节所感动。写景的细致说明作者有惠兰质心，写物的故事更是体现作者深厚的文化底蕴和强大的人文情怀。虽说身未至，眼前心中却是一幅幅鲜活的画卷。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

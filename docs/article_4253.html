@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你预测了整个世界，却忘了测测你的内心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你预测了整个世界，却忘了测测你的内心</h1>
+            <div class="date">2026-03-04 09:53:06</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>你预测了整个世界，却忘了测测你的内心你预测了整个世界，却忘了测测你的内心原创德鲁伊DRUID德鲁伊DRUID左岸读书2017年02月09日 01:24在小说阅读器中沉浸阅读立春后，迎来了新年第一场雪。让人恍惚春天还来不来。春节前后，几个朋友的孩子出生，一堆的水瓶座。这是星座的好处，反正就是日子卡死，不似中国的属相。照正理讲，立春后才是农历一年的开始，那属相就是立春起算，然后要死不活来了个春节，再作死来个阳历年。这年初的孩子，多半属相不对，也基本在自己以为的属相里都显得有点异类。不知道是中国文化又开始强势了，还是糟粕去的不够干净，反正这些年头，五行八字风水，从茶余饭后成了信仰追求。去年一个做生意的朋友，销售下滑的厉害，大的方向决策都错了，过去屡试不爽的好招用尽了，依旧没什么起色。一筹莫展的人，就开始胡思乱想；胡思乱想的人，就开始邪门歪道。然后开始觉得公司风水有问题、高层之间的属相有不合。要了管理层的生辰八字，请了高人看了风水，烧了些符纸钱帛，开了几个属相不合的主儿，连之前请的佛都移走了，恍然大悟后意气风发了好一阵。心里安定了，做事似乎也坚定些、勇往直前些。相安无事了几个月，然后，就没有然后了。年底还那样，这尴尬的就不知道该怎么办了。过年中，另外一个朋友，告诉我他去了一个好偏僻的地方烧香许愿。还是朋友介绍的，据那个朋友说，许了三次愿，愿愿得成。如此灵验的宝地，不去实在对不起年节，于是很虔诚的去了。我开玩笑说，中土佛教八大宗，六大宗祖庭在西安，还有类似法门寺这样的佛骨圣地，你去烧香拜佛啊。朋友说，那么有名的地方，求的拜的许愿的太多，神佛难免顾忌不到，钱多了多看你一眼，随的分子少了或许就忘了你。而这些小庙，求的人少，容易记起来你。原来如此。那天和孩子说寒假作业，我说你别临时抱佛脚，他回了句，佛踩你一脚。“临时抱佛脚，佛踩你一脚？”，这该是我这个春节最有收获的一句话了。过去父亲讲，老家有个龙王庙，求雨求无水灾的。不下雨了，先拜拜上供做法什么的，真旱的久了，人们就气氛起来，把龙王爷的塑像抬出来，放场地上晒，估摸着意思是，让你也受受罪，看你下雨不下雨。中国对神佛的态度大多如此，想起来你是就是，想不起来或心情不好，不折腾你都算轻的。我们总是很想预测未来，预测这个世界，然后对自己的过去言之凿凿。我们不会承认我们做的不对，言行有问题，初心很了了。自以为的努力了、付出了，到了结果让自己感受到很受伤，也没谁检点自己是不是错了，多半是埋怨遇人不淑，别人的罪责大些。真拿别人也没办法了，就开始星座运势、属相六合、八字风水。其实看一个人的境遇很简单，喜欢烧香拜佛的，活的都还行；皈依和参与佛事的，反正心不太定；辟谷静心的，富人的勾当；信了上帝天主，不管活的咋样，起码觉得这辈子就是来受苦的；真到了开始风水八字，一定是遇到劫难了，百思不得其解，找不到原由因果。倒是那些从来不拜谁的，要么有自己的原则，要么坏的可以。人活着是个需要身子低到尘埃里，精气神却要四十五度仰望天空的事儿。我们却总是眼睛盯着别人的影子，活的很道德、很高昂。相由心生，跟你的模样颜值关系不大。只是告诉你，你认为的都是落了自己的“相”罢了。预测这个世界，求个自己心安的因果，最简单也最无效。因为你不懂“要得公道，打个颠倒”，同样会忘了“临时抱佛脚，佛踩你一脚”，也同样会忘了，“了因果”比“求因果”重要的多。春天里还要忙活那些才有了孩子的朋友，我也可以借此赚点零花钱——起名字。这是我少有的觉得名利双收的事儿，赚了零花钱还积了大德。三才五格、生肖属相、五行八字、紫薇斗数，真都照顾到了，还要有点文化内涵，这我擅长。毕竟要陪伴孩子一生，算的要精要，还要平衡，还不能将就的没有任何含义。大多数花钱算的名字，算起来都很好，讲起来都惨不忍睹。偶尔想，你测算这个世界的时候，都是那么的用心，那么美好的期望，却忘了多少都要有点意义和含义。忘了这个，也是应付你的孩子、应付他的人生。同样的，你测算这个世界，却忘了算算自己的内心。看似那么认真的活着，却只是敷衍了自己，让春天永远不来。人问寒山道，寒山路不通。夏天冰未释，日出雾朦胧。似我何由届，与君心不同。君心若似我，还得到其中。左岸记：老德的这篇文章写得实在有趣，道尽了人们玄妙而矛盾的心理，如果不寻得真正的因，那么果不其然，该怎样还是会怎样。人们问要去寒山的路怎麼走啊? 可是那条路却不通........(此指菩提证悟之道)怎样不通呢?已经是夏天了, 冰雪却还未融化!太阳都出来了, 雾气仍朦胧周遍, 迷糊不清!那像我是怎样到达寒山的呢? 与你们的心不同啊!你们的心若像我一样, 不也到达了寒山!阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

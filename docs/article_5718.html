@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>适逢绿城，青春之城</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>适逢绿城，青春之城</h1>
+            <div class="date">2026-03-04 09:58:26</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>适逢绿城，青春之城适逢绿城，青春之城原创邹近夫邹近夫左岸读书2023年03月21日 10:34福建在小说阅读器中沉浸阅读文/邹近夫前言：感谢生活曾赐予我一场惊慌失措，但愿以后抬头有阳光。二月春晓，弥漫在乌蒙高岗上的白雾仿佛遮蔽了天涯尽头。穿过海子街隧道，也不知那片百里杜鹃有没有苏醒过来。直到未来城立在眼前，我才卸下疲惫，带着最真切的希望略带胆怯地步入温暖的面试等候区，脑海却如同窗外的天空一样苍白。他们常说，“人这辈子千万不要马虎两件事，一是找对爱人，二是找对事业，因为太阳升起时要投身事业，太阳落山时要与爱人相拥的。” 尽管这并非生死紧要的关头，但接下来的谈话或多或少会影响我半生的轨迹。不可思议的是，当推开尘封已久的心门，提及不堪回首的过往，那一段段从不向人倾诉的岁月风霜，此刻如同威基基海滩上的喷涌之泉，时而宁静开阔，时而蔚为壮观。从聚焦目标到风险警觉，从管理视角到品质为先，从工程策划到专业技术，甚至从月度工作可视化到日常工作清单化，浅藏在面谈之下的真诚、善意、精致、完美，给我一种披星戴月，至死方休的感动。寒风冷雨在阳光破云而出的刹那消失不见，凛冽的西风不再吹得乌桕东倒西歪。浓雾消散，共进退，戮翫寇，荡气回肠；陈思路，领六品，温柔婉转。春晖透过落地窗，即便是魅惑天使切茜娅都不能设法将其湮没。我们终其一生，都在寻找两样东西，一是价值感，二是归属感，价值感来源于肯定，归属感来源于被爱。遥想最有情怀的时候遇到一拨不讲情怀的人，于是学会了现实、冷漠、薄情，但唯独薄情学不会；那时渐悟了诗意与现实不可兼得，慢慢确信所有自欺欺人的散文诗都是一种毫无价值的负隅顽抗。中途迎接春天的无限风情，偶尔还是感觉自己能和世间万物，包括西风流水都能进行红炉点雪的交流。后来好像忘了渐入佳境的开头，少了气氛的烘托，抑或入场方式过于仓促，以至于叹息间扰乱了扶光翠微。然而，尚未磨灭的浪漫，依然会想到去年落地的松果如何变得坚硬，依然会清点泥潭上白鹭利爪的痕迹，也会情不自禁的把目光投向湖边的虹桥和薄雾浓云的村庄。狼狈逃窜的时日里，从没想过追赶的脚步，只是过急地踏上了一厢开往资本猎场的末班车。如今遇见一拨讲情怀的人，理想、温暖而富有诗意。复工伊始，持怀疑态度的合作商徘徊在信任崩塌的边缘，业内江河日下的行情，生拉硬扯势必会将局面推入万劫不复的境地。于是黄金时代里弃如敝屣的礼佛之心，在桌面文化的加持下发挥出重要力量，ISO说写做一致的工作方法打破僵局。当事事有回音、件件有着落的风格在规范化、标准化循序渐进的衬托下，坦坦荡荡的交接核验报告里，四方受益的策略得到一致认可。走正道、尽人事的研讨纪要中，字里行间无不如黑夜里的灯塔照亮了前途。人生是一个轮回，到了一定的年纪必然会被人文关怀、生活认知、所见所闻带入领悟生命真谛的境界，再齐头并进也算是天性的释放和情怀的生长。去年已去，今年今来，虽然像做了一场噩梦，但看到了美，既而有了为之奋斗终生的念头；尽管难以重拾那份关于冷暖的思考，生命的气息，还有花开半夏的心动，但好在这场及时雨温润了心田。与一位智者促膝长谈，该是人生里不可多得的境遇。曾经举杯欢散的远景蓝图，终于又迎着星河熠熠生辉。所以从年轻开始，无论你扮演什么角色，担任什么职务，忙碌之余，你必须时刻提醒留有情怀，留有回头做人的部分。不要忽略美，更不要忽略人与人、人与自然之间的感觉，忽略春天的雨，夏天的光，秋天的凉，冬天的冷；它们都有美的一面，一如柳岸晓风的明黄，礼贤未来的翠绿，西溪云庐的雪色，还有桃花源的胭脂。你努力保存这份情怀的过程可能会很艰辛，但终将会遇到一群志同道合的人守护绿色之城，青春之城。左岸记：今日春分，我要把春光分一半给你。一半在野，一半在人间；一半桃红，一半柳绿；一半花开，一半落英；是欢喜，亦是珍惜。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

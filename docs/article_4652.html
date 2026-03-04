@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小外企的日常</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>小外企的日常</h1>
+            <div class="date">2026-03-04 09:54:28</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>小外企的日常小外企的日常驰云旅驰云旅左岸读书2016年02月13日 23:07在小说阅读器中沉浸阅读在这家小外企呆了两年多，智商不知上升了没有，情商是肯定下滑了几个山坡的。广州随处可见的一家贸易公司，结构很简单：老板是欧洲法国人，带着妻子和三个可爱的孩子住在月租一万多的某家花城别墅里；另外一个法国男人负责公司网络和程序，我到现在没有弄清楚他的上班时间；财务也是一个四十开外的法国女人，只上周一到周四的上午班，一周合折两天；之前有一个法国在中国的留学生，一个二十岁左右的大帅哥，协助那个法国男人写代码，去年学成归国了；接下来就是两个中国籍的经理，负责公司的主要运营；再接下来就是各个部门主管和我们这些小喽啰了。朝九晚六的上班时间，不打卡，老板每天都准时上班，每个人都会在九点十五分左右露脸。前台一个小妹，监顾了前台接待、快递收发、行政、人事和老板的半个助理和半个家庭生活顾问的角色。小妹曾要求增添人手，老板的回答大意是：“我非常抱歉让你兼顾这么多混乱的事务，我非常惊奇并且感谢你一直以来都做得如此之好。对于增添人手方面，我会留意好的人选，并且会尽量从你手头Cut掉一部分不重要的事情的。”非常perfect地拒绝了。如果我是老板，我也是绝对不会增加人手的。前台小妹负责的东西只是比较杂而已的，她只是在电话铃作响、快递要求签收和打印机没有纸张这三种事情同时发生的时候束手无策而已，很多时候，我经过前台去倒水时，都看见她在悠闲地刷段子的。相比国企和民企大会小会不断的情况，我们对于会议的态度就显得冷淡多了。如果没法用适当的邮件解释并交代清楚的事情，或者是必须群策群力地事情，我们才选择开会。首先，会议的发起人必须邮件通知到各个与会人员并敲定时间和地点，将会议所要讨论的议题和目的同时奉上，并将会议资料打印出来分发给各位。因事前准备得好，所以一开会都直奔议题，效率甚好。每逢重大订单项目和遇上难题，老板也会参与。当然有个最终决策人在场，事情倒能进展得更顺畅。公司每人一台Apple笔记本电脑当日常办公，对于用惯了window系统的人来说，苹果自带的英文操作系统总让人难以一见钟情，但是一旦习惯了就会称赞它。开会时白亮亮的一排小苹果，拍个照，也是同事们微信圈的装逼利器。几十个人的公司用的日常办公软件就是那个法国男人自行开发和设计的了。相比之前所见的一些花花绿绿的企业办公软件，界面就简约暗淡多了。每隔一段时间，这位法国同事都会群发一封邮件，郑重地欢庆他又修复了几个bug，又推出了几个新功能。料想他平日闲来无事时，会向我们征求软件的使用心得和意见。我刚入公司之时，看见大家那么“实话实说”地诉说软件的待改进之处，还真吃惊不小，一来觉得不应如此“没有礼貌”，二来觉得说了也白说。可是结果很值得庆幸，他将我们的意见整理之后还逐一做了批注：哪些会改进，并给了大概日期；哪些是excellent ideas，目前请原谅他无法做到；哪些需求可以在目前功能范围内得到解决，哪些他个人不赞成并贴文回批。不管怎样，我觉得很受尊重。而那位法国留学生，我之前有幸和他相邻而坐。有天他很愉快地假装问我，他的中文写得怎样并递给我一个本子，我一看，上面用特有的歪曲线条写着“我是去国人”。最后当然也用英式措辞帮他改正了。所谓英式措辞，就是说你写得非常不错，我完全明白你写的意思，但是如果我没有记错，“去”字旁边好像有三点水的。是吧？和他们说话就是累，如果是我姐姐的儿子，我会大叫：笨啊，“法”字怎么少了三点水！他有天问我，你喜欢听谁的歌曲，我回答是周杰伦的。次日，他和我说Jay Chou的曲调很好，可是他听不懂歌词；我反问他喜欢的中文歌手，回答是宋祖英；继问你最喜欢她哪一首歌，回答是今天是个好日子。然后我想，或许我们在欧美人眼中也是这般模样吧。2015年的秋天，他和我们告别，回他们法兰西去了。平日里，公司所有的人员都紧张工作，以完成手头的工作任务。每人手上有几个订单几个项目各自心中都有大概的，如果有紧急和临时任务，比较空闲的人就随时会被分派出去支援别人，用我们的话说，老板真是人精，总生怕我们白领了工资。每个人都要为自己所做的事情负责，而晋升之路在我们这种小公司是可以断望的了，而加薪就取决于自己的工作表现和负责项目的盈利情况了；虽然每半年老板都会对被他认同的人象征性地加点儿薪水。所以，每个人都努力的工作，争取尽早完工，那官场式的倾轧奉承和后宫式的争斗陷害根本没有用武之地。每个人都那么忙，真的没有人有空去理你。所以那些所谓的办公室斗争多半都是太闲惹出来的祸。老板在工作上对我们几算苛刻，很多时候完全按照自己的想象来索要结果，所以把我们训练成一群对别人强势固执而对他又诚惶诚恐的工作物种。有次一个重要的项目出现了问题，他怒在心口不分缘由地将负责的一个同事痛骂了一顿，我眼看那同事几次想开口辩护最后还是没说出口。散会不多久后，可能是受了谁的点拨，了解了事情的真相而责任不在于那同事，他就屁颠屁颠地走过来，毫无避忌地向她道歉，大意是：我为刚才的粗鲁和不理智的做法向你道歉，我真应该在了解事情的全部之后才做决定的，非常不幸地我没有做到。希望你继续跟进这个项目，最好忘了刚才那不愉快的一段。对于我们长期生活在官威之下的人而已，真的有点受宠若惊了。这在很小程度上也成为了我为他卖命工作的原因之一，为他赚钱去供养他月租一万多的别墅生活。同样都是工作，如果能顺带保留人的尊严当然是最好的。也在想，那些偶尔做错事的长辈、官员和政府，总是一个劲地寻找愚蠢的白色借口，为自己做错的事情道个歉又何妨呢？如无意外，反而会收到更多的理解、尊重和认同。老板一年到头就和我们出去略略游玩一下。一次是七八月份欧洲放假之际，业务比较轻松的时候，他去年各分发给我们一张交响音乐会的门票，今年带领我们去长隆看马戏，每次我都感觉自己是个六七岁的小女孩，在幼儿园园长的带领下出去放风。另一次就是春节之前和我们办个party，顺便总结成果展望未来。平日的饭局和酒局，那是不存在的。今年圣诞前夕，碰巧和老板一起搭电梯，就祝贺他圣诞快乐。他看见目之所及的圣诞装饰，然后很快乐地和我说：他很高兴在中国也能过一个很棒的圣诞节，当年他初来中国时，都不敢和别人说圣诞快乐，因为怕会冒犯别人的信仰。现在看见街上的商店都庆祝圣诞节，感觉和在欧洲也没有很大的区别。对此我只能傻笑，实在不忍告诉他那些庆祝圣诞节的人很多连上帝耶稣耶和华都没弄清楚呢，然后天河城满大街的圣诞装饰也只是促销而已，他们在哪个节日不做这种勾当呢。不过呢，想想也没必要挑明，他一定也是知道的，只是出于欧式措辞罢了。而对于春节，他却如实地表现出了兴致乏乏。他一次和我们说起他有一年春节假期间去办公室取东西的遭遇。应该是大年初几吧，他独自跑到办公室去，写字楼大门紧锁，一个临时值班的保安不认识他，打死也不让他进去，两人四手四足地沟通了一阵无果。最后在一个路人的帮助和见证下，终于同意让他进去。进去之后他又傻眼了，因为电梯没开，那个保安也表示无能无力。他说在那一刻，他真后悔为什么不把办公室租到更高的二十几层上，这样他就可以毫无眷恋地转身而去了。最后，他爬了12层的楼梯上去了，他说整个楼层没有一丝人气，好像被废弃的空间，视觉很晦暗，空气很沉闷，让他感到很难受。最后当他驾车离去的时候，在他印象中人来人往的街道空无一人，所有的商店都关门闭户。他说，在那一刻，他没有感觉到一丝的节日欢庆，孤身一人地感到前所未有的悲伤。从此之后，每年春节他都会和家人去别国度假，他说他受不了empty city的折磨了。这种情景我未曾经历过，但可以借用《西游记》的一首诗概括：十里长亭无客走，九重天上现星辰。八河船只皆收港，七千州县尽关门。六宫五府回官宰，四海三江罢钓纶。两座楼头钟鼓响，一轮明月满乾坤。就这样，又一年过去了。实际看来，这是一份没有前途的工作，离世界500强的入口太远了，反正现在的人一做所谓的职业规划都是以这个为目标的，然而现实有多少人在迷迷茫茫的职海颠簸流离或是车仰船翻这就不可得知了。我英语水平向来不佳，如今也还是，但没想到如今却要靠着这点自己都鄙视的技能谋生。对于我这种没有商业天赋的人而已，工作大抵都是类似的，那些穿着高档西装出入高级写字楼的影子对于我而已，只是一种泡沫式的幻象，在逐日消逝的时间缝隙里，总会不攻自破。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

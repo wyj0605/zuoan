@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活的底线</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>生活的底线</h1>
+            <div class="date">2026-03-04 09:56:31</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>生活的底线生活的底线原创我是左岸我是左岸左岸读书2021年11月11日 07:10在小说阅读器中沉浸阅读文/德鲁伊毫无疑问，忙碌的我们，是符合时间相对论的。标志之一，你总在忙碌后慨叹时间过的飞快，闲久了觉得时间似乎都是停滞不前的；标志二，你会因为周边环境的变化或是人的变化、成长，校对自己的时间流逝，比如谁的生老病死、婚丧嫁娶、求学登科，别人的变化衬托了你的不变。至于被时代抛弃，累得气喘吁吁，却觉得还是不理解这个世界。多半来自于自己不学习，不包容。新的时代，总是需要你张开双臂去拥抱的，否则总是会接受被抛弃和被碾压的痛。至于人生、生活的管理，多半是个“底线+底限”的管理，一是用来保护自己，二是总需要一些东西来解释自己，好让自己有点存在感和接纳自己。近来几个小事，有点意思。前几日开车出门，遇了红灯，最右道是直行+右转，我习惯性的停在中间的直行道。朋友问，右边也可以啊，还没车。我说，我们直行，红灯时间长，咱不影响人家右转的车。这是我学车时，师父交待的，与人方便，自己方便的意思。朋友说，停在那一道也没违规吧，你停在中间道上，前边车也有蛮多的。不违规，但就是个习惯，一个灯的事情，快慢差异不大。朋友说，不违规的情况下，我怎么快怎么来，这个习惯不咋样。其实也对，人居于社会，符合社会规范，既自我保护，也追求自我利益最大化。但我可能就是因为师父提过，自己记住了，然后的然后，就成了习惯，不那么做，自己还有点小愧疚的感觉。后边想，这种感觉还挺好，我不会骂停在直行+右转道上的人傻逼，自己大部分时间会停在直行道，偶尔占了一次，要么是红灯要变，要么是有点急。不急还占了，小不好意思。都是开车的，在不影响自己的情况下，与人方便。人生，生活，也都是如此吧。这是自己的一种底线管理，其实别人未必，所以是自己的事情。小区有一家子猫，我经常投喂。猫妈带了四小只，妈妈是橘白，四小只都是橘纹。夏季出生的吧，其乐融融的一家子。动物么，一出生都萌，小区关注的人挺多，生活不错，衣食无忧。过些日子，橘白妈不见了，也少了两只小的。剩下两只，相依为命，挺招人心疼的。秋季雨多降温的时候，两小只也抗过来了，有人提供猫屋，像我这般不定时投喂和定时的人挺多，姐弟俩（或是兄妹俩）起码还在成长。喂得多了，慢慢是可以撸一下的，她们也享受，我也有成就感。十月底了，天气冷下来，有一天，路过，一个姑娘拿着猫笼，罐头，逗猫棒，正和两小只较劲。看我在旁边站下，略显尴尬的说，她是领养代替购买的支持者，她发了两小只的照片在群里，有人愿意领养，但两小只对她不亲，近不了身。冬天快到了，这个主意不错的。我仗着和两小只关系不错，唤了来，撸了一会儿，趁其不备，抱起塞进了猫笼。咪猫温顺，一次性成功，郎猫有点难缠，可能是因着和咪猫相依为命，犹豫了挺久，还是就范了。功德一件，起码我是这么认为的。毕竟猫生也算是开启新的一页了。后边想，前几日网上有人虐猫，因为猫亲人，被虐杀了。比着这两小只，命运天差地别。是人性的沦丧？还是猫的善良？想着这两小只还算是猫间清醒，她们不会因着对一个人的认可，就推而广之到其他人类生物。一步步的认知，一步步的靠近，然后才会存在信任。既保护了自己，也享受了猫生。生活也是如此吧，我一直觉得，“底线+底限”管理是人生蛮重要的事情。你的存在感、价值感，与社会的互动联系，在这个世界上的存在，多半和这个有关系。保护自己，善待他人，我四十岁时，为了解释不惑瞎诌的句子，不知道天命时，会不会改变，现在看，还在坚持着。左岸记：“保护自己，善待他人”这个生活底线值得我们日常去遵守实践。保护自己包括了生命底线、身体底线和情感底线。生命底线：生命高于一切；身体底线：不要出卖、伤害自己的身体；感情底线：不要为不值得的人付出，委屈自己。保护自己的基础就是要有经济和精神独立的能力，要活出自己的尊严和底气。善待他人，就是与人方便，自己方便，一个人生活的运气往往来自他的人品积分。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

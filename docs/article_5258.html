@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活才是寓言家</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>生活才是寓言家</h1>
+            <div class="date">2026-03-04 09:56:31</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>生活才是寓言家生活才是寓言家原创我是左岸我是左岸左岸读书2023年07月25日 21:23福建在小说阅读器中沉浸阅读文/德鲁伊全世界对寓言都很感兴趣，因为生动，因为便于传递内涵。看着是逻辑的敌人，其实是逻辑理性的最佳助手。中国尤其，上溯到诗经，除了“赋比兴”，寓言也不少。及至到了今天，评判一篇文章赖好，没点事例或事情做比喻和寓言化。不仅读来索然无味，大部人也会觉得文章不咋地。那从生活里来，到生活里去吧。*知行合一*前些天在家吐槽，刚上市的葡萄，太酸。爱人问，你咋知道的。我说我准备买，尝了一圈，真真的酸。爱人说，你尝了不买？我说，不是你们告诉我，买东西先尝尝么。过去买东西一不问价，二不尝，没少被家人数落。于是，现在我都是理直气壮的尝，不好就不买。这次聊起来，家人才说，大部分时间里，他们都是先看好，决定买了才尝。只要不是太不好，都不好意思不买。商家的品尝促销，他们也基本不尝试，尝了不买怪不好意思的咧。这个和专家指导意见差不多，专家没错，能不能去尝试和做，和专家没关系。因为大概专家也行动不了做不来，股市楼市概莫如此。道理懂的不少，还是过不好这一生？缺点理直气壮，缺点懵懂无知。简化目标，放下包袱的事儿。*认知偏差*到了吃鲜核桃的季节，风水轮流转，年轻时，都是旁人剥了我享受。现在需要自力更生，好这口就自己动手。鲜核桃自小时候起，就是时令的东西，是水果和零食的绝妙结合。略有些油性又甘甜多汁，洁白如玉。就是剥起的时候，有些恼人。这东西得益于秦岭的无私奉献。但因为打小就吃来着，自然觉得世界大同，每个人都该能享受这个美妙的东西。但及至大了，才知还真不是这回事，外面很少人吃这玩意儿。我想大概是某个饥饿的人吃了第一口，或是纯属恶作剧的某个游手好闲人，完全是因着秦岭野核桃多吧。别人不吃这玩意儿，我替他们可惜，别人或许觉得浪费或是不值当。认知总是有偏差的，因为不同，才思索为什么不同，才少了些理所应当，世界必须一致的幻想。鲜核桃是个绝妙的东西，推荐大家都试试。*关于进化*在喂流浪猫。（拒绝审视反思派探讨。）原先是一只橘猫带了三小只，冬天最冷的时候，给搭了个窝，偶尔投喂。于是，三小只活了、大了。两只郎猫一只咪猫。大些了，橘猫就见不到了。那时候还感叹母性的伟大，觉得三小只有得吃，大了不是赶走，而是让了这地方给三小只。后边偶尔回来，还哈三小只，也不易。流浪猫绝育绝对是个大问题，三小只里的咪猫，半大的猫竟然怀孕产猫，未成年啊，万恶的猫世界。两个小小只的黑白，一个白多点，一个黑多点。有趣的事情来了，三个兄弟姐妹，竟然没什么冲突。两个哥哥（纯属个头大），还担负起护卫的职责（负责和其他流浪猫打架）。最奇妙的是，猫姥姥也回来帮着带娃的感觉。三代同堂其乐融融。按理说猫科动物么，习惯于独居。能如这三代一群，想想无非两点，一是食物相对无忧；再就是两小无猜，有样板在那。然后而知，这个猫家族基因存活的力量就强大些。偶尔想，人也一样。人是否在进化不一定，这个社会其实还在生物般的进化，要想活得好，家族化和独立性，永远是事物的两面。**自诩有点文化的人习惯性爱说理，短视频看多了不会讲故事。但这个世界其实就是由故事和通感联觉组成的。所以生活才是寓言家，这个理在辙。左岸记：德叔总能从最日常的生活故事讲出最贴近生活本质的理来。著名的童话作家严文井老师说：“寓言是一个魔袋，袋子很小，却能从里面取出很多东西来，甚至能取出比袋子大得多的东西。寓言是一个怪物，当它朝你走过来的时候，分明是一个故事，生动活泼；而当它转身要走开的时候，却突然变成了一个哲理，严肃认真。寓言是一座奇特的桥梁，通过它，可以从复杂走向简单，又可以从单纯走向丰富。在这座桥梁上来回走几遍，我们既看到五光十色的生活现象，又发现了生活的内在意义。"一个人不懂怎么去思考生活，那生活就永远只是那最寻常一样。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

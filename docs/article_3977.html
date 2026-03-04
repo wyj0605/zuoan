@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>与这个时代妥协</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>与这个时代妥协</h1>
+            <div class="date">2026-03-04 09:52:13</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>与这个时代妥协与这个时代妥协原创德鲁伊德鲁伊左岸读书2025年05月16日 09:17福建在小说阅读器中沉浸阅读文/德鲁伊据说我是那种外表随和，骨子里很倔的人，他们说的。虽然，我一直觉得我老随遇而安了，老好说话了。我有相对独立的审美和爱好，也能一以贯之，常年不懈，我还挺以为豪的。甚至，在一段相当长的时间里，有点偏执的坚持自己的爱好和审美，并对挺多的东西，刻意的嗤之以鼻。据此，还颇得周遭一些人的好评。去年开始吧，因为做事的原因，接触的年轻人多起来了。（后来明白，其实不是环境变了，是自己老了，有那么几年一直和老卡巴茬子共事，如今出来恍若隔世吧。）。这有点像你没觉得老，但对面的姑娘越来越年轻的感觉。然后就有些尴尬来了，现在的孩子有清澈的愚蠢，拿真诚用来粉饰不谙世故。我对彩虹图案和配色超喜欢，想想最初的QQ名和笔名，还是“彩虹之爱”，那时候文艺的紧，觉得看到彩虹你想起的人，或许真是你内心深处的人。然后呢？然后的然后，就有年轻人客气的问我关于LGBT的看法，那我可是老反对了。但感觉他们的意思很深沉和不明就里，到我悟到彩虹和LGBT的关系时，硬生生的从此与彩虹配色无缘了。再然后，我么，人秃归秃，体毛及胡须那是嘎嘎的好。胡须密集及覆盖度上，除了悟空造型不行，其他的胡须造型随便整。因为光头于是蓄须，因为时而懒，不及时剃，偶尔就满脸络腮胡。然后又接受到善意的某人推送我短视频，圆脸、络腮胡、体毛茂盛，大概率标签的“同”。虽然的虽然，我是标准山东人的国字脸，但是的但是，我去，我是真不好这口。心里是膈应了，唯一的收获，修饰胡须认真而经常了。时代一定是在进步，曾经很自以为傲的坚持，或许你必须妥协和迭代。这本身是一种进步。有些东西，比如吃面呼噜，青年时觉得不雅，现在觉得必须呼噜；又比如，曾经靠品牌来证明自己，现在大概率你不会关注我穿戴的牌子（当然，也可能是我没钱了。）。年轻时你给我说彩虹或络腮胡的禁忌，大约我会刻意的有意彰显，现如今这个标签时代，乖乖的匿了。这世界找爱好很容易、改审美也不难，改改外表更易。眼球经济的背后是欲望细分，粉丝经济的背后是寻找不到独立人格，品牌成为宗教背后是怀疑自己的判断能力。据说未来的时代，因为AI的发展，牛马的主要工作就是给自己的工作掘墓。然后，某个工作除非AI不能完成，否则不会招聘人的时代也快了。然后，物质极度丰富，“共产主义”也就华丽丽的快了。科技冲突的结果，一定是文化冲突，人工智能与人根本谈不上冲突，因为人类无法赢。人工智能建立的道德社会标准，你大概率不会如今天般的，百花齐放恣意生长，于是，善待现在的自己吧，未来只会更标准化。人类不能没有信仰，哪怕你是苹果党、小米党。因为到了今天，AI告诉你，这是一个没有神邸的世界，宇宙貌似也没有预先设定的意义（哪怕宇宙本身就是一个程序，也没有先定的意义。）。你想有哪怕一点点的思想自由，大概你还是需要创造一些你认可的意义，或说这个意义维持着你的存在和价值。与这个时代妥协不丢脸不跌分，你要想活的好，还必须乐在其中。寻找到自己的价值，或说维系着自己的价值感，既抗抑郁，还能活命。另：有一个作家叫伊恩.M.班克斯的，近期马斯克冷个劲儿的提，值得学习一下。左岸记：不要放弃思考，不要把自己的一切交给AI，人可以利用一切的高科技，但一定要保留身为人最基本最核心的精神意义，真真感受生活的喜怒哀乐，悲欢离合。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

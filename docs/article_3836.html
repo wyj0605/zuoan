@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7个锦囊</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>7个锦囊</h1>
+            <div class="date">2026-03-04 09:51:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>7个锦囊7个锦囊沈万九沈万九左岸读书2022年12月14日 11:17福建在小说阅读器中沉浸阅读文/沈万九（微信号：shen-wanjiu）1.随着“新十条”的发布，持续了三年多的疫情，转眼就进入了一个全新的阶段。全国各大城市前仆后继地放开，解封，连接……仿佛是争相开放的花朵，又像是不断苏醒的旧梦。还记得三年前，2019年的冬天，天寒地冻北风烈，我在长白山过春节，从漫天飞雪的天池下来后的第二天，长白山就紧急宣布关闭，随后武汉疫情爆发，随后紧接着封城……从此，一场持续了1000多天的劫难，带着魔幻色彩地拉开了帷幕。如今三年过去，在经历过束缚，孤独，迷惘，焦虑，抑郁，恐惧等各种情绪的轮番冲击之后，劫后余生的我们，终于迎来了一个新的阶段，“日捅一下”的核酸成为了过去时，绿黄红健康码也完成了光荣的使命，至于管控区封控区隔离区也终将成为历史。2.然而如你所知，新的阶段，并不意味着一切已经结束，也不是意味着真正的“守得云开见月明”，更没有到“春风得意马蹄疾，一日看尽长安花”的时候。接下来的半年，将会是黎明前最黑暗的时期。在这个期间，我们一方面听说奥密克戎普通的感冒发烧差不多，只要狂补水熬过7天就好；另一方面又听到了其他的声音，比如河北保定，传染性依旧非常高，而且染上后会产生剧烈的身体反应，乃至可能会产生不太确定的“后遗症状”。与此同时，身边的一些朋友也陆续成为了“杨过”，特别是北京的朋友，发展的趋势远比第一个全面放开的广州要严重，大有十面埋伏的感觉。只不过，感染之后也未必都是坏事。比如说有一个来访者感染后，原本一直为情所困总放不下前男友的她，在转阴后果断决定斩断情丝，轻松向前。还有一个朋友，北京的，原本总想着离婚，觉得老婆这个不好那个不好，想要跟另外的意中人在一起。可在去隔离房一周游后，顿时发现家人才是真的好，随即浪子回头，打消了离婚的念头。可以说，疫情是一面特别好的照妖镜，一方面照出了关系的质量，另一方面也照出了我们内心的能量。3.那么，如何守护好最后一关，争取不上场或是晚上场呢？以下的七个锦囊送给大家：（1）心定神宁《黄帝内经》有云：“恬淡虚无，真气从之，精神内守，病安从来。”焦虑抑郁恐惧等负面情绪的过载，容易让我们的身体免疫力大大降低，所以，我们需要学会一些正向的方式让自己情绪稳定，释放压力和内心安定，比如冥想打坐。在此，也教大家一个简单的技术：着陆技术，包括以下的三个方法，具体挑选适合自己的即可。① 精神着陆：环顾一下四周，快速地说出你所看到的各种物体的颜色、形状、名称等。② 身体着陆：感觉一下双脚与地面的接触，身体与椅子的接触；动动手指头和脚趾头，用心感受它们的存在与带给自己的感觉；抓握一个物体，感受它给自己带来的触感、温度。③ 自我抚慰的着陆：想一想一个你爱的或爱你的人的面容；想一件你期待去做的事情；想一想能让你安心的东西。需要注意的是，我们做这些活动时不一定要完成多少数量或做得多精确，这并不是一 场考试。如果大家觉得将注意力集中到自己的身上很难，可以试着找一个干扰较少的环境，闭上眼睛，将自己的大脑想象成一个扫描仪，能够去“扫描”全身不同的部位。当“扫描”到身体的某一个部位时，停在这里，去感受它们的存在以及它们与其他地方接触而给自己带来的感受。（2）优化社交接下来的3-5个月，可以适当地减少一下地面社交，优化一些无效社交，扩展一些精神社交，滋养性社交，以减少感染的风险。另外，也可以参加网上的某些成长性团体，特别是那些感觉自己安全感比较欠缺，感觉自己爱的能力需要提升，感觉自己沟通能力需要成长的朋友。（3） 自我催眠在我们的催眠坊中，有专门针对这个阶段的催眠，可以帮助我们连接潜意识，激发身体的免疫细胞，提升身体抵抗力。另外，也可以在出行必要的场合，进入到高风险地区的时候，给自己形成一个能量的金钟罩，保护自己。这里也教给大家一个简单的催眠技术：① 闭上眼睛，深呼吸3-5次，让自己彻底放松；② 倒数20，从20数到1，每数一个数，跟自己说放松；③ 数到1 的时候，对自己说，每一天，我的身体都会形成一个金钟罩，保护我不受病毒感染，直到疫情结束。（4）良好作息有规律的作息，是我们健康的一个保障。如果实在做不了早睡，也没关系，哪怕是晚睡，我们也要带着愉悦的心情，特别是现在世界杯期间，有些朋友还会晚上看球的。那么，在睡眠不足的情况下，如何有效地缓解疲惫，达到最好的睡眠质量呢？最简单的办法，就是“睡猫觉”。方法如下：在睡前，让自己身体尽量紧绷起来，使劲紧绷起来，再快速放松，如此反复三次，然后睡觉。最关键在于醒来时，和自己说“醒了”，然后可以用手搓搓自己的脸、脖子、胳膊等身体部位，帮助自己的身体苏醒。（5）适度运动最近，网上流行一个段子：“专家说戴口罩可预防新型病毒——口罩售罄；专家说连花清瘟治疗奥密克戎——连花清瘟被买断货；专家说多运动能增加免疫力，你们跟聋了一样。”确实如此，这么多年，我跟无数人建议过要运动，养成运动的习惯，特别是出汗比较多的有氧运动——虽说10个人里，依旧有9个人跟“聋”了一样，但为了那1个人，我们还是要给大家送上这个必不可少的锦囊。（6）读书选几本书读读，一本无用的文学作品，一本跟专业有关的作品，一本跟心理成长的作品。文学作品，无用的有用之书，推荐法国作家阿尔贝·加缪《鼠疫》，或是哥伦比亚作家加西亚·马尔克斯《百年孤独》，王小波的《白银时代》等；专业有关的作品，可以是管理方面的书籍，也可以是纯专业维度的著作。再就是亲密关系或心灵成长的书籍，比如《那些阻挡爱的障碍》，《自我的诞生》。按照目前你读书的速度，估计读完3本，疫情就可以平稳度过了。（7）有效防治必备的药物，n95，抗原测试，疫苗......这个时候，谁给你准备药的，或许就是真爱了。感染后陪伴你左右的，那就是真情了。4.在全球畅销书《岛上书店》中，曾有这么一句话：“每个人的生命中，都有最艰难的那一年，将人生变得美好而辽阔。”在过去艰难的三年，我们的一切都变了，而且永远也不回到过去的样子。然而，倘若我们能如你所是地尊重已经发生的一切，不管是多么艰难，黑暗，痛苦，煎熬.....我们都是与道同行，继而能能获得生命最大的祝福，从而让我们的人生变得美好，宽广和丰盛。左岸记：像关心自己一样关心身边的人，不再畏惧，也不要放弃。得之我命，不得我幸。生病就是生病，不要为难自己。这不是自己的错，也不是上天惩罚，更不是什么耻辱。资讯铺天盖地，但只有自己亲历才知道感染究竟意味着什么。我们来到人间，就要接受各种试炼。相对而言，奥密克戎只是个小型试炼，绝大多数人都能通过。如果你感染了，那就多多分享自己的感受和措施，分享得越多也就会有越多认知。这样疾病临身的时候，人也就不会慌张，因为你了解每一步你将要面临什么。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

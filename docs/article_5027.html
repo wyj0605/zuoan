@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朋友是一面镜子，他能让你更加立体地看待自己和世界</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>朋友是一面镜子，他能让你更加立体地看待自己和世界</h1>
+            <div class="date">2026-03-04 09:55:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>朋友是一面镜子，他能让你更加立体地看待自己和世界朋友是一面镜子，他能让你更加立体地看待自己和世界德鲁伊德鲁伊左岸读书2015年04月08日 21:08在小说阅读器中沉浸阅读有朋自远方来，大学同学。时间是不是杀猪刀不好讲，但岁月一定是涂改液，总是怀疑对面坐着的人，恍如隔日，却又面目全非。承认面目全非了吧，却又有蛛丝马迹的亲切。学生时代，他是风起云涌、畅快淋漓，一直感觉会在仕途的路上走的很完美。却因为自己觉得不能把命运交给体制，不能让自己的未来掌握在别人手中，选择了职场的各类辗转。说起职场，只有大小的区别，形式却不一定决定内容。职场有道德，但跟社会的道德体系不同。博弈加人性，永远是职场的主调子。探讨完这些，我奇异于他职场经历为什么辗转这么多。他说，我们总是很在意我们的未来会不会更好或更糟，但忘了不是明天的好决定你今天是否留，而是现在的你是否有底限。如果一个职业位置让你觉得，已经出现你不能忍受的底限，那不管他未来如何，你都该离开了。因为你永远不可能保证当下的自己是快乐的，这个跟是否有其他的offer没什么关系。至于说机会，因为我们总是大而化之的看这个社会，条条框框，自己适合的自己不适合的，这个跟按图索骥差不多。我们纵向的看我们的行业，平面的看世界。如果你有机会立体的看世界，就会发现除了距离产生的机会，一样有空间高低产生的机会，甚至会发现有些看似不相干的东西是重叠或是彼此有联系的。倒没什么醍醐灌顶，无非是活在当下和立体看世界的职场解读模式，倒是什么是朋友这个值得自己多思量一下。朋友在孩子时，玩伴罢了。可以一起玩，或是提供新奇的玩法、玩具，可以一起去冒险和做坏事，就是好的朋友。可以随时吵架，随时和好，朋友无非是另外一个自己，或是希望成为的自己。垂髫青梅，两小无猜，离别依依，转瞬即忘。大些了，朋友是影子，是倾诉的对象，是狂欢的玩伴。你记忆深刻的朋友，要么是一起做过坏事，要么是你替他或是他替你背过黑锅。烦恼时最佳的垃圾桶，快乐时最佳小喇叭。充满背叛以及和好如初，最支持你的不是你的朋友，但戏谑你最狠的却是朋友。你永远选择和你类似的，却永远因为过于类似而选择离开。大学时代的朋友，第一次开始扮演角色，在群体里学习如何存在。张扬个性却随时比较周边，开始寻找玩伴之外心灵的想通，却因为各自的成长莫名来去。开始在纠结自己的独立存在，和朋友之间的距离和互动中寻找平衡。你不甘心在朋友圈里的角色，却永远无法选择换个模样，除非你选择离开。你开始寻找有用的朋友，闺蜜也好哥们也好，你在定义自己的同时，也在定位他们的价值。可用的不可用的，有什么用的，你越分类越糊涂。闺蜜都是大杀器，哥们最擅长背后捅刀子，当你觉得他们有用的时候，他们自然会考量互相的付出。或许这样的互相杀戮，会持续一辈子。最不需要朋友的时候，你总觉得朋友很多；最需要朋友的时候，你发觉少的可怜。你以为朋友可以交换悲喜，可以作为依靠，可以给你力量。却发现，朋友还需要经营，经营就有项目，就有费用，就有可能亏损。除了吃喝玩乐，你也不再追求是否懂你，因为连自己都不懂自己。有那么一天，你发觉不像过去了，曾经朋友之间总是有人主动选择离开，不再是朋友。而现在，大家都很默契，不再联系、联络，走着走着就淡了，淡着淡着就消失了。哪天遇到，却跟什么都没有发生似的，互相埋怨，却又继续离去。当人生只剩下挖掘记忆而不是新添惊喜的时候，朋友却成了值得咀嚼的东西。人总是在不能随便咀嚼食物的时候，开始反刍咀嚼自己的记忆。朋友却又光芒四射的出现在记忆里，披着七彩的霞霓，证明的是你自己曾经的辉煌。朋友真那么的不堪？那么的去留有意、得失无凭，还无法左右？或许有一生的朋友，只是需要你确保自己独立的存在。当你的朋友和你，在记忆里都是独立的存在，不是依靠着共同做了什么、彼此给予了什么时，朋友或许就是朋友。在生命里，你观照他的成长成熟，包容他的成长成熟，承接他成长成熟中给予你的伤害。不再纠结彼此建立的友情里，谁的空间大谁的空间小，而是拓展这个空间。学会在友情里享受自己，分享快乐。或许朋友也就是一个支点，让你可以借助着撬动你想撬动的人生，但永远别指望朋友帮着你建筑人生。朋友或许是个避难所，但你永远需要记住外面的世界还是需要自己去经历。学会在自己辉煌的时候拉着他到前台，在他辉煌的时候争取做个观众击节。或仅仅做一个彼此的见证，彼此人生的见证者。也可能，朋友就是那个镜子，他不告诉你你是什么样的，只需要你自己看你是什么样的。他告诉你他怎么想，选择总是你的，他会说：你的决定是你的，但我会支持你。他只会在你需要安静的时候告诉你，在你需要热情的时候点燃你，但永远不强制你。朋友总是那些若即若离，却又时刻可以感知存在的人，在你老去的时候坐在你身边帮你回忆自己。朋友一直是平等的，因为对面的，其实是另一个自己。他告诉你世界在他的眼里是什么样的，至于你眼里的世界，不强求你。他是你另外的眼睛，你可能经历却没有经历的。朋友探索的世界永远不会和你重合，却在经历上偶尔有点交集，让你可以多开一扇窗，打开一扇门。曾经有个老师，告诉我：人生如何，即如你脚上的鞋子，你穿的鞋是什么无所谓，关键是你鞋上的泥土有多少、都是什么。于是我想，朋友总是那个让你知道鞋上还有泥土的人，替你保养这双鞋的人，或是帮着你擦掉这些泥土的人。左岸记：真正的友情是这世界上最为美好的东西，对它的渴望和赞美之情古往今来，皆为世人传颂：最好的朋友是那种不喜欢多说，能与你默默相对而又息息相通的人。——高尔基志合者，不以山海为远；道乖者，不以咫尺为近。——晋·葛洪志道者少友，逐利者多俦。——汉·王符知道危险而不说的人，是敌人。——歌德真正的友谊总是预见对方的需要，而不是宣布自己需要什么。——莫洛亚阴险的友谊虽然允许你得到一些微不足道的小惠，却要剥夺掉你的珍宝——独立思考和对真理纯洁的爱！——别林斯基意见和感情的相同，比之接触更能把两个人结合在一起，这样子，两个人尽管隔得很远，却也很近。——柴可夫斯基行同趋同，千里相从；行不合趋不同，对门不通。——淮南子对众人一视同仁，对少数人推心置腹，对任何人不要亏负。——莎士比亚和你一同笑过的人，你可能把他忘掉；但是一同和你哭过的人，你却永远不忘。——纪伯伦建立和巩固友谊的最好的方法，莫过于互相信赖地闲谈心事与家常。——约翰·洛克阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

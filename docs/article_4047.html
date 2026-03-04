@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乡愁是一扇关闭的门</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>乡愁是一扇关闭的门</h1>
+            <div class="date">2026-03-04 09:52:25</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>乡愁是一扇关闭的门乡愁是一扇关闭的门稻田稻田左岸读书2020年11月13日 10:20在小说阅读器中沉浸阅读文/稻田婺源于我不是粉墙黛瓦的水墨画，也不是翠谷飘香的油菜花，婺源于我是青石古街里一扇上锁的门。眼前的这扇木门瘢痕累累，肤色暗沉，尽显时光的久远和生命的苍老，但它却不断地生出一种巨大的吸力，要将我的目光和我的身体吸附，因为，这扇木门里诞生了我的母亲，这扇木门进出过一个孩童，一个少女，一个新娘，还有我的意气风发的父亲……我是从这扇木门数公里之外的一座山上走过来的，那山的最高处埋着我母亲的魂灵。从山顶俯瞰，婺源古城被一条游龙般的星江围成半岛，像一个留在山谷间的巨大脚印。眼前这扇木门里的小楼，以及小楼相依的青石古街，就在脚印的北侧—— 一个叫大庙街的地方。故乡是一个行走过的脚印，留下了变迁的印迹，乡愁也即如影随形。门里的母亲早已离去，带着我们到了好多个新的迁居之地，而今，她又离开了我们，埋葬在出生故居不远的山顶，并化成白雪的身姿飘入深情的星江河水，日夜与故乡偎依。乡愁像是宿命，一直伴随着她，她不喜多语，常在心里回望故乡的过去，正如现在的我，面对着上锁的木门，搜寻和凝视着一段生命的叠影 —— 那个任性的女孩在哪里？挣脱了缠脚的布条，大脚大步，隐没在青石街巷的转角。那个偷偷阅读《红楼梦》的少女在哪里？是否还在二楼那间阴暗的隔间借着油灯翻看未知的人生？那碗会“把舌头一起吃下”的霉豆腐在哪里？那是一道咸辣香鲜的美食，是家乡的味道。那座供奉五显财神的庙宇是否走进过一位书生模样的布商，在签筒里小心地抽出一根竹签，卜卦生意顺利？这书生是我的从未谋面的外公，是母亲的片言只语在我心里留下的残碎简笔，却成为了我永远的记忆。那个轰动的婚礼在哪里？母亲从未提起，但二舅告诉过我，木门里一层的小间，是她与我父亲的住地，外婆则搬到了楼上，与小姨住在了一起。那阵欢响的鞭炮在哪里？母亲的三个弟弟同年大学中榜，青石古街喜气充盈，外婆是否在灶间做着粉蒸肉和糊豆腐，正在蒸雾里暗自窃喜？门里和门外像是在用力地拉扯，门里是梦里，门外是梦外，现实是最强的角力，终将我拉回到现实里。于是一阵怅惘流遍全身。脚下的青石凹凸不平，像父母的人生，也像我坎坷的心绪。“日暮乡关……烟波江上……”眼前忽然浮现出一支密集的长队，一路南行，一路回望。我知道，这是史书里记载的中原南迁移民的队伍。队伍中可有我母亲的先祖？董氏，可是婺源古城排在前面的大姓。婺源，古徽州的蚺城，三省交界的山间盆地，群峰环侍，像一个藏身避乱的城堡；涧流齐汇，婺水绕城，竹树叠翠，云雾轻萦，又似陶潜所言的世外桃源。于是南迁的队伍停下了脚步，这一停留，便山重水复，承载了满满的乡愁，并代代传递，如婺水南去，不再复返。乡愁是多数中国人都有的情怀和感受，我和我的父母只是其中的个体。只要查阅一下任一姓氏流迁的路径，就会发现，千百年以来，中华大地上一直在上演着一场持续不断的人流迁徙大剧，一个姓氏，一个家族，甚至一个民族，像河流般流淌，像水网般布散。“你是哪里人”，这样的问题其实只能以一个大致的方向来笼统地回答，特别是那些中断族谱维系的人们，来路只能是一个模糊的传说。但乡愁并不会因此而淡薄，因为迁徙已经成为了血脉里的记忆，怀乡已经成为了生命的寄托。我行走在这条青石古街上，那扇关闭的木门始终拂之不去，此情此境，此境此情，似在我耳畔悠悠地唱着一首乡愁的歌，似在向我解释着每个人心里都装着的绵长的乡愁。乡愁就是一扇关闭的门，探望的人被挡在了门外，但门里的故事却飞进了探望者的心里，紧紧牵扯着你，无论你是寂寂平民，还是赫赫显士。中华大儒朱熹生于福建，卒于福建，却一直以婺源为自己的故乡，初心不变，入梦入怀。因为他父亲的故乡在婺源，先祖的祠堂和故事在婺源，父母的过往就是儿女的前世，先辈的家园就是后代的故乡，不论你身在何方，故乡都在父母和先辈的方向。“故家归来云树长，向来辛苦梦家乡”，与所有在外的游子一样，婺水环绕之地就是朱熹的梦里老家，因为闽地遥隔，路途艰难，无法常回探望而总是“辛苦”梦念，愁自衷来，而为乡愁。婺源故乡的大门并没有阻隔游子朱熹的探望，朱熹一生两次回乡，修葺祖墓、拜谒祖灵都是重要的目的，对朱熹来说，他虔诚拜谒的先祖墓陵才是那扇紧闭的门，阴阳两相隔，亲人不复回，音容已如烟，这才是他虽然有幸拜谒，却“向来辛苦梦家乡”的真实原因，这也是乡愁之歌在所有生者心里萦回不去的真实原因。乡愁就是一扇关闭的门，探望的人被挡在了门外，门里关着已经逝去的先辈和他们的过往，还有探望者自己已经走远的青春，以及那些触摸不到的故乡的山水，故乡的月，故乡的声音，故乡的人。“戍鼓断人行，边秋一雁声。露从今夜白，月是故乡明。有弟皆分散，无家问死生。寄书长不达，况乃未休兵。”戍鼓声声，兵戈正酣，弟走散失，未知生死，诗人杜甫见月愁怀，遥寄挂念，凄凄乡愁如寒露切肤，这是对故乡亲人思而不得的乡愁。“少小离家老大回，乡音无改鬓毛衰。”诗人贺知章抒发的是青春未还乡，垂老方来归的落寞乡愁。“若为化得身千亿，散上峰头望故乡。”宁愿化解肉身，散落群峰遥望故乡，诗人柳宗元抒发的是心心念念、无法排解的思乡离愁。乡愁真像一扇关闭的门，门里是故乡，门外是那思乡的人。这扇门使人们思乡的情怀不能心如所愿，更浓烈了人们思乡、爱乡的真挚情怀，并在对故乡与故往的深情回望中，进一步体味亲情和乡情，珍爱生命和人生，从而在乡愁的润泽里净化和升华心灵。这就是乡愁的价值和意义，它告诉了我们这样一个真实的道理，情至深处是忧伤，忧伤深处显真情，因为真切，因为深沉，便能涤荡那些冷漠、自私、俗杂以及狭隘和局促，把自己放到家人、家族和家国的大格局里关照自我，自然会成为一个有人性，有情怀，有品行的可敬可爱之人。所以，我们要留住乡愁，留住那扇关闭的门。留住乡愁绝不是留住忧愁，更不是无愁造愁，而是保留一颗慎终追远的孝心，留住一腔思人爱乡的情怀，珍惜一段过往生命的年华。所以留住乡愁就应当留住那扇“关闭的门”，使乡愁有可依，使回望有可寄，使真情有可寻。我庆幸自己的故乡之行，我感谢那扇瘢痕累累、寂静无声的苍老木门—— 大庙街二十四号，千年古街里的一栋徽派老屋，我已故母亲的故居！左岸记：喜欢这份情怀，“把自己放到家人、家族和家国的大格局里关照自我，自然会成为一个有人性，有情怀，有品行的可敬可爱之人。”乡愁是一扇心门，你要让自己能自由出入。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

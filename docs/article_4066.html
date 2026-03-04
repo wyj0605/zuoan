@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人为什么会无聊？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>人为什么会无聊？</h1>
+            <div class="date">2026-03-04 09:52:28</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>人为什么会无聊？人为什么会无聊？宗白华宗白华左岸读书2021年11月12日 17:14在小说阅读器中沉浸阅读文/宗白华要解决这个问题，首先要问究竟什么叫生活？生活这个现象可以从两方面观察。就客观的——生物学的——地位看，生活就是一个有机体同它的环境发生的种种关系；就主观的——心理学的——地位看，生活就是我们对外界经验和对内经验总全的名称。我这篇短论的题目，其实是在问怎样使我们生活丰富。换言之，就是立于主观的地位研究怎样可以创造一种丰富的生活，避免无聊的人生。那么，我对于“生活”二字认定的解释，就是“生活”等于“人生经验的全体”。生活即是经验，生活丰富即是经验丰富，这是我这篇简括扼要的答案。但是，诸位不要误会经验是一种消极被动的容纳，要知道，经验是一种积极的创造行为。然后，才知道我们具有使生活丰富、经验丰富……的可能性。我们能用主观的方法，使我们的生活尽量地丰富、优美、愉快、有价值。我们怎样使生活丰富呢？我分析我们生活的内容为“对外的经验”，即是对于自然与社会的观察、了解、思维、记忆；与“对内的经验”，即是思想、情绪、意志、行为。我们要想使生活丰富，也就是在这两个方面着手：一方面增加我们对外经验的能力，使我们的观察研究的对象增加；一方面扩充我们对内经验的质量，使我们思想情绪的范围丰富。请听我详细说来。一个思想丰富的人，他见着那些极平常普通的现象，却总能发挥他的思想、触动他的情绪，就很觉得意趣浓深，灵活机动，丝毫不觉得寂寞。我记得德国诗人海涅（Heine）到了伦敦，有一天走到一个街角上站了片刻，看见市声人海中的万种变相，就说道：“我想，要使一个哲学家来到此地站立一天，一定比他说尽古来希腊哲学书还有价值。因为，他直接地观察了人生，观察了世界。”他这几句话真可以表示他的思想丰富、生活丰富，随处可以发生无尽的观念感想，绝不会再有寂寞无聊的感觉。而一般普通常人听了他这话，大半是不甚了解，因为他们自己若有了十分钟的幽闲无事，一定就会发生无聊烦闷的状态，不知怎样才好，要不是长夏静睡，就要去寻伴谈心了。由此可以看出，我们的生活丰富不丰富，全在我们对于生活的处置如何，不在于环境的寂寞不寂寞。我们对于一种寂寞的、单调的环境，要有方法使它变成有趣的、丰富的对象。这种方法，怎么样呢？我现在把自己向来的经验，对诸君说说，看以为如何。我向来闲的时候，就随意地走到自然或社会中，随意地选择一种对象，作以下的几种观察：（一）艺术的；（二）人生的；（三）社会的；（四）科学的；（五）哲学的。先说一个例。我有一次黄昏的时候，走到街头一家铁匠门首站着。看见那黑漆漆的茅店中，一堆火光耀耀，映着一个工作的铁匠，红光射在他半边的臂上、身上、面上，映衬着那后面一片的黑暗，非常鲜明。那铁匠举着他极健硕丰满的腕臂，取了一个极适当协和的姿势，击着那透红的铁块，火光四射，我看着心里就想：这不是一幅极好的荷兰画家的画稿？我心里充满了艺术的思想，站着看着，不忍走了。心中又渐渐地转想到人生问题，心想人生最健全最真实的快乐，就是有一个稳定的工作。我们得了工作，然后才得身心泰然，从劳动中寻健全的乐趣，从工作中得人生的价值。社会中实真的支柱，也就是这班各尽所能的劳动家。将来社会的进化，还是靠这班真正工作的社会分子，绝不是由于那些高等阶级的高等游民。我想到此，则是从人生问题，又转到社会问题了。后来我又联想到生物学中的生存竞争说，又想到叔本华的生存意志的人生观与宇宙观，黄昏片刻之间，对于社会人生的片段，做了许多有趣的观察，胸中充满了乐意，慢慢地走回家中，细细地玩味我这丰富生活的一段。以上是我现身说法，报告诸君丰富生活的方法。诸君自由运用，可以使人生最小的一段，化成三四倍的内容。乃不致因闲暇而无聊，因无聊而堕落，因堕落而痛苦了。但这还是我所说对外经验丰富的方法。这还是静观的，消极的，偏于艺术的方法。这不过是把我们一种的对外经验，一个自然界的对象，作多方面的玩味观察，把一个单调的、平常的环境，化成一个复杂的、丰富的对象，使它表现多方面：艺术，人生，社会，科学，哲学——的境相。用一个比譬说来，就是我们使我们的“心”成了一个多方面的折光的镜子，照着那简单的物件，变成多方面的形态色彩。这已经可以使我们生活丰富不少。但我们还要使我们“在内经验”也扩充丰富，使我们的感情意志方面也不寂寞，这有什么方法呢？这个实在很简单。我们情绪意志的表现是在“行为”中，我们只要积极地奋勇地行为，投身入于生命的波浪，世界的潮流，一叶扁舟，莫知所属，尝遍着各色情绪细微的弦音，经历的一切意志汹涌的变态。那时，我们的生活内容丰富无比。再在这个丰富的生命泉中，从理性方面发挥出思想学术，从情绪方面发挥出诗歌、艺术，从意志方面发挥出事业行为，这不就是我们理想的最高人格么？所以，我们要丰富我们的生活，并不是娱乐主义、个人主义，乃是求人格的尽量发挥，自我的充分表现，以促进人类人格上的进化。诸君也有这个意思么？左岸记：叔本华说:人在各种欲望不得满足时处于痛苦的一端；得到满足时更处于无聊的一端。人的一生就像钟摆一样在这两端之间摆动。因为你的两端相距很短，你的钟摆像一个电子表，这一秒痛苦，下一秒无聊。为什么这么短呢?因为你的境界太低，你的痛苦、你的无聊大都基于你个人的生理需求。你得丰富你的生活、你的思维，把寻常化为有趣，把腐朽化为神奇。这样你也就不会感到无聊了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

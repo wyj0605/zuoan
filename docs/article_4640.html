@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对不起，你要的自由不值钱</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>对不起，你要的自由不值钱</h1>
+            <div class="date">2026-03-04 09:54:25</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>对不起，你要的自由不值钱对不起，你要的自由不值钱左岸读书2017年08月03日 01:30在小说阅读器中沉浸阅读以下文章来源于Mr蜗牛，作者Mr.SnailMr蜗牛.文艺而理性的人你终于来了！自由是个好东西，所以才有那么多人不惜辛劳追逐它。以前上学的时候，一直幻想并脑补着自己做一名自由职业者的样子。想象着不需要每天煎熬着早起，不需要赶痛苦的早高峰去上班，可以在个适宜的季节出游，最好能抱一天电脑边行走边办公随意掌控自己的时间，既能快乐的玩耍又能为自己创造价值。如果再描述得有画面感一些，就是十点钟懒洋洋地从床上爬起来，一边吃早中饭一边刷个NBA，下午在自己的工作室画上一下午的画，傍晚去跑步健身，再去过丰富的夜生活。每个人各自追求的自由不同，但我描绘的这自由的轮廓，大抵和大多数人自由本源的样子没有多大区别吧。而当我工作后才发现，我对自由的理解是那么的肤浅。原来我奋力追求的自由是一个伪命题，因为人永远也不可能有绝对的自由。1事实上在我刚开始工作的时候我也有过对“自由”的尝试。有次跳槽换工作，厌烦太久工作束缚的我，想尝试一下二个月不上班的freestyle 。那时候，每天睡到十点钟，懒洋洋地从床上爬起来，一边吃早中饭一边刷个NBA，下午再给自己泡杯咖啡开始工作，傍晚去跑步健身，再去过丰富的夜生活。开始的时候过的也是惬意。可是这样状态没过多长，我发现这样的状态再难维持下去。因为我的生活节奏开始脱离了我臆想的轨道，我撸剧撸到半夜四五点，早上蓬头垢面的起来发现早已中午，又昏又饿，脸和头都懒得洗，就这样蓬头垢面的跨上大裤衩，就上街去找吃的。说好的每天一张设计稿，结果却是一拖再拖，整个生活好似跑了调的曲子，音符漫天飞扬，再也谱不出一个完整的曲子。也没了时间的紧迫感。后来我才懂得，“那种唾手可得的自由，其实并不叫自由，它叫任性；真正的自由永远与严格的自律为伴。”2以前总是羡慕那些有钱人，有钱又有闲的生活。可真由于工作上的小契机接触到这些人的时候，才发现他们哪是有钱有闲呀，他们只是忙里偷闲。老板为了谈项目，拼合作，拉投资，天南海北的到处飞，今天看到朋友圈晒深圳的大晴天，明天就看到了北京阴雨天。这才感叹道别人朋友圈的岁月静好，实则是别人自律，勤奋支撑起来的样子，都是在一边忙一边抽着空体悟着生活。有人说有钱又有自由，是人生最好的状态，但是，对于很多人来说，有钱并不容易，有自由更难。对于想要有所以作为的人，注定劳碌，钱和自由其实并没有太大关系。当一个人有能力，有影响力的时候，自然会带来可观的收入，成为有钱人。但同时也被这个世界，被更多人需要。也就意味着当你拥有更多选择权，有更多属于自我的空间，有更多权限，也就意味着肩负更多责任。3最近喜欢上一个女作家，严歌苓。先抛开她有温度的文字不说。光看她对于生活的自律就让我折服。年过半百的她，腰身曲线工整的像个大提琴。有次读到一则对严歌苓谈写作的采访，她说道：“很早我便明白了，在漫长而孤独的写作路上，比起天分、勤奋，自律才是更为重要的东西。”这就是严歌苓，她在过着一种自律的生活：每天写作六小时，每隔一天就要游泳1000米。每隔一两年，严歌苓的名字就会出现在畅销书架或者改编的影视作品上。她出书就像交作业一样“规律”，于是她总会被问：“你怎么能写那么多书？”严歌苓的答案跟她每天的生活一样简单：“我当过兵，对自己是有纪律要求的，当你懂得自律，那些困难都不算什么。”也许这就是自由吧，你想要越多，你就越是需要拿更多的自律来换。因为自由永远与自律为伴，像鸟儿翅膀一般，剔除任何一个鸟儿都无法翱翔。偶然间也看到这样一句话“在某个年纪之前，你可以靠透支身体，小聪明和老天给你的运气一直取巧地活着。然而到了某个年纪之后，真正能让你走远的，都是自律，积极和勤奋。”最后借用康德一言结尾：所谓自由，不是随心所欲，而是自我主宰。左岸记：还真是这样——自律者自由。有时候我们感到不自由，并不是外界限制了自己，而是自己的诸多欲望在相互制约，以至于没有任何一个能得到彻底满足。当然了，如果全都靠自律来实现人类的自由，那是不可能的，所以，有法律，法律的约束克服了人类的无限欲望不断暴走的可能。自由是将选择权交给自己，同时也把对结果负责的责任交给了自己，并在法律的范围内行使自己的自由。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

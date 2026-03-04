@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>完美是完成的敌人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>完美是完成的敌人</h1>
+            <div class="date">2026-03-04 09:54:21</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>完美是完成的敌人完美是完成的敌人阿正的金主笔记阿正的金主笔记左岸读书2022年09月27日 07:00福建在小说阅读器中沉浸阅读文/阿正前几天一位投资者说过一句话，让我受益匪浅，特来分享给大家。他说，“完成比完美重要”。完成投资 VS 完美投资投资总想买到最低、卖到最高，因为这样肯定是利润最大化。但一般有这个想法的投资者，要么是错过了底部建仓的机会，要么就是错过好的卖出机会。因为他在等那个绝佳的机会，但是市场是变幻莫测的，不以人的意志为转移，本来可以完成平均收益的投资机会，因为苛求完美，最终却站在了市场外面，毫无收获，天上打雷的时候自己没在场。市场虽然不可预测，但基本的低估、高估还是有指标可以参考的，进入低估区域就买入一部分，持续一段时间，还在低估区域就再买一部分，不低估了就不买了，高估了就卖出一部分，再高估就再卖出一部分。不渴求买到最低，只是在低估的时候，稳步的分批加仓；不渴求卖到最高，只是在高估的时候，分批卖出。渴求买到最低、卖到最高的完美交易，本身就是内心的贪念在作祟，越是贪多，越是不得。不如平和一些，尊重市场的规律，做好自己能做的那部分。持续的完成投资，持续的获取收益，比屈指可数的完美交易来的更划算一些。投资收益就像吃鱼，吃到就好，吃到大部分就好，不必一条鱼从头吃到尾。参天大树是一天天的持续吸收太阳能量长成的，阴天就少吸收一点，晴天就多吸收一点，贵在持续的吸收，而不是仅凭大晴天才能长成参天大树。把事情完成 VS 把事情做完美我们做一件事，当然需要谋划，谋划的越详尽，没用的工作就做的越少，越是高效。但是，我们也不能对计划渴求完美，这样我们会在计划阶段耗费大量的精力，等到把计划做完美了，做事情的时机可能就已经不在了。就像我们要去旅行，我们可以把路线及中途停留点做规划，这样我们就不会绕路。可以把应急装备准备充分，在突发状况出现时有所应对。但是如果我们把出行计划做到很精确，停留地点做到很精确，那就需要耗费大量的精力，很可能就耽误了出发的时间，而且途中也会失去旅行的乐趣，本来自由旅行成了完成任务了。旅行过程中天气、突发状况等因素都是人为无法控制的，把能计划的计划好了，就可以出发了，过于精确的出行计划显然就有些束手束脚了，还耽误启程时间。持　中做事情不计划，只凭情绪，那么在事情进行的过程中必然存在缺陷，就需要应急解决问题。比如出行，应急装备计划的不够，在突发状况出现时只能等待救援。但是做事情把计划做的太详尽，就又缺乏自由度，也缺乏对突发状况的应对。比如连续大雨，那么行进计划就需要停止，而不是按照精确计划去严格执行，那样就危险了。什么事情偏执两个极端了都不可取，还是持中比较好。投资如是，生活亦如是。左岸记：追求完美本不是精益的本质。事情总是先做出来，再根据反馈才能修改完善。否则总是在脑海里，是不可能做出一个可见的具象的样子，怎么能真正完成任务呢？虎头蛇尾往往是无奈的常态，坚持的意义不在于一开始要多好，而是持续不断，在反馈中迭代。所以，不妨低调出发，行稳致远。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

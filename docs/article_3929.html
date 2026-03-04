@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一群“蠢”人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>一群“蠢”人</h1>
+            <div class="date">2026-03-04 09:52:04</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>一群“蠢”人一群“蠢”人历史历史左岸读书2022年03月18日 07:12在小说阅读器中沉浸阅读011936年6月13日，德国汉堡市海军训练船正在举行下水仪式，阿道夫·希特勒突然出现在活动现场。此时所有人都向希特勒行了一个标准的纳粹礼。只有一个人不仅没有行礼，还环抱双臂，露出了一脸的轻蔑与不屑。很快，他被举报。他的妻子因为是犹太人，被纳粹杀害，他的两个孩子也因混血儿身份被送进了集中营，而他自己则被送进了监狱，再后来被送上了战场。1944年10月17日，他死在了克罗地亚。1991年3月22日，美国《时代》杂志上首次刊登出这张照片，并向世人询问他的名字，他的女儿认出：那是她的父亲。此后的日子里，他在这张手臂丛林的照片里，接受来自全世界亿万人的注目礼。他是奥古斯特·兰德梅塞(1910-1944)。021945年4月28日，法西斯头子墨索里尼及情人贝塔西等人，被意大利游击队枪决。他们的尸体被运到米兰，倒吊在广场一个加油站的棚顶上，示众。成千上万的人涌来观看。墨索里尼和情妇贝塔西贝塔西被枪决时穿的是半身裙，尸体被倒吊时，裙子自然下垂了，露出了内裤。就在这时，围观人群中走出了一个人。他不顾众人异样的目光，独自爬上了梯子，将贝塔西的裙子拉起，并用自己的腰带系住裙摆，让其不再下垂走光。维护了这个女人的最后尊严。直到现在，也没人知道这个人的名字。但每提及此事，人们对他肃然起敬。他也许是一个很渺小的人，在历史的宏大叙事中微不足道，但他出于善念，逆众而行，至今让我们对人性抱有信心。031941年12月7日，日本偷袭了美国的军事基地珍珠港。次日美国国会就是否对日宣战进行投票，两院471名议员中，只有作为众议员的她，投了反对票。她说：“作为一名女人，我不能去参加战争，但也反对把任何一个人送上战场，这是没必要的，我投反对票。”她是美国历史上第一位女众议员。早在1917年，就美国是否参加第一次世界大战的表决，她也投下唯一的反对票。当时她说：“我希望支持我的国家，但我不能投票支持战争。”因为这张反对票，1919年众议员任期结束后，她没能连任，直到1940年60岁的她才再次当选联邦众议员。走出国会时，这位61岁的女议员遭到了收听国会辩论实况的民众的谩骂和围攻，警察把她护送到家。从此，再也没人选做议员了，她的政治生命彻底结束。1973年5月18日去世，享年92岁。1985年，一名女性的雕像被陈列在美国国会大厦的雕像大厅，基座上的题词是：“我不能投票支持战争”。这座雕像的主人，就是那位投下唯一反对票的珍妮特·兰金（1880-1973）。04在斯大林生命的最后一段日子里，他忽然迷上了她演奏的《莫扎特：第23钢琴协奏曲》。在得到她灌制的唱片后，他给了她一个装有20000卢布（大约是当时该国人均年收入的十倍）的大红包。她给史达林回了一封信，信中她写道：“谢谢你的帮助，约瑟夫·维萨里昂诺维奇。我将日夜为你祷告，求主原谅你在人民和国家面前犯下的大罪。主是仁慈的，他一定会原谅你。我把钱给了我所参加的教会。”所有的人，包括她自己，都认为她不再可能见到第二天的太阳了，但斯大林读了这封信之后，一句话也没说，默默地把信放在一边，面无表情。1953年3月5晚，史达林被发现猝死在别墅地板上。那时，室内的唱机上播放着的仍是那张她演奏的《莫扎特：第23钢琴协奏曲》。这是一个令无数男人汗颜的女人。她的名字叫玛丽亚·维尼亚敏诺芙娜·尤金娜（1899-1970)。051937年，日军发动“卢沟桥事变”，他站出来反对日本侵华，公开呼吁执政者悔改。他说：国家的理想在于主持正义，使弱者的权利免于强者侵害压迫。他说：今天，在虚伪的世道里，我们如此热爱的日本国的理想被埋葬。我欲怒不能，欲哭不行。如果诸位明白了我的讲话内容，为了实现日本的理想，请首先把这个国家埋葬掉！他被迫辞去教职，但却继续办刊、出书发表反政府言论，直到日本战败。他曾是东京大学的校长和教授，他被日本人称为″日本在黑暗时期的良心"。他的名字叫矢内原忠雄(1893-1961)。061952年，有3000余年建城史的北京，开始大量拆除历史建筑。作为建筑学家和政府官员的他，为了保护古建筑奔走呼号。但在一片狂热的改天换地的呼喊声中、在要把北京插满烟囱的口号声中，他的声音微弱如寒蝉。绝望中的他抱着城砖，痛心疾首地哭，他说：拆掉一座城楼像挖去我一块肉，剥去外城的城砖像剥去我一层皮。他哭着说：五十年后，历史将证明我是对的。转眼，68年过去了，今天的人们意识到自己当初的愚蠢时，一切都晚了。今天的人们，在那些不会超过四十年的伪古迹前或伪古镇中，摆出各种姿势拍照时，也许会想起他的话，但不会有多少人记得他的哭声。他就是梁思成（1901-1972）。梁思成与妻子071968年11月1日，虽只有66岁、行动却已困难的她，指着当天的报纸上“一致通过决议：把刘XX永远开除出党”的新闻，用手中的拐杖咚咚地敲着地板，对来探望她的人说:“一致个屁，我就没有举手！”从逻辑上讲，一致就是100%，少一个都不能叫一致。在前一日132名重要人物参加的举手表决中，有131人举手表示赞成，只有她把手抚在自己的胸口，没有举起来。事后，康生对她说：“你这个人，连乡下老太婆的觉悟都没有哩！农村老太婆的觉悟都比你高！”许多年后，耀邦同志对她表示了由衷的敬意，他说：“在这个问题上，我们大家都犯过错误，都举了手。就是陈大姐没有举手……”这位唯一没有举手的陈大姐，是当时的全国总工会副主席。她叫陈少敏(1902-1977)不用怀疑，这些事都是真的，有史为证，有据可查。每一个时代都有这样的“蠢人”，他们不合时宜，但坚守自我、保持冷静、独立思考。他们不为名利所诱惑，不为权势所屈服，亦不为潮流所裹挟。他们的故事，或许会提醒我们放慢脚步，思考过去、现在和未来。尤其，在今天......左岸记：每个时代需要也总有这样的人，他们是人间的清醒。他们或许不是最聪明的人，但他们站在善的正义的那边，做寒冰里一道温暖的阳光。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我想和你虚度余生</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我想和你虚度余生</h1>
+            <div class="date">2026-03-04 09:55:09</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>我想和你虚度余生我想和你虚度余生左岸读书2020年09月04日 20:14在小说阅读器中沉浸阅读以下文章来源于沈万九，作者沈万九沈万九.藏爱于心，与道同行。多年前，北岛曾在《波兰来客》中说道：“那时我们有梦，关于文学，关于爱情，关于穿越世界的旅行，如今我们深夜饮酒，杯子碰到一起，都是梦想破碎的声音。”正是这样的一首诗，好像是清晨的钟声，午后的蝉叫，或是露夜的蛙鸣，不知疲倦地敲打着无数热血青年的心房，浇灌着我们那不甘平庸的人生。然而，试问多年后的今天，此刻正手捧书卷掩面沉思的你，是否依旧在坚持着那时的梦？还是早已向命运妥协，适时地走向李白的“及时行乐”或是朴树的“平凡之路”，也早已不再奢望所谓的爱情了？说到爱情，正所谓，世间的好姑娘不少，好男人常有，可真正能走在一起的不多，而最后能相守到老并且琴瑟和谐两不厌的就更是凤毛麟角了。那么，经过这么多年的寻寻觅觅，你是否幸运地找到了，那个想要跟其共度余生的灵魂？一如芸娘与沈复，三毛与荷西，或是钱钟书与杨绛；还是早已放弃了爱情，决定跟某个无趣的人，凑合着过无趣的日子，菜米油盐房贷车贷，奶粉尿布婆媳秋裤；抑或是一不小心就错过了真爱，把他/她丢失在了汹涌而茫茫的人海中，正如陆游和唐琬，露丝与杰克，或是文章跟马伊琍。......话说回来，作为余生三部曲的第二部，《我想和你虚度余生》继续无可救药地相信爱情，也继续渴望跟你共度这苦涩荒诞，却又无比珍贵的余生。当然，不变的依旧是“真实”。哪怕有些场景过于虚幻，有些背景过于魔幻，但你接下来所感受到的每一个文字，依旧是基于真实的故事改编。每一个故事都浓缩着一个人的青春，或是几代人的轮回，乃至相互交错的爱情和人生；也都是由一个个或彷徨孤独绝望或快乐热情丰盛的灵魂组成——我们试图去扣问人心，考验人性，并且在经历了种种的伤害之后，是否依旧保存着对爱情的信仰？心理学家武志红曾说，一个人对爱情的信心，代表着他对整个世界的信心。当然，这里的爱情，并不是露水般的男欢女爱一夜销魂，也不是狭义的生儿育女幸福美满，而是一种对亲密关系的渴望，热情，慈悲，精神独立，以及不惧怕付出的底气和安全感。它更像是分开来解读的“爱”和“情”，也正如犹太人马丁·布伯所说的“我和你”的连接和悸动，而不是“我和他”的相遇和错过。还记得，年轻的时候，我曾无比相信爱情，渴望爱情，甚至把爱情当作是此生唯一的信仰。可后来却不信了，因为带过的帽子和受过的伤害，“东风恶，欢情薄，一杯愁绪，几年离索”，也因为赤裸裸的现实和残酷的真相，“无可奈何花落去，似曾相识燕归来”；再后来又信了，而且以后很大可能都不会变了；……我也不知道，这么多年下来，为什么喜欢变来变去。也许是因为，一个人永远可以拒绝鲜花，巧克力，善意的拥抱，似水的柔情乃至清晨的阳光，但却永远不能拒绝成长，内心的悸动以及真爱的呼唤吧。试问你呢？这些年出走半生下来，是否还愿意无可救药地相信，有人终究会跟你虚度余生？是否依旧初心不改地认为，有人终究会——跟你虚度这可贵而丰盛的余生。最后，分享一首李元胜的诗，节选片段，送给今夜多情的你，送给昨日随风而去的他/她，还有那些无数有趣的依旧相信并决定往后余生都要追寻爱情的灵魂：“我想你互相浪费一起虚度短的沉默长的无意义一起消磨精致而苍老的宇宙。比如靠在栏杆上，低头看水的镜子直到所有被虚度的事物在我们的身后，长出薄薄的翅膀。”本书是一部爱情故事集，正所谓人生苦短，如露如电，如镜花水月，更如梦幻泡影。然而，若能在有生之年，邂逅一生所爱，琴瑟和弦，不住轮回，当属人生之一大幸事。《我想和你虚度余生》一书，以春，夏，秋，冬为隐喻，横亘同样的爱情历程，细品不一样的爱恨情仇，借风花为镜，以雪月为鉴，打破我们痛苦的轮回，放下错爱的执念，继而收获久违的平静和此生的圆满。※《余生·三部曲》第2部，延续了第一部书的风格，有趣而深情，带你解读世间最美却又最折磨人的爱情。※ 围绕爱情这一永不过时的主题而写，有趣而深情，是呼声极高的书籍品类。※ 当代社会的忙碌，追名逐利的浮躁，凸显了“虚度”概念的可贵。※ 春夏秋冬四大章节，分别对应爱情路上的情窦初开、蜜月、丰收和苦涩。※ 作者文风有趣，又不失诗意，有着鲜明的个人特征。※ 绝大多数改编自真实的咨询个案。故事中含有极深的心理学寓意，所以有很深的启发意义。左岸记：沈万九说这本书很大的可能会做全国签售，让梦想照进实现吧，因为这是一本你买来可以好好读一读，或者送给自己喜欢的人一起读的书。☆ 沈万九《余生三部曲》第二部，用有趣而深情的文字，带你解读世间最美却又最折磨人的爱情。☆ 借风花为镜，以雪月为鉴，打破痛苦轮回。☆ 放下错爱执念，收获一份真实、平静和圆满。☆ 四季有光，只因有你。余生有爱，不枉虚度。以下是余生的当当、淘宝和京东链接感恩支持·欢迎虚度阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

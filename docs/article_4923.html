@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>捡谷子</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>捡谷子</h1>
+            <div class="date">2026-03-04 09:55:23</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>捡谷子捡谷子原创邹近夫邹近夫左岸读书2021年07月05日 07:21在小说阅读器中沉浸阅读文/邹近夫在从前，捡谷子是一件大事。当满载着生存希望的金黄被片片割倒，我就知道秋天里独一无二的盛宴即将来临，这也是除过年之外最让人期待的，大人喝着酒喜笑颜开地算收成，小孩拿着骨头四处逗狗。到了夜间偷喝一壶烧酒，往田里的草垛上一躺，心情如同飘忽在星空中的烟云。不过之前得经历一番备受折磨的苦，如若懒散怠慢了捡谷子的任务，不但没有面子上桌夹菜，而且只能躲到田埂上忍气吞声，更没有胆量回味一点酒意。因此天一蒙亮，麻雀飞上苦栗树的枝头，我便把灵魂装进枕头，自个儿顺手提上前夜准备好的小布袋跟着大人风风火火地步入田间。有时扛打谷机的男人偷懒，说什么轴轮抹油耽误了不少功夫，那我也幸灾乐祸地趁此机会稍作休息，只要打谷机它不响，那我指定可以睡到闷热难耐。可是美梦终短，伴随着轰隆隆的声音睁开眼，一刹间山谷震动，而割稻的女人们汗不洒、镰不坏地走到了下丘，她们比手法比速度，有说有笑，毫不知情的我蹒跚起步，一眼望去没有尽头。那时特别羡慕踩打谷机的男人，等着别人把禾稻递过去，他只消旋转几圈，尔后拍拍手了事，有时也气急败坏地走下脚踏板，火急火燎地抱一捆稻子重新站上台去，那威风吓得递禾的女人手忙脚乱。显然这洒落一地的谷子会加重我的负担，虽然我也想去递禾，也想成为踩打谷机的男人，但是年纪太小，够格进田已经是天大的恩赐了。等到他们喊着口号把打谷机往前推进，我看到泥地里留下来深深的辙印，像一代又一代人平凡而易逝的一生，失了谷穗的叶鞘却欣慰地在微风中摇曳。我提起精神，一边赶走身后跟着的不知谁家的旱鸭，一边从打谷机旁，从女人的脚印中，从堆满稻叶的地方，一撮一颗地把饱满的谷粒捡起来，放进小布袋。有时也会发现一大堆他们装袋时遗落的，有时候也会发现那么一两支未被齿轮打干净的，这些在我眼中如同考古学家发现宝藏一样无比快乐。眼看打谷机离自己越来越远，女人们的脚印越来越浅，我只好记住大概的位置，万不可漏了一处，便宜了那群鸭子的主人，有了这点竞争意识，我更加不敢有丝毫懈怠。当踩打谷机的男人坐地休息，递禾的女人摘掉帽子，我便提着一布袋成果慢慢地倒进打谷机，那窸窸窣窣的声音里显露着一种前所未有的自豪。其实我也没捡得多认真，但邻家的女人笑嘻嘻地夸我做事靠谱，过上几年就可以踩打谷机了，这使我心虚到面红耳赤。我佯装成满不在乎的样子回头去捡谷子，生怕那些被我刻意踩得更深的谷子在泥土中忽然发了芽。虽然女人的笑、男人的调侃不禁让我在那一脚湾湾的水里看到了自己喜不自胜的模样，但我知道收稻谷只是这千万劳苦中一步，收回去还要晒，还要到周家口打成米才能吃，这是多么困难的漫漫长路。我也知道比这更困难的是没得粮食吃，家中的余粮得留到来年浸种催芽，一天两餐小麦一顿红薯挨过寒冬，因此不得不艰辛而缓慢地养成惜粮如命的意识。尽管我一个秋天捡来的谷子只够一顿饭，但没有那顿饭，谁都给不了你，这是长辈告诉我的自力更生的道理。可是一想到这辈子要和这泥土发生永久的关联，那种感觉又简直教人害怕。远处的山雀在晴空下徘徊，地上的人儿忙着盘算收成，大人感到心里越来越空，我感到心里越来越沉。他们收完了谷子，来年才有的收，我捡完了谷子，来年还有的捡。布谷鸟叫了，声音粗犷而单调，但那不是春天。大人喝了酒聊着天，羡慕谁家地里三天都没有打完禾，我在他们捆好的稻草上睡了一觉，心想苦了那家的小子。醒来后我也想学捆草，可是怎么样也扎不好垛子，只怪年纪太小，喜欢尝鲜，凡事做一两次就觉得受了天大的苦。就这样漫不经心地过了黄口之年，后来杂交水稻问世普及，我也就不用捡谷子了，也便宜了一群鸭子，不过它们都比以前长得肥，而我照样有吃有喝，只是大人们老得太快，再下田收稻的时候，我终于成了帮着踩打谷机的男人。又过了几年，不知道为什么田里的庄稼荒了，人们也不那么珍惜粮食了。左岸记：一代人有一代人的成长故事，当生活天翻地覆，很多的过去就成了尘封的记忆。科技的进步更是让生活飞速发展，如果你不刻意留心，一切的一切就仿佛过眼云烟。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

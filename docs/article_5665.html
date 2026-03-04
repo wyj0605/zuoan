@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超导</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>超导</h1>
+            <div class="date">2026-03-04 09:58:16</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>超导超导左岸读书2023年08月04日 07:13福建在小说阅读器中沉浸阅读以下文章来源于摩登中产，作者摩登中产作者摩登中产.用摩登视角，解读复杂时代。LK-99。一7月22日起，世界各地实验室暗流涌动，高温炉悄然运转，业内暗语称之为“全球炼丹”。暗流源自韩国科学家公开发表的论文，论文主题为室温超导。即便已失望无数次，这四个字仍有强大魔力。那是物理学圣杯，那是历代科学家魔咒，那是贯穿122年的人类野望，那是货真价实改变时代的力量。如果成真，大疫后奄奄一息的世界，俄乌冲突的阴云，蔓延全球的萧条，都只是历史的插曲，文明将翻开全新一页。所有电子产品都将重构，交通能源都将颠覆，量子超算和可控核聚变将会实现，更重要的是，停滞许久的物理认知，能突破枷锁，世界将展示更深之秘。电影《阿凡达》中，人类远征的目标，就是潘多拉上的室温超导矿石，为此不惜征伐文明。在那个未来之中，星际飞船、磁悬浮列车、超导输电皆依靠矿石，室温超导是文明的基石。而今，蕴藏魔力的室温超导材料，或许就藏在韩国论文之中，材料皆可网购，高中实验室即可复现，炼制时间34小时。人类屏息凝神，在炉前等待结果。等待之时，让我们不妨回到长梦的起点。1911年春天，58岁的荷兰物理学家昂内斯，在极低温度下，测试水银电阻，温度4.2K(-268.95℃)时，电阻消失了。昂内斯绰号“绝对零度先生”，因擅长制造低温闻名。超导只是他意外发现，无人知晓原理。那一年，二十世纪刚开始混乱序章，东方王朝轰然坍塌，一战阴云正在积蓄，福特汽车和豹式坦克先后咆哮，超导只是实验室台上的火种。此后十年，物理学家不断更换金属材料，最后止步于1930年的金属铌，超导温度停留在9K（-264℃）。此后40年，科学家一直测试金属化合物，然而超导温度一直在23K（-250℃）以下徘徊，仿佛被看不见的魔咒喝止。最后，学界推出麦克米兰红线，即超导温度不可超过40K（-233℃）。那个温度恍如天条，不可逾越。超导研究因此凋零，沦为冷门学科，直至1986年，瑞士科学家和伙伴，另辟蹊径，用绝缘体陶瓷测试，超导温度升为35K（-238℃）。被压制75年的温度，一夕激增，两位年轻科学家不敢相信，反复测试8个月后，才在当年9月发表论文。论文飘扬过海传至日本，东京大学教授，随手将其布置成本科生作业，然而未曾料到，一个月后，本科生证实了实验结果。同月，论文也传至中国，中科院物理所研究员赵忠贤，在图书馆最新的美国杂志中看到论文，开始着手实验。冥冥中，历史写满吊诡。中国实验突破的契机，在于使用五十年代的库存材料，因那时工厂水平差，产品杂质多，竟意外指明突破方向。1986年12月，日本团队将超导温度提升为52.5Ｋ，同月，中国团队发现70K超导体，隔年1月，中国团队将纪录提升至100K，3月，日本团队将纪录刷至123K（-150℃）。红线冲破，天条抹去，1987年成为超导沸腾之年。当年2月，科学家手持一小块绿色超导材料，登上《时代》封面。美国成立超导委员会，国会拨款1.5亿美元，总统里根专门发表讲话，提出11点超导倡议:“科学告诉我们，超导方面的突破使我们进入了一个新时代的门槛”。一个月后，纽约曼哈顿酒店内，物理学家召开超导会议，3000余学者涌入，走廊都被坐满，气氛如音乐节。20年后，参会学者仍对那夜欢腾念念不忘，“就像参加烹饪大赛，见人就问你用了什么秘制配料？”每段5分钟的演讲，从晚上19点30分，一直延续凌晨3点15分，欢呼声潮水起伏，演讲里尽是“世界已经改变了”。那一年，全世界都以为即将跑步进入超导纪元，中国超导研究者从几百增至几万，《人民日报》频繁报道超导新闻，一代人科幻小说中写满超导。按照此前突破速度推算，媒体称，人类一年之内将实现室温超导。然而，超导故事却转向低潮，直至1994年，超导温度停步于164K（-109℃）。圣山冷落，盗火者寥寥，因缺理论支撑，研究者多盲选材料，近乎玄学。2011年，日本国家材料实验室突发奇想：铁化合物泡在酒中会否创造超导材料？科学家测试了红葡萄酒、白葡萄酒、日本清酒、日本烧酒和威士忌，最后发现红酒表现最好，但依旧不明所以。微小化合物浸泡在红酒内，世界仍在酣醉之中。二1994年，超导温度停滞之后，在韩国高丽大学，教授崔东植发布“原子超导带”理论，因离经叛道，关注者寥寥。漫长时间内，只有他带的硕士李石培，写了一篇相关论文，除此之外，再无人问津。1997年，崔东植看中24岁的硕士金智勋，金智勋原本研究电池，在他劝说下，加入超导小组，顺便攻读博士学位。三人小组开始寂寞的研究。他们沿着八十年代思路，两年间测试了数十种陶瓷材料，但都无法验证崔教授的理论。1999年，濒临放弃的金智勋，测试铅磷灰石样品时，发现仪表上出现一个微弱波动，疑似超导所致。三人激动，重复试验，但波纹再难重现，恍如幽灵。最终，失望的金智勋放弃超导，转回电池研究，以电池材料研究获得博士学位。毕业后，他到一家生产助听器电池的小公司上班。另一位学生李石培继续坚持了9年，最后以超导理论研究完成博士论文。他的科研激情已消磨殆尽，到一所私立大学担任了计算机老师。世界平庸如常，日子朝九晚五，工作之外，金智勋和李石培时常相聚，并成立了一家名叫量子中心的皮包公司，接一些小咨询生意，超导更像是少年的梦。十年匆匆而过，2017年5月，崔东植教授病危，弥留之际，召唤两名学生见面。病榻上，崔东植留下遗愿，希望两人能找到1999年那个幽灵波纹：拜托了，继续研究下去，但它完美的实现之前不要让世界看到它。导师病故后，李石培决定完成遗愿，重启实验室，并找金智勋加盟。金智勋表示大家人至中年，不能再如学生时代般无忌，要专心全职研究，必须要筹集资金，购买专业仪器。在导师老友帮助下，他们向韩国国家科学基金会提交申请，但因两人十年间没发表过任何论文，被果断拒绝。此后，李石培找到高丽大学终身教授，物理学家权英完。权英完有两台测量仪器的使用权。考虑到只需挂名和提供理论指导，权英完同意加盟，下班后偶尔到实验室指导。此时，量子中心已从皮包公司，转为真正的物理实验室。地点设在首尔小区边一栋旧商业楼地下一层。2018年，超导重启，但矛盾很快产生。金智勋长于实验，专注用实验复刻1999年波纹。权英完则是学院派，认为理论研究才最重要。李石培只能频繁调和，争吵之中，金智勋坚持实验测试，在无穷组合中重寻幽灵。2020年，全球疫情，城市割裂成孤岛，金智勋关在实验室中继续测试，一个清晨，他意外看到仪器上陡峭的波形。那是1999年之后，幽灵波纹再次清晰重现。他反复测试，同样材料，同样环境，但波纹不现。他查看监控视频，发现从炉中拿装有样品的真空石英管时，他肘部不慎碰到桌子，震动令试管出现裂痕。裂痕导致氧气引入，改变晶体结构，文明的跃迁恍如玩笑，也如定数。方向至此明晰，三个月后，历经1000余次实验，室温超导材料炼制成功。在论文视频中，它展示出超导必备的抗磁性，“可以漂浮，就像一个魔法石头”。新材料被命名为LK-99。L和K是李石培和金智勋姓名首字母，而99指向一切开始的1999年。三LK-99制作过程复杂又原始，需用钵杵研磨，需把握开炉时间，并在合适时机，撞击真空石英管，三人中，只有金智勋能够操作。2020年，团队完成论文，向《自然》投稿，然而，因印度裔学者刚刚上演室温超导闹剧，《自然》压力巨大，论文被拒。权英完认为被拒原因是过世的崔教授理论不完备，团队产生巨大裂痕。李石培转而求助美国韩裔科学家金铉卓，但金铉卓并不相信室温超导成功。直至疫情封锁打开，他飞赴韩国，见到漂浮的晶体。2022年，金铉卓美国团队开始重复LK-99制作过程，产量很低，每10次能成功1次。此时，权英完的贡献仅是能提供测量设备，2023年3月，他被量子中心解聘。今年7月22日早上7时，权英完抢先发布论文，公开LK-99。两小时三十分钟后，李石培等人发布更详细论文，作者名中并无权英完。4天后，为证明实验为真，金铉卓上传视频。视频中，晶体一边翘起，半悬空中。全球实验室开始全速运转，第二篇论文给出详细合成步骤。步骤并不复杂，材料也仅需一氧化铅、硫酸铅粉、铜和磷。在广袤未知面前，人类再次懵懂如炼金术士。相关话题一度在知乎热榜榜首挂了4天，但无人证真也无人证伪。文明的关键节点面前，学界保持着谨慎。最先打破沉默的是B站up主“关山口男子技师”。他是最早一批开启测试的人，并在B站直播动态。第一炉炼出的材料，观测到了与论文相似的曲线。8月1日，他在B站上传视频“LK-99（潜在室温超导材料）验证”，并公布身份。他是华中科技大学材料学院博士后武浩，他和博士女友杨丽一起，在教授常海欣指导下，首次复现了可磁悬浮的LK-99晶体。视频中，微小的晶体在牙签前抖动，展示出极强抗磁性。一天内，视频播放超800万。网友回看视频发现，测试全程，武浩手指和声音都在颤抖，满屏弹幕都在刷“见证历史”。有网友在弹幕留言：那个在白纸上扑腾的小黑点，有蝴蝶扑棱小翅膀的美感，也许能扇动人类科技进步的飓风。8月2日，更多消息传来，中科大团队称初步测试材料表现出抗磁性，半悬浮。美国劳伦斯伯克利国家实验室，用计算机模拟确认存在超导可能。目前，华中科技大学团队正在烧制第三炉样品，验证最终超导性。清华学者称，室温超导带来的变革将远超人工智能。人工智能只是上一轮浪潮的迭代，而室温超导将重新定义世界规则。已知变化中，它能数秒完成电车充电，让一切电子产品小型化，升级核磁共振，改变电力传输，颠覆能源格局，重塑地缘政治，连锁变化将超出现有的想象。一如里根在八十年代那次畅想中所言：当本·富兰克林第一次从闪电中捕获电力时，没有人梦想过计算机或通信卫星。动荡不安的时代，陡然行至岔路，萧条的世界意外打开门扉。目前，那道门只开缝隙，结局未定。门外的我们，只能耐心等待，期待为真。这或将是文明至关重要的节点。一如苹果从树上掉下。一如水壶喷射蒸汽。一如特斯拉在海角点亮璀璨的电塔。如果说，我们的人生所能经历最重要的历史时刻。那么，或许便是此刻。左岸记：希望这次不会再次失望，希望这次无需再次无尽的等待。室温超导如果能够实现，那世界将迈入又一个全新的发展，一切又将被重新定义。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻芳芝兰谷</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>寻芳芝兰谷</h1>
+            <div class="date">2026-03-04 09:54:27</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>寻芳芝兰谷寻芳芝兰谷原创马诗途马诗途左岸读书2024年09月14日 20:23福建在小说阅读器中沉浸阅读文/马诗途虽时至仲秋，白露已过，但天老爷照常发威，每日气温仍在37度以上。无奈之下，我和老伴又只好逃离这火炉一样的城区，直奔海拔1314米的芝兰谷风景区。这个景区位于三峡库区秭归县茅坪镇罗家村，距三峡大坝23公里，距宜昌城区72公里，景区面积25平方公里。一条长达10公里的无人峡谷，山峰腾空跃起千米，绝壁喷白，青山拥翠，峰柱如林，构成了一道美轮美奂的“水墨画”长卷。芝兰谷是古代浪漫主义诗人屈原植兰养蕙之地，屈原在《离骚》中云：“余既滋兰之九畹兮，又树蕙之百亩”，相传其《九歌》之中的爱情诗篇也多取材于芝兰谷源头九歌寨。芝兰谷自南向北延伸10公里，出口与九畹溪漂流景区起漂点相接。从城里出发时37°的桑拿天，到了这里仅仅20多度的芝兰谷。只见一座清新高洁的大兰草映入眼帘，“兰草”和“兰花”由众多户外太空房和星空房组成，兰草宛如一面镜子，倒映着蓝天白云和远处的山峦，美不胜收。早上起来，山间云雾缭绕，欲晴又雨，和峨眉山一样，令人捉摸不透。行走于芝兰谷的源头和起点，以“千沟万壑”为主要看点，以“屈原塑像”、“ 屈子行吟”、“ 湘君与湘夫人”峰峦为代表景观，沿着人工开凿的山上便道攀爬，峡谷幽深，绝壁险峻，峰柱宏伟，阴面的山石布满了青苔，阳面的山石承受着阳光的炙烤。石头一层层重叠在一起，上面写满了岁月的沧桑。伴着鸟啼、蝉鸣与泉水的“滴答”声，终于成功登顶。站在山顶亭子上，极目远眺，西侧奇峰林立，峰顶被绿色植物覆盖，从峰峦顶端向下，绝壁如削，绝壁之上，白如喷雪，白色的崖壁在绿色植被的勾勒下形成鲜明反差，组成了千奇百怪千姿百态千变万化的立体图画，仿如水墨连环画长卷挂于崖壁，大气磅礴，美艳无比，让我想起了漓江的九马画山，令人浮想联翩。穿行于蜿蜒曲折的山间丛林之中，我们的目光常常被一些特别的东西牢牢地吸引着，比如少见的金丝桃花、打碗碗花等等。“山月鸡犬吠，野风麻麦香。登岭既开豁，入林更清凉。”这是“南宋四大家”之一的范成大游历秭归时，曾作诗赞颂这里清凉舒适的山野之美。在漫长的岁月长河中，位于三峡怀抱的秭归芝兰谷留住了一片绿意、一抹清凉。【作者自述】一个平凡至简的白发老者，喜爱文字，迷恋诗词。退休闲赋在家，每天坚持写点文字，读点书报。用文字点亮生活，天天都是好日子。愿岁月悠长，你我无恙。————————————左岸记：惟江上之清风，与山间之明月，耳得之而为声，目遇之而成色，取之无禁，用之不竭。是造物者之无尽藏也。天下之美景美物，也只有等你发现了，才真正的存在。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

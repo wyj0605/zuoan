@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们追的是真兔子，还是假兔子？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>我们追的是真兔子，还是假兔子？</h1>
+            <div class="date">2026-03-04 09:55:04</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>我们追的是真兔子，还是假兔子？我们追的是真兔子，还是假兔子？约翰·博格约翰·博格左岸读书2021年11月24日 07:10在小说阅读器中沉浸阅读作者：约翰·博格约翰·博格是全球最大公募基金先锋领航集团的创始人，也是指数基金的发明者，被誉为“指数基金之父”。他所发明的这一被动投资工具，为全世界无数中小投资者指明了方向，创造了巨大的价值。博格是有名的理想主义者，他终其一生都在追求做一家真正为大众服务、低成本、持有者利益至上的共同基金。他坚信金融应该帮助实业创造价值，让发展的红利普惠大众。作为华尔街风云人物的博格还是金融圈里有名的理想主义者，终其一生他都在追求做一家真正为大众服务、低成本、持有者利益至上的共同基金。他坚信金融应该帮助实业创造价值，让发展的红利普惠大众。老爷子在2019年初去世了，但却留下了无数宝贵的精神财富，这里分享一段博格在中文版新书《足够：约翰博格的金钱、商业、人生准则》中关于人生的感悟：博格首先讲述了一个寓言故事，据说是一位德高望重的牧师讲给他的：说一个博士有一次去看他的侄女。她的侄女家有一条格力犬，是那种经常参加比赛，在赛狗场上追逐机器兔子的赛犬。这条狗因为无法继续上场比赛，面临着被安乐死的命运，是他的侄女救了并收养了它。这个博士与这条狗之间有一段对话：博士问：“你还在比赛吗？”“不比了。”它回答。“呃，为什么？因为你太老了？”“不是，我偶尔还是会跑一跑。”“呃，那是为什么？因为你赢不了吗？”“我帮我的主人赢了100万美元。”“呃，那是为什么？是因为待遇很差吗？”“哦，不是，”这只狗说道，“以前比赛的时候，他们会把我们伺候得很好。”“那你是跛了吗？”“不是。”“到底是为什么？”我逼它回答，“为什么？”这只狗答道：“我辞职了。”“辞职？”“对，”它说，“我不干了。”“你为什么不想干了？”“因为跑了这么多年，我最后却发现，我追的兔子竟然不是真的，所以我就辞职不干了。”这个故事是真的吗？显然不是，但博格希望我们都能体会那条老猎犬的心情。我们自己是否也经常拼命地往前跑，去追逐一只叫“成功”的假兔子，最后却发现，真兔子其实就在我们眼前，我们却视而不见。01/如何衡量财富？首先，我并不是反对成功，而是成功的定义有很多种，所以我会尽量避免使用“成功”这个词。原来在普林斯顿上大学的时候，我经常和班上的同学闲聊，当时大家对于成功的定义就是最常见的那种——获得财富、声望和权力。在当时，我觉得这个定义很有道理，毕竟六十多年后的今天，依然有很多人遵从这个定义，连字典里面也是这么定义的：“成功：根据一个人的愿望，达成某件事，通常是获得财富或地位。”因此，我承认财富、声望和权力仍然是成功的三大要素，但不是以我们对这些要素的传统定义方式。我逐渐认识到，不能只用“金钱”来衡量财富，不能只用“掌声”来衡量声望，也不能只用控制他人来衡量权力。用金钱来衡量成功是很肤浅的。如果金钱是我们追求的目标，那么人会以金钱的多少来论成败。世上还有比这更愚蠢的事情吗？那么我们应该用什么标准来衡量财富？我们可不可以用幸福美满的人生？可不可以用家庭幸福的程度？有些人的工作对人类、对社区有很大的贡献，还有谁比他们更富有呢？我并不是说金钱不重要。谁不想要充裕的金钱？有了充裕的金钱，我们才能充分享受人生，充分享受自由。我们都希望免于匮乏，都希望拥有经营事业的资本，都希望拥有教育子女的经费，都希望安享退休生活。但是，想要达成以上目标，到底需要多少金钱？的确，我们应该重新思考，我们看到的那些“成功人士”在拥有超级财富后那种获得生活中无限事物的能力，到底是福还是祸？02 /如何衡量声望和权力？用声望来衡量成功，也是有问题的。说来遗憾，在这个时代，声望似乎成了人们塑造自我的重要工具。但我希望，那些积极追求声望的人能问自己两个问题：声望从哪儿来？它会带你往哪儿去？是的，运动明星和影视明星声名显赫，这种显赫却很短暂。我们都很爱看他们使出浑身解数来娱乐我们，但在今天这个快节奏的世界里，这种声望大都很难维持，顶多像知名艺术家安迪·沃霍尔说的，每个人都可以成名15分钟。凭真本事得来的声望是一回事，基于自我膨胀得来的、靠着装腔作势得来的、通过从我们的企业和金融机构（还有投资者）身上榨取财富得来的和用来实现卑鄙目的的声望，却是另一回事了。我只是个平凡人，因此坦白说，我偶尔也喜欢声望带来的乐趣。2004年4月，有一天，我翻开《时代周刊》，看到它首次进行的年度“全球最具影响力的100人”名单，而我居然和很多“英雄与偶像”级人物一起进入名单，例如摇滚乐队U2的主唱保罗·大卫·休森、南非政治领袖纳尔逊·曼德拉、高尔夫球名将泰格·伍兹。我知道，我之所以入选，并不是因为我高尔夫球打得好（我的球技很一般），也不是因为我看起来祥和平静（更是不存在！）。我之所以入选，是因为我创办了先锋领航集团，而且发明了世界上第一只指数基金。我很感谢《时代周刊》给我这份殊荣。我也知道，虽然先锋领航集团和指数基金为投资者赚了很多钱，但还有数以千计的个人对当代社会的影响比我大，还有成千上万人虽然很少或者没有被公众认知，但他们对自己所属的社群做出了巨大的积极贡献。事实上，很多对我们社会的日常运转做出最多贡献的人，连片刻的声望都没有享受过，也没有得到公众的掌声与崇拜。这就让我们想到权力。没有人比我更清楚，手握经营大权有多令人兴奋。如果明智地行使权力，那么指挥公司的人员、控制公司的资金是非常有趣的，可以强化一个人的自信心，还能带来把事情做好的成就感。然而，如果草率地行使权力，利用权力耍特权，好大喜功地进行并购，进行不明智的资本支出，那么，企业的价值不仅无法提高，还有可能降低，这时，不仅仅是股东，还有忠诚的员工，乃至整个社会都会成为输家。我们应该尊敬的是有价值的权力——智慧的权力；有道德操守的权力；使与我们一起工作的人在技能和精神上都得到成长的权力；尊敬努力打拼的公司成员（不论职位高低）的权力；帮助同伴的权力；以及用亚当·斯密的话来说，“某种伟大、美好、高贵的东西，值得念兹在兹，为之奋斗，使人类的工业不断运转，能够发明、提高科学和艺术，能够美化人类的生活，使之变得高尚”的权力。这种权力才是值得追求的权力。因此，我们应该如何衡量成功？答案是：成功不能只用金钱来衡量，也不能只用“拥有多少控制他人的权力”来衡量，更不能只用短暂虚幻的声望来衡量。不过，成功可以用“为建立美好世界做出贡献”、“帮助同胞”、“把子女教育成懂得关心别人、奉公守法的好公民”等标准来衡量。总之，我们不应该以获得多少东西来衡量成功，我们应该以为社会做出多少贡献来衡量成功。03 /我们追的是真兔子，还是假兔子？大多数人都不会花太多时间去思考，我们正在追的兔子是真的还是假的，因为我们四周都是指示牌。然而，每当夜深人静或独自面对自己时，很多不需要去想“辛勤工作究竟有何价值”和“何为幸福快乐的人生”的人，也会思考这些问题。然而，不管他们想不想这些问题，“我们”这些事业做得很大、赚了很多钱的人（由于出生、基因、天赋、运气、决心和其他人的帮助）都是会想的，这是无法避免的。（也许你会惊讶地发现，我经常独自思考我的生活和事业的价值。）如果我们从事的职业能为社会创造价值，那么我们会变成更好的人，我们会完成更伟大的事情。累积个人财富不会是我们的目标，而是附带产生的结果。再者，一旦给自己设定了这个挑战，我们就会努力塑造我们的品格，以便我们能坚持我们的工作。我们都是人类的一员。我说的“我们”，是指那些承担生命中更崇高使命的人，也是指那些让世界得以运作的无名英雄，还有那些运气很好，靠着从事商业、贸易、金融业和其他高报酬行业获得美好生活的人。因此，我们千万不要追了半天兔子，却发现它是假的。我们也不要像那条老猎犬一样，因为打击太大就辞职不干了。我们应该做的是，先确定我们正在追的是不是真兔子。我说的真兔子是指，虽然这个世界很复杂，很危险，很不确定，我们还是会尽全力为同胞服务。一旦确定了我们正在追的是真兔子，我们就要在人生的跑道上努力跑下去。我们太重视世俗定义的成功，也就是用财富、声望和权力来定义的成功。然而，我们却一点儿都不重视更崇高的成功，这种成功是用精神层面的财富、声望和权力来定义的，这种成功可以总结为一个词——品格。左岸记：成功就是要用“为建立美好世界做出贡献”、“帮助同胞”、“把子女教育成懂得关心别人、奉公守法的好公民”等这样的标准来衡量。成功不应该只是世俗的财富、声望和权力，更应该是精神层面的富足，给身边的人带去美好价值的人生品质。我知道，人们更希望获得一些实际的实实在在的东西，而对这种精神的追求总是不置可否，但时间往往证明，精神才是永存的，只有好的精神才能让“财富、声望和权力”走得更远。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

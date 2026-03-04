@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你总需要一扇窗</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>你总需要一扇窗</h1>
+            <div class="date">2026-03-04 09:52:59</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>你总需要一扇窗你总需要一扇窗原创德鲁伊德鲁伊左岸读书2020年10月30日 22:47在小说阅读器中沉浸阅读文/德鲁伊我八成有幽闭恐惧症，没有窗户的房间我呆不得，这可能是年轻时差旅过多作下的病。窗户有时候是个风景，你可以朝外看或朝里窥；有时候是个工具，可以透透风、接纳些阳光；有时候什么都不是，关乎审美、单纯装饰，让你不别扭；至于偶尔紧急了，破窗而入或凭窗出入，那还是少见些的。现代人是喜欢窗户的，都落了地或是飘了窗。毕竟现在室内冬暖夏凉，不太怕因为窗户造成内外同凉热。但现代人焦虑，窗户越大越不心安，窗帘也是私密的可以。总要让自己，想拥有窗户的时候拥有窗户，不想的时候，严丝合缝，风和光都进不来。窗户无疑是重要的，于现代人来讲更是。你的人生里，总是需要这样那样的窗户。实体的，心灵上的，学习上的，认知上的。这个窗户，除了透气，还给了你就会看到外面的世界是什么样的，你想成为什么样的，你可能还能什么样，你现在和外面相较是什么样的。甚至，我说你现在每天盯着手机，手机也是你的一扇窗。这个估计大家没什么反对意见。手机既是你自己了解世界、联络世界的窗户，也是你偷窥别人、看别人在如何疯着活的窗。你越注意你的隐私，偶尔就越有偷窥的欲望。这个有点像崇尚个性的时代，人们却更热衷于各类群组。一方面讲求自己要个性，一方面又害怕被潮流湮没，而且还要抱个团求安全。只是，偶尔手机让你厌烦你现在的环境，沉迷在这扇和外面有关联的“窗户”里，这已经不是窗户了，纯属幻境。那是另外的事情了。窗户是一种联系，是隔绝与沟通之间的东西。总要被你的眼睛和脑袋加工一下才好。不过现在除了家里的窗户，剩下的“窗户”，其实都成了你的眼睛。自从大数据来了，用户偏好了，你以为的很多窗户就变成了眼睛，也变成了你的大脑。比如说旅游，其实出去走走，旅游或周历世界，让见闻变成经历，经历变成阅历，怎么讲都是划算的事情。但自从有了攻略，你不得不打卡的自拍照、朋友圈。其实这扇窗，多少都失去了窗户的意义。橱窗也是一类窗户。橱窗是越大越好，描绘的也要足够诱人。据说，橱窗是窗户的延伸，大大满足了偷窥欲望。网购也差不多，你买买买的前提，是橱窗化的展示，超市的摆放，还有随时随地的营业。在家能买，随时随地，还幻想着能得到橱窗展示般的效果，不上瘾才怪。其实人生的“窗”很多，还有类似学习啊、朋友和人啊、环境啊，都可能是你的一扇窗。对了，读书也是，而且是最容易获取和收益最大的。前几日，送本我的书给朋友，写的话大致也是这个意思。读书这扇“窗”，真的是最经济实惠的。读书让你了解的世界，总是经过了你的思考，也让你尝试用脑袋代替了眼睛，让你更富有想象力和创造力。弄得好，还多了共情和联觉的能力。除了仙侠奇幻或者是爽文，你多半不会期望呆在书本里描述的世界，偶尔你会想成为书本里那样的一个人。这或许就是阅读的力量，不再是你痛恨现在的你，而是希望成为什么样的人。而且，这个世界奇妙的在于，爱读书这事，周遭反感的不多，多半都是赞赏的眼光，最多说句：读书太多读傻了。于是，读书这扇窗，还是值得“开辟”出来的。至于朋友和人，虽然常说，从别人身上看到自己。但多数时间，只是你关注的多了，看的细了，这扇“窗”，能不能看清，其实都是你自己下意识的。看到的是谁都无关紧要。迅哥儿说：“你说，这屋子太暗，须在这里开一个窗，大家一定不允许的。但如果你主张拆掉屋顶，他们就会来调和，愿意开窗了。”其实我们也一样，你在你的屋子里，开什么样的窗，开几扇，都是什么样的窗。你要明白自己、说服自己的。左岸记：很喜欢“窗”的意境和含义。开窗的目的基本是为了迎接，迎接新鲜的空气和阳光。我们说“眼睛是心灵的窗户”，你的心灵世界是不是明亮宽阔，正是来自你眼睛所见，心中所感。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

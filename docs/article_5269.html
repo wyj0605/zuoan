@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用一支素笔，将时光写瘦，将心情写暖……</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>用一支素笔，将时光写瘦，将心情写暖……</h1>
+            <div class="date">2026-03-04 09:56:33</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>用一支素笔，将时光写瘦，将心情写暖……用一支素笔，将时光写瘦，将心情写暖……原创白头翁白头翁左岸读书2021年05月16日 20:49在小说阅读器中沉浸阅读文/白头翁（一）炎炎夏夜，静坐一隅，拥一怀春的和煦，捻一指月光的清明，沁一笺暗香如故。在风轻月柔的浅夜，在风烟俱净的庭院，写几句“心语”，回眸总有杯暖茶相伴，心感柔和而温软。总喜欢享受一个人的清欢，喜欢一个人在宁静中，用一支素笔，将时光写瘦，将心情写暖……（二）岁月老了，心还年轻，看淡了钱财名利，只求知足；看透了人情世故，只求安心；不与复杂的人交往，不与劣质的人交友，写些安静的文字，做个简单的人。心在阳光处，便是岁月给予我们的慈爱。依着光阴的暖，活成自己喜欢的样子。（三）江山风月，本无常主，闲者便是主人。陶渊明用诗、菊、南山编绘了他诗画般的人生；李白让酒和诗微醺了自己的生活；苏轼乐于明月清风，柳永偏爱佳人词章。往日如烟，来日方长。给自己的生活融入淡淡的诗意，身边的一草一木，寻常的一蔬一饭，皆含诗意。把平民的日子过得有声有色，靠的不是诸多金钱，而是一颗从琐细生活里发现诗意的心。（四）一个人最先老去的，并不是他的年龄，而正是没有了那勇往直前的冲劲儿，心变得不再滚烫，对未来失去热望。或许芳华已不再，但依然可以有年轻的心态，或许年华已向晚，但依然可以为梦激情澎湃。（五）曾经在某一瞬间，我们都以为自己长大了。但是有一天，我们终于发现，长大的含义除了欲望，还有勇气、责任、坚强以及某种必须的牺牲。在生活面前我们还都是孩子，其实我们从未长大，还似乎不懂爱和被爱！（六）生活中，我们每天都在经历快乐和苦痛、得意和失意，挫折和成功。我们每天都在品味酸甜苦辣、世态炎凉、多味人生。在人生的所有经历和品味中，有些人心态美好，一切顺应，可谓“心无阴郁万里晴”；有些人则心情阴暗，摇头叹气，可谓“心事重重忧愁生。”人活着，就是个心态！君须知：脚下的路，有平有坎；天空的雨，有缓有急；世上的事，有顺有逆；人生的情，有悲有喜。顺境，不要太得意，忘乎所以必有戚；逆境，不要太气馁，事情还会有转机。人生的路，无论宽与窄，曲与直，我们都要走下去。【作者简介】马诗途、三峡行吟者、白头翁。本名，马庸。自号，华城居士。系古都佷阳（今湖北长阳）土家山寨人。善结交文人雅士、八方宾朋，虽无学富五车，却爱附庸风雅。偶有拙文歪诗见诸小报杂刊，并有文学作品获奖。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

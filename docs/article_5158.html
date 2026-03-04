@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海边杂记：梦想与现实</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>海边杂记：梦想与现实</h1>
+            <div class="date">2026-03-04 09:56:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>海边杂记：梦想与现实海边杂记：梦想与现实原创驰云旅驰云旅左岸读书2016年05月07日 15:11在小说阅读器中沉浸阅读我舅公有一所房子，面朝大海，春暖花开。我曾有幸得以在十二岁的那年夏天到那去度过一个愉快的暑夏。大海之边，自然是孩童的乐园，且不说黄金的沙滩、翻滚的浪花、精致的贝壳、欢腾的鱼虾，光是每日理所当然的海风与日光，就够人沉醉了。最美的当属日出了，从东方发白到日升海面，虽是短短的几十分钟，光景却时刻不同，即使是世界上最高明的油画家恐怕也调配不出如此丰富的色彩吧。每当看着太阳从东边升起，面对宽广的大海，感觉新的一天已经到来，生活中所有的不如意将在瞬间随着潮水退涌而去，和浩瀚的大海相比，个人的些许日常悲欢实在太不足道了。平日饭饱茶足之后，都会走出家门，沿着沙滩一步步慢行，与海浪嬉戏，与海风同歌，寂寞在天苍地茫间是不存在的一种情怀，且别有一番乐趣。如有远方的客人来访，你也不必刻意地去安排行程，带着他们去领略家门前熟悉的风景，为他们讲述每一个渔村每一座灯塔的故事，你就是最具温情的导游了。每当渔船归港时，总是人头涌涌，朴实的渔夫渔妇们总爱用特别响亮的说话声宣告他们的胜利。一筐筐各种各类的海产品被抬上岸边，大海毫不吝啬地将她的所有赐给了她的儿女。然而大海并不是一向都是个温顺的女子，她有时也像个怒汉，那就是台风来了。台风来临时，风云变色，天地齐喑，强风暴雨洗刷着眼前的世界，让我们意识到人类的渺小从而敬畏自然。台风过境之后，收拾满目苍夷，重拾信心，以一颗更坚强的心笑对生活。我爱大海，爱她的美丽，爱她的富饶，也爱她的变幻。--------------------华丽丽的分割线------------------（太好了，终于凑够了几百个字，接下来可以写点真正想写的东西了。）我舅公家在沿海的一处小渔村，我曾经非常错误地去那度过了一个非常难顶的暑假。房子是一座小平房，门前屋后方圆几百米之内不种花，因为没闲情，他们偶尔会种几棵青菜。先说日出吧，除非云彩异常才有看头，不然红彤彤的就那样，等太阳稍微升高了就立马变成爆日了；况且加上海边空气质量贼佳，时常没有一丝云，天空贼蓝贼蓝的，阳光特别猛烈。所以海边的人很多都是黑不溜秋了，部分渔夫渔妇和非洲国际友人根本没有表面上的区别。我表姐在城里住了快二十年了，用了几吨的美白产品，还没脱尽前面十多年晒下的黑，如今出去还是个显黑的人。应该没有哪个傻逼会在饭饱茶足之后出去散步，至少住在海边的他们绝对不会。首先必须先纠正的是，并不是所有的海边都有沙滩，不然地球那么长的海岸线就只有一个马尔代夫。他们那，就二十来米勉强算得上沙滩的地方，沙子不纯净，夹杂细石和垃圾过多，根本没法欣赏。要是去那里要摄影功夫很了得，加上PS技术高超，才能拍得几颗照片上传朋友圈晒晒。沙滩不好当然不会有什么贝壳琥珀了，蚌蟹的的尸壳倒能见到一些；周边又尽是黑乎乎的凌厉礁石，走路你都要放十二分精神，至于光着小脚丫乱跑，就甭想了。除了蓝得纯净的天空外，门外的风物似乎没有多大的可观赏性，沉闷且单调。如果你问他们那个渔村的故事，人家铁定会瞪大双眼反问你“what？”；至于灯塔，请你也要停止想象，这里更不曾有“鲛人在岸，对月流珠”的典故。对于那些牵强附会的神话故事，想必你在国家5A风景区一定也听得够多了，我也就懒得费心思去杜撰几个来忽悠你了。如果生活就这样，那一切也都还是美好的样子。然而！然而，你又不是比尔盖茨般的巨富，能悠闲度日么？有话说“靠山吃山靠水吃水”，于是一切就开始变得不愉快了。以前，渔夫们荡着个小渔船出海捕鱼，历经风浪谋生；再更以前，渔民还是比较低贱的职业，都不被允许在陆地上居住，终日窝在他的小蓬船里。正所谓“行船跑马三分险”，在几十年以前，由于条件限制，更是险境迭生，所以作为外人要理解天后娘娘在他们心中的神圣和亲和，“海不扬波”是他们最朴实的期盼。如今所幸设备提高了，但他们也就荡着大点的渔船出海捕鱼。至于近海，能当养殖场的黄金宝地，早就被伟大的人物画了几个圈，圈起来出让收租了，与他们没多少关系。总之，出海的事就交给男人们了。那你就不要以为渔妇们就整天在家门口晒太阳啊，要做的事情多着呢。第一晒紫菜。以前都不是规模种植的，打捞回来的紫菜一般人都是不要的。于是，勤劳的（我不想用“勤劳”这个词的，可没法替换）渔妇们就一点点拿来把杂物挑干净，拿去晒成饼状。于是外来的亲戚朋友，听是自家晒的，他们就以为是在海边白捡的，都不知廉耻笑纳了（笑着接纳了），却永远不知道那一饼紫菜渔妇们要花费多少功夫呀。他们根本不会想象那双终日浸泡在咸水下的手的模样。第二晒鱼干。平日的小鱼儿呀，没法卖个好价钱，就都晒成鱼干出售，当然原本有些鱼本来就是要做成鱼干的。活蹦乱跳的小鱼用线串成串，挂着，让太阳去完成任务。第三晒耗干。把蚝蚌撬开，放在阳光底下曝晒。这个不难了吧？呵呵！撬一个当然不难啦，当你看见一筐筐的蚝拉过来，在你身后堆积成小山，数以万计的，一个个的张开嘴像要吞噬你那般，你就知道有多难了。这都是天气晴朗的时候做的事。那下雨怎么办？赶紧收紫菜，收鱼干，收耗干去啊，淋湿了就卖没人要啦，收完了赶紧回家织网编筐去。这些事今天我一个外人，毫无良心地当笑话一样讲给你们听，而对于亲身经历过的人来说，这种心境是无法磨灭的。我那位表姐，在渔村中度过了童年和青少年时光，如今她嫁为人妇，每当去菜市场，她说她闻到这些海产品的味道就撒腿狂逃，并感觉喉咙不舒服。我的一个乡里人，早年家中贫寒日日吃红薯，后来他去深圳发了洋财，如今目测身家几个亿，可是他恨透了红薯，他说红薯有个骚味，并且只要他在家绝不许煮红薯。可见人对于食物的记忆并不都是温和的，吃份陈年的窝窝头或者野菜，就能感觉到家乡或者妈妈的味道，这种矫作的食物情怀，只配给一些文艺老青年编成几段文字，像鱼干一样吊着卖，换得几个铜钱以供养他们的都市生活；对于广大凡心肉胎的平民百姓而言，能博得个不讨厌的声名就万幸了，内心未必真有几分饥渴感呢；而对于更甚者，他们内心深处长期被压抑的黑暗记忆，总有着沉重的厌恶和恐惧，而我更愿意相信这是一种最真实的表现。好了，现在我要说海边刮台风的事了。首先，我们假设台风之前所有的渔船都归港了，并且这个假设必须成立的，否则我会难过得写不下去。台风来之前要把所有能收的东西都收起来，平日挂小鱼的竹竿也包括在内。那台风来了怎么办？就躲在家里，等台风过去呗。八级以下的台风还好，海边的人都见惯了，就当是一个休息日，台风过后打扫一下门庭日子就继续了。最怕的就是强台风！台风过境之后，真是天地变色、满目苍夷，然而也还是要让日子继续。停几周个把月的水电那是常事，多年前的一场强台风，他们整整半年没用上电！所有被破坏的东西都要一样样慢慢地还原，包括可能被刮跑的房子；更有时候，还原工程还没完成，下一场台风又匆匆赶来捣乱了；而最最糟糕的就是遇上海水倒灌的情况，这样连室内也遭殃了…可是，即使这样，又有什么法子呢？看到这里可能很多人还是把嘴一撇，不屑地说：这些都是陈年旧事了吧，现在海边的渔民日子可好啦。我也希望你的话千分百完全正确。确实有很多运气好的海边渔村富了起来，他们成为了真正整天在海边懒洋洋晒太阳的富翁。然而，毕竟不是全部。如今的渔民已经不单独出来捕鱼了，不是承受不起“君看一叶舟，出没风波里”的劳苦，而是近海根本就没有鱼可捕，要驾着一叶扁舟远渡重洋去帕劳撒网，那是不可能的；况且小规模捕捞在价格上根本竞争不过财大气粗的养殖场；那就成立个设备齐全的专业团队吧，那耗资不菲呀；最后还遇上了所以传统行业都遇上的问题，就是后继无人，年轻一代早就头也不回地离开了渔村扎进了都市，光荣地成为在一平米格子里面叽叽歪歪做PPT的现代化人才，于是昔日的渔村就大变样了。年老的渔夫们可以去当养殖场的工人，要么钓两条鱼卖给附近的餐馆；渔妇们也不必晒嘛嘛干了，提个篮子去敲几个牡蛎卖给附近的餐馆。大家整天盼望着能来一个脑子进水的老板或者一个钱包进水的财团，大手一挥，然后征收他们那片土地，他们能得到几十几百万的补偿，立马拖儿带女地高飞远走。如今惹人殷羡的渔村就是一座座小洋楼，每年村里有分红，附近的中老年人士在附近的海边上卖卖从义乌批发回来的沙滩游泳用品给游客，赚个小钱的同时也kill time。这么说来，只要有钱海边还是理想的生活之地呀。废话，只有有钱，哪儿不是理想的生活之地啊。但如果你真的在海边买了一栋别墅，面朝大海，装好WiFi，这个还真可以有。不过要提醒一下你，当你隔三差五地收到英式管家送来的更换家电家具之类的账单时，请千万不要怀疑你管家的忠诚。海风强日照侵袭的，家电家具甚至窗帘都折旧得比正常情况下勤快得多，如果你选的是咸水湾，那就更加是了。当你年轻的时候，假节日带着你的爱侣去海边别墅Happy一下就好了，可千万别打算年老了也在那里折腾哦。不然关节炎、风湿病等就缠上你了，慢慢地所有电视广告上中老年人的病痛也在您家别墅里济济一堂了。还有一点，即便你是一个游泳高手也不要轻视大海，正所谓“善泳者溺善骑者堕”，看见一个大浪打过来，能多快就跑多快吧。最后再唠叨一点，海潮汹涌滚滚的礁石处是千万不要去的，如果你不听劝阻偏要去，就有可能很好彩地遇见浮尸了。那些或他杀或自杀或意外而死去的人儿啊，总会饱含怨念在大海咆哮的时候以最狰狞的面目出来陈述冤情……看到这里是不是倒吸了一口气，不禁反问道：没那么夸张吧，那海边的别墅卖给哪个傻逼啦？是的，真没那么夸张，我瞎掰出来吓唬你的，不信你买一栋海边别墅住几年试试。最后想说，人对于大海的感觉和对诗人的感觉该是差不多的。诗人是只能恋爱不能结婚的，偶尔从他那收到一朵玫瑰一首情诗那是极为浪漫的事，但是一旦结婚了就或许另当别论了；大海也是，偶尔去度假小住那是身心的一种享受，那如果居住在海边生活工作，那将是一场华丽丽的灾难。所以，写了那首破诗的才子最终也没能在“面朝大海，春暖花开”的房子里“做一个幸福的人”；而另一个曾住在太平洋美丽岛屿边上的诗人也未能“周游世界”并“在尘世获得幸福”，虽然“有情人终成眷属”，却拿把本该劈材的斧头砍死了用情诗追回来的妻子，然后自挂东南枝了。所以，诗歌里都是骗人的呵呵哒。一番洗脑恐吓下来，你的海边幻想是否破灭了呢？如果下次要是有人送你一套临海别墅，你是不是想着摆手拒收？你傻呀，还不赶紧收下！不管房价如何，那都是好大一笔白花花的银子啊！这样说来，海边别墅，依旧是人人心中的最爱！阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

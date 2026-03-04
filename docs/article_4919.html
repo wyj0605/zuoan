@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拜记黄帝陵</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>拜记黄帝陵</h1>
+            <div class="date">2026-03-04 09:55:22</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>拜记黄帝陵拜记黄帝陵原创马诗途马诗途左岸读书2023年10月14日 17:58福建在小说阅读器中沉浸阅读文/马诗途黄帝陵位于陕西省延安市黄陵县城北约一千米处的桥山，是子午岭向东延伸的部分。子午岭南北而行，北为“子”，南为“午”，故称“子午岭”。桥山总面积566.7公顷，山体浑厚，气势雄伟，沮水三面环流。山上林木茂密，古柏覆盖面积为89.1公顷，计有古柏81600多株，其中千年以上古柏3万多株，是中国最古老、覆盖面积最大、保存最完整的古柏群。这里古柏数量大、树龄长、品种多，是黄帝陵无可替代的重要组成部分，使整个桥山装扮得苍翠肃穆、秀丽幽静。远眺桥山，郁郁葱葱，一片沉沉的青黛色；置身于此，柏香四溢，满目青翠，更使人油然而生一种虔诚、庄严的情怀。在黄帝陵园门外，所有车辆不得进入，立有一块石碑“文武百官至此下马”，游客必须步行参观。于是，我徒步沿池塘拾级而上，随众多游客穿过山门，魚贯进入轩辕庙内。当我步入轩辕庙山门内，眼见西侧有一棵高大的古柏，即著名的“黄帝手植柏”，距今已有5000余年，相传此树为轩辕黄帝所植，故称“黄帝手植柏”，又称“轩辕柏”。柏树枝干苍劲挺拔，树叶青翠，主干略向南倾斜。树高19米，胸径11米，其冠如盖，其势巍峨。《国书集成》记载：“中部县有轩辕柏，在轩辕庙。考之杂记，乃黄帝手植物，围二丈四尺，高可凌霄。”树旁有一碑楼，内嵌石碑一块，上书：“此柏高五十八市尺，下围三十一市尺，中围十九市尺，上围六市尺，为群柏之冠。”黄帝手植柏是中国现存最古老的柏树，1982年，英国林业专家罗皮尔考察了27个国家的柏树后，认为唯有黄帝手植柏最粗壮、最古老，称赞它是“世界柏树之父”。1998年12月9日，“中华名树公选养护委员会”将黄帝手植柏评为中华百棵名树之首，世人誉之为“世界柏树之冠”。看到它，有如始祖黄帝信步走来，正在召唤着他的华夏子孙们。进得黄帝陵大门，继续往前走，看见一座大庙，里面有四个石碑，两端还有龙形花纹，上面刻有孙中山、毛泽东、蒋介石、邓小平书写的“炎黄子孙”、《祭黄帝陵文》等字样。庙内设有偌大的祭祀广场和祭祀大殿，常态化的祈福祭祀及演出场所恢宏宽广，更显庄严肃穆大气之氛围。在轩辕庙“人文初祖”大殿，我作为亿万炎黄子孙一分子，无比虔诚地跪拜在黄帝浮雕像前，顿觉热流涌动，神情庄重，心中默念着大殿两边的一副楹联:"祖功泽百世，宗德润千秋。"颂唱轩辕黄帝“奠华夏宏大业绩始祖恩德泽万世，树炎黄浩然正气民族精神炳千秋”的丰功伟绩。黄帝陵冢位坐北面南，为扁球状土冢，直径为16米，高3.6米，周长48米，面积约200平方米。陵前立有一块碑石，上书“桥山龙驭”四字，意为黄帝乘龙升天之处。落款为“大明嘉靖丙申(嘉靖十五年，公元1536年)滇南唐琦书”。出于对黄帝的无比崇敬和爱戴，人们不愿直言黄帝的去世，希望黄帝的精神永远留在后世子孙的血脉中，于是便有了黄帝乘龙升天的动人故事。从庙殿出来,只见旁边一块巨石上写着“黄帝脚印”。不少人都争先恐后一睹真容。我也快步挤进人缝中定睛细看，地下一块方形石头上留有一双黄帝的大脚印。大凡到此祭拜黄帝的华夏子孙们总爱把自己的双脚,放在黄帝脚印上试一试,心中默念着“踩着黄帝的脚印前进！”而今，黄帝已成为文明开元的象征。黄帝陵已成为中华文明的精神标识和跨越时空，维系民族情感的强大纽带；已成为振奋民族精神，实现民族复兴的一面旗帜；已成为亿万炎黄子孙心驰神往、寻根祭祖的神圣殿堂。供图：白头翁【作者简介】马诗途，湖北宜昌人。作品多见于省内外各大报刊和网络平台。喜欢读书，以笨拙之笔抒写梦之心语，用每一份感动收藏点滴美好。左岸记：黄帝在后世人心中，已是一种神话，一个图腾。桥山之上千年松柏苍苍翠翠，轩辕庙内香火缭绕，炎黄子孙，总会有一份不远万里前去黄帝陵拜谒并寻根问祖的情怀吧。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

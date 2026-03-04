@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循着能力的边缘前进</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>循着能力的边缘前进</h1>
+            <div class="date">2026-03-04 09:54:43</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>循着能力的边缘前进循着能力的边缘前进达达达达左岸读书2015年07月03日 22:51在小说阅读器中沉浸阅读“很重要的一件事，是有安全感，一种准备就绪的感觉；充分意识到无论发生什么，你都能应对和处理。遭遇无法处理的情况，也是很好的学习——事后回想它，会发现它在很多方面都是有用的学习。这让你能评估自己的优势。也让你得以发现内在的那些需要更多安全感的区域……对遇到的好事或坏事做出反应，并充分处理它——这是生活的乐趣！”这是最近重看《语言的魔力》里看到的一段话。第一次读的时候就觉得：哇，写得太好了！现在通过实践更得深义——这种状态真是太棒了，让自己充分处理生活中出现的问题，不抱有侥幸和懒惰心理，将注意力放在自己所能做的事情并彻底地去做，就会有效缓解焦虑和恐惧，并感受到油然的踏实感。这两天没有学英语，因为全心铺在简历上——因为对试讲有疑惑，所以打算给新东方发邮件询问下，却才发现人家早就将要求发给我了，还要求发送简历过去，而愚蠢如我，之前没有点击显示引用内容，一个多星期过去了才发现。慌张了一会儿，我告诉自己反正已经耽搁这么长了，当下的正经事是好好地准备与岗位更吻合的简历才是。虽然抑制不住担心，但是还是将注意力放在“做”上面。前天晚上运动完就开始写简历，折腾到半夜结果写出来我自己都觉得一团糟，于是昨天白天一直思考要如何写才更好匹配自己，并且一点点记下来再组织语言，到了晚上一个框架总算出来，经过和晨来回好几次讨论，再对细节的一再推敲，最终出来的简历总算比较满意。这个过程虽然耗费心神，但是却有说不出来的踏实感和满足感，并且感觉自己充满了能量。我想“充分处理”的魔力在于它明确并且不置可否地告诉你，你有力量去做一些事情并且你必须要做好。但是很多时候我们却“感觉”到自己没有力量，于是整个人就很容易懈怠下来并以此为借口。比如我，前面一段时间——真的是好一阵子，我不知道自己是中了什么邪，开始觉得自己不需要对自己那么高要求，开心舒服就好了，累的话不需要那么逼自己。工作累了一天晚上回家不想跑步那就不跑呗，书看得眼睛疼那就不看了呗，这样做的后果就是我越来越堕落，开始放松的时候是觉得很舒服，然后就是焦虑并且陷入恶性循环...“开心舒服就好了”让我误入歧途，内心充满了痛苦，这样一点也不“开心舒服”。我想大概是《同志亦凡人》、《语言的魔力》还有《人性的枷锁》在潜移默化地影响着我。我突然意识到之前自己的想法是多么的可笑。人生如果没有了干劲，还有什么意思？舒服是心理上的，而非身体上的。生活就是你为了自己想要的去努力，困难重重是肯定的，这也是意义所在——在每一次跨越困难中感知并强大自己的力量。这些困难有很多种方式，有的是你的恐惧，有的是外界的压力，但是无论是哪种，你都要压抑住自己想要退缩的心理，勇于触碰，去了解，最后跨越过去。换句话说，就是《奇特的一生》里的“循着自己的能力边缘前进”，这才是生活的真理，让你感知到自己是在真实地活着，对我来说，这比什么都重要。每次鼓励朋友做她想做的事情很多回复都是“我做不到”“这个我不行”。我以前也经常说过这些话，但是之前看到的一篇文章启发了我，有时候我们做不到很可能只是方法错了。就像《一万小时天才理论》说的那样，练习不能产生完美，完美的练习才能产生完美。我们要找对点，找对方式，再投入时间练习，很多事情就没有那么难。认识到这一点，让我有了更多信心，就算遭遇失败，我也不再灰心，保持住耐心将之当作反馈再做相应调整，事情总会越来越好的。但是大道理说了很多，有的时候我们就是没有动力，但是看《语言的魔力》让我认识到很多情况下我们都被自己的情绪蒙蔽了，而忘了最重要的价值观和信念，我们应当时刻提醒自己这点，并将两者分离开来。比如前天回家觉得头很晕，如果是以前我很可能就不跑了，但是因为任务在身还是换好衣服出门去跑步，没想到跑着跑着感觉越来越好保持530的速度还跑了15km，拉伸的时候心里充满了喜悦！《同志亦凡人》里拉拉结婚前被预言结婚当天决不可能结成婚的，果然在准备过程中各种出差错，场地突然没有了，婚纱被烘干机甩成了破烂等等，这些都让他们不得不相信占卜果然是对的。但是英明神武的Brian才不相信鬼话，他将朋友召集起来每人分配任务，虽然到最后婚礼跟她们想象中的不一样，但是还是如期举行。这集让我想到自己也经常受到“水逆”之类的影响，但其实大多数时候都是自己给自己找的借口并且导致心理预期的自我实现。所以，依旧，做是王道！并且要是“充分地”。说了那么多，其实一切尽在我最爱的广告语里，那就是耐克的”just do it”，所以现在我学会不去想太多，而是做所有我能做的，在“做”中感受到力量和充实，不断向更深更广的世界前进。左岸记：《奇特的一生》笔记摘抄：1.不知是第几次了，生活教我对什么事都不要因循拖延。仔细想想，生活实在是个任劳任怨的好当家，她一次又一次地给我机会，安排我同许多当代最有意思的人物见面。可是我不知忙些什么，来去匆匆，因循拖延，以致失之交臂。我拖拖拉拉是为了什么？忙些什么？当初瞎忙的那些事，如今看来是那么渺小，而损失是那么惨重，主要是再也不能晚会弥补了。2.不管怎么说，人撇开他的言行，他的智力和灵魂超越了一切已知的物理定律，具有一种特殊的放射性....灵魂越高尚，给人的印象越强烈。3.柳比歇夫开始的时候同旁人差不多，跟所有年轻人一样，渴望着建树功勋，成为超人。一步步，他才逐渐恢复天性，冒出人的弱点，他鼓起勇气继续前进，攀登越来越陡峭的高峰——追求人性，追求那最最朴实的人性。需要好多年才懂得，最好不是去震惊世界，而是像易仆生所说的，生活在世界上。4.应当不断挖掘一切时间潜力，从时间中去找时间。5.以往，年轻的时候，每逢过年，我总猛然想起，一年又过去了，我决心要做的，并且也向别人保证了的，又没有做成，拖啊拖，结果是无可再拖了。6.以往看到一首诗 就想读这个人所有的诗集 去研究诗 生怕自己不配欣赏似的 其实如果没有兴趣 或者别的需求 当你欣赏一首诗 就去欣赏 从中得到一会儿的愉悦或是启示就够了7.对一位科学家来说，整理和组织材料的过程本身，就是一种享受。即使这一工作没有什么重大的意义，例如做做复制品的卡片目录，但从事这一工作时，感到很愉快。这种快感，实际上就是意义本身。8.目前越来越能感受到这种快感，我不把工作当做工作，而是一种乐在其中的游戏，有时候是挺快乐的。9.有一点他知道得非常深刻，而且曾多次向别人说起过：谁同现实妥协，谁就是对未来没有信心。10.人们经常敌意地对待时间、空间、物质，对这些东西都能以某种方式加以驯服。时间却始终那么放荡不羁。自从人类窥见宇宙深处，听到计算几十亿年的宇宙时钟的滴答声，看到银河系会如何崩溃时起，时间就显得更加可怕了。11.超过最低必需品限度的东西，他都不要。倒不是他故作清高，他就是不需要很多大家公认为必需的东西。12.大多数人不想试着超越自己可能性的极限。他们一辈子也不想试着了解他们能干些什么，不能干些什么。他们不知道，什么是他们力不能及的。13.如果每个人都能知道自己能干些什么，那生活会变得多么美好！因为每个人的能力都比他自己感觉到的大得多。他会变得比自己想象的更为勇敢，他会变得更坚韧、更有力，更能适应环境。14.当作者随心所欲地支配自己的时间时，他体验到一种解放的幸福。这样的时间充满了光明和安宁。一天全部的时间都吸取着最重要和最本质的东西，如同绿叶的表层吸收阳光一般。15.必需品好就好在它如同水、面包、阳光、桌子……一样不会引起烦恼，不会成为累赘，不会惹人讨厌。16.如果不去考虑轻松不轻松的问题， 而考虑需要不需要的问题，那么人必然会严肃地考虑如何利用他一天、一月、一年中荒废掉的那些时间。假如能把一个人在生产中、生活中花费掉的时间摆出来给他看，他一定会发现他白白地、糊里糊涂地浪费掉的那一部分生命而大吃一惊。17.充分施展自己的才能——这是每个人和全人类面临的日益增大的任务。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

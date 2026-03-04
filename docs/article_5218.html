@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>独处的样子</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>独处的样子</h1>
+            <div class="date">2026-03-04 09:56:24</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>独处的样子独处的样子原创我是左岸我是左岸左岸读书2021年12月17日 07:12在小说阅读器中沉浸阅读文/空号泰戈尔说，“孤独是一个人的狂欢，狂欢是一群人的孤独”。我不归于孤独，也不在狂欢之列。这些天，一直都在推杯换盏之中。因为年龄到了退别职场的档口，左右上下的同事有心设宴。三两句四五杯，全然过往说道尽是来日冀嘱，让人着实有些激亢且不已。酒是好个东西。无论一个人还是一群人，小酌也行痛饮也罢，或孤独或狂欢，尽可由着自个的投入，仗着心境或场景大肆摆弄。因为稍稍有些酒量，多数时候酒桌上我都会主场似的多一些，大抵还不会丢了该有的那么和这些。我不是一个好热闹的人，在意的其实更是独处。不去随意撒落自己的琢磨，也尽力地避开推敲别人思维院落的机会。就一个人杵着，一个人憨坐，一个人喃喃而语，都行。如雨巷里的那顶油纸伞，在熙熙攘攘的街墙的串行中孑孑而行。试着掩遮哪怕偶得的狂欢，在寂寂寥寥的等候里剪辑好自己或长或短又实又虚点缀出的孤独。不为别的，就做那个芸芸众生中的过往。那种“采菊东篱下”“听雨小楼中”，才是我由然的自始如终的样子。这很像当下急促的城镇化过程中，那个牵着家进了城里，却不融进街巷，总是想着回不去故地的山里人。我本就是一个山里人，一身的山里的沉甸。只是因为少小时候的煎煮、好奇与驿动，搏了命地才搭上了这高考的独木桥，挤进了城里。如今三十六年过去，真如弹指一挥间，青丝都染就了鬓白。这进城的数十年中，岁月给我拷贝了很多城里的东西，身上不少的也是些灯红酒绿和浮光掠影。像极了那张老照片，着过色美过图后，黑白的底子俨然透出了新艳的色彩。只是，“蝉噪”不见了，“鸟鸣”不再了，哪儿去找寻“林逾静”、“山更幽”的痕迹？每每这个时候，我就莫名的慌张，和浅浅的苦痛。自有仰视不了的坎儿。把自己掰开揉碎塞进到推敲和起伏的角角落落中去，总在孤独与狂欢切换，在一个人与一群人随心逐意地调兑的那些事，我是干不来的。这些不会是我的主张，我只心心念念独处的样子，那才是我的本源。拷贝与本源从来就不在同一个维度。崖高立天不攀附，草低匍地不踏践。清涧自渡横桥过，只取腐朽作柴烧。这是山里人的禀赋，山里人的讲究，山里人心安与理得。林清玄说，“孤独是一个人的清欢”，“最单纯的欢喜，是生命里最有滋味的情境”。是的，由一群人到一个人历练，是狂欢到孤独蜕变的过程。我想说的是，世界本就是孤独的堆丛。即使曾经狂欢，即便一直喧嚣，总归都会流跌而去，回到一出一出、一副一副独处的样子。那天的酒确实有些多，多到没来得及消读手机。醒来的时候微信上闪烁一条信息：“知道这天一定会来。真来了，非常难过，非常伤感。......离开了，不舍，留恋，彷徨，孤独。时光的河入海流，终于我们分头走。没有哪个港口，是永远的停留”。这是一段告别，好像也是一首歌的唱法，着实叩击了我绷张的心弦。我怀疑，甚至在搜寻昨夜酒桌上是不是的孤独或者狂欢。不就是不去办公室，不就是不用准点到达某处会场，不就是不要签读页复一页的文件，不就是不用再一茬一茬的迎来和送往？从一个人到一群人，从一群人到一个人。想想最初别开山里进城的时候，这些本就啥都没有，清清爽爽、利利落落。只是如今多出的这些个叮咛与牵挂，包括我受的和我授的，都一并装进独处的样子里去吧。又翻阅起早些时候写的那篇“此去最是鱼目山”的小文。“这些日子，时不时的在院子里踱着方步，料峭风霜和晓风残月竞相翻读的正是我一直等候的故事，听着很是应景。不再物喜也不去己悲，我只跟念纯粹与纯真、很虔诚也很知足的那些页面”。“喧嚣之上尘屑之中，偶尔的交汇都是天修的缘分，何况如此辗转反侧”。都说惦记和回归是最好的演义，我还是把那些个是是非非与星星点点的都绕了过去吧。这一生身，有过很多的一群人，也有过很多的狂欢。但我总念着一个人，孤独的时候，或左右与前后，或匆匆与逗留。卡尔·罗杰斯说，“活着，其实是一门专业，每个人的专业”。他一定不知道，我独处的时候、独处的样子。左岸记：天下无不散之宴席，人从独处来，融入关系，融入社会，又慢慢地退出来，回归寂静。热闹是别人的狂欢，孤独才是自己的自由，人生本就是一场迎来送往的修行，相濡以沫后，相忘于江湖。人的一生，就是自己说服自己，自己看见自己，自己给了自己幸福的一个生命过程。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

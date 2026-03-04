@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>何忧何求，万物有德</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>何忧何求，万物有德</h1>
+            <div class="date">2026-03-03 20:41:22</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>何忧何求，万物有德何忧何求，万物有德关中人关中人左岸读书2014年05月30日 18:19在小说阅读器中沉浸阅读人世间的事有对与错吗？我所谓的白昼对池蛙而言却是黑夜，天亮后他就不能叫的那么肆无忌惮。老子说：大音若希，大象无形，不争而人没能与之争！对与错、善与恶、美与丑，要区分对谁而言。上帝站在天上看人间，如同我们看地上的蚂蚁。有人说：“我只关心结果！”。我说人生的结果都免不了一死！如果是彩票中特等奖当然好，但如果换成人生的最终结果那就不用问。有人说，人生的价值在经历，而不是拥有多少财富。人生的价值到底是什么，又有谁能说的清说得对呢？较真与执着，自己难为自己。看得开，不往心里去，自己爱惜自己。太较真活得苦，心里不装事的人，不能指望他是个自律的人。极端就与异类不远。可曾感叹命运对自己不公，可曾留恋这个花花世界，却有那么多人年纪轻轻就自寻死路。想起一则寓言故事：现在就是最好的。为什么有那么多人体会不到。 有人感叹世界才是完美的，它无所不包含，我认为世界未必完美，因为它不能让所有人的心满足！世上没有完美的事物，世上的事物都是完美的，差别就在一念间。你觉得日本这个民族该灭亡吗？上帝告诉我说：他是围绕在狮子周围飞舞的蚊子，让它存在是为了提醒狮子不要自以为是，只有承认不足才能更好地发展。为了不让国家灭亡，它在中国的西面安排了一个强大的帝国，正虎视眈眈地注视着中国。上帝托我转告国人：生于忧患，死于安乐。我曾抱怨老天不爱我，没能让我有机会像习大大那样高风亮节为人民服务，它却偷偷告诉我：“知足吧，这年头能做个凡人是天大的造化！”伯夷、叔齐薄帝 王而不为，泰伯弃天下如敝履，老子、黄石留书而不见其人，韩信功虽高不长寿。历史上有多少圣贤不求名不求利，只求明理老死于山林，能得到不名实惠之人我亦 算其一。我祈求上苍将坏人收尽，它却说窃钩者诛，窃国者侯。世上无坏人，都是自然的好公民。小人成全君子修为，敌人的出现是为了刺激本民族更加强壮，坏人出 现是怕好人灭绝，谋逆篡位是为了警醒世人人是世间最厉害的野兽，忠孝仁义仅是束缚老实人的紧箍咒。有德的人自然知道如何去做，妖精约束也不管用。如来是最 大的妖精，他曾绝仁弃义抛妻弃子弃皇位。如果明天是世界末日，我会庆幸人类的苦行僧日子终于到头了；如果明天太阳照常升起，我要感谢大地给予了我生命延续，只要活着，就有无限可能！让我好好感受这生命的一呼一吸，让我尽情体会这活着的自由。子曰：德之不修吾之忧也，君子忧道不忧贫 。我笑孔子只识仁德，不识天地间之大德，妄为圣。天下万事万物无不有德，德在自然，德在人为，得在安详，在不分别。小偷德在成全公民看好自己的财物，德在成全警察混口饭吃。酒鬼德在给一些人创造机会，德在酒业消费，小草德在被羊吃……一切都是最好的安排，一切都在德中。一切都是最好的，我何忧何求。尽情感受这生命的神奇，无尽的智慧。左岸记：读文章的第一反应是作者要说明“存在即合理”，但这句翻译于黑格尔哲学的名言是被误解了好多年的一个观点，完整的中译应该是：凡是合乎理性的东西都是现实的；凡是现实的东西都是合乎理性的。而且老黑写的「现实」「理性」或者「存在」与我们所理解的意思完全不是一回事。所以，我就换一种理解吧：凡现实存在的，都是事实，彼此孤立又相互制约。人们两害相权取其轻，两利相权取其重。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

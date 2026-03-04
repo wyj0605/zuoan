@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏之韵</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>夏之韵</h1>
+            <div class="date">2026-03-04 09:53:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>夏之韵夏之韵原创我是左岸我是左岸左岸读书2022年07月28日 23:37福建在小说阅读器中沉浸阅读文/行吟者1. 夏的神韵夏天，当一切都变得成熟而显得有些老成的时候，它带着狂热，顷刻间席卷了我居住在长江边的这座城市。偶尔刮起的夏风，扫过这个城市的每个角落，也都蕴涵着袭人的热浪。人行道上的彩色路面在太阳的炙烤下变得软软的仿佛踩在橡皮泥上。沿街边的国槐树、银杏树像一把把巨大的遮阳伞，给伞下的行人带来些许阴凉时，自己也泛着耀眼的绿光。整个城市如同一个巨大的蒸锅，城市里的人们便在蒸锅里游荡着。看着匆匆从炽热的太阳底下飞奔过的人，也忘不了抱怨几句“这个天好热哟，晒死人了！”关于夏天的记忆，从这里开始。当然，人们也记住了脆亮的蛙鼓、知了的聒噪、蚊蚋的低吟、婉转的鸟叫……丰富的声响把轻飘的空气充满了，这就是夏带给我们的神韵。2. 夏的脚步吃罢晚饭，照例在文华园内散步，一阵阵清风，吹得树叶呼呼作响，也吹得我周身神清气爽的。虽已进入大暑中伏阶段，这两天气温倒有点像秋天的样子，但有一点却还是大不相同，你看，躲在树丛中的小动物正在举办音乐会：青蛙拍鼓“呱呱”响；蟋蟀扯嗓低声弹琴；路边的草丛中还时时传出带颤音的歌声，那是“纺织姑娘”们演奏的《夏夜曲》。一年四季，春夏秋冬，每天的散步，从眼前的花草林木中读出氤氲的风景，从亭台池边的雨滴中听出雅致的诗句，从手指间轻风中明白上苍的恩赐，从身边的人流中感觉世界的温暖。每天散步，你会感觉四季也总是那么精彩。蓦然回首时，你会发现，那些渐行渐远的不止是风景，陪着自己的还有那个始终不变的自己。纵使，年岁一年老去一年，却依然有一颗向暖而童真的心。3. 夏的温馨清晨，我走在清风文化园的廊道里，满眼新绿，鸟鸣欢唱，空气中弥漫着丝丝植物新生的香气。夏天的风，轻轻摇动着新枝嫩叶，似温柔的低语、深情的问候。当我走向园区的大门口，看到这样一幕：一中年男子把电子门打开，看到有人匆匆走來，于是，静静地守着门等着通过。接连出门的三四个人低头侧身，连身道谢。那一刻，立在门边中年男子的一番好肚心肠，给过往行人带來了点点温馨。踩到蚂蚁，慌忙抬脚；见陌生人雨天跌倒，举手拉一把；有人忘戴口罩，上不了公交车，掏出包里备用的口罩递过去……凡此种种，生活中小而微的瞬间，无不美好，无不温暖。婆娑世界，本有缺憾。人生苦短，几十载春秋而已，带着悲悯和善良上路，还有温柔作伴，心中有绿洲，处处都是春和景明。左岸记：夏，一个情趣盎然的季节，惊鸿一瞥即是一处旖旎的风景。紫薇袭月行云散，绿柳承荫落絮繁。点水蜻蜓莲间戏，穿花蛱蝶画中喧。芙蓉窈窕清池舞，荷叶婆娑碧浪翻。酒盏盈盈期雅客，炊烟袅袅倚田园。作者自述：行吟者，一个诗意的歌者，喜欢文字，但不颓蘼，偶尔腾出一片空间，释放自由的心，淡雅从容，且听风吟。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

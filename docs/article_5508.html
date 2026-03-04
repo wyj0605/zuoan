@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记忆里的冬日牧歌</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>记忆里的冬日牧歌</h1>
+            <div class="date">2026-03-04 09:57:26</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>记忆里的冬日牧歌记忆里的冬日牧歌原创老陈醋老陈醋左岸读书2020年12月16日 07:16在小说阅读器中沉浸阅读文/老陈醋庚子年末，开车带家人回乡下老家。出了市区，车子沿着回家的路，驶近老家的村。车窗外的村道旁，碧绿无垠的麦田里，有一老汉挥动着长鞭，放牧着羊群。雪白的羊散落于绿浪涌动着的田间，自在地啃食着嫩绿的麦苗。坐在车里的孙子孙女和家人们陶醉在车窗外如诗如画的田园景色中，兴奋地嚷嚷着要下车看看。我把车停在路边，带着娃娃们踩着绿茵如织的松软土地，走向那群绿海中沐浴在冬日暖阳下的羊群。我走近放羊老汉给他打招呼，他转过脸应答时，我们都笑着认出了对方。原来，他是我小学同学，名叫国强，我们两个是儿时的好伙伴。在大人们说话拉家常时，两个娃娃已经高兴地驱赶着羊群，在麦田里尽情追逐奔跑起来了……眼前熟悉的场景，曾经出现在久远的儿时乡下。那时冬日的麦田也似今日这般碧绿。在那绿色海洋里，时常会有下学的我们几个小伙伴，一块放牧着各自家的一群羊。我们手里拿着鞭子，衣兜里装着豆子，需要驱赶羊群时，右手挥动起鞭子，羊群就跑开了；需要招呼它们时，就高高地扬起左手，使劲吹起口哨，一只只羊儿都争先恐后地跑到我们这些小羊倌身边，围着各自的主人讨吃手里的豆豆。老家在平原地区，没有山坡荒地，四季放牧受限，只有等到隆冬时节，麦根分蘖发粗，麦苗长壮了，覆盖住了地面，才可以把羊群赶到田里放养，享受大自然的馈赠。那些年放牧的羊，是家里维持生计的一条路径。每年都有新下的几只羊羔，养上一年半载就可以牵到集市上卖掉换钱，贴补家用。羊粪是庄稼地的好肥料，从羊圈里清理出来的羊粪交到生产队，也能记不少的工分。每一年，母亲还要给这些羊剪一次羊毛，剪掉的羊毛拿到供销社卖掉，换来的钱就凑够了我们姐弟几个人的学杂费。剪下的羊毛足够多时，母亲会把一部分羊毛拿到弹花铺子里弹好，再用纺车纺织成毛线，让姐姐给我们织成毛衣。这种毛线染色效果差，弹性不好，织成的毛衣不成型，样子差。但在那些年的冬季，有这样的毛衣御寒，也遮挡住了漫长冬日的风霜雨雪。少年时代正是“文革”时期，那是个知识受鄙视的年月。学校读书的压力几乎传导不到我们身上，倒是下学后去田里放羊成了我们必须完成的作业。好多时候，我们赶着羊出了村，沿着灰河故道向西南走去，把羊群赶到离村较远的一个叫燕坟的地方，那里田地平整开阔，四周远离村子，羊群撒到那里不用过多操心。这地方还紧邻着灰河，河道里长年有从伏牛山深处流淌下来的没膝深的清水，水里有成群的鱼虾嬉戏。每年冬季，成千上万只南下越冬的大雁会在此停留。田里的雁群很机警，每一群雁，都有一只或几只丧偶的孤雁在远方的高处放哨，一但有人接近，哨位上的孤雁会发出大声的哀鸣，召唤着雁群飞走了。只是我们赶着羊群的孩子们经过雁群时，它们不会受大的惊扰。晴好的冬日，我们把羊群赶进麦田里，然后在河堤上找一处避风向阳的地方，翻看一会儿连环画册或几个人玩一会儿扑克，更多时候我们则远远地照看着自家的几只羊。田野里，绿茵中，灰黑色的大雁忙着觅食，雪白的羊群啃吃着青苗，不同类的物种和谐共生。那些吃饱歇足了的雁群，不时从麦田里结伴跃起，在天空中排成“一”字或“人”字队形，整齐的向南飞去，也有从北向南飞过的大雁落到麦田里歇息、补充能量。在那一片望不到边的麦田里，只要近处响起几声咩咩的羊叫，不远处的雁群里一定会传来一阵阵的雁鸣。那是一幅大自然绘就的阡陌风景，也是留在我们记忆深处韵味悠长的乡愁音符！早年的放羊经历，对我成年以后的人生有着不小的影响。我入伍后，连队养着十几头猪，饲养员岗位又苦又累，很多人不愿意去干。我想，自己以前养过羊，也一定能够养好猪。就向连队首长要求，要当饲养员。虽然没有被批准，但我会抽时间去连队猪圈里帮忙干些杂活，积累了不少养猪的经验，也得到了首长和战友们的赞许。风雨人生路，少年不言愁。早年艰苦生活的磨砺，是生命里上帝眷顾加赠自己的期许，孕育了无尽的筑梦旅途中负重前行的灵魂给养。回望童年的时光，无垠的麦田，欢快的羊群，南飞的大雁，都化作一首心中难忘的冬日牧歌，不时在耳边想起，让人回味，让人眷恋………左岸记：未见羊群，却听羊咩声；未见雁落，却美若仙境。果然，美好的童年 能治愈一生。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

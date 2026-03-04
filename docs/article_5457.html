@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>草木有本心</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>草木有本心</h1>
+            <div class="date">2026-03-04 09:57:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>草木有本心草木有本心余想余想左岸读书2017年04月29日 01:21在小说阅读器中沉浸阅读车门一开，一阵寒风从地下车库刮来，微冷。他斜躺在车上，脸色通红。估计又喝了几斤白酒，他是不怎么喝酒的，上次在邵阳，他把剩下的半杯红酒往我杯子里倒了一点。我扶着他下来，他忽然拿开我的手，坐在地上，放声大哭，如一个丢失玩具的小孩。他抱着她的干女儿，小声的说着什么。良久，良久。众人站在旁边，不知如何是好？我为了化解尴尬，说：“你是酒逢知己。”他拍了拍我肩膀，醉醺醺的说：“小兄弟，我没醉，人生有时需要释放自己”。他是我的一个长辈，印象中的他，宠辱不惊，喜怒不形于色。可能因为身居高位，有太多的以身作则，有太多的承担沉重如铅。那一刻，我忽然觉得他好陌生，又如此真实。我们可能习惯了孔子的“克已复礼”，子路临死之前还要正一正衣冠。我们不太习惯阮籍的穷途之哭，竹林下打铁的嵇康以及终日酩酊大醉的刘怜。建安风骨早已淹没在南朝的烟雨楼台之中。所以，你会看到戴着各种面具穿梭在都市之中的男男女女。每个人像尽职的演员在舞台上演一出完美的戏，人们假装正能量像不断电的电源，假装以最好的状态迎接每一天的到来，假装一切和谐。我们忙得包装自己，却忘了抚慰压抑太久而受伤的心灵。时光飞逝，老去的是一颗愈加疲惫、焦灼、迷惘的身与心。人生不是只有一种颜色，有白天就有黑夜，有喜悦就有悲伤，有马车也有南瓜，同样的，有克己复礼，就有“叛逆”。最近读《蒋勋说红楼梦》，他说年纪愈大，愈感觉林黛玉的真性情是最难能可贵的。什么事情都反映在脸上是一种真，看到花谢花飞飞满天感到悲伤是一种善，美，是一种无目的的快乐。纯粹就是美。陌生，是因为反常，真实，是因为他的不伪装。那一口酒入愁肠，化作相思泪，有他的过去、现在、未来。那一声哭喊中，有他光鲜背后不为人知的酸甜苦辣咸。许巍有一次在工人体育馆开演唱会，歌唱到三分之一，声音一下子嘶哑了，撑到最后，他终于哭了，他一定想起他在北京打拼十几年的艰辛。有些事，只有自己知道。“兰叶春葳蕤，桂华秋皎洁.......草木有本心，何求美人折。”清冷寂静的冬天，张九龄的感遇诗如石头投入湖中，激起了一阵涟漪，办公室的绿萝兀自生长，它不理会流言蜚语，也不在乎名与利与面子，它只是享受阳光、雨露，然后纷纷开且落，那是我们缺少的一颗“本心”。左岸记：非常干净的文字，读来心灵清雅舒畅，这是一种难得的生活态度，是极其宽厚的善良。枯叶、狗尾巴草、小蘑菇、处处可见的野菊花……这些最不起眼的一草一木，低下头的时候，你会发现脚边却是个满满生机的不同世界。这些常常被我们有意无意踩在脚下的草木，在自然的世界里展现出的恰恰是另一种面貌，安静、柔和且深邃。这或许就是它们的本心！作者：余想，本名贺程，1989年生于湖南株洲，文案策划，自由撰稿人。曾在长沙晚报和青年文学家发表过多篇散文随笔。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>永恒的此刻</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>永恒的此刻</h1>
+            <div class="date">2026-03-04 09:56:06</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>永恒的此刻永恒的此刻我是左岸我是左岸左岸读书2026年01月25日 20:30福建在小说阅读器中沉浸阅读《蜉蝣鉴》朝生暮死不知晨，秋蝉难语三冬尘。空许来年苔上雪，终成龟目泪中痕。莫待星沉追逝水，且燃烛火照今樽。心光若铸永恒印，刹那相逢即永存。话说有一种昆虫叫“蜉蝣”。这玩意只能活一天，它出去跟蚂蚱玩，天黑了，蚂蚱说：“你玩着，我先回家了。咱俩明天见。”蜉蝣就寻思“明天是个啥呀？”第二天蚂蚱没找着蜉蝣。跟青蛙又好上了，俩人玩了一段时间，青蛙突然说：“你玩着，我得回去睡一阵。咱俩来年见。”蚂蚱一听就慌了，心想“来年是个啥呀？”如果有一天啊，有人跟你说咱俩来生再见。你是不是也得寻思寻思，这来生是个啥？蜉蝣，不知道明天是啥。蚂蚱也活不到来年。人啊，也别老想着来生……第二年春天，这青蛙一睡醒就去老地方找蚂蚱。找了半天，没找着。遇到一只乌龟，他就问乌龟：“哎，你看到一只蚂蚱没？那小子跟我约好了，说来年见，也没来呀？”乌龟两眼一瞪说：“哎呀！怎么一开春你们就找我打听这点事。我这辈子看了太多你们这种约定。就说那蜉蝣，那玩意儿有明天吗？那蚂蚱陪他多玩一会能咋的？还有你，你都是一只青蛙了。你陪那蚂蚱多蹦跶两圈，你能死啊？”……人也是一样，就老把那约定往后推。动不动就扯什么，改天，明年。更讨厌的还有说什么，以后有的是时间。唉，这人啊，从来不是什么终有一死，是随时会死。最好的再见啊，不是什么时候再见。是在彼此心里都活成永远。从今天，从现在开始，到永远……那只没等到“明天”的蜉蝣，那只没等到“来年”的蚂蚱，都在提醒我们：生命中最珍贵的一切，几乎都有保质期。父母的健康，孩子的童年，朋友的热情，爱人的眼神——这些都不会永远保持“可用状态”。老龟的智慧在于，它看遍了不同生命尺度的遗憾，最终明白：陪伴的意义不在承诺未来，而在完全在场。蜉蝣的一日，若被充分活过，比浑噩的百年更接近永恒。真正的永恒不在时间的无限延长，而在相遇时刻的深度印记。若能在彼此心中“活成永远”，那么即使蜉蝣般短暂的交集，也拥有了龟寿般的重量。我们总在向外寻求永恒——追求长久的关系，稳定的状态，不变的感情。但最坚固的永恒，是向内铸造的。当某个瞬间的光芒足够明亮，它便能在心灵深处留下不可磨灭的印记，成为任凭时间冲刷也不褪色的存在。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

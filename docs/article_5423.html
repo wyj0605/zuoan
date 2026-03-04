@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>胜人者有力，自胜者强</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>胜人者有力，自胜者强</h1>
+            <div class="date">2026-03-04 09:57:02</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>胜人者有力，自胜者强胜人者有力，自胜者强贾刚贾刚左岸读书2024年11月08日 16:20福建在小说阅读器中沉浸阅读文/贾刚[道学拾遗]许多人之所以一辈子都绕不出去循环，是因为他们从头到尾都没有明白：「真正的财富并不是自己赚来的，而是当你的能力达到了一定的水平，能够上得了台桌之后，从桌子上分到的。」作为成年人，在辛苦工作的同时，一定要分清：哪些事情是看上去让你忙忙碌碌，但对你完全没有长远帮助的杂活儿累活儿；哪些事情是看上去回报缓慢，但却能够有不封顶的上限，给你超额回报的事业。工作和事业，这两件事情一定要在自己的认知里面分清楚。超出自己认知和经验的事情，不要投入哪怕一分钱的本金。真正能够给你带来财富的生意，一定是你非常熟悉，细化到每个细节、应对方案、问题本质，你都能妥善处理好的事情。当下的这个环境，想要创业发财，对于普通人来讲已经不现实了，能够有一份满足温饱的工作，就已经是很好的基础了。对于那些向你伸出橄榄枝的机会，可以想尽办法，利用周末、休息和业余的时间进行参与，直到看到具体的收益（可以是金钱，也可以是人际关系的拓展，或者自我能力的提升）之后，再决定是否要All in。但每天就24个小时，总有人说时间不够用，更加直白的讲「要学会在提升工作效率的同时，合理地省出给自己的时间，这本身就是一种能力的体现。如果你连在工作上优化流程、不断提高效率的能力都无法达到的话，那么或许认真工作才是唯一的出路，不要再奢求其它更多了。」有时候，我们脑海中认为的问题，只不过是各种吓唬自己退缩的纸老虎，问题最终的解决，很有可能和你自己的想象南辕北辙。遇到困难，围绕困难想方案，去协调、沟通、妥协、应对、化解、处理，最终总会有解决的方案，即便做错了也是一种尝试，至少这条路走不通。难就难在，我们往往控制不住自己，常常成为了自己情绪的奴隶。昨天还自信满满，今天就忧心忡忡；心智和情绪在这样的轮回当中不断打鼓，时间过去了，但还没有掌控自己的情绪。道德经讲「胜人者有力，自胜者强」，超过别人不能算是强者。只有把自己不断当作是超越的目标，才有可能革新昨天的自己，让未来的自己一直站在今天的肩膀上。就拿写作来讲，如果总是要求自己必须写出10万+的文章才算是真正写作的话，那么能够达到的人寥寥无几。记录生活、分享感悟、寻找志同道合的人，这些都是我们拿起笔的理由，至于结果，总是一篇篇之后的积累，还有运气的成分。如果把写作当作长期事业的话，坚持一年、两年甚至五年，都只是人生中极为短暂的时光，享受这个过程，用前面提到的解决问题的心态和能力来处理不断遇到的困难，这就是普通如你我的上班族最好的精进了。特别是当下的时代，愿意写作和不愿写作的人将会区分的越来越明显，尤其是AI兴起之后，很多人都认为交给AI就可以了，不用辛辛苦苦的字斟句酌，也不用讲意思准确、逻辑通顺，文字似乎越来越沦为视频化之下的「配角」。但真正的文字是有生命的，是体现了思考的，行文的过程就是思考的过程，除非你将自己的头脑拱手让出，那么财富也将与你渐行渐远了。左岸记：像一支和顽强的崖口进行搏斗的狂奔的激流你应该不顾一切纵身跳进那陌生的、不可知的命运，然后，以大无畏的英勇把它完全征服，不管有多少困难向你挑衅。——泰戈尔</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

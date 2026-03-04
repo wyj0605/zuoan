@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>先处理心情，再处理事情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>先处理心情，再处理事情</h1>
+            <div class="date">2026-03-04 09:53:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>先处理心情，再处理事情先处理心情，再处理事情左岸读书2017年04月29日 01:21在小说阅读器中沉浸阅读真正的高手往往先处理心情，再处理事情；先分析心态，再分析事态。1、沉默有时候，你被人误解，你不想争辩，所以选择沉默。本来就不需要所有的人都会了解你，因此你也没必要对全世界解释。做真实的自己就好。2、平静在你跌入人生谷底的时候，你身边所有的人都告诉你：要坚强，而且要快乐。坚强是绝对需要的，但是快乐？在这种情形下，恐怕是太为难你了。毕竟谁能在跌得头破血流的时候还要做到高兴?但你至少可以做到平静。平静地看待这件事，平静地处理该处理的事就行。3、弯腰和别人发生意见上的分歧，甚至造成言语上的冲突，回家去擦地板吧。拎一块抹布，弯下腰，双膝着地，把你面前地板的每个角落来回擦拭干净。有时候你必须学习弯腰，因为这个动作可以让你谦卑。劳动身体的同时，你也擦亮了自己的心绪。4、不要想“如果当初”你说，人生是一条有无限多路口的长路，永远在不停地做选择。选择读什么科系、做什么工作，结婚或不结婚、要不要有孩子，不同的选择造就出完全不一样的人生。你又说，如果当初如何如何，现在就不会怎样怎样......这种话还是别再说了吧。每一个路口的选择没有真正的好与坏，只要把人生看成是自己独一无二的创作，就不会频频回首如果当初做了不一样的选择。5、努力漫步林间，你看见一株紫腾缠绕树干，感动于这静美的一幕。你想，不知未来会有怎样一番风雨?也许藤将断、树会倒，也许天会荒，地将老，你又想。那么，请时光定格在此刻吧，定格即是永恒。永恒里若有这静美的一刻，未来可能遭遇的种种劫难，便已得到了安慰与报偿。努力，不管成功与否，至少曾经美丽。6、保持单纯因为思虑过多，所以你常常把你的人生复杂化了。明明是活在现在，你却总是念念不忘着过去，又忧心忡忡着未来。单纯地活在当下吧，而当下其实无所谓是非真假。就单纯地把你的人生当成梦境去执行吧，做好现在的梦。7、偶尔“俗气”吃多了健康食品，偶尔你也想啃一啃鸭舌头和盐酥鸡还有麻辣小龙虾。偶尔你其实并不想让自己时时刻刻活得那么有意义。人生真的不需要把自己绑得那么紧。8、回归平静曾经有一段时间，你心情低落，甚至懒得拉开窗帘，看窗外的阳光。你当然也忘了去看窗台上那一盆每天都需要喝水的茉莉花。不知过了多久，总算有一天，你恢复了美丽心情，同时也想起了你的茉莉花，天啊，可怜的花，还活着吗？你战战兢兢地拉开窗帘，却见她风姿绰约，幽香扑面来。原来在过去的这段日子里，你虽然忘了喂她喝水，老天却一直没忘了以雨露眷顾她呢。许多事物悄悄地在你的视线之外进行，而且悄悄地安排好了它们自己。天生万物，天养万物，一切其实无须担心。你只要做的就是做好自己，不留任何遗憾。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

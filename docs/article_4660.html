@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属于谁的秋天</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>属于谁的秋天</h1>
+            <div class="date">2026-03-04 09:54:30</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>属于谁的秋天属于谁的秋天原创德鲁伊德鲁伊左岸读书2025年09月10日 15:14福建在小说阅读器中沉浸阅读文/德鲁伊桂花，微雨细绵，打伞无用似的，不打还是会湿了衣服，尴尬。深爱桂花，弥漫在空气里，却总是似有似无，不知那一刻就会让你嗅到香来。此处矫情一下：这就是佛法，无处不在，又无处都在，你被浸润着，偶尔你悟了，就感知到了，悟不悟都在。秋易悲，虽然百毒不侵了我，悲大约是不会了，但真的，人尴尬是会笑的。前日等电梯，门开，蹒跚学步的孩子和姥姥吧，孩子抬头看我，我必须还之微笑。小手一指，“一个爷爷。”哦，那就继续微笑。到年纪了？到年纪了。前一两年还找理由是胡子或是状态不好，现在坦然的很。因着锻炼，自我感觉机能比前些年还好，但心里平静接受这个“爷爷”的称呼，起码内心已经接受了。人生之秋，缓缓来到。秋天是适合算计的，失去的，收益的，记账销账。这两年我的状态属于审计为主，主力工作是消除呆死坏账，减负。人物事，颇为愉悦。与其杀死毒龙，不如避开毒龙。搁着年轻时，我的回答通常是去改变，去战胜。现在，解决掉麻烦事或不值得的人，快闪。现在我能很敏锐的察知，一个人是自己想改变，还是在敷衍他自己。只对那些愿意改变的人伸出手，这个是到了这个年纪才明白的道理，甚觉悲哀。其实想想也通透，任何事情和人，总是惯性向前，总能说服的了自己，才能继续现在的状态。那些说服不了自己的，不是抑郁了，就是疾病缠身了或是嘎了。善医者治病于未萌，善战者无赫赫之功。前者可以理解，察于微末，观于情境，体之环境，觉之时节。就是个情绪、环境、体质的事情。但后者，总是没什么机会学习。前几天和一个体制内的人聊这个，他说其实也简单，当你觉得一个你认为出不了干部的地方，总是有人升迁，平时也看不到太多当地的新闻。这地方的人或工作，通常都有过人之处。因为自己曾经搞过一段时间和农业相关，后边还有失败的文旅地产经历。真参照起来看，基层还真是这么个事儿。如今，天天呆在城市，被网络浸润的，只剩下嘴炮附体，把自己的狭隘当作思辨，吐槽都能吐出优越感。想想自己也快废了？还是教员说的对，广阔天地，大有所为。止思践行，还是正道。秋天，容易思念，那天和居于外地的朋友聊天，说到乡愁，回不去的故乡嘛。我说，故乡本就是用来思念的，不是用来回的，要不又哪来的乡愁？过去觉得东坡，此心安处是吾乡。觉得纯粹要么懒，要么穷，要么老，故乡在那里，你在这里，路虽艰远，行则达的事情。现在，现在？还是此心安处来得真切些。其实与人与物皆如此吧。秋天来了，就别想着还会走，那是过些日子的事情。左岸记：中年如秋天，当不以物喜，不以己悲，是不惑而知天命的成熟豁达。番外：《731》要上映了，我大致会买票，但大致不会去现场看。宣扬仇恨我是反对的，毕竟“幸福的人不会仇恨，仇恨的人并不快乐。”毕竟仇恨是针对人类的。这么多年受到的教育和自己了解信息知识，对于日本的侵华行径，其实并不一定要归结为人类的。但依然越了解多，越一次次继续的突破自己对人这个生物的认知。我依然坚持，不是所谓的少数军国主义者的罪行，而是某个民族整体的恶。于是，我会支持那些基于铭记历史的所有文艺作品，不忘才能警醒。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

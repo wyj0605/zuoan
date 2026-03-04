@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>霜打过的芥菜会更甜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>霜打过的芥菜会更甜</h1>
+            <div class="date">2026-03-04 09:58:41</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>霜打过的芥菜会更甜霜打过的芥菜会更甜原创珠珠珠珠左岸读书2026年01月11日 20:10福建在小说阅读器中沉浸阅读文/珠珠这些日子，每一天都像是从漫长的寒冬里撕下来的，冰冷而沉重。我无时无刻不在想你。想你在的时候，那些寻常的烟火，踏实的温暖。于是，我逃也似的回到了乡下，回到有爸妈的老屋。这里的一切都忙着生长，忙着凋零，忙着把日子填满，仿佛没有空隙容我沉溺于那无边的空洞。清晨，是被爸妈生好的火堆唤醒的。橘红的火焰舔着黝黑的炭，噼啪作响，将寒气一丝丝逼退。我坐在旁边，手心的暖意慢慢蔓延，却总觉得，心底那一块，怎么也烘不热。早餐简单，可碗筷碰撞的声音，都让我恍惚，好像下一刻，你就能从门外走进来，带着一身晨露的气息。乡下的时间，是被农活和亲情一格一格涂满的。我躲在家里，整理那些密密麻麻写满“我们”的日记。阳光挪过门槛，一寸一寸，都是寂寞。中午，老姨来拉我去吃饭，佯装生气：“是不是不跟老姨好了？”她的手粗糙而温暖，有着不容置疑的力道。我半推半就，被她拉去。大铁锅焖出的咸饭，果然好吃。米饭油润，裹着芋头、香菇、五花肉的香，锅底结着一层金黄的焦脆。那是柴火烧出的、扎实的烟火气，一口下去，胃里踏实了，眼泪却莫名想往上涌。我想起你总笑我贪恋这口锅巴，如今锅巴依旧脆，坐在桌边的人，却再也不齐了。下午，我不再对着日记发呆，仿佛要逃避什么似的，跑到田里，去捡那些被挑剩下的小生姜。我说，要带回城里，分给闺蜜们。其实，我只是需要不停地弯腰、拾起、装袋，让身体的疲累占满所有知觉，好让心暂时麻木。姜块沾着新鲜的泥土，气息辛辣冲鼻。我捡得那样卖力，直到两大袋姜沉重地搁在脚边，我才愣住——原来，我早已拿不动它们了。最后还是老爸默默地走来，扁担一颤，便挑起了我所有的逞强。刚歇下，老姨又来了，拎着一袋自家做的地瓜粉送给我。还非拉着我去挖木薯。“你看这个，多大！”她举着一株肥硕的木薯，像举着战利品，非要我拍下来。夕阳给她花白的头发镶上金边，那张被岁月耕出沟壑的脸上，是纯粹的、丰收的喜悦。她挑了一株最壮实的，让我用锄头挑回去给老妈。那木薯悬在肩头，沉甸甸的，压着肩膀，却莫名让我感到一种安稳的牵扯。这还不算完，知道我打算明天回城。她又带我钻进她的菜园子，非说她种的菜更好吃。霜打过的芥菜，绿得发亮，也甜入心脾；包菜结实得像个翡翠球；萝卜则半截羞怯地藏在土里，半截袒露着白生生的憨实。老姨的手忙个不停，“摘点这个”、“那个你也爱吃的”，不一会儿，我怀里便是满当当、绿油油的一片，沉得几乎抱不住。那重量，是土地慷慨的馈赠，更是亲情毫无保留的、几乎让人承受不住的倾注。晚餐的喧闹在三舅家展开。今天是他生日，表弟表妹们都携儿带女回来了。炖猪蹄，炖羊肉，炖鸡汤，鱼汤……大碗小盆，都是硬菜，挤满了桌子。孩子们的笑闹，大人们的寒暄，酒杯的轻撞，织成一片温暖的、嗡嗡作响的网，将我轻轻托住。我吃着，听着，笑着，偶尔在某个热闹的间隙，思绪会飘出去一瞬，想着你若在，定会喜欢这汤的浓醇。饭后围坐，灯火可亲，我们聊着家长里短，也聊起了缺席的你。散席时，三舅又忙碌起来，给母亲，给四姨，还有我，塞满大包小包：冻好的鸡翅、成串的香蕉、橙子、橘子、苹果……推搡间，全是笑意与呵斥。抱着满怀的“战利品”走在回家的夜路上，凉风一吹，我忽然对老妈和老姨笑道：“以前我总笑自己是‘女儿贼’，回娘家就知道吃拿。现在看，你们俩还不是一样？这可真是遗传。”老妈笑着轻拍我一下。我却在那一刻，于冰冷的夜色里，触摸到了一种滚烫的循环。虽然外婆不在了，可舅舅依然是屹立的娘家。那血浓于水的疼爱，从未因谁的离去而断绝。它从外婆手里，递给舅舅老姨，又经由老妈，毫无保留地流淌到我怀里。它化身为一碗咸饭，一袋地瓜粉，几棵沾泥的青菜，或是一句粗声粗气的“多吃点”。它们如此平凡，却如此具体，具体到能撑住一个人下坠的身躯。亲爱的，我终于有点明白了。你所给予我的爱，并未随你离去。它只是换了一种形态，沉入了我的生命之土，化作了养分。如今，这养分正催动我，像老姨菜园里经霜的芥菜，在疼痛中酝酿出更深的甜；推动我，像老妈和老姨那样，未来也能将这份沉甸甸的、有时令人哽咽的爱，继续传递下去。夜深了，风依旧冷。可我怀里抱着的，是满满的、还能继续生长的日子。我还是想你，每分每秒。但这人间滚烫的烟火与亲情，正一点点地，将我重新焙暖。我知道这种痛苦难以言喻，但我会勇敢的慢慢度过这段艰难时光。人生如同一幅拼图，很难所有板块都完美契合。有人家庭和睦却经济拮据，有人事业成功却婚姻波折，有人健康富足却子女成长不尽如人意。这种不完美并非偶然，而是自然规律的一部分。正如古语所云：“物忌全胜，事忌全美，人忌全盛”。即使生活充满缺憾，相信我依然可以凭借内心的坚韧和对生活的热爱，找到属于自己的光。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

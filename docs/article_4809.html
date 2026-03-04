@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成年人的再见，悄无声息</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>成年人的再见，悄无声息</h1>
+            <div class="date">2026-03-04 09:54:58</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>成年人的再见，悄无声息成年人的再见，悄无声息原创我是左岸我是左岸左岸读书2021年02月19日 23:18在小说阅读器中沉浸阅读文/大伟几年前的一个冬天，我出差去北京，见到了锋锋，我初中时关系最好的朋友和同学，没有之一。回忆起我们上一次见面，还是在十多年前。那时候锋锋还在读大学，黄昏的时候，我们边坐在他们学校的球场边上看别人打球，边聊起当年中学时的事情，很是有趣和令人怀念。临分手时，锋锋骑着自行车，一直送我到车站，等我坐上车后很远，仍依稀看到站在站台上他面向我挥手的样子，至今想起来，仍令我感动。一晃十多年过去了，这次我在出发前，还想了下是否带个礼物什么，但想了半天也没想到合适，又想着老朋友见面无需那么讲究，太客气了反而显得有些见外，就从市场上买了一箱广东这边的当季水果砂糖橘带了过去，想着两人多年没见，一定有许多说不完的话，如同当年学校宿舍熄灯后，两人床铺挨着，也有说不完的话。晚上的时候，我们在北京一家出名的火锅店相见了，也许是很久没有见面，又或者是两人走上社会后行业或圈子差异太大，一时竟然有些无话可说的感觉。倒是他媳妇在边上很是热情，一边招呼我，一边跟我讲他们的一些有趣的事。说老实话，那顿饭让我吃的确实很尴尬，待我我坐上的士，锋锋跟我挥手再见，我也挥手跟锋锋再见，的士没走几步，遇到红灯等车，我侧过身，从窗户里看到锋锋已跟他媳妇穿过马路，远远地消失在了茫茫人群，那一刻起我明白，彼此缺乏共同语言，我和锋锋的内心早已形同陌生人，成年人的再见，就是这么悄声无息的。图片拍摄于帽峰山樱花广场我跟发哥以前是同事，至今认识已有十多年。发哥喜欢周润发，尤其是《英雄本色》里点钞票的那个动作，发哥认为特别酷，经常用那个表情图，久而久之，发哥这个称号就被叫起来了。发哥和我是老乡，也都有个共同爱好，喜欢面食，从前在上班的时候，一到周末或者节假日，俩人要么一起结伴出去旅游，要么就是去寻找好的面食馆，那时候好像还没有大众点评这种网站，更没有现在手机这么方便的X团外卖，加之南方的城市多以米饭为主，要寻找好的面馆，只能自己出去寻找，俩人无论是谁，只要发现了好的馆子，一定不会忘记告诉对方，并自告奋勇带上另外一方一同前去，不但实地品尝，更要对美食评论一番，方才作罢。发哥后来去了深圳，刚开始时俩人还时常通讯，等到节假日时，有时候他会过来广州，我也偶尔去深圳，见面后，无需多言，还是同之前一样，一定是去附近最好的面食馆，然后两人一起喝酒。发哥人长得很帅气，女朋友也不知谈了多少个，但到现在一直都未结婚，我跟他开玩笑，是不是就打算这么一辈子一直潇洒下去？发哥也开玩笑回我，说碰到合适的他就从（嫁）了。前年的时候，我想打个电话给发哥，但电话没打通，于是发微信信息。过了许久，发哥回信息给我，说他在国外，过几天回国后联系我。前几天春节的时候，我忽然想到很久没联系发哥了，找到他的微信，看到前年他发给我的信息还历历在目，发哥明明说过几天回国后联系我呀？难道是他忘了？我拿起电话，再次拨通了以前那个熟悉的号码，没想到电话被挂断了。我想着发哥可能当时在忙，估计忙完后会回我电话，但我等了很久，也没等到发哥的回电。直到晚上大概九点多，我终于忍不住再次拨通了发哥的电话，几通铃声后，电话接通了，那边终于传来发哥那熟悉却又忽然陌生的声音：“请问您是？”我一时怔在那里，不知道该说什么好。原来发哥的手机里，竟然早已没有了我的号码，我一直想不通这是为什么？直到有一天，我忽然领悟，或许是我在他的心中，已经失去了继续保持联系的价值了。小时候我们跟人说再见，就是期待着下次再能见面，而长大后成年人的再见，是真的再也不见了。左岸记：很多人，从分道扬镳的那天起，距离和时间就将我们划分到了两个世界，从此越来越远。很多人，这辈子你们已经见过最后一面了，在你期许的未来里，那个人可能一辈子也不会出现在你的明天里。生命中的分分合合，是成年人世界里的常态。其实也不必太遗憾，在我们的一生，有人能够同行一程，就已是莫大的缘分，想想，那曾陪你从那年的落叶飘舞，走到绿意葱茏，再走到如今的盛夏骄阳，真的离开了，就说声谢谢，道声珍重吧。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

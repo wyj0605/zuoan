@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>又见乔班长</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>又见乔班长</h1>
+            <div class="date">2026-03-04 09:53:33</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>又见乔班长又见乔班长原创我是左岸我是左岸左岸读书2019年11月08日 23:11在小说阅读器中沉浸阅读文/老陈醋我是一名老兵，在太行山深处一个坦克基地服役了二十周年。多年的军旅激情岁月，留下了许多难以忘怀的记忆……不久前，在一次基地战友聚会上，我竟然偶遇了当年的乔班长，再次打开了尘封多年的记忆……40年前，我应征入伍。入伍第二年，我调入基地机关当报道员。那时，我还是个刚从乡下出来不久的毛孩子，入伍前很少出过远门，到部队后想家是经常的事，有时看几次家信都会掉眼泪。那次我到侯家庄驻防的部队采访，听说十一连有位姓乔的班长是和我一个县的老乡，晚上便直接拜访。乡音相亲，一见如故，那种亲近的感觉就好像见到了家里人。待他打发班里战士们熄灯睡下后，又点上了油灯，不知道从哪儿还搞来两瓶罐头，还有两瓶山楂酒，倒入两个军用草绿缸子中，码放在他睡觉的铺板上，我俩面对面坐在炕头的小马扎上，像久别的好友似的小声道问候，小口呡着酒，间或用小勺舀一口罐头放在嘴里咀嚼着。在太行深处的那个寒冷的冬夜，在营区外寻常可见野猪野兔野鸡之类的苍莽军旅驿所，两个身处异乡的兵娃娃，在那盏暖暖的油灯下，以这种方式排解着思乡的寂寥。他是老兵，年龄也长我一两岁，像个大哥哥似的说了不少在部队里的体验。直说到罐头吃光，酒喝干，指导员来查铺时他才送我出连队。印象中那天夜里返回的山路上很冷很冷，可不知是酒的作用或者是其它缘由，我的心里却涌动着阵阵暖意……后来我考上了北戴河的装甲兵教导大队，出去学习一年多，等我再回基地时他已退伍离开了部队，以后也没有联系上。但这段往事一直定格在我心底。以至于很多年以后我常会想起那年那月那个冬夜里的温情小聚，还有那盏暖暖的油灯和甜甜的罐头山楂酒！我偶尔也会向战友，向家人说起这段往事，说起这位难忘的乔姓战友！这次三十八年重相见，虽然童颜添白发，可对这位战友我是能依稀寻找出他当年的模样。当我向他报上我的名字时，他已不太记起，但当我动情说起多年前的那个冬夜，那个连队宿舍里点亮的油灯，还有水果罐头山楂酒时，我们这对年近花甲的老战友，几乎同时张开双臂抱在了一起。执起壶，斟满酒，一杯接着一杯地干，似乎，只有用这浓烈的老酒，才能把那积蓄了三十八年的浓浓战友情谊迸发得更加畅快淋漓些……那一刻我们像回到了军营似的激动着，那一刻我们又像油灯下的那两个兵娃娃似的年轻了，那一刻我们的心融进了浓浓的酒香里，那一刻我们的人陶醉在暖暖的友情中，那一刻我整个人，我整个心，乃至整个魂灵都真切地醉着了！左岸记：大哥去四川当过兵，在乐山认识了大嫂，就在那里生活了下来。每次他从四川回来，第一时间要见的都是他昔日的战友，和那些战友一起，他总有说不完的话，喝不完的酒。每每我都很感慨，是什么将这种特别的情感联系得那么紧密，跨越时空？是在特定环境下磨炼出来的情谊吧，这种磨炼直接促成了一个人生命最重要的成长，所以情比金坚吧。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

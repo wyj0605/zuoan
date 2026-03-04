@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为了面对当下</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>为了面对当下</h1>
+            <div class="date">2026-03-04 09:52:19</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>为了面对当下为了面对当下原创邹近夫邹近夫左岸读书2021年12月22日 20:22在小说阅读器中沉浸阅读文/邹近夫总有人评价现代人朝令夕改，性情多变，自当洪流来袭、泰山压顶便早已逃之夭夭。也有人说小隐隐于朋友圈，大隐隐于众多小号，换个地方，换个公司，换个微信号。但路遥知马力，日久见人心，形式主义上的重新来过，像纸包不住火，哪怕过往被你肆意涂抹的不成样子，哪怕你对未来抱有不可磨灭的幻想，很多事，刻在骨子里，举手投足间蕴含的素养，对那些纵横江湖十几年的人来说，一目了然。其实世事多变，人心自然也就多变，因此你不必如此大费周章。如果读过历史唯物主义的起源，那么你会知道，人的一生中所表现出来的变化不过是时代的产物，矢志不渝也好，两面三刀也罢，都是社会关系的总和。当普信艰苦奋斗的高歌逐渐嘶哑，享乐主义思潮风靡大江南北时，我们越来越把握不清人生的方向。犹记得去年在亚布力看过一场高山滑雪锦标赛，你亲眼见到选手着地时弹起的雪花迅速埋没了痕迹，仿佛什么都没有发生，而你污浊的脚印却格外刺眼，直到大雪纷飞的掩盖。你无比清醒地认识到万世基业都有轰然倒塌的一天，掌握人生的方向，抑或坚守初衷和信仰，即便是在大雾弥漫的惊涛骇浪中幸存下来，殊死一搏所耗费的精力和心力必将是半生光阴才可相抵的。况且殊死一搏倒不如随波逐流来得更轻松自在，谁还像你一样惦记着忠诚，坚守道德底线。十月金秋，你走过了云贵川，最终还是在洞庭湖边的岳州落了脚。尽管舟车劳顿一天一夜，但还是在灯影迷蒙的深夜借着参差错落的月光遥看了岳阳楼。可惜除了感到身子有点冷，什么情绪也没有，冷漠得很。这些年东奔西走，你应该知道这世上任何一个地方，有人来就有人去，去的人会留下一堆的不甘心，来的人不仅要拨开重重迷雾，收拾这些不甘心的种种，而且要建造一个庇护所，护住奄奄一息的火把。互相把脉的时光里，你背负着明明暗暗的考核指标审视他，他裹着一身怨气审视你，你希望通过整合资源达到戮力同心的效果，他却希望最大限度的剥取利益，甚至从你那儿夺回以前失去的东西。忽然忘了商人是没有诚信可言的，商人的本质就是唯利是图。你的上司，你的下属，你工作周遭的生产关系，统统离不开交换形式，你的上司虽然不是商人，但却有商人的成分，你也有，只是你未曾察觉。一直以来，你始终认为第一印象很重要，所以凡事都往身上揽，然而没有人把你当成新人，也不会给你熟悉的机会，你没有试错资本，每一步都走得十分艰难。尽管人事任命的会议兴师动众，你大谈2022年经济会议主题来表明行业进入了薄利时代，但前期积累的恩怨太深，格局乍看起来却像一场戏剧。没人在乎行情如何江河日下，利润空间被进一步压缩，也没人想过和你同舟共济，只消船破了一个洞，都是争先恐后跳下去的人。看得出来，值得做的事往往都是最难的部分，彼此之间的矛盾一时半刻化解不了。尤其是最近几次，只要有一点机会，你就愿意大胆去尝试，但在颁布标准制度和推行管理策略时，你发现原来配合的人在不同程度表现出从中作梗的一面，可能是巧合，但却令你不得不重新审视那些第一印象。冬有冬的来意，人心散乱、高层动荡、威信流离的背景下，万事不可操之过急，用药过猛。适逢乙方处于心理对抗期，强化团队管理信心，从小处着手，打开局面，一点一滴的把主动权夺回来，才可能有一雪前耻的机会。有时别人大言不惭地宣称拥有你的人事罢免权，有时他们也厚颜无耻到认为违背自身利益的约谈便是对抗，殊不知甲乙之间的立场向来无法苟同。那些不怀好意的抹黑和不加掩饰的自夸是他们惯用的伎俩，坐怀不乱是矗立在江岸的磐石，脏水洗不净镜子，别忘了你本身就很优秀，不要因为别人对你或者对公司的评价而丧失原则和信心。左岸记：如果事与愿违，你会以什么态度面对当下？所谓机会，不只是为了应对当下，更应该着眼未来，当下提供了通向未来的契机。泰戈尔曾说过：你今天受的苦，吃的亏，担的责，扛的罪，忍的痛，到最后都会变成光，照亮你的路。在人的一生中所遭遇的困境和不解，在当下或许是难以接受的。但在过后某一时刻会突然觉得，那真的不算什么。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

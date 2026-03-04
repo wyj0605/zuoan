@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>远方的书信远方的家</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>远方的书信远方的家</h1>
+            <div class="date">2026-03-04 09:58:25</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>远方的书信远方的家远方的书信远方的家原创我是左岸我是左岸左岸读书2019年10月28日 07:06在小说阅读器中沉浸阅读文/老陈醋在我家不算大的住房里，有着一间不小的的书房。书房里，贴着一堵墙面，立着几组书柜，书柜里盛满了过去的时光里我看过的和我喜欢的那些林林总总的书籍。在书柜的一角，与那些书籍一同放着的还有几个有些旧了的纸袋子，纸袋里填满了捆扎整齐的一打一打的书信。打开那些泛黄的信笺，变淡的字里行间里，尘封着一段我和妻用两地书镌刻在年轮上的往日岁月……八十年代初期的我们青春年少。那时我在太行山深处的军营服役，妻在老家镇上中学教书，迢迢八百里，脉脉不得语。结婚前的日子，我每年有二十天的探亲假，二十天团聚后的漫长时光里，我把戍边跋涉的足迹收纳进四季南飞的信札里，分享给远方守望的她；平凡寂寥的日子，她用思念的鸿雁，编织着心中河汉鹊桥的诗和远方！那时回家的路很长很长，那段日子过得好慢好慢……三十三年前的冬季，在一个雪后初晴的冬日，我们在老家结了婚。婚后的日子，家留给了远方的妻，我又远行到家的远方。日子依然在聚少离多、牛郎织女般的时空里重复着。那年那月妻还在老家教书，我在部队一个培训坦克车长的学员队任指导员，训练艰苦繁重，经年归期无期，每月寄书信，家书报平安。春节万家团圆时，望眼远方家书来。节日的喧嚣里，天各一方的我们，常常用远方书信里的暖暖亲情，驱散内心深处的清冷孤寂。婚后第二年，妻怀上儿子。她在一次来信中说爱吃酸味的东西，我就买了不少山西产的山楂及山楂片寄给她。直到今日，她还时常回味说，那时的山楂真好吃！儿子出生前，她来信告诉我了预产期，我请假回家陪她。当时正是秋收时节，待产的妻闲不住，还挺着肚子帮家里掰玉米晒粮食。儿子出生的那天早上，我和妻去田里收花生，我在前面刨，她在后边捡，直干到早饭时分，妻感到身体反应有些大，我匆匆用那辆加重永久自行车驮着妻去县城的医院生产。那天晚上的子夜，儿子出生了。我和妻给家中增添的这个新生命起名子瑞。“子”是他出生的时刻，“瑞”是一种玉的信物。我们感恩上天的褒奖，在岁月的航程里赐予我们人生爱的信物……儿子出生的第九天，我被三封加急电报召回了连队。这以后妻的来信里写满了儿子的故事，诸如儿子发胖了，儿子长个了，儿子会坐了等等。日子在一天天过着熬着，儿子也在这段缺少父爱参与的时光里静静地扎根成长，我象一个旁观者似的在妻的来信里分享着儿子成长的点点滴滴。后来，儿子学说话了，他每天对着床头那张我穿着军装，带大檐帽的照片叫爸爸，平日里，妻带儿子去街上玩耍时，他会对着路过的工商、税务、联防队这些带大盖帽的人喊爸爸，逗得街坊邻居们开心的大笑……我在妻的来信里读到这段叙述时，没能笑得出来，内心里涌动的是对妻儿无尽的愧疚！八八年暑假，妻来信说，要带儿子来部队探亲，我们在信里约好时间，我到郑州火车站接她们。结果，那天晚上我前半夜加班，后半夜睡过了开往郑州的火车时刻，害得妻抱着不满周岁的儿子，在火车站直等到发车前买了张无座票上了车，又在火车的走道里站了七个多小时。那天晚上，我在长治火车站接住疲惫的妻和她怀中的儿子时，没等不好意思的我开口解释，妻先如释重负地说，看见你没事就好了。我在郑州火车站等不到你，还怕你身体出啥问题了呢……这就是做军嫂的妻！她一如既往用善良和隐忍的母爱，呵护着这个家，宽容着家里的亲人……后来的日子，部队组织上批准妻和儿子随军生活。远方的妻牵着儿子走进了军营里连排平房的家属区，妻也把远方的家安到了我戍边的军营大院里。在军营的家里少了些书信往来穿梭的期盼，添加了许多柴米油盐蕴含的馨香。这平凡的日子平凡的家，妻很满足，我也很知足……平凡的日子过得真快啊！我们的家几经变迁也从军营大院，搬回了河南老家。转眼我和妻牵手走过了银婚、珍珠婚，前方的驿站是晚霞红满天的霜枫盛景。如今儿子已长大，孙子孙女有着儿子当年可爱的模样，我们家人丁兴旺，三代同堂。含饴弄孙的日子里，我和妻深深地被幸福着！家在变，人在变，世界都在变，恒久未变的是我们当年那颗善待岁月的感恩的心！叶落归根，人归故里，我们的心灵也寻到了安歇的处所。余生里，我和妻会用全身心的爱守望那一封封镌刻在岁月年轮上的两地书，守望曾经启航梦想的远方的家，守望永恒的爱与记忆……左岸记：心还沉浸在上篇《母爱的味道》中，现在又泡在了这最浪漫最温情的爱情故事里，生活可以如此的柔软而坚韧，如此的质朴而幸福。这是多么强大的力量啊，再远的距离都可以化为思念的信笺；生活中的坎坷可以化为相互关心的问候。这不正是爱最美好的打开方式吗？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

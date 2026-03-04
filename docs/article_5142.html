@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>没有白走的路，每一步都算数</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>没有白走的路，每一步都算数</h1>
+            <div class="date">2026-03-04 09:56:10</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>没有白走的路，每一步都算数没有白走的路，每一步都算数原创我是左岸我是左岸左岸读书2021年08月13日 18:10在小说阅读器中沉浸阅读文/竹竿最近因为加入了筹备论辩的团队，三观也因此发生了改变。昨天偶然看到电脑屏保上的一句话“Some people feel the rain,others just get wet.”，心头猛然一咯噔。人生真是五味杂陈，永远不知道阳光明媚的下一秒会是狂风暴雨还是电闪雷鸣。但是，不管生活怎样，如上鲍勃·马利斯所说，在雨中，有的人感受到了雨，有的人却只是被淋湿。一直以来，我被迫接受了很多他人强加给我的任务，有时真的累得很想找个地方喘口气。后来就越走越小心翼翼，到一个陌生地方就尽量隐身，不希望自己被太多的注意到。但是，躲得过初一躲不过十五，最后还是会被发现。比如这次就被揪出来参与了论辩的筹备。但也是在这个参与筹备的过程中，啪的一下，醒了过来。为了尽快进入状态，我紧忙在记忆里搜寻小时候参加过辩论赛的画面，明确记得自己当过一辩和四辩，但怎么也想不起到底是高中还是大学了。顺着这个记忆，我很快理解了论辩的规则和意义，这和看别人的辩论视频，和从别人身上揣测的那种感觉大相径庭。我心里暗暗想，不管以前做的好不好，但是真的没白做。这次我们有一个庞大的队伍在一起训练，在对论题的分析过程中，大家都专注在要让别人听见自己的声音，而我却是很认真地去聆听每个人的发言。讨论过程中，因为多数人太过于想及时表达自己，经常出现互相抢话的现象，一两个回合下来，互相只有一个感觉，就是互相都不太尊重对方，谁也没耐心听谁说了。如同局外人的我，倒是在这个过程中，当了回“伯乐”：我发现了A很有想法，只是不太会组织语言；B也很有想法且知识面广，但经常抓不住重点，把面铺的太开；C太固执于自己的想法，所以对别人的好点子是滴水不入；D总结陈词的能力很好......所以不管我和谁合作，都能做到比较好的协调，让每个人各尽其才，发挥出各自的潜能。到模拟比赛时，可能是因为我经历过，比他们都深知辩论要弘扬的其实是团队精神。所以，不管我充当的是哪个角色，重点不在全力表现自己，不是让一个人独自“麦霸”到底，而是尽量协调让每个人都能有发言的机会。所以每场下来，大家都配合得比较愉快。那天，老师评价我说：“**具有别人没有的灵动性”。——我突然发现了另一个从来不认识的自己。倒不只是因为老师的认可，而是在这个过程中，我看到了自己竟然具有这种协调能力，而且运用的很纯熟自然。每当我冷静地看着她们唇枪舌战，透过她们又清楚地关照到一个冷静的自己时，我自己都很惊讶。那现在的我是天生就这样的吗?显然不是。可能我本来就多少具有领导和组织的能力，但这个东西要运用到纯熟是真的因为在上学期间老师和同学们给我无数次的机会“练手”。在大家的成全下，我累是累了点，但显然一切都是值得的。记得上大学时我都差点去开通个“知心姐姐”专线，因为我成功地从一个班长的角色演变成大家倾诉的“树洞“，这让我在无形中积攒了很多看不见摸不着的人缘，以至于现在我走到哪里，都不敢再轻易添加微信，因为我也需要很多的时间来沉淀和学习，实在没有太多时间去回复当今时代这种一个微信能秒达的“一次性情绪”。过去没这么便利，反而能让情绪自己飞一会儿，等到我们有空再去看它的时候，可能杀伤力锐减了50%不止，一切就容易得多。没有白走的路，每一步都算数。太累的时候也会怨天尤人，不想被迫营业，承担太多，只想轻松的过过生活。但有时候，快活是快活了，却会在该经历的年纪错过很多，等到青春不再，连点值得回忆和认同自己的东西都没有。所以，现在的我，会鼓励后浪们，不要在年轻的时候选择避懒偷安，也不要鼠目寸光的去看待自己眼前所经历的一切，更不要自以为是地认为自己所做的一切都是在为别人！真的，其实我们走的每一步都在为自己的人生铺路。同样是雨：想不开的时候，会很丧地和自己说：何必向前跑，前面也有雨；想开的时候，反而是在雨中就去感受雨的湿润吧。左岸记：“初心易得，始终难守”，岁月是一个多情的东西，走过的每一步路都不会白费，都会帮你一步步记录。坚持不是为了感动谁，而是一路行走，总比原地踏步要好。人这一生，总要向前走的，再远的路，走着走着就近了；再高的山，爬着爬着就登峰了；再难的事，摸索着摸索着就顺了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

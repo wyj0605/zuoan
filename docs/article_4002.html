@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国刀魂</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>中国刀魂</h1>
+            <div class="date">2026-03-04 09:52:17</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>中国刀魂中国刀魂原创我是左岸我是左岸左岸读书2023年01月17日 07:00福建在小说阅读器中沉浸阅读文/布亦丁引子：民国二十六年，抗日战争全面爆发，日军铁骑踏足东三省，百姓流离失所，生灵涂炭。东北自古就是中国龙脉之地，在这里有着一支神奇古老的传承，传说中的华夏龙裔——刀师。刀师不是普通的铁匠，相传刀师是长白龙脉的传人，有着能将龙魂封印入刀的特殊能力，而一把刀也只有拥有了刀魂才能算得上是一把真正的神兵利刃。火红的刀铁伏在砧上，仿佛有着精光流动，一把大钳不停得翻转，锤下的火星溅射出满天星辰。老刀师右手握小锤，左手握铁钳，不停地翻转敲打；小刀师边拉风箱边抡大锤，神色似有雷霆。天很闷，火很热，热浪扭曲了空间。老刀师盯着小刀师良久，说到，温度高了，你的火候好像很久没有出过错了。火还在烧，幽蓝的火焰舔着通红的刀铁，小刀师却是一言不发。怎么？不愿意和师父一起打这把刀？老刀师问。师父！这是卖祖宗啊！小刀师涨红了脸喊道。我知道你不愿意把祖刀给日本人，师父也不想，可是这不是没有办法嘛。老刀师叹息到。不如我们趁夜偷偷跑了吧。小刀师说。老刀师苦笑到，跑？你我倒是好跑，这全村的乡亲这么多人，都跑了日本人还能发现不了？小刀师没有说话。沉默良久之后，终于又抡起了大锤，喊道，师父，来啊，注刀魂！不久，战刀打造完毕，火蓝色的刀锋在阳光下寒芒点点，血红的刀衣在风中高高扬起，战刀出鞘隐隐有龙吟之声。刀师先生，战刀可成？说话的是日军联队队长野比。将军可来一试！老刀师眼中满是自信与骄傲。夕阳西下，烈日熔金。两人的影子被拉得很长很长。来！老刀师大喝一声。野比噌的一声拔出佩刀，双手举刀向老刀师斩下。两道寒光交错，野比的刀应声而断。中国刀魂，果然名不虚传，厉害厉害。野比手持断刃，赞不绝口。老刀师宝刀入鞘，说到，如果我猜的不错，你这把刀应该是一把鬼刃，里头恐怕是封印了一只东洋厉鬼吧。而我中国刀魂实乃一缕华夏苍龙残魂，专斩一切邪祟，你这把鬼刃在中国刀魂面前不过是班门弄斧！野比邪邪地一笑，刀师猜的不错，看来我果然没有找错人。只是不知这刀我何时能够取走。一个月后来取。老刀师淡淡说道。什么！这么久！不是说好今日便是刀成之日吗？你难道想反悔！野比大怒道。刀是成了，可是这刀还不属于你，刀魂岂是凡品？那是有灵性的！不认你为主，你拿着他就是一把破铜烂铁！老刀师愤愤说道。野比见老刀师言之凿凿，也不好反驳，只得冷哼一声，说道，那我就一个月后来取，若是你耍什么花招，这村子的安危我就不能保证了。说完野比便准备带着士兵离去，这时老刀师却叫住了他。你且等一等，这刀魂原本是我华夏之物，你大和要取需要自身精血做引子，而且你还要保证这方圆二十里之类没有一个日本人，否则认主认到了别人身上我可是不管的。野比犹豫许久，终于没有抵住这个刀魂诱惑，说了一句，料你也耍不出什么花招。村庄周围的日军都撤走了，野比却安排了一个汉奸在老刀师身边监视他为刀魂认主，并且为了防止老刀师逃跑还给他戴上了百炼精钢的脚链。头几天，老刀师还和小刀师一起叮叮当当打个不停，后来老刀师却突然问监视他的汉奸，要不要和他学为刀注魂的手艺。汉奸一想到会了这个可以讨好日本人，哪里还有拒绝的道理。于是，后来的日子里，小刀师就来的少了，每天抡大锤的变成了那个汉奸。日子就这样看似平静的过着，谁也没有发现村子里的人一天比一天少。一个月的期限很快就到了，可是老刀师却不见了，准确的说是整个村子的人都不见了，好像都人间蒸发了一般。全村唯一还在的一个人就是那个汉奸，当然准确的说是一具尸体，一具被砍了头的尸体。刀口平整如镜，一看就是一刀斩首，手起刀落，好不锋利。野比一脚踢开尸体，暴跳如雷，大声喊道，这老头子有特制的脚镣锁着，肯定跑不远，给我搜！上百号人在山里搜了半个月，把方圆十里都搜了个底朝天，别说是找到老刀师，就是一个普通老百姓都没找到。1945年，日本宣布无条件投降。一年后，一群风尘仆仆的人齐聚老刀师所在的那个村子，他们正是当初村子的村民，领头的是小刀师。小刀师领着众人走到了老刀师的门前，突然跪下，其他的人也一个个跟着跪下。师父，托您妙计，我把乡亲们都带出去了，您知道吗？小日本已经被我们打跑了，今天我带着乡亲们回来看您了。小刀师红着眼说。紧接着便是一阵沉重的磕头声……小刀师起身向前，手里拿起了当年那把锻刀的大锤，大吼一声，师父，起刀啊！锤尚未举起，泪却已早落下。小刀师的大锤落下时，每个人都听到天空突然响起一道惊雷，就像炸在心里一般，雷声中还隐隐带着龙吟。墙倒下了，溅起的灰尘氤氲了视线，众人无声，整个世界只有落泪的声音。那面墙里，竟然嵌着一具骷髅，一具手握战刀，脚带镣铐的骷髅。再也没有人能忍得住了，人们再也抑制不住心中的悲伤，哭声此起彼伏，久久不能停息。人们看着老刀师手中的战刀依旧是刀锋火蓝，寒芒点点，那血红的刀衣也似乎没有因为岁月而褪色分毫。凑近刀身，上面隐隐还刻着一行劲楷：中国刀魂！左岸记：老刀师不愧为智慧大师，铸刀出神入化，品格坚毅勇猛，对人心洞察秋毫。刀魂不灭，英雄不朽。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

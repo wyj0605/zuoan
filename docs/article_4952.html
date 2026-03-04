@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>敢于认输</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>敢于认输</h1>
+            <div class="date">2026-03-04 09:55:29</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>敢于认输敢于认输阿正的金主笔记阿正的金主笔记左岸读书2022年03月24日 15:10在小说阅读器中沉浸阅读文/张浩正《孙子兵法》中讲到“敌则能战之、少则能逃之、不若能避之”，就是说打得过就打，打不过就跑。又说“小敌之坚，大敌之擒也”，就是说如果打不过还要硬拼死扛，那就要被擒住了。这就是古人谈及认输的智慧，而且还是出现在一部兵书里面，是值得我们认真思考的。现代的主流文化总是在宣扬“不认输、不放弃、不接受失败、必须赢、迎难而上”之类的东西，鼓励人们面对困难的时候不要轻言放弃，不要惧怕困难，从小学到大学、从政府到家庭、从朋友到老师，都在教我们怎么赢，但是好像并没有人来教我们怎么“认输”、什么时候“认输”。汉高祖刘邦征讨匈奴，被冒顿几十万的匈奴兵围困在平城白登山，史称白登之围，后来通过收买敌方才得以脱险，这次也让刘邦明白汉朝暂时是没有国力来征讨匈奴，于是汉朝开始了与匈奴的和亲政策，双方关系才暂时缓和下来，为汉朝赢得了休养生息的时间，经过文景之治的积累之后，才开始拥有国力与匈奴作战，最终成就了大汉的威名。假如当时新成立的汉朝面对匈奴的骚扰不肯忍耐、不接受自己国力不够的事实，在国家百废待兴的前提下依然不放弃剿灭匈奴的目标，那汉朝能否延续下来真是个未知数。这就是历史在教我们如何认输，认输并不是不作为，也不是放弃目标，而是根据当时的情况选择最为有利实现目标的方案。前两天一位朋友和我说，自己花钱报了一个什么课程，什么都没学到，钱白花了，还在一直捶胸顿足的后悔当时为啥要那么决策。我就说，你想要的是学习到真正有用的东西，这里学不到就换个地方继续学。这次的决策的确是错了，的确是输了，咱就认了，继续寻找新的地方学就是了。如果停下来啥也不学，那岂不是危害更大了。在生活中，认输和失败是太正常不过了，小孩子摔跤了，就是一次小失败，就是一次认输，但是还是要继续学习走路，总不能因为一次摔跤就不走路了吧。在工作中，自己的方案不如别人的方案合理，那就是一次失败，一次认输，那也就认了，就接受别人的优秀，自己也继续向更加优秀的人学习，那工作能力自然也就越来越好。在投资中，自己的投资决策出现了失误，带来了实际的亏损，那也是一次失败，也是一次认输，咱也认了。总结自己这次投资失误的根本原因，下次不要再犯，那投资自然做的就会越来越好。失败、认输 其实本身就是生活中的一部分，古代的王侯将相无法避免，我们普通人也同样无法完全避免，我们应该完完全全接受它，越是把失败和认输看的越轻，我们也就更有勇气继续重新站起来，继续做的更好，自然也就离自己的目标更近了。施振荣老先生说：“认输才会赢，”这句话值得我们细细体味。左岸记：在人生的成长路上，很重要的是内在的自我实现、自我认可、自我完善，这自然包含了如何面对失败，接受失败和改进方法。巴尔扎克曾梦想着做一个成功的商人，开过印刷所，做过小生意。尽管他颇有经营头脑，但无奈屡屡受挫，只得服输，于是他捡起冷落已久的笔，重操旧业，后来终于写出了《人间喜剧》，成为蜚声世界的文学大师。敢于认输，不是逃避失败，而是面对挫折时能绕过暗礁，避凶趋吉，让自己理性地抵达光明的彼岸，从而让我们在前进的路上不被困难打倒。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

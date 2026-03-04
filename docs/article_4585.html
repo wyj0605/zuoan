@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如果再遇到你，请你喝杯茶好吗</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>如果再遇到你，请你喝杯茶好吗</h1>
+            <div class="date">2026-03-04 09:54:13</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>如果再遇到你，请你喝杯茶好吗如果再遇到你，请你喝杯茶好吗夏小喵夏小喵左岸读书2017年05月15日 00:29在小说阅读器中沉浸阅读有时候突然会觉得世界很冷漠，在北京南站人山人海里坐着，却没有一个认识或者想要认识的人。大家都在赶路，都行色匆匆，只有这一点，我们是相似的。有个朋友跟我分享过前世今生因果论之类的哲学，肤浅的我当然是不太懂的。我说你竟然是个这么神神叨叨的少年。他说，这样很多事情就很容易想开了，我不知道他到底想想清楚什么事情，但是我知道我和他是在那么巧妙的情况下认识的，然后成了素未谋面的熟人。所以，他上辈子肯定是我家养的猪，这辈子来找我报恩了。他被我气得够呛。我是不相信前世今生的，也没有想过这种杀死脑细胞的问题，感觉像是一个鬼故事。但假若真的有前世的话，那时的我一定是播种太阳清洗月亮的小仙女，所以今生才能遇到这么多，像星星一样的人。地铁站这种人多的时候，从来都会发生好的故事。就像那天对面坐着一个萌萌的小正太，我看着他可爱的模样冲他微笑了三秒，他竟然踉踉跄跄走过来送给我一个棒棒糖，是荔枝味的。小可爱，你怎么知道我爱吃棒棒糖，也最喜欢荔枝味的?同样是地铁站，具体哪个城市我忘了，感觉我总在地铁上似的。一堆人站在距轨道半米的安全区域内，自觉遵循着先下后上的规律，我被排在了人群最后。前面的胖阿姨走的太慢，我一脚跨上地铁另一脚还悬空的时候，地铁门即将关闭的警报声已经响起。没有一点应急反应，突然就被一双有力的手往里拽，门关了，庆幸只卡住了我的裙摆。我愣住了，竟忘了说句谢谢。不然，我会不会成为地铁站四处游荡的孤魂野鬼？去年十月，跟好友去爬泰山。下午五点的时候气温骤降，空气也越来越潮湿，十八盘的地势非常陡峭，往上看会感觉自己重心上移，随时会跌下一望无垠的阶梯。我们一行三人扶着栏杆一步步的往上爬，其他的行人也都扶着栏杆慢慢往上爬。不忙不急，不争不赶。前面谁累了稍微休息一下，其他人便也跟着停下来。是那么的和谐，像是谁事先立下了明文规定。第二天清晨四点多，旅馆老板召集了所有人，一起绕着后山蜿蜒不平的山路，去离太阳最近的地方。因为，我们都是想看太阳的人。某年的某天下午很想一个人出去走走，二十分钟的地铁就到了学校附近的五大道，很优雅别致的小镇，孩子们在欧式教堂环绕的草坪上吹着彩色泡泡。突然很口渴，看见一个大叔推着小车摆满了冰镇饮料，关键时候没带钱是一贯的规律，尴尬的缩回了伸出的手。头上戴着花环的大叔又顺势将饮料塞到我手中，笑了笑就走了。那是我喝过最好喝的茉莉清茶，那个笑容也和小车上绑的维尼熊气球一样可爱。其实，很多人我们是只有一次相见机会的，就像我曾很多次，想在同一站台相遇之前帮我拉行李箱帮我查地铁路线，陪我赶时间的那个陌生人。我跟朋友谈起过这件事，她问我怎么不留个联系方式。可是，留了又怎样呢，我们真的有必要勉强参与各自的生活吗。只是在人生漫长旅途的这一站台相遇，牵扯太多未免会破坏这种奇妙的感觉吧。但是，如果真的，还能再相遇的话，我一定会请你坐下来喝杯茶。这些人，拼尽全力，就是为了见你一面而已。无关欣喜，无关利益，只是在人海茫茫中，看你一眼，给你一些微笑，一点温暖，然后便转身，离开，这才放心的去做自己的事情。然后，他们也就成了你生命中，像星星一样的人。左岸记：一个礼貌的微笑，一个善良的提醒，一次及时的让路，一次顺手的帮助……让人如沐春风，温暖的人心。这就是根植于内心的修养； 无需提醒的自觉； 以约束为前提的自由； 为别人着想的善良。作者简介：作者是一个95后萌妹纸，喜欢喵喵和狗狗，喜欢山水旅游和拍照。最喜欢的就是吃，有空了也总喜欢自己琢磨些颜值高又好吃的东西。最大的特点就是话多，我安静的时候也有人误以为我是个淑女，不过可能就是那一秒。曾有朋友说过，我不是在吃，就是在说话，我觉得他好夸张啊。我很喜欢文字，喜欢看杂志美文之类的，我觉得好的文章是能让人心灵宁静的。我的文字比较零乱，都是一些小心情吧，我不想矫揉造作，都是平铺直叙的记录生活。关于自己，大概说这么多吧，可能你没耐心看完，但我，永远不止描绘的这么多。新建了微信公众号：南部小镇，快来我的小镇玩吧~~阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

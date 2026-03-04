@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双鸟翩跹日日来</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>双鸟翩跹日日来</h1>
+            <div class="date">2026-03-04 09:53:33</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>双鸟翩跹日日来双鸟翩跹日日来原创唐庶民唐庶民左岸读书2024年04月22日 11:25福建在小说阅读器中沉浸阅读文/唐庶民四月，塞北，我与两只俊鸟邂逅。14月20日。早上六点半许。临窗南望校园高墙外，寂静的南广场，绿草簇簇。上空，一只瓦灰色的中型鸟正急急地上下扇动翅膀似落未落于十米高空之中。远处望去，这只鸟身长一二尺许，翅膀似乎不长，约半尺。头向西身微上倾停留在那里，“忽忽忽”地在一个位置上扇动着双翅，有似鼓风机吹动的旗帜，始终一个频率，一个方向，似要逆风飞翔，又不像；似要寻地降落？也不像。地面上有她关心之物吧，这一点有可能。有的是什么？小鸟？幼虫？其他食物？不得而知。约一分钟后，她不再在那个空中位置忽扇翅膀了，转身向北又转东方划了一个约三十米大弧形又转向东苍蓝泛白的南天空飞去。而到了东南天空的某一处，又固定在一个特定高度，再度重复先前的动作，急急地上下忽扇双翅，还是头朝西尾朝东头颈微微上倾。干嘛呢，不知道，每个动物都有自己的故事。24月21日。下午五点多，没课了，我又来到学校广场散步，行至环形跑道西南转弯处，一阵“啪拉拉”的响声中一鸟从南边跑道北侧的草地上腾空飞起，升至我的头顶上。因距离不足二十米，我将那只中型鸟的形象看得很清晰——乌灰首领，乌灰尾巴乌灰翅尖，主体无论腹胸还是背部则全然白色，飞起来整个身体四处青灰色，中部洁白，双翅上下拍动着，“噗噗噗噗”，好听又好看。转眼就从头上方飞过，又飞向高高的白杨林和红墙，飞进了西方迷茫的晚霞雾霭夕晚照之中，飞到太阳的光圈中去了。那雾霭因这鸟的融入变得温暖而神秘。俊鸟飞入晚阳之海，该是多美妙啊，它引动了我的无边想象。34月23日，晚七点多。太阳已落下山去，天地还明亮，西山上空呈半天红霞，如平静的红海上飘动的帆船。下班了，我和妻散步到广场西北角处，“扑扑扑”声又从东南侧起来了，定晴看时，是两只灰黑俊鸟同时飞升而起，斜穿校园西缘的高高的白杨林带，飞越高高的乍砖墙，再次飞入傍晚西天云幕中。太阳正在沉入西山，晚霞如烧，彤云明朗。看得清楚——应还是前天那种乌首灰翅尾尖白色胸腹的俊美的鸟吧，因向西飞，留给我们的是灰白相衬双翅急拍的美丽背影。妻说：那天这只鸟单独在上空一个位置久久不去，应是下边有它同伴。有道理啊。看来这对夫妻鸟就在校园草地中过夜的。我们的学校远离街市，西面和北面是起㐲的远山，近处有草原和湖泊，校园巨大且草木正欣欣向荣，这里的学生和老师总共五六百人，不似大学校那样动辄几千甚至上万人。这里宁静又清新，有鸟时来飞翔或栖息，平添了生机和雅趣，真的美好啊！这在大城市里是无法想象的。我和妻转在校园中环型跑道上散步，跑道中间就是巨大的草地，草地上零开着一朵朵蒲公英的黄色的花儿，新鲜娇美。晚风吹过，飘来一缕缕春草的清新和花的鲜香。天渐渐暗下来，我还想着那两只飞入天幕的鸟，它在忙什么呢，在沙滩上谛听宇宙晚音？在湖边接受水汽的吹沐？在夜色中体验迷茫夜境的神秘之美？还是……我希望它早点回来，早点栖息。44月26日。中午11点半，上完课了，我走下办公楼，又来到了操场散步。从东边的红砖小道穿过林带进入跑道，沿北边白色路线西行。道北边是高高静静的白杨林，南边是环形跑道中的草地。草正趋绿，尚未长高。丛丛直立，偶尔一簇尺长的大棵青草映入眼帘。校园里边静悄悄，无风，只有淡淡白色的太阳高悬在天空中。正行走间，忽然，二鸟“噗楞楞”地从草地飞起，但并未远去，而是向西冲入白杨林之上的半空中，迅速向南复折向东方呈圆弧状又向我头上飞回来。还是前几天见到的那两只啊！因在中午太阳明亮的光照之下，看上去更漂亮。还是从后边看，灰色头部的靠前头乌黑色更重得醒目。翅梢更黑，尾梢亦黑。在这首尾和双翅的黑色之间，则是极新鲜的洁白。如黑色的边角牵动着白白的帆，黑角轻动，白帆飘扬，灵动而优美。忽然，其中一鸟自西向东从空中向下直朝我扑面而来，吓我一跳。不过它这次迎面从高空飞下来让我有机会看清它的头部和颈项——不似以前远处看到的那样的麻雀茶色，而是浅灰淡白，似乎有小斑点，最醒目入眼的是，颈项的下方与前胸未相交处，有一条黑色的边际线，呈圆形画在颈项之上，宛如佩戴着墨色项链，看去格外美丽又精神。这鸟并未扑到我的面上来，而是在距我头顶丈许高时又升上高空，飞向南边去了。它飞向东南又折而向西飞，最后重又飘落在操场西边的草地上。而它的另一只同伴则早已落在那里等候它呢。两只鸟一东一西，相距丈许，轻盈移动，健步徐动。从远处看去，全然两只乌灰色的鸟，不见前时那大块白。形如飞鸽又大于飞鸽，轻灵健美。它为什么朝我飞来？大概这草场中有她们新产的卵或正孵的小鸟吧！少年时在家乡的河滩追雏鸟常是这样遭遇鱼燕的袭击。今天的情状大概也如是。这鸟是担心我会拿走她产的卵或是伤害她的幼雏。聪明的天使啊，你误会我了，我和你一样善良，热爱自然，热爱生命，怎么做那样伤情害理的事情呢？告诉你吧，我真的欢迎你的到来，欢迎你们在这里生活，飞翔，更欢迎你们在这里养育更多可爱的新生命！是的，这里有高高成林的白杨，有蓊郁如烟的垂柳和青葱亭立的碧桃，那边还有白玉兰和元宝枫呢，更有这开阔的草场，你们可以开心的拍动那漂亮的双翅高翔和俯冲，轻盈健走，跳跃或休憩，可以捕捉幼虫，可以赏花饮露。这里是孩子们的乐园，是教师的殿堂，也是你们这些大自然的健儿的天堂啊！让我们共同生活在这蓝天之下青山之麓碧水之滨的阳光之中，宇宙中的生物互信互爱和谐共处这天地之家园，该是多么美好！54月30日，上午八点二十许，我又来操场绕圈。今天天气晴好，天淡蓝，万里无云。地面无风，阳光暖暖，光线如长丝一道道照射过来。举目环视，希望再看到那日的小鸟。遗憾了，校园静悄悄，只有南边的田地上有一大挖掘机车在刘师傅的指挥下在轰轰地挖土。忽然我头上由西东两只鸟迎面飞来，“唰唰唰”地从头上飞过去了。抬头看它们，又是那天的一对儿。乌灰头项，颈下一大墨色项圈，醒目而悦心。翅尖和尾梢都是浅灰色，腹背或瓦色或白色，唰唰唰，飞过去了。仰头目送它们的背影，见它们飞向北又圆转东飞，翅膀迅速又轻快地拍动着向东飞去，落到实验楼的北角上方，隐形不见影了。稍过了一会儿，就在我似想未想的档，一抬头，竟又是那两个俊丽的鸟从身后上方从西向东北方疾疾飞过。在南方的太阳沐浴之下闪动着明丽的光泽。不错的，还是方才那两只，对，就是几天前的那两只。是的，有鸟在天，忽忽而飞……65月6日，黄沙伴着大风搅刮了一天。下午四时许，在宿舍临窗南望，天地昏黄，高墙外的广场建设工地的机械静停在那里，广场显得格外空寂。校院墙内小碧桃树在狂烈的西风吹鼓下使劲摇头弯腰，和地上的高高青草一个姿势向东方飘呀飘呀地摆动着。我正在宿舍宿前观望外边风景一低头，发现一只茶色的大鸟从东南跳跃着移向西北楼房拐角处。细看，竟还是那日见到的在空中飞翔的那只啊。不错的，那日是仰首看的，看到的是空中的飞动之像，是看它的腹胸颈项和背面，看的是白色主体和瓦灰色的翅与尾。今天是俯首近观的，我在二楼，我们相距一丈左右，她在地上健步骄姿。一尺半或二尺的身长，细长的尾是乌亮的，通体瓦灰色，只有头部乌灰，项下一小块白色。只见它从楼房门口台阶下健步走过来，走过人行道，跳入尚未种植花木的美化地带，美丽而精神。正再要细端详并拿来手机想照一张近照，美丽的大鸟已隐入窗之下，树之后。片刻之后，听得轻轻“噗”的一声，它从窗下西楼脚腾空向西南空中飞去……鸟啊，飞吧，飞起来才见你展翼翔天之美，飞起来才见皎皎之白，熠熠之光，飞起来才见你升腾冲刺之疾、之轻、之任意。生命之美在于运动，鸟禽之美在于飞翔。是的，飞翔是美丽的！左岸记：人与自然是一次次美丽的邂逅，却也是彼此相处时空交织下的缘分。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

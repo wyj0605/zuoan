@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秋日诗语</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>秋日诗语</h1>
+            <div class="date">2026-03-04 09:56:48</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>秋日诗语秋日诗语原创砚秋声砚秋声左岸读书2025年08月07日 21:18福建在小说阅读器中沉浸阅读文◎砚秋声立秋，是夏的休止符，也是秋的序曲。当第一缕秋风吹过，天地间便悄然换上了诗意的新装，每一寸光阴都浸染着古典的韵致，每一处景致都流淌着唐诗宋词的清雅。晨光初破，露珠在草叶上凝结，晶莹如碎玉，折射着微曦的光。蝉声渐稀，不再是夏日里那般喧嚣的嘶鸣，而是化作断续的吟哦，似在诉说最后的眷恋。林间小径上，落叶开始轻轻飘落，一片梧桐叶打着旋儿落在青石板上，发出细微的声响，仿佛是秋在叩响大地的门扉。“一叶落而知天下秋”。这飘零的叶，是秋的信使，携着岁月的清愁，也带着时光的静美。天空愈发高远，云朵舒卷如诗。偶有雁阵掠过，排成“人”字或“一”字，在湛蓝的天幕上书写着迁徙的诗行。“碧云天，黄叶地，秋色连波，波上寒烟翠”。范仲淹笔下的秋色，此刻正鲜活地展现在眼前。远处的山峦，渐渐褪去盛夏的浓绿，染上了淡淡的金黄与赭红，如一幅徐徐展开的水墨画卷，浓淡相宜，意境深远。秋雨来时，总是带着几分缠绵与温柔。它不像夏雨那般急骤，而是如丝如缕，轻轻洒落。雨滴敲打屋檐，发出"滴答滴答"的声响，像是秋在轻弹古筝，音韵清幽；雨丝飘落在荷塘里，残荷听雨，别有一番韵味。“留得残荷听雨声”。李商隐的诗句，在此刻有了最生动的诠释。撑着油纸伞漫步雨中，看雨雾朦胧了街巷，看行人匆匆，心中便涌起淡淡的诗意，那是秋独有的情调，是岁月沉淀后的宁静与怅惘。田野里，稻谷低垂着头，沉甸甸的，散发着成熟的芬芳。农民们弯腰收割，镰刀在阳光下闪着银光，汗水滴落在泥土里，化作丰收的喜悦。“喜看稻菽千重浪，遍地英雄下夕烟”。秋是慷慨的，它用一年的光阴，孕育出丰硕的果实，也给予人们最质朴的馈赠。果园中，苹果涨红了脸，柿子挂满了枝头，宛如一盏盏小灯笼，照亮了秋日的喜悦。秋夜，月光如水，清冷而皎洁。仰望星空，银河横亘天际，繁星闪烁，仿佛在诉说着千古的传说。“银烛秋光冷画屏，轻罗小扇扑流萤”。杜牧笔下的秋夜，带着一丝清冷，也带着一丝浪漫。此时，最适合泡一杯清茶，燃一炉沉香，让茶香与书香交织，在秋的宁静中，品味生活的诗意，感悟岁月的流转。立秋，是时光的诗行，是自然的馈赠。它以独特的韵味，诉说着生命的轮回，也以清雅的姿态，装点着人间的烟火。在这秋日诗语里，愿我们都能拥有一颗诗意的心，去发现生活中的美好，去感受岁月的温柔，让灵魂在秋的洗礼中，变得更加丰盈与澄澈。左岸记：都说指缝太宽，时光太瘦，未觉三夏尽，时序已新秋。虽然仍觉热浪翻滚，暑气蒸腾，气温并未下行，但秋的脚步已至门庭。这是立秋田间蛙们的合唱，不知它们是不是能感觉到这季节的变化？【作者自述】砚秋声，本名，马诗途。一个行走在文字里的诗意白头翁，简单纯粹，朴实真诚，用文字陶冶情操，用真诚修为人生。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

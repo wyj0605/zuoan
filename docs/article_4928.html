@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制不了自己的人，才去控制别人</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>控制不了自己的人，才去控制别人</h1>
+            <div class="date">2026-03-04 09:55:24</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>控制不了自己的人，才去控制别人控制不了自己的人，才去控制别人Joy LiuJoy Liu左岸读书2017年01月13日 00:03在小说阅读器中沉浸阅读我听自己的咨询老师讲过这样一个有趣的故事。在考博士的时候，她非常的焦虑—担心自己考不上，担心她心仪的导师不要她。那个时候她的前男友试图安慰她：“亲爱的，没关系的，你看你考不上也还是个硕士，不要担心。”她觉得男朋友丝毫没有能力安慰到她，因为她还是很焦虑。后来，这种需要男朋友平复她的焦虑的心情日益增长，而男朋友的“无能”也越来越让她不满意。最后，她选择了跟男朋友分手。非常有趣的是，她现在的丈夫跟她之前的前男友惊人的相似，但她完全不觉得有什么问题。她跟我们解释道：其实前男友那个类型是非常适合她的，只是当时他安慰不了她的原因，是因为她自己没有能力安抚自己焦虑的情绪。当她发现自己有能力来控制自己焦虑的情绪时，这件事情就不再成为她亲密关系中的障碍了。很多时候我们就是这样，因为无法控制自己的不良情绪，所以期待别人的改变来让自己心情变好。我们为什么想控制别人我母亲是一个控制欲还比较强烈的人，而我又不是属于顺从型的孩子，所以我的“青春叛逆期”看起来比其他的孩子要长很多。直到现在，我偶尔还是抑制不住的在第一时间做出叛逆的反应，然后才能在下一刻意识到，我刚刚又在叛逆了。其实她在99.9%的情况下都是真心实意的觉得她那么做完全是为我好，但是却她却没有意识到，这样的“为我好”的控制背后，隐藏着更深刻的原因。在我们两个的关系变得很亲密之前，也就是在我放弃土木工程专业转心理学期间的大概2年的时间里，曾经把彼此最不好的一面带了出来。那个时候我以土木工程专业的年级第二的成绩保送了研究生，然后在研一的时候我跑到导师办公室说我要退学然后学心理学。母亲几乎是要疯了，她没有想到一直都基本按照她和父亲期待的人生轨迹前行的我，突然来了这个大一个转折。那时候她经常打电话跟我说：“因为你，我昨晚又失眠了。”或者“因为你，我又病了。”或者“如果你不这样，我的心情就会好很多，我就不会失眠或者焦虑了。”这是我妈妈在持续做的一件特别有意思的事情：她总希望通过改变我，来改变她的情绪。当她觉得焦虑的时候，那是因为“我让她这么担心”；当她觉得愤怒时，那是“我惹她生气”；而当她觉得沮丧时，那是因为“我让她失望”了。因为她无法控制自己的这些负面情绪，所以她之前最喜欢做的一件事情，就是打电话给我，告诉我：只有你改变了，我的心情才会变好。当然我一直是很抗拒这样的说法的。就像我妈妈在我小时候告诉我说：“我原来也是有梦想的，就是因为生了你，放弃了自己的梦想。”一样，她让我对她的情绪和她的人生负责。后来我开始慢慢懂得，原来我们在想去控制别人的时候，通常是因为我们自己不稳定的自我和自我价值感，需要别人的语言和行为来得到肯定或者是安慰。所以我们想去控制别人：既然我是因为你产生这样的负面情绪，而我自己又没有能力处理这种情绪，所以你要改变，这样我的心情才能变好！我后来发现其实我自己也是这样。我在做决策的时候特别希望得到母亲的肯定，如果得不到她的肯定，我会非常沮丧的跟她抱怨说：你没有给我信心。后来我发现，其实大多数情况下是我也在怀疑着自己，所以当我妈妈对我的决策提出异议而不是支持时，我会觉得她没有给我信心。如果自己并不相信自己，那么就只有靠强迫别人给予肯定，然后得到借来的信心了。你是否有稳固并且灵活的自我（a solid, flexible self）？刚刚提到一个非常重要的概念就是稳固并且灵活的自我（a solid, flexible self）。这个概念是由心理学家David Schnarch提出的。首先让我解释一下稳固的意思。一个稳固的自我是指一个人具有非常稳定的自我价值感，并且不会因为外界的否认或者质疑而有所改变。举个最显而易见的例子。比如失恋这件事情对于几乎所有人来说都是件很伤感的事情，在被伴侣拒绝了之后，我们的自我价值感会在一段时间之内骤然下跌。但是对于具有稳定的自我价值感的人来说，被分手并不意味着自己“不可爱”或者“不值得别人爱”，而仅仅是因为彼此的不合适。但是对于自我价值感更多建立在别人的积极反馈之上的人来说，失恋这件事情很可能让他们的自尊在很长一段时间之内都处于低谷。他们会觉得因为被对方拒绝，所以自己是不够好，不够可爱，不够优秀或者配不上对方的。另一个重要的概念是灵活的自我。这一点看起来跟上面有点矛盾，但其实它们是彼此相融并且缺一不可的。灵活的自我是指你的自我概念不会僵化或者停滞不前。比如如果你的自我概念就是“我是一个学术型的人”，然后拒绝一切娱乐活动或者是其他有助于你成长的活动，你的自我就是非常固化的。一个有着灵活自我的人，是一个愿意不断去探索新的可能性，并且让自己不断成长的人。再举个例子。我们每个人虽然有性别之分，却都同时有着男人和女人的一面。假设你是一个男性，然后你拒绝在自己特别感动的时候流泪或者在你伴侣难过的时候拿着纸巾给她擦眼泪，因为你觉得那样特别“娘”或者特别“不爷们”；再假设你是一个女性，你不愿意在公司里站出来发挥自己的领导力，因为你怕别人说你“强势”或者在需要你表现出力量的时候你不敢表现出来，因为你怕别人说你是“女汉子”。这些都是固化自我的表现。一个有着灵活自我的人，会在最合适的场合表现最合适的自己的一面。而拥抱并且发展自己内心的男性一面和女性一面，正是灵活的表现之一。所以最后一个稳固并且灵活的自我，就是指我们一方面有着不受外界评价影响的稳定的自我价值感，另一方面是指我们不会局限自己的自我概念，能够灵活的在不同的情形下表现和发展多面的自我。这个稳固而灵活的自我跟控制别人又有什么关系呢？因为有稳固而灵活的自我的人，不会去控制别人。这一点在所有的人际交往中都适用。当你发现你不需要伴侣跟你“吐露心声”来证明自己是一个值得信赖的人时，他不跟你说那件他小时候的创伤事件就不会让你觉得那么的受伤；当你不需要别人的褒奖来证明自己作品的价值时，别人没有表达的欣赏就不会让你觉得那么愤怒；当你不需要别人的感激来证明自己做一件好事的意义时，别人没有说出的那句感谢就不会让你愤愤不平。当我们有非常稳定的自我价值感时，我们就有了不需要去控制别人的勇气。因为我们知道，我们的自我价值不会因为别人的肯定、褒奖、支持、赞美或者安慰而得到提升，我们本身就是有价值的，不需要通过控制别人的行为，来得到借来的价值感。控制不了自己的人才去控制别人昨天晚上有件特别有趣的事情。晚上8点多我因为很累，决定静静的在家里画画休息。然后一位朋友打来电话，说她此刻就在我家附近，回家有点晚了能不能来我这里借住一晚。如果是原来的我，肯定就算再累再不愿意也会答应。但是昨天我没有，我说：“亲爱的，我今晚有些累，想一个人在家里画画，不好意思，你还是做地铁回家吧。路上注意安全，然后到家了给报个平安。”她回答说：“我绝对不会告诉你的，你太狠了。”她显然是生气了。于是我也有种非常不好的感觉。我问自己：“你愿意在这么累并且不想说话的情况下让一个朋友来你这里跟你聊天说话吗？”我知道我是不愿意的。“那么你为什么还感觉这么的不舒服呢？”因为我需要她不生我的气，来证明自己是一个好人。那么是不是她因为我的拒绝而生我的气，我就不是一个好人了呢？当我想明白，即使她在生我的气，我也并不会因为她对我的愤怒而不是一个好人时，我就放弃了要控制她的情绪，不让她生我气的冲动。我没有告诉她：那你来我这里住吧，而是进一步跟她解释了我的情况并且希望她能够理解。当然了，她能不能理解已经没那么重要了，因为我知道自己是个好人。因为一个好人，首先会是一个照顾自己的感受并且爱护自己的人，而不是一个牺牲自己去满足别人的人。当我学会了控制自己，我就真的不需要去控制别人了。这条路还很长，这种稳定而灵活的自我价值感也需要我不断修炼。但是我知道我在慢慢的练习着，而我知道，你也会与我同行。作者：Joy Liu 公众微信号：FlourishingParty 繁荣成长工作坊阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

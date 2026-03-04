@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老赵的意识流</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>老赵的意识流</h1>
+            <div class="date">2026-03-04 09:57:00</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>老赵的意识流老赵的意识流稻田稻田左岸读书2022年01月13日 07:10在小说阅读器中沉浸阅读文/稻田海河的夜晚是梦幻的，两岸高楼如崖，透着一些欧式的轮廓，嵌在高壁上的窗户密密麻麻亮着灯，像无数的星星张着眼睛，这些眼睛又似乎都将目光投向了身下的海河，让海河像明亮的油脂一般浮动，幸福地回应着四面而来的关注。岸边的树木也得到了灯光的映托，那些鹅黄的银杏和金黄的枫叶，在灯光的映托和微风的撩动里，也像海河的流水一样浮动妩媚起来，这些黄冠一样的树木下，零星地有油漆斑驳的木椅招引，坐在上面，平视仰望，已是迷离梦幻的世界。老赵坐在木椅上沉浸其中，不觉中眼前的灯光由立体的繁星变成了人字屋顶垂下的零星吊灯，灯光是那种熟悉的昏黄，在同样昏黄的伞形灯罩下微醺着。熟悉的味道钻进鼻孔，接着便包围了全身。这是那个熟悉却叫不出名字的单位食堂，那种食物和油烟长期烘熏，渗透到灶间、桌椅和整个空间的特殊气味，是那种老食堂里特有的气味。见有几个面孔熟悉的食堂员工在就餐，老赵走过去，说道，“买几个馒头”，就餐的一个抬起头，笑答，“已经不做面食了”。回头见几个人匆匆地走来，带头的一个白脸是自己以前熟悉的同事，径直地要点菜，知道时间过了餐点后，像无事一样，笑眯眯的带着随人又匆匆离去。老赵本准备迎接白脸同事的招呼，但他似乎不认识自己一样，与同来的几个说笑着隐没于大门的转弯处，老赵将目光停在空落的门洞，心里也有些没有着落。恍惚中，像被空投一样，老赵到了一个似曾相识的公交车站。他依稀记得自己刚从球场离开，此时在一个杂乱的运动包里翻找着什么，后来才知道是手机，至于是要使用还是证明一下它的安全，自己并不清楚。忽有一脆亮的女声传来，紧接着一张笑颜移入眼帘，“哦！”是妻子小时的玩伴和同学，正从远方而来，要去重温旧谊。“好啊，欢迎……”未及续言，就被一句“不必，我自去”的朗声打断，随即笑颜已化入迷蒙的夜色里。老赵这才意识到找手机是要告诉妻子自己的“偶遇”，以有不失礼节的准备。忙乱的翻找中，他感觉到似有另一只手从身后移过，“是遭偷了吗？”刚以目光在候车人的脸上征询，便有一位中年的女客说道：“似有一人拿走……”老赵更加慌了心绪，急急地找到一家路边的电话亭，拿起电话按拨家里的电话。电话亭又是书报亭，书报和人头拥挤，电话时断时续，像接触不良，要一年幼的店员拿着一个感应器似的东西不断地靠近才终于接通了家里的电话。他一边向妻子述说着“以备远客”的事情，一边在心里复现着家里的景况，忽然发现家的印象凌乱模糊起来，“此时家何方？”这些年来，他们搬了十多次家，互相地叠加，他一下子模糊而迷茫起来。他急切地要妻子提醒家的位置，让妻子惊诧到语顿。“说关键字、关键字！”女儿的提醒才让妻子向他说了家的小区名，这才让他梦醒，知道了是以前的旧居在干扰自己的意识。一段时间以来，老赵总是被一些奇怪的事情围绕，让他既烦心也好奇。就说那天下班，老赵刚到单位门口，见局长悠悠地朝自己走来，摆脱已经没有可能，却不知怎地，急急忙忙地在街当中摆起了茶座，烧水，斟茶，洗具等，局长竟自顾自得地摆弄起来，动作之繁，节奏之缓，让人“镇定”。头杯入口，局长正要开话，鞭炮震耳地炸响，是街边的新店开张，烟雾和炮屑以及人声将茶局和话局搅得稀烂。自己为何要将喝茶选在街上呢？老赵家有急事，又正遭遇眼前的尴尬，竟做出“快去快回”的举动。得局长点头后，留其一人独酌，疾步向家奔去。路越走越陡，也越走越破，至坡顶成为死路，被工人告知，正在修路，便想折回。转身，所有的来路也都变得尘土飞扬，全在修筑，眼前已经没有道路，唯有一架绳梯从高处挂下，旁有人员指挥，便摇摇晃晃地攀援，至顶端绳梯折为平伸的绳桥，从梯到桥要抬腿、扭身、攀扯才能翻转而上。老赵吃力攀援的过程中，想起自己曾在梦里有过类似的经历，那是架在山崖上的一条绳梯，绳梯的尽头是山顶的一个巨大的山洞，他是与中央台的一位著名的主持人一道攀援上去的，他们坐在山洞的石头上谈论山区孩子上学的艰苦，“教育啊！”老赵还记得当时自己的一句感叹。那次是经历上学之难，这回却是经历回家之难了。正在绳桥上摇晃蠕行的老赵猛地想起还在独自斟酌的局长，慌忙伸手到口袋里去拿手机，要解释事变，却已失落无着。记忆中，这已是多次有过的遭遇，每到紧急需要之时，手机要么按键失灵，要么干脆就杳无踪迹。慌慌张张爬下绳梯，不知为何却到了教学楼的廊道上，老赵小心地引导着一群人在一间间教室进进出出，原来是上面来检查工作。“教室的绿化不合格！”一中年人对老赵说道，“这是实验用室……”老赵忙做说明，意思是不便布置更多的花木，但他没有说白，再则对自己的解释也缺乏自信。检查组离开后，校长走到老赵跟前，校长是位四十来岁的女性，矮而精干的身材，似关切又责怪地对老赵说道：“有没有出书？有没有开课？开课要能够边说边写，你知道评职称的新规定了吗？”老赵没有觉着新规有什么问题，倒觉着是个机会，出书没有质量和形式规定，只要争取一下，边说边写本是授课的常态，可以立即上课。于是开课。听课的人很多，校长也在其中，老赵边说边写，条列缕陈，加以箭头等符号强化，句句明朗，慷慨激昂，正得意于表现时，忽觉听课人神离影动，校长似也在中，顿时有被抛弃的慌恐。随即眼前一片空白，待一口郁气呼出，才发觉自己匍匐在酒店绵软的床上。迷梦乍醒，睡意全无，急急地穿衣漱洗，开门而去，想要将梦境快速剥离。清晨的海河褪去了梦幻，灯光隐去，留下一扇扇关闭的窗户，像睡着的眼；河水悠悠地荡漾，已脱去了明脂样的波光；秋寒里洒满落叶的木椅、以及头上枝叶稀疏的树冠，显出安静和朴素。老赵在河边来来回回地踱步，见有几个老者蹲蹲起起地放竿垂钓，那种自在的沉浸和专注让他莫名地感动。岸边台阶上的一个场景让他停下了脚步，一根插在石缝里的鱼竿，一只用来装鱼获的红色塑料桶，一块白色的抹布，主人却去了其它地方。老赵将镜头对准这幅图画，按下了快门，并想好了“放下”的名称。左岸记：像这样一个晚上的意识梦游，时光纵横交错，做想做的事，完成未完成的心愿，那或许就是你理想中的样子吧，梦的启示，就是你还可以那么去做，而对于过去和遗憾，应该是要放下的了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《刻意练习》读书分享</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>《刻意练习》读书分享</h1>
+            <div class="date">2026-03-04 09:51:51</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>《刻意练习》读书分享《刻意练习》读书分享左岸读书2016年12月28日 19:34在小说阅读器中沉浸阅读以下文章来源于一家烟火，作者047一家烟火.随笔，读书笔记《刻意练习》这本书的副标题：如何从新手到大师。相当不错的学习方法类工具书，作者是潜心研究“专业特长科学”几十年的著名心理学家艾里克森，他研究了一系列行业或领域中的专家级人才也。刷新了我对学习的认知。现在结合以往经历分享一些心得。1.此前在《异类》中有个非常有名的“一万小时理论”，即在某个理论持续累积了一万个小时，如果每天练习两到三小时的话，从新手到大师的时间大概是十年。这个理论出来之时给了很多人希望，高端励志，只是很多人难以坚持十年回头验证这个理论，也就很难证伪。显然，环卫工人扫十年大街，也没有出过扫地大师。即使像我们现在正常的教育时长，小学六年，初中三年，高中三年，大学四年，总共十六年时间，在校教育培养出来的本科大学生，假定学习勤奋，时间都充分利用上了，为啥也没有出过像样的人才?因为传统教育侧重的知识的传递，而不是技能的培养。自然百无一用是书生，刚步入社会的大学生一脸的无辜状，啥也不会啊！2.如果说有技能的话，那就是应试能力。在课堂上，真正成绩好的学生上课基本都不怎么听课，老师普及的基础的课本知识，而考试是基础知识的升级，必须具备快速解题的能力，他们并不用关心知识怎么来的，对个人成长有什么意义。目标是解题，那些学霸是大部分的时间都在蒙头解题，不断练习。而那些傻望着老师听课的人，头脑并没有转，有效练习的时间短得很。为什么我们看起来那么努力，却最后成绩并不好?难道真的只是看起来努力那么简单吗？不是不努力，而是没有找到正确的方法。试卷题型基本固定，知识点也有限，分散在卷子的各题型。一般人都会关注总分，分数高了自然高兴，低了就忧伤，不对的，真正的练习看到的永远是错误的那一部分，为什么我错了?还有哪些修正的余地。以数学为例，总分的高低，只能反应你整体水平。由于课本知识是连续的，每次都得七八十分，那么这个漏洞会不断的累积，因为你没有完全掌握，所以每次都不能有效的提高自己的成绩。成绩拔尖的同学基本每次都能拿到九十五分以上。因为每个题型，有哪些雷区，他在平时的练习当中都遇到过，并且犯过很多错，不断的修正自己的错误，成绩一般的学生向来都是差不多就可以了，总是以身体的勤奋掩饰战术上的懒惰。3.平时我们打羽毛球往往以健身娱乐为目的，玩得开心，不受伤就达到目的。每次打完要是赢了几把都会开心得不得了，这个玩开心目标其实很容易满足。实际在不断对战中我们的技能也在提升，但进展较慢，到一定程度再往上走就很困难。值得称赞的是业余小分队的模式为个人成长提供了环境，球友偶尔会赞扬你的球技有长进，大家能够一起开心玩耍，共同进步使得坚持玩下去有了动力。如果要以提高技能为目的话，它的不足在哪里呢？羽毛球是项综合的运动，由后场杀球，步伐移动节奏，吊小球，发小球，勾对角线等等这些基本技术动作构成，每次打球都会根据实际情况灵活应变，接住了就接住了，没接住也就哎呀一声过去了。并没有以单个动作为核心，集中训练。每次凭着感觉进行，就很难有效提升。这些基本的技术动作，可能我们会做出那个样子，但是动作不一定准标准，打出去的球费了力但没有效果。我们也知道自己错了，但没有人会告诉你错在哪,该如何修正，每次都会犯同样的错误，当然就很难提高。指出错误，不断修正，这个任务应该交给专业的教练来完成，然后刻意练习该动作。这也就是为什么专业的运动员必须要有教练指导，钢琴要想弹得好，画得不错，拜个优秀的导师至关重要，他们会将自己多年的经验传授给你，有桥走了，自然也就省去了摸石头过河的低效。4刻意练习是为了提高自己的技能，类似专业的提升。而普通的兴趣爱好只是以开心为主，两种目的不一样，最后的水平自然也不同。专业的训练一般比较枯燥，像羽毛球，为了练好发球，那就在一段时间只练发球，要想玩玩比赛那很难，因为那无益于技术的提升。而业余选手总是停留在舒适区，那么就很你那有所提升。投入有效时间和练习方法一起决定了技能的水平要想成为专业选手，那么就必须忍受枯燥的训练，并且需要长时间的高度集中精力。他们的世界就变得简单而又纯粹了。为了达到人类极限的巅峰，自然是要摒弃世俗的诱惑，耐得寂寞，倾尽全部力量投入才能出类拔萃。为什么成大事者不纠结?因为他们发愿了，有鸿鹄之志，知道自己毕生的追求是什么，选择单一了，反而能集中精力和时间投入到终身的事业去。《刻意练习》像风清扬交给令狐冲的独孤九剑，剑术高明但要靠内力驱动，这个内力都是个人的志向和坚持程度了。文昌  北京  微信号：changchang010阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

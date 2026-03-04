@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日有所思，夜有所梦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>日有所思，夜有所梦</h1>
+            <div class="date">2026-03-04 09:55:34</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>日有所思，夜有所梦日有所思，夜有所梦我是左岸我是左岸左岸读书2021年09月24日 07:56在小说阅读器中沉浸阅读每个人都做过梦，梦有美好的，也有悲伤的，有时我们的梦光怪陆离，有时又美如幻境。中国作为世界上最早对梦进行研究的国家，早在数千年之前，古人就相信，人不会平白无故的做梦，梦的产生都有它应该存在的原因。作为关于梦的专著，《周公解梦》至今都有很多人当做梦境的参考，当然，从现代科学的角度来说，《周公解梦》的很多观点，其实都没有科学依据，大部分解释都是根据当时的时代背景，存在着很多的历史局限性，而在现代科学中，《周公解梦》里面的观点，比方说梦境可以用来预测未来，用来判断旦夕祸福等说法，在后世也都逐渐被否定。那么，梦，究竟是如何形成的呢？心理学家们做了以下几种解释：第一，梦从心理学的角度来说，其实是人类潜意识里的欲望在作祟，我们的生活总会充满各种诱惑。也就是我们常说的“日有所思，夜有所梦”。当我们清醒的时候潜意识里很多想法得不到满足，在夜晚进入睡梦中之后，待身体和意识全部放松，潜意识里的想法就会浮现出来，这也是弗洛伊德对于梦的解释，通过做梦来进行欲望的宣泄，这便是梦的来源之一。其次，从超自然的角度来看，梦境其实是我们连接另一个世界的途径。有一种观点认为，人在进入睡眠状态后，我们的意识就会离开我们的身体，穿越时空，抵达另一个世界，而我们之所以在现实生活中，有的时候会感觉现实中第一次遇到的场景似曾相识，就是因为我们曾经在梦中到达过这个地方，并且经历过，这也是“既视感”的来源之一。相信很多人也都曾有过类似的经历，我们虽然在沉睡中，但是我们却知道我们在做梦，并且试图从梦中醒来，却做不到。这种可以在梦境中时刻保持清醒的状态，心理学家们称作“清醒梦”，甚至在清醒梦中，我们还可以知晓接下来的发展，好像我们可以控制梦境一般。同时，很多人都曾做过连续的梦，甚至一个梦断断续续的做了好几年，每个梦之间就好像连续剧一般，非常完整，这也是清醒梦的一种。在梦里，我们甚至可以控制自己的行动，对梦境的内容进行操控，在梦里世界，我们就好像主宰者一般。心理学家认为，清醒梦或许也是另一个世界的折射，我们的意识在我们睡着的时候，抵达另一个世界，那个世界由我们创造，所以我们才可以随意地进行操控。那么，人类可不可以通过特别的手段，来让自己不再做梦呢？心理学家之前曾经做过梦的阻断实验，当人在睡梦中开始进入梦境，就会立刻被唤醒，不过，通过实验数据，他们发现如果强行阻断人类做梦的权利，那么人的身体后续就会出现一系列的生理异常。由此可见，梦境或许也是人类正常生理活动的一种，如果人类不再做梦，心理状态就会出现异常，不仅会焦虑不安，甚至还会出现幻觉。可以说，梦境对于人类既是神秘的又是需要的，大家之做过什么光怪陆离的梦吗？左岸记：虽然梦不一定是真的，但梦境多多少少反应着一个人的心境。我从很小开始就断断续续地出现自己会飞的梦境，能解出超级难题的梦境，穿越到某个时期的梦境，在梦境里，一切是那么的自然而然，虽然也有惊心动魄，但都能化险为夷，每次梦醒，意犹未尽。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

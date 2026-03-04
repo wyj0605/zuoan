@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逆境其实是生命的常态</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>逆境其实是生命的常态</h1>
+            <div class="date">2026-03-04 09:58:26</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>逆境其实是生命的常态逆境其实是生命的常态原创我是左岸我是左岸左岸读书2019年03月10日 00:08在小说阅读器中沉浸阅读文/北水坊间有句俗话叫“人生不尽如人意事十有八九”。初想起觉得很悲哀，人生短短几十年如白驹过隙，竟然还是不如意之事占了绝大部分。细想之下又觉得这句话很是合理，资源是稀缺的，而人的愿望却是无穷尽的，物质和财富如果在一定的历史条件下是特定的、限量版的话，必不能让人人都如意。我们谈论的人生幸福，从小到大，标志性事件大致有入学、入职、谈婚论嫁、职场升迁、仕途辉煌等等，难过和悲伤往往来源于对心中所愿的求而不得。当然，如果都是各凭本事，公平竞争，想必即使败下阵来，失去所有的机会，也不会觉得有多痛苦。但凡有心痛和不甘，必是受到了不公平的待遇，甚至是欺骗、算计、羞辱等，才会义愤难平。在小北经历过的人生三十年岁月中，时刻注意与人为善，一直认为自己具备了人畜无害的特质，却在不久之前把以上种种全部经历深深地体会了一把。总结起来，发生了两件事，一件是职场上遭了算计，失去了晋升的机会；一件是被多年好友骗了一笔巨款。之所以一定要把这两件事写出来，不是想表达我有多冤屈，而是想跟大家分享这些事情带给小北身上的变化。之前看过一条新闻，一位准大学生被电信诈骗犯骗走了学费，遭受打击太大突然就去世了。年轻健康的体魄，完全因为精神压力就没了，彼时小北是很不能理解的，医学推论和依据也一直没有确定的说法。当算计和欺骗这两件事同时发生在小北身上的时候，从未玻璃心的小北起初还自觉能够靠着毅力扛过去，可是某天晚上奇异的事情突然降临了。在小北不自觉地想起这些糟心事的时候，突然觉得呼吸不上来，心脏都要停顿了，整个房间的空气好似都消失了一般。在一瞬间小北以为自己突发心脏病要死了，绝望之中找到学生求救，把我送去了医院，各种检查却显示小北一切正常，是个十足的健康人。而噩梦却刚刚开始，自那以后，小北时不时都会有喘不上气的情况，伴随着身体的抱恙，恐惧的心理也占了上风，每到一处狭小的空间，都害怕得不能抑制，生怕自己突然背过气去，再也起不来。最终，中医的解释是长期肝气郁结，得不到纾解，导致胃气无法下行，而胃和心脏之间的不适，有时人们很难区分。最后，在吃了几个月数倍于常人的药量后，小北的症状终于好了大半。为何明明觉得自己心很坚强却还是被真正伤害到了，小北想最终的答案应该是这样的，无论是身体机能还是负面情绪，都需要一个出口，当我无视这个出口的时候，病灶便随之而来，所谓生病，依然是身体为自己找到了一个排解渠道。仔细想来，在发生这些事的时候，小北从始至终都是从自己身上找原因，长时间的想法是，一定是自己做错了什么，或者不谨慎，或者太轻易相信别人，才会使自己陷入双重困境，在无意识间不断地自责，最终导致长期郁结却无法纾解。如今，小北从自己所受的羞辱和欺骗中，明白了一个道理，逆境永远都是人生的常态，而我们在面对困境的时候，不仅仅是告诉自己要坚强就可以解决问题的，如何在一定程度上真正接受并理解自己所遭受的不公，才是问题的出口。第一句话是，单纯的责问错误是在自己还是别人身上是没有意义的，我们此生永远无法掌控别人对自己做出负面的评价或者伤害，我们需要的是对自己做出公正及肯定的评价。真正接受并悦纳自己往往比自我反省更加困难，我们需要做的，是时时都能对自己多一点温柔，少一点苛责。第二句话是，即使对曾经欺辱过自己的人，不要轻易的去记恨。《论语》中有一段，孔子的弟子向他请教“以德报怨”这个事情，老先生的回答是“以德报怨，何以报德？”最终应“以直报怨”。不去记恨他人不是宽容，连孔圣人都做不到以德报怨，芸芸众生如何能做到。只是记恨的坏处，轻则是拿痛苦来折磨自己，重则会让自己的人格越来越扭曲，最终变成了自己曾经痛恨的人的模样，多么可惜。对于欺骗和羞辱过我的人，小北会说的是，我不想原谅，但我也不愿记恨。第三句话是，世上没有不带伤的人，在悦纳自己的过程中应更加温和地善待身边的人。人生就没有不经历挫折的，小北现在很庆幸这些困境是发生在我还算是年轻的时候，欺骗和羞辱虽不堪回首，却能让我冷静下来，去提高自己的人生境界。悲伤与心痛说给别人听可以缓解情绪，却不能治愈，真正能治愈自己的，只有自己。我们对着大山喊“我爱你”，得到的回声是“我爱你”；喊“我恨你”，得到的回应必然也是“我恨你”。因此，更加温柔的对待别人，便是更加温柔的对待自己。是以，至柔，则刚。当刚强不再是逞强，不再是保留记恨的昂首挺胸，不再是为了强势而强势，我们就迈出了跨向强者的第二步。后记：在人生的慢慢长路中，小北很想做一个内心强大的人，因此撰写了《强者﹒无敌》系列，表达自己的一些经历体会，以期能够和大家交流。以上是该系列第二篇，谢谢大家阅读，欢迎明天继续关注第三篇“平等性智方为解”。左岸记：我也觉得逆境是生命的常态，不仅是常态，还是无可避免的，面对逆境表现出来的智力及应对能力就是逆商。罗曼罗兰说：“失败可以锻炼一般优秀的人物：它挑出一批心灵，把纯洁的和强壮的放在一边，使它们变得更纯洁、更强壮；但它同时让其余的心灵加速堕落，或是斩断它们飞跃的力量。”开始就认输的人其实不多，大多数人都会兴致勃勃地接受挑战，但常常会在接连不断的打击中，败下阵来。一个方法不行，就换一种方法，直到问题解决为止，这才是一个聪明人面对生活该有的姿态。但这不是要我们去颂扬苦难，只是我们知道，当苦难不可避免的时候，我们只有战胜它，问题才会解决。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

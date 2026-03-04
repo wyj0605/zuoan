@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天地有大美</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>天地有大美</h1>
+            <div class="date">2026-03-04 09:54:01</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>天地有大美天地有大美珠珠珠珠左岸读书2026年02月25日 20:32福建在小说阅读器中沉浸阅读文/唐庶民夏天，到处生机盎然。1现在是早晨的4时7分，今天我们迎来夏天的最后一个节气——大暑。“小暑大暑，上蒸下煮”，大暑期是高温酷热的代名词。在这个一年中最热的时节，野花竞相开放，遍地生香。阳光刺眼炙热，彩蝶悠悠地飞过来又飞向那边。蜻蜓则升到更高的天空。热浪滚烫，万物繁茂，两三匹马在专心吃草。大暑节气有三候：初候，腐草为萤；二候，土润溽暑；三候，大雨时行。萤火虫在夏夜里穿梭，土壤浸润，空气湿热。曛天的热浪自无尽的远方沸腾而来 ……四点十二分了，橙红的太阳从东北远方群山中升起。2六点半，太阳升到东南高空。天空淡蓝，万里无云，北方的布日敦山脉横卧东西，红褐色山石高高耸立，洋溢出温暖和清朗。山下这边是草甸，甸上有漫漫的河流，沙地上长着青灰色的麻皮草，草间野花开放，金黄色的是苣荬菜花叶舒叶绿，金灿的是蒲公英花，随着清风徐来轻轻摇曳。漫甸这边是我们的校园，园中红楼高耸，白杨一排排成阵，挺拔玉立，清氛濛濛迷漫。碧桃轻飏，舒叶长条，欣欣然欢迎着刚刚升起的太阳。此时校园中微风若无，树梢沐着阳光微微摇动，花草静立。一片清新。满目皆是金黄的花朵，碧绿的小草。清香可掬，沁爽心脾。金阳的光上下澄明，沐浴着大地，时见禽鸟，时有清风，远方的北山耸立在薄如轻纱的雾之中，山影迷蒙而倩秀，若无还有。八点半，大地清风阵阵，荡胸爽心。远近千百株花木在晨阳下随风动荡着，沙沙作响，闪耀着光亮。学生在上课，工人在菜畦垅埂上荷锨走动。校园中静悄悄。院中少有人往来，远离了墙外工地机车轰鸣的喧嚣。再举目望远，山在青霭中从西南来奔腾向东。东边的山明亮，红石、黄沙、绿树，与碧水蓝天相映。西边的群山正在青白的雾笼罩下如隐驰的马群，同天地一片，与天地同辉。3十时许，上完课了，回到宿舍。站在窗前观赏天光地景。晴亮亮的天空中高远空阔。远处大道上汽车往来奔驰，近处新修道路已近后期，两位工地人员在竖标杆测量，已不见前几天运土挖掘推压的忙碌。忽见一只喜鹊从北方校院外南方墙头飘飘飞下来，落在桃树林下的草地上，跳跃着在地上草下啄觅着。头朝南时，只见背影——头尾通体一色黑亮，腹部两侧镶嵌着纯白的边儿。一会儿，转过头来——黑亮的头颈，黑亮的背部，黑亮的长尾。整个腹部则全然洁白，黑加白，真精神！我在这二楼上正观赏，那精灵却忽地振翅腾空飞走了……4十点四十分，回到床上。读陆游《入蜀记》。思绪随放翁溯长江而上，时泊时行，是日经镇江，过新丰。江风扑面，江涛漫相追，两岸青山巍巍。记中引有李白诗句：“南国新丰酒，山东小妓歌”，太白诗真好，写山川景物形象，其中蕴含着丰富的情趣和韵味。一言以蔽之，清新。读之不禁想起了韦庄的词句，“垆边人似月，皓腕凝霜雪。”又想起了东坡的佳句，“美人微笑转星眸，月华羞，捧金瓯。歌扇萦风，吹散一春愁……”只是苏词所咏者已不是小歌妓了，应是大美人了。一会儿，行船已至长江小孤山至大孤山一段，所见所游，非止一处，大概为避免重复单调，陆游用摇曳多姿的笔墨，抓住各处山光水境进行描绘。文中写烽火矶“嵌岩窦穴，怪奇万状，色泽莹润”，写峭石“杰然特起”，“丹藤翠蔓，罗络其上，如宝装屏风”，写小孤山“碧峰巉然孤起，上干云霄”，写澎浪矶“虽无风，亦浪涌，盖以此得名”，写大孤山“四际渺弥皆大江，望之如浮水面”，只寥寥几笔就描绘出鲜明独特的形象。“过小孤山大孤山”一节，神随笔游，风采别具。大小孤山依浪耸立，悠悠江风，澎浪作浪，民间传说和东坡佳句随江风山影翩翩而至，飞动其间，令人意醉神迷。“舟中估客莫漫狂，小姑前年嫁彭郎”，句出自苏东坡《李思训画长江绝岛图》，抄录如下：“山苍苍，水茫茫，大孤小孤江中央。崖崩路绝猿鸟去，惟有乔木搀天长。客舟何处来，棹歌中流声抑扬。沙平风软望不到，孤山久与船低昂。峨峨两烟鬟，晓镜开新妆。舟中估客莫漫狂，小姑前年嫁彭郎。”多美妙啊，小孤山变成小姑，澎浪变成彭郎，山水似美人，想醉痴人心！伟人亦说江山如此多娇，引无数英雄竞折腰，信夫！5今上是六月十七日，一整天大热，出屋则热风曛人，炎光曛背。下午五点半多点，天淡淡白中透蓝，临窗眺望，那北方的远山皆隐然横卧，如罩烟云散漫，如笼轻纱缥缈。倩影翩翩，似梦似梦，朦胧可爱。太阳高挂北方天空，光不强烈，但热气喷涌。热风阵阵吹，园中树木在风中摇动，热！六月二十日，一天大热，出屋则热风熏人，烘光照背。竟日在校园中闲度。球场上学生不畏炎热，正在玩篮球，一个个汗光晶莹，油黑闪亮……仰望天空，云影高远，白中透蓝。校园北方的远山隐然横卧，烟云飘浮其上，如笼轻纱，似梦似梦，朦胧可爱。太阳高挂北方天空，光不强烈，但热气喷涌。熏风阵阵吹，园中树木在风中蔫然滞立，似在告诉：热！灿烂的金太阳高照北方天空，高远的碧空纤云不挂。太阳近边飘云如棉，如丝如烟又如絮，浓者如乌云则如湿棉连绵扯开去，飘曳天空。浓云之下是绵亘的北山。东西山段隐隐翩翩，一律黛青倩影，淡烟轻纱笼罩，如远乡清凉梦境，别具风姿。唯独眼前一段清晰如洗，无云之纱雾影。今日课少，课余读了贾平凹新作《猎人》，有些荒诞不经，有些浮躁无聊，又见识了贾氏小说的毛病或曰风格。一处长想勾引一美女，便假打猎之名引之入深山老林打猎狗熊。其实想寻找机会干了她。未料入山林遇狗熊，未能放倒狗熊，反被狗熊放倒，且被先后干了两次屁股，腚眼子给弄得火辣辣的，真是窝囊。回到住地还忍不住龇牙咧嘴的对两个女士谎称痔疮又犯了……哈哈哈哈，那厮心里却想着一定要报仇。到了第三次与那狗熊相遇，他早做足了准备，因此连放两枪，本以为这次一定干掉了那畜牲，出了心头之气。哪想到走到熊前那物竟一跃而起，再次被按倒。熊问他“想活还是想死”，处长绝望至极，说道“随便，只是想问你一句：你到底是狗熊还是魔鬼？”狗熊不答反问说：“我正想问你，到底是来打猎的还是来卖屁股的？”哈哈哈哈……贾氏写小说，总爱写乱交：狼与人，人与狗，今天又来一篇创新之章——熊干人，而且是干男人处长。真所谓“贾生才调总无论，爱写禅狐爱状淫……”咋回事啊！6晚七点许，太阳高悬移北方天边，距下边的山岭很近，约十丈高。似明亮圆球又似金亮的圆币，光辉炫烂，上方有几道云，乌而透亮，头顶上的天上有大片的浓云。天边的北山恬静地横卧在那里，近太阳处上下通明，一片金色，太阳渐渐隐入云层，北山仍明媚如画。太阳又出来了，云在上方，给太阳镶着金花边，一朵朵金花，静静地镶在北天之上，衬着山顶明媚的夕阳。七点三十二分，太阳正在告别，金色的半张圆脸在北山上，转眼间完全隐入山后，给西天剩下一小片橙色的霞。渐渐的，天空飘来层层云朵，似依依瞩望，北山笼罩在轻纱之中，格外柔美，安宁。天空还呈现着桔红的温暖，校园中几处楼房已亮起灯光，再遥望大西南的天边，鸭鸡山如披着白纱，隐然而高……六月二十一日，早晨刚刚四点，沿着北山东去的方向望去，太阳已从白音他拉草原深处的老哈河同沙拉沐沦河汇流的河面上喷涌而出。到晚上都十九点了，它才渐收金光，慢慢沉到勃隆克那边去了。庄子说：“天地有大美而不言，四时有明法而不议，万物有成理而不说。”意思是，天地有大的美德但不表白，四季有明显的规律但不议论，万物有固有的道理但不言说。这就是他所常言的大道吧。太阳已经行至西南方鸭鸡山下的高杨林了。夏，就在这烘烘燃烧的曛风中追随着火红的太阳运动……是的，天地有大美。庄子说“天地有大美而不言”，这篇文章本身就是这样：美在凝视中自然呈现，无需多说。读罢，也想放下手机，去看看窗外。关注左岸读书.珠珠，陪珠珠一起重温左岸经典：左岸经典回顾：（6）2013年9月份7左岸经典回顾：（6）2013年9月份6左岸经典回顾：（6）2013年9月份5左岸经典回顾：（6）2013年9月份4左岸经典回顾：（6）2013年9月份3左岸经典回顾：（6）2013年9月份2左岸经典回顾：（6）2013年9月份1左岸经典回顾：（5）2013年8月份2左岸经典回顾：（5）2013年8月份</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

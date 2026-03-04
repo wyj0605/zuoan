@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>与人无关无干的生活</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>与人无关无干的生活</h1>
+            <div class="date">2026-03-04 09:52:11</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>与人无关无干的生活与人无关无干的生活原创我是左岸我是左岸左岸读书2021年09月16日 07:10在小说阅读器中沉浸阅读文/德鲁伊我一直坚持认为，人的存在是和你与周遭的关联有关的。于是，我这个一直自认为内向的人，活脱脱被大家认为的很外向，这一点让我很迷惑和沮丧。我们这里有句俗话：娃是个好娃，就是被社会害了。环境改变人，环境评价人，人被环境所要求，于是变成了不伦不类的样子。前几天和朋友聊，现在的“社恐+孤独+躺平”，很流行，也不知道是什么病毒造成的，齐刷刷的冒出来一票人都是，还都是癌症晚期、无药可救的模样。朋友说，其实很简单的事儿，是你有一步可退，退完一步，你发现还可以退。想了，也有些道理。就如现在，方向感强的人越来越少了，除了跟小时候建立方向感时期，独自外面瞎逛游的机会微乎其微之外，还有个科技进步的问题。毕竟现在导航那么发达，找个地方导航还是很简单有效的。这算不算科技带来的退化？有个好玩的事情是，恐惧、社死的人，偏偏喜欢浏览社死的信息趣闻，然后要么感同身受、要么幸灾乐祸，找到组织和天下大同的感觉貌似不错，总之能得到蛮多的心理愉悦和慰藉。“社恐+社死”，都不知是谁先发生、谁后出现，是社恐了，于是容易社死，还是社死次数多了，社恐就来了？这个世界给社恐的人越来越多的便利，让他们可以社恐延续着，还继续活得不错，这或许就是我们那个年代人无福享受的，因为那个年代，你社恐或许面临的是，寸步难行，会活不下去的。这个跟躺平一样一样的，躺平是你能选择躺平，否则大概率你连想法都不会有。人的惰性或说本性就是如此，能退一步的时候，绝难选择坚持不动，或是顶风前行。想来，很多所谓出挑或成功的人，说的好是乘势御风，也或许是先有了退无可退，才有了步步为营。现代人的特点，无比爱惜羽毛，又贼戳戳的想个性和放纵些。爱惜羽毛其实就是爱惜个外部形象，努力打造搭配出来的形象，或是刻意解构出一个希望别人看到的形象。于是，稍微的露怯就是社死。其实我几十年的人生旅程看，你觉得无比尴尬的瞬间，恨不得脚抠到地球另一端的事儿，对别人来讲，兴奋度超不过半个小时，却硬生生能跟你一辈子。至于维持形象这事，我觉得这可能是人一辈子最吃力不讨好的事情。形象就是个标签，标签就是冷冰冰的。活生生的人要为了冷冰冰的标签做努力，其实蛮悲催。万恶的社会进入互联网的时代，最擅长的两件事，潮流形象随时过气、满网热衷打破形象。于是，生活里也差不多，都热衷于新的潮流，或是打破某人费尽心机气力的形象。你说你费劲吧啦的建立了个标签化的你，不流行了，被别人打破，被自己社死了，悲从天上来，怎么想着都可怜的紧。据说社恐的对立面出现了，叫社交牛逼症，绝对可以秒杀海底捞的那种。物极必反还是社会熵作怪？还是其实，这个世界没什么社恐还是社交牛逼，就是个生活而已，哪来那么多的繁杂。生活本来就是个心理感受，你觉得和外界的人有关，其实又有多少人关注你呢？人们活自己的标签都辛苦的不得了，谁还关心你形象的死活？生活就是个与人无关无干的事儿，咱别把自己想得太完美太重要，能躺平着活下去永远是个本事，怕就怕喊着躺平却撅着沟子挥汗如雨、唯唯诺诺，那不好玩，人生又咋继续？左岸记：人终究是要自己去定义生活，而不是随波逐流，因为每个人都不一样，人家社恐却能做出顶尖的东西，人家孤独去是才气过人，人家躺平因为躺着就能赢，如果你没有这些资本，那就好好地努力，活出本事，怪这个世界又有什么用呢？</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

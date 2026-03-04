@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为你画下整个春天</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>为你画下整个春天</h1>
+            <div class="date">2026-03-04 09:52:24</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>为你画下整个春天为你画下整个春天丰子恺丰子恺左岸读书2023年02月16日 22:48福建在小说阅读器中沉浸阅读春将半，正是寻春好时节。若你问，最好的春天是什么样的？我想，大概是在丰子恺的画里。他的画中，有衔泥归来的春燕，也有枝丫拂面的杨柳。有三三两两在堤岸看花的路人，也有独卧草庐下沐春风的闲客。百种场景，皆逃不出一份天真的勃勃生机。丰子恺将春天比作门德尔松的音乐，要轻松，要欢愉，要暂且忘记烦忧，要“春在卖花声里”。只要还能活泼地生长着，便是最好的春日。春天，是最忙碌的季节，不好出门踏春的，那也不要紧。至少我们还能伴着《春》的旋律，漫游在丰老的漫画中，一同体会春日里的热闹人间。丰子恺曾画过一幅画：远方一座山，近处一道坡，坡上一草房，房前一树花。女儿一手拉着父亲，一手指着红花，母亲则趴在窗口，笑看观花的父女。他还给这幅画题了句很妙的诗，“春光先到野人家”。这便是丰子恺的春天，不是从日期的递进中得知，不是从他人的感慨中得知，而是在自然的每一处微妙变化中感受春的到来。丰老的春天，是一个春燕与风筝争高，垂柳与飞花共舞的春天。丰子恺的画中，最常见的是杨柳。他爱柳，是因为柳的谦逊。红杏可出墙，古树能参天，唯有杨柳，愿意伏首，望向自己的根。“千万条陌头细柳，条条不忘记根本，常常俯首顾着下面，时时借了春风之力，向处在泥土中的根本拜舞，或者和它亲吻......杨柳树也有高出墙头的，但我不嫌它高，为了它高而能下，为了它高而不忘本。”因此在他的春日画中，总有一抹绿柳在。有时柳作景，更有人间烟火气。有时人立柳梢头，无论是闲谈还是静坐，都多了一份温吞和谦逊。丰子恺也爱画春日飞花。绿柳衬红花，是他画里的浓墨重彩。生长于穷乡，少见繁花，因此对于柔弱易逝的花，丰子恺总有种怜惜的心情。而花的脆弱，也正是他对春的感受。但在散文《春》中，丰子恺也狠狠斥责了一顿春日红花：早春时，乍暖乍寒中，尚不见你们的身姿，而到了暮春，几尽零落，又让人徒增惋惜。短暂的红花，就像人生中一时的欢愉，无法长存，固而贪恋。但即便如此，丰子恺还是老老实实将人们逐花的场面画了下来。也许就是因为欢愉短暂，才更需要借绘画，将记忆中的它们留存。丰子恺还爱画春日里的小朋友，大概因为活泼的小朋友，和生机的春日，是茫茫宇宙中同一类令人欣喜的存在吧。春日里的小朋友，会折杨柳，逐飞花，扯着长线放纸鸢，也会煞有介事地挖土、提水来种树、浇花。万物复苏的时节里，他们对新生命好奇又尊重。这不禁让人想起袁枚的那句“儿童不知春，问草何故绿。”天真如孩童，他们便是人间春。如何度过一个完美的春天？丰子恺早已在画中作了解答。寻春要趁早 。当我们发觉春天到了时，春天其实已经等待我们很久了。春日何时到，在这个问题上，属鸟儿和小孩子最清楚。紫燕衔泥归时，是大自然的早春。儿童放纸鸢时，是人世间的早春。人的感知总是随着年龄的增长愈加迟钝，若多看一看自然，学一学孩子，便能体会到春的天真。春日当游春。游春有两种，一种是作画外人，体味游春者的欢愉，即“春在卖花声里”的小小趣味。还有一种是站在画内，携身边人，赏眼前景，那是“临水种桃知有意，一株当作两株看”的春日短暂，多多珍重。那是对小家的眷恋，也是对世间的深情。春闲最惬意。春天不光要热闹，也应有静谧。那可能是一个人独处时，坐在石头上，就着春风与鸟鸣，喝一杯茶，读半卷书。也可能是约上好友游游青山，踩踩水花，又或在庐中小聚，小酌两杯。无论何种，都是春日里，独属于自己和友人的“闲”。闲，来之不易，趁着春光仍在，且享受且珍惜。春耕亦不休。春日惹人倦，但越是这种时候，越不可忘记勤奋。在过去，春日最重要的不仅是玩乐，还有春耕。丰子恺画过一幅月下劳作图。那时已弯月高挂，风吹杨柳，干活的人却伏身不知疲惫。他把这幅画题名为“杨柳岸晓风残月”，诗意的不只是风花雪月，也是每一个正在耕耘的身影。对于今天的我们，春耕已变得遥远。但在过去春耕时，人们一边劳作，一边赋予的新一年的希望却未曾变过。毕竟春天，也是许愿的季节，在这些个日子里，要勇敢迈出新年第一步。染绿的春日，亦是苏醒的人间。在这样的时节，人们的每一个小小活动，都显得格外有意义。春日宜遐想，春日宜期待，春日亦要闲而不休。最重要的，春日短暂，还请多多珍重。前面说了这么多春日美事，但事实却是，丰子恺不怎么爱春天，他只是爱画春天。对住在乡下，远离都市的丰子恺来说，春日其实很难捱。他在文章中，是这样描述春天的：天气忽晴忽雨，气温乍暖乍寒。“红杏枝头春意闹”的景象根本没有，“小楼一夜听春雨”久了会心生烦躁。在诸多春日诗句景象中，只有那句“一春能有几番晴”倒算真实。若不是这段白纸黑字的吐槽，仅是看他那些生机盎然的春日小画，大概想不到丰子恺竟然是这么看待春天的吧。但即便春天待他如此，他画出来的春天，却是另一番模样。在他眼中，料峭寒春中也有很多欢愉小事，比如踩一踩融冰的溪水，或是在春色中与友人对酌。春天其实是种向往。正是因为春少而隐，才有了“寻春”一说。对春天的体悟，也如人生一般，也许它过起来并不是那么美好，但因为心有期待，眼含纯粹，得到的才是另一番景色，那便是最好的春日。在丰子恺的诸多春日画中，有一幅极为朴拙动人。那是两个合力提着水壶的小孩子，正在给一株瘦弱的柳树浇水，画的右上角写着：努力惜春华。世间大概有两种人最惜春。一种是天真的小孩子，他们本能地就热爱和照顾其他生命。还有一种便是如丰子恺一般的怜世之人，当心存悲悯与善时，世界在他眼中就成了另一番样子。纵使春日苦寒，春日轻浮，春日易逝，他也能把春天画成最好的模样。因为珍惜，才会拥有。春日，只待有心人。来源 | 誰最中國（ID：shuizuizhongguo1）左岸记：读来如张炎《清平乐·采芳人杳》般应景：采芳人杳，顿觉游情少。客里看春多草草，总被诗愁分了。去年燕子天涯，今年燕子谁家？三月休听夜雨，如今不是催花。春天总是乍暖还寒，等你注意到的时候，却已入夏，所以当惜春，一年之计在于春，我们要在细微处去感受春天，一如我们要在日常中热爱生活。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>铭记这一天</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>铭记这一天</h1>
+            <div class="date">2026-03-04 09:58:35</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>铭记这一天铭记这一天原创赵紫生赵紫生左岸读书2023年08月25日 09:56福建在小说阅读器中沉浸阅读文/赵紫生自从福岛核污水排海计划至2021年4月公之于众之后，引起了全球范围对其安全性以及合法性的质疑。然而日本政府不顾本国民众以及国际社会的强烈抗议，一意孤行。尽管在日本政府的精心安排下，国际原子能机构也为日本准备了一份特别评估审查报告。试图为排放核废水找到正当理由，但即便如此也难以解除国际社会和日本民众的疑虑。此次日本对海洋进行大规模、长时间的核污水排放行为是前所未有的，其后果影响更是不可估量。一旦出现问题，将会出现覆水难收的局面。这个核污水排放计划的整个完整周期将长达数十年，这将给全球的海洋生态系统以及全人类的身体健康带来难以预测的影响，无法估计的损失。如今全球各个国家都在为保护地球生态环境而努力，但是日本现在的行为会使各国之前所做一切、所付出的所有努力成为泡影。或许有人认为仅仅是对海洋造成破坏，不，绝不只是。日本排放核污水绝不仅仅是对海洋生态造成影响这么简单，还可能会在大气循环中随着海水的蒸发，放射性元素会以雨水的形式降落到我们祖祖辈辈所赖以生存的地球上的各个角落。而这也将意味着地球上的所有生物与植物都将面临核污染所带来的潜在威胁。随着季风与洋流的变化，太平洋沿岸将在一年内遭受日本核污染的侵袭，这必将对人类与地球环境产生长期且无法挽回的后果。危巢之下绝无安卵。保守估算自核污水排放之日起，仅需57天，太平洋大部分区域将遭受到辐射影响；140天后，中国东海以及南海海域将受到核污水洋流的影响，2年之内中国的大部分海域将受到污染。随着核辐射逐渐加剧，十年后全球海域都将广泛受到日本的核污染。核污水的排放将对海洋生态系统造成长期破坏。而当被污染的海洋生物被捕获供人类食用，这些海洋生物体内的放射性元素必将严重危害了人类的健康。除此之外，核污水的影响还将会涉及更多的领域，如渔业、水产养殖、海盐生成等，甚至还会波及药品和保健品等行业。而日本似乎早已完全忘却了曾经发生的水俣病惨剧。1956年，一家汞厂长期将废弃物排放入日本水俣市附近的海湾，导致当地贝类和海产品因甲基汞污染而引发大规模汞中毒现象。渔民出海的时候已经在海面上发现了很多死鱼，与此同时还发现有不少鸟类尸体。就连水俣镇上的猫一夜之间变得诡异不已，一边不断奔跑摇晃，嘴里还吐着泡沫，身体不断抽搐。兽医们也无法找到具体原因，所以将这些猫的症状叫做“猫舞蹈病”。没过多久，大规模的病猫集体跑到海边跳海自尽，数量高达5万多只，整个水俣湾都被这些猫的尸体所阻塞。此后，城市里的狗、牛、猪等动物都像疯了一样不断狂吠，最后在癫狂之中死去。动物专家们都找不到这些动物的真正死因，只知道这些动物是因为脑神经坏死而失去生命。直到后来一位名叫田中静子的5岁小女孩身上也出现了类似的症状，口吐白沫，步伐摇晃，身体抽搐。一个月后，这位小女孩双目失明，全身痉挛而死。此后静子2岁的妹妹也发生了同样的症状，城市里也传来越来越多相同的病例，这才引起了重视。经过调查发现在水俣湾附近的一家工厂向海水中排放了大量的污水。这些水中含有大量的重金属，其中汞超标了至少十倍以上，后来这个病也被称为“水俣病”。患上“水俣病”的人会在视觉、听觉、发声器官以及运动能力都受到严重损害，直到出现瘫痪、意识模糊最终死亡。时隔几十年，日本这么快就忘记这些惨痛的教训，现在又公然与全球作对，拿全人类的生命健康开玩笑。海洋的颜色会发生变化吗？海洋的生物会怎么样？那些大海龟、鲨鱼……海底的各种各样美丽的生物还会有吗？会不会真的出现科幻电影中长着三个头的鲨鱼、巨大的噬人鲨？我们虽未可知，但真的会心痛，为那些曾经生活在海底的生物。据报道，中国海关总署8月24日13点30分左右发布公告，宣布全面暂停进口日本水产品。左岸记：排了，他排了，排了核污水，排了他的人品，排了他的人性，这意味着我们以后可以质疑关于他的所有一切。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

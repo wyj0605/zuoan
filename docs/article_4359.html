@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京十年六城</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>北京十年六城</h1>
+            <div class="date">2026-03-04 09:53:28</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>北京十年六城北京十年六城原创千鸟千鸟左岸读书2020年08月29日 20:29在小说阅读器中沉浸阅读文/千鸟1、内蒙古呼市2010年，刚毕业，带着豪情壮志进入了一个当时最期待的那份职业，全家人和自己倍感骄傲。入职地点在北京，暗自庆幸，开始计划着未来的工作，比如定个五年目标：拿到北京户口；再定个十年计划：在北京买上一套不错的房子。正式工作前，根据惯例需要到内蒙古进行一年的封闭式培训，于是有了第一城：内蒙古呼和浩特，毕业的第一站。封闭式培训的过程都很煎熬，无法消磨的寂寞空洞，总需要某些东西需填充。于是发现了左岸，忘记是哪段文字了，依稀只记得那句话特别适合当时的场景。于是添加收藏，每晚会打开左岸，看看是否有更新。那时，总会拿笔摘抄惊人死不休中的句子，然后再读读那句一直激励自己的slogan:一切成功源自积累。拿着北京分公司发的薪水，在内蒙呆了一年，与一帮来自全国各地相同命运的朋友一起学习、锻炼，没有任何工作却也不清闲，培训目的无非就是让大伙们提前感受下未来的工作环境。2、天津五科小镇本以为来北京工作的地方是在某个光鲜亮丽的大楼，结果却是天津海边的一个小镇，名叫五科，是北京的一个飞地。以至于后来有人问我北京的房价多少时，我总是会拿这里开玩笑，“我知道北京西城区有个地方，800一平，最多不过2000”。入职时出了点小插曲，报道名单上没有我的名字，负责核验的领导电话问了半天，最后才确认带我办理入职，当然他没有现场告诉我这些，后来知道这事已是几年后，再去追究也没有什么意义了。岗位被有能量的人调包，只能说运气太好了。五科小镇，这个地方怎么形容呢? 苍蝇、蚊子、卢苇草是这里的“三宝”，欢迎到此一游。当然，艰苦的工作环境总会有能够拴住人心的利益驱动，在这里工作的人可以享受更早的拿到北京户口的优势，于是也出现了不少在这边挂职当跳板的场景。这里不是我应该待的地方，我需要更大的工作平台，不然我十多年的寒窗就浪费了，我选择了考研，后来也顺利通过，我以这样的方式告别了这个地方。这便是我的第二城：五科小镇，再回头看看，这里环境虽然不好，但却是最美的地方，清净。3、湖南长沙继续拿着北京分公司发的薪水来到长沙学习，工作之后再回校园的感觉是不一样的，好不容易抓到的机会，我会想办法弥补曾经校园时代欠下的学习债，当然这几年默默守护在身后的她，也是在长沙，我们决定开始组建家庭。我的第三城：长沙，我在这里结婚生子的地方。一开始觉得气候闷热，后来开始喜欢上这里的地方。岳麓山、橘子洲……，还是得给你们说拜拜，我没法在这里长期工作和生活。早晚会离开，研究生毕业后返回北京，这是允许我来这里学习作为交换的筹码，没有哪个公司愿意白白花钱培养一个人。4、北京市领了北京分公司5年的薪水后，终于来到了这个我所期望的工作地点，真正的北京市辖区，我终于进城工作了。在这里，很顺利与同事们融为一体，互相配合，完成每一次重要工作，除了体验专业技术所换回来的成就感外，思考的就是如何尽早地解决北京户口的问题了，毕竟现在有了家庭，这个是当下最重要的问题。当然，我也开始不自觉地对身边有想来北京工作的亲朋好友进行善意的警告“北京是个吃年轻人的城市，建议别来”，如果是至亲，我会极力劝返，打消他们来北京打工的念头。这便是十年的第四城：北京市。5、贵州某县这是我的老家，我从出生就居住的地方。风云变幻，我这里的家被政府给强拆了，有法院判决政府违法的那种。强拆的场景大多类同，就看谁比较背遇到了。我在北京的工作职业，本以为这种事不可能发生，但他还是发生了；即便发生了，还以为凭着公司的后盾，也会有一个不错的解决方式，组织不至于让一个员工前方流血，后方流泪。后来3年里，我多次请求公司出面协调解决家里事，无果，我突然成了领导眼中的另类，公司的包袱，本该到了解决北京户口的时候，领导不提，而我对解决家庭生存的问题，比拿北京户口显然更大得多。最后，维权跟北京户口都没有搞定，我放弃了北京户口的念头，离职了。离职两个选择：户口回原籍或者媳妇户籍所在地。这便是我与家乡贵州之城的结局。6、黑龙江牡丹江第一次去的城市，总共呼吸时间不足24小时的地方，成了我新的的户口所在地。十年前，不曾想过会以这样的方式解决自己户口问题，命运真是爱折腾人。也许，以后真会在这里居住，如果小孩要参加高考的话。7、小结北京工作了十年，离职了，当然依然会继续在北京工作，只是才新开通社保账户，工作履历上，出现了十年的空白。竟然还有这种操作？左岸十年粉，感谢左岸的陪伴。左岸记：桃李春风一杯酒，江湖夜雨十年灯。前有贾刚的5年小结，这有千鸟的10故事，感谢大家这么长久的陪伴！成长的世界，果然没有容易二字。5年前，10年后，我们会在哪里，我们又会有怎样的变化，未来是不可预知的，但我们追求美好幸福生活的心不会变，我们会负起我们的责任，努力拼搏，砥砺前行。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

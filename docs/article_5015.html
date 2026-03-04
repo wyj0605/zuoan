@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有一种味道，念念不忘</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>有一种味道，念念不忘</h1>
+            <div class="date">2026-03-04 09:55:43</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>有一种味道，念念不忘有一种味道，念念不忘原创我是左岸我是左岸左岸读书2022年06月03日 07:00福建在小说阅读器中沉浸阅读文/天涯倦客1.连雨后的晴天，阳光特别灿烂。草木青翠欲滴，整个人间都裹着希望的金黄，耀目得让人感受不到连日的阴霾。走在路上，四处飘荡着菖蒲、艾草和箬叶的清香。又是一年粽飘香，可家里粽子依然没有着落。以前，每逢端午时母亲总会提前泡好糯米，用笋叶包成牛角状，这是家乡常见的粽子，也是母亲包了一辈子的粽子。母亲包粽子手法极好，速度也快，三两下便完成一个漂亮的粽子，然后用麻绳连成一串串。包好的粽子冷水入锅，用柴火煮一两个小时，再闷一段时间。揭开锅盖的刹那，浓浓的笋叶香气扑鼻而来。剥开笋叶，在晶莹剔透的粽子上撒些白糖，咬上一大口，软糯的糯米、笋叶的清香、甜腻的白糖在口中化作人间绝美的滋味。母亲没有文化，不知道各个节日溯源，更不会用华美的语言给我讲述传统文化，但她却总默默地亲手为我打造每个节日的仪式感。就像她包的粽子一样。没有繁复的花样，却成了记忆中最念念不忘的味道，于每个节日里，我都会寻着记忆，一遍遍品尝。母爱的味道，从来都不复杂。母亲的爱，从来都不掺假。2.去菜市场，买了糯米、五花肉、蜜枣......箬叶，照着网上的教程，把自己关在厨房。一次次失败，一遍遍尝试，却是箬叶破裂，米撒了一地。成年人的崩溃，也许就在粽子散开的瞬间。总以为，留住一个人，最好的办法就是留住她的味道。母亲走后这些年，总是在沿着她的足迹，固执地想要复制她的味道。可惜，曾经以为吃腻的饭菜，再也尝不到；曾经以为唾手可得的母爱，如今再也寻不回了。索性一把扔了箬叶，蹲在地上，报膝而泣。小呆闻声跑过来，瞧见满地狼狈，误以为我是因为学不会包粽子而沮丧，一边替我擦眼泪，一边学着我的样子，安慰我：“妈妈，没事儿。让我把勇气传给你，这样你再试几次，就成功啦！”临了，还不忘在我额头上亲了亲。也许，勇气真的可以传递，让我果真瞬间恢复了斗志。于是，开始静下心来认真观看视频，反复揣摩别人的手法，再一次次实验。终于，一个漂亮的粽子躺在我手心。小呆兴奋得又蹦又跳，大叫：“妈妈，你太棒了！”我含泪而笑。母亲，你瞧见了吗？那个在你面前叫嚷着永远也学不会包粽子的女孩，终于也学会了包粽子；那个在你怀中撒娇的女孩，也终究成了别人的母亲。3.我与小呆津津有味地吃着粽子。蜜枣味、鲜肉味、五谷杂粮......包了许多口味，却唯独没有一颗是白米粽。于我来说，无论怎样模仿，都复刻不出母亲的味道。但于小呆来说，这是属于他的妈妈的味道。终有一日，这些味道也将成为他毕生的念念难忘。生活就是这样，一边回忆，一边继续，从不肯真正停留。也许我们无力阻挡时间的流逝，我们也必将面对与家人、爱人的生死别离。但死并非生命的结束，它会作为生的一部分永存。记忆、味道与爱，就是对灵魂的延续。只要我们活着，记忆就不会消失。而那些念念不忘的味道，终会在我们手中传承，滋养一代又一代。就像，母亲的爱。左岸记：文章写的真好，朴实却让人无穷回味。端午节，必须有粽子，要是亲手包的，那味道就更好了。一般家庭里，总有个很会包粽子的，这人往往是母亲或者妻子，那粽子怎么会不好吃呢，她们包的是爱，是传承。端午后是高考季、也是中考时，祝所有的中高考学子“高粽”！</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

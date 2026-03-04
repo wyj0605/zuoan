@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>除了读书，我们还有其他选择吗？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>除了读书，我们还有其他选择吗？</h1>
+            <div class="date">2026-03-04 09:58:39</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>除了读书，我们还有其他选择吗？除了读书，我们还有其他选择吗？左岸读书2021年07月09日 22:38在小说阅读器中沉浸阅读以下文章来源于自言稚语，作者雨令自言稚语.我是雨令(Windy)，探索人生哲学，追求自我成长的理性思考者，专注于心智成长和自我精进。和我一起，由内而外地重构自己，获得自由富足的人生。文/雨令上周末，我报了一个小团，从丽江出发去了香格里拉。香格里拉的确是美的。浪潮似万马奔腾的虎跳峡，避世仙境岁月静好的普达措，牛羊遍地一望无际的纳帕海草原……天空里白色云朵夹杂着纯净淡蓝，让人心情舒坦，暂时忘却那些琐碎的烦恼。行程的最后一顿饭，是在导游师傅的姐姐家吃的。藏民的家都很大，这是一栋新盖的两层半的木质结构的房子，顶棚是半透明的屋顶，周围都是大块大块的玻璃，空间极大，一眼望去很是阔气，相比起大城市里的蜗居，这里在居住面积上的确算是天堂了。这顿饭是我在香格里拉吃得最好的一餐，有松茸鸡汤，有各种口味的牦牛肉干，有奶酪青稞馒头，有酸到掉牙的老酸奶......小姐姐很漂亮，还给我们端上了家里自酿的酒——冬虫夏草青稞酒和藏红花松茸酒，接着还非常专业地给我们普及了冬虫夏草的真假优劣，非常有意思。她年纪近40，但看上去很年轻，大方热情，跟我们聊起天来一点都不拘谨。我很喜欢大方自然不做作的人，所以对于藏民又多了几分亲近感。在聊天过程中，我们知道她女儿都20+了，在读大学，不过已经有了对象，并打算结婚，后面应该是不打算继续读书了。不读书了？这句话有点震惊到我们。对于我们大多数汉族人来说，不读书这件事情太离经叛道，我们似乎从来就没有想过自己可以选择不读书。毕竟从小到大，从幼儿园到小学中学，到大学，再到出来工作，几乎每个人的生活轨迹都是大同小异的。换句话说，读书是我们未来生存和发展的一条相对来说可行性较高的路径，除此之外，似乎没有其他更合适的路径。（家里有矿的人不在此列）可于他们而言，读书只是生活的一个选择，并且在他们看来，这个选择并不怎么样。据小姐姐说，小孩并不喜欢读书，而且以后也可以靠养牦牛，挖冬虫夏草松茸过活，所以他们似乎更愿意过传统惬意的生活，读书似乎并没有太多价值。（PS: 牦牛，冬虫夏草，松茸这些东西卖得有多贵不用我多说......）无可厚非，对于藏族小姐姐来说，他们是有退路的，即使读书读得不好，即使成绩很烂，即使没有拿到文凭，最终找不到工作，他们依然可以潇洒地离开，退回到老家，遵循着古老又自洽的生活方式，依然可以过得有滋有味。而至于你我，是无路可退的。我们只能尽力往前奔，涌入到熙熙攘攘的人潮里，去见识这个世界的焦躁，去感受这个社会的残酷，但同时，也许幸运的话，会在某些时刻，看到一个更大更辽阔的世界，遇到一些更好更有趣的人。读不读书，有时候也不是我们能够主动选择的。试想一下，如果你在求学路上中途退学，接下来你会去做什么呢？我们大部分人家里没有矿，也没有地，更没有香格里拉藏民们得天独厚的生存方式，所以读书之外的选择并不多。当然，你对人生并没有太多期待，那另当别论。至于我自己，我还是很庆幸在上学的时候有好好读书，有好好学习，至少现在让我在这个内卷的社会里活得没有太辛苦。香格里拉是美的，但是让我一生都守在这个地方，我是不愿意的，因为景色固然美，但我内心还有着更浩瀚的小宇宙。人这一生，漫长而又短暂。多读读书，多见见人，多走走路，多看看这个世界，我们的人生才会变得更有厚度。简单的舒服惬意当然会有幸福感，但是当你细品，总是会感觉少了点什么。读不读书这件事情其实并不重要，重要的是，你是否一直都清楚地知道自己是谁，想过什么样的生活。如果暂时不清楚自己未来的方向，不了解自己到底想要什么，那选无可选的读书这唯一选项，也许也并不是一个坏的选择。话又说回来，如果我们有了退路，选择是更容易了呢？还是更难了呢？我也没有明确的答案，但是我唯一确定的是，我很感激过去努力的自己。不管在做什么，有明确的方向，有向上的动力，最后的结局都不会太差。如果没得选，是不是可以把那件板上钉钉的事情做好呢？我想这才是当务之急，你们说呢？左岸记：读书虽不是唯一的出路，但对于那些家境一般的人来说，读书是最快，最好，最有希望的出路。如果你现在放弃了这条这么好的出路，那么那些绝对更难走的路，我实在是不认为你有什么可能走通，除非你本就有大志宏图且身有某种凌绝天赋。如果你现在放弃了这样一条叫读书学习的路，选择其他的，那么你大概率会悟道这样一句话：“比起其他，读书真不是一件难事”。修改于</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

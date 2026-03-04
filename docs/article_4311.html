@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兽性，人性，神性</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>兽性，人性，神性</h1>
+            <div class="date">2026-03-04 09:53:18</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>兽性，人性，神性兽性，人性，神性沈万九沈万九左岸读书2021年09月12日 17:31在小说阅读器中沉浸阅读文/沈万九1.有这么一个新闻，说有一个安徽奇女子，在遛狗的时候，跟人产生了争执，盛怒之下，大放厥词：你敢动我的狗！我就敢弄死你的孩子！！你没有我的狗值钱，几千万还是赔的起的！此事一经爆出，便在网上形成轩然大波，众人都觉得，此女子太过跋扈，欠缺人性——你的狗再怎么名贵，还能贵得过关天的人命吗？！然而，女子背后的心理特点，却在我们生活中随处可见，只是程度的深浅不一而已。可以想象，该富太一直活在自恋高位，仿若“众星捧月”，飘飘然得有着极大的优越感。而狗属于她自恋的一部分，一旦跟别人产生争执了，自恋受损了，怒气值瞬间爆棚。于是，她能想到最好的解决方案，就是以金钱为利器，拉满了攻击性，尝试重新恢复她的自恋水平。2.其实，自恋作为人的基本动力之一，本身没有好坏之分，但如果单纯地停留在这个维度里，那就值得我们注意了。有这样一个男人，娶了个漂亮年轻的北京姑娘，感觉挺有面子的 ，一直来对老婆也挺好的，朋友圈经常能看到他带老婆去世界各地旅游。可是突然有一天，他的生意破产了，炒股也失败了，欠了一屁股债，自恋严重受损。为了重新恢复自恋的高位，他最早实施了一个万分恶毒的计谋：两次放毒毒晕老婆，然后人为制造车祸，并最终杀妻成功，骗取上千万的保金。所幸，天网恢恢，计划再周全，还是给警察识破了。这个案件在央视一连播了三天，很多人都无法理解，男人怎么一夜之间就从“宠妻狂魔”变成了“杀人恶魔”呢？其实，个人境遇的变化，只不过是诱因而已，真正的原因是，这个男人一开始就活在自恋维度，前面哪怕这对老婆很好，也不过满足他自身的自恋而已。所以一旦自恋严重受损，他就开始不择手段了。3.说到这儿，可能有些朋友会问，自恋维度到底是什么？还有其他的心智维度吗？其实，从个人的角度来看，衡量人性有三个基本维度：第一是：自恋维度也可以称之为权力维度。对应着兽性：主要追求的是力量的大小，或者权力的高低，在乎的是“我行”、“我好”。然而，当他有“不行或不好”的时候，会把这种“我不好我不行”的感受往外去扔，投射给他的另一半或者他的亲人，认为是对方导致的——这意味着他容易去归罪，去指责其他人。当然，也有些人会归罪自己，变成自我攻击，让自己内耗，抑郁。像是典型的“不优秀不配活”，或者是“100分的妈妈”，都是单纯地活在自恋维度的一类人。可以说，严重活在自恋维度上的人，会觉得世界只能有一个中心，要么是“我”，要么是“它”。而这里的它，是没有生命的，是敌意，是不可控制的部分，是我们内心想象的魔鬼。第二是：关系维度对应的：人性主要追求的是情感、关系，内在的尊重和平等。在乎的是“你的感受，我的感受。”这也意味着他能够放下一些自恋，同时在乎彼此的感受，心里已经住下了一个“你”。在关系维度，能给人一种平等的大地感，而这也是安全感的来源——在”我“之外，有一个充满着爱的你始终存在着。心理专家武志红曾说：“比起什么都是自己说了算，一个人更期待，在“我”不能控制的边界之外，有一个善意的“你”在那里”。总的来说，从只在乎力量的自恋维度，发展到真正在乎感受情感的关系维度，是人格的重要发展和心智的成熟。第三是：觉知维度对应的是：神性其在乎的并不是“我行、我好”，或者是彼此的感受。而是能够暂时地放下这个”我“，也能暂时地放下彼此的关系，在一个更高的视觉和维度，智慧地看当下。总的来说，一个人的心智成熟，正是从单纯地在乎强弱高低的自恋维度，慢慢地发展成，会考虑感受平等的关系维度，再发展到偶尔去到觉知维度，感受更大的道......这样一个交错循环的过程。4.有这么一个长程的来访者，在咨询的早期，她都会本能地担心，紧张，或是害怕，好像是战战兢兢地参加一场考试一样，可每次咨询完之后，内心都会有一些爱或者能量涌现出来。她很好奇，为什么会这样？因为正是一次次的转化，让她内心越来越有安全感，越来越能够面对关系和自己。其实，背后的心理动力就是，从“自恋维度”进化到“关系维度”。这位来访者，在过去一直喜欢玩自恋维度的游戏，乃至在咨询过程中，也会把这个游戏规则投射给咨询师，认为咨询师会在乎她的好不好，行不行——所以好像总是在考试答卷一样，很累——这也正是过去她父亲会对她做的事情。而我们在咨询中，陪她玩的不是自恋维度，也不认同这个游戏规则（她交往的前男友很容易认同这个游戏规则），而是把她带到关系维度，不断地引导她关注彼此的感受，从而让她产生爱和温暖的感觉由此可见，自恋维度的解药就是关系维度。5.有这么一对夫妇，在一起几十年，老婆特别在意名利，非常用心工作，几十年如一日，混成了一个比较高级的公职。然而，对于能力比她弱的人，她会习惯性地冷嘲热讽，恶意打压，甚至连自己的孩子也不放过。同时，她还有着严重的重男轻女情结，因为她从骨子里认为，女人本身就是弱势群体。有意思的是，她的老公看起来跟她完全相反，喜欢跟不同的女性在一起，建立各种肤浅泛滥的关系，对于事业也没有任何的企图，常年吃父母的，吃老婆的。对此，有人可能会猜测到，老婆肯定是活在自恋维度，老公在乎关系，不在乎强弱，所以活在关系维度。但其实并不是，可以说，这对夫妻都活在自恋维度上，只不过老婆是比较明显地追求权利高低；老公则是打着渴望关系的幌子，来满足“我很好，我有魅力”的自恋维度。可以想象，这样的夫妇纠缠在一起，相杀多年，对孩子和自身来说，都不亚于坟墓。6.众所周知，要让一个孩子的自我感觉良好，需要在6岁之前最好收集到1000个父母的赞。然而，有些父母一辈子都不当面夸孩子呢？甚至一次都不会有。为什么呢？其中一个重要的原因，就是父母活在自恋的维度，尽管心里对孩子有认可和赞叹，但觉得，夸奖孩子就是把孩子置于了自恋维度的高位，同时自己就处在了低位，心生恐惧，所以不能做。可以想象，在这样环境中长大的人，进入到亲密关系后，也很难学会去夸奖称赞对方。关系的流动也没有那么和谐。7.说到这里，很多朋友可能会问，一个人到底应该怎样走出自恋维度？首先，我们需要充分地接纳自己。要知道，自恋维度并非是坏的，只是代表心智成熟的程度而已，就像是一个含苞待放的花蕾，可以继续盛开，也可以就这样含苞余生——选择权在自身。其次，我们需要真正地尝试面对恐惧，带着觉知，去慢慢积累一些关系中的滋养性体验。举一个例子：一个高高站在岸边的人，怎么样学会游泳呢？很显然，一开始得脱掉衣服，换上游衣，然后勇敢地走进泳池，可能最初还得带上泳圈，倘若有教练教一下就更好了——哪怕没有人教，自己摸索着，或是看看旁边的人怎么样游，然后尽可能地用正确的方法，去尝试。尝试多了，慢慢地找到门道，找到感觉，最终才学会游泳，也不怕水了，甚至会爱上在关系的水池中自由温暖的感觉。左岸记：一个人如果太过自恋，那他其实是个极度自卑的人，自恋表现出来的自大就是为了掩盖自卑的不足，让自己能活在一个自己虚幻的世界里。而良好的人际关系是能在这个关系中形成良好的连接，互相理解，相互扶持。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

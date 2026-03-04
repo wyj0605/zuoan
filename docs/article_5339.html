@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>碧天静，霜满地</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>碧天静，霜满地</h1>
+            <div class="date">2026-03-04 09:56:46</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>碧天静，霜满地碧天静，霜满地左岸读书2016年10月23日 19:23在小说阅读器中沉浸阅读冬来之前，寒霜先至，深秋的最后一回眸，也随着这一天，逐渐消失了眉眼。霜降，为秋做最后一个静默的退隐仪式。落叶，在寒霜的侵蚀下，由橙色，变枯黄，随即化入泥土，成就来年新绿，一岁荣辱，到此终结。老人总讲：天降寒霜，其实，霜不是从天而来，是生发于地表之上。《月令七十二集解》中讲：九月中，气宿而凝，露结为霜矣。可见，气遇冷成露，露遇寒凝霜。天冷了，农人秋收完结，转而冬藏，万物寂然。气象学上，一般把秋季出现的第一次霜叫做“早霜”或“初霜”，而把春季出现的最后一次霜称为“晚霜”或“终霜”。从终霜到初霜的间隔时期，就是无霜期。也有把早霜叫“菊花霜”的，因为此时菊花盛开，北宋大文学家苏轼有诗曰：“千树扫作一番黄，只有芙蓉独自芳”。南宋诗人吕本中在《南歌子·旅思》中写道：“驿内侵斜月，溪桥度晚霜。”陆游在《霜月》中写有“枯草霜花白，寒窗月新影。”说明寒霜出现于秋天晴朗的月夜。秋晚没有云彩，地面上如同揭了被，散热很多，温度骤然下降到0℃以下，靠地面不多的水汽就会凝结在溪边、桥间、树叶和泥土上，形成细微的冰针，有的成为六角形的霜花。霜，只能在晴天形成，人说“浓霜猛太阳”就是这个道理。有《霜降》诗云：“时逢秋暮露成霜，几份凝结几份阳。荷败千池萧瑟岸，棉白万顷采收忙。”霜降三候：一候豺乃祭兽 丨 豺狼捕猎，初获祭天，以示回报，此为兽之道义，更为人之道义。二候草木黄落 丨 风卷残叶，雁留影无踪，凋零的季节到了。三候蜇虫咸俯 丨 蛰虫开始冬眠，大自然变得寂静。霜降之后，天气渐寒，此时煨一锅汤，是再好不过的滋补养胃之举，所谓“女子三日不离藕”，莲藕是墨鱼干做汤最合适的搭档。霜降要吃柿子，是很多地方的习俗，对此泉州的老人讲：霜降吃柿子，不会流鼻涕。类似这样的说法，乍听不明所以，细细想来，却能体味出民众的淳朴可爱来。仿佛把流水般恬淡的日子，过出了一丝仪式感来。冬未至，寒霜先降，百木枯，心自悲凉。古人比较容易伤春悲秋，也正因此，才写出了情感至深的文章。秋，是一个容易引起人心底最柔软情感的季节。从满目金黄，到满目枯黄，我们目送的是一个季节的流失，迎来的是一段生命的成长。这是大自然的规律，大可不必伤悲，冬要来了，想起大雪纷飞，又是一阵悸动不是吗？生命永远有惊喜，沉静的送走昨天，欣喜的迎接明天，不管季节如何更换，生命永远美好而温暖。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

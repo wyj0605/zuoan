@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浓香不及淡久</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>浓香不及淡久</h1>
+            <div class="date">2026-03-04 09:56:12</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>浓香不及淡久浓香不及淡久水上冰忆水上冰忆左岸读书2015年12月23日 09:48在小说阅读器中沉浸阅读浓香不及淡久我们常常感叹梦想被现实无情毁灭，其实，二者本就有距离。我们要学会的是将梦想捏碎揉进日常里，在每天每夜的渐进累积中让梦想成形。——题记时光记时间过得很快，每被提及，内心都被击中。它行色匆匆，没有设置提示音，我们仿佛是在茫茫夜色中行走，一边赶路一边追问，到底要经过多久的黑暗才能看到太阳升起。我多想时间能走得慢些，day by day,每一天都在做恒等公式，左边是许多个must-do和plan-be的叠加，右边是时间本尊。分解和细化是因为热爱，内容的更迭是时间走过的痕迹。五一去高速口接姐姐和小宇，小家伙抱着一箱枣向我走来，笑没了大眼睛，回到家我抱着他照镜子，小长腿已经够到了我的膝盖，他会说，小姨我已经六岁了我长大了，可以玩遥控飞机了，你给我买吧。宝贝出生18天后，我从学校去看他，小小的睡得很香。year by year，他长成了现在的模样，说着他的年纪里的玩具，书本，朋友。妈妈总会说起在我这个年纪她的人生，我不及妈妈能干和坚强，但我认为这是女人一生可贵的品质，也是我努力要做到的。我们三个都已成家，长着爸爸妈妈年轻时的样子，沿着他们的脚印走向生命深处，内心勇敢善良，脚步坚定有力。生命代代相传，时代在进步，代际之间的见闻迥然不同，心性却是惊人的相似，孩子是父辈的继承，正如从孩子的面孔和身形中能看到父母的样子，从孩子的一言一行中能读到家教。我们的此身此情是爸妈的年轻版，孩子的可爱样子像极了幼时的我们，时光道是无情最有情，感恩生命的馈赠和传承，虽然肉体终有时，我们得以以其他的方式继续存在着。姐姐常夸他的儿子是个小暖男。愿岁月英俊了宝贝的容貌，愿温度不减，愿宝贝与人永葆良善之心。流水记豆瓣上加入了某手帐小组，然后就一发不可收拾地陷入。翻翻以前小红本零乱的散记，下决心要做个精致周全的小女人。菜鸟先拿囤积的笔记本做初级，借鉴前辈达人的经验和技巧，摸索出适合自己的记录方式。专业的手帐本和文具闪闪勾人心，当本领配得上梦想时，我再专攻。晒晒第一笔手帐。首先自制了四月的日历图，下一页开始各种记录与西安的两日约。文字主打，车票门票随附，照片后补。虽然不是如身披紫金战袍，天飘五彩祥云这般异彩，我和西安的再次相遇总会是有点特别的吧。呃。你还是懒懒的阴柔。默。Day-1, 小夫妻档畅游兵马俑和华清池，西安，我更加懂你了，记得第一次是同班级同学来的，画面美又清晰，有种时空错乱的混沌感，好想你们。我是陪伴和学习的，再次笨拙地错觉：以为还是情侣时的我们结伴出游。目前的状态是解读婚姻-ing。我想，也许婚姻是一张硕大的拼图，碎片藏匿在时空的各个角落，边走边凑，定是要漫长的一生才能完整拼凑，览她无余。或许是两个人的柴米油盐，温情美好就是婚姻的落地和神圣。whatever,既然执子之手，风景这么美，我们要相携去看尽才好。Day-2,见证小颖的爱情长跑修得同船渡。感情里，信念坚定，就没有什么不可战胜的，距离沦为炮灰。一切来之不易，祝恩爱安好。小颖还是读书时候的样子，清淡甜美，少了拘泥，多了几分洒脱，她比从前更快乐更幸福。我想这样就很好。告别的时候到了，唯愿我们无事常相见。散落在各地的我的星辰们，愿身所受的更多是眷顾和抚慰，痛苦烦恼少些。即便被击打，也能勇敢地走出困境，切换到心晴模式。愿此后我们更多重逢。成长记昨天R同学去上班以后，我一个人在家无所适从。他临出门嘱咐道，天会下雨，出门不要走远了。在桌前写了点东西就爬在桌子上睡着了，醒来看看表都六点半了，好想出去吹大风啊，无奈没个去处，于是骑车回娘家。爸妈晚上都吃很少，年纪渐长的缘故，他们会注意饮食和饭量，而我像个半大小子似的，吃得最多，全然不顾长肉的身躯。饭后发呆神游。我渐渐地发现，长大后的这些年，你需要一个能迎合自己节奏的同伴，因为落单很打击，独行很没安全感。又不知从何时起失去了相约的能力，习惯安静地站在远处，不愿打扰。网友纷纷吐槽手机和微媒体，自从有了它们，距离变得遥远。我很享受手机换代带来的便利，以及APP软件对生活的加分。我想，孤单源自内心。无关他人，人就是越长大越孤单的吧。调查说玩游戏于人类文明无益，本来也就不痴迷，我果断放弃。又看报道说，看电视剧人会变笨，一个人的时候就不开电视了，据说这样的寄托不会提升幸福指数和存在感，心会愈发地孤单。我总想在短暂的一生中活出真自我，日子平淡幸福，不想年华虚度。这种感觉越来越强烈，也许是一直在寻找生命的意义吧。于是，有了一个大大的计划，各种待定考验，且行且摸索吧。果然，是有很多事情要做，情长路远，还好为时未晚。生日记今天是R同学的生日，以后每年的生日我们都能一起过了。愿你离自己梦想的样子更近一步再近一点，然后有一天，我能笑着面对那时的你，允许你傲娇一会。感谢你出现在我的生命里，并带我走进你的生活，如今是两个人的小日子了，你表现挺好的，希望越来越好，当然，我也会加油的。那天我翻之前的日记了，记得我这样写过：你撑桨引航，我笑靥如花。我们一起看细水长流，品天上人间。哈哈。年少时就爱拽文词，现在还乐此不疲。吐舌。我很感谢同你一起之后，我能保留最初的样子。我还是很想要一台打印机，买粉红色的纸放我的碎碎念，你说好不好。我一直不太明白“浓香不及淡久”的真意，上次同姐姐去挑被罩，选中了淡粉色大花系，回家越看越喜欢，我就突然明白了，又装作很懂似到推及到我们身上。让我们天长地久地在一起吧，清淡，安宁就好。忘了最重要的祝福：祝你生日快乐，爱你。左岸记：嗯，满满的都是温馨和幸福。美好的祝福给你们，给所有懂爱珍惜爱的人。时光深处，愿琴瑟在御，岁月静好，安然若素。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

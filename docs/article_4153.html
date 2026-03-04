@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从ICU到KTV，有人很感动，有人不敢动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>从ICU到KTV，有人很感动，有人不敢动</h1>
+            <div class="date">2026-03-04 09:52:43</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>从ICU到KTV，有人很感动，有人不敢动从ICU到KTV，有人很感动，有人不敢动左岸读书2022年12月08日 06:45福建在小说阅读器中沉浸阅读以下文章来源于开膛手贝塔，作者开膛手贝塔开膛手贝塔.入世而不世俗，温情而不凉薄，写那些第一眼看不清的事。文/开膛手贝塔11忽如一夜春风来，各地的防疫政策，迎来了几乎180度的转变。北京、郑州、广州、成都……从之前的静默、全员，24小时、48小时、72小时到现在的不查了，不做了，不封了，不看了，好像真的就是一夜之间。人是很容易熟悉并习惯的，其实之前这样的生活，我们好像也没有过很久，也就是进入2022年之后，上面的这些静、全、做才成为了常态。之所以有如此大的变化，其实有一个关键的节点信号。11月30日，中央层面举行了一个座谈会，这一次的会议上，张伯礼、沈洪兵、王军志、梁万年、杜斌、冯子健、杨维中、董小平等8位专家作了发言。会上一句很重要的话是——随着奥密克戎病毒致病性的减弱、疫苗接种的普及、防控经验的积累，我国疫情防控面临新形势新任务。新形势，大家也看到了，日增好几万，清是清不掉了。而且，越清越多，也没有清的必要了。新任务，自然是随着形势的变化，也有了新的聚焦——把老年人的疫苗打好，把易感人群的底线守好，其他的人 ，靠自己扛了。以前宣传的，都是如何防控，现在的宣传，基本变成了个人患病应该怎么处理、症状其实并不厉害、有问题了别去医院在家自测自养就好。2江河奔流的方向，就是每个小水珠的方向。今天出去，一路上，发现大家都很自觉地戴好了口罩，小学生也好，白发老人也好，每个人都把口鼻捂得严严实实。因为大家都知道，团战已经临近结束了，下面，是大家自己跟病毒拼刺刀的时候了。就像这张图说的，我们从ICU，没有什么心理准备的，直接被扔进了KTV。而且你会发现，这个KTV里，都是陌生人。现在也就只有两个选择了。要不，你就跟着大家唱，唱着唱着，就发烧了。但是你唱得很欢愉。要不，就是你默默从包房里退出来，看着大家唱。当然，这种观望，也维持不了太久，你不进这个包房，迟早要进下一个包房。包房里，不仅仅是唱歌跳舞，也充满了战斗的气息。战斗，需要武器。白开水，就是你的液体面包。布洛芬，就是你的单兵炸弹。好好吃饭睡觉，就是战时的最好休养。3接下来的两三周，是一个很紧要的时间窗口。你可以很明显地发现，更多的人，并不是那么欢欣鼓舞，而是在带着一丝担忧、一些恐惧、一些期待，默默地观望。以前门庭若市的地方，现在依然门可罗雀。以前可以稍微放松点，露天地不戴口罩，现在则是要严丝合缝了。大家心里都忐忑，但又不知道该怎么办。以前，官方帮你鉴别了，现在，需要自己鉴别了，但是你又没有办法。非必要不核酸，还是现在日增数万的情况下，绿马已经没有办法分辨这一切。而且多数人的思想，并没有像政策那样迅速地转变——哪怕它只是一个比感冒更轻的病毒，不得也总比得了好。一旦确诊，至少7天的恢复过程，意味着你的搬砖路又受到了阻挡，你的家人也会受到影响。4《阿凡达2》就快上映了，业界都在想着，能不能靠这个电影来救市。但时移世易，现在的卡梅隆也许还是以前的卡梅隆，但现在的观众，已经不是以前的观众了。十年一票难求，因为那时候，大家还处在一个信心满满的状态上。口罩，那是病人戴的，而不像现在，已经成为大家出门的标配。未来未知，但日子总要过下去。当下这个时间段，悲观乐观，其实都没有什么用，因为是日子和现实在推着我们走。很多选择，不是你的自主选择，而是到了你的头上，你能怎么做，就只有怎么做。想太多没有用，就多看少动，等待命运。就力所能及，保护自己。就兵来将挡，水来土掩。左岸记：随着各地的变化，实际上大家迟早要面对阳这件事。这个迟早不需要很久，大概率就是这个冬天。那么怎么来面对，或者怎么处理？囤药不必要，但家里要有些常备的感冒药，药不在于多，在于对症。生病最难受的不是一个人病了，而是一家子全病了，所以尽可能地及早分开自我隔离，保护家人。口罩不是神器，不能确保一个人不被感染，可是口罩可以确保一个人被感染的概率大幅度降低，所以你这个冬天上班的时候，外出的时候，采购的时候，全程戴着口罩。今年的春节，又是一个时间点，是一切重启的新起点，大家要做好个人防护，该打的疫苗要打，平时多喝水，多锻炼，以更强大的身体和心理好好渡过往后的每一天。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

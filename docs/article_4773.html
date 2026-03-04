@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>怨婴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>怨婴</h1>
+            <div class="date">2026-03-04 09:54:51</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>怨婴怨婴原创驰云旅驰云旅左岸读书2017年05月31日 01:12在小说阅读器中沉浸阅读导读：这是一篇比较黑暗的文章。如果可以，我情愿我不曾知道这些陈年惨事，更情愿自己如同任何一个听过这些事的人一样，转身就能够忘记。圣经有言：人心比万物都诡诈，坏到极处，谁能识透呢。虽说文字的一部分意义在于给人予启示和思考，从而引起反思避免悲剧重蹈，但未必人人都需要，我也不敢妄自强加。文中所叙比较黑暗，如果感到不适，尽可弃之，毕竟这是一个最好的时代。据说，受上帝宠爱的人都比较短命，可若说起这种宠爱人人都觉得背脊生凉，且内心深处有一股隐隐作痛的哀伤和微微颤抖的恐惧。首先必须承认并不是所有的生命都孕育和出生在身边人的期盼中，但幸运的是绝大多数生命的降生都得到了人世间的祝福和关爱，且被这个世界温柔相待，如一株嫩苗般理所当然地得到了阳光雨露，最终都长成了树木。面对一个呱呱坠地的新生婴儿，但凡能冠之以“人”这一称呼的生物，都会不由自主地将所有的柔情给予他们，即便是此生素不相识今后永不相见的陌路人，也都会生怕自己的说话声惊扰了他们微弱的灵魂，唯恐自己的脚步声踩伤了他们娇嫩的肌肤，缓慢的伸出双手如同接过一件易碎传世名品，那时那刻，真心地祈愿世间所有的美好都降临在这个初生儿的身上。然而不幸的是，人总有例外。“重男轻女”这一现象古而有之，几千年后的今天在伟大的华夏大地上仍旧是个被人诟病却无法根除的恶习。在我出生与成长的乡村里，这种观念更是树大根深，猖獗至今也未改变过。说起来这些都是三四十年前的陈年故事了，我很久前不经意在他们的一次隐蔽谈话缝隙里闻知了蛛丝马迹，然后好奇和恐惧推着我如同一个蹩脚侦探般，旁敲侧击地向身边的长辈步步挖掘被沉埋了多年的悲惨事实。那些罪状早就被时间埋葬在地底下，被伪装快乐的塑料花草掩盖得严严实实，让不知情的人误以为这儿一直以来都是一片桃源净土，却永不知道地表下的黑暗和血腥。那时候，B超技术仍未引入乡镇，所以妇人怀孕对于家中长者而言，那是一件又喜又惊的事情。自家妇有孕之后，他们便开始朝拜各大方位的神佛庙宇，动用僧尼道姑的神秘力量，以祈求一索得男。若真得其所愿，就会得到乡间邻里的声声恭贺，欢喜临门，主人家在人前人后也觉得神恩眷顾、气势斐然；但如果诞下女婴，众人就只能悻悻地安慰一下，并莫名其妙地鼓励下一胎生个男丁；而平日与之有过节的人家依此就能有恃无恐地痛陈他们往日的“失德”了，他们之间多年的恩怨较量伴随着一个女孩的降生就立即分出了胜负。由此可见，生而为人，只因性别的不同在生命的起点上就受到了截然不同的待遇。更为不幸的是，那些遭受冷遇的女婴，即便有面对这个世界所有不公和偏见的觉悟，也必须要有足够的运气才能得以存活下去。那些夭亡的女婴的灵魂就像上帝一时乘兴在阳光下吹起的彩色泡泡，曾有过五光十色但极其短暂的一生，在一条盛世康庄林荫大道上还未来得及观看这个世界，就破灭得如同从未出现过一般干脆决绝。伴随着它们消亡的惨剧中隐藏了无数被掩盖的残忍和黑暗，远非常人所能想象！在原本饱含期待的产房里，有的女婴一出生就被身边失望的至亲直接掐死，有的女婴被原本预备为婴儿洗澡的开水直接烫死，有的女婴原本不在被杀名单里，可生下来本能地啼哭不止，被一旁心情败坏的父亲从厨房里抓来柴灰强塞入口以致窒息而死…在我邻村的一户人家里，在三十三年前的一个暮春深夜里产下了一个女婴，于是产妇指使丈夫将那个女婴连夜提到一处河坝上，活埋了她！又有村中一个女人嫁到了不远处的一个渔村，再连续产下三个女儿之后，在一片惶恐慌错中生下了第四个女儿，于是还是由其丈夫将刚刚出世的女儿，深夜提到海边，据说在一处乱礁石处，对着午夜的潮起潮落，伴着最后一声微小的婴儿啼叫，将自己的骨肉抛进了大海…而这个女人第五胎生下的仍是女儿，则被其母亲（即我们村里的一个老妇人）抚养，那个曾与死神四目相对并赢得胜利的幸运女孩如今年近三十了，现在我每当看见她时总会下意识地想起她还有一个在生下当天就惨遭杀害的亲生姐姐。你绝对无从想象也无法试图理解，一个夜黑风高的晚上，一个刚刚分娩的母亲是杀害自己女儿的主谋凶手，一个父亲则亲手为亲生女儿挖掘了墓穴，将尚有余温的骨肉埋进了三月潮阴湿冷的河坝乱石丛中。那条自古以来孕育了我们周边数个村庄的小溪如今还在，我知道那里有三公里长的河边都是那个早已消逝的女婴的嫌疑墓地，至于那位上帝的宠儿究竟被弃身于何处，除了那位如今六十余岁的父亲外，并无人得知，或许他早已忘记了。我如今每次见到另一位父亲，总会心生恐惧和好奇，仿佛自己瞬间置身于一个审判台，心中有无数的声音在齐声呐喊“他是凶手！”，迫使我也能如幻想中的那些声音一样，横眉怒目地去揭发他的罪行！而等身心归于现实后，就特别想了解眼前的那个男人，心想究竟是怎样的一个人，可以在星沉之夜将流淌着自己血脉的新生婴儿，如此狠绝地扔进浩渺无情的大海，而归来后却仍胆敢对别人谈起奋力一扔时手下的生命发生的最后的求救声！可是，我从未在他身上看出任何异样，他如同我日常中所碰见的任何乡下人一样，表面上显得那么的温厚老实和无害纯良。于是我在想，世界上有那么多的人，那么多的村庄，那么多的城市，究竟还隐藏了多少我所恐惧但不为人知的罪恶。古语有云“虎毒不食子”，而他们都是甚于禽兽的人！我有时无比抗拒让自己置身于这些人之中，因为要忽视掉他们身上只有我还记得的罪恶，强迫自己像对待任何一个值得尊敬的长者般对待他们，内心深处却肆无忌惮地鄙视他们。可是这样，在被掩盖的事实面前，在不明真相的众人面前，去鄙视和厌恶这些现实生活中辛苦劳作的卑微市井小民，最后更让我陷落在新一层自找的痛苦淤泥里。所以我有时会很恶毒的想，那样的父母太过惨绝无情了，那些被他们杀害的生命，正是他们此等人此生不配拥有的幸福！而如今，三四十年后，如果他们当中还有谁还敢提起这些被他们强行忘记了多年的惨事，又如果他们之间还有谁还会有那么一丝的忏悔，我也是不会听信他们的。如果他们可以如此轻易地获得本应高贵而沉重的原谅，那试问你又将那些自第一声啼哭就被蛮横地剥夺的生命的价值置于何处？况且这种原谅，除了那些怨婴的亡灵，在世的任何一个人都没有资格自作慷慨地给予。可是尽管他们罪大恶极，百死莫赎，我知道他们也有无法言明的苦痛，在认识他们二十多年后，我至少也还愿意相信他们的本性应该还容得下一个女孩的存在，如果不是迫不得已地剑走偏锋，那般残忍地杀死自己的骨肉并不是他们乐而为之的事情。一时的错误铸就了永久悲剧后，恐怕他们也正在用尽一生的力量去选择忘记，在圆月的子夜里可能也曾有过自责和忏悔，而这所有不可愈合且无药可医的伤痛终究会伴随他们一生，终生无法对人明言，也无法解脱。我有时试图在与他们对话的缝隙里幻想着去揭露他们的恶行，假装自己是大气凛然的迟到正义之师，可是当你面对突然凝结的空气和坚忍的沉默不语，你就会知道，这样强行地去唤醒他们沉尸海底的黑暗记忆并非是什么了不得的正义，为此能给早已逝去的亡灵带去多少安慰根本无从得知，但是给仍活着的人造成的伤害，如同在三月暮春的深夜埋葬一个尚有生命气息的女婴一样的残忍无道！以暴制暴，以残忍痛击残忍，对任何人的追杀都根本弥补不了任何错误！若你未曾历经过乡村价值观原始生态丛林，就如你无法理解世间你所无法理解的其他任何事情一样，你照样无法理解那些未能生下儿子的父母在他们所处的环境里所遭受的精神暴力和每日进出时的眼光凌迟，那种环境能让你洪亮的雄辩自行消音，能让你凌厉的眼神脆弱无比，能让细语安慰变成嘲讽，能让低声闲谈卷起滔天风浪，结果是你没有做错任何事却得不到宽恕，你没有犯罪就被判了死缓，一切就是那么不可理喻却铮铮有力。正同今日，大龄未婚的男女所受的偏见一样，只是如今的未婚男女常年客居城市，如果如当年一样终日生活在别人的眼光和议论中，不出几日也必定不死即疯。由此可见，所有持世俗偏见的周遭人群，即使他们感觉自身清白未曾参与过任何一次谋杀，他们也难逃帮凶的罪名，是他们享受着卑劣的围观乐趣、利用口舌的刀剑挟持了那些父母，而当年伟大的计生队伍的非人道追捕则是令那些父母痛下杀手的最后一鸣警告枪声。可是作为父母啊，不管外界如何都应该誓死守卫自己为人父母最基本的防线才是，遗憾的是，怯弱的他们失守了，导致了那场天地间不忍听闻的孽杀。按照上帝的教义，上帝成双成对地创造了人，只是分开在世界各处，让他们一生各自去寻找自己命中注定的伴侣。若真是如此，那些消逝的灵魂本应是谁的生命肋骨？而他们原本命中注定的人啊，是否知道上帝为他们创造的独一无二的伴侣早在几十年前就被谋杀了呢？他们是否知情，是否还在用一生苦苦寻觅和等待那一缕早已消逝的孤魂呢？而在生命的源头上就被狠绝地剥夺了一切的亡灵，是否对这个世界满怀深深的怨恨呢？而最终的一切只有上帝才会知道。若未曾有那些变故，如今的她们都是三十上下的年纪了，比我或长或幼，即使和我一样的渺小卑微无用，至少也都还活着的。正因渺小卑微无用而自我且努力地活着，这该才是上帝的本意和圣心所在。我始终是这样认为的。（原文链接：https://www.douban.com/note/621358447/）左岸记：人是观念性动物，会按自己认为对（或者叫应该）的方式去做，这些观念部分来自环境的影响，部分来自自身认知的局限。所以人们呼唤文明，设计法律，建立底线，都是为了防止最坏的情况发生。记住一点，一定不断地提升自己的能力，尊重每一个生命的存在。阅读原文</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

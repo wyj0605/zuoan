@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成长的“流动性”</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>成长的“流动性”</h1>
+            <div class="date">2026-03-04 09:54:58</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>成长的“流动性”成长的“流动性”原创我是左岸我是左岸左岸读书2022年10月27日 17:27福建在小说阅读器中沉浸阅读文/贾刚“上善若水，水利万物而不争”老子说：“水是最接近道的，不断流动，无声无息”。——题记这几年，我们都感受到了极大的不确定性，疫情蔓延，国际冲突，或许是承平日久，总想一切尽在掌握，但事实却犹如攥紧的泥沙，总归失望一场。在经历未有之变局时，我们也在经历着不停的流动——时间的流动，财富的流动，乃至我们每个人人生轨迹的流动。经常有人用学习来背书，或者看到硕士博士争相内卷而感叹，学历无用，其实这只是看到了表象。真正的原因是，只有流动的知识才能够赚钱，抱着死知识不放，只是在逃避问题。大部分人所拥有的都是死知识，并没有流动性。众所周知，流动性是所有商业交易的灵魂，没有流动性的东西就是死东西，给你一套新疆沙漠的房子，你不会去住，当然也卖不出去。商业是高度需要流动性的，市场供需每天都在变化，科技进步日新月异，或许还会有突如其来的降维打击，信息、价格、模式、赛道无时无刻不在更新，这也正是很多人赚不到钱的原因之一吧！我们无法伸直都没有意识到这种流动性的存在，总是过高的估计了自己知识和能力的价值，而低估了从事商业所需要的流动性。你认为学好英语就万事大吉了，但学好英语同开一家英语培训班所需的技能，却是完全不同，课程如何设计？如何吸引学员？利润如何计算？模式能够复制？当你嘲笑那个开英语培训班的人，教英语的水平还不如自己时，不妨考虑一下这其中能力的差异。商业如此，成长亦是如此！乔布斯在哈佛大学毕业演讲中曾经提到“Connect the dots”，把你生命中无数的经历、无数的点链接起来，这是成长的过程，也是建立流动性的过程。流动性，就是在不断实践中获得的；流动性，就是在不断扩大链接的过程中形成的；流动性，正是将这些实践和链接加以整合内化的结果。回想一下我们是如何蹒跚学步，又如何学会开车的，答案不言自明。敢于试错，勇敢实践，是建立自我流动性的重要一步。首先从思想上认识到没有出错便不会有进步。真正废掉一个人的，从来不是稳定的工作，而是不敢试错。很多时候，并不是因为你失败了，而是因为你根本不具备成功的条件，在试错的过程中，实事求是的掂量一下自己几斤几两，才能更加清楚的找到自己的定位，而不是每天在脑袋里面空想，德鲁伊老师常说的“止思践行”正是此意。主动冗余，尝试独特生态位，是洞察并感知流动性的关键。当你和别人做同样的事情的时候，无论多努力，本质上都陷入到一个为既定系统服务的弱势地位，而且越努力，付出的越多，摆脱的成本就越大。有意识的脱离，主动给自己一些自由的时间，用其他领域的洞见交叉验证一下，便会发现人同此心、心同此理，工作的问题也是建立链接，增加流动性的问题。任何可以扩大你和外界链接的网络的工作，增加你的特殊技能的工作，即使累一点，有一定风险，但却能够真正提高你的价值。功不唐捐，交给时间检验，是最终能够把握流动性的条件。《教父》里曾讲，每个人不是生而伟大，而是在成长过程中变得伟大。我们从发现流动性，到理解，到感知，再到最后实践，这是一个漫长的过程，没有屠龙术。没有耐心，幻想三板斧可以走遍天下；不花时间就能大道至简；看到别人似乎毫不费力就以为自己也可以速成，是无法理解，也不愿理解流动性的曲折和复杂程度的。当然，并不能指望听闻一席话就能够幡然醒悟。我们每个人，都在自己几十年的人生经历中形成了一套固定自洽的思维模式，顽固坚韧，可以说，我们每天也都是在给自己洗脑。看到不同于自己意见的结论，本能便是否定和不屑，这非常正常。我们的大脑就是一个贝叶斯机器，只有不断输入流动性，才能逐渐稀释那些错误范式的比例。但是某一刻，当你接受到了关键事实，触及了事物本质，感知到了流动性时，宁可绝对一点，偏执一点，“死知识就是没有用”、“只一味讲自我提升，不对外扩展链接照样一事无成”、“只有流动性的知识才能够赚钱”。矫枉过正，不给自己留退路，没有左右博弈和稀泥，如此，才能建立起流动性，不断接纳新的观点，这便是成长的信条吧！此刻，我仿佛看到了一个少年，他出身普通人家，从小被教育好好上学，除了学习成绩什么都不用考虑，学成进入社会，凭借着点滴技能找到了一份安稳工作，如果不出意外，他的人生基本就是这样了。但是，他不甘心，他还有爱好，他还喜欢写作，从大学到工作十年，从未间断。他曾沉溺于思考人生的意义而不得，也会因生活的琐事而烦恼。上天眷顾，让他偶然间看到了不一样的世界，和专心做题不一样的逻辑，他不甘心，不接受，但几经沉沦、无数次黎明难眠之后，他和自己和解，不再精神内耗，不再拧巴作态，放下身段，承认自己的普通，但却在这个过程中找到新的动力，努力坚持，静待花开！谁说成长不是另一种流动呢？左岸记：这篇文章可入选深度好文。流水不腐，户枢不蠹。只有流动才有生机，哪怕是一座建筑，如果没有住在里面的人员流动，那建筑也就失去意义。我们不断地学习知识技能，不能把知识技能禁锢在大脑身体里，要不断更新输出，让知识增值，让技能提升。世界进步来自创新，创新就是在运用原有知识上的不断革新，以此推动社会的发展。个人成长也是如此，停止成长也就意味着放弃一切的可能。P.S.喜欢贾刚的文章，请关注他的公众号：道学拾遗</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

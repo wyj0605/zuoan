@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水果温情</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>水果温情</h1>
+            <div class="date">2026-03-04 09:56:06</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>水果温情水果温情原创我是左岸我是左岸左岸读书2022年06月25日 10:41福建在小说阅读器中沉浸阅读文/赵紫生那天下午课后休息，我习惯性的浏览手机，因为工作群里经常会有信息，生怕漏看。不经意间发现我所在的小区业主群里有人在卖桃子，从照片上看那些桃子个大饱满，很是新鲜的样子，便想给在家休养的先生买几个尝尝。先生去年做了骨伤手术，前几天刚做的第二次手术。把去年放在脚内的钢板和钢钉取出来了，因为正巧在脚踝处，所以走路不方便，请假在家养伤。我先是在群里添加了卖桃子的微信，她微信的名称很好听——没有公主命要有女王心。我问美女老板能否上门送货。原本想着天气热谁也不愿意跑来跑去，毕竟最近聊城气温已经高达40度！单是在房间里坐着便已经大汗淋漓了。没想到美女老板很爽快，立马就答应了我的请求。因为不知道桃子好吃不好吃，便先要了三斤，告诉老板好吃了继续要，老板很高兴就答应了。接着老板把称重的照片发过来，显示13元，我让她拍下照片看看一共几个桃，又解释了家人腿脚不便烦请她送到我家的原因，老板听罢爽快应允了。我惦念着的心总算放下来了，紧接着我把红包转给她。原本我以为红包给她发过去，一定会很快就被收走，但出乎我意料的是，她并没有着急收钱。我很疑惑，过了好一会，她回信给我：“桃子已经送到了”。我这才发现红包刚刚被收。从12号楼到25号楼也有一段的距离，又是正午的阳光炙烤着大地，我很感谢她愿意替我跑腿。为了这三斤桃子，说实话，我打心眼里感谢她！尽管我刚开始也担心，万一我的钱对方收了，不给送桃子了这可怎么办？但到后来，我发现这一切的担心都是多余的，诚信的美女老板不但把桃子送到我家，而且还来文字告诉你，最后才收的钱。顿时️有句话在我脑海中一闪而过，那就是“以小人之心度君子之腹”，随之又被“天道酬勤”、“诚信经营”这些美好的赞叹词语所替代，我的心里便像这初夏的高温一样，全身被暖的汗流成河。前些日子，在网上看到了一条这样的消息：河南开封有一位老人今年60多岁了，原本颐养天年的时候，哪曾想三岁的小孙女被确诊患有恶性肿瘤“神经母细胞瘤”，肿瘤已发生转移，病情严重。由于治疗费用高昂，他们已经花光了家里的积蓄，还向亲戚朋友借了不少，孩子父母不得不停止创业。一人在病房陪护，一人外出打工挣钱。为了给孙女筹钱治病，爷爷专门从开封拉来西瓜到郑州售卖。却因为收到家里消息，需要回去收小麦，可西瓜还没卖完。爷爷犯了愁，无奈之下，他留下一车西瓜，并放了一块纸板广而告之：孙女患恶性肿瘤神经母细胞癌，卖瓜凑医疗费(20元一个)暂回老家收麦，3天后返回，需要买西瓜者自行扫码……或许你我原本以为无人看管的西瓜可能会有人拿走不给钱，或许还有可能拿瓜多，留钱少，很可能到最后瓜少钱也少，谁也没曾想到钱却多了很多。原来有很多人看到老人的西瓜摊，尤其看到摊位前的告示牌子，纷纷前往买瓜，还有很多人付了钱却并没有拿西瓜。他们有的捐了10元、50元、也有的捐了100元、500元……因为孩子妈妈在医院照顾孩子，留的是孩子妈妈的支付宝和微信二维码。5天的时间，孩子妈妈手机不停的响，不断收到大家的捐款。与此同时，孩子的妈妈收到伴随着充满希望与爱的留言“希望孩子早日康复”“没拿瓜，这是一点心意”“加油，照顾好孩子”……孩子妈妈开始还纳闷，后来才知道是怎么回事，心中充满了无限的感动。那一车西瓜，没想到最后居然在无人照看的情况下卖了12万元钱！老人感慨万千，泪流满面，他说这世上还是好人多。我想这世界上真的是好人多啊！病魔无情，人间有爱，感谢每一位充满善意与爱的人，也衷心祝小宝贝早日康复！一个个转账记录，一条条看似简单的留言，如同一股股暖流从四面八方奔涌而来。……虽然小女孩是不幸的，但她又是那么万幸，有那么多无私奉献的爱包围着她。孩子妈妈用一小本子记录了一个个爱心人士的联系方式。孩子妈妈张女士感动地说：“5天收到了12万钱的爱心款，有的甚至还没来得及说声谢谢，就把我拉黑了。已经拿小本记下了他们的联系方式，以后有能力定会偿还！”……生活中每一个看似寻常又普通的小事，却又在不知不觉中感动着我们，希望我们身边有爱心的人，包括我们自己一定要把这份善良传递下去，把这份感动与爱传递给身边危难之时需要帮助的人。或许在你看来不经意的举动，却有可能温暖照亮别人的一生！可以让这个世界瞬间变的些许美丽，变得更加和谐！我想只要我们身边的每个人都愿意做这个小小的发光体，那么我们生活的世界，我们所在的社会便会充满着大爱与温暖，而这些也将会滋润我们每个人的心田。我相信爱是双向的，也是可以“流动”的。左岸记：不要低估人心爱的力量，很多时候我们好像是一个人在战斗，其实不经意时你会发现自己的“善举”会与人共鸣，进而汇成爱的川流，改变大家。爱心能抵达心灵最深的地方，赋予人最深的感动和力量。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

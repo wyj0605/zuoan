@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>半杯忧伤半杯苦</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>半杯忧伤半杯苦</h1>
+            <div class="date">2026-03-04 09:53:31</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>半杯忧伤半杯苦半杯忧伤半杯苦原创珠珠珠珠左岸读书2026年02月10日 13:51福建在小说阅读器中沉浸阅读文/珠珠先生走后，我的世界里多了一条不成文的规矩：晚上十点前，必须到家。昨晚在朋友家，难得的热闹让人忘了时间。抬眼时，墙上挂钟的指针已逼近十二点。匆匆起身，独自骑车穿行在空旷的街道上。风很冷，路很静，路灯把我的影子拉得很长。推开门时，十二点十五分。就在那一刻，回忆像午夜的风，毫无预兆地穿透身体。从前，只要指针越过十点而我还未到家，你的电话一定会准时响起。声音总是温和：“该回来了，别太晚，要早点休息。”有时我觉得你啰嗦，还会笑着回一句：“知道啦，就快到了。”可昨晚，手机在包里安静地躺着，屏幕始终是暗的。屋子里只有我手中宵夜袋子窸窣作响的声音，和我有些沉重的呼吸。这寂静如此具体，如此尖锐。原来真正让人难过的，不是盛大的告别仪式，而是这些琐碎的被爱的证据——那些曾经理所当然的关心，从生活中被抽离时，留下的空洞会发出如此清晰的回响。不会再有人在我晚归时，为我留一盏灯。不会再有人因为担心，掐着时间等我报平安的电话。不会再有人在深夜的寂静里，惦记我是否安全到家。这些“不会再”，像散落一地的拼图，拼凑出一个清晰的事实：从今往后，我要自己记得回家的时间，自己为自己留一盏灯，自己惦记自己的安危。走进孩子的房间，他睡得正熟。我轻轻为他掖好被角。看着他安稳的睡颜，忽然明白——生命的更迭就是这样：曾经被惦记的人，如今成了惦记别人的人。只是在这角色转换的缝隙里，在这个无人催促回家的深夜，孤独来得特别具体，特别汹涌。无人与我立黄昏，无人问我粥可温。无人伴我顾星辰，无人知我衣正冷。原来这便是人间真实的模样：空有自由身，却非自由人。一壶清茶伴孤灯，对影度晨昏。半杯是挥之不去的忧伤，半杯是独自吞咽的苦楚。人间路迢迢，每一步都带着思念的重量，每一步都在失去与承担之间艰难前行。双手合十问苍天：为何善良的人得不到眷顾？为何深情的总要独自面对漫漫长路？但我知道，没人给我答案。就像我知道，无论夜多深，路多长，我依然会照顾好这个家，照顾好我们的孩子。只是从此以后，每个深夜回家的路，都会比从前长一些，静一些。因为路的尽头，再也没有那通等我的电话，和电话那头，关切的、温柔的声音。半杯忧伤，是给逝去的爱；半杯苦楚，是给继续的余生。而我，在这半明半暗的人间，学会了捧着这杯人生的酒，慢慢地，一口一口地，饮下所有必须承担的滋味。欢迎关注珠珠小号：生活的本来模样关于“活着”我想说苦事不宣，是成熟的体面</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

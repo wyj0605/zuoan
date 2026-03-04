@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互联网没有记忆</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>互联网没有记忆</h1>
+            <div class="date">2026-03-04 09:52:27</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>互联网没有记忆互联网没有记忆雪梅412雪梅412左岸读书2023年03月17日 16:22福建在小说阅读器中沉浸阅读文/贾刚在网上，我能找到最早的文字记录，是在2008年9月7日，当时的自己正值大三，那时上网还不那么容易，需要挤时间狂奔到四楼，刷卡上网；在网上，我能找到的最早的照片，是在2012年，那个时候面临毕业，埋头苦干于实验室，青涩的面庞瞬间磨平了这十几年的光阴；很多我们熟悉的网络标示，校内网、饭否、4399、杂碎后院、VeryCD、迅雷，如今都已经冲刷到了浪潮的沙滩，而我们现在熟悉的，微信、抖音、今日头条等等，那时似乎连萌芽还没有，彼时的“第一产品经理”还正在钻研QQ邮箱。如果说互联网没有记忆，那么这些用二进制堆砌而成的网络大厦不会越盖越高，但仔细对比这些年的变化，给我最深的印象便是——它正在由一个乐于分享、价值沟通、求同存异的party，变成光怪陆离、彰显自我、党同伐异的island!微信公众平台诞生于2012年8月18日，和菜头老师最早的一篇文章发表于2012年8月29日，在那个炎热的8月的夜晚，在所有产品最为初期的时候开始了，一直坚持到现在，整整11年，像是一座无形的丰碑一样，记录了各种嬉笑怒骂、承载了网络世界更多的厚重。当我再回头，想下载大学时期的东西时，CNR改版了，没有了论坛灌水；VeryCD转型了，不再提供下载链接；校内网直接变成了广告的乐园，好在文章还可以看到；体育评书刚开播时候的录音也没有了，除了好心的网友整理了关于《神州夜航》各个节目每年的集锦，2006年之前的博文、图片几乎消失殆尽，甚至于打给你诉诸于搜索引擎的时候，无奈的发现：与其说是找内容，不如说是如何规避广告、填写验证码；时代在变化，不容否认，成年人似乎也容易怀念各种童年，但这并不是一种自发，而是真正有感而发！所以，当我用这种视角重新审视当下的网络生活的时候，似乎又回到了曾经熟悉的模式——Ctrl+S，或者通俗一点说，就是囤！曾经的得到那么的轻而易举，没有珍惜二字，而当一个个沙龙，一个个BBS悄然倒下的时候，还没来得及感受到失去了什么便被另一波浪潮所拥抱！随波逐流，无休无止！2019年，我买来了一系列的空白本子，今后工作中所有的事情都记录到这上面，短短3年，已经积累了10本；2019年，我斥巨资买了现在用的MacbookPro，我所有的记录、生活工作成果便有了最终的归宿，至今都随身携带，打开就用；2022年，我开始了微信公众号的写作，虽不能日更，但所写所想，皆缘内心；2023年，我开始了对着镜头说话，像一个老朋友谈心一样的，不急不躁，娓娓道来！就像十几年前并不曾意识到网络世界失去的那些东西有多么可贵一样，如今，就像是那个炎热的8月的夜晚，我也并不能够看透这些动作最终会给我带来怎样的改变，whatsoever，强如张小龙，也并没有通过QQ邮箱看到后来的微信。人，始终都是现实环境的局限，没有突如其来的成就，只有日复一日的坚持！上小学的时候，每次上课，老师都要让我们朗读后边墙上的那段话：“在科学上没有平坦的大道，只有不畏劳苦沿着陡峭山路攀登的人，才有希望达到光辉的顶点。”像是被种下的执念一般，现在已经生根发芽，茁壮成长！左岸记：记录写在泥板、石碑、莎草纸、手抄本上的记忆可以保存数千年。写在网络上的记忆平均存在的时长只有100天。网络平台一旦关闭，我们的回忆、爱好、生活感悟、学习资料都会消失。一代代人积累的记忆成为人类区别于其他物种的进化优势：知识和文化。如今我们却面临一个悖论：数据不断膨胀，也在不断丢失；信息触手可及，我们却记不住任何知识。好好想想，还真是这么回事，有过20年以后网龄的人，大多很难找到自己20年以前的文字和行为记录了，好多的网站已经不存在，好多的应用已经消失，留在上面的记忆也被清空了。P.s. 随着GPT-4的发布，互联网将开启数字时代的新纪元。文章来自：道学拾遗</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝学无忧</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>绝学无忧</h1>
+            <div class="date">2026-03-04 09:56:55</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>绝学无忧绝学无忧原创关中人关中人左岸读书2023年02月27日 11:36福建在小说阅读器中沉浸阅读文/关中人新年伊始，网友们通过左岸读书在网上表达了各自对新年的愿景和祝愿，我不是不想表达，是怕造业。学道日损，我已损到不爱表达，不敢表达，无所表达。今天看到白头翁新春祝愿《愿所有美好，与你环环相扣》，有所触动，用老子的绝学无忧表达2023新春的体会。“绝学无忧。唯之与呵，相去几何？善之与恶，相去若何？人之所畏，不可不畏。荒兮，其未央哉！众人熙熙，如享太牢，如春登台；我独泊兮其未兆，如婴儿之未孩；傫傫兮，若无所归。众人皆有余，而我独若遗，我愚人之心也哉？沌沌兮。俗人昭昭，我独昏昏；俗人察察，我独闷闷。澹兮其若海，飂兮若无止。众人皆有以，而我独顽且鄙。我独异于人，而贵食母。”多年前，我读了元音老人的《心经诀隐》就已见性。没见性以前，以为见性就与菩萨差不多了。见性以后才算真正认识了自己，很多东西理上通了，但在社会活动中还是被习气带偏。前些日子在简书认识了一位签署名“净荷”的网友。过程也简单：她在简书分享三本书中的一些佛学理论，是我感兴趣的，偶尔在她博文后评一两句，一来二去她也注意到了我，将我带入一个修行群，我在她的推荐下买了三本书，其中包含我最看重的《心灯录》。在群内气氛的带动下，加上《心灯录》的加持，我能深刻觉察到业的影响。可以这么说，整个世界，具体到每个人，小动物，小到一粒尘埃落脚的地方，呈现的状态，无不是业在作用。意识到业力的作用与影响，就不自觉地开始注意自己的言行，包括发愣发呆时，都不敢像以前那样海阔天空胡思乱想了。有句话说菩萨畏因，凡夫怕果。我知道自己离菩萨境界还很远，却已不敢肆意评论他人包括著作。知道此时痛快的口业，包括念头都会萌生新的业种，储存在我阿赖耶识里，直到将来的某一天，或者是下辈子，条件成熟时再次发作。我整日将自己的思想空掉，尽量做一个闲人，一个无事人。当然工作和应酬往来还是要做的，但尽量不纠缠，不向深处解读，不走心，走心生烦恼，废心劳身就可以了。于是，我就如同老子道德经第20章写的那样，众人皆有余，而我独若遗，我愚人之心也哉？沌沌兮。俗人昭昭，我独昏昏；俗人察察，我独闷闷。我得道了吗？或许吧，因为心与之相符，内心却不敢承认。得道了不起吗，我感觉恰恰相反，我什么也没得到，不敢有所贪爱，反把自己以前学的，认为有所得的全都否定了。所以没有什么可说的。绝学无忧。得道就是要忘掉自己的所有秘密，从这个角度说，我没得道，充其量只是理解了道。人人尽说清闲好，谁肯清闲闲此身？不是逢闲闲不得，清闲岂是等闲人？我现在整日要的就是做个无事人，但只有少时做到。无事便没有记挂，没有是非，没有回忆，没有展望，只有当下。即使在当下也没有特别去留意，没有想，没有观测，只是一颗平常心，饥时吃饭困时睡觉，不走心的往来应酬而已。因为不走心，是非不分，是就非，唯就是呵，万法归一，一归来处，来处即此念生处，即真我。读者寻思，你何等鄙贱畜牲，敢自称如来？如来与我同体，我即如来。如来阿赖耶识已转为清净大圆境智，故无所不知不能，神通妙用具足。我有阿赖耶识，阿赖耶识是不清净种子识，故有所知障，也没神通，但不表示我与如来是二不是一。如来所具有法报化三身我有，妙用我有。不但我有，世间人人具有，猫狗也有，如何不敢承认自己与佛无异。妈祖说即心即佛。历代高僧解说：心、佛及众生，是三无差别。有读者说，来处不是如来，如来无来去。真我即如来，也叫自性，有很多名，根据表达需要使用。如来无来去，无生灭，但能生一切法，我们的社会活动，包括小到一个念头萌生无不是来自真我。此时真我在写作，表达就有是非，但心内无是非纠结，虽在分别但没有分别心，一切都是表达需要，都是幻心在活动。取名为幻，即不真实，是真我的用而已。文字为相，文理为体。唯之与呵，相去几何？我理解唯是顺从的意思，呵是呵斥。老子在这里用了几个排比句，将我们人类意识界截然相反的概念放在一起，认为它们没有本质差别。虽然如此，但人之所畏，不可不畏。荒兮，其未央哉！说大家都这么理解，我不得不顺从大家。人心的荒芜啊，看不到尽头。人心怎么荒芜了？因为心田里长了草。本来田里是长庄稼的，现在长满了草，不就是荒芜吗。庄稼是正见，草就是妄见。正见祥和安乐，邪见尖锐矛盾。六祖说本来无一物，何处染尘埃。心里什么都没有，却可生出万物。奈何真如不守自性，生出世界来，又信以为真，把百十来斤一堆血肉当成自己，自我迷失，在轮回中打转。烦恼是分别心带来的。在世间生活，不分别是不可能的，可以分别但不生分别心。有分别心就会带来烦恼和苦楚，如何区分别与分别心？分别不往心里去，我们认识泰迪与金毛是分别，但喜欢泰迪就是分别心。《信心铭》开篇第一句就是“至道无难，惟嫌拣择。”拣择即是有心，有心即失心。见见之时，见非是见，见犹离见，见不能及。我有时也体会到无见的“快乐”。打引号说明不是大家理解的那样，真要有个快乐存在，就有不快乐藏起来了。绝学真的可以做到无忧，与《心经》阐述的道理是一致的。憨山老人说佛经未传入震旦以前，佛祖遣派老子，孔子和颜回三圣来东土开化民智。道德经里的绝学无忧与佛教的讲空性是一致的。扯远了，说食不饱。将精力用在钻研佛经道理上，与修行来说也是一种阻碍。我近来已放弃钻研佛理，体会到了绝学的好处，特出来说以证实老子不欺大家。前阵子，由于修行不得力，乱了心神。就像今天写作文这般在修行群里拨弄是非，被净荷师兄赶出来了。呵呵，今天又造业了，啊弥陀佛，业力作用，又是明知故犯，罪过罪过！左岸记：多此有益的行动，少些口惠、口恶、刀子嘴。得道者，非不为，是不为事所困，而能识真知，行大体，无为而为，责任担当。功成不必在我，功成必定有我。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

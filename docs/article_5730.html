@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遥远的愤怒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>遥远的愤怒</h1>
+            <div class="date">2026-03-04 09:58:28</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>遥远的愤怒遥远的愤怒原创德鲁伊德鲁伊左岸读书2025年08月06日 19:19福建在小说阅读器中沉浸阅读文/德鲁伊现代人么，大概率活得浑噩且无聊。互联网最大的好处，我感觉，过去你荒废时光还得有点能耐，要不时间走的慢不说，你还无聊。现如今，短视频、游戏让你浪费时间，跟玩似的，愧疚感都来不及闪现，你就跟时间说拜拜了。又到高考和中考盘点的时候了，反正现在孩子，基本被父母归为两类，“来报恩的”“来报仇的”，反正做不了朋友，也做不到初次见面请多关照，累世业障，此生再来过。都说永生是诅咒，但你还是和前世纠缠不清，悲哀。左岸的孩子上大学了，祝贺、祝福。不知道左岸怎么想，反正虽然天天说“有苗不愁长”，但真长起来，成了自己老去的参照物了。那种充满希望和一点唏嘘的小情绪，真实、细腻、一闪而过。天气太热了，于是看电影吧，F1、戏台、照相馆、你行你上，都贡献了票房。姜文你不过度解读似乎是对他的不尊重，你过度解读吧，一个电影，实在承载不了你的缜密思想。于是，你带着脑子去看，索引脑上线，忘了这就是部电影而已。我喜欢姜文，是因为他充满生命力，过去是充满无限可能，现在是还保有生命力，都值得喜欢的事儿和人。因为大学专业和车有关，F1看的人心情很爽利，帅且专业且克制。老了不油腻且干脆利索，皮特展现的不错，就凭这点，总得赞一下。我喜欢商业片的专业、目的明确、克制、清晰，于是皆大欢喜、各取所需。至于戏台和照相馆，我不喜欢情怀，但我喜欢希望。在我看来，两部片子说的是一件事，当你所有的忍辱负重都是为了一丝丝的希望，但或许最终还是会变成绝望，你还会坚持你现在做的吗？有句鸡汤“幸福的人不会仇恨，仇恨的人并不快乐”，但怎么咂摸都有点婊味儿。我只是觉得，如果仇恨能让你清醒并努力自强，仇恨就仇恨吧，没什么大不了。如果幸福会让你善待自己和他人，并能因为幸福更有钝感力，更有生命力，也挺好。其实希望这东西和结局有时候关系真的不大。从这个角度讲，人也就分两类：把希望当作结果的，或是希望如果没有结果就放弃的。战争年代活下来的，大约是第一种；承平日久，第二种人就会多一点。然后周而复始，某个角度讲，这个世界每一次颠覆和动荡，就是为了建立希望，淘汰绝望。互联网这东西，就是因为违背初衷，才发展的这么好。当你有可能获取更多的信息时，你的认知应该越来越中立持平。但大部分人的大脑，其实是承载不了这么多的信息的，信息堆积到一定程度。结果就是要么开始二元对立，享受信息茧房；要么就信息外溢，展现愤怒。生活里温良恭俭让，网络上愤怒且恶毒。愤怒还是遥远点好，起码其实内心很怂也无人知晓，还能依靠愤怒，化解一下自己“很知道自己不喜欢什么，但不知道自己喜欢什么”的迷惘。大环境低迷不低迷不知道，反正人是先废为敬。你说人都糊涂了吧，卖酒的不答应，啤酒都不好卖了，说明大家都清醒着呢？你说清醒吧，满世界原生家庭、青少年创伤、性别歧视、被霸凌经历，这些倒是和前边呼应了，报恩和报仇，不过这次是自己跟自己较劲拧巴。倒是应了佛法，仇恨这个世界，多半是仇恨自己。这样看，既然你的愤怒都是遥远的，不如看着眼前事，珍惜眼前人。左岸记：德叔真是贴心，他从朋友圈知道了我儿子今年高三毕业考上大学，祝贺孩子“有材初成”，这里又关心我的想法。其实德叔说的没错，孩子自有他的想法和做法，大人说的他们能听进去的那是他们的欢喜，听不进去的，千万不要跟自己和孩子置气，不然，自己急得不行，孩子却是觉得大人总在一厢情愿。人生就是一个争取与和解的过程，尽力去争取力所能及的，然后与情绪和解，与自己和解，与身边的人和解，与这个世界和解。之后，你会发现，一切也就云淡风轻了。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

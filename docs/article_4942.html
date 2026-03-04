@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>故乡的山</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>故乡的山</h1>
+            <div class="date">2026-03-04 09:55:26</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>故乡的山故乡的山原创艾蔻艾蔻左岸读书2023年08月17日 21:52福建在小说阅读器中沉浸阅读文/艾蔻我的故乡是太行山谷中的一个小小村落。环村皆山，绵延的太行山脉，无形中给人一种安全感。只一条东西走向的路通向外面的世界。村里分片命名：东岸、东头、西沟、后坪。我家位于东岸，顾名思义，东边的高地，是村里最早看到太阳升起的地方。诗里有“远山近水”的说法。我们村却是近山远水。放眼皆山，四顾无水。山是不缺的。开窗见山，开门见山。天气好的时候，上到屋顶，更是可以看到近处的山峰孤立，远处的山脉绵延。老虎头、贾四郊的山、甚至隔壁镇的山都能看到。阴天或者雨后的山也好看，不同层次的黛青线条分明、曲折蜿蜒，跟水墨画里的没什么两样。春春天的山是花色的。印象最深的春天的老虎头。那是西沟区的地盘，因此很少去。记忆里只去过一次。暮春三月，一场小雨后，和邻居几个年纪差不多的小伙伴绕到村委后面去南郊村的方向，第一次爬上了这座山，算是一场小小的冒险。山上有石头砌的迷你山神庙，有大大的供全村人喝水的蓄水池，有石头垒成的岸（据说是抗战时期打日本的），更有山花烂漫，不知名的开着白色花朵的树。真可谓“山无重数周遭碧，花不知名分外娇。”繁花满树，露珠挂枝，那震撼至今想起来都在。夏夏天的山是绿色的。入夏，山就披上了柏树和灌木编织的席子。夏天爬山女孩子多为摘酸枣。酸枣本身酸酸甜甜的很好吃，酸枣核是一味药，可以晒干卖了赚零花钱。男孩子多为抓蝎子，工具是小树杈做的V型镊子。价格要比酸枣核贵得多，当然也危险得多。也可以完全不为什么，看到可吃的果子就采了吃，看到好看的石头带回去。那时候的书包是军绿色的布挎包，有好几个都是石头磨坏的。或者，只为探险。一天在楼顶玩耍时看到了一座山顶有寺庙样的建筑。有个年纪大些、见识广的小朋友说，那是隔壁镇的旅游景点，叫柏尖山。这山都是听过的，对这个名胜充满了景仰。当即数了一下，只需要过三个山头，就到了。几个人一拍即合，一路往西，穿越村子，朝山的方向走去。看到山的时候，已经下午过半。等终于登顶第一座山的时候，看到一下多出了一二三四五六七个山头。那时年纪小，还不懂得一山还比一山高的道理。天色渐晚，就打道回府了。柏尖山虽没去成，也不是全没收获。见到了松树，还摘了几棵松塔回去。也算是乘兴而来，兴尽而返。秋秋天的山是红色的。漫山遍野的柿子树上挂上了红色的小灯笼。秋收累的时候，父亲会上山采些回来，一起享用。最开心的要数摘柿子。我家有祖上留下来的三棵柿子树，并排站在一起，有点像我们三兄妹。每年秋收后，父亲会带着我们兄妹三个去摘柿子。推着推车，篮子，绳子，还有竹竿，一行人浩浩荡荡就出发了。抵达目的地，先是用竹竿把树边缘、低矮处的柿子摘下来，然后父亲把绳子绑到腰上，三下两下就爬到树上了，等上去后，再用绳子把篮子吊上去。盛满后，一篮一篮送下来。来来回回要好几趟。最后装车回家。好像每年都是满载而归。难道，柿子树就没有不丰收的年头？冬冬天的山是灰色或者白色的。大部分时间是孤寂的灰色，光秃秃的。许是冬天的山一览无余，让人少了探索的欲望？当然，雪后又是另外一番景象了，雪总能为山色增添生机。有一年过年下了雪，虽没有大如席，也有柳絮那般大了。几个堂姐妹正好聚在一起，不知谁提议去爬山。一呼而四应，迎着雪就出发了，从东头的山出发，沿着山脊，从贾四郊下来。途中下了雨夹雪，还有冬雷，一度小有恐慌。等终于下来的时候，衣服湿了，头发也湿了，冻成了一绺一绺的冰柱。四时之景变幻，攀爬之乐趣无穷。而山就在那里，一直在那里。左岸记：以四季为引，把故乡的山写得生机盎然。又以山为依托，将故事自然融入其中。令人神往。这是篇绝佳的散文。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

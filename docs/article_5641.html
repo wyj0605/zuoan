@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>读书人中的真假英雄</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>读书人中的真假英雄</h1>
+            <div class="date">2026-03-04 09:58:07</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>读书人中的真假英雄读书人中的真假英雄原创邹近夫邹近夫左岸读书2021年07月29日 19:09在小说阅读器中沉浸阅读文/邹近夫秋蝉声嘶的晨间仿佛洋溢着生命里最朝气蓬勃的时光。当放鱼草的老翁背着竹篓从山下缓缓走来，我早已抡起扫帚清理窗户上的蜘蛛网，角落里那只格外懒惰的狗也开始东奔西跑。等到门面修饰干净，老翁到了门前，而我刚好打开书包将书本在石凳上铺开，一目十行，时间分毫不差。末了，他总是不忘夸我一句，好样的，还说书是这世上最好的东西，念的书，别人偷不走抢不走。久而久之，美名远播，我自然也就成了人们口中“别人家的孩子”。那时候，得意洋洋的父亲醉心于打翻寺庙、批判迷信的大事，他不仅忙着摧毁一切过往道德准则的支撑，而且不断向村里村外宣扬读书改变命运的真理，也从来不管家里揭不开锅这等鸡毛蒜皮的小事。以至于我的思想和心灵全靠读书来支撑，但如何读、怎么读、读了之后究竟有什么作用，他都没和我说清楚。如今，回忆起来，不知当时读书只是为了得到夸奖，还是故意跟处处结网的蜘蛛过不去。然而除开大雨滂沱、风雪交加的日子，印象里我基本都会手握一本书，时而站在树底下，时而坐在石阶上，等待各式各样赞许的目光。祖父不识字，已是知天命的年纪，当看到古老的信仰挨个在眼前坍塌，救世主被削弱成一堆令人生疑的传说时，他感到时代变了，就是不确定这变是向前还是向后。可以确定的是读书改变了命运，要不然年轻后生也不敢公然挑衅神明的威严，但从儿子口中得知的又全是含糊不清的道理，比起自古以来备受推崇的封建迷信好像更加不靠谱，于是他悄悄地将庙堂里残破的文昌星藏到神龛下面的瓷坛里。那些不确定性的、很难界定的是非对错自此有了动摇的根基，年幼的我对愈来愈复杂、愈来愈让人搞不清方向的世界漠不关心，只希望从书里读到行之有效的法宝能够快速解决诸多争端。及至上了中学，学科一下子多得让人晕头转向，顾此失彼。个别科目甚至变得艰难无比，尤其是物理，本就不理解课本的意思，却还偏要装作懂了的样子跟着老师绘声绘色地想象试验结果，有时一不留神就喊错了声音。看到同桌密密麻麻地写满了笔记，于是也想这样用功，可不知道记下什么才好。到了期末，不知从何开始复习，也记不清上课时老师说过的话，眼看考试将近，却希望把书烧成灰，泡水喝进肚子里，可害怕这一招被人发现惊动了神明，于是只得把课本的每一页每一段的开头抄写到空白处，然后再以不同颜色的笔划上几条线，如此心安理得，省得招惹那些混乱的逻辑概念。然而试卷一发，两眼昏花。出题考官偏偏就挑这些题目来拟，阅卷老师也毫不留情，分数越少他写得越大，有时不够刺眼，甚至把纸都划破了。涂涂改改，倒是过了自己这一关，难以蒙混，只得依葫芦画瓢，重新仿制一张就怕被识破，来年领着家长报名交学费免不了寒暄变寒心。几番惊险过后，我恨自己不争气，差点失去“别人家的孩子”的称号。时间一天天过去，放鱼草的老翁忽然没了踪影，而我却读了很多书，总是一目十行地看，也不知道看了些什么，心里越来越空虚。直到恣意毁神灭迹的父亲打起了兴建寺庙的短工，祖父将坛子里的文昌星归还给了庙堂，我才把读书的地点搬进了堂屋，继承了他俩明争暗斗留下来的后果，同时把读书改变命运的信仰归结为穷，还知晓了它多种不同的写法。有一次，我把一页页写满了穷字的书撕下来丢在地上，第二天醒来，惊奇地发现那些废纸被祖父捡了起来，规整地放在我的书包底下。一时间，我才知道他虽然不识字，但尊重字，就像他初一十五敬畏神明一样，也觉得这些字，肯定有学问，可以保佑我上大学。寒来暑往，我依旧喜欢在光天化日之下看书，只不过顾虑渐多，生怕一走神被人看穿。祖父似乎在一次对文昌星的祈求中看出我做假给别人看的心思，没有奖状就是最好的证明。有一天适逢中元，我放学回家，趴在石凳看书，巴掌那么大的梧桐叶子脆得像燃烧殆尽的纸，弹指可破。当瓦檐旁的树干被老当益壮的祖父用斧子劈下，架立在东西两侧，码齐并糊好了一叠叠封包筹备祭神时，我却看完了半本资治通鉴。谁知他经过我身边时问我，这一本怎么看这么久？一时心虚的我看向正在捣乱的狗子踩得落叶簌簌作响，哪里知道从何解释，只把书本一合，闭上眼睛，继而嘴里念念有词似的提笔就在本子上乱写一通。多半有点像道士画符的意味，他竟决定让我代写“封”字，就在我恨意满满打算草草应付之时，却见他吹干毛笔的印迹，轻抚上面东倒西歪的字，那般虔诚的模样不由得让我肃然起敬。一直以来，我认为父亲和祖父的观念是相互矛盾的，父亲毁灭性的批判使我不可能信奉神明，而祖父朴实的供奉又使我惶恐不安，但从没想过神明和知识两者都是不可亵渎的。读书虽然不能彻底解决观念纷争，却可以作为修复几代人沟通桥梁断裂的工具。从那以后，我明白读书识字当真是一件不可多得人生大事，迟是迟了一点，却懂得了如何读、怎么读，从爱惜一个字开始，包括穷字。左岸记：读书自然不能囫囵吞枣，哪怕是现在这样每天有巨量的文字产生，我们也宁可选读、精读，也胜过做浮光掠影式的什么都看，去什么也没懂。最怕的大概是自以为读过一些书，然后变得狂妄自大，以为自己是位英雄，唯我独尊，一切要推倒重来，殊不知，自己其实只是蚍蜉一样，又能看到多少。书是要读的，但不能把自己读傻了，读坏了。真正的读书人英雄，应该是书越读越谦虚，越读越良善，越读越强大。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

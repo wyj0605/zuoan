@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摄影初体验</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>摄影初体验</h1>
+            <div class="date">2026-03-04 09:55:24</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>摄影初体验摄影初体验左岸读书2024年07月14日 20:40福建在小说阅读器中沉浸阅读以下文章来源于一家烟火，作者文昌007一家烟火.随笔，读书笔记（日出杨浦--2024年6月40日摄于上海杨浦大桥）文/文昌1.缘起最近的某天早上骑自行车，握把手时发现右手指头有些生疼，一度以为是把手握得太紧导致的，尤其是握拳时有些隐隐的酸痛，直到习惯性的从包里掏出相机时才发现是最近提着相机扫街的时间太久疲劳导致的，就这样每天背着相机出门已经有两个月了，以致现在开始思考那么多照片该如何处理。谈到摄影的缘起，那还得从有了智能手机开始说起，印象中最好的风景是成天徒步在山野时，好山好水好风景，但很多照片都随着手机更迭而遗失，零星好照片都留存在了朋友圈的历史记录里。一直都喜欢拍照的，疫情期间深度隔离，向往窗外的世界，那只能逮着天空的云彩拍照。其实手机一直都够用，只是手机容易内存不足，会抑制拍照的冲动，久而久之冲动积压变成了对相机的向往。（背影--2024年6月26日摄于上海杨浦四平路）直到跟同事聊起这个向往，他大方的提出有一台搁置的尼康D3500可以先玩玩，当我拿起单反听着那快门咔嚓的声音，如猎人放箭，精准命中猎物的快感席卷而来，又如偷窥侠，调准焦距将景色拉到眼前，远方的猎物一清二楚。不曾想左勾手，右勾拳犹豫这么久，还不如出个直拳到位，试玩当天就决定下单尼康D7500。等我取到相机时，我就知道要完了，不是那句“单反穷三代，越野毁一生”的戏谑，本就不太富裕的时间，因为摄影而捉襟见肘，于是日常的写作、跑步、阅读被冷清的搁置一旁，依然享受拎着相机四处打猎的快乐，也许这就是初恋的感觉吧，明明知道没有结果，就是情不自禁要靠近，随时随地准备摄影，直到今天才理性的放一放，没有随包携带，开始回头思考攒了这么多照片该怎么处理。2.了解相机开箱相机当天晚上就开始对着B站视频熟悉相机的基础功能，随着视频的介绍调整自己的相机参数，对于参数背后的逻辑自然是不了解的，不过当晚就遇到了问题，调节显示屏的参数没有问题，可不管怎么调节参数，光圈值一直在闪烁，拍照后照片一团漆黑，当晚就在濒临奔溃的边缘徘徊，带着这份放心不下入睡，自然是难以安睡，花了这么多银两，拍照一团漆黑那还了得，总不能干听快门的声响吧？第二天五点多起来就开始对着使用说明书，学习研究各项功能，可始终没有解决拍照一团漆黑的问题，于是利用手机各种搜索，最后在网上看到有人提醒，是不是镜头没拧紧，于是我重新再拧了下镜头，只听咔嚓一声对准了，终于重见天日，此时已经过去了两个小时，这跟镜头盖没取下就摄影的效果一样，终归还是幽默了。(日出--2024年6月4日摄于上海杨浦滨江大道)单反穷三代的影响开始凸显，在各种信息的涌入影响下，还是果断购置了50mm的定焦镜头方便拍人像和70-300mm的长焦镜头拍远景，再加上相机搭配的18-140mm变焦镜头作为扫街李琦，这样也就够用了。此后就是在实践中熟悉相机的各种性能参数了。经历两个月，相机之于我也完成了陌生到熟悉的转变，紧要处还是分享些关于光圈、感光度和快门速度的基础常识，内容摘自书籍《新摄影笔记》，作者是宁思潇潇，也有对应公众号做照片评价的分享。1)光圈，光圈越大（光圈值越小），表示光圈孔径越大，这样单位时间内通过的光线也就越多，通光能力也就越强。a.光圈是表示镜头中孔径大小的一个比值；b.光圈越大光圈值越小，光圈越小光圈值越大；c.光圈越大照片越容易拍明亮，光圈越小照片越容易拍暗；d.光圈越大虚化效果越强，光圈越小虚化效果越弱。（鸟瞰--2024年6月23日摄于上海崇明岛）2)快门速度，快门速度就是指曝光时间。快门速度越高，曝光时间越短，相对来说曝光量越小。快门速度越低，曝光时间越长，相对来说曝光量越大。a.比1/4秒速度低的，就是很低的快门速度；b.比1/60秒速度低的，就是慢门；c.比1/250秒速度高的，就是高速快门；对于标准镜头不使用低于1/125秒甚至1/125秒的快门速度，才能避免相机的震动。d.比1/2000秒速度高的，就是很高的高速快门。（远去的飞机 2024年7月9日 摄于上海杨浦滨江）3)感光度，感光度就是指感光元件对光线的敏感程度。感光度高的时候可能在很弱的光下拍摄的照片也能得到较亮的效果。在光圈、快门速度、感光度的共同作用下，就可以决定曝光补偿，而这四个参数，相邻两档之间曝光量都是两倍的关系，在相机操作中，它们就可以“相互转化”，拍运动场景时，快门优先，拍摄暗淡的场景时，就要调节光圈和感光度以保证足够的曝光量，具体需要在实践中学习了。3.摄影相关学习阅读拍照是直面现实世界，也就是叔本华《作为意志的表象世界》里的那个表象，利用相机以图片的方式截图对世界和时间的瞬间记忆，回到摄影本身是记录那些触动自己心灵的瞬间，每次出门拍照都有种探索解压的感觉，此时作为旁观者在仔细的观察周围的世界，将自己从内心世界抽离出来，也就没有那么多苦思冥想，回到当下，人自然而然的放松下来，也就没有哲学思想，技术知识那么注重逻辑和思考，更多的是练习自己的直觉，看待世界的角度。（水中倒影--2024年7月5日摄于上海鲁迅公园）阅读摄影相关的书籍自然是必不可少的，你走过的路上踏满了别人走过的脚印，书籍就是最好的捷径，从微信读书搜索摄影主题相关的书籍都有八百多本，纯看书就要些年头，当然书籍市场也是鱼龙混杂，大部分的书都不必细读，好书需要辨别，在此也就分享下仔细看过的一些书。1)宁思潇潇的《新摄影笔记》，这是我的入门书籍，通俗易懂描述了摄影的一些基础核心原理，总体分为取景、曝光、虚实、和构图四个章节，摄影技术基础相关的理念都在这里的，可以帮助我们深入的理解各项参数背后的意义，读完也就有了初步的印象，随时在现实摄影中调节。2)范朝亮的《理性的灵动：大自然摄影的语言》，散文的方式介绍摄影相关的经历和技术，近乎摄影的“道”，称得上摄影家，如果说摄影笔记带我入了门，那这本书让我看到摄影的天花板，为了一张照片可能要等上两三天，宁可不住酒店，搭帐篷以节约时间，当然对于取景的讲究和技术合成也是一流的，总有种感叹，他这是代表人类深入荒野，问鼎苍穹，算是开拓眼界的书籍3)安娜-洛尔-雅卡尔的《生活摄影360：感受，拍摄，分享！》，从中摄取到的最大理念是摄影也不必那么拘谨和讲究，相机要随身携带，日常生活场景都是可以拍摄的，最重要的是自己的视角和思考，这也迎合了日常摄影的需要，将我从上一本书的思路中拉下来，我不能像作者那样满世界跑，在日常生活里，背着相机基本不离身总是可以做到的，至于其中各种构图的分享，到没有什么特别的印象。（抬海蜇的赶海人--2024年7月7摄于启东）当然还阅读了很多好书，比如《中国文化史迹，甘博摄影集》，记录民国时期的中国，真实的图片记录仿佛回到了那个久远的时代，比电影更加好看，还有《摄影美学：构图-光影-色彩》，《一天一朵云》，严明的《我爱这哭不出来的浪漫》，另外就是摄影师的公开演讲视频分享。1)合肥街头摄影师刘涛，在一席的演讲，作为抄水表的工作人员，工作之余就在街头巷尾长时间拍照，平均每天四个多小时泡在街头作为观察者，拍了很多诙谐幽默的照片，抓拍了巧合，也是耐心观察的结果，再查澎湃新闻的报道，四年多拍了二十多万张照片，也都是时间积累的效果，也称中国的薇薇安-迈尔。（井中倒影--2024年7月12日 摄于上海崇明岛）2)记录片《寻找薇薇安-迈尔》，薇薇安·迈尔（Vivian Maier）是一位在20世纪极具才华却鲜为人知的街头摄影师。她1926年2月1日出生于纽约，成长过程中曾在法国生活，并于1951年返回美国。薇薇安在芝加哥担任了大约40年的保姆，而她的真正热情在于摄影。她的作品直到2007年才被公众所发现，当时一些她拍摄的底片在拍卖中被房地产经纪人约翰·马鲁夫购得，并由此开始受到关注。值得探讨的是摄影了一辈子，摄影照片连自己都没怎么见过，但真正冲印出来后，大多数都是精品，见证了一个时代。留给我们的问题是摄影到底是为了什么？也许摄影本身就是目的，纯粹的旁观中扩大自己的世界。（恋爱的味道--2024年7月7日 摄于启东）3)中国知名摄影师严明在一席上的演讲，严明是一位多才多艺的中国摄影师，他的作品深受人们喜爱和尊敬，严明的摄影作品以黑白影像著称，他用镜头捕捉那些容易被人忽视的角落和瞬间，创造出具有深刻内涵和情感表达的图像。他的作品不仅仅是对时代的记录，更承载了摄影师个体独特的时空记忆 演讲风趣自不用说，延伸开是他出了基本摄影集，顺便推荐他的摄影集《我爱这哭不出来的浪漫》，这也是他的代表作，文笔犀利，鞭辟入里，他有段经典的论述：“摄影越来越不是个手艺活，它跟你的生命有关。没有多少技巧可言，只有逻辑和取向，也就是说，诚意才是个要紧的问题。认清问题、重视生命，找到适宜自己的方式，观看和思考。这就是摄影式的人生，用摄影体验这一次生命。”（夏日荷花--2024年7月5日 摄于上海鲁迅公园）4.两个月的收获是什么？向来喜欢在行走或者是散步过程中低头思考，沉浸在自己的思绪里无法自拔，或多或少会有些精神内耗，自从摄影之后开始抬头观察现实世界的样子，总想着以什么样的角度拍照合适，可以将自己从日常的琐事中抽离出来。此外出门不再是一件值得抗拒的事情，因为摄影的存在而不那么无聊了。照片给人的感觉更加直观，更加容易被人接受，相比文字，它是另外一个维度的存在。向来喜欢文字的安静，此次入手摄影发现，一个人行走在街头，像个猎人一样，专注的搜寻猎物也是一件专注的事情。当我向远道而来的朋友感叹，愈发感觉到个人的普通平凡，难道这一辈子真的就这样了吗？他反问道，你现在不也有新的爱好了吗？是的，生活一直还有很多可能，还有那么多学科没有涉猎，那么多地方没有去过，还有很多潜能尚未挖掘，一辈子岂能就这样，哪怕一事无成，至少也要玩得开心吧！Wenchang Shanghai 2024-07-12左岸记：用拍照的方式记录生活，直接而有画面感，是除了文字之外最好的方式，却也比文字更真实，毕竟文字是当时看到的场景通过自己的理解记录下来的，而照片却永远地记录了你当时看到的真实的样子，没有照片，很多的事实是回忆不起来的。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

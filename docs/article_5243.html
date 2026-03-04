@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命里忽明忽暗的生死</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>生命里忽明忽暗的生死</h1>
+            <div class="date">2026-03-04 09:56:28</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>生命里忽明忽暗的生死生命里忽明忽暗的生死原创我是左岸我是左岸左岸读书2021年05月26日 07:05在小说阅读器中沉浸阅读文/德鲁伊年纪大了，眼窝就浅，接连国士身灭、双星陨落，地震或是极限运动死伤，铺天盖地的感动和惋惜袭来。中国人蛮忌讳生死之事的，至圣先师最多说，不知生焉知死。强调的也就是一个当下，死亡该来临的时候就会来临，自然也就会懂的感觉。后边，中国文化涉猎多了，发现还真不是那回事，福祸相倚、生死有伏。看似是阴阳转换、易变的意思，里外话都说尽的味道。想来，也很对，有些东西早晚要来，只是今天它来了；有些东西，你早晚会遇到，只是今天你去了。有些是概率的问题，就显得天降噩运，有些就是潜在的危机在合适的时刻爆发了而已，量质转变的事情。这一两年，身边癌症患者多了起来，也不知道是自己年纪到了，还是这个世界里得病的人多了，还是科技发展更先进更易检出，不得而知。据说，癌症这东西是原罪，基因里的事情，看的是自身免疫系统如何。这很东方哲学，生和死一直都共存着，只是个东风西风的事情，当然中间还有宫斗般的欺骗伪装、过度反应，等等。都说社会险恶，我看人身体内也不闲着。科技发达了，医学也发达着，于是病的种类一直在增多。据说，现在00后抑郁症是个大问题，鸡娃后遗症？90后竟然热衷于便秘和痔疮，胡吃海塞+久坐不动？80后胃病颈椎腰椎，生活重压+家庭重担？然后的然后，除了健康饮食、认真锻炼之外，无一例外的总会建议，减少焦虑，卸压减负。其实老祖宗，偶尔智慧的让人疑惑，比如“心腹大患”。肠道菌群，据说都和老年痴呆有关，也和人的情绪状态有关，可称得上第二个大脑。而且可能人进化的还不够机器，部件之间还是有交叉功能，特别是心脏和肠胃。人吃五谷杂粮，可为了减肥或是所谓的健康饮食，少糖少油少脂肪，莫名其妙容易影响情绪，焦虑都升了好几级，还容易抑郁。前几日和一个医生聊经脉的事情，无非又是中西医的老话题。他有个观点倒是独辟蹊径，咱先别讲大家争论的点，咱先求同。现在世界大范围的认可针灸，貌似全世界各种族都有类似的治疗手段，中医严谨完整些。针灸是因循脉络的，当然也有可能是所谓的穴位积攒多了，我们才把脉络具象化了。想想也是另外一个理，愈发觉得人这东西，看似系统，实则错综复杂且混乱，看似混乱却又稳定的一塌糊涂。所谓的动态平衡，趋势转换，暗潮涌动。按照遗传讲，我家有长寿基因，想想多半会在后续的人生里看更多的生死。生活也好，人生也好，和人体差不多。你不知道是什么某些看似不关联的事物，其实影响着今天的结果。而太多事物的生死，也由不得你是否在意珍惜或是躲之不及。一个事物从生的那一刻，多半都携带了死亡的基因，到该死亡的时刻，凤凰涅槃当然最好，身神俱灭也正常。行进里，流转里，只是要多注意，什么会触发病症，什么会影响情绪，情绪又如何影响到实体。一个肠道菌群就把你的健康和心理影响的一塌糊涂，起于微末的那些事情，或许也深深影响你的一生。生命里的生死总是忽明忽暗的，明是结果，暗是起因。活在当下，就活在这些明灭里，明暗中。左岸记：能好好地活到老，是件幸福的事。因为人的一生，要面对很多的意外，意外有来自灾难的，有来自事故的，有来自疾病的，也有来自心理的，这意味着一个人能好好活着，本身就是一件很了不起的事了。这也意味我们要学习的东西很多很多，比如怎样避开灾难，尽可能是远离事故，远离疾病，梳理情绪，控制平衡……是的，一切的一切都不要等后悔，只有现在，未来的一切都是由现在决定的。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

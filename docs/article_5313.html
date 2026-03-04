@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>看见听见</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>看见听见</h1>
+            <div class="date">2026-03-04 09:56:41</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>看见听见看见听见原创我是左岸我是左岸左岸读书2023年06月29日 20:21福建在小说阅读器中沉浸阅读文/奶茶不太甜梅雨季刚刚开始的第一天，我在凌晨一点四十五分，坐上了从上海浦东飞往西安的飞机。在这之前，我在浦东机场百无聊赖至极，等了满满12个小时，落地窗外一架架飞机滑行、停留，窗里人们焦躁烦闷，一向没有时间观念的我，在不断延误的起飞时间后，莫名对一分一秒都显得格外在意，然而却束手无策。记得第一次去上海还是中学时候的暑期旅行——华东五市游，那时候最期盼的就是上海站，可我们从杭州赶过去时已是晚上，匆匆下车的地点是黄浦江边的外滩，在导游的吆喝声中，拨开人潮挤上轮渡，又极尽全力在层层人群中突围，终于在轮渡二层的观景台边好不容易斜身挤到一个空位，只能以眼睛拍照，动态记录黄浦江夜景，凉风习习，灯火通明、光影变幻，实在绚烂。隔天又登上东方明珠塔，遍览上海繁华之胜景很难不令人神往，好像每一栋高楼间都可诞生梦想，词穷的我们尽管心里波涛汹涌，但嘴上却只能喊出壮观美丽这类单薄的词语。遗憾的是，那次没有去到心心念念想看的复旦大学，只记得上海湿热黏人的气候片段。工作之后，也因出差事由去过几次上海，都是匆匆忙忙，从会场出来时，只一个下午的时间，跟着同事去逛了外滩边上的一个商场，在伊芙丽买了件裙子，700块，真是贵，若不是服务员不厌其烦、殷勤周到的招呼试这件那件的，结果堆了一试衣间的衣服，我是实在不想花这么多钱买件并不常穿的背带牛仔裙，但当时又不好意思，不得不说，我为我的不好意思买了无数次无效单。之后，我们去了商场三楼的一间书店，与别处不同的是，这里多的是学习英语的孩子，有诸多的英文类口语类书籍，我们点了杯咖啡，坐下也随手拿起一本口语书，由于发音不准只能默念，也许有些自卑吧，总觉得开口会露了底，那时还在心里暗下决心，回来也要把英文学好。后来，我还在网上报了英语口语班，只可惜21天都没坚持到，就莫名其妙放弃了，又把这一切懒惰归咎为外在环境。那时，竟天真的以为，若真是生活在上海，大约我也会自然而然长出诸多技能，好像不用费多大力气，在这个大城市就能成为想成为的人。后来，我为这样的想法汗颜，在工作之后的漫长时间里竟还存在此种烂漫，真是无知至极。19年初冬在迪士尼游玩，大概是关于这个城市最愉快的记忆。尽管冬日的上海，阴雨连绵，但我们仍然兴致冲冲，早起坐了很长时间地铁到迪士尼。赶时间完任务一般恨不得玩完所有项目，但在第二个项目飞跃地平线时就遭遇挫折，实在太多人，等了近乎两个小时，才终于看遍“全球胜景”。之后，加勒比海盗船、七个小矮人过山车、小熊维尼历险记和太空幸会史迪奇，这些项目我们都打卡一遍，一天未吃饭也并不觉得饿。不得不说，童话世界真有魔力一般令人流连，已是晚上，天空又飘起雨，人们披上透明雨衣，撑开五颜六色的伞。雨中等着迪士尼的烟花，颇为浪漫，尽管人群中嘈杂声不断，但烟花盛放、城堡亮灯那一刻，人群中却出奇一致的赞叹。“迪士尼造了一个梦，色彩斑斓的梦。”那晚我们回归那间潮湿阴冷的小屋后，仍觉得这是一次非常值得的精彩体验。这一次再去上海，是工作快十年的时候，从浦东机场坐2号线倒1号线，才能到达住的酒店，外面潮湿闷热，地铁里却出奇的凉，真不愧强冷车厢，我甚至看见站在车上的男士不得不从行李箱中抽出外套“御寒”，又必须钦佩穿着裙子的姑娘，真的是扛冷；在人民广场地铁站换乘时，有一大片地方写着家长谈论孩子的微话，人们匆匆路过，很少驻足，我认真看看这里的每一段话，尽量不踩着那些字，很人文气息的小风景。在共康路地铁站下了车到美伦酒店，我住在宝山区与静安区交接的地方，向右是宝山，朝左是静安，很平常朴素的街道，路面地板时常踏空，溅起一裤脚雨水，两边街道多是多层建筑，灰白相间的居民楼里，家家户户的窗户外都伸出一排排竖着的晾衣杆，若不是雨天，这街上至少被五颜六色的衣服装饰的斑斓。酒店周边没找到四川重庆的火锅店，老北京铜锅涮里人倒是不少，黄金小馒头竟和臭腐乳组合，味道实在令人无感；对面的快食店里人满为患，卷着裤边的老头在一堆菜品里徘徊；沿着街一直走有杭州丝绸店，做销售的小姑娘皮肤白皙，小方框眼镜是大红色的，开口说话就是南方姑娘的温婉样儿。倾盆大雨来临时，街边闪过一位头发花白的奶奶，白T恤搭天蓝伞裙加上灰雨靴，撑着花伞穿过街，颇时髦又极日常，有一种上海原来如此的感觉。去了三天，下了三天雨，临到赶飞机走时，还赶上了一场尤其大的，雨点噼里啪啦掉落，衣服被淋得甚至拧出水来，真狼狈不堪，又坐强冷车厢，有一种“透心凉、心飞扬”之感，巧不巧赶上飞机航班取消，重新再买又一直误点，从中午两点，等至凌晨一点，在浦东机场度过了懊恼的一天。机场工作人员是位年轻男士，耐着性子安抚旅客，今天梅雨季第一天，真是不好意思，要再等等，不过今晚一定能飞。真是水，退了高铁换飞机，就为快了偏慢到离谱。曾经的向往变急不可耐的归心，不得不承认，繁华之于我，好像并不如安稳来得实在真切，大概是上了年纪的缘故吗？可是，豁达如苏东坡，都讲此心安处是吾乡，是有了年纪的人才能get 到的吧，还是固步自封了？还是本来就是“胆小鬼”吧，也不晓得了，像孙燕姿唱的哦，我现在只想回家去。左岸记：跟着奶茶闲浮上海，每一帧画面都有故事，如临其境，机场、黄浦江边、商场、书店、迪士尼、地铁、街道，还有那最寻常的梅雨天很自然地融合在一起。上海是很多人向往的地方，也是很多去过的人想要离开，离开了又想再去的地方。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

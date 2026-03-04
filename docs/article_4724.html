@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当时只道是寻常</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>当时只道是寻常</h1>
+            <div class="date">2026-03-04 09:54:42</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>当时只道是寻常当时只道是寻常原创我是左岸我是左岸左岸读书2022年11月16日 06:55福建在小说阅读器中沉浸阅读读书的目的在于学会思考，学会站在不同的角度去探寻事物的真谛，而文化的含义则是能够让我们有尊严有目的的生活。——题记文/太阳照耀星星好久，好久。好久没静下心来好好地整理一下自己的思绪，自己都快变得不再认识自己了。六月一过，高考，毕业的字眼总是能够让那炎热的六月变得更加沉重，让人思绪万千。时间悄无声息的从指尖流逝，转眼大学时光已然过去一半。回想起自己刚刚步入大学的那段日子，对大学的一切都充斥着美妙的憧憬，总是幻想着自己期待已久的大学生活会是怎样的五彩缤纷，色彩斑斓。然而时至今日，即将成为大三学长的我，回眸自己走过来的这两年大学时光，仔细看看自己这一路来的收获与成长，想想自己身边来来去去过往的人群给自己带来的不一样的经历。这短暂的两年给我带来的成长太多，感慨太多。在这两年里，我接触的事物越来越多，也渐渐迫使我去思考国家责任与个人命运的关系，去积极探寻人生意义的真谛，去努力追逐实现梦想的途径。在怀疑的时代更需要信仰。卢兴宁在北大曾有一篇演讲，名为——《在怀疑的时代更需要信仰》。这篇演讲稿深深地触动了我。时至今日，当我重温这段文字的时候依然能够激荡起我内心的涟漪，让我陷入无限的思考当中。我们身处这样的时代，一边是日益飞速发展的中国，一边是日益问题凸显的复杂社会。而我们，作为这个国家未来发展的中坚力量，未来中国的价值取向必将取决于我们的价值取向。梁启超先生说过，少年强，则国强。同样我们作为祖国的花朵，作为国家未来的中流砥柱，我们有责任，有义务担当起民族复兴的重担。或许我们会觉得这些离我们太遥远，或许我们会觉得这些对我们来说不太现实，甚至可笑。可是这是我们的国家，我们所站立的地方就是我们的中国。士不可以不弘毅，任重而道远，我们的肩上背负着祖国的未来，责任不容推卸。所以我们要有信仰，要有满腔的热情，要相信在我们共同的努力下祖国会变得越来越好，我们不能屈服于时代的车轮，不要害怕圆滑的人说你不够成熟，不用在意聪明的人说你不够明智，不要照原样接受别人推荐给你的生活，选择坚守，选择理想，选择倾听内心的呼唤，才能拥有最饱满的人生。没有在深夜痛哭过的人，不足以谈人生。人生这种东西，或许每个人都有不一样的见解，但是在你给人生下定义的时候，一定会想起那些你曾经克服的苦难，或者抛之不去的痛楚，因为这些让你对人生的看法更加透彻，更加简单而赋予哲理。有的时候我也会莫名感叹自己这二十多年来所经历的跌宕起伏都是来之不易的财富，每一次的挑战与机遇都能让我更加深刻的去审视自我存在的价值与意义，去反思先人所留下来的至理名言的真正含义，去探寻人生的真谛。人生有的时候，并不在于追求武力上的胜负，言语上的输赢，需要的也并不是谁对谁错，而是一份内心的坚守。人生更重要的在于经历，在于沿途的风景，而不是我们所要达到的高度，这更像是一场旅行，有的人选择登山，有的人选择涉水，目的不同，方向自然不同。守护好自己和自己在乎的人，世事会告诉你，有很多东西——不必！人生本该如此，云淡风轻。不忘初心，方得始终。克里斯托弗·莫利有一句话说很好：“只有一种成功——能以你自己的生活方式度过你的一生。”这段简单的话语，却是对成功最深刻的定义。或许在这个充满怀疑的时代，我们忘却了我们最初的梦想，我们甚至把自己标榜为“把理想戒了”的人，我们开始将自己的梦想称之为空想。但是，我们看看身边的那些人，那些跟我们同处于一个时代的人，那些被赋予成功人士字眼的人，他们的身上是否有我们缺乏的品质。梦想是要有的，还要努力去实现。我们的梦想便是我们的初心，郑板桥曾经写下“咬定青山不放松，任尔东西南北风”这样的诗句，我们也能从中汲取人生的哲理，通往人生梦想的道路上都是一样的坎坷曲折，都是一样的充满质疑与否定，所以我们更需要咬定青山不放松的坚毅不拔。坚持自己内心深处向往的方向，或许在不久后的某个瞬间，你会有一种感觉，感觉到你曾经所想要的事物全都接踵而至，感觉到人生是如此的有价值有意义，这种感觉不可名状，但是这一定是最幸福的感觉。行文至此，我想起余秋雨先生的一本书——《文化苦旅》。我很喜欢这个书名，它用最朴素的比喻向我们表明，我们每一有意义有价值的探寻都是苦旅，都是苦苦思索的结果。大学不是象牙塔，更不是乌托邦。他需要我们沉心静气的去思考，去学习，去领略文化。或许我所谈论的不能够称之为正确的道理，但我更希望通过我今后更加深入的思考能够使之趋向于正确，并贯穿我的一生。书于：2015年8月5日左岸记：无论别人的人生是怎样的，你都得自己寻得出路，经历些事，吃些苦，锤炼锤炼那稚嫩的心性，让自己变得更加自信，坚守人间正道，勇毅前行，再寻常的生活也能创造出属于自己的幸福。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医得眼前疮，剜却心头肉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>医得眼前疮，剜却心头肉</h1>
+            <div class="date">2026-03-04 09:53:29</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>医得眼前疮，剜却心头肉医得眼前疮，剜却心头肉原创我是左岸我是左岸左岸读书2019年10月09日 07:15在小说阅读器中沉浸阅读文/奶茶不太甜天气阴冷的十月，冷风从窗户窜进整个房间，没有暖气的空档时光，只好坐在被窝里，看窗外灰蒙蒙的天空笼罩下的红白灰相间的杂乱屋顶，突然听见电视里播放的那个电视主题曲，一个声音甜美的女长音歌手唱着：在爱情面前从来不认命，最后爱你如命，太早遇见，太晚发现，辜负了命运的经营……感叹真是好歌词啊，像林夕的风格。查查，还真是林夕写的，真好啊。想起以前听粤语歌，冲着王菲，Eason，杨千嬅，谢安琪这些歌手的名字。后来有很多次，在他们的歌词里面，看见同一个名字，作词：林夕。同一场风花雪月，通过他的笔，可以写出千百种韵味。在香港，他是一代词宗，更是无数歌者的伯乐。他帮助哥哥张国荣在90年代后期攀上另一座音乐高峰，那首《我》尤其著名。他曾讲自己与王菲是无名分的夫妻。杨千嬅出嫁时，他说：“她好似我心头一块肉，她结婚了，我身上这块肉就送给了别人”。而他把关于人生起伏失落的词全给了Eason。当然，他和这些歌者共同成全了香港乐坛。在他的笔下，“我爱你”和“得不到”亦有千百种形态。对于挚爱前任，他在歌词里说：“有生的瞬间能遇到你，竟花光所有运气。”对于爱情里低到尘埃的姿态，他说，“当赤道留住雪花，眼泪融掉细沙，你肯珍惜我吗？”对于暗恋者的心境，他说，“被你一贯的赞许，却不配爱下去”。对于重逢旧侣，他说，“即使见面，成熟的表演，不如不见”。对于爱情里的失意，他说，“原来过得很快乐，只我一人未察觉”。我有时候在想，林夕到底读了多少书，才能写出这么多这么好的词？后来在《林夕字传》里看见他的徒弟林若宁的眉批，“他说写歌词就是不停地要挖自己的伤疤，然后再在上面撒盐。”同作家野夫的说法有相似之处，伟大的作家无法不书写黑暗，写作必须揭示时代的真相。词作者大概也一样，“得不到”的爱情才更值得书写，才是世间常态。如此，爱和孤寂成为他歌词的主题。是故断肠语，只源断肠人。他的富士山爱情论是这样的，“其实，你喜欢一个人，就像喜欢富士山。你可以看到它，但是不能搬走它。你有什么办法可以移动一座富士山？”与他一起同游富士山的人，就是他说过的，把无法诠释的凄美都写给的黄耀明。那黄耀明又是谁呢？黄耀明，香港音乐人，早期的“达明一派”也曾风靡一时，乐队解散后，他于1992年签约罗大佑的音乐工厂，与林夕相识，自此，他们开始合作，一起看演唱会、吃街边摊、看电影，成了过命之交。当然，林夕对黄耀明的喜欢超过一般朋友，他是他想携手相伴、共度风雨的人，他把《春光乍泄》送给他，把“黄是你的姓红是你爱的”写进歌里。有歌迷问他：你如何确定一个人是你重要的人？他说，需要确定的话，他可能还不是你重要的人。够重要的话，就不用确定。所以，他为他做很多事情，无需试探，源自本能。后来，他们相约去了东京旅游，但两人的关系却在不久之后，出现裂痕，黄耀明没有如期赴约，林夕亦没有刨根问底，反复纠缠，渐行渐远似乎是注定结局。有的爱，可以转身各自天涯；但有的爱，即便挫骨扬灰，仍如原上草，一岁一枯荣。不幸的是，林夕是后者。后来有人问他，你的抑郁症跟黄耀明有关系吗？林夕说：“他是我抑郁症的起源。”医得眼前疮，剜却心头肉。有歌迷说，后来，他写遍了烟霞句，我看来看去都有他的影子。每一首量身定做的背后都有一个爱而不得的灵魂在歌唱，不信听听《暗涌》。PS：那天我听《暗涌》的时候看见一个评论，这样说，我每天照常上班，礼貌待人。圆滑世故学了一点，坚决不和新朋友交心，拒绝所有不清不楚的暧昧，活得像一坨祥云。我想我差不多是像个大人的模样了，可是每当和你聊天我还是控制不住自己的表情，偶尔也会看看关于你我的星座消息，数数我们名字的笔画，对于喜欢你这件事，我迂腐得像个十三四岁的少女。后来再看几米的《地下铁》里面，竟然在拥挤的地铁车厢，看见向左右向右走的主人公，意外的惊喜万分，恍惚觉得有些人可能注定要错过很多次才能恰如其分的重逢，展开一段故事。这之前的所有浪费掉的时光，都是长长感情路上必有的铺垫，没有办法，我们不能不浪费一些时间，为了那个重要的人。只要结局不差，依然有机会，像个十三四岁的少女激动又不着调地说句，你好哇，见到你真高兴，就是一件值得期待的事情。左岸记：引高观国《玲珑四犯·水外轻阴》，以做相应：水外轻阴，做弄得飞云，吹断晴絮。驻马桥西，还系旧时芳树。不见翠陌寻春，每问著、小桃无语。恨燕莺、不识闲情，却隔乱红飞去。少年曾识春风意，到如今、怨怀难诉。魂惊冉冉江南远，烟草愁如许。此意待写翠笺，奈断肠、都无新句。问甚时、舞凤歌鸾，花里再看仙侣。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>

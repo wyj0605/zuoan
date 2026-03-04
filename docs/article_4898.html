@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>所谓“行止”和“ON&NO”</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 日间模式 */
+        body {
+            background-color: #FAFAFA;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* 深色模式 */
+        body.dark-mode {
+            background-color: #1E1E1E;
+            color: #E0E0E0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .container {
+            background-color: #2D2D2D;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 30px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header {
+            background-color: #2D2D2D;
+            border-bottom: 1px solid #404040;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header h1 {
+            color: #E0E0E0;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .header .date {
+            color: #A0A0A0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .article-content {
+            color: #E0E0E0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .footer {
+            background-color: #F8F9FA;
+            border-top: 1px solid #E5E5E5;
+            padding: 20px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer {
+            background-color: #2D2D2D;
+            border-top: 1px solid #404040;
+        }
+
+        .footer a {
+            color: #1A73E8;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .footer a {
+            color: #4EA1FF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .mode-toggle {
+            background-color: #2D2D2D;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .mode-toggle:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .mode-toggle {
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 模式切换按钮 -->
+    <button class="mode-toggle" onclick="toggleMode()">🌙 夜间模式</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>所谓“行止”和“ON&NO”</h1>
+            <div class="date">2026-03-04 09:55:18</div>
+        </div>
+        <div class="content">
+            <div class="article-content">
+                <p>所谓“行止”和“ON&amp;NO”所谓“行止”和“ON&amp;NO”原创德鲁伊德鲁伊左岸读书2021年04月10日 23:04在小说阅读器中沉浸阅读文/德鲁伊春天来的时候，属于自己的时间多起来，见了很多很久没见的朋友，也认识了很多新朋友。可能这几年呆的是传统行业，而且还是很边缘的项目，闭塞的很。于是新旧老友总是给我很大的冲击，让人挺有挫败感。这让我明白，这个世界从来不会淘汰某个人，只会告诉人们现在世界需要什么样的人。这个社会需要什么样的人？情商高、智商高、有颜值、运气好、职业上是专家、爱好上是杂家、生活上是艺术家、艺术上很生活。擅于表现展示自己，却又拥有强大的内心，睿智还要纯真，快乐还要幽默，气场两米八却不咄咄逼人，气度高山仰止。生活里很儒，思想上很道，修行上很禅。这是神仙还是超级英雄？建国后是不允许成仙的，人类貌似什么时候都出现不了超级英雄。人是最善于原谅自己的，前几天一个朋友还开玩笑说，AI自动驾驶要逾越的不是技术关，而是伦理关，人类总还是允许自己开车犯错，AI那是不允许的；人也善于推卸责任的，这些年流行原生家庭，把责任推给过去或不可回溯的事物，起码显得自己的存在合理些。结果就是，你比谁都明白自己是个什么东西，你比谁都清楚自己的缺点在哪，但你就是不改。你大多数的错误是缺点造成的，按理说改正错误该从认识缺点开始，毕竟敢于试错是因为你有能力改正。但你依旧不会，于是糟糕的判断总是一个接一个。神仙做不成，英雄咱有些单薄，不过学着对自己好些，造就些对未来有益的行为习惯，大约是能成功的吧。我的生活追求“壹贰”，取得人生八九之外的“一二”意。至于如何活着，该就是“不二”了，落得意思没有高深到“不二法门”之“不二”，仅仅是简单的“不贰过”的“不二”。（不是不做“二”的事情，男人么，难免会有机会二些。）我们总是用一个错误去补救另外一个错误，直至错误无法挽回，然后一股脑的推给环境、其他人、自己的性格。但我们既然知道错误在一个一个的接着来，犯错后我们应该做的是：先停下来。东坡我喜欢，东坡总是入世的，没有道佛的叨扰，纯纯的儒家。他《文说》里有句话，“行于所当行，止于所不可不止。”本来是说写文章的，拿来用在行进人生也不错。想来，人生就是个“ON&amp;NO”的事情，所谓“行止”。不可不止，说是做人底线也好，或是行事态度也好，必须停下来的时刻，坚决停下来。其实老天爷总是会给你些预兆的，这是老天爷的慈悲和戏谑。就如前几日饿乌纷争，北约是看笑话般的看俄军调动，但听到俄军准备搭建野战医院，就慌了神，这样的既是预兆也是底线吧。停下来，目的是为了未来的“所当行”，说了NO，就该准备ON。有句俗话最应当下，“是茶你慢慢品，是酒你大口喝，是药就一口闷。”。“止”是为了“行”，止是为了暂停错误，寻找解决方案，用“行”去改正错误和选择行动。为什么我们焦虑？因为我们觉得我没做错什么，就被社会淘汰或嫌弃。我们不知道我们错在哪了，只知道未来一定比现在更难。其实谁都没错，因为这个社会一定在用你不了解的方式运作，你能做的只是知道什么时候“止”，如何去“行”。“NO&amp;ON”。左岸记：我读来，想到了一个词——“接地气”，给一种温润适合的感觉。要做到这样，你得有底气说“不”，并能做到你该做的。ps：德叔的文章我读第一遍的时候总会不得要领，但读二遍的时候又总能理解到一些深层的意思。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#" id="backToIndex">返回首页</a>
+            <a href="javascript:history.back()">返回上一页</a>
+        </div>
+    </div>
+
+    <script>
+        // 检查本地存储中的模式偏好
+        function checkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.mode-toggle').textContent = '☀️ 日间模式';
+            }
+        }
+
+        // 切换模式
+        function toggleMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            const toggleBtn = document.querySelector('.mode-toggle');
+            if (isDarkMode) {
+                toggleBtn.textContent = '☀️ 日间模式';
+            } else {
+                toggleBtn.textContent = '🌙 夜间模式';
+            }
+        }
+
+        // 设置返回首页链接
+        function setBackToIndexLink() {
+            const backLink = document.getElementById('backToIndex');
+            
+            // 检查是否从索引页面来的
+            const referrer = document.referrer;
+            if (referrer) {
+                // 提取referrer中的文件名
+                const url = new URL(referrer);
+                const pathname = url.pathname;
+                const filename = pathname.substring(pathname.lastIndexOf('/') + 1);
+                
+                // 如果是从索引页面来的（index.html, index_2.html 等）
+                if (filename.match(/^index(_\d+)?\.html$/)) {
+                    backLink.href = filename;
+                    return;
+                }
+            }
+            
+            // 默认返回首页
+            backLink.href = 'index.html';
+        }
+
+        // 页面加载时检查模式和设置返回链接
+        document.addEventListener('DOMContentLoaded', function() {
+            checkMode();
+            setBackToIndexLink();
+        });
+    </script>
+</body>
+</html>
